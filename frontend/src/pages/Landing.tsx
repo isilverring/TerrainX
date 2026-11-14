@@ -9,7 +9,7 @@ export default function Landing() {
   const stats: [number, string][] = [
     [summary.screened_cells, "NASA POWER cells screened"],
     [summary.shortlisted_candidates, "algorithmic candidates"],
-    [summary.characterized_candidates, "characterized"],
+    [summary.characterized_candidates, "preliminary characterized"],
     [summary.benchmark_sites, "benchmarks, never counted"],
   ];
   return (

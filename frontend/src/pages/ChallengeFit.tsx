@@ -8,7 +8,7 @@ import {
 import { BackLink } from "../components/ui";
 
 type Status = "covered" | "partial" | "gap";
-/** Dimensions named on the 2026 challenge page, mapped honestly to what TerrainX does today. */
+/** Suggested challenge dimensions; these are optional avenues, not a compliance checklist. */
 const DIMENSIONS: {
   dimension: string;
   status: Status;
@@ -82,7 +82,7 @@ const DIMENSIONS: {
   {
     dimension: "Look beyond well-known analog sites",
     status: "covered",
-    what: "Systematic search of 130 NASA POWER cells in four regions; mission-aware ranking finds cells absent from the dryness shortlist and the first lunar-eligible mapped-basalt cell.",
+    what: "Systematic search of 130 NASA POWER cells in four regions; mission-aware ranking finds cells absent from the dryness shortlist and one mapped-basalt lead within this sample. No first-ever discovery is claimed.",
     where: [
       ["/cells", "Search every cell"],
       ["/frontier", "Frontier"],
@@ -139,9 +139,11 @@ export default function ChallengeFit() {
           <p className="document-label">2026 NASA Space Apps · challenge fit</p>
           <h1>What the challenge asks, and where TerrainX stands.</h1>
           <p>
-            Every dimension named in “Identify Earth Locations that Analog the
-            Permanent Moon Base Locations and Mars”, with an honest status. Gaps
-            are listed as gaps.
+            Suggested dimensions from “Identify Earth Locations that Analog the
+            Permanent Moon Base Locations and Mars”, with evidence and limits.
+            These are optional research avenues: the challenge accepts one or
+            more useful analogs and does not require every dimension or partner
+            dataset.
           </p>
         </div>
         <div className="fit-score" aria-label="Coverage summary">
@@ -183,7 +185,7 @@ export default function ChallengeFit() {
             <li key={name} className={used ? "used" : ""}>
               {used ? <CheckCircle2 size={15} /> : <CircleDashed size={15} />}
               {used && to ? <Link to={to}>{name}</Link> : <span>{name}</span>}
-              {!used && <em>planned</em>}
+              {!used && <em>optional · not used</em>}
             </li>
           ))}
         </ul>

@@ -49,7 +49,7 @@ test("landing findings come from the release and the challenge-fit page lists ga
   await page.goto("/#/");
   await expect(page.locator(".finding-card")).toHaveCount(3);
   await expect(page.locator(".finding-card").first()).toContainText(
-    "lunar-eligible",
+    "mapped-basalt lead in this sample",
   );
   await page
     .getByRole("link", { name: /How TerrainX meets the challenge/ })
@@ -62,4 +62,7 @@ test("landing findings come from the release and the challenge-fit page lists ga
     page.locator(".fit-card").filter({ hasText: "No verified cave" }),
   ).toBeVisible();
   await expect(page.locator(".fit-data")).toContainText("Diviner modeled");
+  await expect(page.locator(".document-title")).toContainText(
+    "does not require every dimension or partner",
+  );
 });

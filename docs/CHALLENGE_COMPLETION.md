@@ -4,7 +4,7 @@ User authorized implementation of all six items on 2026-11-14. Base: `71da14c`; 
 
 ## Implementation checklist
 
-- [ ] **M1 — Scientific wording.** Bound “first” and “no Earth twin” to the actual searched sample; consistently label characterized candidates preliminary. Explain challenge dimensions/partner resources as optional. Acceptance: rendered labels and regression assertions; no numeric changes.
+- [x] **M1 — Scientific wording.** Bound “first” and “no Earth twin” to the actual searched sample; consistently label characterized candidates preliminary. Explain challenge dimensions/partner resources as optional. Acceptance: rendered labels and regression assertions; no numeric changes.
 - [ ] **M2 — Coherent discovery workflow.** Explicit Original study / Expanded search selection with cohort labels. Carry candidate, cohort, mission and immutable release through Explorer, DNA, comparison, Passport and field planning; never rewrite original results or silently substitute a historical collection. Acceptance: expanded lead traverses the complete workflow and share/reload preserves identity/model; original results unchanged.
 - [ ] **M3 — Complete polar journey.** Selected verified polar reference can continue to Earth comparison, dossier and field plan without becoming Mare Crisium. Keep terrain fidelity separate from mission utility; unassessed utility stays null. Acceptance: selected feature survives navigation/export/replay, actual LOLA/Diviner provenance and limitations retained, no unsupported resource/safety score.
 - [ ] **M4 — Candidate characterization.** Independently investigate one exploratory Mars lead and the mapped-basalt Moon lead; document exact evidence geography, supported process, contradictions, next measurement and experiment. Name a subsite only if supported. Acceptance: primary citations, explicit source footprints and negative/inconclusive results; no invented mineralogy or field confirmation.
@@ -13,7 +13,7 @@ User authorized implementation of all six items on 2026-11-14. Base: `71da14c`; 
 
 ## Current work / resume
 
-M0: checklist recorded before implementation. Git pull was clean and already up to date. Next: M1, then M2/M3 data-flow integration. Browser plugin unavailable; use configured installed Chrome/Playwright fallback. Node 24.x / Python 3.12; npm run test:unit; .venv\Scripts\python.exe scripts/validate_results.py; npm run build; npm test against production preview. Existing Site: appgprj_6af7ff7626888191bcba757337fd7e9b, public https://terrainx-discovery-lab.comfybay1.chatgpt.site. Do not create a duplicate.
+M1 complete: bounded discovery wording, preliminary characterization labels and optional challenge resources. All 3 cells/polar browser regressions passed. Original numeric files unchanged. Next: M2 coherent collection workflow, then M3 polar integration. M4 primary-source investigation and M5 source-asset acquisition are running as bounded research tasks; outputs only, not yet integrated. Browser plugin unavailable; use configured installed Chrome/Playwright fallback. Node 24.x / Python 3.12; npm run test:unit; .venv\Scripts\python.exe scripts/validate_results.py; npm run build; npm test against production preview. Existing Site: appgprj_6af7ff7626888191bcba757337fd7e9b, public https://terrainx-discovery-lab.comfybay1.chatgpt.site. Do not create a duplicate.
 
 ## Scientific boundary
 

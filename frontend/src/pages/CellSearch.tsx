@@ -242,7 +242,7 @@ export default function CellSearch() {
         <section className="cell-callout">
           <Sparkles size={20} />
           <div>
-            <h2>The first lunar-eligible cell</h2>
+            <h2>One mapped-basalt lead in this sample</h2>
             <p>
               The aridity-only search ranked no Earth candidate for Mare
               Crisium, because no basalt was mapped at any of them. Searching

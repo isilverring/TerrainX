@@ -106,7 +106,7 @@ export default function BeyondKnown() {
           c={s.bestExploratory}
           mission={mission}
           kind="exploratory"
-          kicker="Best characterized exploratory candidate"
+          kicker="Best preliminary characterized exploratory candidate"
           note={
             s.bestExploratory
               ? "Selected algorithmically; enough evidence for a preliminary hypothesis. Requires field validation."

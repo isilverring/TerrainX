@@ -143,5 +143,7 @@ export function unitSuffix(key: keyof typeof metricUnits): string {
   return unit === "°" ? unit : ` ${unit}`;
 }
 export function statusName(status: string) {
+  if (status === "CHARACTERIZED CANDIDATE")
+    return "preliminary characterized candidate";
   return status.toLowerCase().replaceAll("_", " ");
 }

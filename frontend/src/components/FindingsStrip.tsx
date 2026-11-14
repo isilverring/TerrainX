@@ -19,7 +19,7 @@ export default function FindingsStrip() {
     moon && {
       to: "/cells?mission=mare-crisium",
       kicker: "New · Moon",
-      title: "First lunar-eligible Earth cell",
+      title: "One mapped-basalt lead in this sample",
       body: `${cellLabel(moon)} maps as “${moon.geology.unit_name}”. P ${moon.missions["mare-crisium"].P?.toFixed(1)}, a lead for field verification.`,
     },
     {
@@ -32,7 +32,7 @@ export default function FindingsStrip() {
       to: "/lunar-pole",
       kicker: "New · Lunar south pole",
       title: `${best.feature}: Earth relief twin F ${best.earth_twins![0].F.toFixed(0)}`,
-      body: "Checksum-verified LOLA terrain at Artemis III region features; steep massifs find no Earth twin.",
+      body: "Verified LOLA at historical region feature centres. Some steep features have no close relief match within our four study regions.",
     },
   ].filter(Boolean) as { to: string; kicker: string; title: string; body: string }[];
   return (
