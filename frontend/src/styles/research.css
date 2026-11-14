@@ -1,0 +1,89 @@
+.research-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.research-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.research-form input,
+.research-form select {
+  background: #0d1624;
+  border: 1px solid #44536b;
+  border-radius: 6px;
+  padding: 11px;
+  color: var(--text);
+  min-width: 0;
+  width: 100%;
+}
+.research-form label:first-child {
+  grid-column: 1/-1;
+}
+.file-button {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.file-button input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+}
+.hash-value {
+  overflow-wrap: anywhere;
+}
+.release-identity dl {
+  display: grid;
+  gap: 12px;
+}
+.release-identity dd {
+  margin: 3px 0 0;
+  font-size: 12px;
+}
+.release-identity dt {
+  color: var(--muted);
+  font-size: 12px;
+}
+.research-snapshots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.research-snapshots article {
+  border: 1px solid var(--border);
+  padding: 20px;
+  border-radius: 8px;
+  background: var(--panel);
+}
+.research-snapshots p {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.research-snapshots h3 {
+  margin-top: 0;
+}
+.release-note {
+  font-size: 11px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+.source-row {
+  flex-wrap: wrap;
+}
+.file-button:focus-within {
+  outline: 2px solid var(--earth);
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .research-form,
+  .research-snapshots {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

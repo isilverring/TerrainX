@@ -81,6 +81,8 @@ function PassportBody({
     mission,
     model: JSON.stringify(model.scenarios[mission]),
   });
+  if (data.release) sharedParams.set("science", data.release.release_id);
+  if (data.release) sharedParams.set("datahash", data.release.dataset_sha256);
   const sharedUrl = `${window.location.origin}${window.location.pathname}#/${packet ? "expedition" : "passport"}/${c.id}?${sharedParams}`;
   return (
     <main
@@ -265,6 +267,19 @@ function PassportBody({
                 <dt>Dataset generated</dt>
                 <dd className="mono">
                   {pkt.reproducibility.dataset_generated_at}
+                </dd>
+              </div>
+              <div>
+                <dt>Science release · model version</dt>
+                <dd className="mono">
+                  {pkt.reproducibility.science_release ?? "unavailable"} ·{" "}
+                  {pkt.reproducibility.model_version}
+                </dd>
+              </div>
+              <div>
+                <dt>Dataset SHA-256</dt>
+                <dd className="mono hash-value">
+                  {pkt.reproducibility.dataset_sha256 ?? "unavailable"}
                 </dd>
               </div>
               <div>

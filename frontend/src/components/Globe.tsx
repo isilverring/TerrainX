@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { geoOrthographic, geoPath, geoGraticule10, geoDistance } from "d3-geo";
 import type { GeoPermissibleObjects } from "d3-geo";
 import { useData } from "../lib/data";
+import { fetchScienceJson } from "../lib/release";
 
 const FRAME = { x: 310, y: 290, radius: 215 };
 const ORBIT = { rx: 293, ry: 119, tilt: 24 };
@@ -28,8 +29,7 @@ export default function Globe() {
     [paused, setPaused] = useState(false);
   const drag = useRef<{ x: number; l: number } | null>(null);
   useEffect(() => {
-    fetch("/data/land.geojson")
-      .then((r) => r.json())
+    fetchScienceJson<GeoPermissibleObjects>("land.geojson")
       .then(setLand)
       .catch(() => {});
   }, []);

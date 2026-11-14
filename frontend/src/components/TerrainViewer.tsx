@@ -12,6 +12,7 @@ import {
   terrainMetrics,
 } from "../lib/terrain";
 import { EvidenceTag } from "./ui";
+import { fetchScienceJson, scienceAssetUrl } from "../lib/release";
 
 /* ------------------------------------------------------------------------------
  * Side-by-side shaded 3D surfaces. Both panels share the horizontal scale, the
@@ -276,18 +277,20 @@ function SurfaceCanvas({
   );
 }
 
-let planetRequest: Promise<PlanetContext[]> | undefined;
+const planetRequests = new Map<string, Promise<PlanetContext[]>>();
 function loadPlanetContext() {
-  return (planetRequest ??= fetch("/data/planetary_context.json")
-    .then((r) => {
-      if (!r.ok) throw new Error(`planetary_context.json: HTTP ${r.status}`);
-      return r.json();
-    })
-    .then((d: { targets: PlanetContext[] }) => d.targets)
-    .catch((e) => {
-      planetRequest = undefined;
-      throw e;
-    }));
+  const key = scienceAssetUrl("planetary_context.json");
+  if (!planetRequests.has(key))
+    planetRequests.set(
+      key,
+      fetchScienceJson<{ targets: PlanetContext[] }>("planetary_context.json")
+        .then((d) => d.targets)
+        .catch((e) => {
+          planetRequests.delete(key);
+          throw e;
+        }),
+    );
+  return planetRequests.get(key)!;
 }
 
 const DEFAULT_VIEW: View = { yaw: -32, pitch: 38, exaggeration: 3 };

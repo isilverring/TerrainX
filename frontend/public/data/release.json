@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "release_id": "science-a134e4d3f6430233",
+  "model_version": "terrainx-model-v1",
+  "dataset_sha256": "3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c",
+  "source_data_commit": "4f05e818ea55144598fee354ea1bdd485a6ff932",
+  "files": {
+    "dataset.json": {
+      "sha256": "3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c",
+      "bytes": 838653
+    },
+    "screened_cells.geojson": {
+      "sha256": "8a5e7a5f67e1724288af8265fef99c6cfbeb784a412392cb04ef318bab58af4a",
+      "bytes": 182144
+    },
+    "provenance.json": {
+      "sha256": "6f8b9423a282ba65f795f1cb6b20254c3bcd5cdbccec830b88031ea8013b1c0e",
+      "bytes": 52431
+    },
+    "planetary_context.json": {
+      "sha256": "008b933df91968707609ebb5fc44d2a01c847c65abec9c5ea4f670f7952c545d",
+      "bytes": 64989
+    },
+    "land.geojson": {
+      "sha256": "0996ae87491513a5f2dda04589377a47ffec35fdf507a24b0a1e99e0295dea03",
+      "bytes": 472382
+    },
+    "validation.json": {
+      "sha256": "ff88e26768e822c7e93f0ef3df6e3aac8b4b8445d3886f0f9e9e050ffc2b08a3",
+      "bytes": 1138
+    }
+  }
+}

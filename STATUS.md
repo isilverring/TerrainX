@@ -1,5 +1,8 @@
 # TerrainX checkpoint
 
+## Release 3 active implementation
+User approved the end-to-end enhancement plan. Package A is underway, followed by the terrain pilot; exact progress is in docs/RELEASE_3.md. **M1 complete:** immutable hashed science releases plus research snapshot save/export/import/replay. Science release science-a134e4d3f6430233 preserves original inputs. Next: Evidence Inspector and three source-scoped cases, then navigation/presentation and offline preparation. Checks:63 Python/56 TypeScript tests; build and browser snapshot flows pass. The public site still serves ca32f17 until the next verified publication. Do not interpret the prior "no work remains" statement below as completion of Release3.
+
 ## Current state
 
 **Prompt 1 + Prompt 2 reviewed, repaired, publicly deployed and verified.** All work is under **D:\TerrainX**. GitHub: https://github.com/isilverring/TerrainX, private, main. Teammate review base: 800d5ff. Main science repair checkpoint: 2b51e12. Deployed application commit: ca32f17.

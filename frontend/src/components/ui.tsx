@@ -32,6 +32,7 @@ export function Header() {
         <NavLink to="/transfer-lab">Transfer Lab</NavLink>
         <NavLink to="/worlds">Worlds</NavLink>
         <NavLink to="/methodology">Methodology</NavLink>
+        <NavLink to="/research">Research</NavLink>
       </nav>
       <Link className="demo-launch" to="/demo">
         <Play size={14} /> Guided demo

@@ -1,5 +1,5 @@
 import { createContext, useContext } from "react";
-import { datasetSchema } from "./models";
+import { readScienceRelease, releaseFromHash } from "./release";
 import type { Dataset, Candidate, Mission } from "./models";
 export const DataContext = createContext<Dataset | null>(null);
 export function useData() {
@@ -7,18 +7,27 @@ export function useData() {
   if (!data) throw new Error("Scientific dataset is not loaded");
   return data;
 }
-let request: Promise<Dataset> | undefined;
-export function loadData() {
-  return (request ??= fetch("/data/dataset.json").then(async (response) => {
-    if (!response.ok)
-      throw new Error(`Scientific dataset returned ${response.status}`);
-    const parsed = datasetSchema.safeParse(await response.json());
-    if (!parsed.success)
+const requests = new Map<string, Promise<Dataset>>();
+export function loadData(id = releaseFromHash()) {
+  const key = id ?? "latest";
+  if (!requests.has(key))
+    requests.set(
+      key,
+      readScienceRelease(id).catch((error) => {
+        requests.delete(key);
+        throw error;
+      }),
+    );
+  return requests.get(key)!.then((data) => {
+    const expected = new URLSearchParams(
+      window.location.hash.split("?")[1],
+    ).get("datahash");
+    if (expected && expected !== data.release?.dataset_sha256)
       throw new Error(
-        `Cached scientific data failed validation at ${parsed.error.issues[0].path.join(".")}. Refresh the data build.`,
+        "Saved study dataset hash does not match the requested release. No results substituted.",
       );
-    return parsed.data;
-  }));
+    return data;
+  });
 }
 export function number(value: number | null | undefined, digits = 1) {
   return value == null

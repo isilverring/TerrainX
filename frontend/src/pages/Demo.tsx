@@ -5,6 +5,7 @@ import { geoEquirectangular, geoPath } from "d3-geo";
 import type { GeoPermissibleObjects } from "d3-geo";
 import type { FeatureCollection, Point } from "geojson";
 import { useData, number } from "../lib/data";
+import { fetchScienceJson } from "../lib/release";
 import { beyondKnown } from "../lib/story";
 import { frontier, measurementsFor } from "../lib/frontier";
 import {
@@ -20,8 +21,7 @@ function WorldMap({ cells }: { cells: [number, number][] }) {
   const data = useData();
   const [land, setLand] = useState<GeoPermissibleObjects | null>(null);
   useEffect(() => {
-    fetch("/data/land.geojson")
-      .then((r) => r.json())
+    fetchScienceJson<GeoPermissibleObjects>("land.geojson")
       .then(setLand)
       .catch(() => {});
   }, []);
@@ -91,8 +91,7 @@ export default function Demo() {
   const [i, setI] = useState(0);
   const [cells, setCells] = useState<[number, number][]>([]);
   useEffect(() => {
-    fetch("/data/screened_cells.geojson")
-      .then((r) => r.json())
+    fetchScienceJson<FeatureCollection<Point>>("screened_cells.geojson")
       .then((fc: FeatureCollection<Point>) =>
         setCells(
           fc.features.map((f) => f.geometry.coordinates as [number, number]),

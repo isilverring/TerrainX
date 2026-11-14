@@ -70,6 +70,9 @@ export function buildPacket(
     app: APP,
     generated_at: generatedAt,
     reproducibility: {
+      science_release: data.release?.release_id ?? null,
+      dataset_sha256: data.release?.dataset_sha256 ?? null,
+      model_version: data.release?.model_version ?? "terrainx-model-v1",
       dataset_generated_at: data.generated_at,
       dataset_schema: data.schema_version,
       dataset_file: "data/dataset.json",

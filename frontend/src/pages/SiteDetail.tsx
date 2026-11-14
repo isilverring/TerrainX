@@ -3,6 +3,7 @@ import { Link, useParams, useSearchParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useData, coordinates, statusName } from "../lib/data";
 import type { Mission } from "../lib/models";
+import { scienceAssetUrl } from "../lib/release";
 import {
   BackLink,
   EvidenceTag,
@@ -122,7 +123,17 @@ export default function SiteDetail() {
             </SourceLink>
           ))}
         </div>
-        <a className="button outline" href="/data/dataset.json" download>
+        <Link
+          className="button outline"
+          to={`/research?mission=${mission}&id=${c.id}`}
+        >
+          Save research snapshot
+        </Link>
+        <a
+          className="button outline"
+          href={scienceAssetUrl("dataset.json")}
+          download
+        >
           Download scientific dataset
           <ArrowRight size={16} />
         </a>

@@ -150,6 +150,7 @@ export const ModelContext = createContext<{
   weights: Record<Mission, Weights>;
   scenarios: Record<Mission, Scenario>;
   update: (mission: Mission, patch: Partial<Scenario>) => void;
+  replace: (scenarios: Record<Mission, Scenario>) => void;
   change: (mission: Mission, key: keyof Weights, value: number) => void;
   reset: (mission: Mission) => void;
 }>({
@@ -159,6 +160,7 @@ export const ModelContext = createContext<{
     "mare-crisium": defaultScenario("mare-crisium"),
   },
   update: () => {},
+  replace: () => {},
   change: () => {},
   reset: () => {},
 });

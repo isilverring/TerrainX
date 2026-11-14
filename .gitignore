@@ -19,3 +19,4 @@ artifacts/qa/
 frontend/test-results/
 frontend/playwright-report/
 outputs/
+frontend/public/build-info.json

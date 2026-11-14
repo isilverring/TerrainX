@@ -2,3 +2,4 @@
 *.png binary
 *.jpeg binary
 data/source/** -text
+frontend/public/releases/** -text

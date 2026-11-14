@@ -1,5 +1,6 @@
 import type { StyleSpecification } from "maplibre-gl";
 import { BLUE_MARBLE, ESRI, TERRARIUM } from "./mapSources";
+import { scienceAssetUrl } from "./release";
 
 /** Base atlas style: local Natural Earth fallback underneath every remote layer. */
 export function baseStyle(): StyleSpecification {
@@ -9,7 +10,7 @@ export function baseStyle(): StyleSpecification {
     sources: {
       land: {
         type: "geojson",
-        data: "/data/land.geojson",
+        data: scienceAssetUrl("land.geojson"),
         attribution: "Natural Earth",
       },
       basemap: {

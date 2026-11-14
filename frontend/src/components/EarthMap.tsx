@@ -27,6 +27,7 @@ import {
   yesterdayUtc,
 } from "../lib/mapSources";
 import type { BasemapId } from "../lib/mapSources";
+import { fetchScienceJson } from "../lib/release";
 import "maplibre-gl/dist/maplibre-gl.css";
 maplibregl.setWorkerUrl(workerUrl);
 
@@ -276,12 +277,12 @@ export default function EarthMap({
               0,
             ],
           });
-          const response = await fetch("/data/screened_cells.geojson");
-          if (!response.ok) throw new Error("Screening layer unavailable");
-          const points = (await response.json()) as FeatureCollection<
-            Point,
-            { aridity: number | null; land_eligible: boolean }
-          >;
+          const points = await fetchScienceJson<
+            FeatureCollection<
+              Point,
+              { aridity: number | null; land_eligible: boolean }
+            >
+          >("screened_cells.geojson");
           const polygons: FeatureCollection<Polygon> = {
             type: "FeatureCollection",
             features: points.features.map((feature) => {

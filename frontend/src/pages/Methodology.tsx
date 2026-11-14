@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useData, number } from "../lib/data";
 import { EvidenceTag, SourceLink } from "../components/ui";
+import { fetchScienceJson, scienceAssetUrl } from "../lib/release";
 export default function Methodology() {
   const data = useData(),
     [validation, setValidation] = useState<{
@@ -10,8 +11,7 @@ export default function Methodology() {
       checks: string[];
     } | null>(null);
   useEffect(() => {
-    fetch("/data/validation.json")
-      .then((r) => (r.ok ? r.json() : null))
+    fetchScienceJson<{ passed: number; checks: string[] }>("validation.json")
       .then(setValidation)
       .catch(() => {});
   }, []);
@@ -352,15 +352,23 @@ export default function Methodology() {
           linked sources; the data panels remain available if tiles fail.
         </p>
         <div className="source-row">
-          <a className="button outline" href="/data/dataset.json" download>
+          <a
+            className="button outline"
+            href={scienceAssetUrl("dataset.json")}
+            download
+          >
             Download dataset JSON
           </a>
-          <a className="button outline" href="/data/provenance.json" download>
+          <a
+            className="button outline"
+            href={scienceAssetUrl("provenance.json")}
+            download
+          >
             Download provenance manifest
           </a>
           <a
             className="button outline"
-            href="/data/screened_cells.geojson"
+            href={scienceAssetUrl("screened_cells.geojson")}
             download
           >
             Download all screened cells

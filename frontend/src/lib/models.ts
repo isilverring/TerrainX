@@ -158,6 +158,18 @@ export const targetSchema = z
   })
   .passthrough();
 export const datasetSchema = z.object({
+  release: z
+    .object({
+      release_id: z.string(),
+      model_version: z.string(),
+      dataset_sha256: z.string(),
+      source_data_commit: z.string(),
+      files: z.record(
+        z.string(),
+        z.object({ sha256: z.string(), bytes: z.number() }),
+      ),
+    })
+    .optional(),
   schema_version: z.literal("1.0"),
   generated_at: z.string(),
   regions: z.array(
