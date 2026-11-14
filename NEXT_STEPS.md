@@ -1,6 +1,6 @@
 # Resume TerrainX
 
-Task 1 is complete. Work only in `D:\TerrainX`. Do not restart from an empty scaffold.
+Task 1 is complete. Work in `D:\TerrainX` (PC) or `C:\TerrainX` (laptop); both track `origin/main`. Next work is listed in `docs/ENHANCEMENT_PLAN.md` (satellite imagery, 3D terrain, UX fixes). Do not restart from an empty scaffold.
 
 1. Read STATUS.md,DATA_STATUS.md,SCIENCE.md and DEPLOYMENT.md.
 2. Run `git status --short --branch` and `git log -5 --oneline`. Preserve any newer user changes.

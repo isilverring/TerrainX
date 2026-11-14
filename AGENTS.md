@@ -1,6 +1,6 @@
 # TerrainX working agreement
 
-- All project work stays under `D:\TerrainX`. Product name: **TerrainX** (formerly TERRA//TWIN).
+- Project work stays under `D:\TerrainX` (PC) or `C:\TerrainX` (laptop). Product name: **TerrainX** (formerly TERRA//TWIN).
 - Read `STATUS.md`, `DATA_STATUS.md`, and `NEXT_STEPS.md` before resuming.
 - Keep scientific data genuine, source-linked, unit-aware, and distinct from test fixtures. Missing evidence stays null.
 - After each implemented module, feature, or coherent step: run relevant checks, update restart documentation, commit, and push `main` to `origin`.
