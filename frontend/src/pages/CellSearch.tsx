@@ -3,6 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Grid3x3, Info, Sparkles } from "lucide-react";
 import { useData, number } from "../lib/data";
 import type { Mission } from "../lib/models";
+import { scienceAssetUrl } from "../lib/release";
 import { useScienceFile } from "../lib/scienceFile";
 import {
   DIMENSION_LABELS,
@@ -558,6 +559,14 @@ export default function CellSearch() {
               cell (needs internet)
             </figcaption>
           </figure>
+          {pick.land_eligible !== false && (
+            <Link
+              className="button primary"
+              to={`/field-study?id=${pick.id}&mission=${mission}`}
+            >
+              Plan a field study for this cell
+            </Link>
+          )}
           {pick.released_candidate && (
             <Link
               className="button outline"
@@ -662,6 +671,13 @@ export default function CellSearch() {
 
       <section className="science-section lens-rules">
         <h2>How this experiment differs</h2>
+        <a
+          className="button outline"
+          href={scienceAssetUrl("cell_search.json")}
+          download
+        >
+          Download cells, source metadata and model criteria
+        </a>
         <ol>
           <li>
             Every cell uses the pipeline's own SRTM sampler, terrain metrics,

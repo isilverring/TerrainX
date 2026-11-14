@@ -16,9 +16,24 @@ export const releaseSchema = z.object({
 });
 export type ScienceRelease = z.infer<typeof releaseSchema>;
 let active: ScienceRelease | undefined;
-export const releaseFromHash = () =>
-  new URLSearchParams(window.location.hash.split("?")[1]).get("science") ??
-  undefined;
+export const releaseFromHash = () => {
+  const params = new URLSearchParams(window.location.hash.split("?")[1]);
+  if (params.get("science")) return params.get("science")!;
+  const code = params.get("share");
+  if (
+    code &&
+    code.length <= 20000 &&
+    window.location.hash.startsWith("#/field-study")
+  )
+    try {
+      const bin = atob(code.replace(/-/g, "+").replace(/_/g, "/"));
+      const payload = JSON.parse(
+        new TextDecoder().decode(Uint8Array.from(bin, (c) => c.charCodeAt(0))),
+      );
+      if (/^science-[a-f0-9]{16}$/.test(payload.r)) return payload.r;
+    } catch {}
+  return undefined;
+};
 export function scienceAssetUrl(filename: string) {
   if (!/^[a-z_]+\.(json|geojson)$/.test(filename))
     throw new Error("Invalid science filename");

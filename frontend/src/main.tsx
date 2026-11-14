@@ -118,7 +118,7 @@ function App() {
     const change = () => {
       const hash = window.location.hash.slice(1),
         p = new URLSearchParams(hash.split("?")[1]),
-        id = p.get("science");
+        id = releaseFromHash();
       const demo = hash.split("?")[0] === "/demo",
         explicit = p.get("presentation");
       const mode =
@@ -261,7 +261,10 @@ function App() {
                 <Route path="/worlds" element={<Worlds />} />
                 <Route path="/demo" element={<Demo />} />
                 <Route path="/research" element={<Research />} />
-                <Route path="/field-study" element={<FieldStudy />} />
+                <Route
+                  path="/field-study"
+                  element={<FieldStudy key={route.search} />}
+                />
                 <Route path="/lenses" element={<Lenses />} />
                 <Route path="/cells" element={<CellSearch />} />
                 <Route path="/lunar-pole" element={<LunarPolar />} />

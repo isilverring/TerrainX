@@ -7,7 +7,9 @@ test("field study: place stations, measure the traverse, save, export JSON + GPX
   await page.goto("/#/cases");
   await page.getByRole("link", { name: "Plan a field study" }).first().click();
   await expect(
-    page.getByRole("heading", { name: "Turn a candidate into a field question." }),
+    page.getByRole("heading", {
+      name: "Turn a candidate into a field question.",
+    }),
   ).toBeVisible();
   await expect(page.getByText(/^science-[0-9a-f]{16}$/)).toBeVisible();
 
@@ -27,12 +29,16 @@ test("field study: place stations, measure the traverse, save, export JSON + GPX
   const before = await coords.textContent();
   await canvas.press("ArrowRight");
   await expect(coords).not.toHaveText(before!);
-  await page.getByLabel("Purpose — what would you observe or test here?").fill("Bedding and grain size");
+  await page
+    .getByLabel("Purpose — what would you observe or test here?")
+    .fill("Bedding and grain size");
   await expect(page.locator(".field-samples .caption")).toContainText("TX-");
 
   await page.getByLabel("Study title").fill("Judge field study");
   await page.getByRole("button", { name: "Save field study" }).click();
-  await expect(page.getByRole("heading", { name: "Judge field study", level: 3 })).toBeVisible();
+  await expect(
+    page.getByRole("heading", { name: "Judge field study", level: 3 }),
+  ).toBeVisible();
 
   const [json] = await Promise.all([
     page.waitForEvent("download"),
@@ -59,7 +65,9 @@ test("field study: place stations, measure the traverse, save, export JSON + GPX
   await expect(page.getByLabel("Study title")).toHaveValue("Judge field study");
 });
 
-test("field study is usable on a phone without horizontal overflow", async ({ page }) => {
+test("field study is usable on a phone without horizontal overflow", async ({
+  page,
+}) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto("/#/field-study");
   await expect(page.locator(".field-canvas")).toBeVisible();
@@ -67,22 +75,29 @@ test("field study is usable on a phone without horizontal overflow", async ({ pa
   expect(width).toBeLessThanOrEqual(390);
 });
 
-test("field study share link reopens the same stations on another device", async ({ page, context }) => {
+test("field study share link reopens the same stations on another device", async ({
+  page,
+  context,
+}) => {
   await context.grantPermissions(["clipboard-read", "clipboard-write"]);
   await page.goto("/#/field-study?id=saudi-24.000-39.375&mission=jezero");
   await page.getByRole("button", { name: "Suggest relief transect" }).click();
   await page.getByLabel("Study title").fill("Shared traverse");
   await page.getByRole("button", { name: "Copy share link" }).click();
-  await expect(page.locator(".field-message")).toContainText("Share link copied");
+  await expect(page.locator(".field-message")).toContainText(
+    "Share link copied",
+  );
   const url = await page.evaluate(() => navigator.clipboard.readText());
   expect(url).toContain("#/field-study?share=");
   const other = await context.newPage();
   await other.goto(url);
   await expect(other.locator(".field-stations li")).toHaveCount(5);
   await expect(other.getByLabel("Study title")).toHaveValue("Shared traverse");
-  await expect(other.locator(".field-message")).toContainText("Opened a shared plan");
+  await expect(other.locator(".field-message")).toContainText(
+    "Opened a shared plan",
+  );
   // A damaged link is refused rather than guessed.
   await other.goto(url.slice(0, -12) + "%%broken");
   await other.reload();
-  await expect(other.locator(".field-message")).toContainText("Shared plan not opened");
+  await expect(other.getByRole("alert")).toContainText("damaged or incomplete");
 });

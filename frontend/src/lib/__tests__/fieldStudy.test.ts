@@ -127,6 +127,8 @@ describe("field study share links", () => {
     expect(back.t).toBe(study.title);
     expect(back.r).toBe(manifest.release_id);
     expect(back.h).toBe(study.hypothesis);
+    expect(back.q).toEqual(study.snapshot.scenarios);
+    expect(back.d).toBe(study.snapshot.science.dataset_sha256);
     expect(stationsFromShare(back)).toEqual(study.stations);
   });
   it("refuses tampered or malformed links", async () => {

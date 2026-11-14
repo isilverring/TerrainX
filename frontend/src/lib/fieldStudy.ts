@@ -26,7 +26,16 @@ export type TerrainGrid = {
 export function terrainGrid(c: Candidate): TerrainGrid | null {
   const t = c.terrain,
     z = t.elevations_m;
-  if (!z || !z.length || !t.sample_spacing_m) return null;
+  if (
+    t.status !== "available" ||
+    !z ||
+    z.length < 2 ||
+    z.some((row) => row.length !== z.length) ||
+    !t.sample_spacing_m ||
+    t.sample_spacing_m <= 0 ||
+    !z.flat().some((v) => v !== null && Number.isFinite(v))
+  )
+    return null;
   return {
     center: { lat: c.latitude, lon: c.longitude },
     spacingM: t.sample_spacing_m,
@@ -41,12 +50,19 @@ export const halfExtent = (g: TerrainGrid) => ((g.size - 1) / 2) * g.spacingM;
 /** Local east/north metres → lat/lon using the same steps as the SRTM sampler. */
 export function toLatLon(g: TerrainGrid, x: number, y: number): LatLon {
   const dLat = y / EARTH_RADIUS_M / RAD;
-  const dLon = dLat === 0 && x === 0 ? 0 : x / EARTH_RADIUS_M / RAD / Math.cos(g.center.lat * RAD);
+  const dLon =
+    dLat === 0 && x === 0
+      ? 0
+      : x / EARTH_RADIUS_M / RAD / Math.cos(g.center.lat * RAD);
   return { lat: g.center.lat + dLat, lon: g.center.lon + dLon };
 }
 export function toLocal(g: TerrainGrid, p: LatLon) {
   return {
-    x: (p.lon - g.center.lon) * RAD * EARTH_RADIUS_M * Math.cos(g.center.lat * RAD),
+    x:
+      (p.lon - g.center.lon) *
+      RAD *
+      EARTH_RADIUS_M *
+      Math.cos(g.center.lat * RAD),
     y: (p.lat - g.center.lat) * RAD * EARTH_RADIUS_M,
   };
 }
@@ -56,13 +72,16 @@ export function insideFootprint(g: TerrainGrid, x: number, y: number) {
 }
 
 /** Bilinear interpolation between the real cached samples; null outside or near gaps. */
-export function elevationAt(g: TerrainGrid, x: number, y: number): number | null {
+export function elevationAt(
+  g: TerrainGrid,
+  x: number,
+  y: number,
+): number | null {
   if (!insideFootprint(g, x, y)) return null;
   const h = halfExtent(g);
   x = Math.max(-h, Math.min(h, x));
   y = Math.max(-h, Math.min(h, y));
-  const
-    fc = (x + h) / g.spacingM,
+  const fc = (x + h) / g.spacingM,
     fr = (y + h) / g.spacingM,
     c0 = Math.min(Math.floor(fc), g.size - 2),
     r0 = Math.min(Math.floor(fr), g.size - 2),
@@ -74,7 +93,10 @@ export function elevationAt(g: TerrainGrid, x: number, y: number): number | null
     z11 = g.z[r0 + 1][c0 + 1];
   if (z00 == null || z01 == null || z10 == null || z11 == null) return null;
   return (
-    z00 * (1 - tx) * (1 - ty) + z01 * tx * (1 - ty) + z10 * (1 - tx) * ty + z11 * tx * ty
+    z00 * (1 - tx) * (1 - ty) +
+    z01 * tx * (1 - ty) +
+    z10 * (1 - tx) * ty +
+    z11 * tx * ty
   );
 }
 
@@ -83,7 +105,9 @@ export function haversineM(a: LatLon, b: LatLon) {
   const p = a.lat * RAD,
     q = b.lat * RAD,
     dl = (b.lon - a.lon) * RAD,
-    h = Math.sin((q - p) / 2) ** 2 + Math.cos(p) * Math.cos(q) * Math.sin(dl / 2) ** 2;
+    h =
+      Math.sin((q - p) / 2) ** 2 +
+      Math.cos(p) * Math.cos(q) * Math.sin(dl / 2) ** 2;
   return 2 * EARTH_RADIUS_M * Math.asin(Math.min(1, Math.sqrt(h)));
 }
 /** Initial great-circle bearing, degrees clockwise from true north. */
@@ -93,7 +117,7 @@ export function bearingDeg(a: LatLon, b: LatLon) {
     dl = (b.lon - a.lon) * RAD;
   const y = Math.sin(dl) * Math.cos(q),
     x = Math.cos(p) * Math.sin(q) - Math.sin(p) * Math.cos(q) * Math.cos(dl);
-  return ((Math.atan2(y, x) / RAD) % 360 + 360) % 360;
+  return (((Math.atan2(y, x) / RAD) % 360) + 360) % 360;
 }
 export function compass(deg: number) {
   return ["N", "NE", "E", "SE", "S", "SW", "W", "NW"][Math.round(deg / 45) % 8];
@@ -141,7 +165,9 @@ export const SAMPLE_FIELDS = [
 
 const KIND_EQUIPMENT: Record<StationKind, string[]> = {
   observation: ["Hand lens, grain-size card and field notebook"],
-  sample: ["Sample bags/jars, labels, permanent markers, sterile tools where relevant"],
+  sample: [
+    "Sample bags/jars, labels, permanent markers, sterile tools where relevant",
+  ],
   transect: ["Measuring tape or laser rangefinder, compass-clinometer"],
   imaging: ["Calibrated camera with scale bar; drone only where permitted"],
   instrument: ["Instrument power/data logs and a test-condition checklist"],
@@ -151,29 +177,65 @@ const BASE_EQUIPMENT = [
   "Water, sun protection and first-aid kit appropriate to the climate",
 ];
 
-export const fieldStudySchema = z.object({
-  field_study_version: z.literal("1.0"),
-  id: z.string().min(1).max(60),
-  title: z.string().min(1).max(120),
-  created_at: z.string().datetime(),
-  updated_at: z.string().datetime(),
-  snapshot: snapshotSchema,
-  candidate_id: z.string(),
-  mission: z.enum(["jezero", "mare-crisium"]),
-  hypothesis: z.string().max(1200),
-  objective: z.string().max(400),
-  stations: z.array(stationSchema).max(24),
-  measurements: z.array(z.object({ text: z.string().max(300), done: z.boolean() })).max(30),
-  equipment: z.array(z.object({ text: z.string().max(300), done: z.boolean() })).max(40),
-  success_indicators: z.string().max(1200),
-  permits: z.array(z.object({ question: z.string().max(300), answer: z.string().max(600) })).max(20),
-  local_notes: z.string().max(4000),
-});
+export const fieldStudySchema = z
+  .object({
+    field_study_version: z.literal("1.0"),
+    id: z.string().min(1).max(60),
+    title: z.string().min(1).max(120),
+    created_at: z.string().datetime(),
+    updated_at: z.string().datetime(),
+    snapshot: snapshotSchema,
+    candidate_id: z.string(),
+    mission: z.enum(["jezero", "mare-crisium"]),
+    hypothesis: z.string().max(1200),
+    objective: z.string().max(400),
+    stations: z.array(stationSchema).max(24),
+    measurements: z
+      .array(z.object({ text: z.string().max(300), done: z.boolean() }))
+      .max(30),
+    equipment: z
+      .array(z.object({ text: z.string().max(300), done: z.boolean() }))
+      .max(40),
+    success_indicators: z.string().max(1200),
+    permits: z
+      .array(
+        z.object({
+          question: z.string().max(300),
+          answer: z.string().max(600),
+        }),
+      )
+      .max(20),
+    local_notes: z.string().max(4000),
+  })
+  .superRefine((study, ctx) => {
+    if (
+      study.candidate_id !== study.snapshot.candidate_id ||
+      study.mission !== study.snapshot.mission
+    )
+      ctx.addIssue({
+        code: "custom",
+        message: "Study identity disagrees with its saved snapshot",
+      });
+    if (new Set(study.stations.map((s) => s.id)).size !== study.stations.length)
+      ctx.addIssue({
+        code: "custom",
+        message: "Station identifiers must be unique",
+      });
+  });
 export type FieldStudy = z.infer<typeof fieldStudySchema>;
 
-export function equipmentFor(exp: FieldExperiment, stations: Pick<Station, "kind">[]) {
+export function equipmentFor(
+  exp: FieldExperiment,
+  stations: Pick<Station, "kind">[],
+) {
   const kinds = [...new Set(stations.map((s) => s.kind))];
-  return [...new Set([...exp.equipment, ...kinds.flatMap((k) => KIND_EQUIPMENT[k]), ...BASE_EQUIPMENT])];
+  return [
+    ...new Set([
+      ...exp.equipment,
+      ...kinds.flatMap((k) => KIND_EQUIPMENT[k]),
+      ...BASE_EQUIPMENT,
+    ]),
+  ];
 }
 
 export function newFieldStudy(
@@ -229,12 +291,17 @@ export function legs(g: TerrainGrid, stations: Station[]): Leg[] {
 }
 
 /** Elevation trend along straight legs, sampled every stepM on the interpolated grid. */
-export function traverseProfile(g: TerrainGrid, stations: Station[], stepM = 250) {
+export function traverseProfile(
+  g: TerrainGrid,
+  stations: Station[],
+  stepM = 250,
+) {
   const out: { d: number; z: number | null; station?: string }[] = [];
   let run = 0;
   stations.forEach((s, i) => {
     const a = toLocal(g, s);
-    if (i === 0) out.push({ d: 0, z: elevationAt(g, a.x, a.y), station: s.name });
+    if (i === 0)
+      out.push({ d: 0, z: elevationAt(g, a.x, a.y), station: s.name });
     const next = stations[i + 1];
     if (!next) return;
     const b = toLocal(g, next),
@@ -297,13 +364,24 @@ export function reliefTransect(g: TerrainGrid): Station[] {
     [, r1, c1] = hi as [number, number, number];
   const a = { x: c0 * g.spacingM - h, y: r0 * g.spacingM - h },
     b = { x: c1 * g.spacingM - h, y: r1 * g.spacingM - h };
-  const kinds: StationKind[] = ["transect", "observation", "sample", "observation", "transect"];
+  const kinds: StationKind[] = [
+    "transect",
+    "observation",
+    "sample",
+    "observation",
+    "transect",
+  ];
   return kinds.map((kind, i) => {
     const t = i / (kinds.length - 1),
       p = toLatLon(g, a.x + (b.x - a.x) * t, a.y + (b.y - a.y) * t);
     return {
       id: `S${String(i + 1).padStart(2, "0")}`,
-      name: i === 0 ? "Low node" : i === kinds.length - 1 ? "High node" : `Station ${i + 1}`,
+      name:
+        i === 0
+          ? "Low node"
+          : i === kinds.length - 1
+            ? "High node"
+            : `Station ${i + 1}`,
       kind,
       lat: round7(p.lat),
       lon: round7(p.lon),
@@ -317,15 +395,33 @@ export function reliefTransect(g: TerrainGrid): Station[] {
 export const round7 = (v: number) => Math.round(v * 1e7) / 1e7;
 
 export function sampleId(candidate: Candidate, station: Station, n = 1) {
-  const region = candidate.region_id.replace(/[^a-z]/gi, "").slice(0, 3).toUpperCase() || "TX";
+  const region =
+    candidate.region_id
+      .replace(/[^a-z]/gi, "")
+      .slice(0, 3)
+      .toUpperCase() || "TX";
   return `TX-${region}-${station.id}-${String(n).padStart(2, "0")}`;
 }
 
 const xml = (s: string) =>
-  s.replace(/[<>&'"]/g, (ch) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;", "'": "&apos;", '"': "&quot;" })[ch]!);
+  s.replace(
+    /[<>&'"]/g,
+    (ch) =>
+      ({
+        "<": "&lt;",
+        ">": "&gt;",
+        "&": "&amp;",
+        "'": "&apos;",
+        '"': "&quot;",
+      })[ch]!,
+  );
 
 /** GPX 1.1 with stations as waypoints and the proposed traverse as a route. */
-export function toGpx(study: FieldStudy, candidate: Candidate, g: TerrainGrid | null) {
+export function toGpx(
+  study: FieldStudy,
+  candidate: Candidate,
+  g: TerrainGrid | null,
+) {
   const ele = (s: Station) => {
     if (!g) return "";
     const p = toLocal(g, s),
@@ -333,12 +429,20 @@ export function toGpx(study: FieldStudy, candidate: Candidate, g: TerrainGrid | 
     return z == null ? "" : `<ele>${z.toFixed(1)}</ele>`;
   };
   const desc = (s: Station) =>
-    xml(`${STATION_KINDS[s.kind].label}. ${s.purpose} Proposed station, not a verified access point.`);
+    xml(
+      `${STATION_KINDS[s.kind].label}. ${s.purpose} Proposed station, not a verified access point.`,
+    );
   const wpts = study.stations
-    .map((s) => `  <wpt lat="${s.lat.toFixed(7)}" lon="${s.lon.toFixed(7)}">${ele(s)}<name>${xml(`${s.id} ${s.name}`)}</name><desc>${desc(s)}</desc><type>${s.kind}</type></wpt>`)
+    .map(
+      (s) =>
+        `  <wpt lat="${s.lat.toFixed(7)}" lon="${s.lon.toFixed(7)}">${ele(s)}<name>${xml(`${s.id} ${s.name}`)}</name><desc>${desc(s)}</desc><type>${s.kind}</type></wpt>`,
+    )
     .join("\n");
   const rtepts = study.stations
-    .map((s) => `    <rtept lat="${s.lat.toFixed(7)}" lon="${s.lon.toFixed(7)}"><name>${xml(s.id)}</name></rtept>`)
+    .map(
+      (s) =>
+        `    <rtept lat="${s.lat.toFixed(7)}" lon="${s.lon.toFixed(7)}"><name>${xml(s.id)}</name></rtept>`,
+    )
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="TerrainX Field Study Builder" xmlns="http://www.topografix.com/GPX/1/1">
@@ -379,6 +483,12 @@ export function persistFieldStudies(studies: FieldStudy[]) {
 const shareSchema = z.object({
   v: z.literal(1),
   r: z.string().regex(/^science-[a-f0-9]{16}$/),
+  d: z
+    .string()
+    .regex(/^[a-f0-9]{64}$/)
+    .optional(),
+  mv: z.literal("terrainx-model-v1").optional(),
+  q: snapshotSchema.shape.scenarios.optional(),
   c: z.string().min(1).max(80),
   m: z.enum(["jezero", "mare-crisium"]),
   t: z.string().min(1).max(120),
@@ -406,7 +516,9 @@ const toBase64Url = (text: string) => {
 };
 const fromBase64Url = (code: string) => {
   const bin = atob(code.replace(/-/g, "+").replace(/_/g, "/"));
-  return new TextDecoder().decode(Uint8Array.from(bin, (ch) => ch.charCodeAt(0)));
+  return new TextDecoder().decode(
+    Uint8Array.from(bin, (ch) => ch.charCodeAt(0)),
+  );
 };
 
 /**
@@ -418,6 +530,9 @@ export function encodeShare(study: FieldStudy, compact = false) {
   const payload: SharedStudy = {
     v: 1,
     r: study.snapshot.science.release_id,
+    d: study.snapshot.science.dataset_sha256,
+    mv: study.snapshot.science.model_version,
+    ...(compact ? {} : { q: study.snapshot.scenarios }),
     c: study.candidate_id,
     m: study.mission,
     t: study.title,

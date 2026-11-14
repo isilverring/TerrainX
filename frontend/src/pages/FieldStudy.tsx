@@ -25,9 +25,14 @@ import {
   Upload,
   X,
 } from "lucide-react";
-import { useData, number } from "../lib/data";
-import { useModel } from "../lib/scoring";
+import { DataContext, useData, number } from "../lib/data";
+import { applyScenarios, useModel } from "../lib/scoring";
+import { defaultScenario } from "../lib/counterfactual";
 import { makeSnapshot, checkSnapshotRelease } from "../lib/snapshots";
+import { candidateSchema } from "../lib/models";
+import { z } from "zod";
+import { useScienceFile } from "../lib/scienceFile";
+import { currentRelease } from "../lib/release";
 import type { Mission } from "../lib/models";
 import { download } from "../lib/packet";
 import {
@@ -66,23 +71,105 @@ const MISSION_LABEL: Record<Mission, string> = {
 };
 /** Longest URL we render as a QR code (byte-mode capacity at error level M is ~2.3 kB). */
 const QR_MAX = 1100;
-const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 50) || "field-study";
+const slug = (s: string) =>
+  s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+    .slice(0, 50) || "field-study";
 
+const fieldSitesSchema = z.object({
+  contract: z.literal("terrainx-field-sites-v1"),
+  candidates: z.array(candidateSchema),
+});
 export default function FieldStudy() {
+  const base = useData(),
+    [params] = useSearchParams();
+  const { value: extra, error } = useScienceFile(
+    "field_candidates.json",
+    fieldSitesSchema,
+    "Historical release has no expanded field-site file.",
+  );
+  const merged = useMemo(
+    () => ({
+      ...base,
+      candidates: [
+        ...new Map(
+          [...(extra?.candidates ?? []), ...base.candidates].map((c) => [
+            c.id,
+            c,
+          ]),
+        ).values(),
+      ],
+    }),
+    [base, extra],
+  );
+  if (currentRelease()?.files["field_candidates.json"] && !extra && !error)
+    return (
+      <main className="document-page">
+        <p>Validating field-site observations…</p>
+      </main>
+    );
+  if (
+    params.get("id") &&
+    !merged.candidates.some((c) => c.id === params.get("id"))
+  )
+    return (
+      <main className="document-page">
+        <h1>Requested field site is unavailable</h1>
+        <p>
+          {error ??
+            "The candidate is absent from the pinned release. No substitute site was opened."}
+        </p>
+        <Link to="/cells">Return to screened cells</Link>
+      </main>
+    );
+  if (!merged.candidates.some((c) => terrainGrid(c)))
+    return (
+      <main className="document-page">
+        <h1>No measured terrain is available for field planning</h1>
+      </main>
+    );
+  return (
+    <DataContext.Provider value={merged}>
+      <FieldStudyEditor />
+    </DataContext.Provider>
+  );
+}
+function FieldStudyEditor() {
   const data = useData(),
     model = useModel(),
     [params] = useSearchParams();
-  const eligible = useMemo(() => data.candidates.filter((c) => terrainGrid(c)), [data]);
+  const eligible = useMemo(
+    () => data.candidates.filter((c) => terrainGrid(c)),
+    [data],
+  );
   const initialCandidate =
     eligible.find((c) => c.id === params.get("id"))?.id ??
     eligible.find((c) => c.status === "CHARACTERIZED CANDIDATE")?.id ??
     eligible[0]?.id;
-  const initialMission: Mission = params.get("mission") === "mare-crisium" ? "mare-crisium" : "jezero";
+  const initialMission: Mission =
+    params.get("mission") === "mare-crisium" ? "mare-crisium" : "jezero";
 
-  const fresh = (candidateId: string, mission: Mission, title?: string): Study => {
+  const fresh = (
+    candidateId: string,
+    mission: Mission,
+    title?: string,
+  ): Study => {
     const c = data.candidates.find((x) => x.id === candidateId)!;
-    const snapshot = makeSnapshot(data, model.scenarios, mission, c.id, title ?? `Field study · ${c.name}`);
-    return newFieldStudy(snapshot, c, mission, title ?? `Field study · ${c.name}`);
+    const snapshot = makeSnapshot(
+      data,
+      model.scenarios,
+      mission,
+      c.id,
+      title ?? `Field study · ${c.name}`,
+    );
+    return newFieldStudy(
+      snapshot,
+      c,
+      mission,
+      title ?? `Field study · ${c.name}`,
+    );
   };
   // A ?share= link reopens the same stations and intent, only on the identical release.
   const shared = useMemo(() => {
@@ -91,9 +178,17 @@ export default function FieldStudy() {
     try {
       const s = decodeShare(code);
       if (s.r !== data.release?.release_id)
-        return { error: `This shared plan was made on ${s.r}; this site serves ${data.release?.release_id}. No newer data were substituted.` };
+        return {
+          error: `This shared plan was made on ${s.r}; this site serves ${data.release?.release_id}. No newer data were substituted.`,
+        };
+      if (s.d && s.d !== data.release?.dataset_sha256)
+        return {
+          error:
+            "Shared study dataset checksum does not match the pinned release.",
+        };
       const c = data.candidates.find((x) => x.id === s.c);
-      if (!c || !terrainGrid(c)) return { error: "The shared candidate is not in this release." };
+      if (!c || !terrainGrid(c))
+        return { error: "The shared candidate is not in this release." };
       return { share: s };
     } catch {
       return { error: "This share link is damaged or incomplete." };
@@ -104,7 +199,15 @@ export default function FieldStudy() {
     if (shared && "share" in shared && shared.share) {
       const s = shared.share,
         base = fresh(s.c, s.m, s.t);
-      return { ...base, hypothesis: s.h || base.hypothesis, stations: stationsFromShare(s) };
+      base.snapshot.scenarios = s.q ?? {
+        jezero: defaultScenario("jezero"),
+        "mare-crisium": defaultScenario("mare-crisium"),
+      };
+      return {
+        ...base,
+        hypothesis: s.h || base.hypothesis,
+        stations: stationsFromShare(s),
+      };
     }
     return fresh(initialCandidate, initialMission);
   });
@@ -115,7 +218,7 @@ export default function FieldStudy() {
       shared && "error" in shared
         ? `Shared plan not opened: ${shared.error}`
         : shared
-          ? "Opened a shared plan: stations, title and hypothesis. Protocol lists start from the dataset defaults — save it to keep a copy."
+          ? "Opened a shared plan. Full links retain the mission models; compact printed QR links retain geometry and use release-default models. Protocol lists are proposals; export JSON to retain the complete field book."
           : "",
     ),
     [newItem, setNewItem] = useState({ measurements: "", equipment: "" }),
@@ -124,7 +227,13 @@ export default function FieldStudy() {
   const shareUrl = base + encodeShare(study),
     qrUrl = base + encodeShare(study, true);
 
-  const candidate = data.candidates.find((c) => c.id === study.candidate_id)!;
+  const studyData = useMemo(
+    () => applyScenarios(data, study.snapshot.scenarios),
+    [data, study.snapshot.scenarios],
+  );
+  const candidate = studyData.candidates.find(
+    (c) => c.id === study.candidate_id,
+  )!;
   const grid = useMemo(() => terrainGrid(candidate)!, [candidate]);
   const exp = candidate.assessments[study.mission].experiment;
   const assessment = candidate.assessments[study.mission];
@@ -147,7 +256,10 @@ export default function FieldStudy() {
     }
   };
 
-  const profile = useMemo(() => traverseProfile(grid, study.stations, 200), [grid, study.stations]);
+  const profile = useMemo(
+    () => traverseProfile(grid, study.stations, 200),
+    [grid, study.stations],
+  );
   const totals = traverseTotals(profile);
   const legList = legs(grid, study.stations);
   const stationZ = (s: Station) => {
@@ -159,19 +271,35 @@ export default function FieldStudy() {
   useEffect(() => setSelected(null), [study.candidate_id]);
 
   const switchTo = (candidateId: string, mission: Mission) => {
-    if (study.stations.length && !window.confirm("Start a new field study? Unsaved stations will be cleared."))
+    if (
+      study.stations.length &&
+      !window.confirm(
+        "Start a new field study? Unsaved stations will be cleared.",
+      )
+    )
       return;
     setStudy(fresh(candidateId, mission));
     setMessage("");
   };
   const store = (next: Study[], note: string) => {
     setSaved(next);
-    setMessage(persistFieldStudies(next) ? note : "Browser storage is unavailable — export the JSON to keep this study.");
+    setMessage(
+      persistFieldStudies(next)
+        ? note
+        : "Browser storage is unavailable — export the JSON to keep this study.",
+    );
   };
   const save = () => {
     const snapshot = { ...study.snapshot, title: study.title };
-    const s = fieldStudySchema.parse({ ...study, snapshot, updated_at: new Date().toISOString() });
-    store([s, ...saved.filter((x) => x.id !== s.id)].slice(0, 20), "Field study saved on this device, pinned to its science release.");
+    const s = fieldStudySchema.parse({
+      ...study,
+      snapshot,
+      updated_at: new Date().toISOString(),
+    });
+    store(
+      [s, ...saved.filter((x) => x.id !== s.id)].slice(0, 20),
+      "Field study saved on this device, pinned to its science release.",
+    );
     setStudy(s);
   };
   const open = (s: Study) => {
@@ -179,7 +307,9 @@ export default function FieldStudy() {
       checkSnapshotRelease(s.snapshot, data);
       setStudy(s);
       setSelected(null);
-      setMessage(`Reopened “${s.title}”. Scores shown use your active model; the study keeps the model saved with it.`);
+      setMessage(
+        `Reopened “${s.title}”. Scores shown use the study’s saved model; your research settings are preserved.`,
+      );
       window.scrollTo({ top: 0, behavior: "smooth" });
     } catch (error) {
       setMessage(String(error));
@@ -192,29 +322,56 @@ export default function FieldStudy() {
     { label: "Hypothesis", ok: study.hypothesis.trim().length > 20 },
     { label: "≥2 stations", ok: study.stations.length >= 2 },
     { label: "Sample station", ok: sampleStations.length > 0 },
-    { label: "Every station has a purpose", ok: study.stations.length > 0 && study.stations.every((s) => s.purpose.trim()) },
-    { label: "Access questions answered", ok: permitsAnswered === study.permits.length },
-    { label: "Equipment packed", ok: study.equipment.length > 0 && study.equipment.every((e) => e.done) },
+    {
+      label: "Every station has a purpose",
+      ok:
+        study.stations.length > 0 &&
+        study.stations.every((s) => s.purpose.trim()),
+    },
+    {
+      label: "Access questions answered",
+      ok: permitsAnswered === study.permits.length,
+    },
+    {
+      label: "Equipment packed",
+      ok: study.equipment.length > 0 && study.equipment.every((e) => e.done),
+    },
   ];
   const ready = readiness.filter((r) => r.ok).length;
 
+  if (shared && "error" in shared)
+    return (
+      <main className="document-page">
+        <h1>Shared field study was not opened</h1>
+        <p role="alert">{shared.error}</p>
+        <Link to="/field-study">Start a new study explicitly</Link>
+      </main>
+    );
   if (!candidate || !grid) return null;
   const sel = study.stations.find((s) => s.id === selected) ?? null;
 
   return (
     <main className="document-page field-page">
       <BackLink mission={study.mission} />
+      <p className="release-note">
+        Scores use this field study’s saved model. Station coordinates and
+        protocols are proposals, never verified NASA observations.
+      </p>
       <header className="document-title field-title">
         <div>
           <p className="document-label">Prepare · Field Study Builder</p>
           <h1>Turn a candidate into a field question.</h1>
           <p>
-            Place proposed stations on the real cached terrain samples, measure the traverse, and leave with a
-            protocol, GPX waypoints and a printable field book — all pinned to the science release that produced
-            the candidate.
+            Place proposed stations on the real cached terrain samples, measure
+            the traverse, and leave with a protocol, GPX waypoints and a
+            printable field book — all pinned to the science release that
+            produced the candidate.
           </p>
         </div>
-        <div className="field-readiness" aria-label={`Plan readiness ${ready} of ${readiness.length}`}>
+        <div
+          className="field-readiness"
+          aria-label={`Plan readiness ${ready} of ${readiness.length}`}
+        >
           <svg viewBox="0 0 64 64" aria-hidden="true">
             <circle cx="32" cy="32" r="27" className="track" />
             <circle
@@ -242,11 +399,18 @@ export default function FieldStudy() {
       <section className="field-setup" aria-label="Study setup">
         <label className="field-span">
           Study title
-          <input value={study.title} maxLength={120} onChange={(e) => update({ title: e.target.value || " " })} />
+          <input
+            value={study.title}
+            maxLength={120}
+            onChange={(e) => update({ title: e.target.value || " " })}
+          />
         </label>
         <label>
           Earth candidate
-          <select value={study.candidate_id} onChange={(e) => switchTo(e.target.value, study.mission)}>
+          <select
+            value={study.candidate_id}
+            onChange={(e) => switchTo(e.target.value, study.mission)}
+          >
             {eligible.map((c) => (
               <option key={c.id} value={c.id}>
                 {c.name}
@@ -257,23 +421,36 @@ export default function FieldStudy() {
         </label>
         <label>
           Planetary mission
-          <select value={study.mission} onChange={(e) => switchTo(study.candidate_id, e.target.value as Mission)}>
+          <select
+            value={study.mission}
+            onChange={(e) =>
+              switchTo(study.candidate_id, e.target.value as Mission)
+            }
+          >
             <option value="jezero">{MISSION_LABEL.jezero}</option>
-            <option value="mare-crisium">{MISSION_LABEL["mare-crisium"]}</option>
+            <option value="mare-crisium">
+              {MISSION_LABEL["mare-crisium"]}
+            </option>
           </select>
         </label>
         <div className="field-pin">
           <span className="mono">{study.snapshot.science.release_id}</span>
           <span>
-            F {number(assessment.fidelity.value, 0)} · U {number(assessment.utility.value, 0)} · C{" "}
-            {Math.round(assessment.utility.coverage * 100)}% · {candidate.status.toLowerCase()}
+            F {number(assessment.fidelity.value, 0)} · U{" "}
+            {number(assessment.utility.value, 0)} · C{" "}
+            {Math.round(assessment.utility.coverage * 100)}% ·{" "}
+            {candidate.status.toLowerCase()}
           </span>
         </div>
       </section>
 
       <section className="field-workbench">
         <div className="field-map-col">
-          <div className="field-toolbar" role="toolbar" aria-label="Station tools">
+          <div
+            className="field-toolbar"
+            role="toolbar"
+            aria-label="Station tools"
+          >
             <span>New station:</span>
             {(Object.keys(STATION_KINDS) as StationKind[]).map((k) => (
               <button
@@ -294,16 +471,28 @@ export default function FieldStudy() {
             selected={selected}
             onSelect={setSelected}
             onAdd={(lat, lon) => {
-              if (study.stations.length >= 24) return setMessage("A field study holds at most 24 stations.");
+              if (study.stations.length >= 24)
+                return setMessage("A field study holds at most 24 stations.");
               const id = nextId();
               setStations([
                 ...study.stations,
-                { id, name: `Station ${study.stations.length + 1}`, kind, lat, lon, purpose: "" },
+                {
+                  id,
+                  name: `Station ${study.stations.length + 1}`,
+                  kind,
+                  lat,
+                  lon,
+                  purpose: "",
+                },
               ]);
               setSelected(id);
             }}
             onMove={(id, lat, lon) =>
-              update({ stations: study.stations.map((s) => (s.id === id ? { ...s, lat, lon } : s)) })
+              update({
+                stations: study.stations.map((s) =>
+                  s.id === id ? { ...s, lat, lon } : s,
+                ),
+              })
             }
             onRemove={(id) => {
               setStations(study.stations.filter((s) => s.id !== id));
@@ -314,7 +503,12 @@ export default function FieldStudy() {
             <button
               className="button outline"
               onClick={() => {
-                if (study.stations.length && !window.confirm("Replace the current stations with a suggested transect?"))
+                if (
+                  study.stations.length &&
+                  !window.confirm(
+                    "Replace the current stations with a suggested transect?",
+                  )
+                )
                   return;
                 setStations(reliefTransect(grid));
                 setSelected(null);
@@ -325,7 +519,9 @@ export default function FieldStudy() {
             <button
               className="button outline"
               disabled={study.stations.length < 2}
-              onClick={() => update({ stations: [...study.stations].reverse() })}
+              onClick={() =>
+                update({ stations: [...study.stations].reverse() })
+              }
             >
               <Route size={15} /> Reverse order
             </button>
@@ -340,8 +536,9 @@ export default function FieldStudy() {
             </button>
           </div>
           <p className="caption">
-            The suggestion runs from the lowest to the highest real sample node — a deterministic way to cross the
-            sampled relief, not a recommendation of a safe or permitted route.
+            The suggestion runs from the lowest to the highest real sample node
+            — a deterministic way to cross the sampled relief, not a
+            recommendation of a safe or permitted route.
           </p>
         </div>
 
@@ -352,7 +549,10 @@ export default function FieldStudy() {
           {!study.stations.length && (
             <div className="field-empty">
               <MapPinned size={22} />
-              <p>Click the terrain to place your first station, or ask for a suggested relief transect.</p>
+              <p>
+                Click the terrain to place your first station, or ask for a
+                suggested relief transect.
+              </p>
             </div>
           )}
           <ol>
@@ -364,12 +564,16 @@ export default function FieldStudy() {
                   className={s.id === selected ? "selected" : ""}
                   style={{ ["--tint" as string]: STATION_KINDS[s.kind].tint }}
                 >
-                  <button className="field-station-head" onClick={() => setSelected(s.id === selected ? null : s.id)}>
+                  <button
+                    className="field-station-head"
+                    onClick={() => setSelected(s.id === selected ? null : s.id)}
+                  >
                     <b>{i + 1}</b>
                     <span>
                       <strong>{s.name}</strong>
                       <small className="mono">
-                        {s.lat.toFixed(5)}, {s.lon.toFixed(5)} · {z == null ? "—" : `≈${Math.round(z)} m`}
+                        {s.lat.toFixed(5)}, {s.lon.toFixed(5)} ·{" "}
+                        {z == null ? "—" : `≈${Math.round(z)} m`}
                       </small>
                     </span>
                     <em>{STATION_KINDS[s.kind].label}</em>
@@ -384,7 +588,9 @@ export default function FieldStudy() {
                           onChange={(e) =>
                             update({
                               stations: study.stations.map((x) =>
-                                x.id === s.id ? { ...x, name: e.target.value || " " } : x,
+                                x.id === s.id
+                                  ? { ...x, name: e.target.value || " " }
+                                  : x,
                               ),
                             })
                           }
@@ -397,16 +603,23 @@ export default function FieldStudy() {
                           onChange={(e) =>
                             setStations(
                               study.stations.map((x) =>
-                                x.id === s.id ? { ...x, kind: e.target.value as StationKind } : x,
+                                x.id === s.id
+                                  ? {
+                                      ...x,
+                                      kind: e.target.value as StationKind,
+                                    }
+                                  : x,
                               ),
                             )
                           }
                         >
-                          {(Object.keys(STATION_KINDS) as StationKind[]).map((k) => (
-                            <option key={k} value={k}>
-                              {STATION_KINDS[k].label}
-                            </option>
-                          ))}
+                          {(Object.keys(STATION_KINDS) as StationKind[]).map(
+                            (k) => (
+                              <option key={k} value={k}>
+                                {STATION_KINDS[k].label}
+                              </option>
+                            ),
+                          )}
                         </select>
                       </label>
                       <label className="field-span">
@@ -418,7 +631,9 @@ export default function FieldStudy() {
                           onChange={(e) =>
                             update({
                               stations: study.stations.map((x) =>
-                                x.id === s.id ? { ...x, purpose: e.target.value } : x,
+                                x.id === s.id
+                                  ? { ...x, purpose: e.target.value }
+                                  : x,
                               ),
                             })
                           }
@@ -451,7 +666,9 @@ export default function FieldStudy() {
                           className="button outline"
                           aria-label={`Remove ${s.name}`}
                           onClick={() => {
-                            setStations(study.stations.filter((x) => x.id !== s.id));
+                            setStations(
+                              study.stations.filter((x) => x.id !== s.id),
+                            );
                             setSelected(null);
                           }}
                         >
@@ -465,8 +682,8 @@ export default function FieldStudy() {
             })}
           </ol>
           <p className="caption">
-            Stations are your proposals. Access, exposure quality and safety are unknown until checked on the
-            ground.
+            Stations are your proposals. Access, exposure quality and safety are
+            unknown until checked on the ground.
           </p>
         </aside>
       </section>
@@ -476,7 +693,9 @@ export default function FieldStudy() {
           <Compass size={22} /> Proposed traverse
         </h2>
         {study.stations.length < 2 ? (
-          <p className="caption">Place at least two stations to measure the traverse.</p>
+          <p className="caption">
+            Place at least two stations to measure the traverse.
+          </p>
         ) : (
           <>
             <div className="field-stats">
@@ -487,27 +706,47 @@ export default function FieldStudy() {
               <div>
                 <span>Ascent / descent (trend)</span>
                 <strong>
-                  +{Math.round(totals.ascentM)} / −{Math.round(totals.descentM)} m
+                  +{Math.round(totals.ascentM)} / −{Math.round(totals.descentM)}{" "}
+                  m
                 </strong>
               </div>
               <div>
                 <span>Elevation span</span>
                 <strong>
-                  {totals.minZ == null ? "—" : `${Math.round(totals.minZ)}–${Math.round(totals.maxZ!)} m`}
+                  {totals.minZ == null
+                    ? "—"
+                    : `${Math.round(totals.minZ)}–${Math.round(totals.maxZ!)} m`}
                 </strong>
               </div>
               <div>
                 <span>Naismith walking time</span>
-                <strong>{naismithHours(totals.distanceM, totals.ascentM).toFixed(1)} h</strong>
+                <strong>
+                  {naismithHours(totals.distanceM, totals.ascentM).toFixed(1)} h
+                </strong>
               </div>
             </div>
-            <div className="field-profile" role="img" aria-label="Elevation trend along the proposed traverse">
+            <div
+              className="field-profile"
+              role="img"
+              aria-label="Elevation trend along the proposed traverse"
+            >
               <ResponsiveContainer width="100%" height={210}>
-                <AreaChart data={profile.map((p) => ({ km: p.d / 1000, z: p.z }))} margin={{ top: 14, right: 16, bottom: 4, left: 0 }}>
+                <AreaChart
+                  data={profile.map((p) => ({ km: p.d / 1000, z: p.z }))}
+                  margin={{ top: 14, right: 16, bottom: 4, left: 0 }}
+                >
                   <defs>
                     <linearGradient id="fsProfile" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stopColor="#3ec9b0" stopOpacity={0.55} />
-                      <stop offset="100%" stopColor="#3ec9b0" stopOpacity={0.03} />
+                      <stop
+                        offset="0%"
+                        stopColor="#3ec9b0"
+                        stopOpacity={0.55}
+                      />
+                      <stop
+                        offset="100%"
+                        stopColor="#3ec9b0"
+                        stopOpacity={0.03}
+                      />
                     </linearGradient>
                   </defs>
                   <CartesianGrid stroke="#1d2a3d" vertical={false} />
@@ -527,13 +766,37 @@ export default function FieldStudy() {
                     width={58}
                   />
                   <Tooltip
-                    contentStyle={{ background: "#0d1624", border: "1px solid #29384e", borderRadius: 6 }}
-                    formatter={(v) => [`${Math.round(Number(v))} m`, "Interpolated elevation"]}
-                    labelFormatter={(v) => `${Number(v).toFixed(2)} km along traverse`}
+                    contentStyle={{
+                      background: "#0d1624",
+                      border: "1px solid #29384e",
+                      borderRadius: 6,
+                    }}
+                    formatter={(v) => [
+                      `${Math.round(Number(v))} m`,
+                      "Interpolated elevation",
+                    ]}
+                    labelFormatter={(v) =>
+                      `${Number(v).toFixed(2)} km along traverse`
+                    }
                   />
-                  <Area type="linear" dataKey="z" stroke="#3ec9b0" strokeWidth={2} fill="url(#fsProfile)" connectNulls={false} isAnimationActive={false} />
+                  <Area
+                    type="linear"
+                    dataKey="z"
+                    stroke="#3ec9b0"
+                    strokeWidth={2}
+                    fill="url(#fsProfile)"
+                    connectNulls={false}
+                    isAnimationActive={false}
+                  />
                   {stationMarks.map((p, i) => (
-                    <ReferenceDot key={i} x={p.d / 1000} y={p.z!} r={4} fill="#f2f5fa" stroke="#080d18" />
+                    <ReferenceDot
+                      key={i}
+                      x={p.d / 1000}
+                      y={p.z!}
+                      r={4}
+                      fill="#f2f5fa"
+                      stroke="#080d18"
+                    />
                   ))}
                 </AreaChart>
               </ResponsiveContainer>
@@ -554,20 +817,28 @@ export default function FieldStudy() {
                       <td>
                         {l.from.id} → {l.to.id}
                       </td>
-                      <td className="mono">{(l.distanceM / 1000).toFixed(2)} km</td>
+                      <td className="mono">
+                        {(l.distanceM / 1000).toFixed(2)} km
+                      </td>
                       <td className="mono">
                         {Math.round(l.bearing)}° {compass(l.bearing)}
                       </td>
-                      <td className="mono">{l.dz == null ? "—" : `${l.dz >= 0 ? "+" : "−"}${Math.abs(Math.round(l.dz))} m`}</td>
+                      <td className="mono">
+                        {l.dz == null
+                          ? "—"
+                          : `${l.dz >= 0 ? "+" : "−"}${Math.abs(Math.round(l.dz))} m`}
+                      </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
             <p className="caption">
-              Great-circle legs on the 6371 km sphere used by discovery. Elevations come from straight-line sampling of
-              the interpolated 4 km SRTM grid, so real ascent along a walked route will be larger. Naismith’s rule (5
-              km/h plus 1 h per 600 m of ascent) is a planning heuristic for fit walkers, not a schedule.
+              Great-circle legs on the 6371 km sphere used by discovery.
+              Elevations come from straight-line sampling of the interpolated 4
+              km SRTM grid, so real ascent along a walked route will be larger.
+              Naismith’s rule (5 km/h plus 1 h per 600 m of ascent) is a
+              planning heuristic for fit walkers, not a schedule.
             </p>
           </>
         )}
@@ -578,15 +849,26 @@ export default function FieldStudy() {
         <div className="field-protocol-grid">
           <label className="field-span">
             Hypothesis to test
-            <textarea rows={3} maxLength={1200} value={study.hypothesis} onChange={(e) => update({ hypothesis: e.target.value })} />
+            <textarea
+              rows={3}
+              maxLength={1200}
+              value={study.hypothesis}
+              onChange={(e) => update({ hypothesis: e.target.value })}
+            />
           </label>
           <label className="field-span">
             Objective
-            <input maxLength={400} value={study.objective} onChange={(e) => update({ objective: e.target.value })} />
+            <input
+              maxLength={400}
+              value={study.objective}
+              onChange={(e) => update({ objective: e.target.value })}
+            />
           </label>
           {(["measurements", "equipment"] as const).map((key) => (
             <fieldset key={key} className="field-checklist">
-              <legend>{key === "measurements" ? "Measurements" : "Equipment"}</legend>
+              <legend>
+                {key === "measurements" ? "Measurements" : "Equipment"}
+              </legend>
               <ul>
                 {study[key].map((item, i) => (
                   <li key={`${item.text}-${i}`}>
@@ -595,7 +877,11 @@ export default function FieldStudy() {
                         type="checkbox"
                         checked={item.done}
                         onChange={() =>
-                          update({ [key]: study[key].map((x, j) => (j === i ? { ...x, done: !x.done } : x)) })
+                          update({
+                            [key]: study[key].map((x, j) =>
+                              j === i ? { ...x, done: !x.done } : x,
+                            ),
+                          })
                         }
                       />
                       <span>{item.text}</span>
@@ -603,7 +889,9 @@ export default function FieldStudy() {
                     <button
                       className="icon-button"
                       aria-label={`Remove ${item.text}`}
-                      onClick={() => update({ [key]: study[key].filter((_, j) => j !== i) })}
+                      onClick={() =>
+                        update({ [key]: study[key].filter((_, j) => j !== i) })
+                      }
                     >
                       <X size={13} />
                     </button>
@@ -616,17 +904,32 @@ export default function FieldStudy() {
                   e.preventDefault();
                   const text = newItem[key].trim();
                   if (!text) return;
-                  update({ [key]: [...study[key], { text: text.slice(0, 300), done: false }] });
+                  update({
+                    [key]: [
+                      ...study[key],
+                      { text: text.slice(0, 300), done: false },
+                    ],
+                  });
                   setNewItem({ ...newItem, [key]: "" });
                 }}
               >
                 <input
-                  placeholder={key === "measurements" ? "Add a measurement…" : "Add an item…"}
+                  placeholder={
+                    key === "measurements"
+                      ? "Add a measurement…"
+                      : "Add an item…"
+                  }
                   value={newItem[key]}
                   maxLength={300}
-                  onChange={(e) => setNewItem({ ...newItem, [key]: e.target.value })}
+                  onChange={(e) =>
+                    setNewItem({ ...newItem, [key]: e.target.value })
+                  }
                 />
-                <button className="button outline" type="submit" aria-label={`Add to ${key}`}>
+                <button
+                  className="button outline"
+                  type="submit"
+                  aria-label={`Add to ${key}`}
+                >
                   <Plus size={14} />
                 </button>
               </form>
@@ -659,7 +962,10 @@ export default function FieldStudy() {
 
       <section className="science-section field-access">
         <h2>
-          Permits, access and local knowledge <span className="field-count">{permitsAnswered}/{study.permits.length}</span>
+          Permits, access and local knowledge{" "}
+          <span className="field-count">
+            {permitsAnswered}/{study.permits.length}
+          </span>
         </h2>
         <div className="field-permits">
           {study.permits.map((p, i) => (
@@ -670,7 +976,11 @@ export default function FieldStudy() {
                 maxLength={600}
                 placeholder="Answer, contact or ‘unknown’"
                 onChange={(e) =>
-                  update({ permits: study.permits.map((x, j) => (j === i ? { ...x, answer: e.target.value } : x)) })
+                  update({
+                    permits: study.permits.map((x, j) =>
+                      j === i ? { ...x, answer: e.target.value } : x,
+                    ),
+                  })
                 }
               />
             </label>
@@ -705,14 +1015,26 @@ export default function FieldStudy() {
           </button>
           <button
             className="button outline"
-            onClick={() => download(`terrainx-${slug(study.title)}.json`, JSON.stringify(study, null, 2), "application/json")}
+            onClick={() =>
+              download(
+                `terrainx-${slug(study.title)}.json`,
+                JSON.stringify(study, null, 2),
+                "application/json",
+              )
+            }
           >
             <Download size={16} /> Export JSON
           </button>
           <button
             className="button outline"
             disabled={!study.stations.length}
-            onClick={() => download(`terrainx-${slug(study.title)}.gpx`, toGpx(study, candidate, grid), "application/gpx+xml")}
+            onClick={() =>
+              download(
+                `terrainx-${slug(study.title)}.gpx`,
+                toGpx(study, candidate, grid),
+                "application/gpx+xml",
+              )
+            }
           >
             <MapPinned size={16} /> Export GPX
           </button>
@@ -720,13 +1042,16 @@ export default function FieldStudy() {
             className="button outline"
             onClick={() => {
               // Freeze the current planner view into the printed field book.
-              const canvas = document.querySelector<HTMLCanvasElement>(".field-canvas");
+              const canvas =
+                document.querySelector<HTMLCanvasElement>(".field-canvas");
               try {
                 setMapImage(canvas ? canvas.toDataURL("image/png") : null);
               } catch {
                 setMapImage(null);
               }
-              requestAnimationFrame(() => requestAnimationFrame(() => window.print()));
+              requestAnimationFrame(() =>
+                requestAnimationFrame(() => window.print()),
+              );
             }}
           >
             <Printer size={16} /> Print field book
@@ -737,7 +1062,9 @@ export default function FieldStudy() {
             onClick={async () => {
               try {
                 await navigator.clipboard.writeText(shareUrl);
-                setMessage(`Share link copied (${shareUrl.length} characters). It opens these stations only on ${study.snapshot.science.release_id}.`);
+                setMessage(
+                  `Share link copied (${shareUrl.length} characters). It opens these stations only on ${study.snapshot.science.release_id}.`,
+                );
               } catch {
                 window.prompt("Copy this share link", shareUrl);
               }
@@ -755,10 +1082,16 @@ export default function FieldStudy() {
                 const file = e.target.files?.[0];
                 if (!file) return;
                 try {
-                  if (file.size > 200000) throw new Error("Field study file is too large");
-                  const s = fieldStudySchema.parse(JSON.parse(await file.text()));
+                  if (file.size > 200000)
+                    throw new Error("Field study file is too large");
+                  const s = fieldStudySchema.parse(
+                    JSON.parse(await file.text()),
+                  );
                   checkSnapshotRelease(s.snapshot, data);
-                  store([s, ...saved.filter((x) => x.id !== s.id)].slice(0, 20), `Imported “${s.title}”.`);
+                  store(
+                    [s, ...saved.filter((x) => x.id !== s.id)].slice(0, 20),
+                    `Imported “${s.title}”.`,
+                  );
                   setStudy(s);
                 } catch (error) {
                   setMessage(`Field study refused: ${String(error)}`);
@@ -772,17 +1105,23 @@ export default function FieldStudy() {
           {message}
         </p>
         <p className="caption">
-          Stored on this device only. The JSON carries the full research snapshot (release, dataset SHA-256 and
-          model), so a colleague opening it sees exactly the evidence you planned from. GPX opens in field GPS apps.
+          Stored on this device only. The JSON carries the full research
+          snapshot (release, dataset SHA-256 and model), so a colleague opening
+          it sees exactly the evidence you planned from. GPX opens in field GPS
+          apps.
         </p>
         {saved.length > 0 && (
           <div className="research-snapshots field-saved">
             {saved.map((s) => (
-              <article key={s.id} className={s.id === study.id ? "current" : ""}>
+              <article
+                key={s.id}
+                className={s.id === study.id ? "current" : ""}
+              >
                 <h3>{s.title}</h3>
                 <p>
-                  {data.candidates.find((c) => c.id === s.candidate_id)?.name ?? s.candidate_id} ·{" "}
-                  {MISSION_LABEL[s.mission]} · {s.stations.length} stations
+                  {data.candidates.find((c) => c.id === s.candidate_id)?.name ??
+                    s.candidate_id}{" "}
+                  · {MISSION_LABEL[s.mission]} · {s.stations.length} stations
                 </p>
                 <p className="mono">
                   {s.snapshot.science.release_id} · {s.updated_at.slice(0, 10)}
@@ -794,7 +1133,12 @@ export default function FieldStudy() {
                   <button
                     className="button outline"
                     aria-label={`Delete ${s.title}`}
-                    onClick={() => store(saved.filter((x) => x.id !== s.id), "Field study deleted from this device.")}
+                    onClick={() =>
+                      store(
+                        saved.filter((x) => x.id !== s.id),
+                        "Field study deleted from this device.",
+                      )
+                    }
                   >
                     <Trash2 size={15} />
                   </button>
@@ -804,12 +1148,26 @@ export default function FieldStudy() {
           </div>
         )}
         <p>
-          <Link to={`/research?id=${candidate.id}&mission=${study.mission}`}>Open the research workspace</Link> ·{" "}
-          <Link to={`/site/${candidate.id}?mission=${study.mission}`}>Analog DNA for this candidate</Link>
+          <Link to={`/research?id=${candidate.id}&mission=${study.mission}`}>
+            Open the research workspace
+          </Link>{" "}
+          ·{" "}
+          <Link to={`/site/${candidate.id}?mission=${study.mission}`}>
+            Analog DNA for this candidate
+          </Link>
         </p>
       </section>
 
-      <FieldBook study={study} shareUrl={study.stations.length && qrUrl.length <= QR_MAX ? qrUrl : null} mapImage={mapImage} candidateName={candidate.name} stationZ={stationZ} sampleLabel={(s, n) => sampleId(candidate, s, n)} />
+      <FieldBook
+        study={study}
+        shareUrl={
+          study.stations.length && qrUrl.length <= QR_MAX ? qrUrl : null
+        }
+        mapImage={mapImage}
+        candidateName={candidate.name}
+        stationZ={stationZ}
+        sampleLabel={(s, n) => sampleId(candidate, s, n)}
+      />
     </main>
   );
 }
@@ -836,23 +1194,30 @@ function FieldBook({
       <header className="fb-header">
         {shareUrl && (
           <div className="fb-qr">
-            <QrCode value={shareUrl} size={190} label="Open this field study's stations" />
+            <QrCode
+              value={shareUrl}
+              size={190}
+              label="Open this field study's stations"
+            />
             <span>Scan to open these stations</span>
           </div>
         )}
         <p>TerrainX field book · proposal, not a verified plan</p>
         <h1>{study.title}</h1>
         <p>
-          {candidateName} · {MISSION_LABEL[study.mission]} · {study.snapshot.science.release_id} · dataset
-          SHA-256 {study.snapshot.science.dataset_sha256.slice(0, 16)}… · printed {new Date().toISOString().slice(0, 10)}
+          {candidateName} · {MISSION_LABEL[study.mission]} ·{" "}
+          {study.snapshot.science.release_id} · dataset SHA-256{" "}
+          {study.snapshot.science.dataset_sha256.slice(0, 16)}… · printed{" "}
+          {new Date().toISOString().slice(0, 10)}
         </p>
       </header>
       {mapImage && (
         <figure className="fb-map">
           <img src={mapImage} alt="" />
           <figcaption>
-            Planner view: relief interpolated between real SRTM samples (dots, 4 km spacing). Stations are
-            proposals; access and exposure are unverified.
+            Planner view: relief interpolated between real SRTM samples (dots, 4
+            km spacing). Stations are proposals; access and exposure are
+            unverified.
           </figcaption>
         </figure>
       )}
@@ -933,11 +1298,15 @@ function FieldBook({
             {s.id} · {s.name}
           </h2>
           <p>
-            Planned {s.lat.toFixed(6)}, {s.lon.toFixed(6)} · Actual GNSS: ____________ ± ____ m · Time (UTC): ______
+            Planned {s.lat.toFixed(6)}, {s.lon.toFixed(6)} · Actual GNSS:
+            ____________ ± ____ m · Time (UTC): ______
           </p>
           <p>Lithology / grain size / structures:</p>
           <div className="fb-lines" />
-          <p>Photos (IDs, scale, direction): ______________________ · Samples taken: ______________</p>
+          <p>
+            Photos (IDs, scale, direction): ______________________ · Samples
+            taken: ______________
+          </p>
         </div>
       ))}
       {samples.length > 0 && (

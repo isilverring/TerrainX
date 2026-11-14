@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { ShieldCheck, ExternalLink, Moon } from "lucide-react";
 import { useData, number } from "../lib/data";
 import { useScienceFile } from "../lib/scienceFile";
@@ -120,7 +119,13 @@ export default function LunarPolar() {
     lunarPolarSchema,
     MISSING,
   );
-  const [selected, setSelected] = useState("mons-mouton");
+  const [params, setParams] = useSearchParams();
+  const selected = params.get("site") ?? "mons-mouton";
+  const setSelected = (id: string) => {
+    const next = new URLSearchParams(params);
+    next.set("site", id);
+    setParams(next, { replace: true });
+  };
   if (error)
     return (
       <main className="document-page">

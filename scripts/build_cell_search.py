@@ -119,7 +119,7 @@ def main() -> None:
     targets = dataset["targets"]  # released targets carry derived metrics and provenance
     released = [c["id"] for c in dataset["candidates"] if not c.get("benchmark")]
 
-    rows, errors = [], []
+    rows, errors, field_sites = [], [], []
     for cell in cells:
         lat, lon = cell["latitude"], cell["longitude"]
         row = {k: cell[k] for k in ("id", "region_id", "latitude", "longitude", "annual_precip_mm", "aridity")}
@@ -168,6 +168,11 @@ def main() -> None:
         if climate:
             row["climate"]["annual_precip_mm"] = climate.get("annual_precip_mm")
             row["climate"]["seasonal_temperature_range_c"] = climate.get("seasonal_temperature_range_c")
+        field_site={"id":row['id'],"name":next(r['name'] for r in dataset['regions'] if r['id']==row['region_id'])+f" · cell {lat:.3f}, {lon:.3f}",
+          "region_id":row['region_id'],"latitude":lat,"longitude":lon,"benchmark":False,"status":"SCREENED CANDIDATE",
+          "terrain":terrain,"climate":climate,"geology":geology,"assessments":{},
+          "coordinate_scope":"Algorithmically screened POWER cell anchor; field stations remain proposed and unverified.",
+          "source_refs":list(dict.fromkeys([s['source_url'] for s in terrain.get('provenance',[])]+geology.get('source_refs',[])+[o['provenance']['source_url'] for o in climate.values() if isinstance(o,dict)]))}
         row["missions"] = {}
         for target in targets:
             mission = target["id"]
@@ -183,12 +188,21 @@ def main() -> None:
             elif utility["coverage"] < .70:
                 reason = "Coverage below 70%"
             row["missions"][mission] = {"F": fidelity["value"], "U": utility["value"], "C": utility["coverage"], "P": priority, "reason": reason if priority is None else None, "criteria_evidence": crit, "criteria": {k: v["value"] for k, v in crit.items()}, "geology_rationale": crit["geology"]["rationale"]}
+            assessment={"utility":utility,"fidelity":fidelity,"priority":priority,"alpha":ALPHA[mission],"gamma":1,"minimum_coverage":.7}
+            assessment['reality_gap']=_bd.reality_gap(field_site,mission,assessment)
+            assessment['experiment']=_bd.experiment(field_site,mission,assessment)
+            field_site['assessments'][mission]=assessment
+        if row['land_eligible'] and terrain['status']=='available':field_sites.append(field_site)
         if not row["land_eligible"]:
             for result in row["missions"].values():
                 result["P"] = None
                 result["reason"] = "Center excluded by approximate Natural Earth land screen; terrain shape remains inspectable."
         rows.append(row)
 
+    field_output={'contract':'terrainx-field-sites-v1','source_contract':CONTRACT,'candidates':field_sites,
+       'note':'Real cached cell characterizations for proposed field studies; not additions to original discovery counts or field validation.'}
+    atomic_json(derived/'field_candidates.json',field_output)
+    atomic_json(ROOT/'frontend/public/data/field_candidates.json',field_output)
     out = {"contract": CONTRACT, "generated_at": datetime.now(timezone.utc).isoformat(), "cells": len(rows), "terrain_available": sum(r["terrain"]["status"] == "available" for r in rows), "geology_mapped": sum(r["geology"]["status"] == "mapped" for r in rows), "rules": {"alpha": ALPHA, "per_region": PER_REGION, "separation_km": SEPARATION_KM, "temperature": "NASA POWER point T2M climatology for every cell (same request and formula as released candidates)", "ranking": "combined priority P per mission; P requires F, assessed geology and C >= 0.70"}, "released_shortlist": released, "missions": {}, "rows": [], "errors": errors}
     for target in targets:
         mission = target["id"]
