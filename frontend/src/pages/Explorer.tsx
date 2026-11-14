@@ -1,27 +1,303 @@
-import { lazy, Suspense, useEffect, useMemo, useState } from 'react'
-import { useSearchParams, Link } from 'react-router-dom'
-import { ArrowUpRight, Check, ChevronDown, Database, Moon, SlidersHorizontal, Circle, TriangleAlert } from 'lucide-react'
-import { useData, rankCandidates, number, coordinates, statusName } from '../lib/data'
-import type { Candidate, Mission } from '../lib/models'
-import { ScoreStrip, SiteActions, Loading } from '../components/ui'
-import ModelControls from '../components/ModelControls'
-const EarthMap=lazy(()=>import('../components/EarthMap'))
-function CandidateRow({candidate,mission,selected,onSelect}:{candidate:Candidate;mission:Mission;selected:boolean;onSelect:(id:string)=>void}) {
- const a=candidate.assessments[mission]
- return <button className={`candidate-row ${selected?'selected':''}`} onClick={()=>onSelect(candidate.id)} aria-pressed={selected}><div className="candidate-name"><strong>{candidate.name}</strong><span className={`status-label ${candidate.benchmark?'benchmark':''}`}>{statusName(a.utility.status)}</span></div><ScoreStrip assessment={a} compact/>{a.utility.coverage<.7?<small className="insufficient">Insufficient evidence · partial utility</small>:null}</button>
+import { lazy, Suspense, useEffect, useMemo, useState } from "react";
+import { useSearchParams, Link } from "react-router-dom";
+import {
+  ArrowUpRight,
+  Check,
+  ChevronDown,
+  Database,
+  Moon,
+  SlidersHorizontal,
+  Circle,
+  TriangleAlert,
+} from "lucide-react";
+import {
+  useData,
+  rankCandidates,
+  number,
+  coordinates,
+  statusName,
+} from "../lib/data";
+import type { Candidate, Mission } from "../lib/models";
+import { ScoreStrip, SiteActions, Loading } from "../components/ui";
+import ModelControls from "../components/ModelControls";
+const EarthMap = lazy(() => import("../components/EarthMap"));
+function CandidateRow({
+  candidate,
+  mission,
+  selected,
+  onSelect,
+}: {
+  candidate: Candidate;
+  mission: Mission;
+  selected: boolean;
+  onSelect: (id: string) => void;
+}) {
+  const a = candidate.assessments[mission];
+  return (
+    <button
+      className={`candidate-row ${selected ? "selected" : ""}`}
+      onClick={() => onSelect(candidate.id)}
+      aria-pressed={selected}
+    >
+      <div className="candidate-name">
+        <strong>{candidate.name}</strong>
+        <span
+          className={`status-label ${candidate.benchmark ? "benchmark" : ""}`}
+        >
+          {statusName(a.utility.status)}
+        </span>
+      </div>
+      <ScoreStrip assessment={a} compact />
+      {a.utility.coverage < 0.7 ? (
+        <small className="insufficient">
+          Insufficient evidence · partial utility
+        </small>
+      ) : null}
+    </button>
+  );
 }
 export default function Explorer() {
- const data=useData(),[params,setParams]=useSearchParams()
- const mission:Mission=params.get('mission')==='mare-crisium'?'mare-crisium':'jezero'
- const [region,setRegion]=useState('all'),[sufficient,setSufficient]=useState(false),[drawer,setDrawer]=useState(false)
- const [selectedId,setSelectedId]=useState(()=>{try{return JSON.parse(localStorage.getItem('terrainx-selection-v1')??'{}').id??''}catch{return ''}})
- const target=data.targets.find(t=>t.id===mission)!
- const filtered=useMemo(()=>data.candidates.filter(c=>(region==='all'||c.region_id===region||c.benchmark)&&(!sufficient||c.assessments[mission].utility.coverage>=.7)),[data,region,mission,sufficient])
- const discovered=useMemo(()=>rankCandidates(filtered.filter(c=>!c.benchmark),mission),[filtered,mission])
- const references=useMemo(()=>rankCandidates(filtered.filter(c=>c.benchmark),mission),[filtered,mission])
- const selected=filtered.find(c=>c.id===selectedId)??discovered[0]??references[0]
- const a=selected?.assessments[mission]
- useEffect(()=>{if(selected)localStorage.setItem('terrainx-selection-v1',JSON.stringify({id:selected.id,mission}))},[selected,mission])
- function chooseMission(next:Mission){setParams({mission:next})}
- return <main className="explorer"><button className="mobile-mission button outline" onClick={()=>setDrawer(!drawer)} aria-expanded={drawer}><SlidersHorizontal size={17}/>Mission & study regions<ChevronDown size={16}/></button><aside className={`mission-rail ${drawer?'expanded':''}`}><h1>Choose your mission</h1><div className="planet-selector"><button className={mission==='jezero'?'active mars':''} onClick={()=>chooseMission('jezero')}><Circle size={18}/>Mars</button><button className={mission==='mare-crisium'?'active moon':''} onClick={()=>chooseMission('mare-crisium')}><Moon size={18}/>Moon</button></div><section><label htmlFor="target">Target</label><select id="target" value={mission} onChange={e=>chooseMission(e.target.value as Mission)}><option value="jezero">Jezero Crater · Mars</option><option value="mare-crisium">Mare Crisium · Moon</option></select><h3>Mission objective</h3><p>{target.mission}</p><p className="rail-context">{target.context}</p></section><section><label htmlFor="region">Study region</label><select id="region" value={region} onChange={e=>setRegion(e.target.value)}><option value="all">All four study regions</option>{data.regions.map(r=><option key={r.id} value={r.id}>{r.name}</option>)}</select><label className="check-label"><input type="checkbox" checked={sufficient} onChange={e=>setSufficient(e.target.checked)}/>Coverage ≥70% only</label><div className="search-count"><strong>{data.summary.screened_cells}</strong><span>real cells screened<br/>{data.summary.shortlisted_candidates} algorithmic candidates</span></div></section><section className="source-status"><h3><Database size={15}/>Source status</h3>{[['NASA POWER',`${data.summary.climate_profiles} profiles`],['SRTM',`${data.summary.terrain_profiles} profiles`],[mission==='jezero'?'MOLA':'LOLA',target.terrain.status==='available'?'Real DEM':'Unavailable'],['Macrostrat',`${data.summary.geology_mapped} mapped`]].map(([name,state])=><div key={name}><span>{name}</span><span><Check size={12}/>{state}</span></div>)}</section><ModelControls mission={mission}/><Link className="method-link" to="/methodology">Explore the methodology<ArrowUpRight size={15}/></Link><small className="rail-disclaimer">Independent research prototype.<br/>No NASA approval or field verification.</small></aside><Suspense fallback={<Loading message="Opening the Earth atlas…"/>}><EarthMap candidates={filtered} selected={selected} onSelect={setSelectedId}/></Suspense><aside className="results-rail"><div className="results-title"><h2>Earth experiment suitability</h2><p>Ranked by mission utility U. Coverage and physical fidelity remain separate.</p></div><div className="candidate-scroll"><h3 className="list-heading">Algorithmic shortlist <span>{discovered.length}</span></h3>{discovered.length?discovered.map(c=><CandidateRow key={c.id} candidate={c} mission={mission} selected={selected?.id===c.id} onSelect={setSelectedId}/>):<p className="empty-state">No candidates meet this evidence filter for the selected mission.</p>}<h3 className="list-heading reference-heading">Known benchmark references <span>{references.length}</span></h3>{references.map(c=><CandidateRow key={c.id} candidate={c} mission={mission} selected={selected?.id===c.id} onSelect={setSelectedId}/>)}</div>{selected&&a?<div className="selected-summary"><h2>Selected evidence summary</h2><p className="mono coordinate-line">{coordinates(selected)}</p><p className="evidence-rationale">{a.utility.criteria.geology.rationale}</p>{a.utility.coverage<.7?<p className="warning-inline"><TriangleAlert size={14}/>Insufficient evidence for characterization.</p>:<p className="warning-inline">Preliminary hypothesis only. Local verification required.</p>}<div className="summary-observation"><span>Annual precipitation proxy</span><strong>{number(selected.climate.annual_precip_mm,0)}<small>mm/year</small></strong></div><SiteActions id={selected.id} mission={mission}/></div>:null}</aside></main>
+  const data = useData(),
+    [params, setParams] = useSearchParams();
+  const mission: Mission =
+    params.get("mission") === "mare-crisium" ? "mare-crisium" : "jezero";
+  const [region, setRegion] = useState("all"),
+    [sufficient, setSufficient] = useState(false),
+    [drawer, setDrawer] = useState(false);
+  const [selectedId, setSelectedId] = useState(() => {
+    try {
+      return (
+        JSON.parse(localStorage.getItem("terrainx-selection-v1") ?? "{}").id ??
+        ""
+      );
+    } catch {
+      return "";
+    }
+  });
+  const target = data.targets.find((t) => t.id === mission)!;
+  const filtered = useMemo(
+    () =>
+      data.candidates.filter(
+        (c) =>
+          (region === "all" || c.region_id === region || c.benchmark) &&
+          (!sufficient || c.assessments[mission].utility.coverage >= 0.7),
+      ),
+    [data, region, mission, sufficient],
+  );
+  const discovered = useMemo(
+    () =>
+      rankCandidates(
+        filtered.filter((c) => !c.benchmark),
+        mission,
+      ),
+    [filtered, mission],
+  );
+  const references = useMemo(
+    () =>
+      rankCandidates(
+        filtered.filter((c) => c.benchmark),
+        mission,
+      ),
+    [filtered, mission],
+  );
+  const selected =
+    filtered.find((c) => c.id === selectedId) ?? discovered[0] ?? references[0];
+  const a = selected?.assessments[mission];
+  useEffect(() => {
+    if (selected)
+      localStorage.setItem(
+        "terrainx-selection-v1",
+        JSON.stringify({ id: selected.id, mission }),
+      );
+  }, [selected, mission]);
+  function chooseMission(next: Mission) {
+    setParams({ mission: next });
+  }
+  return (
+    <main className="explorer">
+      <button
+        className="mobile-mission button outline"
+        onClick={() => setDrawer(!drawer)}
+        aria-expanded={drawer}
+      >
+        <SlidersHorizontal size={17} />
+        Mission & study regions
+        <ChevronDown size={16} />
+      </button>
+      <aside className={`mission-rail ${drawer ? "expanded" : ""}`}>
+        <h1>Choose your mission</h1>
+        <div className="planet-selector">
+          <button
+            className={mission === "jezero" ? "active mars" : ""}
+            onClick={() => chooseMission("jezero")}
+          >
+            <Circle size={18} />
+            Mars
+          </button>
+          <button
+            className={mission === "mare-crisium" ? "active moon" : ""}
+            onClick={() => chooseMission("mare-crisium")}
+          >
+            <Moon size={18} />
+            Moon
+          </button>
+        </div>
+        <section>
+          <label htmlFor="target">Target</label>
+          <select
+            id="target"
+            value={mission}
+            onChange={(e) => chooseMission(e.target.value as Mission)}
+          >
+            <option value="jezero">Jezero Crater · Mars</option>
+            <option value="mare-crisium">Mare Crisium · Moon</option>
+          </select>
+          <h3>Mission objective</h3>
+          <p>{target.mission}</p>
+          <p className="rail-context">{target.context}</p>
+        </section>
+        <section>
+          <label htmlFor="region">Study region</label>
+          <select
+            id="region"
+            value={region}
+            onChange={(e) => setRegion(e.target.value)}
+          >
+            <option value="all">All four study regions</option>
+            {data.regions.map((r) => (
+              <option key={r.id} value={r.id}>
+                {r.name}
+              </option>
+            ))}
+          </select>
+          <label className="check-label">
+            <input
+              type="checkbox"
+              checked={sufficient}
+              onChange={(e) => setSufficient(e.target.checked)}
+            />
+            Coverage ≥70% only
+          </label>
+          <div className="search-count">
+            <strong>{data.summary.screened_cells}</strong>
+            <span>
+              real cells screened
+              <br />
+              {data.summary.shortlisted_candidates} algorithmic candidates
+            </span>
+          </div>
+        </section>
+        <section className="source-status">
+          <h3>
+            <Database size={15} />
+            Source status
+          </h3>
+          {[
+            ["NASA POWER", `${data.summary.climate_profiles} profiles`],
+            ["SRTM", `${data.summary.terrain_profiles} profiles`],
+            [
+              mission === "jezero" ? "MOLA" : "LOLA",
+              target.terrain.status === "available"
+                ? "Real DEM"
+                : "Unavailable",
+            ],
+            ["Macrostrat", `${data.summary.geology_mapped} mapped`],
+          ].map(([name, state]) => (
+            <div key={name}>
+              <span>{name}</span>
+              <span>
+                <Check size={12} />
+                {state}
+              </span>
+            </div>
+          ))}
+        </section>
+        <ModelControls mission={mission} />
+        <Link className="method-link" to="/methodology">
+          Explore the methodology
+          <ArrowUpRight size={15} />
+        </Link>
+        <small className="rail-disclaimer">
+          Independent research prototype.
+          <br />
+          No NASA approval or field verification.
+        </small>
+      </aside>
+      <Suspense fallback={<Loading message="Opening the Earth atlas…" />}>
+        <EarthMap
+          candidates={filtered}
+          selected={selected}
+          onSelect={setSelectedId}
+        />
+      </Suspense>
+      <aside className="results-rail">
+        <div className="results-title">
+          <h2>Earth experiment suitability</h2>
+          <p>
+            Ranked by mission utility U. Coverage and physical fidelity remain
+            separate.
+          </p>
+        </div>
+        <div className="candidate-scroll">
+          <h3 className="list-heading">
+            Algorithmic shortlist <span>{discovered.length}</span>
+          </h3>
+          {discovered.length ? (
+            discovered.map((c) => (
+              <CandidateRow
+                key={c.id}
+                candidate={c}
+                mission={mission}
+                selected={selected?.id === c.id}
+                onSelect={setSelectedId}
+              />
+            ))
+          ) : (
+            <p className="empty-state">
+              No candidates meet this evidence filter for the selected mission.
+            </p>
+          )}
+          <h3 className="list-heading reference-heading">
+            Known benchmark references <span>{references.length}</span>
+          </h3>
+          {references.map((c) => (
+            <CandidateRow
+              key={c.id}
+              candidate={c}
+              mission={mission}
+              selected={selected?.id === c.id}
+              onSelect={setSelectedId}
+            />
+          ))}
+        </div>
+        {selected && a ? (
+          <div className="selected-summary">
+            <h2>Selected evidence summary</h2>
+            <p className="mono coordinate-line">{coordinates(selected)}</p>
+            <p className="evidence-rationale">
+              {a.utility.criteria.geology.rationale}
+            </p>
+            {a.utility.coverage < 0.7 ? (
+              <p className="warning-inline">
+                <TriangleAlert size={14} />
+                Insufficient evidence for characterization.
+              </p>
+            ) : (
+              <p className="warning-inline">
+                Preliminary hypothesis only. Local verification required.
+              </p>
+            )}
+            <div className="summary-observation">
+              <span>Annual precipitation proxy</span>
+              <strong>
+                {number(selected.climate.annual_precip_mm, 0)}
+                <small>mm/year</small>
+              </strong>
+            </div>
+            <SiteActions id={selected.id} mission={mission} />
+          </div>
+        ) : null}
+      </aside>
+    </main>
+  );
 }

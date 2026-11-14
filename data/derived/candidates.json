@@ -11800,7 +11800,10 @@
             "Earth's dense, nitrogen/oxygen-rich atmosphere does not reproduce the thin CO₂-dominated Martian atmosphere.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "Modern water and biological mineral formation differ from the present Martian surface",
+            "Broad terrain footprint includes lake water and surrounding ophiolitic rocks",
+            "No claim of a field permit or safe sampling access"
           ],
           "missing": [
             "Field-scale mineralogy, grain-size distribution, bearing strength, permits, access, logistics and local hazards have not been assessed.",
@@ -11832,7 +11835,10 @@
             "Earth's dense, nitrogen/oxygen-rich atmosphere does not reproduce the thin CO₂-dominated Martian atmosphere.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "Modern water and biological mineral formation differ from the present Martian surface",
+            "Broad terrain footprint includes lake water and surrounding ophiolitic rocks",
+            "No claim of a field permit or safe sampling access"
           ],
           "evidence_gate": "Preliminary test hypothesis",
           "classification": "ASSUMED"
@@ -11946,7 +11952,10 @@
             "Earth's atmosphere does not reproduce lunar vacuum or its thermal cycling.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "Modern water and biological mineral formation differ from the present Martian surface",
+            "Broad terrain footprint includes lake water and surrounding ophiolitic rocks",
+            "No claim of a field permit or safe sampling access"
           ],
           "missing": [
             "Geology requires verification; no supported matching material/process score.",
@@ -11979,7 +11988,10 @@
             "Earth's atmosphere does not reproduce lunar vacuum or its thermal cycling.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "Modern water and biological mineral formation differ from the present Martian surface",
+            "Broad terrain footprint includes lake water and surrounding ophiolitic rocks",
+            "No claim of a field permit or safe sampling access"
           ],
           "evidence_gate": "Verification-first proposal; insufficient geological evidence",
           "classification": "ASSUMED"
@@ -12540,7 +12552,10 @@
             "Earth's dense, nitrogen/oxygen-rich atmosphere does not reproduce the thin CO₂-dominated Martian atmosphere.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "Harrat Khaybar is not uniformly basaltic",
+            "Coarse terrain cannot resolve lava cavities, crust stability or wheel hazards",
+            "Earth atmosphere, weathering and gravity differ from the Moon"
           ],
           "missing": [
             "Geology requires verification; no supported matching material/process score.",
@@ -12573,7 +12588,10 @@
             "Earth's dense, nitrogen/oxygen-rich atmosphere does not reproduce the thin CO₂-dominated Martian atmosphere.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "Harrat Khaybar is not uniformly basaltic",
+            "Coarse terrain cannot resolve lava cavities, crust stability or wheel hazards",
+            "Earth atmosphere, weathering and gravity differ from the Moon"
           ],
           "evidence_gate": "Verification-first proposal; insufficient geological evidence",
           "classification": "ASSUMED"
@@ -12692,7 +12710,10 @@
             "Earth's atmosphere does not reproduce lunar vacuum or its thermal cycling.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "Harrat Khaybar is not uniformly basaltic",
+            "Coarse terrain cannot resolve lava cavities, crust stability or wheel hazards",
+            "Earth atmosphere, weathering and gravity differ from the Moon"
           ],
           "missing": [
             "Field-scale mineralogy, grain-size distribution, bearing strength, permits, access, logistics and local hazards have not been assessed.",
@@ -12724,7 +12745,10 @@
             "Earth's atmosphere does not reproduce lunar vacuum or its thermal cycling.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "Harrat Khaybar is not uniformly basaltic",
+            "Coarse terrain cannot resolve lava cavities, crust stability or wheel hazards",
+            "Earth atmosphere, weathering and gravity differ from the Moon"
           ],
           "evidence_gate": "Preliminary test hypothesis",
           "classification": "ASSUMED"
@@ -13362,7 +13386,10 @@
             "Earth's dense, nitrogen/oxygen-rich atmosphere does not reproduce the thin CO₂-dominated Martian atmosphere.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "Terrestrial vegetation, weathering and atmosphere",
+            "Lava terrain is not lunar impact-produced regolith",
+            "Public-land research permissions and local safety unassessed"
           ],
           "missing": [
             "Geology requires verification; no supported matching material/process score.",
@@ -13395,7 +13422,10 @@
             "Earth's dense, nitrogen/oxygen-rich atmosphere does not reproduce the thin CO₂-dominated Martian atmosphere.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "Terrestrial vegetation, weathering and atmosphere",
+            "Lava terrain is not lunar impact-produced regolith",
+            "Public-land research permissions and local safety unassessed"
           ],
           "evidence_gate": "Verification-first proposal; insufficient geological evidence",
           "classification": "ASSUMED"
@@ -13513,7 +13543,10 @@
             "Earth's atmosphere does not reproduce lunar vacuum or its thermal cycling.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "Terrestrial vegetation, weathering and atmosphere",
+            "Lava terrain is not lunar impact-produced regolith",
+            "Public-land research permissions and local safety unassessed"
           ],
           "missing": [
             "Field-scale mineralogy, grain-size distribution, bearing strength, permits, access, logistics and local hazards have not been assessed.",
@@ -13545,7 +13578,10 @@
             "Earth's atmosphere does not reproduce lunar vacuum or its thermal cycling.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "Terrestrial vegetation, weathering and atmosphere",
+            "Lava terrain is not lunar impact-produced regolith",
+            "Public-land research permissions and local safety unassessed"
           ],
           "evidence_gate": "Preliminary test hypothesis",
           "classification": "ASSUMED"
@@ -14093,7 +14129,10 @@
             "Earth's dense, nitrogen/oxygen-rich atmosphere does not reproduce the thin CO₂-dominated Martian atmosphere.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "The studied subsurface is wet and inhabited; aridity does not mean sterility",
+            "Jezero lacustrine depositional processes are not established for this site",
+            "Atmosphere, radiation and gravity remain terrestrial"
           ],
           "missing": [
             "Field-scale mineralogy, grain-size distribution, bearing strength, permits, access, logistics and local hazards have not been assessed.",
@@ -14125,7 +14164,10 @@
             "Earth's dense, nitrogen/oxygen-rich atmosphere does not reproduce the thin CO₂-dominated Martian atmosphere.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "The studied subsurface is wet and inhabited; aridity does not mean sterility",
+            "Jezero lacustrine depositional processes are not established for this site",
+            "Atmosphere, radiation and gravity remain terrestrial"
           ],
           "evidence_gate": "Preliminary test hypothesis",
           "classification": "ASSUMED"
@@ -14239,7 +14281,10 @@
             "Earth's atmosphere does not reproduce lunar vacuum or its thermal cycling.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "The studied subsurface is wet and inhabited; aridity does not mean sterility",
+            "Jezero lacustrine depositional processes are not established for this site",
+            "Atmosphere, radiation and gravity remain terrestrial"
           ],
           "missing": [
             "Geology requires verification; no supported matching material/process score.",
@@ -14272,7 +14317,10 @@
             "Earth's atmosphere does not reproduce lunar vacuum or its thermal cycling.",
             "Earth does not reproduce the planetary radiation environment.",
             "Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.",
-            "Earth air-temperature climatology is not planetary surface temperature."
+            "Earth air-temperature climatology is not planetary surface temperature.",
+            "The studied subsurface is wet and inhabited; aridity does not mean sterility",
+            "Jezero lacustrine depositional processes are not established for this site",
+            "Atmosphere, radiation and gravity remain terrestrial"
           ],
           "evidence_gate": "Verification-first proposal; insufficient geological evidence",
           "classification": "ASSUMED"

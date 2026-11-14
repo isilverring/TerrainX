@@ -17,9 +17,9 @@
 - Landing, Explorer, mission filters, interactive MapLibre/GIBS map, Analog DNA, Reality Gap, Passport/print, Methodology and adjustable normalized utility weights implemented.
 - Strict TypeScript and static production build pass. Dependency audit reports zero vulnerabilities.
 - Browser QA caught and corrected the POWER point-period parser and map canvas CSS. CARTO returned key-required watermark tiles; replaced with verified public Esri dark-gray Base/Reference plus local Natural Earth fallback. No API key is required.
-- All main routes, mission filters, normalized model controls and print/PDF have run through Playwright; final map readiness/mobile regression currently being rerun after decoupling overlays from remote tile completion.
+- Development QA complete:4 Playwright workflows pass, including mission/region/evidence filters, live GIBS, normalized weights, Analog DNA, Reality Gap, Passport print/PDF, Methodology, mobile and external-basemap-failure fallback. Main workflow has zero page or console errors. MapLibre module worker is explicitly bundled.
 - New owner-private Sites project recorded in `.openai/hosting.json`: `appgprj_6af7ff7626888191bcba757337fd7e9b`. Expected URL is `https://terrainx-discovery-lab.comfybay1.chatgpt.site`; not yet published. Do not create another Site.
-- Final browser screenshot review, static packaging and Sites publication remain in progress. Vercel/Netlify configuration and scientific documentation now exist.
+- Concept/screenshot comparison completed; curated renders under `docs/screenshots/`, ledger in `docs/QA.md`. Strict TypeScript/static build passes; root `dist/` prepared; dependency audit0 vulnerabilities. Production preview also passes all 4 browser workflows. Sites publication is the remaining active step. Vercel/Netlify configuration and scientific documentation are complete.
 
 ## Resume
 Read `NEXT_STEPS.md`, `DATA_STATUS.md`, and this file. Run `git status --short --branch` and inspect the latest commit before changing files.

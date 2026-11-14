@@ -1,7 +1,136 @@
-import { Link, useParams, useSearchParams } from 'react-router-dom'
-import { Printer } from 'lucide-react'
-import { useData, coordinates, statusName } from '../lib/data'
-import type { Mission } from '../lib/models'
-import { BackLink, EvidenceTag, ScoreStrip, SourceLink } from '../components/ui'
-import { ObservationPanel, TerrainPanel, GeologyPanel, RealityGapPanel, ExperimentPanel, UtilityPanel } from '../components/SciencePanels'
-export default function Passport(){const data=useData(),{id}=useParams(),[params]=useSearchParams();const mission:Mission=params.get('mission')==='mare-crisium'?'mare-crisium':'jezero';const c=data.candidates.find(c=>c.id===id),target=data.targets.find(t=>t.id===mission)!;if(!c)return <main className="document-page"><h1>Candidate not found</h1><Link to="/explorer">Return to atlas</Link></main>;const a=c.assessments[mission];return <main className="document-page passport-page"><div className="passport-toolbar"><BackLink mission={mission}/><button className="button primary" onClick={()=>window.print()}><Printer size={17}/>Print / Save as PDF</button></div><header className="passport-header"><div><p className="document-label">TerrainX / Scientific field briefing</p><h1>ANALOG PASSPORT</h1><p>Planetary Analog Discovery & Mission Readiness Lab</p></div><div className="passport-number mono">{c.id}<br/>DATA {new Date(data.generated_at).toISOString().slice(0,10)}<br/>PRELIMINARY · NO FIELD VALIDATION</div></header><section className="passport-identity"><h2>{c.name}</h2><p className="mono">{coordinates(c)}</p><p>{c.coordinate_scope??'Automatically selected NASA POWER cell center. Field subsite not yet chosen or surveyed.'}</p><dl><div><dt>Reference target</dt><dd>{target.body} / {target.name} ({target.latitude}°N,{target.longitude}°E)</dd></div><div><dt>Discovery status</dt><dd>{statusName(a.utility.status)}{c.benchmark?' · benchmark, never counted as a new discovery':''}</dd></div><div><dt>Terrain footprint</dt><dd>24×24km · 7×7 samples · 4km spacing</dd></div><div><dt>Evidence status</dt><dd>{a.utility.evidence_label}</dd></div></dl><EvidenceTag kind={c.benchmark?'LITERATURE-SUPPORTED':'DERIVED'}/></section><ScoreStrip assessment={a}/><ObservationPanel candidate={c} chart={false}/><TerrainPanel candidate={c} target={target} assessment={a}/><GeologyPanel candidate={c}/><UtilityPanel assessment={a}/><RealityGapPanel assessment={a}/><ExperimentPanel assessment={a}/><section className="science-section passport-sources"><h2>Data provenance & references</h2><p>NASA climatology acquisition period:2001–2025. Earth SRTM acquisition:February2000. Raster products and acquisition periods are in each target's validated PDS metadata. Dataset generated:{data.generated_at}.</p>{c.source_refs.map((url,i)=><div key={url}><SourceLink url={url}>[{i+1}] {url}</SourceLink></div>)}{target.source_refs.map(s=><div key={s.url}><SourceLink url={s.url}>{s.title} · {s.url}</SourceLink></div>)}</section><footer className="passport-disclaimer"><strong>Scientific interpretation disclaimer</strong><p>This deterministic dossier presents observed, derived, literature-supported and explicitly assumed screening information. It is not a finding of planetary equivalence, site access authorization, field verification, vehicle safety certification or NASA approval. No field experiment has been conducted. Confirm geological context and obtain required permits before any field activity.</p></footer></main>}
+import { Link, useParams, useSearchParams } from "react-router-dom";
+import { Printer } from "lucide-react";
+import { useData, coordinates, statusName } from "../lib/data";
+import type { Mission } from "../lib/models";
+import {
+  BackLink,
+  EvidenceTag,
+  ScoreStrip,
+  SourceLink,
+} from "../components/ui";
+import {
+  ObservationPanel,
+  TerrainPanel,
+  GeologyPanel,
+  RealityGapPanel,
+  ExperimentPanel,
+  UtilityPanel,
+} from "../components/SciencePanels";
+export default function Passport() {
+  const data = useData(),
+    { id } = useParams(),
+    [params] = useSearchParams();
+  const mission: Mission =
+    params.get("mission") === "mare-crisium" ? "mare-crisium" : "jezero";
+  const c = data.candidates.find((c) => c.id === id),
+    target = data.targets.find((t) => t.id === mission)!;
+  if (!c)
+    return (
+      <main className="document-page">
+        <h1>Candidate not found</h1>
+        <Link to="/explorer">Return to atlas</Link>
+      </main>
+    );
+  const a = c.assessments[mission];
+  return (
+    <main className="document-page passport-page">
+      <div className="passport-toolbar">
+        <BackLink mission={mission} />
+        <button className="button primary" onClick={() => window.print()}>
+          <Printer size={17} />
+          Print / Save as PDF
+        </button>
+      </div>
+      <header className="passport-header">
+        <div>
+          <p className="document-label">TerrainX / Scientific field briefing</p>
+          <h1>ANALOG PASSPORT</h1>
+          <p>Planetary Analog Discovery & Mission Readiness Lab</p>
+        </div>
+        <div className="passport-number mono">
+          {c.id}
+          <br />
+          DATA {new Date(data.generated_at).toISOString().slice(0, 10)}
+          <br />
+          PRELIMINARY · NO FIELD VALIDATION
+        </div>
+      </header>
+      <section className="passport-identity">
+        <h2>{c.name}</h2>
+        <p className="mono">{coordinates(c)}</p>
+        <p>
+          {c.coordinate_scope ??
+            "Automatically selected NASA POWER cell center. Field subsite not yet chosen or surveyed."}
+        </p>
+        <dl>
+          <div>
+            <dt>Reference target</dt>
+            <dd>
+              {target.body} / {target.name} ({target.latitude}°N,
+              {target.longitude}°E)
+            </dd>
+          </div>
+          <div>
+            <dt>Discovery status</dt>
+            <dd>
+              {statusName(a.utility.status)}
+              {c.benchmark
+                ? " · benchmark, never counted as a new discovery"
+                : ""}
+            </dd>
+          </div>
+          <div>
+            <dt>Terrain footprint</dt>
+            <dd>24×24km · 7×7 samples · 4km spacing</dd>
+          </div>
+          <div>
+            <dt>Evidence status</dt>
+            <dd>{a.utility.evidence_label}</dd>
+          </div>
+        </dl>
+        <EvidenceTag kind={c.benchmark ? "LITERATURE-SUPPORTED" : "DERIVED"} />
+      </section>
+      <ScoreStrip assessment={a} />
+      <ObservationPanel candidate={c} chart={false} />
+      <TerrainPanel candidate={c} target={target} assessment={a} />
+      <GeologyPanel candidate={c} />
+      <UtilityPanel assessment={a} />
+      <RealityGapPanel assessment={a} />
+      <ExperimentPanel assessment={a} />
+      <section className="science-section passport-sources">
+        <h2>Data provenance & references</h2>
+        <p>
+          NASA climatology acquisition period:2001–2025. Earth SRTM
+          acquisition:February2000. Raster products and acquisition periods are
+          in each target's validated PDS metadata. Dataset generated:
+          {data.generated_at}.
+        </p>
+        {c.source_refs.map((url, i) => (
+          <div key={url}>
+            <SourceLink url={url}>
+              [{i + 1}] {url}
+            </SourceLink>
+          </div>
+        ))}
+        {target.source_refs.map((s) => (
+          <div key={s.url}>
+            <SourceLink url={s.url}>
+              {s.title} · {s.url}
+            </SourceLink>
+          </div>
+        ))}
+      </section>
+      <footer className="passport-disclaimer">
+        <strong>Scientific interpretation disclaimer</strong>
+        <p>
+          This deterministic dossier presents observed, derived,
+          literature-supported and explicitly assumed screening information. It
+          is not a finding of planetary equivalence, site access authorization,
+          field verification, vehicle safety certification or NASA approval. No
+          field experiment has been conducted. Confirm geological context and
+          obtain required permits before any field activity.
+        </p>
+      </footer>
+    </main>
+  );
+}
