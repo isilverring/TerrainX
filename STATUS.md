@@ -1,28 +1,28 @@
 # TerrainX checkpoint
 
 ## Current state
-2026-11-14: implementation started in `D:\TerrainX`. Empty private GitHub repository is `https://github.com/isilverring/TerrainX`.
+**Task 1 MVP complete and deployed.** All project work is under `D:\TerrainX`. Source is in the private `https://github.com/isilverring/TerrainX` repository on `main`.
 
-## Completed
-- Local Git repository on `main`, origin configured; initial checkpoint successfully pushed.
-- Restart protocol and scientific honesty requirements recorded.
-- Genuine MOLA/LOLA 16ppd rasters decoded with validated PDS labels; 49 samples per target,4km spacing.
-- Regional NASA POWER search verified:130 cells across four regions.
-- Scientific modules for terrain, fidelity, utility, coverage, discovery, caching and provenance implemented.
-- 48 scientific tests passed, including actual point-versus-regional period metadata and PDS label checks.
-- Explorer and landing design concepts recorded in `docs/design/`.
+Live owner-private preview: https://terrainx-discovery-lab.comfybay1.chatgpt.site
 
-## In progress
-- Data acquisition finished:130 cells,16 automatic candidates,10 preliminary characterized candidates,4 references,20 climate+terrain profiles,2 planetary profiles,19 mapped geologies; no acquisition errors.
-- Landing, Explorer, mission filters, interactive MapLibre/GIBS map, Analog DNA, Reality Gap, Passport/print, Methodology and adjustable normalized utility weights implemented.
-- Strict TypeScript and static production build pass. Dependency audit reports zero vulnerabilities.
-- Browser QA caught and corrected the POWER point-period parser and map canvas CSS. CARTO returned key-required watermark tiles; replaced with verified public Esri dark-gray Base/Reference plus local Natural Earth fallback. No API key is required.
-- Development QA complete:4 Playwright workflows pass, including mission/region/evidence filters, live GIBS, normalized weights, Analog DNA, Reality Gap, Passport print/PDF, Methodology, mobile and external-basemap-failure fallback. Main workflow has zero page or console errors. MapLibre module worker is explicitly bundled.
-- New owner-private Sites project recorded in `.openai/hosting.json`: `appgprj_6af7ff7626888191bcba757337fd7e9b`. Expected URL is `https://terrainx-discovery-lab.comfybay1.chatgpt.site`; not yet published. Do not create another Site.
-- Concept/screenshot comparison completed; curated renders under `docs/screenshots/`, ledger in `docs/QA.md`. Strict TypeScript/static build passes; root `dist/` prepared; dependency audit0 vulnerabilities. Production preview also passes all 4 browser workflows. Sites publication is the remaining active step. Vercel/Netlify configuration and scientific documentation are complete.
+Deployment succeeded and was verified on2026-11-14 at07:09:25UTC. Exact deployed code/data commit:`a058c1c594a7c3f29db1d1dfa94547f4d1e27650`. Deployment IDs and audience are in DEPLOYMENT.md. Later commits contain completion/recovery documentation; use `git log -1` for the latest checkpoint.
 
-## Resume
-Read `NEXT_STEPS.md`, `DATA_STATUS.md`, and this file. Run `git status --short --branch` and inspect the latest commit before changing files.
+## Completed and verified
+-130 real POWER cells across four bounded regions;16 algorithmic candidates;10 preliminary characterized automatic candidates;4 separately labelled benchmarks.
+-20 real climate profiles,20 SRTM49-point grids,2 real metadata-validated MOLA/LOLA grids,19 mapped geological responses;no acquisition errors.
+-48 scientific tests pass plus independent reproduction of the saved shortlist,terrain metrics,F/U/C and eligible P.
+-Landing,Explorer,mission/region/evidence filters,MapLibre+GIBS,adjustable normalized mission weights,Analog DNA,Reality Gap,field hypothesis,printable Passport and Methodology implemented.
+-4 browser workflows pass in both development and production preview. Desktop1568x1003 and mobile390x844;zero page/console errors in the successful main workflow;live GIBS verified;blocked-basemap fallback tested.
+-Strict TypeScript/static production build passes. MapLibre module worker explicitly bundled. Dependency audit:0 known vulnerabilities.
+-Concept-to-render review completed. Curated actual screenshots in `docs/screenshots/`,design references in `docs/design/`,verification ledger in `docs/QA.md`.
+-Public Esri dark-gray basemap with local Natural Earth coastline fallback;no API key required. The offered CARTO key was not used or stored.
+-README,SCIENCE,DATA_SOURCES,DATA_STATUS,DEMO,deployment configurations,CI and checkpoint helper complete.
 
-## Checkpoint policy
-Each coherent module/feature is documented, committed, and pushed. A sudden power loss can still lose changes since the latest checkpoint; commits are the durable recovery boundary.
+## Remaining limits (not unfinished MVP work)
+No field validation,local access/permit/safety survey,rover mechanics or NASA certification. Terrain fidelity is exploratory with unequal native support. No automatic candidate has established lunar-basalt relevance in this bounded shortlist. External map tiles are best-effort. The hosted preview is private;public Vercel/Netlify instructions are ready.
+
+## Resume safely
+Read NEXT_STEPS.md,DATA_STATUS.md and SCIENCE.md;run `git status --short --branch` and `git log -5 --oneline` before changing anything. The requested MVP is complete. Optional extensions supplied by the user are documented but not claimed as integrated data.
+
+## Durable checkpoint policy
+After each future completed module:update these notes,run relevant checks,then `.\scripts\checkpoint.ps1 -Message "feat: describe the completed step"`. It commits,pushes and verifies local/remote SHAs. A sudden shutdown can still lose edits since the last checkpoint;GitHub commits are the recovery boundary. Never persist credentials.
