@@ -61,6 +61,7 @@ const FieldStudy = lazy(() => import("./pages/FieldStudy"));
 const Lenses = lazy(() => import("./pages/Lenses"));
 const CellSearch = lazy(() => import("./pages/CellSearch"));
 const LunarPolar = lazy(() => import("./pages/LunarPolar"));
+const ChallengeFit = lazy(() => import("./pages/ChallengeFit"));
 import CommandPalette from "./components/CommandPalette";
 const TerrainPilot = lazy(() => import("./pages/TerrainPilot"));
 const Offline = lazy(() => import("./pages/Offline"));
@@ -264,6 +265,7 @@ function App() {
                 <Route path="/lenses" element={<Lenses />} />
                 <Route path="/cells" element={<CellSearch />} />
                 <Route path="/lunar-pole" element={<LunarPolar />} />
+                <Route path="/challenge" element={<ChallengeFit />} />
                 <Route path="/cases" element={<Cases />} />
                 <Route path="/offline" element={<Offline />} />
                 <Route path="/terrain-pilot" element={<TerrainPilot />} />

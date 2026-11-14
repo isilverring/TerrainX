@@ -43,9 +43,10 @@ Work continued from the laptop after Release 3 (`efa7194`). Each milestone below
 
 - **L9 integration** — guided demo now has ten scenes: new Scene 6 "Beyond the shortlist" (Mars rankable cells, new picks vs the aridity shortlist, the first lunar-eligible cell, best/worst Earth twin at the pole) loaded from the release with checksum checks. Lenses links to the cell search. Method and reproduction notes: `docs/CELL_SEARCH_AND_POLAR.md`.
 
+- **L10 submission prep** — `docs/PLAN.md` (challenge page + Resources tab re-read 2026-11-14; deadline Sun 15 Nov 23:59 local; ≤30 s video or ≤7 slides; P0/P1/P2 plan with a 30-second demo script). `docs/DEPLOY_VERCEL.md` and an extended `vercel.json` (no-cache service worker, immutable assets/releases, security headers); root `npm run build` verified to reproduce release `science-1407d3729d4bd714`. New `/challenge` page mapping all 12 challenge dimensions to TerrainX (4 covered, 5 partial, 3 gaps) and the data in use; landing "latest findings" strip read live from the release. Tests: 86 unit, 32/32 browser (+1 live-imagery skip), 75 Python.
+
 ### Planned next
-1. PC-side: publish the current build to the existing public Site (never create a new Site); record the deployed commit in DEPLOYMENT.md.
-2. Optional: point T2M climatology for all cells (POWER point API, 114 requests via the same browser route) so cell coverage reaches 100%; Diviner polar temperatures only with a pinned, checksum-verified product; Field Study Builder for screened cells.
+See `docs/PLAN.md` — P0: deploy + verify, record the 30-second demo, write the project page, final QA, tag the submitted commit.
 
 Cloud-session limits: the sandbox shell cannot reach map tiles, NASA, POWER, OpenTopoData or Macrostrat, so new external observations are only added when they can be fetched and checksum-verified. Publishing to the public Site remains a PC-side step.
 

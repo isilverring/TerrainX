@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Globe from "../components/Globe";
 import { useData } from "../lib/data";
 import BeyondKnown from "../components/BeyondKnown";
+import FindingsStrip from "../components/FindingsStrip";
 export default function Landing() {
   const { summary } = useData();
   const stats: [number, string][] = [
@@ -63,6 +64,7 @@ export default function Landing() {
           </Link>
         ))}
       </section>
+      <FindingsStrip />
       <BeyondKnown />
       <section className="research-entry">
         <div>
@@ -83,7 +85,8 @@ export default function Landing() {
           Earth Science · Planets & Moons · Software · Space Exploration
         </span>
         <small>
-          Independent project. NASA data use does not imply endorsement.
+          Independent project. NASA data use does not imply endorsement.{" "}
+          <Link to="/challenge">How TerrainX meets the challenge →</Link>
         </small>
       </footer>
     </main>

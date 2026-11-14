@@ -25,3 +25,13 @@ test("lunar south pole shows verified LOLA terrain and Earth twins", async ({ pa
   await expect(page.locator(".polar-detail")).toContainText("not an Artemis III region");
   await expect(page.locator(".polar-twins li")).toHaveCount(4);
 });
+
+test("landing findings come from the release and the challenge-fit page lists gaps honestly", async ({ page }) => {
+  await page.goto("/#/");
+  await expect(page.locator(".finding-card")).toHaveCount(3);
+  await expect(page.locator(".finding-card").first()).toContainText("lunar-eligible");
+  await page.getByRole("link", { name: /How TerrainX meets the challenge/ }).click();
+  await expect(page.getByRole("heading", { name: /What the challenge asks/ })).toBeVisible();
+  await expect(page.locator(".fit-card")).toHaveCount(12);
+  await expect(page.locator(".fit-card.gap")).toHaveCount(3);
+});

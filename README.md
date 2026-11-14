@@ -32,6 +32,7 @@ No application authentication, database, backend, paid API, LLM or judge-time NA
 - **Discovery Lenses** (`/lenses`): six declared, reproducible rankings of the same shortlist (baseline, your model, terrain twin, evidence-weighted, operations rehearsal, pessimistic evidence) in a rank-flow chart, with benchmarks excluded and missing geology never rewarded.
 - **Search every cell** (`/cells`): all 130 screened cells characterized with real SRTM terrain and Macrostrat geology and ranked for each mission; finds the first lunar-eligible (mapped basalt) cell. Separate versioned experiment; released discovery unchanged.
 - **Lunar south pole** (`/lunar-pole`): checksum-verified NASA LOLA terrain at the IAU centres of the features naming NASA's Artemis III candidate regions, with Earth relief twins. See [docs/CELL_SEARCH_AND_POLAR.md](docs/CELL_SEARCH_AND_POLAR.md).
+- **Challenge fit** (`/challenge`): every dimension named by the 2026 challenge mapped to TerrainX, with gaps marked. Plan to submission: [docs/PLAN.md](docs/PLAN.md). Vercel: [docs/DEPLOY_VERCEL.md](docs/DEPLOY_VERCEL.md).
 - **Command palette** (Ctrl/⌘ K or `/`): jump to any page or to a candidate's dossier, field study or passport from the keyboard.
 
 ## Run locally
