@@ -24,10 +24,10 @@ test("complete scientific workflow, map, model controls, DNA, Passport and metho
       name: "EARTH IS OUR FIRST PLANETARY LABORATORY.",
     }),
   ).toBeVisible();
-  await expect(page.locator(".globe-wrap svg path").last()).toHaveAttribute(
-    "d",
-    /.{100,}/,
-  );
+  await expect(
+    page.locator('.globe-wrap svg path[fill="url(#land)"]'),
+  ).toHaveAttribute("d", /.{100,}/);
+  await expect(page.locator(".hero-stats dd").first()).toHaveText("130");
   await page.screenshot({
     path: resolve(evidence, "landing-desktop.png"),
     fullPage: true,
@@ -173,7 +173,7 @@ test("complete scientific workflow, map, model controls, DNA, Passport and metho
   ).toBeVisible();
   await expect(
     page.getByText(
-      "48 scientific tests passed in the recorded validation run.",
+      /\d+ scientific tests passed in the recorded validation run\./,
       { exact: false },
     ),
   ).toBeVisible();
@@ -272,4 +272,27 @@ test("3D terrain viewer falls back to the cached analysis lattice without live t
     viewer.locator(".viewer-panel.mars .viewer-stats dd").first(),
   ).toHaveText("716 m");
   await expect(viewer).toContainText("visualisation only");
+});
+
+test("compare mode shows two or three candidates side by side without a winner", async ({
+  page,
+}) => {
+  await page.goto(
+    "/#/compare?mission=jezero&ids=gobi-42.000-101.250,saudi-24.000-39.375,chile--23.500--70.000",
+  );
+  await expect(
+    page.getByRole("heading", { name: "Compare candidates" }),
+  ).toBeVisible();
+  const table = page.locator(".compare-table");
+  await expect(table.locator("thead th")).toHaveCount(5);
+  await expect(table).toContainText("U is partial");
+  await expect(table).toContainText("not assessed");
+  await expect(
+    page.getByText("No winner is declared", { exact: false }),
+  ).toBeVisible();
+  await table
+    .getByRole("button", { name: /Remove .* from comparison/ })
+    .first()
+    .click();
+  await expect(table.locator("thead th")).toHaveCount(4);
 });

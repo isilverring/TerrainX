@@ -38,11 +38,11 @@ is never used for scoring.
 6. ✅ Source-status rows always show a ✓ icon, even when a source is unavailable. The icon must follow the status.
 7. ✅ `localStorage.setItem` is not wrapped in try/catch, so it throws in private/embedded contexts.
 8. ✅ The Mars button uses a generic circle icon. Give Mars and the Moon distinct glyphs.
-9. Landing: replace the flat globe illustration with a live (slowly rotating) globe that shows the real candidate
+9. ✅ Landing: replace the flat globe illustration with a live (slowly rotating) globe that shows the real candidate
    points and the headline counts from `dataset.json`.
-10. Add a **compare mode** for 2–3 candidates (F/U/C, terrain metrics, climate, geology side by side).
+10. ✅ Add a **compare mode** for 2–3 candidates (F/U/C, terrain metrics, climate, geology side by side).
 11. ✅ Add a candidate search box and keyboard navigation (↑/↓) through the results list.
-12. Passport: add a QR/URL footer and a print check for page breaks.
+12. ✅ Passport: add a QR/URL footer and a print check for page breaks.
 
 ## Progress log
 - 2026-11-14 (laptop cloud session, milestone 1): C1–C8 and C11 done. Ranking groups characterized before screened
@@ -63,6 +63,14 @@ is never used for scoring.
   SHA-256 matched `manifest.json`; `scripts/build_planetary_context.py` resamples them (same bilinear/offset rule) and
   tests prove the windows reproduce the scored 7×7 grids exactly. Earth context is sampled live from AWS terrarium z8
   in the browser (spot-checked against cached SRTM: within tens of metres) and falls back to the lattice offline.
+
+- 2026-11-14 (milestone 5): C9 live landing globe (real candidate points, study-region boxes, slow rotation, static under
+  reduced motion, drag to spin) with headline counts from `dataset.json`; C10 compare mode (toggle up to 3 candidates in
+  the list → `/compare`, target column for terrain metrics, no winner declared, partial U flagged); C12 Passport QR/URL
+  "Live dossier" block (offline inline-SVG QR via `qrcode-generator`, MIT) and print pagination rules (verified: Salda
+  passport prints as 6 A4 pages with no split tables). Fixed ~40 glued word/number typos ("common4km", "period:2001",
+  "geology0.55") in the UI and in generated rationale strings; dataset regenerated offline — only text changed, zero
+  numeric differences; `validate_results.py` now reports 57 passed.
 
 ## D. Environment notes
 - Laptop path is `C:\TerrainX`. The PC path is `D:\TerrainX`. Both are clones of `isilverring/TerrainX` `main`.

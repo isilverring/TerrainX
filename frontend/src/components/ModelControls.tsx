@@ -14,7 +14,7 @@ export default function ModelControls({ mission }: { mission: Mission }) {
       <summary>Model assumptions</summary>
       <p>
         Experimental utility weights, not NASA limits. Adjusting one preserves a
-        total of1.00.
+        total of 1.00.
       </p>
       {(Object.keys(labels) as (keyof Weights)[]).map((key) => (
         <label key={key} htmlFor={`weight-${key}`}>

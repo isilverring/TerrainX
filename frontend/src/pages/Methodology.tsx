@@ -98,18 +98,18 @@ export default function Methodology() {
             missing values and coast/water-screened centers.
           </li>
           <li>
-            Convert valid mean daily mm/day to an annual proxy using365.25. Rank
-            by declared aridity proxy S=clamp(1−Pannual/400,0,1).
+            Convert valid mean daily mm/day to an annual proxy using 365.25.
+            Rank by declared aridity proxy S=clamp(1−Pannual/400,0,1).
           </li>
           <li>
-            Apply a public-domain Natural Earth110m broad land mask and
-            deterministic65km geographic separation; retain up to4 cells in each
-            bounded region. Tie-break by latitude then longitude. Coastal land
-            classification remains approximate.
+            Apply a public-domain Natural Earth 110m broad land mask and
+            deterministic 65 km geographic separation; retain up to 4 cells in
+            each bounded region. Tie-break by latitude then longitude. Coastal
+            land classification remains approximate.
           </li>
           <li>
-            Acquire richer POWER point climate, a7×7 SRTM grid at4km spacing,
-            and Macrostrat mapped units for the16 shortlisted candidates and4
+            Acquire richer POWER point climate, a 7×7 SRTM grid at 4 km spacing,
+            and Macrostrat mapped units for the 16 shortlisted candidates and 4
             separately labelled benchmarks.
           </li>
           <li>
@@ -141,16 +141,16 @@ export default function Methodology() {
         <h2>02 / Real planetary terrain, validated labels</h2>
         <p>
           Mars/Jezero uses MOLA MEGDR16; Moon/Mare Crisium uses LOLA LDEM16.
-          Each global raster is5760×2880,16pixels per degree. We validate
-          detached PDS labels, signed16-bit encoding, dimensions, byte order,
-          scale, units, no-data treatment, projection and pixel centers before
-          extraction.
+          Each global raster is 5760 × 2880 pixels at 16 pixels per degree. We
+          validate detached PDS labels, signed 16-bit encoding, dimensions, byte
+          order, scale, units, no-data treatment, projection and pixel centers
+          before extraction.
         </p>
         <p>
           MOLA is big-endian with height in meters above its areoid. LOLA is
-          little-endian with height=DN×0.5m relative to the1737400m reference
-          sphere; we do not add that radius to terrain heights. Longitude
-          is0–360° east-positive. Pixel centers use longitude=(column+0.5)/16,
+          little-endian with height=DN×0.5 m relative to the 1737400 m reference
+          sphere; we do not add that radius to terrain heights. Longitude is
+          0–360° east-positive. Pixel centers use longitude=(column+0.5)/16,
           latitude=90−(row+0.5)/16.
         </p>
         <p>
@@ -180,8 +180,8 @@ export default function Methodology() {
         </div>
         <p>
           We use central differences on interior samples only. Horizontal
-          spacing and heights are in meters. At4km spacing, slope derivatives
-          span8km.
+          spacing and heights are in meters. At 4 km spacing, slope derivatives
+          span 8 km.
         </p>
         <div className="equation">
           H=Q95(z)−Q05(z) [m]
@@ -208,10 +208,11 @@ export default function Methodology() {
         </div>
         <p>
           Equal weights across median slope, p90 slope, relief and detrended
-          RMS. Declared tolerances:3°,5°,150m,75m. These are illustrative model
-          choices, not calibrated NASA limits or measurement uncertainties.
-          Missing planetary/Earth data, mismatched spacing/window,
-          coarser-than-grid native pixels or missing provenance yield F=null.
+          RMS. Declared tolerances: 3°, 5°, 150 m, 75 m. These are illustrative
+          model choices, not calibrated NASA limits or measurement
+          uncertainties. Missing planetary/Earth data, mismatched
+          spacing/window, coarser-than-grid native pixels or missing provenance
+          yield F=null.
         </p>
         <h3>U / Mission testing utility</h3>
         <EvidenceTag kind="ASSUMED" />
@@ -221,23 +222,23 @@ export default function Methodology() {
           C=Σavailable(wk)
         </div>
         <p>
-          Jezero weights: geology0.55, terrain0.20, dryness0.15, Earth thermal
-          operations0.10. Mare Crisium: basaltic geology0.55, terrain0.30,
-          dryness0.10, Earth thermal operations0.05. Geology:1 documented
-          matching material/process;0.5 partial evidence;0 documented
+          Jezero weights: geology 0.55, terrain 0.20, dryness 0.15, Earth
+          thermal operations 0.10. Mare Crisium: basaltic geology 0.55, terrain
+          0.30, dryness 0.10, Earth thermal operations 0.05. Geology: 1
+          documented matching material/process;0.5 partial evidence;0 documented
           mismatch;null unknown.
         </p>
         <p>
-          Terrain utility is a bell preference centered on p90 slope3°(Mars)
-          or5°(Moon), width5°. The Earth thermal logistics heuristic prefers
-          annual air temperature near10°C on a40°C scale; it is not planetary
+          Terrain utility is a bell preference centered on p90 slope 3° (Mars)
+          or 5° (Moon), width 5°. The Earth thermal logistics heuristic prefers
+          annual air temperature near 10°C on a 40°C scale; it is not planetary
           surface-temperature equivalence. All functions are exposed in the
           source and candidate criterion rationale.
         </p>
         <h3>C / Evidence coverage</h3>
         <p>
           C is assessed weight, not confidence, quality or probability. Coverage
-          below70% is explicitly insufficient evidence. Partial U remains
+          below 70% is explicitly insufficient evidence. Partial U remains
           visible and uses a different available-evidence denominator, so
           compare coverage and criteria before interpreting rankings.
         </p>
@@ -319,9 +320,9 @@ export default function Methodology() {
           ))}
         </div>
         <p className="caption">
-          Cached release generated {data.generated_at}. POWER
-          climatology2001–2025; native grid metadata, units, timestamps and
-          scientific labels accompany numeric observations.
+          Cached release generated {data.generated_at}. POWER climatology
+          2001–2025; native grid metadata, units, timestamps and scientific
+          labels accompany numeric observations.
         </p>
       </section>
     </main>

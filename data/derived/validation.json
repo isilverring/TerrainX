@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-11-14T06:56:38.422933+00:00",
-  "passed": 48,
+  "generated_at": "2026-11-14T08:38:56.685822+00:00",
+  "passed": 57,
   "failed": 0,
   "checks": [
     "Dataset passes Pydantic validation; frontend also validates with Zod.",
-    "All130 screened cells retained and deterministic shortlist reproduced from cached data.",
+    "All 130 screened cells retained and deterministic shortlist reproduced from cached data.",
     "All terrain metrics reproduce from the actual cached sample grids.",
     "All mission F/U/C and eligible combined priorities independently recomputed.",
     "Numeric climate observations have source URL, period, actual units, timestamp and source-body hash.",
@@ -23,5 +23,5 @@
     "geology_mapped": 19,
     "errors": []
   },
-  "dataset_sha256": "7d0086e2e924feed74002f47a15b273d87b8f5d00d93fc7dbf1d2bf10eb0ebca"
+  "dataset_sha256": "3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c"
 }

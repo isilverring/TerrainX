@@ -10,7 +10,7 @@ EARTH_RADIUS_M = 6_371_000
 
 def grid_coordinates(latitude: float, longitude: float, size: int = 7, spacing_m: float = 4000) -> list[tuple[float, float]]:
     if size < 3 or size % 2 == 0 or spacing_m <= 0 or abs(latitude) >= 60:
-        raise ValueError("Need odd grid >=3, positive spacing, and SRTM coverage below60°")
+        raise ValueError("Need odd grid >=3, positive spacing, and SRTM coverage below 60°")
     step_lat = math.degrees(spacing_m / EARTH_RADIUS_M)
     step_lon = step_lat / math.cos(math.radians(latitude))
     half = size // 2
@@ -19,7 +19,7 @@ def grid_coordinates(latitude: float, longitude: float, size: int = 7, spacing_m
 
 def batches(values: list, size: int = 100):
     if not 1 <= size <= 100:
-        raise ValueError("OpenTopoData max100 locations per request")
+        raise ValueError("OpenTopoData max 100 locations per request")
     return [values[i:i+size] for i in range(0, len(values), size)]
 
 
@@ -38,5 +38,5 @@ def sample_grid(client: CachedHTTP, latitude: float, longitude: float) -> dict:
             if abs(loc["lat"]-expected[0]) > 1e-5 or abs(loc["lng"]-expected[1]) > 1e-5:
                 raise ValueError("SRTM response coordinate mismatch")
             elevations.append(clean(actual.get("elevation")))
-        sources.append({"dataset": "NASA SRTM / OpenTopoData srtm90m", "source_url": record["url"], "retrieved_at": record["retrieved_at"], "period": "SRTM acquisition February2000; service mosaic", "original_unit": "m", "classification": "MEASURED", "native_resolution": "approximately90m (3 arc-second)", "sha256": record["sha256"]})
-    return {"status": "available", "elevations_m": [elevations[i:i+7] for i in range(0,49,7)], "sample_spacing_m": 4000, "footprint_m": 24000, "native_resolution_m": {"x": 90, "y": 90}, "resampling": "OpenTopoData bilinear sample; no smoothing; 4km point grid", "provenance": sources, "coordinate_order": "rows south-to-north, columns west-to-east", "note": "24×24km broad regional sample footprint; not a90m analysis grid or rover hazard survey."}
+        sources.append({"dataset": "NASA SRTM / OpenTopoData srtm90m", "source_url": record["url"], "retrieved_at": record["retrieved_at"], "period": "SRTM acquisition February 2000; service mosaic", "original_unit": "m", "classification": "MEASURED", "native_resolution": "approximately 90 m (3 arc-second)", "sha256": record["sha256"]})
+    return {"status": "available", "elevations_m": [elevations[i:i+7] for i in range(0,49,7)], "sample_spacing_m": 4000, "footprint_m": 24000, "native_resolution_m": {"x": 90, "y": 90}, "resampling": "OpenTopoData bilinear sample; no smoothing; 4 km point grid", "provenance": sources, "coordinate_order": "rows south-to-north, columns west-to-east", "note": "24×24 km broad regional sample footprint; not a 90 m analysis grid or rover hazard survey."}

@@ -7,14 +7,16 @@ import {
   useState,
   type KeyboardEvent,
 } from "react";
-import { useSearchParams, Link } from "react-router-dom";
+import { useSearchParams, Link, useNavigate } from "react-router-dom";
 import {
   ArrowUpRight,
   Check,
   ChevronDown,
   CircleAlert,
   CircleX,
+  Columns3,
   Database,
+  Plus,
   Search,
   SlidersHorizontal,
   TriangleAlert,
@@ -38,6 +40,8 @@ import ModelControls from "../components/ModelControls";
 const EarthMap = lazy(() => import("../components/EarthMap"));
 
 const SELECTION_KEY = "terrainx-selection-v1";
+const COMPARE_KEY = "terrainx-compare-v1";
+const MAX_COMPARE = 3;
 
 function CandidateRow({
   candidate,
@@ -45,44 +49,70 @@ function CandidateRow({
   selected,
   rank,
   onSelect,
+  compared,
+  compareFull,
+  onCompare,
 }: {
   candidate: Candidate;
   mission: Mission;
   selected: boolean;
   rank: string;
   onSelect: (id: string) => void;
+  compared: boolean;
+  compareFull: boolean;
+  onCompare: (id: string) => void;
 }) {
   const a = candidate.assessments[mission];
   return (
-    <button
-      className={`candidate-row ${selected ? "selected" : ""}`}
-      onClick={() => onSelect(candidate.id)}
-      aria-pressed={selected}
-      data-candidate-id={candidate.id}
-      tabIndex={selected ? 0 : -1}
-    >
-      <div className="candidate-name">
-        <span className="rank-chip mono" aria-label={`Rank ${rank}`}>
-          {rank}
-        </span>
-        <span className="candidate-name-text">
-          <strong>{candidate.name}</strong>
-          <span
-            className={`status-label ${candidate.benchmark ? "benchmark" : ""} ${a.utility.status === "SCREENED CANDIDATE" ? "screened" : ""}`}
-          >
-            {statusName(a.utility.status)}
+    <div className="candidate-item">
+      <button
+        className={`candidate-row ${selected ? "selected" : ""}`}
+        onClick={() => onSelect(candidate.id)}
+        aria-pressed={selected}
+        data-candidate-id={candidate.id}
+        tabIndex={selected ? 0 : -1}
+      >
+        <div className="candidate-name">
+          <span className="rank-chip mono" aria-label={`Rank ${rank}`}>
+            {rank}
           </span>
-        </span>
-      </div>
-      <ScoreStrip assessment={a} compact />
-      {a.utility.coverage < 0.7 ? (
-        <small className="insufficient">
-          <TriangleAlert size={11} />
-          Insufficient evidence · U is partial (
-          {number(100 * a.utility.coverage, 0)}% of weight assessed)
-        </small>
-      ) : null}
-    </button>
+          <span className="candidate-name-text">
+            <strong>{candidate.name}</strong>
+            <span
+              className={`status-label ${candidate.benchmark ? "benchmark" : ""} ${a.utility.status === "SCREENED CANDIDATE" ? "screened" : ""}`}
+            >
+              {statusName(a.utility.status)}
+            </span>
+          </span>
+        </div>
+        <ScoreStrip assessment={a} compact />
+        {a.utility.coverage < 0.7 ? (
+          <small className="insufficient">
+            <TriangleAlert size={11} />
+            Insufficient evidence · U is partial (
+            {number(100 * a.utility.coverage, 0)}% of weight assessed)
+          </small>
+        ) : null}
+      </button>
+      <button
+        type="button"
+        className={`compare-toggle ${compared ? "active" : ""}`}
+        onClick={() => onCompare(candidate.id)}
+        aria-pressed={compared}
+        disabled={!compared && compareFull}
+        title={
+          compared
+            ? "Remove from comparison"
+            : compareFull
+              ? `Up to ${MAX_COMPARE} candidates`
+              : "Add to comparison"
+        }
+        aria-label={`${compared ? "Remove" : "Add"} ${candidate.name} ${compared ? "from" : "to"} comparison`}
+      >
+        {compared ? <Check size={12} /> : <Plus size={12} />}
+        <span>Compare</span>
+      </button>
+    </div>
   );
 }
 
@@ -115,7 +145,32 @@ export default function Explorer() {
       return "";
     }
   });
-  const listRef = useRef<HTMLDivElement>(null);
+  const listRef = useRef<HTMLDivElement>(null),
+    navigate = useNavigate();
+  const [compareIds, setCompareIds] = useState<string[]>(() => {
+    try {
+      const saved = JSON.parse(safeStorage.get(COMPARE_KEY) ?? "[]");
+      return Array.isArray(saved)
+        ? saved
+            .filter((x): x is string => typeof x === "string")
+            .slice(0, MAX_COMPARE)
+        : [];
+    } catch {
+      return [];
+    }
+  });
+  useEffect(() => {
+    safeStorage.set(COMPARE_KEY, JSON.stringify(compareIds));
+  }, [compareIds]);
+  function toggleCompare(id: string) {
+    setCompareIds((ids) =>
+      ids.includes(id)
+        ? ids.filter((x) => x !== id)
+        : ids.length >= MAX_COMPARE
+          ? ids
+          : [...ids, id],
+    );
+  }
   const target = data.targets.find((t) => t.id === mission)!;
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
@@ -414,6 +469,9 @@ export default function Explorer() {
               rank={ranks.get(c.id) ?? ""}
               selected={selected?.id === c.id}
               onSelect={select}
+              compared={compareIds.includes(c.id)}
+              compareFull={compareIds.length >= MAX_COMPARE}
+              onCompare={toggleCompare}
             />
           ))}
           {screened.length ? (
@@ -430,6 +488,9 @@ export default function Explorer() {
               rank={ranks.get(c.id) ?? ""}
               selected={selected?.id === c.id}
               onSelect={select}
+              compared={compareIds.includes(c.id)}
+              compareFull={compareIds.length >= MAX_COMPARE}
+              onCompare={toggleCompare}
             />
           ))}
           {!discovered.length ? (
@@ -450,6 +511,9 @@ export default function Explorer() {
               rank={ranks.get(c.id) ?? ""}
               selected={selected?.id === c.id}
               onSelect={select}
+              compared={compareIds.includes(c.id)}
+              compareFull={compareIds.length >= MAX_COMPARE}
+              onCompare={toggleCompare}
             />
           ))}
           <p className="list-end">
@@ -457,6 +521,42 @@ export default function Explorer() {
             {sortLabels[sortKey]}.
           </p>
         </div>
+        {compareIds.length ? (
+          <div className="compare-tray" role="region" aria-label="Comparison">
+            <div className="compare-chips">
+              {compareIds.map((id) => {
+                const c = data.candidates.find((x) => x.id === id);
+                return c ? (
+                  <button
+                    key={id}
+                    onClick={() => toggleCompare(id)}
+                    aria-label={`Remove ${c.name} from comparison`}
+                  >
+                    {ranks.get(id) ? (
+                      <b className="mono">{ranks.get(id)}</b>
+                    ) : null}
+                    {c.name}
+                    <X size={11} />
+                  </button>
+                ) : null;
+              })}
+            </div>
+            <button
+              className="button primary compare-open"
+              disabled={compareIds.length < 2}
+              onClick={() =>
+                navigate(
+                  `/compare?mission=${mission}&ids=${compareIds.join(",")}`,
+                )
+              }
+            >
+              <Columns3 size={15} />
+              {compareIds.length < 2
+                ? "Pick one more"
+                : `Compare ${compareIds.length}`}
+            </button>
+          </div>
+        ) : null}
         {selected && a ? (
           <div className="selected-summary">
             <div className="summary-head">

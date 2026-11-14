@@ -7,7 +7,7 @@ WEIGHTS = {"jezero": {"geology":.55,"terrain":.20,"aridity":.15,"temperature":.1
 
 def validate_weights(weights):
     if any(v<0 for v in weights.values()) or not math.isclose(sum(weights.values()),1,abs_tol=1e-9):
-        raise ValueError("Mission weights must be nonnegative and sum to1")
+        raise ValueError("Mission weights must be nonnegative and sum to 1")
 
 
 def mission_utility(criteria: dict, mission: str, *, benchmark=False, weights=None) -> dict:
@@ -19,7 +19,7 @@ def mission_utility(criteria: dict, mission: str, *, benchmark=False, weights=No
         value=criterion.get("value")
         if value is not None:
             if not math.isfinite(value) or not 0<=value<=1 or not criterion.get("source_refs"):
-                raise ValueError("Assessed criteria need a finite0..1 value and provenance")
+                raise ValueError("Assessed criteria need a finite 0..1 value and provenance")
             assessed.append((key,weight,value))
     coverage=sum(weight for _,weight,_ in assessed)
     utility=100*sum(weight*value for _,weight,value in assessed)/coverage if coverage else None

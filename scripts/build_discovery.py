@@ -62,16 +62,16 @@ def criteria_for(candidate, mission):
     refs=[s["source_url"] for s in terrain.get("provenance",[]) ]
     t=temp.get("value")
     return {"geology":geo,
-        "terrain":{"value":terrain_value,"rationale":"Bell-shaped preference for broad fieldwork challenge: p90 slope ideal3°(Mars) or5°(Moon), width5°. Coarse screening cannot certify traversability.","source_refs":refs,"classification":"ASSUMED"},
+        "terrain":{"value":terrain_value,"rationale":"Bell-shaped preference for broad fieldwork challenge: p90 slope ideal 3° (Mars) or 5° (Moon), width 5°. Coarse screening cannot certify traversability.","source_refs":refs,"classification":"ASSUMED"},
         "aridity":{"value":None if annual is None else max(0,min(1,1-annual/400)),"rationale":"Terrestrial dry-operating proxy clamp(1-annual_mm/400); not planetary precipitation equivalence.","source_refs":[precip["provenance"]["source_url"]] if precip else [],"classification":"ASSUMED"},
-        "temperature":{"value":None if t is None else max(0,1-abs(t-10)/40),"rationale":"Earth field-operation logistics heuristic: preference around10°C annual air temperature,40°C scale. Does not compare planetary surface temperatures or diurnal cycles.","source_refs":[temp["provenance"]["source_url"]] if temp else [],"classification":"ASSUMED"}}
+        "temperature":{"value":None if t is None else max(0,1-abs(t-10)/40),"rationale":"Earth field-operation logistics heuristic: preference around 10°C annual air temperature, 40°C scale. Does not compare planetary surface temperatures or diurnal cycles.","source_refs":[temp["provenance"]["source_url"]] if temp else [],"classification":"ASSUMED"}}
 
 
 def reality_gap(candidate,mission,assessment):
     body="Mars" if mission=="jezero" else "Moon"
     match=[]
     if candidate["terrain"].get("metrics"):
-        match.append("Real SRTM measurements support regional slope, relief and detrended terrain analysis across24×24km.")
+        match.append("Real SRTM measurements support regional slope, relief and detrended terrain analysis across 24×24 km.")
     if candidate["climate"].get("annual_precip_mm") is not None:
         match.append("NASA POWER climatology describes terrestrial precipitation and field-operating context.")
     if assessment["utility"]["criteria"]["geology"]["value"] is not None:
@@ -81,7 +81,7 @@ def reality_gap(candidate,mission,assessment):
         missing.insert(0,"Geology requires verification; no supported matching material/process score.")
     if assessment["fidelity"]["value"] is None:
         missing.append("Physical terrain fidelity is not assessed: insufficient compatible terrain data.")
-    return {"match":match,"mission_use":"Rehearse sedimentary sampling, documentation and geological navigation workflows." if mission=="jezero" else "Rehearse basalt sampling, route planning and volcanic-field surface operations.","mismatch":[f"Earth gravity (~9.81m/s²) differs from {body} (~3.71m/s²)." if mission=="jezero" else "Earth gravity (~9.81m/s²) differs from lunar gravity (~1.62m/s²).","Earth's dense, nitrogen/oxygen-rich atmosphere does not reproduce the thin CO₂-dominated Martian atmosphere." if mission=="jezero" else "Earth's atmosphere does not reproduce lunar vacuum or its thermal cycling.","Earth does not reproduce the planetary radiation environment.","Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.","Earth air-temperature climatology is not planetary surface temperature."]+candidate.get("limits",[]),"missing":missing,"force_model":"F_parallel = m·g·sin(θ); N = m·g·cos(θ). Simple gravitational components only: no wheel traction, slip, sinkage or cohesion model.","conclusion":"An Earth test can validate navigation and science workflows without reproducing planetary vehicle mechanics."}
+    return {"match":match,"mission_use":"Rehearse sedimentary sampling, documentation and geological navigation workflows." if mission=="jezero" else "Rehearse basalt sampling, route planning and volcanic-field surface operations.","mismatch":[f"Earth gravity (~9.81 m/s²) differs from {body} (~3.71 m/s²)." if mission=="jezero" else "Earth gravity (~9.81 m/s²) differs from lunar gravity (~1.62 m/s²).","Earth's dense, nitrogen/oxygen-rich atmosphere does not reproduce the thin CO₂-dominated Martian atmosphere." if mission=="jezero" else "Earth's atmosphere does not reproduce lunar vacuum or its thermal cycling.","Earth does not reproduce the planetary radiation environment.","Biology, water, weathering, soil cohesion and regolith mechanics can differ fundamentally.","Earth air-temperature climatology is not planetary surface temperature."]+candidate.get("limits",[]),"missing":missing,"force_model":"F_parallel = m·g·sin(θ); N = m·g·cos(θ). Simple gravitational components only: no wheel traction, slip, sinkage or cohesion model.","conclusion":"An Earth test can validate navigation and science workflows without reproducing planetary vehicle mechanics."}
 
 
 def experiment(candidate,mission,assessment):
@@ -110,12 +110,12 @@ def main():
     land=json.loads(land_path.read_text(encoding="utf-8"))
     for cell in all_cells:
         cell["land_eligible"]=on_land(cell["longitude"],cell["latitude"],land)
-        cell["land_mask_note"]="Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+        cell["land_mask_note"]="Natural Earth 110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
     atomic_json(out/"screened_cells.geojson",{"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"Point","coordinates":[c["longitude"],c["latitude"]]},"properties":c} for c in all_cells]})
     shortlist=select_candidates(all_cells,per_region=args.per_region)
     selected=[]
     for i,cell in enumerate(shortlist):
-        selected.append({**cell,"name":f"{next(r['name'] for r in REGIONS if r['id']==cell['region_id'])} · {sum(c['region_id']==cell['region_id'] for c in shortlist[:i])+1:02}","benchmark":False,"discovery_method":"NASA regional precipitation, deterministic aridity ranking,65km separation; geological relevance not assumed."})
+        selected.append({**cell,"name":f"{next(r['name'] for r in REGIONS if r['id']==cell['region_id'])} · {sum(c['region_id']==cell['region_id'] for c in shortlist[:i])+1:02}","benchmark":False,"discovery_method":"NASA regional precipitation, deterministic aridity ranking, 65 km separation; geological relevance not assumed."})
     ref_path=out/"reference_evidence.json"
     references=json.loads(ref_path.read_text(encoding="utf-8")) if ref_path.exists() else []
     if isinstance(references,dict):

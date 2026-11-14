@@ -65,7 +65,7 @@ export function ObservationPanel({
       <p className="caption">
         Annual precipitation = mean daily rate ×365.25. Seasonal range =
         max(monthly mean) − min(monthly mean); it is not a daily temperature
-        swing. Meteorology0.5°×0.625°; solar1°×1°. Original solar units remain
+        swing. Meteorology 0.5°×0.625°; solar 1°×1°. Original solar units remain
         MJ/m²/day where returned.
       </p>
       <p className="caption">
@@ -100,8 +100,8 @@ export function TerrainPanel({
         <EvidenceTag kind="DERIVED" />
       </div>
       <p className="section-intro">
-        A common4km lattice across24×24km; central slopes use an8km baseline.
-        Native support differs: SRTM≈90m; {target.body}≈
+        A common 4 km lattice across 24×24 km; central slopes use an 8 km
+        baseline. Native support differs: SRTM ≈ 90 m; {target.body} ≈{" "}
         {number(target.terrain.native_resolution_m?.y, 0)}m north–south.
       </p>
       <div className="table-scroll">

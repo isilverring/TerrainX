@@ -1,5 +1,6 @@
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import { Printer } from "lucide-react";
+import QrCode from "../components/QrCode";
 import { useData, coordinates, statusName } from "../lib/data";
 import type { Mission } from "../lib/models";
 import {
@@ -100,9 +101,9 @@ export default function Passport() {
       <section className="science-section passport-sources">
         <h2>Data provenance & references</h2>
         <p>
-          NASA climatology acquisition period:2001–2025. Earth SRTM
-          acquisition:February2000. Raster products and acquisition periods are
-          in each target's validated PDS metadata. Dataset generated:
+          NASA climatology acquisition period: 2001–2025. Earth SRTM
+          acquisition: February 2000. Raster products and acquisition periods
+          are in each target's validated PDS metadata. Dataset generated:{" "}
           {data.generated_at}.
         </p>
         {c.source_refs.map((url, i) => (
@@ -119,6 +120,22 @@ export default function Passport() {
             </SourceLink>
           </div>
         ))}
+      </section>
+      <section className="passport-link" aria-label="Online version">
+        <QrCode
+          value={window.location.href}
+          label="QR code linking to this Analog Passport online"
+        />
+        <div>
+          <strong>Live dossier</strong>
+          <p className="mono">{window.location.href}</p>
+          <p>
+            Scan or open the link for the interactive version: Analog DNA, the
+            3D terrain viewer, adjustable model weights and source links. The
+            printed copy reflects the model weights in use at{" "}
+            {new Date().toISOString().slice(0, 16).replace("T", " ")} UTC.
+          </p>
+        </div>
       </section>
       <footer className="passport-disclaimer">
         <strong>Scientific interpretation disclaimer</strong>

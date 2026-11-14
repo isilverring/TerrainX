@@ -1,7 +1,15 @@
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Globe from "../components/Globe";
+import { useData } from "../lib/data";
 export default function Landing() {
+  const { summary } = useData();
+  const stats: [number, string][] = [
+    [summary.screened_cells, "NASA POWER cells screened"],
+    [summary.shortlisted_candidates, "algorithmic candidates"],
+    [summary.characterized_candidates, "characterized"],
+    [summary.benchmark_sites, "benchmarks, never counted"],
+  ];
   return (
     <main className="landing">
       <section className="landing-hero">
@@ -22,6 +30,14 @@ export default function Landing() {
             Launch Discovery Engine
             <ArrowRight size={24} />
           </Link>
+          <dl className="hero-stats" aria-label="Current dataset">
+            {stats.map(([value, label]) => (
+              <div key={label}>
+                <dt>{label}</dt>
+                <dd className="mono">{value}</dd>
+              </div>
+            ))}
+          </dl>
           <div className="powered">
             Powered by open NASA science data
             <span>NASA POWER / SRTM / MOLA / LOLA</span>
