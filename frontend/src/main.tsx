@@ -85,7 +85,7 @@ function PinRelease({ presentation }: { presentation: boolean }) {
       p.set("science", data.release.release_id);
       changed = true;
     }
-    if (data.collection && !p.has("cohort")) {
+    if (data.collection && p.get("cohort")!==data.collection) {
       p.set("cohort", data.collection);
       changed = true;
     }

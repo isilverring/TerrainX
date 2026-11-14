@@ -10,17 +10,17 @@ The app and supporting software are prepared. You handle the video/slides, team 
 
 ## Record a 29-second demonstration
 
-Prepare → Offline first, then open these screens in advance. Use your original TerrainX logo, real data and readable captures. Do not include unverified output, access tokens or account screens.
+Research tools → Offline first, then open these screens in advance. Use your original TerrainX logo, real data and readable captures. Do not include unverified output, access tokens or account screens.
 
 | Time | Screen | Suggested narration |
 |---|---|---|
 |0–5s|Landing|“TerrainX finds where on Earth to rehearse Moon and Mars field science.”|
-|5–12s|All cells|“We characterize 130 NASA observation cells, then rank their evidence for a specific mission.”|
-|12–18s|Moon cell lead|“A mapped-basalt lead emerges in this sample, with field verification still required.”|
-|18–24s|Lunar pole|“Verified LOLA and Diviner products expose both terrain opportunities and thermal limits.”|
-|24–29s|Field Study Builder|“Turn a lead into a reproducible field proposal, with sources, gaps and proposed measurements.”|
+|5–10s|Judge path · sample|“We characterize 130 NASA observation cells for specific mission questions.”|
+|10–16s|Judge path · lead|“Terrain fidelity, experiment utility and evidence coverage remain separate.”|
+|16–23s|Judge path · evidence|“Published samples reveal mixed volcanic materials, showing where the analogy needs testing.”|
+|23–29s|Judge path · experiment|“Turn that gap into a reproducible field proposal and the next measurement.”|
 
-For the Moon cell, open `/#/cells?mission=mare-crisium&cell=chile--23.000--70.000`. Polar example: `/#/lunar-pole?site=haworth`. Proposed field study: select “Plan a field study for this cell,” suggest a relief transect, and show the proposal label. The 40 common-support pilot scenarios are available for deeper questions, not required in a 29-second clip.
+Open `/#/guide?cohort=expanded&polar=none` and use Next to move through the five steps. The Moon case is a scoped volcanic-material investigation; the Mars alternative preserves an unresolved local evidence gap. Choose “Prepare this field proposal,” suggest a relief transect and show the proposal label. The separate polar workflow and 360-comparison support study are useful for audience questions, rather than the required short clip. Advanced pages are under Research tools.
 
 Slide alternative: 1 title/team; 2 challenge; 3 NASA/partner data; 4 F/U/C and missing evidence; 5 bounded 130-cell findings; 6 polar model limitations; 7 proposed field experiment/public link. Count every title/closing slide.
 

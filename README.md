@@ -10,9 +10,11 @@ All work stays in **D:\TerrainX**, tracking `origin/main`. Private repository: [
 
 ## Current audited release
 
-The teammate's11-commit continuation was fully reviewed through0f326ff, then repaired and tested. Current checks: **81 Python /89 TypeScript /38 production browser workflows**, plus85 responsive route/width cases. [Package A/B/C status](docs/PACKAGE_AUDIT.md), [submission steps](docs/SUBMISSION_GUIDE.md), [deployment steps](LIVE_DEMO.md). Exact live source/version: DEPLOYMENT.md.
+The six approved challenge improvements are implemented. Canonical handoff/checklist: [docs/CHALLENGE_COMPLETION.md](docs/CHALLENGE_COMPLETION.md). Local acceptance: **85 Python tests plus independent reproduction,94 TypeScript tests,43 production browser workflows and90 responsive route/width cases**. Final public publication/verification is tracked separately in [DEPLOYMENT.md](DEPLOYMENT.md).
 
-Expanded130-cell search retains units/source hashes and has79 eligible Mars cells, a13-cell separated shortlist (12 new versus aridity), and1 mapped-basalt lunar lead within this sample. Original discovery16 +4 benchmarks is unchanged. All130 cells can seed proposed field studies. Full study JSON preserves the entire plan; share URLs preserve stations/intent/models and pin historical inputs. Lunar module:8 verified LOLA feature profiles and area-weighted Diviner model summaries independently matched to PDS source bytes/MD5. These are not landing polygons or measured ice.
+Original study and Expanded search are explicit collections. The latter exposes134 unique profiles (130 screened cells +4 benchmarks) through map, DNA, Passport, comparison and field planning while retaining frozen original records. Polar references keep their own identities through dossiers and field replay; polar utility is unassessed, coverage0 and combined priority null. The original130-cell/16-candidate/4-benchmark results remain unchanged.
+
+Common-support processing now covers18 selected sites,33 Copernicus tiles and360 valid Earth/target support-offset comparisons. Scoped primary literature adds a local volcanic-material contradiction and an unresolved regional sedimentary case. These are research hypotheses, not confirmed analog discoveries. Start with the five-step **/guide**, then use **Research tools** for advanced analysis. [Case evidence](docs/CANDIDATE_CASES.md), [terrain reproduction](docs/TERRAIN_PILOT.md), [submission steps](docs/SUBMISSION_GUIDE.md), [live demo/deployment](LIVE_DEMO.md).
 
 ## Working experience
 

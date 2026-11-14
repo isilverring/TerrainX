@@ -6,7 +6,7 @@ Public audience URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site. Exis
 
 1. In D:\TerrainX inspect git status, pull --ff-only when clean, and read STATUS.md. Keep historical science releases. Use Node 24.x/Python 3.12.
 2. Run scientific checks, npm run test:unit and npm run build. Root dist is the publishable output; frontend/src is not a deploy archive. No API key/environment secret is needed.
-3. Run npm run preview, then the 38 browser workflows against 127.0.0.1:4173. Rehearse offline preparation, a new-cell field proposal, polar selection and export. Commit/push the reviewed source and verify remote HEAD.
+3. Run npm run preview, then the43 browser workflows against 127.0.0.1:4173. Rehearse offline preparation, a new-cell field proposal, polar selection and export. Commit/push the reviewed source and verify remote HEAD.
 
 ## Publish through Codex with the Sites plugin
 
@@ -19,7 +19,7 @@ Public audience URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site. Exis
 ## Verify and present
 
 9. Open the returned production URL in a fresh private/incognito window without a login. Confirm the landing page, All cells, Lunar pole, Field study, guided demo, source dialogs and exports. Run the public browser suite; offline preparation is tested against any production catalogue, including the public Site.
-10. Prepare → Offline → Prepare offline demo → wait for ready. Reload with network disabled; verify cells, polar science and exports. External tiles/citations remain online-only. The regression also reproduces a host redirect from /index.html to /; checksum verification alone does not prove offline navigation works.
+10. Research tools → Offline → Prepare offline demo → wait for ready. Reload with network disabled; verify cells, polar science and exports. External tiles/citations remain online-only. The regression also reproduces a host redirect from /index.html to /; checksum verification alone does not prove offline navigation works.
 11. If this browser prepared an older build, reconnect and prepare the update; explicitly choose Use prepared update and reload when offered. Refreshing the page alone may intentionally retain the prepared build. Clearing prepared files is a fallback and preserves saved research studies.
 12. Commit/push the completion metadata. Later documentation-only commits may follow the deployed app SHA; this distinction is intentional.
 

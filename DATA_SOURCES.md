@@ -64,3 +64,9 @@ Three actual GLO90 AWS2021 COG tiles, EDM/FLM/WBM masks and source XML/licences 
 - [NASA's October28,2024 region announcement](https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/) and [IAU Gazetteer](https://planetarynames.wr.usgs.gov/): dated feature context/centres, not current landing commitments or landing polygons.
 
 The app includes source-reported, derived and modeled quantities with distinct limits. Source acquisition and scientific pipeline use no paid key or LLM endpoint.
+
+## Six-item completion sources
+
+The expanded common-support study uses33 verified GLO90 tiles for18 selected sites,132 DEM/mask rasters and201 source/licence objects. Source contracts, acquisition periods, masks, licences and hashes: data/source/pilot/manifest.expanded.json and validation.expanded.json; methods: docs/TERRAIN_PILOT.md. Original two-site sources and frozen outputs remain unchanged.
+
+Scoped case observations: Oliveros et al. (2007), Table1a,p212, [primary paper](https://www.andeangeology.cl/index.php/revista1/article/download/V34n2-a03/490), [DOI](https://doi.org/10.5027/andgeoV34n2-a03); Franchi et al. (2022), Table1, [DOI](https://doi.org/10.3389/fevo.2022.818417); Schmidt et al. (2023), [DOI](https://doi.org/10.3389/fspas.2023.1108386). Reported coordinates/materials, source scope, source datum uncertainty and derived distances remain distinct. Source SHA identifies the curated extraction file, not an entire publication. No field verification or original NASA mineralogical measurement is claimed.

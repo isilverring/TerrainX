@@ -1,6 +1,6 @@
 # Current scientific data status
 
-Science release **science-b1a132b201ad2046**. Original dataset SHA256 **3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c**. Historical release folders remain immutable. Core scientific validation: 81 Python tests plus independent reproduction; 89 TypeScript tests; 38 production-preview workflows. See DEPLOYMENT.md for exact public publication.
+Science release **science-79daa128eae12594**. Original dataset SHA256 **3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c**. Historical release folders remain immutable. Core scientific validation: 85 Python tests plus independent reproduction;94 TypeScript tests;43 production-preview workflows. See DEPLOYMENT.md for exact public publication.
 
 | Analysis | Actual available data | Interpretation |
 |---|---|---|
@@ -19,3 +19,5 @@ All numeric climate observations retain original units, source URL, actual perio
 SRTM nominal90m input is sampled at4km over24km; coarse slopes cannot identify boulders or certify safety. The Natural Earth110m land mask is approximate. Mapped units do not confirm subsite mineralogy or cave presence. Diviner medians count triangles equally; fractions use their3D surface areas, selected by centroid without clipping boundary triangles. Undefined negative ice-depth codes remain unknown.
 
 No source-acquisition errors are recorded in original or expanded datasets. Cached raw JSON bodies and source records are preserved. Full33MB planetary rasters and dense pilot TIFFs are ignored; labels/checksums/derived arrays are committed. See SCIENCE.md, DATA_SOURCES.md and docs/CELL_SEARCH_AND_POLAR.md for methods and reproduction.
+
+Scoped case evidence: two exploratory cells, two published volcanic sample positions inside the Moon cell window, and a published sediment-core position55.681km outside the Mars cell window. Literature positions, converted coordinates and derived distances are separate from NASA observations. No scoring categories were upgraded. Source extraction/hash and geographic tests: docs/CANDIDATE_CASES.md. Polar dossiers preserve the actual selected reference; U is null, assessed utility-weight coverage0 and P null.

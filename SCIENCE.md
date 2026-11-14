@@ -1,3 +1,13 @@
+# Six-item challenge completion — current interpretation
+
+85 Python tests and independent baseline reproduction,94 TypeScript tests and43 local production workflows pass. The original dataset and rankings are unchanged. Explicit collection identity, polar physical-reference identity and source-pinned proposal protocols preserve what the numbers refer to. The legacy lunar model slot is not the physical polar reference: reference_id/target_reference carry that identity, all polar utility criteria remain null, assessed weight coverage0 and priority null.
+
+The separate18-site Copernicus/PDS study supplies360 valid support/offset comparisons and F-only order sensitivity within the selected sample. Default-tolerance processing ranges are not confidence intervals, active custom-score uncertainty or mission-success probabilities. No primary-target support result is transferred to a polar feature. See docs/TERRAIN_PILOT.md.
+
+Primary literature supports volcanic-material heterogeneity at two reported positions within the Moon lead window, including basaltic andesite and andesite. It does not confirm uniform basalt or the cell centre's material. The reviewed Mars regional evidence does not validate local Jezero-like deposits; the published Mosu core is outside the window. Case inputs, geographic scope and proposed protocols are reproducible; no scores are silently upgraded. See docs/CANDIDATE_CASES.md.
+
+## Earlier audited contracts and original-study method
+
 # Current audit additions
 
 Release4 contracts are terrainx-cell-search-v3 and terrainx-lunar-polar-v2, separate from the preserved original model.81 Python/89 TypeScript tests and38 production browser checks pass. Per-variable units/periods/source hashes remain attached to public climate data. Relative Earth percentiles are not Moon/Mars similarity. GBIF is a sampling/reporting quantity, AOD550 is column aerosol extinction and GWET is a model index; no life-scarcity, surface-dust or ice equivalence is inferred.
@@ -12,9 +22,9 @@ The original core equations and scale limitations follow below; historical count
 
 Independent research prototype: no planetary equivalence, field verification, rover/landing safety certification or NASA approval is claimed.
 
-## Actual release
+## Original discovery release
 
-130 valid NASA POWER grid cells;16 algorithmically shortlisted candidates;4 separately labelled benchmarks;20 POWER point profiles;20 real SRTM49-point terrain grids;2 real planetary DEM profiles;19 Macrostrat mapped-geology responses; no acquisition errors. Ten automatic candidates meet the declared default evidence gate for a preliminary mission-specific hypothesis. None is field-validated. No automatic candidate has established direct lunar-basalt relevance in the selected map evidence. This honest negative/unknown lunar result must not be replaced with assumed basalt.
+130 valid NASA POWER grid cells;16 algorithmically shortlisted candidates;4 separately labelled benchmarks;20 POWER point profiles;20 real SRTM49-point terrain grids;2 real planetary DEM profiles;19 Macrostrat mapped-geology responses; no acquisition errors. Ten automatic candidates meet the declared default evidence gate for a preliminary mission-specific hypothesis. None is field-validated. No automatic candidate in the original16-cell shortlist has established direct lunar-basalt relevance in that map evidence. The expanded130-cell study has a mapped-basalt lead, with material contradictions documented separately. This honest negative/unknown lunar result must not be replaced with assumed basalt.
 
 “Discovered” means previously unshortlisted by this reproducible bounded search, not unknown to geological literature. Benchmark references are never counted as new discoveries.
 

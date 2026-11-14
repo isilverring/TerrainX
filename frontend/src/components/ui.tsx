@@ -90,7 +90,7 @@ export function Header({
       </a>
       <Link
         className="brand"
-        to={presentation ? "/?presentation=0" : "/"}
+        to={presentation ? "/?presentation=0&cohort=original&polar=none" : "/?cohort=original&polar=none"}
         aria-label="TerrainX home"
         onClick={onEndPresentation}
       >

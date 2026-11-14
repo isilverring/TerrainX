@@ -1,16 +1,15 @@
-# TerrainX audience walkthrough
+# TerrainX judge and audience walkthrough
 
-For the mandatory short submission demo, use docs/SUBMISSION_GUIDE.md (aim29seconds or at most7slides). This90-second walkthrough is for the audience and questions.
+Start with **Start here** or /#/guide?cohort=expanded&polar=none. Five manual steps provide the shortest coherent path. Choose Moon for the volcanic-material case or Mars for an explicit local-evidence gap. The numbers come from the pinned release and active model; the displayed pipeline rank is labeled as the cached default-model rank.
 
-1. **0–15s — Discover:** landing → All cells. Explain130 real screened cells, original16 automatic candidates and4 benchmarks. The expanded mission-aware search is a separate experiment, not a rewritten historical discovery.
-2. **15–30s — Investigate a lead:** select Moon and the23°S70°W mapped-basalt cell. It is a preliminary regional-map lead within this sample, not confirmed subsite basalt. Show source units/hashes and coverage as input availability.
-3. **30–45s — Compare carefully:** show F/U/C separately, missing geology in Frontier, and one scientific case. Terrain pilot changes8→12km support; actual grids and offset sensitivity reveal methodological limits. No score is a success probability.
-4. **45–60s — Lunar reference:** open Lunar pole (Haworth or Mons Mouton). Eight IAU feature-centre profiles, verified LOLA/Diviner source and modeled thermal/stability results. Unknown codes are visible; no ice detection or current landing polygon claim.
-5. **60–75s — Reality gap:** Transfer Lab explains gravity/Froude and air-versus-surface distinctions. Open What-if or Lenses for mission-dependent rankings if questions allow.
-6. **75–90s — Prepare:** All cells → Plan a field study → Suggest relief transect. Show proposed stations, field measurement questions, JSON/GPX/print and source-pinned sharing. Finish with the next measurement, not a discovered winner.
+1. **0–15s — Challenge:** explain that useful analogs support specific experiments and cannot match every planetary condition.
+2. **15–30s — Sample:** show130 real screened cells in four bounded regions. Original study16 candidates +4 benchmarks and Expanded search130 cells +4 benchmarks are separate collections.
+3. **30–45s — Lead:** inspect the selected exploratory cell's F/U/C, observation units and coarse terrain support. A lead within this sample is not a first-ever discovery or universal winner.
+4. **45–65s — Evidence and limits:** Moon: published basaltic-andesite/andesite positions inside the window contradict uniform basalt. Mars: regional literature does not establish a local Jezero analog; the published Mosu core lies55.7km outside. Explain what measurement is missing.
+5. **65–90s — Experiment:** open the literature-informed field proposal, suggest a relief transect and export JSON/GPX/print. Stations and success indicators are proposals. Full JSON retains the complete book; compact QR has the stated narrower scope.
 
-The manual guided narrative has10 scenes: arrows, Next/Previous, Home/End, Esc. Search uses Ctrl/⌘K or / and has its own modal keyboard focus. Presentation models preserve research settings; exit restores them. Original logo remains; Mars is independent of the Moon illustration.
+For questions, open **Research tools**: Terrain pilot → Expanded18-site study → vary8/12km support/offset; actual360 comparisons and F-only order sensitivity show processing limits. Lunar pole → Haworth → Compare Earth → Passport/field proposal retains Haworth, with polar utility unassessed. Transfer Lab explains the physical gaps. The longer ten-scene Guided demo remains available and preserves research settings.
 
-Before presenting: Prepare → Offline → wait for Ready → reload/network-off rehearsal. The app, cached science, measured grids, source metadata and images/exports remain; external basemaps/GIBS/citations need network. Keep a local production preview ready (LIVE_DEMO.md).
+Before presenting, Research tools → Offline → Prepare offline demo → wait for Ready → reload/network-off rehearsal. First-party app/data/images/exports work offline; external maps and cited papers still require network. Reconnect and explicitly activate prepared updates when offered. Local fallback/deployment: LIVE_DEMO.md. Required short event video/slides: docs/SUBMISSION_GUIDE.md; this90-second narrative is supplementary.
 
-Checks:81 Python,89 TypeScript,38 production-preview browser workflows and85 responsive cases. No field campaign, mineralogical confirmation, observed ice, verified cave inventory, rover safety certification or NASA endorsement. See docs/PACKAGE_AUDIT.md for package boundaries and SUBMISSION.md for the project-page draft.
+Local acceptance:85 Python tests plus independent reproduction,94 TypeScript tests,43 production workflows and90 responsive cases. Exact public version and fresh audience checks: DEPLOYMENT.md. No field validation, observed ice, confirmed cave, rover safety result or NASA endorsement is claimed.

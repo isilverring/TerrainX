@@ -1,3 +1,9 @@
+# Current plan — six approved follow-up items
+
+Canonical implementation/recovery checklist: [CHALLENGE_COMPLETION.md](CHALLENGE_COMPLETION.md). M1–M5 are pushed; M6 code/guide/navigation is pushed as7c13db5, with final visual refinements tested.85 Python/94 TypeScript tests,43 local production workflows and90 responsive cases pass; public release acceptance is the remaining step. DEPLOYMENT.md is authoritative about what is live. Broader research/field work remains outside these six items.
+
+The older Packages A/B/C audit and its earlier delivery plan follow for history. Common-support coverage has since expanded from two to18 sites; polar identity now continues into dossiers/proposals, with utility explicitly unassessed.
+
 # TerrainX — audited completion and human handoff
 
 The original approved Packages A/B/C were checked against all 11 teammate commits, source contracts, runtime code and every workspace. Results and boundaries: [PACKAGE_AUDIT.md](PACKAGE_AUDIT.md). Current software milestones are complete; exact public-release status is in [DEPLOYMENT.md](../DEPLOYMENT.md). Do not confuse a GitHub commit with the currently deployed version.

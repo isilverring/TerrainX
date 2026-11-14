@@ -1,5 +1,5 @@
 import { useLayoutEffect, useMemo, useState, type ReactNode } from "react";
-import { useLocation, useSearchParams } from "react-router-dom";
+import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import { DataContext, useData } from "../lib/data";
 import { applyScenarios, useModel } from "../lib/scoring";
 import { useScienceFile } from "../lib/scienceFile";
@@ -17,6 +17,7 @@ export default function CollectionScope({ children }: { children: ReactNode }) {
     model = useModel(),
     location = useLocation(),
     [params, setParams] = useSearchParams();
+  const navigate=useNavigate();
   const [retained, setRetained] = useState<Collection>(() =>
     params.get("cohort") === "expanded" ? "expanded" : "original",
   );
@@ -42,7 +43,7 @@ export default function CollectionScope({ children }: { children: ReactNode }) {
   useLayoutEffect(() => {
     if (params.has("mission")) setRetainedMission(mission);
   }, [mission, params]);
-  const collection: Collection = polarId
+  const collection: Collection = polarId || location.pathname === "/cells"
     ? "expanded"
     : params.get("cohort") === "expanded"
       ? "expanded"
@@ -103,6 +104,7 @@ export default function CollectionScope({ children }: { children: ReactNode }) {
                 value={collection}
                 onChange={(e) => {
                   const next = e.target.value as Collection;
+                if(next==="original"&&location.pathname==="/cells"){setRetained(next);navigate(`/explorer?mission=${mission}&cohort=original&science=${base.release?.release_id}`);return;}
                   setRetained(next);
                   const p = new URLSearchParams(params);
                   p.set("cohort", next);

@@ -183,7 +183,7 @@ export default function JudgeGuide() {
             </p>
             <p>
               Exploratory research candidate in this screened sample. Its
-              current default pipeline rank is
+              cached default-model rank is{" "}
               {row.missions[mission].rank ?? "unassessed"}; it is selected here
               to illustrate a scientific decision, not as a universal winner.
             </p>

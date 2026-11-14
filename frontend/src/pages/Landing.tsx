@@ -28,7 +28,7 @@ export default function Landing() {
             <br className="desktop-break" /> technology and operations of
             another world.
           </p>
-          <Link className="button primary launch" to="/explorer">
+          <Link className="button primary launch" to="/explorer?cohort=original&polar=none">
             Launch Discovery Engine
             <ArrowRight size={24} />
           </Link>

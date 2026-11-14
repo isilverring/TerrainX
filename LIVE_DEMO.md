@@ -6,7 +6,7 @@ The audience URL is **https://terrainx-discovery-lab.comfybay1.chatgpt.site**. P
 
 1. Open the audience URL in a private/incognito browser window. Confirm the TerrainX landing page appears without sign-in. If access is still pending, consult DEPLOYMENT.md before sharing the link.
 2. Use a desktop browser at 100% zoom. Fullscreen with F11 if useful. The app is also usable on a phone.
-3. Open **Prepare → Offline**, click **Prepare offline demo**, and wait for Offline ready. Reload and rehearse once with the network disabled. Reconnect for external maps/citations. Preparation is specific to this browser/device.
+3. Open **Research tools → Offline**, click **Prepare offline demo**, and wait for Offline ready. Reload and rehearse once with the network disabled. Reconnect for external maps/citations. Preparation is specific to this browser/device.
 4. Return home and select **Guided demo**, or open `/#/demo`. Use Next/Previous or arrow keys; Esc exits. Scenes advance manually so the presenter controls the pace. Presentation starts with a temporary default model; its changes do not overwrite research settings. Exit restores the research model.
 5. Follow DEMO.md: show the real search, separate F/U/C, a missing-geology candidate in Frontier, Transfer Lab assumptions, measured Forensics, then Passport/Expedition Packet.
 6. Print/Save as PDF from the Passport. JSON/CSV/GeoJSON export the active model and actual candidate values. The Passport/Expedition QR preserves the scoring model snapshot. The separate compact Field Study QR preserves proposed station geometry with default models; use its full JSON for the complete field book.
@@ -53,6 +53,12 @@ All cells → choose the Moon mapped-basalt lead → Plan a field study opens th
 
 For audience use the ten-scene guided narrative or DEMO.md. For the mandatory short event demo use docs/SUBMISSION_GUIDE.md (aim 29 seconds or at most 7 slides), then paste the reviewed SUBMISSION.md draft into your team page yourself. Team details, recording/upload, terms and actual submission are human actions.
 
-Prepared old builds intentionally stay available until an explicit update. To upgrade: reconnect → Prepare → Offline → Prepare offline demo → Use prepared update and reload (if shown). Rehearse offline again. Do not clear saved research just to refresh assets. Exact release/source/rollback metadata is in DEPLOYMENT.md.
+Prepared old builds intentionally stay available until an explicit update. To upgrade: reconnect → Research tools → Offline → Prepare offline demo → Use prepared update and reload (if shown). Rehearse offline again. Do not clear saved research just to refresh assets. Exact release/source/rollback metadata is in DEPLOYMENT.md.
 
 ChatGPT Site refresh/publication steps: [docs/DEPLOY_CHATGPT_SITE.md](docs/DEPLOY_CHATGPT_SITE.md).
+
+## Six-item release rehearsal
+
+Open /#/guide?cohort=expanded&polar=none and follow the five steps. Advanced pages are under Research tools. All Cells canonically selects the expanded collection; selecting Original study returns to its Explorer. Shared dossiers/snapshots carry cohort, mission, release and physical reference. Polar JSON/QR/field proposals preserve the selected feature; utility stays unassessed. A literature-informed protocol remains a proposal, with full JSON the complete transfer format.
+
+The extended terrain study is under Research tools → Terrain pilot → Expanded18-site support study. It has360 valid comparisons and F-only order sensitivity; default processing ranges do not replace the active model's scores. Independent source cases and literature-informed field plans are in Cases. User video/team/terms/submission remain human actions. Refresh prepared browsers before presenting the updated build.
