@@ -1290,3 +1290,15 @@
     display: none;
   }
 }
+
+/* Mobile results: let the page scroll; keep the list readable instead of squeezed. */
+@media (max-width: 600px) {
+  .results-rail {
+    max-height: none !important;
+    min-height: 0 !important;
+  }
+  .candidate-scroll {
+    flex: none;
+    max-height: 64vh;
+  }
+}

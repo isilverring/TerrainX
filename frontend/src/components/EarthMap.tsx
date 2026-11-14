@@ -46,7 +46,11 @@ interface Props {
 const reducedMotion = () =>
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const OVERLAY_ANCHOR = "hillshade";
-const FIT_PADDING = { top: 70, bottom: 80, left: 44, right: 120 };
+/** Leave room for the layer button, legend strip and region labels; smaller on phones. */
+const fitPadding = () =>
+  window.matchMedia("(max-width: 600px)").matches
+    ? { top: 64, bottom: 70, left: 16, right: 46 }
+    : { top: 70, bottom: 80, left: 44, right: 120 };
 const EXTERNAL_SOURCES: Record<string, string> = {
   basemap: "Esri Dark Gray basemap",
   labels: "Esri reference labels",
@@ -221,8 +225,8 @@ export default function EarthMap({
       const instance = new maplibregl.Map({
         container: container.current,
         bounds: allBounds,
-        fitBoundsOptions: { padding: FIT_PADDING },
-        minZoom: 0.6,
+        fitBoundsOptions: { padding: fitPadding() },
+        minZoom: 0,
         maxZoom: 16,
         maxPitch: 75,
         style: baseStyle(),
@@ -231,11 +235,12 @@ export default function EarthMap({
       map.current = instance;
       instance.once("idle", () => active && setContextReady(true));
       // Keep the compact attribution collapsed to its (i) button until opened.
-      instance.once("load", () =>
+      const collapseAttribution = () =>
         container.current
           ?.querySelector(".maplibregl-ctrl-attrib.maplibregl-compact-show")
-          ?.classList.remove("maplibregl-compact-show"),
-      );
+          ?.classList.remove("maplibregl-compact-show");
+      instance.once("load", collapseAttribution);
+      instance.once("idle", collapseAttribution);
       instance.addControl(
         new maplibregl.NavigationControl({
           showCompass: true,
@@ -588,7 +593,7 @@ export default function EarthMap({
           ]
         : allBounds,
       {
-        padding: FIT_PADDING,
+        padding: fitPadding(),
         pitch: terrain3d ? 45 : 0,
         duration: reducedMotion() ? 0 : 1200,
       },
@@ -684,7 +689,7 @@ export default function EarthMap({
     if (region !== "all") onRegion("all");
     else
       map.current?.fitBounds(allBounds, {
-        padding: FIT_PADDING,
+        padding: fitPadding(),
         pitch: 0,
         bearing: 0,
         duration: reducedMotion() ? 0 : 1200,

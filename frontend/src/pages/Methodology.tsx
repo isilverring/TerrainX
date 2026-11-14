@@ -140,7 +140,7 @@ export default function Methodology() {
       <section className="science-section">
         <h2>02 / Real planetary terrain, validated labels</h2>
         <p>
-          Mars/Jezero uses MOLA MEGDR16; Moon/Mare Crisium uses LOLA LDEM16.
+          Mars/Jezero uses MOLA MEGDR 16; Moon/Mare Crisium uses LOLA LDEM 16.
           Each global raster is 5760 × 2880 pixels at 16 pixels per degree. We
           validate detached PDS labels, signed 16-bit encoding, dimensions, byte
           order, scale, units, no-data treatment, projection and pixel centers
@@ -156,7 +156,7 @@ export default function Methodology() {
         <p>
           Physical pixels differ because body radii differ. A4km sample lattice
           uses bilinear interpolation without additional smoothing. Earth and
-          planetary grids share a24km center-to-center footprint, but native
+          planetary grids share a 24 km center-to-center footprint, but native
           support remains unequal. Fine delta structures, rocks, caves and
           regolith mechanics are unresolved.
         </p>
@@ -244,7 +244,7 @@ export default function Methodology() {
         </p>
         <h3>P / Optional combined priority</h3>
         <div className="equation">
-          P=(αF+(1−α)U)·Cγ
+          P=(αF+(1−α)U)·C^γ
           <br />
           αMars=0.30; αMoon=0.55; γ=1
         </div>
