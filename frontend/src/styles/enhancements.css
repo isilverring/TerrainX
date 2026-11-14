@@ -1,0 +1,644 @@
+/* TerrainX enhancement pass (2026-11-14): ranking tiers, search/sort, markers,
+   merged map control, imagery, 3D, compare and viewer components. */
+
+/* ---------- Planet selector ---------- */
+.planet-selector button .planet-glyph {
+  flex-shrink: 0;
+}
+.planet-selector button:not(.active) .planet-glyph {
+  opacity: 0.75;
+}
+
+/* ---------- Source status ---------- */
+.source-state {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.source-state.state-ok {
+  color: var(--earth);
+}
+.source-state.state-partial {
+  color: #e6b48c;
+}
+.source-state.state-missing {
+  color: var(--mars);
+}
+
+/* ---------- Results rail ---------- */
+.results-tools {
+  display: flex;
+  gap: 8px;
+  margin-top: 13px;
+  align-items: stretch;
+}
+.search-box {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 9px;
+  border: 1px solid #3a4b63;
+  border-radius: 5px;
+  background: #0b1320;
+  color: var(--muted);
+}
+.search-box:focus-within {
+  border-color: var(--earth);
+}
+.search-box input {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  outline: none;
+  color: var(--text);
+  font-size: 12px;
+  padding: 8px 0;
+}
+.search-box input::-webkit-search-cancel-button {
+  display: none;
+}
+.search-box button {
+  background: none;
+  border: 0;
+  color: var(--muted);
+  padding: 2px;
+  display: flex;
+}
+.sort-control {
+  display: flex;
+  border: 1px solid #3a4b63;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.sort-control button {
+  background: transparent;
+  border: 0;
+  border-left: 1px solid #3a4b63;
+  color: var(--muted);
+  font: 600 11px "JetBrains Mono", monospace;
+  padding: 0 10px;
+  min-width: 30px;
+}
+.sort-control button:first-child {
+  border-left: 0;
+}
+.sort-control button.active {
+  background: #35c3b022;
+  color: var(--earth);
+}
+.sort-control button:hover:not(.active) {
+  color: var(--text);
+}
+.candidate-scroll {
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 26px), transparent);
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    #000 calc(100% - 26px),
+    transparent
+  );
+  padding-bottom: 18px;
+  scroll-padding: 40px 0;
+}
+.tier-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font: 600 10px Inter;
+  letter-spacing: 0.02em;
+  padding: 9px 17px 7px;
+  margin: 0;
+  border-bottom: 1px solid #29384eaa;
+}
+.tier-heading span {
+  font-family: "JetBrains Mono";
+  font-weight: 400;
+}
+.tier-characterized {
+  color: var(--earth);
+}
+.tier-screened {
+  color: #e6b48c;
+  border-top: 1px solid #29384e;
+  margin-top: 6px;
+}
+.candidate-name {
+  flex-direction: row !important;
+  align-items: flex-start;
+  gap: 10px !important;
+}
+.candidate-name-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+.rank-chip {
+  flex-shrink: 0;
+  min-width: 24px;
+  height: 22px;
+  padding: 0 5px;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  background: #1a2a3d;
+  border: 1px solid #34465f;
+  color: var(--text);
+}
+.candidate-row.selected .rank-chip {
+  background: var(--earth);
+  border-color: var(--earth);
+  color: #06201c;
+}
+.status-label.screened {
+  color: #e6b48c;
+}
+.insufficient {
+  display: flex !important;
+  align-items: center;
+  gap: 5px;
+}
+.candidate-row:focus-visible {
+  outline: 2px solid var(--earth);
+  outline-offset: -2px;
+}
+.list-end {
+  font-size: 10px;
+  color: var(--muted);
+  padding: 14px 17px 4px;
+  margin: 0;
+  line-height: 1.6;
+}
+.selected-summary .summary-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.selected-summary .summary-head h2 {
+  margin-bottom: 4px;
+}
+.selected-summary .score-strip.compact {
+  margin: 4px 0 12px;
+}
+.mobile-mission-hint {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 11px;
+}
+.mobile-mission svg:last-child {
+  margin-left: 8px !important;
+}
+
+/* ---------- Atlas heading tools ---------- */
+.atlas-tools {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.atlas-tools button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: 1px solid #34465f;
+  border-radius: 5px;
+  color: #c6d7e8;
+  padding: 6px 9px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.atlas-tools button.active {
+  border-color: var(--earth);
+  color: var(--earth);
+  background: #35c3b018;
+}
+.atlas-tools button:hover:not(.active) {
+  border-color: #56708f;
+}
+
+/* ---------- Merged map control (replaces separate layers + legend) ---------- */
+.map-control {
+  position: absolute;
+  z-index: 3;
+  top: 80px;
+  left: 12px;
+  width: 232px;
+  max-height: calc(100% - 140px);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #4055708f;
+  border-radius: 6px;
+  background: #080d18ec;
+  box-shadow: 0 4px 22px #0006;
+  backdrop-filter: blur(6px);
+  font-size: 11px;
+}
+.map-control:not(.open) {
+  width: auto;
+}
+.map-control-toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 11px;
+  background: none;
+  border: 0;
+  color: #c6d7e8;
+  font-size: 11px;
+  font-weight: 600;
+  width: 100%;
+}
+.map-control-toggle svg:last-child {
+  margin-left: auto;
+  transition: transform 0.2s;
+}
+.map-control.open .map-control-toggle svg:last-child {
+  transform: rotate(180deg);
+}
+.map-control-body {
+  overflow-y: auto;
+  padding: 2px 11px 11px;
+  scrollbar-width: thin;
+  scrollbar-color: #34445c transparent;
+}
+.map-control fieldset {
+  border: 0;
+  border-top: 1px solid #29384e;
+  margin: 0;
+  padding: 9px 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.map-control legend {
+  float: left;
+  width: 100%;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+  margin-bottom: 2px;
+}
+.map-control fieldset > label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--text);
+}
+.map-control small {
+  font-size: 9.5px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.basemap-choice {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px !important;
+}
+.basemap-choice legend {
+  grid-column: 1 / -1;
+}
+.basemap-choice label {
+  justify-content: center;
+  border: 1px solid #34465f;
+  border-radius: 4px;
+  padding: 6px 4px;
+  cursor: pointer;
+  font-size: 10.5px;
+  text-align: center;
+}
+.basemap-choice label.active {
+  border-color: var(--earth);
+  color: var(--earth);
+  background: #35c3b01c;
+}
+.basemap-choice input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.basemap-choice label:focus-within {
+  outline: 2px solid var(--earth);
+}
+.gibs-options {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 0 0 9px;
+}
+.gibs-options label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 10px;
+  color: var(--muted);
+}
+.gibs-options select,
+.gibs-options input {
+  background: #0c1421;
+  color: var(--text);
+  border: 1px solid #44536b;
+  border-radius: 4px;
+  padding: 6px;
+  font-size: 11px;
+  color-scheme: dark;
+}
+.gibs-warning {
+  color: #e6b48c !important;
+}
+.range-label {
+  flex-wrap: wrap;
+}
+.range-label b {
+  margin-left: auto;
+  font-weight: 400;
+  color: var(--earth);
+}
+.range-label input {
+  width: 100%;
+  accent-color: var(--earth);
+}
+.map-control .map-legend {
+  position: static;
+  background: none;
+  border: 0;
+  border-top: 1px solid #29384e;
+  border-radius: 0;
+  padding: 9px 0 0;
+  gap: 7px;
+  font-size: 10.5px;
+}
+.legend-marker {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 2px solid #080d18;
+  flex-shrink: 0;
+}
+.legend-marker.characterized {
+  background: var(--earth);
+  box-shadow: 0 0 0 1px var(--earth);
+}
+.legend-marker.screened {
+  background: var(--mars);
+  box-shadow: 0 0 0 1px var(--mars);
+}
+.legend-marker.reference {
+  border-radius: 2px;
+  transform: rotate(45deg);
+  background: #111a29;
+  border-color: var(--moon);
+}
+.legend-power {
+  width: 12px;
+  height: 10px;
+  border: 1.5px dotted #f2f5fa;
+  flex-shrink: 0;
+}
+.legend-srtm {
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--earth);
+  background: #35c3b01a;
+  flex-shrink: 0;
+}
+.legend-cell {
+  flex-shrink: 0;
+}
+
+/* ---------- Map footer: legend strip + imagery source ---------- */
+.map-footer {
+  position: absolute;
+  z-index: 2;
+  left: 10px;
+  right: 140px;
+  bottom: 32px;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  pointer-events: none;
+}
+.legend-strip {
+  display: flex;
+  gap: 12px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: #080d18d9;
+  border: 1px solid #33445c;
+  font-size: 10px;
+  color: #c6d7e8;
+}
+.legend-strip span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+.imagery-badge {
+  max-width: 360px;
+  padding: 5px 9px;
+  border-radius: 4px;
+  background: #080d18d9;
+  border: 1px solid #33445c;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 9.5px;
+  color: var(--muted);
+}
+.imagery-badge strong {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 10px;
+}
+.map-toast {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 74px;
+  width: min(80%, 460px);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 9px 11px;
+  background: #1a1410f2;
+  border: 1px solid #f17e5a88;
+  border-radius: 6px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.map-toast button {
+  background: none;
+  border: 0;
+  color: var(--muted);
+  padding: 2px;
+  display: flex;
+  margin-left: auto;
+}
+.maplibregl-ctrl-scale {
+  background: #080d18cc !important;
+  color: var(--muted) !important;
+  border-color: var(--muted) !important;
+  font-size: 9px !important;
+}
+.maplibregl-ctrl-bottom-right {
+  bottom: 24px !important;
+}
+
+/* ---------- Markers ---------- */
+.map-marker {
+  position: relative;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.map-marker.reference {
+  width: 19px;
+  height: 19px;
+}
+.marker-rank {
+  font: 700 9.5px "JetBrains Mono", monospace;
+  color: #06121c;
+  line-height: 1;
+  pointer-events: none;
+}
+.map-marker.reference .marker-rank {
+  color: var(--moon);
+  font-size: 8px;
+}
+.map-marker.selected {
+  z-index: 3;
+  transform-origin: center;
+}
+.map-marker.selected .marker-rank {
+  color: #04110e;
+}
+.marker-tip {
+  position: absolute;
+  bottom: calc(100% + 9px);
+  left: 50%;
+  transform: translate(-50%, 4px);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 170px;
+  padding: 8px 10px;
+  background: #0b1322f5;
+  border: 1px solid #3a4b63;
+  border-radius: 5px;
+  box-shadow: 0 6px 20px #0008;
+  text-align: left;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.15s,
+    transform 0.15s;
+}
+.marker-tip strong {
+  font-size: 11.5px;
+  color: var(--text);
+}
+.marker-tip em {
+  font-style: normal;
+  font-size: 9.5px;
+  color: var(--muted);
+}
+.marker-tip .mono {
+  font-size: 10px;
+  color: var(--earth);
+}
+.map-marker:hover .marker-tip,
+.map-marker:focus-visible .marker-tip {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.map-marker:hover {
+  z-index: 5;
+}
+.region-label {
+  background: #080d18cc;
+  border: 1px dashed #c6d7e8aa;
+  border-bottom: 0;
+  color: #c6d7e8;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 7px;
+  border-radius: 3px 3px 0 0;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.region-label:hover,
+.region-label.active {
+  color: var(--earth);
+  border-color: var(--earth);
+}
+
+@media (max-width: 1150px) {
+  .atlas-tools button span {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .map-legend {
+    bottom: auto;
+  }
+  .map-control {
+    top: 76px;
+    left: 8px;
+    width: min(240px, calc(100% - 64px));
+    max-height: calc(100% - 128px);
+  }
+  .map-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    left: 8px;
+    bottom: 30px;
+    gap: 5px;
+  }
+  .legend-strip {
+    gap: 9px;
+    font-size: 9px;
+  }
+  .imagery-badge span {
+    display: none;
+  }
+  .map-toast {
+    top: auto;
+    bottom: 100px;
+    width: 92%;
+  }
+  .results-tools {
+    flex-direction: column;
+  }
+  .sort-control button {
+    flex: 1;
+    padding: 7px 0;
+  }
+  .atlas-tools button {
+    padding: 6px 7px;
+  }
+  .region-label {
+    font-size: 9px;
+    padding: 2px 5px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marker-tip,
+  .map-control-toggle svg:last-child {
+    transition: none;
+  }
+}
+/* Markers hidden behind the globe or terrain must not intercept clicks. */
+.maplibregl-marker-covered {
+  pointer-events: none;
+}

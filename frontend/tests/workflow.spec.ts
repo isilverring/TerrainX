@@ -2,6 +2,9 @@ import { test, expect } from "@playwright/test";
 import { mkdir } from "node:fs/promises";
 import { resolve } from "node:path";
 const evidence = resolve("../artifacts/qa");
+// TERRAINX_OFFLINE=1 skips waits on live third-party tiles (for sandboxes without
+// outbound map access). Default runs still require the real tile responses.
+const offline = !!process.env.TERRAINX_OFFLINE;
 test.beforeAll(async () => {
   await mkdir(evidence, { recursive: true });
 });
@@ -29,11 +32,13 @@ test("complete scientific workflow, map, model controls, DNA, Passport and metho
     path: resolve(evidence, "landing-desktop.png"),
     fullPage: true,
   });
-  const basemapResponse = page.waitForResponse(
-    (r) =>
-      r.url().includes("World_Dark_Gray_Base/MapServer/tile") &&
-      r.status() === 200,
-  );
+  const basemapResponse = offline
+    ? Promise.resolve()
+    : page.waitForResponse(
+        (r) =>
+          r.url().includes("World_Dark_Gray_Base/MapServer/tile") &&
+          r.status() === 200,
+      );
   await page.getByRole("link", { name: "Launch Discovery Engine" }).click();
   await basemapResponse;
   await expect(
@@ -56,12 +61,41 @@ test("complete scientific workflow, map, model controls, DNA, Passport and metho
     path: resolve(evidence, "explorer-desktop.png"),
     fullPage: true,
   });
-  await page.getByLabel("NASA GIBS imagery").check();
-  await page.waitForResponse(
-    (r) => r.url().includes("gibs.earthdata.nasa.gov") && r.status() === 200,
-    { timeout: 30000 },
+  // Ranking: characterized candidates precede screened ones for every sort key.
+  const tiers = await page
+    .locator(".candidate-row .status-label")
+    .allTextContents();
+  const firstScreened = tiers.findIndex((t) => t === "screened candidate");
+  const lastCharacterized = tiers.lastIndexOf("characterized candidate");
+  expect(lastCharacterized).toBeLessThan(firstScreened);
+  await page.getByRole("button", { name: "F", exact: true }).click();
+  await expect(page.locator(".candidate-row").first()).toContainText(
+    "characterized candidate",
   );
-  await page.getByLabel("NASA GIBS imagery").uncheck();
+  await page.getByRole("button", { name: "U", exact: true }).click();
+  // Search and keyboard navigation.
+  await page.getByLabel("Search candidates by name or status").fill("gobi");
+  await expect(
+    page.locator(".candidate-row").filter({ hasText: "Gobi region" }),
+  ).toHaveCount(4);
+  await page.getByLabel("Search candidates by name or status").fill("");
+  await page.locator(".candidate-row").first().click();
+  await page.keyboard.press("ArrowDown");
+  await expect(page.locator(".candidate-row").nth(1)).toHaveAttribute(
+    "aria-pressed",
+    "true",
+  );
+  // Layers: NASA GIBS daily imagery with a dated product.
+  await page.getByRole("button", { name: /Layers & legend/ }).click();
+  await page.getByText("NASA daily", { exact: true }).click();
+  await expect(page.locator(".imagery-badge")).toContainText("NASA GIBS");
+  if (!offline)
+    await page.waitForResponse(
+      (r) => r.url().includes("gibs.earthdata.nasa.gov") && r.status() === 200,
+      { timeout: 30000 },
+    );
+  await page.getByText("Dark atlas", { exact: true }).click();
+  await page.getByRole("button", { name: /Layers & legend/ }).click();
   await page.getByRole("button", { name: "Moon", exact: true }).click();
   await expect(page.getByLabel("Target")).toHaveValue("mare-crisium");
   await expect(
@@ -144,7 +178,13 @@ test("complete scientific workflow, map, model controls, DNA, Passport and metho
     ),
   ).toBeVisible();
   expect(errors).toEqual([]);
-  expect(consoleErrors).toEqual([]);
+  expect(
+    offline
+      ? consoleErrors.filter(
+          (e) => !/Failed to load resource|AJAXError|net::ERR/.test(e),
+        )
+      : consoleErrors,
+  ).toEqual([]);
 });
 test("mobile viewport stays readable and mission drawer works", async ({
   page,
@@ -162,13 +202,12 @@ test("mobile viewport stays readable and mission drawer works", async ({
     fullPage: true,
   });
   await page.getByRole("link", { name: "Launch Discovery Engine" }).click();
-  await expect(
-    page.getByRole("button", { name: "Mission & study regions" }),
-  ).toBeVisible();
-  await page.getByRole("button", { name: "Mission & study regions" }).click();
+  const drawer = page.getByRole("button", { name: /Mission & filters/ });
+  await expect(drawer).toBeVisible();
+  await drawer.click();
   await page.getByRole("button", { name: "Moon", exact: true }).click();
   await expect(page.getByLabel("Target")).toHaveValue("mare-crisium");
-  await page.getByRole("button", { name: "Mission & study regions" }).click();
+  await drawer.click();
   await expect(
     page.getByRole("heading", { name: "Earth discovery atlas" }),
   ).toBeVisible();
@@ -205,9 +244,7 @@ test("map retains local coastlines and markers if the external basemap fails", a
   await page.route("**/server.arcgisonline.com/**", (route) => route.abort());
   await page.goto("/#/explorer");
   await expect(page.locator(".map-marker")).toHaveCount(20, { timeout: 30000 });
-  await expect(page.getByRole("alert")).toContainText(
-    "local Natural Earth coastlines",
-  );
+  await expect(page.locator(".map-toast")).toContainText("Local coastlines");
   await expect(page.locator(".map-canvas")).toHaveAttribute(
     "data-context-ready",
     "true",

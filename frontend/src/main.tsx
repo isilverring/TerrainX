@@ -8,6 +8,7 @@ import Landing from "./pages/Landing";
 import "./styles/index.css";
 import "./styles/model.css";
 import "./styles/refinements.css";
+import "./styles/enhancements.css";
 import {
   ModelContext,
   applyWeights,

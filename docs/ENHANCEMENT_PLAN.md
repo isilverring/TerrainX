@@ -7,19 +7,19 @@ Tick items off and keep scientific rules intact: real data only, nulls stay null
 is never used for scoring.
 
 ## A. Satellite imagery
-- [ ] Basemap switcher with Dark (Esri Dark Gray), **Satellite (Esri World Imagery)**, and **NASA GIBS true colour**.
+- [x] Basemap switcher with Dark (Esri Dark Gray), **Satellite (Esri World Imagery)**, and **NASA GIBS true colour**.
       Include a date picker for GIBS (MODIS Terra/Aqua and VIIRS SNPP CorrectedReflectance, `GoogleMapsCompatible_Level9`).
-- [ ] Optional NASA GIBS relief/thematic overlays where a 3857 layer exists (for example `BlueMarble_ShadedRelief_Bathymetry`).
-- [ ] Every imagery layer shows its source, date and native zoom limit. Keep the local Natural Earth fallback.
-- [ ] Imagery is for interpretation only and does not establish mineralogy. Keep that caveat.
+- [x] Optional NASA GIBS relief/thematic overlays where a 3857 layer exists (for example `BlueMarble_ShadedRelief_Bathymetry`).
+- [x] Every imagery layer shows its source, date and native zoom limit. Keep the local Natural Earth fallback.
+- [x] Imagery is for interpretation only and does not establish mineralogy. Keep that caveat.
 
 ## B. 3D
-- [ ] **Earth 3D terrain** in MapLibre: `raster-dem` from AWS Terrain Tiles (terrarium encoding, public, no key,
+- [x] **Earth 3D terrain** in MapLibre: `raster-dem` from AWS Terrain Tiles (terrarium encoding, public, no key,
       `https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png`), plus `setTerrain` with exaggeration,
       a hillshade layer, pitch/bearing controls, a "3D" toggle and sky/atmosphere.
       Fly to the selected candidate at a pitch of about 60°.
-- [ ] **Globe projection** (MapLibre ≥5 `projection: globe`) for the world overview, switching to Mercator when zoomed in.
-- [ ] Draw each candidate's **24 × 24 km SRTM analysis footprint** and the 0.5° × 0.625° POWER cell. Make the scale distinction visible.
+- [x] **Globe projection** (MapLibre ≥5 `projection: globe`) for the world overview, switching to Mercator when zoomed in.
+- [x] Draw each candidate's **24 × 24 km SRTM analysis footprint** and the 0.5° × 0.625° POWER cell. Make the scale distinction visible.
 - [ ] **Planetary 3D viewer**: extend `scripts/build_planetary_profiles.py` so it also exports a larger *visualisation-only*
       MOLA/LOLA context patch (e.g. 65 × 65 native pixels) around Jezero and Mare Crisium. Render the Earth SRTM grid and
       the planetary grid as side-by-side shaded 3D surfaces at the same horizontal scale and vertical exaggeration.
@@ -27,22 +27,34 @@ is never used for scoring.
 - [ ] The 3D surface must label vertical exaggeration and point out that absolute Earth and planetary elevations are not comparable.
 
 ## C. UX / visual fixes found in the audit
-1. Ranking puts **"Insufficient evidence" (C = 45 %) candidates first** because the list sorts by U only. Add a sort control
+1. ✅ Ranking puts **"Insufficient evidence" (C = 45 %) candidates first** because the list sorts by U only. Add a sort control
    (U / C / F / P). Group by status: characterized first, then screened. Never hide that U is partial.
-2. The map opens at zoom 1.25 over the whole world, so the markers are tiny. Fit to the study-region bounds instead
+2. ✅ The map opens at zoom 1.25 over the whole world, so the markers are tiny. Fit to the study-region bounds instead
    and draw the four study-region boxes.
-3. Markers are destroyed and recreated on every selection (flicker, perf). Create them once and toggle classes.
+3. ✅ Markers are destroyed and recreated on every selection (flicker, perf). Create them once and toggle classes.
    Add rank numbers and hover tooltips.
-4. Mobile: the layer and legend panels cover much of the small map. Merge them into one collapsible control.
-5. The results list cuts the last visible card in half. The selected-summary panel has no F/U/C at a glance.
-6. Source-status rows always show a ✓ icon, even when a source is unavailable. The icon must follow the status.
-7. `localStorage.setItem` is not wrapped in try/catch, so it throws in private/embedded contexts.
-8. The Mars button uses a generic circle icon. Give Mars and the Moon distinct glyphs.
+4. ✅ Mobile: the layer and legend panels cover much of the small map. Merge them into one collapsible control.
+5. ✅ The results list cuts the last visible card in half. The selected-summary panel has no F/U/C at a glance.
+6. ✅ Source-status rows always show a ✓ icon, even when a source is unavailable. The icon must follow the status.
+7. ✅ `localStorage.setItem` is not wrapped in try/catch, so it throws in private/embedded contexts.
+8. ✅ The Mars button uses a generic circle icon. Give Mars and the Moon distinct glyphs.
 9. Landing: replace the flat globe illustration with a live (slowly rotating) globe that shows the real candidate
    points and the headline counts from `dataset.json`.
 10. Add a **compare mode** for 2–3 candidates (F/U/C, terrain metrics, climate, geology side by side).
-11. Add a candidate search box and keyboard navigation (↑/↓) through the results list.
+11. ✅ Add a candidate search box and keyboard navigation (↑/↓) through the results list.
 12. Passport: add a QR/URL footer and a print check for page breaks.
+
+## Progress log
+- 2026-11-14 (laptop cloud session, milestone 1): C1–C8 and C11 done. Ranking groups characterized before screened
+  candidates for every sort key (U/C/F/P; nulls sort last). Map opens fitted to the four study regions (Mercator; Chile and
+  Gobi are ~170° apart so no single globe view shows all four) with dashed region boxes and clickable labels. Markers are
+  created once, carry rank numbers and hover tooltips, and hide behind the globe/terrain. Layers and legend merged into one
+  collapsible control plus a compact legend strip. Basemaps: Esri Dark Gray, Esri World Imagery, NASA GIBS daily
+  (MODIS Terra/Aqua, VIIRS SNPP + date picker) and NASA Blue Marble relief. 3D terrain (AWS terrarium, exaggeration
+  slider), hillshade, sky, globe toggle, selected POWER cell + 24 km SRTM lattice with the 49 actual sample positions.
+  Endpoints verified live from a browser on 2026-11-14: all returned HTTP 200 except GIBS dates without imagery (404;
+  VIIRS SNPP had none after 2026-11-02, NOAA-20 had gaps, so NOAA-20 was not offered) and GIBS z10 (400, native max z9).
+  Browser tests: `TERRAINX_OFFLINE=1 npm test` skips live-tile waits in sandboxes.
 
 ## D. Environment notes
 - Laptop path is `C:\TerrainX`. The PC path is `D:\TerrainX`. Both are clones of `isilverring/TerrainX` `main`.
