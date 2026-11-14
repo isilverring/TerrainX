@@ -27,6 +27,7 @@ test("research snapshots pin the release and reopen the same custom model", asyn
   expect(snapshot.science.dataset_sha256).toHaveLength(64);
   await page.reload();
   await page.getByRole("button", { name: "Reopen", exact: true }).click();
+  await expect(page.locator("main.detail-page")).toBeVisible();
   await expect(page).toHaveURL(
     new RegExp(`science=${snapshot.science.release_id}`),
   );

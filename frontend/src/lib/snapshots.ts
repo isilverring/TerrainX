@@ -34,6 +34,8 @@ export function makeSnapshot(
 ) {
   if (!data.release)
     throw new Error("A validated science release is required before saving");
+  if (data.target_reference && mission !== "mare-crisium")
+    throw Error("A lunar polar reference cannot be saved as a Mars mission.");
   if (candidateId && !data.candidates.some((c) => c.id === candidateId))
     throw new Error("Candidate is outside this release");
   return snapshotSchema.parse({

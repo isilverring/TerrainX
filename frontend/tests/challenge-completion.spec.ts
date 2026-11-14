@@ -46,12 +46,27 @@ test("independent cases expose local volcanic contradiction and regional Mars ev
     .getByRole("link", { name: "Use literature-informed field proposal" })
     .click();
   await expect(page.locator(".field-page")).toBeVisible();
+  await expect(page.getByLabel("Earth candidate")).toBeDisabled();
   const file = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export JSON", exact: true }).click();
   const { readFileSync } = await import("node:fs");
   const study = JSON.parse(readFileSync((await (await file).path())!, "utf8"));
   expect(study.hypothesis).toContain("material classes and alteration");
   expect(study.snapshot.proposal_protocol).toBe("site-evidence");
+  await page.goto(
+    "/#/field-study?id=saudi-24.000-39.375&mission=mare-crisium&cohort=expanded&protocol=source&polar=none",
+  );
+  await expect(
+    page.getByRole("heading", { name: "Requested field site is unavailable" }),
+  ).toBeVisible();
+  await page.goto(
+    "/#/field-study?id=chile--23.000--70.000&mission=jezero&cohort=expanded&protocol=source&polar=none",
+  );
+  await expect(
+    page.getByRole("heading", {
+      name: "Source protocol unavailable for this mission",
+    }),
+  ).toBeVisible();
 });
 test("expanded common-support grids and processing-order sensitivity remain separate from discovery", async ({
   page,
@@ -102,6 +117,7 @@ test("polar reference survives dossier, export and field-study replay with utili
   );
   await page.getByRole("link", { name: "Field study", exact: true }).click();
   await expect(page.getByLabel("Planetary mission")).toContainText("Haworth");
+  await expect(page.getByLabel("Planetary mission")).toBeDisabled();
   await page.getByRole("button", { name: "Suggest relief transect" }).click();
   const file = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export JSON", exact: true }).click();
@@ -119,9 +135,19 @@ test("polar reference survives dossier, export and field-study replay with utili
   await expect(fieldReplay.locator(".field-stations li")).toHaveCount(5);
   await fieldReplay.close();
   await page.goto("/#/worlds?polar=haworth");
-  await expect(page.getByRole("alert")).toContainText("No primary-target data were substituted");
-  await page.getByRole("button",{name:"Use this workspace's primary references"}).click();
+  await expect(page.getByRole("alert")).toContainText(
+    "No primary-target data were substituted",
+  );
+  await page
+    .getByRole("button", { name: "Use this workspace's primary references" })
+    .click();
   await expect(page.locator("main.worlds-page")).toBeVisible();
+  await page.goto(
+    "/#/site/chile--23.000--70.000?cohort=expanded&mission=jezero&polar=haworth",
+  );
+  await expect(page.getByRole("alert")).toContainText(
+    "cannot be paired with the Mars mission",
+  );
 });
 test("expanded lead opens DNA, map and a source-pinned Passport without replacing the baseline", async ({
   page,

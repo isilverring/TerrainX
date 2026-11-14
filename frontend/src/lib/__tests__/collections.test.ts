@@ -75,6 +75,23 @@ describe("explicit scientific collections", () => {
     const packet = buildPacket(referenced, c, "mare-crisium");
     expect(packet.target.id).toBe("lunar-polar:haworth");
     expect(packet.target.name).toBe("Haworth");
+    const release = releaseSchema.parse(
+      JSON.parse(
+        readFileSync(
+          resolve(__dirname, "../../../public/data/release.json"),
+          "utf8",
+        ),
+      ),
+    );
+    expect(() =>
+      makeSnapshot(
+        { ...referenced, release },
+        scenario,
+        "jezero",
+        c.id,
+        "Wrong body",
+      ),
+    ).toThrow(/polar reference cannot be saved as a Mars/);
     expect(() => polarReference(data, polar, "missing")).toThrow(/unavailable/);
   });
   it("retains original objects and numeric results while exposing all130 cells", () => {
@@ -100,8 +117,10 @@ describe("explicit scientific collections", () => {
     expect(JSON.stringify(base)).toBe(before);
   });
   it("carries explicit destination choices and pins collection in snapshot replay", () => {
-    expect(studyPath("/worlds","?polar=haworth")).toContain("polar=none");
-    expect(studyPath("/passport/example","?polar=haworth")).toContain("polar=haworth");
+    expect(studyPath("/worlds", "?polar=haworth")).toContain("polar=none");
+    expect(studyPath("/passport/example", "?polar=haworth")).toContain(
+      "polar=haworth",
+    );
     expect(
       studyPath(
         "/site/example?mission=jezero",

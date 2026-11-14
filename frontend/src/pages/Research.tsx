@@ -125,10 +125,13 @@ export default function Research() {
             Mission
             <select
               value={mission}
+              disabled={!!data.target_reference}
               onChange={(e) => setMission(e.target.value as Mission)}
             >
               <option value="jezero">Mars · Jezero</option>
-              <option value="mare-crisium">Moon · Mare Crisium</option>
+              <option value="mare-crisium">
+                Moon · {data.targets.find((t) => t.id === "mare-crisium")?.name}
+              </option>
             </select>
           </label>
           <label>

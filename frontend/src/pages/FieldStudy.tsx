@@ -31,7 +31,7 @@ import { defaultScenario } from "../lib/counterfactual";
 import { makeSnapshot, checkSnapshotRelease } from "../lib/snapshots";
 import { useScienceFile } from "../lib/scienceFile";
 import { currentRelease } from "../lib/release";
-import { fieldSitesSchema } from "../lib/collections";
+import { fieldSitesSchema, studyPath } from "../lib/collections";
 import { siteEvidenceSchema } from "../lib/siteEvidence";
 import type { Mission } from "../lib/models";
 import { download } from "../lib/packet";
@@ -116,35 +116,41 @@ export default function FieldStudy() {
     return {
       ...merged,
       proposal_protocol: "site-evidence" as const,
-      candidates: merged.candidates.map((c) => {
-        const item = evidence.value!.cases.find((s) => s.candidate_id === c.id);
-        if (!item) return c;
-        const previous = c.assessments[item.mission],
-          p = item.experiment;
-        return {
-          ...c,
-          assessments: {
-            ...c.assessments,
-            [item.mission]: {
-              ...previous,
-              experiment: {
-                ...previous.experiment,
-                hypothesis: p.hypothesis,
-                objective: p.objective,
-                why_useful: item.supported,
-                equipment: p.equipment,
-                measurements: p.procedure,
-                success_indicator: p.success_indicator,
-                next_measurement: item.next_measurement,
-                unvalidated: p.unvalidated,
-                cannot_reproduce: [p.cannot_reproduce],
-                evidence_gate: item.classification,
-                classification: "ASSUMED / PROPOSED, LITERATURE-INFORMED",
+      candidates: merged.candidates
+        .filter((c) =>
+          evidence.value!.cases.some((s) => s.candidate_id === c.id),
+        )
+        .map((c) => {
+          const item = evidence.value!.cases.find(
+            (s) => s.candidate_id === c.id,
+          );
+          if (!item) return c;
+          const previous = c.assessments[item.mission],
+            p = item.experiment;
+          return {
+            ...c,
+            assessments: {
+              ...c.assessments,
+              [item.mission]: {
+                ...previous,
+                experiment: {
+                  ...previous.experiment,
+                  hypothesis: p.hypothesis,
+                  objective: p.objective,
+                  why_useful: item.supported,
+                  equipment: p.equipment,
+                  measurements: p.procedure,
+                  success_indicator: p.success_indicator,
+                  next_measurement: item.next_measurement,
+                  unvalidated: p.unvalidated,
+                  cannot_reproduce: [p.cannot_reproduce],
+                  evidence_gate: item.classification,
+                  classification: "ASSUMED / PROPOSED, LITERATURE-INFORMED",
+                },
               },
             },
-          },
-        };
-      }),
+          };
+        }),
     };
   }, [merged, sourceProtocol, evidence.value]);
   if (sourceProtocol && !evidence.value)
@@ -162,7 +168,7 @@ export default function FieldStudy() {
     );
   if (
     params.get("id") &&
-    !merged.candidates.some((c) => c.id === params.get("id"))
+    !proposal.candidates.some((c) => c.id === params.get("id"))
   )
     return (
       <main className="document-page">
@@ -174,6 +180,35 @@ export default function FieldStudy() {
         <Link to="/cells">Return to screened cells</Link>
       </main>
     );
+  if (sourceProtocol && evidence.value) {
+    let wantedId = params.get("id"),
+      wantedMission = params.get("mission");
+    if (params.get("share"))
+      try {
+        const saved = decodeShare(params.get("share")!);
+        wantedId = saved.c;
+        wantedMission = saved.m;
+      } catch {
+        /* The editor reports the damaged share without opening results. */
+      }
+    if (
+      (!params.get("share") && !wantedId) ||
+      (wantedId &&
+        !evidence.value.cases.some(
+          (c) => c.candidate_id === wantedId && c.mission === wantedMission,
+        ))
+    )
+      return (
+        <main className="document-page">
+          <h1>Source protocol unavailable for this mission</h1>
+          <p>
+            Choose a published case with its stated candidate and mission. No
+            protocol or planetary target was substituted.
+          </p>
+          <Link to="/cases">Open the scoped cases</Link>
+        </main>
+      );
+  }
   if (!merged.candidates.some((c) => terrainGrid(c)))
     return (
       <main className="document-page">
@@ -463,6 +498,7 @@ function FieldStudyEditor() {
           Earth candidate
           <select
             value={study.candidate_id}
+            disabled={!!data.proposal_protocol}
             onChange={(e) => switchTo(e.target.value, study.mission)}
           >
             {eligible.map((c) => (
@@ -477,6 +513,7 @@ function FieldStudyEditor() {
           Planetary mission
           <select
             value={study.mission}
+            disabled={!!data.target_reference || !!data.proposal_protocol}
             onChange={(e) =>
               switchTo(study.candidate_id, e.target.value as Mission)
             }
@@ -500,6 +537,21 @@ function FieldStudyEditor() {
         </div>
       </section>
 
+      {(data.proposal_protocol || data.target_reference) && (
+        <p className="scientific-caveat">
+          This proposal retains its selected source/planetary scope. To change
+          the scoped candidate or mission,{" "}
+          <Link
+            to={studyPath(
+              `/field-study?polar=none&cohort=expanded&mission=${study.mission}`,
+              params.toString(),
+            )}
+          >
+            start a new general study
+          </Link>
+          . Save or export this proposal first if you want to retain it.
+        </p>
+      )}
       <section className="field-workbench">
         <div className="field-map-col">
           <div

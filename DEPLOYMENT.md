@@ -1,3 +1,20 @@
+# TerrainX public version5 — six-item release
+
+- URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site ; audience public.
+- Site: `appgprj_6af7ff7626888191bcba757337fd7e9b`.
+- Saved version5: `appgprj_6af7ff7626888191bcba757337fd7e9b~appgver_faffd04b77388191b81366c970e551ca`.
+- Deployment: `appgdep_6af8c4f7bea4819188ae7e7497b5add4`.
+- Native result: **succeeded**,2026-11-14T20:31:22.058989+00:00.
+- Deployed source: `413d938d277b6d0dc675e44462606493508229c1`.
+- Science: `science-79daa128eae12594`; original dataset SHA256 remains3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c.
+- Archive: `D:\TerrainX\outputs\terrainx-challenge-completion.tar.gz`; SHA25607698813716e5d26c6f67da6edd93ec3be1a97adc3647f853bb48e7f8ec4bdd1;127,395,840 bytes;270 files.
+- **All43 fresh unauthenticated public Chrome/Playwright workflows passed**, including offline update-failure recovery and all new cases/polar/replay/export/judge flows.21 focused public desktop/tablet/mobile cases passed; no overflow, missing local images, framework overlays or application exceptions. Local broader visual sweep90 cases.85 Python tests + independent reproduction;94 TypeScript tests; static build pass.
+- A final scoped-preset lock is being verified before a small successor release: polar references cannot pair with Mars, and literature-informed proposals retain their source scope. Do not mark M6 final until that fix is published and rechecked.
+
+Step-by-step deployment/rehearsal: LIVE_DEMO.md and docs/DEPLOY_CHATGPT_SITE.md. Submission: docs/SUBMISSION_GUIDE.md. Existing prepared browsers: open /#/offline, prepare the update, explicitly activate/reload when offered. Saved research is retained. Browser plugin unavailable, so installed Chrome/Playwright was used; Firefox/Safari/formal accessibility certification remain untested. Hosted CI result is not inferred from local tests.
+
+## Previous verified version4 (rollback)
+
 # TerrainX current public release
 
 - Public URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site
