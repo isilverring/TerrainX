@@ -11,7 +11,7 @@
 - Dataset SHA256: `3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c`.
 - Archive: `D:\TerrainX\outputs\terrainx-reviewed-release4.tar.gz`, content hash `d7f9dee34c3b45fafb137233a6002b3b017cfa41af2bcd376e1eb86dfc2d2c7e`,210 files.
 - Pre-publication evidence:81 Python tests + independent reproduction;89 TypeScript tests;38 production-preview workflows;85 responsive route/width checks. Production dependency audit:0 known vulnerabilities.
-- **Fresh public browser verification is running; record its final result below.** Native success confirms publication; browser acceptance is a separate check.
+- Fresh public browser verification: **37/38 passed**. Offline reload failed because the host redirects /index.html to /; cached redirected responses cannot directly satisfy navigation. A worker repair and redirect regression are being verified before republishing. Native success confirms publication; browser acceptance is a separate check.
 
 Rehearsal/deploy steps: [LIVE_DEMO.md](LIVE_DEMO.md), [ChatGPT Site guide](docs/DEPLOY_CHATGPT_SITE.md), [Vercel alternative](docs/DEPLOY_VERCEL.md). Submission/human steps: [docs/SUBMISSION_GUIDE.md](docs/SUBMISSION_GUIDE.md). No API key required.
 

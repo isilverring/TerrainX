@@ -1,6 +1,6 @@
 # TerrainX recovery checkpoint — comprehensive teammate review
 
-All software work for the current bounded release is complete in **D:\TerrainX**, private https://github.com/isilverring/TerrainX, main. **Current step: fresh public browser verification. Publication succeeded.** Do not assume the newest GitHub commit is live; DEPLOYMENT.md records the exact saved version, source commit and deployment result.
+The bounded release is under final hosted acceptance in **D:\TerrainX**, private https://github.com/isilverring/TerrainX, main. **Current step: republish the verified public-host offline repair.** Version3 published successfully and passed37/38 public workflows; the host's canonical /index.html redirect broke cached offline navigation. The worker now rebuilds only that verified cached response. The production regression reproduces the redirect locally and passes offline reload, corrupted-update rollback, cells, field planning, polar science and export. Production build passes. Rebuild from this checkpoint, package/save/deploy a new version, then rerun the public suite. Do not assume the newest GitHub commit is live; DEPLOYMENT.md records exact source and deployment results.
 
 ## What was reviewed and repaired
 

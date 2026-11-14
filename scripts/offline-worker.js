@@ -62,6 +62,15 @@ self.addEventListener('fetch',event=>{
     }
     const key=event.request.mode==='navigate'?'/index.html':url.pathname;
     const saved=await cache?.match(key);
+    if(saved&&event.request.mode==='navigate'&&saved.redirected){
+      // Static hosts may redirect /index.html to /. Navigation uses manual
+      // redirects, which cannot consume a redirected Fetch response. Rebuild
+      // only the already checksum-verified cached document, preserving bytes.
+      // https://www.w3.org/TR/service-workers/#fetch-event-respondwith
+      const headers=new Headers(saved.headers);
+      headers.delete('content-encoding');headers.delete('content-length');
+      return new Response(saved.body,{status:saved.status,statusText:saved.statusText,headers});
+    }
     return saved??fetch(event.request);
   })());
 });

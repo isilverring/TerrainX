@@ -12,6 +12,11 @@ test("prepared production demo reloads and opens lazy science views without a ne
     !production,
     "Offline acceptance requires the production catalogue (local preview or public deployment).",
   );
+  // Reproduce canonical-index redirects used by public static hosts even on
+  // local preview. A cached redirected response must still support navigation.
+  await context.route("**/index.html", (route) =>
+    route.fulfill({ status: 302, headers: { location: "/" } }),
+  );
   await page.goto("/#/offline");
   await page
     .getByRole("button", { name: "Prepare offline demo", exact: true })
@@ -27,6 +32,12 @@ test("prepared production demo reloads and opens lazy science views without a ne
       await caches.open("terrainx-offline-metadata")
     ).match("/__terrainx_prepared__"))!.json(),
   );
+  expect(
+    await page.evaluate(async (cacheName: string) =>
+      (await (await caches.open(cacheName)).match("/index.html"))?.redirected,
+      before.cache,
+    ),
+  ).toBe(true);
   // Force a later asset verification failure. Partial download must not replace the ready pointer.
   await context.route("**/releases/**/dataset.json", (route) =>
     route.fulfill({ status: 200, contentType: "application/json", body: "{}" }),

@@ -183,7 +183,7 @@ export default function LunarPolar() {
           <p className="document-label">Investigate · Lunar south pole</p>
           <h1>Where Earth runs out of terrain analogs.</h1>
           <p>
-            NASA's October2024 announcement listed nine candidate Artemis III
+            NASA's October 2024 announcement listed nine candidate Artemis III
             regions near the lunar south pole (historical context, not a current
             landing commitment). TerrainX samples NASA LOLA elevations at the
             official IAU centres of the features those regions are named after,
