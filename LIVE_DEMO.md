@@ -45,7 +45,7 @@ Import the private GitHub repository as a new project. Keep the root directory a
 
 ## Scientific demo guardrails
 
-The 130 cells and 16 automatic candidates are real screening results; four benchmarks are separate. Ten automatic candidates support preliminary hypotheses under default weights. None is field-validated. No automatic lunar-basalt match is established. Frontier endpoints are hypothetical bounds, physics sliders are scenarios, and rank stability is model sensitivity. Show coverage alongside utility. Do not describe scores as success probabilities or NASA certification.
+The 130 cells and 16 automatic candidates are real screening results; four benchmarks are separate. Ten automatic candidates support preliminary hypotheses under default weights. None is field-validated. No original-shortlist lunar-basalt match is established; the expanded search has one regionally mapped basalt lead requiring verification. Frontier endpoints are hypothetical bounds, physics sliders are scenarios, and rank stability is model sensitivity. Show coverage alongside utility. Do not describe scores as success probabilities or NASA certification.
 
 ## Audited release additions and submission
 
@@ -54,3 +54,5 @@ All cells → choose the Moon mapped-basalt lead → Plan a field study opens th
 For audience use the ten-scene guided narrative or DEMO.md. For the mandatory short event demo use docs/SUBMISSION_GUIDE.md (aim29seconds or at most7slides), then paste the reviewed SUBMISSION.md draft into your team page yourself. Team details, recording/upload, terms and actual submission are human actions.
 
 Prepared old builds intentionally stay available until an explicit update. To upgrade: reconnect → Prepare → Offline → Prepare offline demo → Use prepared update and reload (if shown). Rehearse offline again. Do not clear saved research just to refresh assets. Exact release/source/rollback metadata is in DEPLOYMENT.md.
+
+ChatGPT Site refresh/publication steps: [docs/DEPLOY_CHATGPT_SITE.md](docs/DEPLOY_CHATGPT_SITE.md).
