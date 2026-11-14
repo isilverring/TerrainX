@@ -10,7 +10,11 @@ Work in `D:\TerrainX` (PC) or `C:\TerrainX` (laptop); both track `origin/main`. 
 6. Rebuild data only when needed: `scripts/build_planetary_profiles.py`, `scripts/build_planetary_context.py`, then `scripts/build_discovery.py` (`--offline` uses cached Earth requests).
 7. After each completed module: update STATUS/NEXT_STEPS/plan log, run checks, `scripts/checkpoint.ps1 -Message "..."`.
 
+## Prompt 2 status
+All 12 Prompt 2 sections are implemented (see STATUS.md "Prompt 2 progress"). Unit tests: `npm run test:unit` (45). Browser: `npm test` (13 workflows; `TERRAINX_OFFLINE=1` in sandboxes).
+
 ## Suggested next work
+- **Visual QA with live services** of Compare Worlds images, the 96 km Earth context surface and 3D fly-to on a real GPU browser.
 - **Redeploy** the private preview (or a public Netlify/Vercel judge build) from the PC; the hosted preview still runs commit `a058c1c`.
 - **Visual QA on a real GPU/browser**: 3D terrain fly-to (pitch ~62°), globe toggle, GIBS date picker edge dates, and the 96 km Earth context surface (it renders from live AWS tiles, which the cloud sandbox could not reach; only the analysis-lattice fallback and planetary context were rendered there).
 - Optional from the plan: drape a verified NASA Trek / CTX / LRO WAC image on the planetary 3D patch (check URL and licence first).

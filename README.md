@@ -14,6 +14,16 @@ Landing with a live rotating globe of the real candidates and headline counts; M
 
 No application authentication, database, backend, paid API, LLM or judge-time NASA query is required. Cached data are versioned. Map tiles and external source links need internet; science panels work if tiles fail.
 
+### Prompt 2 — advanced science and visual enhancements
+
+- **Discovery Frontier** (`/frontier`): decision sensitivity to missing evidence — hypothetical U bounds with each missing criterion at 0 and 1, P interval, benchmark crossing, possible rank range and declared Measurement Priority; the Passport adds "What should we measure next?".
+- **Planetary Transfer Lab** (`/transfer-lab`): Froude number and matched speed, slope force components, dynamic pressure from NASA POWER PS/T2M/WS10M versus a labelled Mars scenario and the Moon, and a deterministic transfer-gap summary.
+- **Analog Forensics** (Analog DNA): measured 2D heightmaps and slope maps (3D optional), 1×/3×/5× exaggeration, profiles, a quantitative table and resolution warnings.
+- **What if the mission changes?** (`/what-if`): adjust α, weights, minimum coverage and tolerances; before/after ranks explained by an exact ΔP decomposition; Pareto frontier; seeded ranking-stability analysis.
+- **Compare Worlds** (`/worlds`): verified original NASA imagery (Lake Salda ↔ Jezero, Harrat Khaybar ↔ Mare Crisium) with sourced annotations and limits.
+- **Expedition Packet** (`/expedition/:id`): printable brief plus JSON, CSV and GeoJSON exports of the active state.
+- **Beyond the known analogs** (landing) and the **guided demo** (`/demo`, "From Earth to another world").
+
 ## Run locally
 
 Node 22+ and Python 3.11+ recommended. This workstation has Python 3.12 via `py -3.12`; its Windows Store `python` alias is not a usable interpreter. The app has also built successfully on the installed Node 20.16, but a map-validation dependency declares Node 22.
@@ -46,6 +56,7 @@ Successful requests are cached. Rerun `build_discovery.py --offline` to regenera
 ```powershell
 .\.venv\Scripts\python.exe scripts\validate_results.py
 npm run build
+npm run test:unit          # 45 Vitest unit tests of the TypeScript science
 # With the dev server running in another terminal:
 npm test
 # In a sandbox without outbound map access:
@@ -53,7 +64,9 @@ npm test
 npm --prefix frontend audit
 ```
 
-Current scientific validation: 57 tests plus independent reproduction of saved metrics/scores (including exact reproduction of the scored MOLA/LOLA grids from the committed context windows). Strict TypeScript and static production build pass. Playwright uses the installed Chrome channel and runs 6 workflows: 1568×1003 desktop and 390×844 mobile, the full mission-to-Passport flow with ranking, search, keyboard navigation and GIBS, weights, print/PDF, basemap failure, the 3D-viewer offline fallback and compare mode. `TERRAINX_OFFLINE=1` skips waits on live third-party tiles. On another machine install Chrome or adjust the channel in `frontend/playwright.config.ts`. Dependency audit reports zero known vulnerabilities with this lockfile. See `docs/QA.md` for final visual and interaction evidence.
+Current scientific validation: 57 Python tests and 45 TypeScript unit tests, plus independent reproduction of saved metrics/scores (including exact reproduction of the scored MOLA/LOLA grids from the committed context windows). Strict TypeScript and static production build pass. Playwright uses the installed Chrome channel and runs 13 workflows covering the mission-to-Passport flow, mobile, map fallbacks, Analog Forensics, Discovery Frontier, Transfer Lab, What-if/robustness, Compare Worlds, Expedition Packet exports and the guided demo. `TERRAINX_OFFLINE=1` skips waits on live third-party tiles. On another machine install Chrome or adjust the channel in `frontend/playwright.config.ts`. Dependency audit reports zero known vulnerabilities with this lockfile. See `docs/QA.md` for final visual and interaction evidence.
+
+New dependencies in this release: `qrcode-generator` (MIT, Passport QR) and dev-only `vitest` 5. No backend, API key or paid service was added.
 
 ## Static deployment
 

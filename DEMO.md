@@ -1,12 +1,14 @@
 # Recommended 90-second judge demo
 
-1. **0–10 s:** Landing. The globe shows the real candidates rotating over the four study regions. “Earth is our first planetary laboratory. TerrainX searches for specific Earth experiments, not a universal Mars similarity score.”
-2. **10–25 s:** Launch Discovery. The map opens on the four study regions: 130 real POWER cells, 16 automatic candidates (numbered markers), 4 benchmark diamonds. Switch the basemap to **Satellite** and turn on **3D** to fly into a candidate; point out the POWER cell (~55 km) versus the 24 km SRTM lattice and its 49 real sample points.
-3. **25–40 s:** Mars/Jezero. F, U and C stay separate. Characterized candidates are listed first, so a high but partial U (45 % coverage) never outranks a fully assessed one. Sort by F to show the order changes within each tier; no winner is claimed.
-4. **40–60 s:** Open Analog DNA. Actual NASA units, SRTM terrain, real MOLA metrics, Macrostrat citation. Scroll to **3D terrain, side by side**: the 96 km context shows Jezero Crater next to the Earth site at the same scale and exaggeration; switch to the 24 km lattice to show the exact samples behind F.
-5. **60–75 s:** Pick two or three candidates with **Compare** and open the comparison: scores, criteria, terrain against the target, climate and geology side by side. Then read the Reality Gap and field hypothesis.
-6. **75–90 s:** Open the Passport and Print/Save as PDF (QR links back to the live dossier). Switch to Moon/Mare Crisium to show real LOLA, a nearly flat mare in 3D and a different evidence assessment. Close with 57 scientific tests, caches, equations and source links.
+Use the built-in guided demo (header "Guided demo" or `/#/demo`; ← → to move, Esc to exit), then show the live tools.
 
-Fallback: cached science panels, the candidate list, the 24 km 3D lattice and the Passport work without live tiles. If imagery fails, say so rather than inventing it.
+1. **0–15 s · Guided demo scenes 1–3.** The challenge; four documented benchmarks versus 130 real NASA POWER cells; the funnel 130 → 16 → 10 and the top screening priorities (no winner).
+2. **15–30 s · Scene 4–5.** Western Saudi Arabia · 02 (F 95, U 66, C 100%) next to a high-U but 45%-coverage candidate: terrain similarity is not mission usefulness. Gravity 0.38×, Froude-matched 0.62 m/s, 53 Pa vs 0.76 Pa dynamic pressure.
+3. **30–45 s · Discovery Frontier.** Six Mars research candidates whose U could range ~40–98 until geology is measured; High Measurement Priority because geology is mission-essential and the interval spans the Lake Salda benchmark. "What should we measure next?": stratigraphy, grain size, XRF/Raman.
+4. **45–60 s · What if.** Drag α to 0: Gobi region · 01 moves up five places "because terrain fidelity F was weighted less heavily"; the Pareto frontier shows three useful options; reset, and ranking stability at release defaults shows Western Saudi Arabia · 02 first in 100% of 200 seeded scenarios at ±25%.
+5. **60–75 s · Analog DNA → Analog Forensics and Compare Worlds.** Measured 24 km grids side by side (×3), the quantitative table behind F = 94.7; then Lake Salda ↔ Jezero imagery with "colour does not establish mineralogy".
+6. **75–90 s · Expedition Packet.** Generate the packet, export JSON/CSV/GeoJSON, Print/Save as PDF. Close: 57 Python + 45 TypeScript tests, every number traceable.
 
-Hard questions: “new” means unshortlisted in this bounded search, not unknown to literature; no field campaign occurred; fidelity is broad exploratory morphology with unequal support; U renormalizes available criteria so C must be inspected; the 3D context surfaces and imagery are visualisation only; no automatic lunar-basalt match is claimed without geological evidence.
+Fallback: cached science, Frontier, What-if, Transfer Lab, Forensics (24 km lattice), packet and demo all work without live tiles or images.
+
+Hard questions: "new" means unshortlisted in this bounded search; Frontier bounds are hypothetical, not predictions or EVI; stability is weight sensitivity, not confidence; Froude matching and dynamic pressure are not full physical similarity; the Moon has no algorithmic candidate with assessed basaltic geology — shown honestly.

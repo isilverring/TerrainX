@@ -272,6 +272,56 @@ export default function Methodology() {
         </p>
       </section>
       <section className="science-section">
+        <h2>06 / Decision analysis and physics explainers</h2>
+        <h3>Discovery Frontier · decision sensitivity to missing evidence</h3>
+        <div className="equation">
+          U_min = 100·Σ_known wₖuₖ / Σ wₖ ; U_max = 100·(Σ_known wₖuₖ +
+          Σ_missing wₖ) / Σ wₖ
+        </div>
+        <p>
+          Each missing criterion is evaluated at 0 and at 1 with known inputs
+          kept. The interval is a hypothetical bound, not a prediction or an
+          expected value of information. Measurement Priority is High when the
+          gap is mission-essential (geology gates characterization) and the
+          interval crosses the best benchmark or spans ≥ 3 ranks; Medium when
+          either holds; otherwise Low.
+        </p>
+        <h3>Planetary Transfer Lab</h3>
+        <div className="equation">
+          Fr = v²/(g·L) ; v_target = v_earth·√(g_target/g_earth) ; ρ = p/(R·T) ;
+          q = ½·ρ·v²
+        </div>
+        <p>
+          g = 9.80665 (Earth), 3.71 (Mars), 1.62 (Moon) m/s². Earth density uses
+          NASA POWER PS (kPa → Pa) and T2M (°C → K) with dry-air R = 287.05
+          J/(kg·K). Mars uses a labelled scenario (600 Pa, 210 K, R = 188.9);
+          lunar aerodynamic q ≈ 0. Froude matching is one dynamic-similarity
+          condition, not a traction, sinkage, slip or safety model; equal q is
+          not equal dust entrainment.
+        </p>
+        <h3>What if, Pareto and ranking stability</h3>
+        <div className="equation">
+          ΔP = ΔP_α + ΔP_τ + ΔP_w (sequential, exact) ; A ≻ B ⇔ F_A ≥ F_B ∧ U_A
+          ≥ U_B ∧ (F_A &gt; F_B ∨ U_A &gt; U_B)
+        </div>
+        <p>
+          Counterfactual scores are recomputed from stored feature and criterion
+          values with the pipeline’s equations; unknown geology is never ranked.
+          Stability uses 200 seeded scenarios (mulberry32) with weights and
+          tolerances perturbed uniformly by ±range and weights renormalized; it
+          reports median/best/worst rank and the share ranked first or in the
+          top three. It is weight sensitivity, not statistical confidence or a
+          probability of mission success.
+        </p>
+        <h3>Analog Forensics</h3>
+        <p>
+          A TypeScript port of the terrain metrics reproduces all 22 cached
+          Python metric sets. Maps and profiles are drawn cell by cell from the
+          real arrays; missing grids draw nothing. The 96 km context grids are
+          visualisation only.
+        </p>
+      </section>
+      <section className="science-section">
         <h2>Validation & reproducibility</h2>
         <p>
           {validation

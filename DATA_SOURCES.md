@@ -18,6 +18,19 @@
 
 No API key, paid service or judge-time NASA query is required. External map tiles/source links still need internet. The original CARTO endpoint returned key-required watermark tiles and was replaced after visual QA; it is not the shipped basemap.
 
+## Prompt 2 sources and constants
+
+| Item | Use | Source |
+|---|---|---|
+| NASA Earth Observatory, *Jez Like Mars* | Lake Salda (Landsat 8 OLI, 8 June 2020; NASA EO / Lauren Dauphin, USGS Landsat) and Jezero CTX mosaic (NASA/JPL-Caltech/MSSS/Tanya Harrison) in Compare Worlds; carbonate/delta comparison | [page](https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/) |
+| NASA Earth Observatory, *White and Black Volcanoes of Saudi Arabia* | Harrat Khaybar / Jabal Qidr (Landsat 9 OLI-2, 25 April 2024; NASA EO / Lauren Dauphin, USGS Landsat) | [page](https://science.nasa.gov/earth/earth-observatory/white-and-black-volcanoes-of-saudi-arabia-152839) |
+| NASA Science, *Wrinkle Ridge in Mare Crisium* | Mare Crisium image (NASA/GSFC/Arizona State University; instrument and scale not stated on the page) | [page](https://science.nasa.gov/resource/wrinkle-ridge-in-mare-crisium/) |
+| Gravity constants | 9.80665 m/s² (standard gravity), 3.71 (Mars), 1.62 (Moon) — declared values in `physics.ts` | — |
+| Mars atmosphere scenario | 600 Pa, 210 K, R=188.9 J/(kg·K): illustrative assumption, labelled SCENARIO, not a Jezero measurement | — |
+| NASA POWER PS, T2M, WS10M | Earth air density and dynamic pressure; units read from the dataset (`kPa`, `C`, `m/s`) | same POWER responses as above |
+
+Images are loaded from NASA's servers (URLs verified on 2026-11-14); if they fail, the page shows a fallback with the NASA link. Imagery is never used for scoring or to assert mineralogy.
+
 ## Benchmark subsites and mission evidence
 
 Coordinates, source scopes, citations and limitations are in `reference_evidence.json` and `docs/SOURCE_RESEARCH.md`.
