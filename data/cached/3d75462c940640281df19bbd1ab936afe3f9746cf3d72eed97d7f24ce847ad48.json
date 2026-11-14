@@ -1,0 +1,14 @@
+{
+  "url": "https://macrostrat.org/api/geologic_units/map?lat=24.0&lng=38.125&format=json",
+  "retrieved_at": "2026-11-14T05:21:46.427657+00:00",
+  "sha256": "94a821f009d10a3c9ddfe217140fbe201a55060152840653265aeb11a57c68cf",
+  "status_code": 200,
+  "data": {
+    "success": {
+      "v": 2,
+      "license": "CC-BY 4.0",
+      "data": [],
+      "refs": {}
+    }
+  }
+}

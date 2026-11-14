@@ -1,0 +1,12 @@
+{
+  "screened_cells": 130,
+  "valid_screened_cells": 130,
+  "shortlisted_candidates": 16,
+  "characterized_candidates": 10,
+  "benchmark_sites": 4,
+  "climate_profiles": 20,
+  "terrain_profiles": 20,
+  "planetary_profiles": 2,
+  "geology_mapped": 19,
+  "errors": []
+}

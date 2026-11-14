@@ -18,7 +18,7 @@ from science.ingestion.power import fetch_regional,parse_regional,fetch_point,pa
 from science.ingestion.srtm import sample_grid
 from science.ingestion.macrostrat import fetch_geology,classify_geology
 from science.analysis.terrain import terrain_metrics
-from science.analysis.discovery import select_candidates,discovery_count
+from science.analysis.discovery import select_candidates,discovery_count,on_land
 from science.analysis.similarity import physical_fidelity
 from science.analysis.utility import mission_utility,combined_priority
 from science.models import Dataset
@@ -104,6 +104,13 @@ def main():
             print(f"{region['id']}: {len(cells)} actual cells",flush=True)
         except Exception as exc:
             errors.append({"stage":"regional","region":region["id"],"reason":str(exc)})
+    land_path=ROOT/"data/source/ne_110m_land.geojson"
+    if not land_path.exists():
+        raise RuntimeError("Run scripts/fetch_geography.py to acquire the documented broad land mask before screening.")
+    land=json.loads(land_path.read_text(encoding="utf-8"))
+    for cell in all_cells:
+        cell["land_eligible"]=on_land(cell["longitude"],cell["latitude"],land)
+        cell["land_mask_note"]="Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
     atomic_json(out/"screened_cells.geojson",{"type":"FeatureCollection","features":[{"type":"Feature","geometry":{"type":"Point","coordinates":[c["longitude"],c["latitude"]]},"properties":c} for c in all_cells]})
     shortlist=select_candidates(all_cells,per_region=args.per_region)
     selected=[]
@@ -117,7 +124,7 @@ def main():
         reference["benchmark"]=True
         reference["region_id"]="benchmark"
         reference["source_refs"]=[r["url"] for r in reference.get("references",[])]
-        reference["reference_assessments"]={}
+        reference["reference_assessments"]={mission:{"value":None,"rationale":"This benchmark's published subsite evidence does not establish this mission's required geological material/process. Regional map polygons do not override subsite evidence.","source_refs":[],"classification":"UNAVAILABLE"} for mission in ("jezero","mare-crisium")}
         if reference["id"] in {"reference-salda","reference-atacama"}:
             reference["reference_assessments"]["jezero"]={"value":1. if reference["id"]=="reference-salda" else .5,"rationale":reference["material_process"]+". "+reference["mars_relevance"],"source_refs":reference["source_refs"],"classification":"LITERATURE-SUPPORTED"}
         if reference["id"] in {"reference-khaybar","reference-craters"}:

@@ -12,7 +12,7 @@ def distance_km(a,b):
 def select_candidates(cells: list[dict], per_region=4, separation_km=65) -> list[dict]:
     selected=[]
     for region in sorted({c["region_id"] for c in cells}):
-        candidates=sorted((c for c in cells if c["region_id"]==region and c["aridity"] is not None),key=lambda c:(-c["aridity"],c["latitude"],c["longitude"]))
+        candidates=sorted((c for c in cells if c["region_id"]==region and c["aridity"] is not None and c.get("land_eligible",True)),key=lambda c:(-c["aridity"],c["latitude"],c["longitude"]))
         regional=[]
         for cell in candidates:
             if all(distance_km(cell,other)>=separation_km for other in regional):
@@ -25,3 +25,21 @@ def select_candidates(cells: list[dict], per_region=4, separation_km=65) -> list
 
 def discovery_count(candidates):
     return sum(not c.get("benchmark",False) for c in candidates)
+
+
+def point_in_ring(x,y,ring):
+    inside=False
+    for (ax,ay),(bx,by) in zip(ring,ring[1:]+ring[:1]):
+        if (ay>y)!=(by>y) and x<(bx-ax)*(y-ay)/(by-ay)+ax:
+            inside=not inside
+    return inside
+
+
+def on_land(longitude,latitude,geojson):
+    for feature in geojson["features"]:
+        geometry=feature["geometry"]
+        polygons=[geometry["coordinates"]] if geometry["type"]=="Polygon" else geometry["coordinates"]
+        for polygon in polygons:
+            if point_in_ring(longitude,latitude,polygon[0]) and not any(point_in_ring(longitude,latitude,hole) for hole in polygon[1:]):
+                return True
+    return False

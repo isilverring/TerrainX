@@ -1,0 +1,4685 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.125,
+          24.0
+        ]
+      },
+      "properties": {
+        "id": "saudi-24.000-38.125",
+        "region_id": "saudi",
+        "latitude": 24.0,
+        "longitude": 38.125,
+        "daily_precip_mm": 0.05,
+        "annual_precip_mm": 18.2625,
+        "aridity": 0.95434375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.75,
+          24.0
+        ]
+      },
+      "properties": {
+        "id": "saudi-24.000-38.750",
+        "region_id": "saudi",
+        "latitude": 24.0,
+        "longitude": 38.75,
+        "daily_precip_mm": 0.05,
+        "annual_precip_mm": 18.2625,
+        "aridity": 0.95434375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.375,
+          24.0
+        ]
+      },
+      "properties": {
+        "id": "saudi-24.000-39.375",
+        "region_id": "saudi",
+        "latitude": 24.0,
+        "longitude": 39.375,
+        "daily_precip_mm": 0.05,
+        "annual_precip_mm": 18.2625,
+        "aridity": 0.95434375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.0,
+          24.0
+        ]
+      },
+      "properties": {
+        "id": "saudi-24.000-40.000",
+        "region_id": "saudi",
+        "latitude": 24.0,
+        "longitude": 40.0,
+        "daily_precip_mm": 0.06,
+        "annual_precip_mm": 21.915,
+        "aridity": 0.9452125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.625,
+          24.0
+        ]
+      },
+      "properties": {
+        "id": "saudi-24.000-40.625",
+        "region_id": "saudi",
+        "latitude": 24.0,
+        "longitude": 40.625,
+        "daily_precip_mm": 0.06,
+        "annual_precip_mm": 21.915,
+        "aridity": 0.9452125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.125,
+          24.5
+        ]
+      },
+      "properties": {
+        "id": "saudi-24.500-38.125",
+        "region_id": "saudi",
+        "latitude": 24.5,
+        "longitude": 38.125,
+        "daily_precip_mm": 0.05,
+        "annual_precip_mm": 18.2625,
+        "aridity": 0.95434375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.75,
+          24.5
+        ]
+      },
+      "properties": {
+        "id": "saudi-24.500-38.750",
+        "region_id": "saudi",
+        "latitude": 24.5,
+        "longitude": 38.75,
+        "daily_precip_mm": 0.05,
+        "annual_precip_mm": 18.2625,
+        "aridity": 0.95434375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.375,
+          24.5
+        ]
+      },
+      "properties": {
+        "id": "saudi-24.500-39.375",
+        "region_id": "saudi",
+        "latitude": 24.5,
+        "longitude": 39.375,
+        "daily_precip_mm": 0.06,
+        "annual_precip_mm": 21.915,
+        "aridity": 0.9452125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.0,
+          24.5
+        ]
+      },
+      "properties": {
+        "id": "saudi-24.500-40.000",
+        "region_id": "saudi",
+        "latitude": 24.5,
+        "longitude": 40.0,
+        "daily_precip_mm": 0.06,
+        "annual_precip_mm": 21.915,
+        "aridity": 0.9452125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.625,
+          24.5
+        ]
+      },
+      "properties": {
+        "id": "saudi-24.500-40.625",
+        "region_id": "saudi",
+        "latitude": 24.5,
+        "longitude": 40.625,
+        "daily_precip_mm": 0.06,
+        "annual_precip_mm": 21.915,
+        "aridity": 0.9452125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.125,
+          25.0
+        ]
+      },
+      "properties": {
+        "id": "saudi-25.000-38.125",
+        "region_id": "saudi",
+        "latitude": 25.0,
+        "longitude": 38.125,
+        "daily_precip_mm": 0.05,
+        "annual_precip_mm": 18.2625,
+        "aridity": 0.95434375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.75,
+          25.0
+        ]
+      },
+      "properties": {
+        "id": "saudi-25.000-38.750",
+        "region_id": "saudi",
+        "latitude": 25.0,
+        "longitude": 38.75,
+        "daily_precip_mm": 0.05,
+        "annual_precip_mm": 18.2625,
+        "aridity": 0.95434375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.375,
+          25.0
+        ]
+      },
+      "properties": {
+        "id": "saudi-25.000-39.375",
+        "region_id": "saudi",
+        "latitude": 25.0,
+        "longitude": 39.375,
+        "daily_precip_mm": 0.07,
+        "annual_precip_mm": 25.567500000000003,
+        "aridity": 0.93608125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.0,
+          25.0
+        ]
+      },
+      "properties": {
+        "id": "saudi-25.000-40.000",
+        "region_id": "saudi",
+        "latitude": 25.0,
+        "longitude": 40.0,
+        "daily_precip_mm": 0.07,
+        "annual_precip_mm": 25.567500000000003,
+        "aridity": 0.93608125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.625,
+          25.0
+        ]
+      },
+      "properties": {
+        "id": "saudi-25.000-40.625",
+        "region_id": "saudi",
+        "latitude": 25.0,
+        "longitude": 40.625,
+        "daily_precip_mm": 0.06,
+        "annual_precip_mm": 21.915,
+        "aridity": 0.9452125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.125,
+          25.5
+        ]
+      },
+      "properties": {
+        "id": "saudi-25.500-38.125",
+        "region_id": "saudi",
+        "latitude": 25.5,
+        "longitude": 38.125,
+        "daily_precip_mm": 0.06,
+        "annual_precip_mm": 21.915,
+        "aridity": 0.9452125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.75,
+          25.5
+        ]
+      },
+      "properties": {
+        "id": "saudi-25.500-38.750",
+        "region_id": "saudi",
+        "latitude": 25.5,
+        "longitude": 38.75,
+        "daily_precip_mm": 0.06,
+        "annual_precip_mm": 21.915,
+        "aridity": 0.9452125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.375,
+          25.5
+        ]
+      },
+      "properties": {
+        "id": "saudi-25.500-39.375",
+        "region_id": "saudi",
+        "latitude": 25.5,
+        "longitude": 39.375,
+        "daily_precip_mm": 0.07,
+        "annual_precip_mm": 25.567500000000003,
+        "aridity": 0.93608125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.0,
+          25.5
+        ]
+      },
+      "properties": {
+        "id": "saudi-25.500-40.000",
+        "region_id": "saudi",
+        "latitude": 25.5,
+        "longitude": 40.0,
+        "daily_precip_mm": 0.07,
+        "annual_precip_mm": 25.567500000000003,
+        "aridity": 0.93608125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.625,
+          25.5
+        ]
+      },
+      "properties": {
+        "id": "saudi-25.500-40.625",
+        "region_id": "saudi",
+        "latitude": 25.5,
+        "longitude": 40.625,
+        "daily_precip_mm": 0.07,
+        "annual_precip_mm": 25.567500000000003,
+        "aridity": 0.93608125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.125,
+          26.0
+        ]
+      },
+      "properties": {
+        "id": "saudi-26.000-38.125",
+        "region_id": "saudi",
+        "latitude": 26.0,
+        "longitude": 38.125,
+        "daily_precip_mm": 0.06,
+        "annual_precip_mm": 21.915,
+        "aridity": 0.9452125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          38.75,
+          26.0
+        ]
+      },
+      "properties": {
+        "id": "saudi-26.000-38.750",
+        "region_id": "saudi",
+        "latitude": 26.0,
+        "longitude": 38.75,
+        "daily_precip_mm": 0.07,
+        "annual_precip_mm": 25.567500000000003,
+        "aridity": 0.93608125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.375,
+          26.0
+        ]
+      },
+      "properties": {
+        "id": "saudi-26.000-39.375",
+        "region_id": "saudi",
+        "latitude": 26.0,
+        "longitude": 39.375,
+        "daily_precip_mm": 0.08,
+        "annual_precip_mm": 29.22,
+        "aridity": 0.9269499999999999,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.0,
+          26.0
+        ]
+      },
+      "properties": {
+        "id": "saudi-26.000-40.000",
+        "region_id": "saudi",
+        "latitude": 26.0,
+        "longitude": 40.0,
+        "daily_precip_mm": 0.08,
+        "annual_precip_mm": 29.22,
+        "aridity": 0.9269499999999999,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          40.625,
+          26.0
+        ]
+      },
+      "properties": {
+        "id": "saudi-26.000-40.625",
+        "region_id": "saudi",
+        "latitude": 26.0,
+        "longitude": 40.625,
+        "daily_precip_mm": 0.07,
+        "annual_precip_mm": 25.567500000000003,
+        "aridity": 0.93608125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.160488+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.0,
+          -22.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--22.000-25.000",
+        "region_id": "botswana",
+        "latitude": -22.0,
+        "longitude": 25.0,
+        "daily_precip_mm": 1.14,
+        "annual_precip_mm": 416.385,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.625,
+          -22.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--22.000-25.625",
+        "region_id": "botswana",
+        "latitude": -22.0,
+        "longitude": 25.625,
+        "daily_precip_mm": 1.15,
+        "annual_precip_mm": 420.03749999999997,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.25,
+          -22.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--22.000-26.250",
+        "region_id": "botswana",
+        "latitude": -22.0,
+        "longitude": 26.25,
+        "daily_precip_mm": 1.25,
+        "annual_precip_mm": 456.5625,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.875,
+          -22.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--22.000-26.875",
+        "region_id": "botswana",
+        "latitude": -22.0,
+        "longitude": 26.875,
+        "daily_precip_mm": 1.39,
+        "annual_precip_mm": 507.6975,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5,
+          -22.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--22.000-27.500",
+        "region_id": "botswana",
+        "latitude": -22.0,
+        "longitude": 27.5,
+        "daily_precip_mm": 1.27,
+        "annual_precip_mm": 463.8675,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.0,
+          -21.5
+        ]
+      },
+      "properties": {
+        "id": "botswana--21.500-25.000",
+        "region_id": "botswana",
+        "latitude": -21.5,
+        "longitude": 25.0,
+        "daily_precip_mm": 1.12,
+        "annual_precip_mm": 409.08000000000004,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.625,
+          -21.5
+        ]
+      },
+      "properties": {
+        "id": "botswana--21.500-25.625",
+        "region_id": "botswana",
+        "latitude": -21.5,
+        "longitude": 25.625,
+        "daily_precip_mm": 1.08,
+        "annual_precip_mm": 394.47,
+        "aridity": 0.013824999999999976,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.25,
+          -21.5
+        ]
+      },
+      "properties": {
+        "id": "botswana--21.500-26.250",
+        "region_id": "botswana",
+        "latitude": -21.5,
+        "longitude": 26.25,
+        "daily_precip_mm": 1.19,
+        "annual_precip_mm": 434.6475,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.875,
+          -21.5
+        ]
+      },
+      "properties": {
+        "id": "botswana--21.500-26.875",
+        "region_id": "botswana",
+        "latitude": -21.5,
+        "longitude": 26.875,
+        "daily_precip_mm": 1.32,
+        "annual_precip_mm": 482.13,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5,
+          -21.5
+        ]
+      },
+      "properties": {
+        "id": "botswana--21.500-27.500",
+        "region_id": "botswana",
+        "latitude": -21.5,
+        "longitude": 27.5,
+        "daily_precip_mm": 1.25,
+        "annual_precip_mm": 456.5625,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.0,
+          -21.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--21.000-25.000",
+        "region_id": "botswana",
+        "latitude": -21.0,
+        "longitude": 25.0,
+        "daily_precip_mm": 1.13,
+        "annual_precip_mm": 412.73249999999996,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.625,
+          -21.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--21.000-25.625",
+        "region_id": "botswana",
+        "latitude": -21.0,
+        "longitude": 25.625,
+        "daily_precip_mm": 1.07,
+        "annual_precip_mm": 390.8175,
+        "aridity": 0.02295625000000001,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.25,
+          -21.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--21.000-26.250",
+        "region_id": "botswana",
+        "latitude": -21.0,
+        "longitude": 26.25,
+        "daily_precip_mm": 1.2,
+        "annual_precip_mm": 438.3,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.875,
+          -21.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--21.000-26.875",
+        "region_id": "botswana",
+        "latitude": -21.0,
+        "longitude": 26.875,
+        "daily_precip_mm": 1.33,
+        "annual_precip_mm": 485.7825,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5,
+          -21.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--21.000-27.500",
+        "region_id": "botswana",
+        "latitude": -21.0,
+        "longitude": 27.5,
+        "daily_precip_mm": 1.33,
+        "annual_precip_mm": 485.7825,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.0,
+          -20.5
+        ]
+      },
+      "properties": {
+        "id": "botswana--20.500-25.000",
+        "region_id": "botswana",
+        "latitude": -20.5,
+        "longitude": 25.0,
+        "daily_precip_mm": 1.21,
+        "annual_precip_mm": 441.9525,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.625,
+          -20.5
+        ]
+      },
+      "properties": {
+        "id": "botswana--20.500-25.625",
+        "region_id": "botswana",
+        "latitude": -20.5,
+        "longitude": 25.625,
+        "daily_precip_mm": 1.16,
+        "annual_precip_mm": 423.69,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.25,
+          -20.5
+        ]
+      },
+      "properties": {
+        "id": "botswana--20.500-26.250",
+        "region_id": "botswana",
+        "latitude": -20.5,
+        "longitude": 26.25,
+        "daily_precip_mm": 1.26,
+        "annual_precip_mm": 460.215,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.875,
+          -20.5
+        ]
+      },
+      "properties": {
+        "id": "botswana--20.500-26.875",
+        "region_id": "botswana",
+        "latitude": -20.5,
+        "longitude": 26.875,
+        "daily_precip_mm": 1.39,
+        "annual_precip_mm": 507.6975,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5,
+          -20.5
+        ]
+      },
+      "properties": {
+        "id": "botswana--20.500-27.500",
+        "region_id": "botswana",
+        "latitude": -20.5,
+        "longitude": 27.5,
+        "daily_precip_mm": 1.45,
+        "annual_precip_mm": 529.6125,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.0,
+          -20.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--20.000-25.000",
+        "region_id": "botswana",
+        "latitude": -20.0,
+        "longitude": 25.0,
+        "daily_precip_mm": 1.4,
+        "annual_precip_mm": 511.34999999999997,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.625,
+          -20.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--20.000-25.625",
+        "region_id": "botswana",
+        "latitude": -20.0,
+        "longitude": 25.625,
+        "daily_precip_mm": 1.29,
+        "annual_precip_mm": 471.1725,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.25,
+          -20.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--20.000-26.250",
+        "region_id": "botswana",
+        "latitude": -20.0,
+        "longitude": 26.25,
+        "daily_precip_mm": 1.36,
+        "annual_precip_mm": 496.74,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.875,
+          -20.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--20.000-26.875",
+        "region_id": "botswana",
+        "latitude": -20.0,
+        "longitude": 26.875,
+        "daily_precip_mm": 1.47,
+        "annual_precip_mm": 536.9175,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5,
+          -20.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--20.000-27.500",
+        "region_id": "botswana",
+        "latitude": -20.0,
+        "longitude": 27.5,
+        "daily_precip_mm": 1.51,
+        "annual_precip_mm": 551.5275,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.0,
+          -19.5
+        ]
+      },
+      "properties": {
+        "id": "botswana--19.500-25.000",
+        "region_id": "botswana",
+        "latitude": -19.5,
+        "longitude": 25.0,
+        "daily_precip_mm": 1.47,
+        "annual_precip_mm": 536.9175,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.625,
+          -19.5
+        ]
+      },
+      "properties": {
+        "id": "botswana--19.500-25.625",
+        "region_id": "botswana",
+        "latitude": -19.5,
+        "longitude": 25.625,
+        "daily_precip_mm": 1.37,
+        "annual_precip_mm": 500.39250000000004,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.25,
+          -19.5
+        ]
+      },
+      "properties": {
+        "id": "botswana--19.500-26.250",
+        "region_id": "botswana",
+        "latitude": -19.5,
+        "longitude": 26.25,
+        "daily_precip_mm": 1.42,
+        "annual_precip_mm": 518.655,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.875,
+          -19.5
+        ]
+      },
+      "properties": {
+        "id": "botswana--19.500-26.875",
+        "region_id": "botswana",
+        "latitude": -19.5,
+        "longitude": 26.875,
+        "daily_precip_mm": 1.5,
+        "annual_precip_mm": 547.875,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5,
+          -19.5
+        ]
+      },
+      "properties": {
+        "id": "botswana--19.500-27.500",
+        "region_id": "botswana",
+        "latitude": -19.5,
+        "longitude": 27.5,
+        "daily_precip_mm": 1.55,
+        "annual_precip_mm": 566.1375,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.0,
+          -19.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--19.000-25.000",
+        "region_id": "botswana",
+        "latitude": -19.0,
+        "longitude": 25.0,
+        "daily_precip_mm": 1.54,
+        "annual_precip_mm": 562.485,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          25.625,
+          -19.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--19.000-25.625",
+        "region_id": "botswana",
+        "latitude": -19.0,
+        "longitude": 25.625,
+        "daily_precip_mm": 1.43,
+        "annual_precip_mm": 522.3075,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.25,
+          -19.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--19.000-26.250",
+        "region_id": "botswana",
+        "latitude": -19.0,
+        "longitude": 26.25,
+        "daily_precip_mm": 1.53,
+        "annual_precip_mm": 558.8325,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          26.875,
+          -19.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--19.000-26.875",
+        "region_id": "botswana",
+        "latitude": -19.0,
+        "longitude": 26.875,
+        "daily_precip_mm": 1.62,
+        "annual_precip_mm": 591.705,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          27.5,
+          -19.0
+        ]
+      },
+      "properties": {
+        "id": "botswana--19.000-27.500",
+        "region_id": "botswana",
+        "latitude": -19.0,
+        "longitude": 27.5,
+        "daily_precip_mm": 1.59,
+        "annual_precip_mm": 580.7475000000001,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:25.847867+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.0,
+          -25.0
+        ]
+      },
+      "properties": {
+        "id": "chile--25.000--70.000",
+        "region_id": "chile",
+        "latitude": -25.0,
+        "longitude": -70.0,
+        "daily_precip_mm": 0.03,
+        "annual_precip_mm": 10.9575,
+        "aridity": 0.97260625,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.375,
+          -25.0
+        ]
+      },
+      "properties": {
+        "id": "chile--25.000--69.375",
+        "region_id": "chile",
+        "latitude": -25.0,
+        "longitude": -69.375,
+        "daily_precip_mm": 0.05,
+        "annual_precip_mm": 18.2625,
+        "aridity": 0.95434375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.75,
+          -25.0
+        ]
+      },
+      "properties": {
+        "id": "chile--25.000--68.750",
+        "region_id": "chile",
+        "latitude": -25.0,
+        "longitude": -68.75,
+        "daily_precip_mm": 0.37,
+        "annual_precip_mm": 135.1425,
+        "aridity": 0.66214375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.125,
+          -25.0
+        ]
+      },
+      "properties": {
+        "id": "chile--25.000--68.125",
+        "region_id": "chile",
+        "latitude": -25.0,
+        "longitude": -68.125,
+        "daily_precip_mm": 0.56,
+        "annual_precip_mm": 204.54000000000002,
+        "aridity": 0.4886499999999999,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.5,
+          -25.0
+        ]
+      },
+      "properties": {
+        "id": "chile--25.000--67.500",
+        "region_id": "chile",
+        "latitude": -25.0,
+        "longitude": -67.5,
+        "daily_precip_mm": 1.56,
+        "annual_precip_mm": 569.79,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.0,
+          -24.5
+        ]
+      },
+      "properties": {
+        "id": "chile--24.500--70.000",
+        "region_id": "chile",
+        "latitude": -24.5,
+        "longitude": -70.0,
+        "daily_precip_mm": 0.02,
+        "annual_precip_mm": 7.305,
+        "aridity": 0.9817375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.375,
+          -24.5
+        ]
+      },
+      "properties": {
+        "id": "chile--24.500--69.375",
+        "region_id": "chile",
+        "latitude": -24.5,
+        "longitude": -69.375,
+        "daily_precip_mm": 0.03,
+        "annual_precip_mm": 10.9575,
+        "aridity": 0.97260625,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.75,
+          -24.5
+        ]
+      },
+      "properties": {
+        "id": "chile--24.500--68.750",
+        "region_id": "chile",
+        "latitude": -24.5,
+        "longitude": -68.75,
+        "daily_precip_mm": 0.17,
+        "annual_precip_mm": 62.0925,
+        "aridity": 0.84476875,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.125,
+          -24.5
+        ]
+      },
+      "properties": {
+        "id": "chile--24.500--68.125",
+        "region_id": "chile",
+        "latitude": -24.5,
+        "longitude": -68.125,
+        "daily_precip_mm": 0.45,
+        "annual_precip_mm": 164.3625,
+        "aridity": 0.58909375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.5,
+          -24.5
+        ]
+      },
+      "properties": {
+        "id": "chile--24.500--67.500",
+        "region_id": "chile",
+        "latitude": -24.5,
+        "longitude": -67.5,
+        "daily_precip_mm": 1.33,
+        "annual_precip_mm": 485.7825,
+        "aridity": 0,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.0,
+          -24.0
+        ]
+      },
+      "properties": {
+        "id": "chile--24.000--70.000",
+        "region_id": "chile",
+        "latitude": -24.0,
+        "longitude": -70.0,
+        "daily_precip_mm": 0.02,
+        "annual_precip_mm": 7.305,
+        "aridity": 0.9817375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.375,
+          -24.0
+        ]
+      },
+      "properties": {
+        "id": "chile--24.000--69.375",
+        "region_id": "chile",
+        "latitude": -24.0,
+        "longitude": -69.375,
+        "daily_precip_mm": 0.03,
+        "annual_precip_mm": 10.9575,
+        "aridity": 0.97260625,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.75,
+          -24.0
+        ]
+      },
+      "properties": {
+        "id": "chile--24.000--68.750",
+        "region_id": "chile",
+        "latitude": -24.0,
+        "longitude": -68.75,
+        "daily_precip_mm": 0.07,
+        "annual_precip_mm": 25.567500000000003,
+        "aridity": 0.93608125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.125,
+          -24.0
+        ]
+      },
+      "properties": {
+        "id": "chile--24.000--68.125",
+        "region_id": "chile",
+        "latitude": -24.0,
+        "longitude": -68.125,
+        "daily_precip_mm": 0.26,
+        "annual_precip_mm": 94.965,
+        "aridity": 0.7625875,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.5,
+          -24.0
+        ]
+      },
+      "properties": {
+        "id": "chile--24.000--67.500",
+        "region_id": "chile",
+        "latitude": -24.0,
+        "longitude": -67.5,
+        "daily_precip_mm": 1.04,
+        "annual_precip_mm": 379.86,
+        "aridity": 0.050350000000000006,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.0,
+          -23.5
+        ]
+      },
+      "properties": {
+        "id": "chile--23.500--70.000",
+        "region_id": "chile",
+        "latitude": -23.5,
+        "longitude": -70.0,
+        "daily_precip_mm": 0.02,
+        "annual_precip_mm": 7.305,
+        "aridity": 0.9817375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.375,
+          -23.5
+        ]
+      },
+      "properties": {
+        "id": "chile--23.500--69.375",
+        "region_id": "chile",
+        "latitude": -23.5,
+        "longitude": -69.375,
+        "daily_precip_mm": 0.03,
+        "annual_precip_mm": 10.9575,
+        "aridity": 0.97260625,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.75,
+          -23.5
+        ]
+      },
+      "properties": {
+        "id": "chile--23.500--68.750",
+        "region_id": "chile",
+        "latitude": -23.5,
+        "longitude": -68.75,
+        "daily_precip_mm": 0.04,
+        "annual_precip_mm": 14.61,
+        "aridity": 0.963475,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.125,
+          -23.5
+        ]
+      },
+      "properties": {
+        "id": "chile--23.500--68.125",
+        "region_id": "chile",
+        "latitude": -23.5,
+        "longitude": -68.125,
+        "daily_precip_mm": 0.12,
+        "annual_precip_mm": 43.83,
+        "aridity": 0.890425,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.5,
+          -23.5
+        ]
+      },
+      "properties": {
+        "id": "chile--23.500--67.500",
+        "region_id": "chile",
+        "latitude": -23.5,
+        "longitude": -67.5,
+        "daily_precip_mm": 0.66,
+        "annual_precip_mm": 241.065,
+        "aridity": 0.3973375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.0,
+          -23.0
+        ]
+      },
+      "properties": {
+        "id": "chile--23.000--70.000",
+        "region_id": "chile",
+        "latitude": -23.0,
+        "longitude": -70.0,
+        "daily_precip_mm": 0.02,
+        "annual_precip_mm": 7.305,
+        "aridity": 0.9817375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.375,
+          -23.0
+        ]
+      },
+      "properties": {
+        "id": "chile--23.000--69.375",
+        "region_id": "chile",
+        "latitude": -23.0,
+        "longitude": -69.375,
+        "daily_precip_mm": 0.03,
+        "annual_precip_mm": 10.9575,
+        "aridity": 0.97260625,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.75,
+          -23.0
+        ]
+      },
+      "properties": {
+        "id": "chile--23.000--68.750",
+        "region_id": "chile",
+        "latitude": -23.0,
+        "longitude": -68.75,
+        "daily_precip_mm": 0.07,
+        "annual_precip_mm": 25.567500000000003,
+        "aridity": 0.93608125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.125,
+          -23.0
+        ]
+      },
+      "properties": {
+        "id": "chile--23.000--68.125",
+        "region_id": "chile",
+        "latitude": -23.0,
+        "longitude": -68.125,
+        "daily_precip_mm": 0.08,
+        "annual_precip_mm": 29.22,
+        "aridity": 0.9269499999999999,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.5,
+          -23.0
+        ]
+      },
+      "properties": {
+        "id": "chile--23.000--67.500",
+        "region_id": "chile",
+        "latitude": -23.0,
+        "longitude": -67.5,
+        "daily_precip_mm": 0.43,
+        "annual_precip_mm": 157.0575,
+        "aridity": 0.60735625,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.0,
+          -22.5
+        ]
+      },
+      "properties": {
+        "id": "chile--22.500--70.000",
+        "region_id": "chile",
+        "latitude": -22.5,
+        "longitude": -70.0,
+        "daily_precip_mm": 0.02,
+        "annual_precip_mm": 7.305,
+        "aridity": 0.9817375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.375,
+          -22.5
+        ]
+      },
+      "properties": {
+        "id": "chile--22.500--69.375",
+        "region_id": "chile",
+        "latitude": -22.5,
+        "longitude": -69.375,
+        "daily_precip_mm": 0.04,
+        "annual_precip_mm": 14.61,
+        "aridity": 0.963475,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.75,
+          -22.5
+        ]
+      },
+      "properties": {
+        "id": "chile--22.500--68.750",
+        "region_id": "chile",
+        "latitude": -22.5,
+        "longitude": -68.75,
+        "daily_precip_mm": 0.09,
+        "annual_precip_mm": 32.8725,
+        "aridity": 0.91781875,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.125,
+          -22.5
+        ]
+      },
+      "properties": {
+        "id": "chile--22.500--68.125",
+        "region_id": "chile",
+        "latitude": -22.5,
+        "longitude": -68.125,
+        "daily_precip_mm": 0.11,
+        "annual_precip_mm": 40.1775,
+        "aridity": 0.8995562500000001,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.5,
+          -22.5
+        ]
+      },
+      "properties": {
+        "id": "chile--22.500--67.500",
+        "region_id": "chile",
+        "latitude": -22.5,
+        "longitude": -67.5,
+        "daily_precip_mm": 0.37,
+        "annual_precip_mm": 135.1425,
+        "aridity": 0.66214375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -70.0,
+          -22.0
+        ]
+      },
+      "properties": {
+        "id": "chile--22.000--70.000",
+        "region_id": "chile",
+        "latitude": -22.0,
+        "longitude": -70.0,
+        "daily_precip_mm": 0.03,
+        "annual_precip_mm": 10.9575,
+        "aridity": 0.97260625,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -69.375,
+          -22.0
+        ]
+      },
+      "properties": {
+        "id": "chile--22.000--69.375",
+        "region_id": "chile",
+        "latitude": -22.0,
+        "longitude": -69.375,
+        "daily_precip_mm": 0.05,
+        "annual_precip_mm": 18.2625,
+        "aridity": 0.95434375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.75,
+          -22.0
+        ]
+      },
+      "properties": {
+        "id": "chile--22.000--68.750",
+        "region_id": "chile",
+        "latitude": -22.0,
+        "longitude": -68.75,
+        "daily_precip_mm": 0.12,
+        "annual_precip_mm": 43.83,
+        "aridity": 0.890425,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -68.125,
+          -22.0
+        ]
+      },
+      "properties": {
+        "id": "chile--22.000--68.125",
+        "region_id": "chile",
+        "latitude": -22.0,
+        "longitude": -68.125,
+        "daily_precip_mm": 0.11,
+        "annual_precip_mm": 40.1775,
+        "aridity": 0.8995562500000001,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -67.5,
+          -22.0
+        ]
+      },
+      "properties": {
+        "id": "chile--22.000--67.500",
+        "region_id": "chile",
+        "latitude": -22.0,
+        "longitude": -67.5,
+        "daily_precip_mm": 0.41,
+        "annual_precip_mm": 149.7525,
+        "aridity": 0.62561875,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.25,
+          42.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-42.000-101.250",
+        "region_id": "gobi",
+        "latitude": 42.0,
+        "longitude": 101.25,
+        "daily_precip_mm": 0.13,
+        "annual_precip_mm": 47.4825,
+        "aridity": 0.88129375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.875,
+          42.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-42.000-101.875",
+        "region_id": "gobi",
+        "latitude": 42.0,
+        "longitude": 101.875,
+        "daily_precip_mm": 0.14,
+        "annual_precip_mm": 51.135000000000005,
+        "aridity": 0.8721625,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.5,
+          42.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-42.000-102.500",
+        "region_id": "gobi",
+        "latitude": 42.0,
+        "longitude": 102.5,
+        "daily_precip_mm": 0.16,
+        "annual_precip_mm": 58.44,
+        "aridity": 0.8539,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.125,
+          42.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-42.000-103.125",
+        "region_id": "gobi",
+        "latitude": 42.0,
+        "longitude": 103.125,
+        "daily_precip_mm": 0.22,
+        "annual_precip_mm": 80.355,
+        "aridity": 0.7991125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.75,
+          42.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-42.000-103.750",
+        "region_id": "gobi",
+        "latitude": 42.0,
+        "longitude": 103.75,
+        "daily_precip_mm": 0.26,
+        "annual_precip_mm": 94.965,
+        "aridity": 0.7625875,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.25,
+          42.5
+        ]
+      },
+      "properties": {
+        "id": "gobi-42.500-101.250",
+        "region_id": "gobi",
+        "latitude": 42.5,
+        "longitude": 101.25,
+        "daily_precip_mm": 0.16,
+        "annual_precip_mm": 58.44,
+        "aridity": 0.8539,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.875,
+          42.5
+        ]
+      },
+      "properties": {
+        "id": "gobi-42.500-101.875",
+        "region_id": "gobi",
+        "latitude": 42.5,
+        "longitude": 101.875,
+        "daily_precip_mm": 0.16,
+        "annual_precip_mm": 58.44,
+        "aridity": 0.8539,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.5,
+          42.5
+        ]
+      },
+      "properties": {
+        "id": "gobi-42.500-102.500",
+        "region_id": "gobi",
+        "latitude": 42.5,
+        "longitude": 102.5,
+        "daily_precip_mm": 0.18,
+        "annual_precip_mm": 65.745,
+        "aridity": 0.8356375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.125,
+          42.5
+        ]
+      },
+      "properties": {
+        "id": "gobi-42.500-103.125",
+        "region_id": "gobi",
+        "latitude": 42.5,
+        "longitude": 103.125,
+        "daily_precip_mm": 0.23,
+        "annual_precip_mm": 84.00750000000001,
+        "aridity": 0.78998125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.75,
+          42.5
+        ]
+      },
+      "properties": {
+        "id": "gobi-42.500-103.750",
+        "region_id": "gobi",
+        "latitude": 42.5,
+        "longitude": 103.75,
+        "daily_precip_mm": 0.28,
+        "annual_precip_mm": 102.27000000000001,
+        "aridity": 0.7443249999999999,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.25,
+          43.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-43.000-101.250",
+        "region_id": "gobi",
+        "latitude": 43.0,
+        "longitude": 101.25,
+        "daily_precip_mm": 0.2,
+        "annual_precip_mm": 73.05,
+        "aridity": 0.817375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.875,
+          43.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-43.000-101.875",
+        "region_id": "gobi",
+        "latitude": 43.0,
+        "longitude": 101.875,
+        "daily_precip_mm": 0.21,
+        "annual_precip_mm": 76.7025,
+        "aridity": 0.80824375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.5,
+          43.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-43.000-102.500",
+        "region_id": "gobi",
+        "latitude": 43.0,
+        "longitude": 102.5,
+        "daily_precip_mm": 0.22,
+        "annual_precip_mm": 80.355,
+        "aridity": 0.7991125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.125,
+          43.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-43.000-103.125",
+        "region_id": "gobi",
+        "latitude": 43.0,
+        "longitude": 103.125,
+        "daily_precip_mm": 0.27,
+        "annual_precip_mm": 98.6175,
+        "aridity": 0.7534562499999999,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.75,
+          43.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-43.000-103.750",
+        "region_id": "gobi",
+        "latitude": 43.0,
+        "longitude": 103.75,
+        "daily_precip_mm": 0.32,
+        "annual_precip_mm": 116.88,
+        "aridity": 0.7078,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.25,
+          43.5
+        ]
+      },
+      "properties": {
+        "id": "gobi-43.500-101.250",
+        "region_id": "gobi",
+        "latitude": 43.5,
+        "longitude": 101.25,
+        "daily_precip_mm": 0.22,
+        "annual_precip_mm": 80.355,
+        "aridity": 0.7991125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.875,
+          43.5
+        ]
+      },
+      "properties": {
+        "id": "gobi-43.500-101.875",
+        "region_id": "gobi",
+        "latitude": 43.5,
+        "longitude": 101.875,
+        "daily_precip_mm": 0.23,
+        "annual_precip_mm": 84.00750000000001,
+        "aridity": 0.78998125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.5,
+          43.5
+        ]
+      },
+      "properties": {
+        "id": "gobi-43.500-102.500",
+        "region_id": "gobi",
+        "latitude": 43.5,
+        "longitude": 102.5,
+        "daily_precip_mm": 0.27,
+        "annual_precip_mm": 98.6175,
+        "aridity": 0.7534562499999999,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.125,
+          43.5
+        ]
+      },
+      "properties": {
+        "id": "gobi-43.500-103.125",
+        "region_id": "gobi",
+        "latitude": 43.5,
+        "longitude": 103.125,
+        "daily_precip_mm": 0.32,
+        "annual_precip_mm": 116.88,
+        "aridity": 0.7078,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.75,
+          43.5
+        ]
+      },
+      "properties": {
+        "id": "gobi-43.500-103.750",
+        "region_id": "gobi",
+        "latitude": 43.5,
+        "longitude": 103.75,
+        "daily_precip_mm": 0.35,
+        "annual_precip_mm": 127.83749999999999,
+        "aridity": 0.6804062500000001,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.25,
+          44.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-44.000-101.250",
+        "region_id": "gobi",
+        "latitude": 44.0,
+        "longitude": 101.25,
+        "daily_precip_mm": 0.25,
+        "annual_precip_mm": 91.3125,
+        "aridity": 0.77171875,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.875,
+          44.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-44.000-101.875",
+        "region_id": "gobi",
+        "latitude": 44.0,
+        "longitude": 101.875,
+        "daily_precip_mm": 0.28,
+        "annual_precip_mm": 102.27000000000001,
+        "aridity": 0.7443249999999999,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.5,
+          44.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-44.000-102.500",
+        "region_id": "gobi",
+        "latitude": 44.0,
+        "longitude": 102.5,
+        "daily_precip_mm": 0.31,
+        "annual_precip_mm": 113.2275,
+        "aridity": 0.71693125,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.125,
+          44.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-44.000-103.125",
+        "region_id": "gobi",
+        "latitude": 44.0,
+        "longitude": 103.125,
+        "daily_precip_mm": 0.33,
+        "annual_precip_mm": 120.5325,
+        "aridity": 0.69866875,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.75,
+          44.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-44.000-103.750",
+        "region_id": "gobi",
+        "latitude": 44.0,
+        "longitude": 103.75,
+        "daily_precip_mm": 0.33,
+        "annual_precip_mm": 120.5325,
+        "aridity": 0.69866875,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.25,
+          44.5
+        ]
+      },
+      "properties": {
+        "id": "gobi-44.500-101.250",
+        "region_id": "gobi",
+        "latitude": 44.5,
+        "longitude": 101.25,
+        "daily_precip_mm": 0.3,
+        "annual_precip_mm": 109.575,
+        "aridity": 0.7260625,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.875,
+          44.5
+        ]
+      },
+      "properties": {
+        "id": "gobi-44.500-101.875",
+        "region_id": "gobi",
+        "latitude": 44.5,
+        "longitude": 101.875,
+        "daily_precip_mm": 0.33,
+        "annual_precip_mm": 120.5325,
+        "aridity": 0.69866875,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.5,
+          44.5
+        ]
+      },
+      "properties": {
+        "id": "gobi-44.500-102.500",
+        "region_id": "gobi",
+        "latitude": 44.5,
+        "longitude": 102.5,
+        "daily_precip_mm": 0.35,
+        "annual_precip_mm": 127.83749999999999,
+        "aridity": 0.6804062500000001,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.125,
+          44.5
+        ]
+      },
+      "properties": {
+        "id": "gobi-44.500-103.125",
+        "region_id": "gobi",
+        "latitude": 44.5,
+        "longitude": 103.125,
+        "daily_precip_mm": 0.34,
+        "annual_precip_mm": 124.185,
+        "aridity": 0.6895374999999999,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.75,
+          44.5
+        ]
+      },
+      "properties": {
+        "id": "gobi-44.500-103.750",
+        "region_id": "gobi",
+        "latitude": 44.5,
+        "longitude": 103.75,
+        "daily_precip_mm": 0.33,
+        "annual_precip_mm": 120.5325,
+        "aridity": 0.69866875,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.25,
+          45.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-45.000-101.250",
+        "region_id": "gobi",
+        "latitude": 45.0,
+        "longitude": 101.25,
+        "daily_precip_mm": 0.4,
+        "annual_precip_mm": 146.1,
+        "aridity": 0.63475,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          101.875,
+          45.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-45.000-101.875",
+        "region_id": "gobi",
+        "latitude": 45.0,
+        "longitude": 101.875,
+        "daily_precip_mm": 0.42,
+        "annual_precip_mm": 153.405,
+        "aridity": 0.6164875000000001,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          102.5,
+          45.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-45.000-102.500",
+        "region_id": "gobi",
+        "latitude": 45.0,
+        "longitude": 102.5,
+        "daily_precip_mm": 0.4,
+        "annual_precip_mm": 146.1,
+        "aridity": 0.63475,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.125,
+          45.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-45.000-103.125",
+        "region_id": "gobi",
+        "latitude": 45.0,
+        "longitude": 103.125,
+        "daily_precip_mm": 0.37,
+        "annual_precip_mm": 135.1425,
+        "aridity": 0.66214375,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          103.75,
+          45.0
+        ]
+      },
+      "properties": {
+        "id": "gobi-45.000-103.750",
+        "region_id": "gobi",
+        "latitude": 45.0,
+        "longitude": 103.75,
+        "daily_precip_mm": 0.34,
+        "annual_precip_mm": 124.185,
+        "aridity": 0.6895374999999999,
+        "provenance": {
+          "dataset": "NASA POWER / MERRA-2",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.270429+00:00",
+          "period": [
+            "20010101",
+            "20251231"
+          ],
+          "native_resolution": "0.5° latitude × 0.625° longitude meteorological grid",
+          "original_unit": "mm/day",
+          "converted_unit": "mm/year",
+          "classification": "DERIVED",
+          "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
+        },
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
+      }
+    }
+  ]
+}

@@ -1,0 +1,1088 @@
+{
+  "url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+  "retrieved_at": "2026-11-14T05:21:26.553151+00:00",
+  "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905",
+  "status_code": 200,
+  "data": {
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -70.0,
+            -25.0,
+            2004.8
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.03,
+              "FEB": 0.07,
+              "MAR": 0.02,
+              "APR": 0.02,
+              "MAY": 0.01,
+              "JUN": 0.03,
+              "JUL": 0.03,
+              "AUG": 0.05,
+              "SEP": 0.0,
+              "OCT": 0.01,
+              "NOV": 0.01,
+              "DEC": 0.03,
+              "ANN": 0.03
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -69.375,
+            -25.0,
+            2980.65
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.11,
+              "FEB": 0.15,
+              "MAR": 0.08,
+              "APR": 0.04,
+              "MAY": 0.01,
+              "JUN": 0.03,
+              "JUL": 0.03,
+              "AUG": 0.04,
+              "SEP": 0.0,
+              "OCT": 0.02,
+              "NOV": 0.04,
+              "DEC": 0.09,
+              "ANN": 0.05
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -68.75,
+            -25.0,
+            4107.57
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 1.04,
+              "FEB": 0.98,
+              "MAR": 0.65,
+              "APR": 0.31,
+              "MAY": 0.07,
+              "JUN": 0.04,
+              "JUL": 0.04,
+              "AUG": 0.04,
+              "SEP": 0.03,
+              "OCT": 0.12,
+              "NOV": 0.34,
+              "DEC": 0.77,
+              "ANN": 0.37
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -68.125,
+            -25.0,
+            4181.56
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 1.63,
+              "FEB": 1.49,
+              "MAR": 1.01,
+              "APR": 0.46,
+              "MAY": 0.1,
+              "JUN": 0.06,
+              "JUL": 0.04,
+              "AUG": 0.04,
+              "SEP": 0.04,
+              "OCT": 0.19,
+              "NOV": 0.53,
+              "DEC": 1.2,
+              "ANN": 0.56
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -67.5,
+            -25.0,
+            3854.72
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 4.59,
+              "FEB": 4.2,
+              "MAR": 2.8,
+              "APR": 1.27,
+              "MAY": 0.27,
+              "JUN": 0.11,
+              "JUL": 0.06,
+              "AUG": 0.06,
+              "SEP": 0.1,
+              "OCT": 0.55,
+              "NOV": 1.45,
+              "DEC": 3.35,
+              "ANN": 1.56
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -70.0,
+            -24.5,
+            1893.15
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.03,
+              "FEB": 0.07,
+              "MAR": 0.02,
+              "APR": 0.01,
+              "MAY": 0.01,
+              "JUN": 0.04,
+              "JUL": 0.02,
+              "AUG": 0.04,
+              "SEP": 0.0,
+              "OCT": 0.01,
+              "NOV": 0.01,
+              "DEC": 0.03,
+              "ANN": 0.02
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -69.375,
+            -24.5,
+            2367.69
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.06,
+              "FEB": 0.11,
+              "MAR": 0.05,
+              "APR": 0.02,
+              "MAY": 0.01,
+              "JUN": 0.03,
+              "JUL": 0.02,
+              "AUG": 0.03,
+              "SEP": 0.0,
+              "OCT": 0.01,
+              "NOV": 0.02,
+              "DEC": 0.05,
+              "ANN": 0.03
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -68.75,
+            -24.5,
+            3598.25
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.47,
+              "FEB": 0.48,
+              "MAR": 0.29,
+              "APR": 0.14,
+              "MAY": 0.04,
+              "JUN": 0.03,
+              "JUL": 0.03,
+              "AUG": 0.03,
+              "SEP": 0.01,
+              "OCT": 0.06,
+              "NOV": 0.15,
+              "DEC": 0.36,
+              "ANN": 0.17
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -68.125,
+            -24.5,
+            4056.66
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 1.32,
+              "FEB": 1.25,
+              "MAR": 0.8,
+              "APR": 0.37,
+              "MAY": 0.09,
+              "JUN": 0.04,
+              "JUL": 0.03,
+              "AUG": 0.03,
+              "SEP": 0.03,
+              "OCT": 0.15,
+              "NOV": 0.41,
+              "DEC": 0.96,
+              "ANN": 0.45
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -67.5,
+            -24.5,
+            3725.84
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 3.84,
+              "FEB": 3.63,
+              "MAR": 2.39,
+              "APR": 1.08,
+              "MAY": 0.23,
+              "JUN": 0.09,
+              "JUL": 0.05,
+              "AUG": 0.05,
+              "SEP": 0.09,
+              "OCT": 0.48,
+              "NOV": 1.2,
+              "DEC": 2.87,
+              "ANN": 1.33
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -70.0,
+            -24.0,
+            1261.0
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.02,
+              "FEB": 0.06,
+              "MAR": 0.03,
+              "APR": 0.01,
+              "MAY": 0.01,
+              "JUN": 0.05,
+              "JUL": 0.02,
+              "AUG": 0.04,
+              "SEP": 0.0,
+              "OCT": 0.01,
+              "NOV": 0.01,
+              "DEC": 0.02,
+              "ANN": 0.02
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -69.375,
+            -24.0,
+            1940.86
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.05,
+              "FEB": 0.11,
+              "MAR": 0.04,
+              "APR": 0.02,
+              "MAY": 0.02,
+              "JUN": 0.03,
+              "JUL": 0.02,
+              "AUG": 0.03,
+              "SEP": 0.0,
+              "OCT": 0.01,
+              "NOV": 0.01,
+              "DEC": 0.04,
+              "ANN": 0.03
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -68.75,
+            -24.0,
+            2915.41
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.15,
+              "FEB": 0.21,
+              "MAR": 0.1,
+              "APR": 0.05,
+              "MAY": 0.04,
+              "JUN": 0.02,
+              "JUL": 0.03,
+              "AUG": 0.02,
+              "SEP": 0.01,
+              "OCT": 0.02,
+              "NOV": 0.05,
+              "DEC": 0.11,
+              "ANN": 0.07
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -68.125,
+            -24.0,
+            3409.24
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.73,
+              "FEB": 0.75,
+              "MAR": 0.45,
+              "APR": 0.2,
+              "MAY": 0.07,
+              "JUN": 0.03,
+              "JUL": 0.04,
+              "AUG": 0.02,
+              "SEP": 0.02,
+              "OCT": 0.09,
+              "NOV": 0.23,
+              "DEC": 0.55,
+              "ANN": 0.26
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -67.5,
+            -24.0,
+            4178.54
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 2.91,
+              "FEB": 2.86,
+              "MAR": 1.88,
+              "APR": 0.82,
+              "MAY": 0.19,
+              "JUN": 0.07,
+              "JUL": 0.05,
+              "AUG": 0.05,
+              "SEP": 0.07,
+              "OCT": 0.42,
+              "NOV": 0.92,
+              "DEC": 2.3,
+              "ANN": 1.04
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -70.0,
+            -23.5,
+            1086.37
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.03,
+              "FEB": 0.07,
+              "MAR": 0.02,
+              "APR": 0.01,
+              "MAY": 0.01,
+              "JUN": 0.05,
+              "JUL": 0.02,
+              "AUG": 0.04,
+              "SEP": 0.0,
+              "OCT": 0.01,
+              "NOV": 0.01,
+              "DEC": 0.02,
+              "ANN": 0.02
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -69.375,
+            -23.5,
+            1841.04
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.05,
+              "FEB": 0.11,
+              "MAR": 0.03,
+              "APR": 0.01,
+              "MAY": 0.03,
+              "JUN": 0.02,
+              "JUL": 0.02,
+              "AUG": 0.03,
+              "SEP": 0.0,
+              "OCT": 0.0,
+              "NOV": 0.01,
+              "DEC": 0.03,
+              "ANN": 0.03
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -68.75,
+            -23.5,
+            2519.77
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.08,
+              "FEB": 0.15,
+              "MAR": 0.06,
+              "APR": 0.02,
+              "MAY": 0.05,
+              "JUN": 0.01,
+              "JUL": 0.03,
+              "AUG": 0.02,
+              "SEP": 0.0,
+              "OCT": 0.0,
+              "NOV": 0.02,
+              "DEC": 0.05,
+              "ANN": 0.04
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -68.125,
+            -23.5,
+            2677.39
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.31,
+              "FEB": 0.37,
+              "MAR": 0.19,
+              "APR": 0.08,
+              "MAY": 0.06,
+              "JUN": 0.02,
+              "JUL": 0.04,
+              "AUG": 0.02,
+              "SEP": 0.01,
+              "OCT": 0.04,
+              "NOV": 0.09,
+              "DEC": 0.22,
+              "ANN": 0.12
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -67.5,
+            -23.5,
+            4403.03
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 1.83,
+              "FEB": 1.85,
+              "MAR": 1.19,
+              "APR": 0.47,
+              "MAY": 0.13,
+              "JUN": 0.04,
+              "JUL": 0.05,
+              "AUG": 0.04,
+              "SEP": 0.06,
+              "OCT": 0.3,
+              "NOV": 0.56,
+              "DEC": 1.51,
+              "ANN": 0.66
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -70.0,
+            -23.0,
+            1178.27
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.03,
+              "FEB": 0.06,
+              "MAR": 0.02,
+              "APR": 0.01,
+              "MAY": 0.01,
+              "JUN": 0.04,
+              "JUL": 0.02,
+              "AUG": 0.03,
+              "SEP": 0.0,
+              "OCT": 0.01,
+              "NOV": 0.01,
+              "DEC": 0.02,
+              "ANN": 0.02
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -69.375,
+            -23.0,
+            1867.41
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.06,
+              "FEB": 0.12,
+              "MAR": 0.03,
+              "APR": 0.01,
+              "MAY": 0.04,
+              "JUN": 0.02,
+              "JUL": 0.03,
+              "AUG": 0.02,
+              "SEP": 0.0,
+              "OCT": 0.0,
+              "NOV": 0.01,
+              "DEC": 0.03,
+              "ANN": 0.03
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -68.75,
+            -23.0,
+            2809.71
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.19,
+              "FEB": 0.24,
+              "MAR": 0.12,
+              "APR": 0.03,
+              "MAY": 0.06,
+              "JUN": 0.01,
+              "JUL": 0.04,
+              "AUG": 0.02,
+              "SEP": 0.01,
+              "OCT": 0.01,
+              "NOV": 0.03,
+              "DEC": 0.09,
+              "ANN": 0.07
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -68.125,
+            -23.0,
+            2880.6
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.23,
+              "FEB": 0.28,
+              "MAR": 0.14,
+              "APR": 0.03,
+              "MAY": 0.06,
+              "JUN": 0.01,
+              "JUL": 0.04,
+              "AUG": 0.01,
+              "SEP": 0.01,
+              "OCT": 0.02,
+              "NOV": 0.04,
+              "DEC": 0.12,
+              "ANN": 0.08
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -67.5,
+            -23.0,
+            4568.12
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 1.23,
+              "FEB": 1.21,
+              "MAR": 0.76,
+              "APR": 0.23,
+              "MAY": 0.07,
+              "JUN": 0.02,
+              "JUL": 0.04,
+              "AUG": 0.03,
+              "SEP": 0.04,
+              "OCT": 0.22,
+              "NOV": 0.33,
+              "DEC": 0.98,
+              "ANN": 0.43
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -70.0,
+            -22.5,
+            1192.8
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.04,
+              "FEB": 0.07,
+              "MAR": 0.02,
+              "APR": 0.01,
+              "MAY": 0.03,
+              "JUN": 0.02,
+              "JUL": 0.02,
+              "AUG": 0.02,
+              "SEP": 0.01,
+              "OCT": 0.0,
+              "NOV": 0.01,
+              "DEC": 0.02,
+              "ANN": 0.02
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -69.375,
+            -22.5,
+            1801.87
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.08,
+              "FEB": 0.14,
+              "MAR": 0.05,
+              "APR": 0.01,
+              "MAY": 0.05,
+              "JUN": 0.01,
+              "JUL": 0.03,
+              "AUG": 0.02,
+              "SEP": 0.01,
+              "OCT": 0.0,
+              "NOV": 0.01,
+              "DEC": 0.03,
+              "ANN": 0.04
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -68.75,
+            -22.5,
+            2683.36
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.27,
+              "FEB": 0.32,
+              "MAR": 0.18,
+              "APR": 0.03,
+              "MAY": 0.05,
+              "JUN": 0.01,
+              "JUL": 0.04,
+              "AUG": 0.02,
+              "SEP": 0.01,
+              "OCT": 0.01,
+              "NOV": 0.04,
+              "DEC": 0.12,
+              "ANN": 0.09
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -68.125,
+            -22.5,
+            3854.4
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.33,
+              "FEB": 0.37,
+              "MAR": 0.21,
+              "APR": 0.04,
+              "MAY": 0.05,
+              "JUN": 0.01,
+              "JUL": 0.04,
+              "AUG": 0.02,
+              "SEP": 0.01,
+              "OCT": 0.02,
+              "NOV": 0.05,
+              "DEC": 0.16,
+              "ANN": 0.11
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -67.5,
+            -22.5,
+            4719.72
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 1.15,
+              "FEB": 1.08,
+              "MAR": 0.67,
+              "APR": 0.14,
+              "MAY": 0.04,
+              "JUN": 0.01,
+              "JUL": 0.04,
+              "AUG": 0.03,
+              "SEP": 0.04,
+              "OCT": 0.18,
+              "NOV": 0.27,
+              "DEC": 0.82,
+              "ANN": 0.37
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -70.0,
+            -22.0,
+            1053.87
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.05,
+              "FEB": 0.09,
+              "MAR": 0.03,
+              "APR": 0.01,
+              "MAY": 0.03,
+              "JUN": 0.02,
+              "JUL": 0.02,
+              "AUG": 0.02,
+              "SEP": 0.01,
+              "OCT": 0.0,
+              "NOV": 0.01,
+              "DEC": 0.02,
+              "ANN": 0.03
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -69.375,
+            -22.0,
+            1798.25
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.12,
+              "FEB": 0.18,
+              "MAR": 0.08,
+              "APR": 0.02,
+              "MAY": 0.05,
+              "JUN": 0.01,
+              "JUL": 0.03,
+              "AUG": 0.02,
+              "SEP": 0.01,
+              "OCT": 0.0,
+              "NOV": 0.02,
+              "DEC": 0.04,
+              "ANN": 0.05
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -68.75,
+            -22.0,
+            3120.13
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.38,
+              "FEB": 0.43,
+              "MAR": 0.28,
+              "APR": 0.05,
+              "MAY": 0.04,
+              "JUN": 0.01,
+              "JUL": 0.04,
+              "AUG": 0.02,
+              "SEP": 0.02,
+              "OCT": 0.02,
+              "NOV": 0.05,
+              "DEC": 0.17,
+              "ANN": 0.12
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -68.125,
+            -22.0,
+            4300.32
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 0.35,
+              "FEB": 0.4,
+              "MAR": 0.25,
+              "APR": 0.04,
+              "MAY": 0.05,
+              "JUN": 0.01,
+              "JUL": 0.04,
+              "AUG": 0.01,
+              "SEP": 0.02,
+              "OCT": 0.02,
+              "NOV": 0.04,
+              "DEC": 0.15,
+              "ANN": 0.11
+            }
+          }
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -67.5,
+            -22.0,
+            4531.84
+          ]
+        },
+        "properties": {
+          "parameter": {
+            "PRECTOTCORR": {
+              "JAN": 1.31,
+              "FEB": 1.21,
+              "MAR": 0.77,
+              "APR": 0.13,
+              "MAY": 0.03,
+              "JUN": 0.01,
+              "JUL": 0.04,
+              "AUG": 0.03,
+              "SEP": 0.05,
+              "OCT": 0.18,
+              "NOV": 0.29,
+              "DEC": 0.86,
+              "ANN": 0.41
+            }
+          }
+        }
+      }
+    ],
+    "header": {
+      "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
+      "api": {
+        "version": "v2.10.1",
+        "name": "POWER Climatology API"
+      },
+      "sources": [
+        "MERRA2"
+      ],
+      "fill_value": -999.0,
+      "time_standard": "LST",
+      "start": "20010101",
+      "end": "20251231"
+    },
+    "messages": [
+      "The requested parameters are retrieved from a pre-computed climatological period (January 2001 - December 2025)"
+    ],
+    "parameters": {
+      "PRECTOTCORR": {
+        "units": "mm/day",
+        "longname": "Precipitation Corrected"
+      }
+    },
+    "times": {
+      "data": 0.051,
+      "process": 0.02
+    },
+    "type": "FeatureCollection"
+  }
+}

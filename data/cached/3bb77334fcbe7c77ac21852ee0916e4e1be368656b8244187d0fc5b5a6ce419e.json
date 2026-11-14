@@ -1,0 +1,42 @@
+{
+  "url": "https://macrostrat.org/api/geologic_units/map?lat=42.0&lng=102.5&format=json",
+  "retrieved_at": "2026-11-14T05:21:42.443497+00:00",
+  "sha256": "0d4b17fd23e2712e96735d88e90860e3b7d287608e3372babf27d818f617f7b5",
+  "status_code": 200,
+  "data": {
+    "success": {
+      "v": 2,
+      "license": "CC-BY 4.0",
+      "data": [
+        {
+          "map_id": 3191769,
+          "source_id": 154,
+          "name": "Paleozoic intrusive rocks",
+          "strat_name": "",
+          "lith": "intrusive igneous rocks",
+          "descrip": "",
+          "comments": "",
+          "macro_units": [],
+          "strat_names": [],
+          "liths": [
+            95
+          ],
+          "t_int_id": 75,
+          "t_int_age": 251.902,
+          "t_int_name": "Permian",
+          "b_int_id": 94,
+          "b_int_age": 419.62,
+          "b_int_name": "Devonian",
+          "color": "#99C08D",
+          "t_age": 251.902,
+          "b_age": 419.2,
+          "best_int_name": "Paleozoic",
+          "scale": "tiny"
+        }
+      ],
+      "refs": {
+        "154": "Chorlton, L.B. Generalized geology of the world: bedrock domains and major faults in GIS format: a small-scale world geology map with an extended geological attribute database. doi: 10.4095/223767. Geological Survey of Canada, Open File 5529. "
+      }
+    }
+  }
+}

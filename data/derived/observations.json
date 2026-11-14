@@ -1,0 +1,4302 @@
+[
+  {
+    "candidate_id": "botswana--21.000-25.625",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 21.67,
+        "monthly": [
+          25.5,
+          24.08,
+          22.53,
+          20.61,
+          18.4,
+          16.16,
+          16.6,
+          19.35,
+          22.45,
+          25.05,
+          24.92,
+          24.52
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-21.0&longitude=25.625&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.901892+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -21.0,
+          "longitude": 25.625,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "a9a5f4d2a9840515071f8f18ef8899a04442b34ba9c92315b64ee2e449c7c546"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 1.07,
+        "monthly": [
+          2.77,
+          2.83,
+          1.62,
+          0.66,
+          0.08,
+          0.18,
+          0.01,
+          0.01,
+          0.11,
+          0.56,
+          1.58,
+          2.55
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-21.0&longitude=25.625&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.901892+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -21.0,
+          "longitude": 25.625,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "a9a5f4d2a9840515071f8f18ef8899a04442b34ba9c92315b64ee2e449c7c546"
+        }
+      },
+      "PS": {
+        "value": 91.1,
+        "monthly": [
+          90.69,
+          90.76,
+          90.93,
+          91.16,
+          91.38,
+          91.58,
+          91.64,
+          91.4,
+          91.17,
+          90.93,
+          90.8,
+          90.73
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-21.0&longitude=25.625&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.901892+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -21.0,
+          "longitude": 25.625,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "a9a5f4d2a9840515071f8f18ef8899a04442b34ba9c92315b64ee2e449c7c546"
+        }
+      },
+      "RH2M": {
+        "value": 41.13,
+        "monthly": [
+          49.28,
+          51.54,
+          50.02,
+          46.46,
+          39.45,
+          41.83,
+          39.45,
+          31.94,
+          27.72,
+          29.95,
+          38.67,
+          47.81
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-21.0&longitude=25.625&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.901892+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -21.0,
+          "longitude": 25.625,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "a9a5f4d2a9840515071f8f18ef8899a04442b34ba9c92315b64ee2e449c7c546"
+        }
+      },
+      "T2M": {
+        "value": 23.75,
+        "monthly": [
+          27.88,
+          27.18,
+          26.1,
+          23.6,
+          20.0,
+          16.89,
+          16.16,
+          19.57,
+          23.81,
+          27.48,
+          28.38,
+          28.17
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-21.0&longitude=25.625&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.901892+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -21.0,
+          "longitude": 25.625,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "a9a5f4d2a9840515071f8f18ef8899a04442b34ba9c92315b64ee2e449c7c546"
+        }
+      },
+      "WS10M": {
+        "value": 4.2,
+        "monthly": [
+          4.32,
+          4.15,
+          4.11,
+          3.9,
+          3.66,
+          3.72,
+          4.01,
+          4.08,
+          4.63,
+          5.12,
+          4.57,
+          4.19
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-21.0&longitude=25.625&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:27.901892+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -21.0,
+          "longitude": 25.625,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "a9a5f4d2a9840515071f8f18ef8899a04442b34ba9c92315b64ee2e449c7c546"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "botswana--22.000-25.000",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 22.38,
+        "monthly": [
+          25.95,
+          24.48,
+          22.84,
+          20.63,
+          18.77,
+          16.8,
+          17.8,
+          20.71,
+          23.94,
+          25.85,
+          25.64,
+          25.2
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=25.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:30.805779+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 25.0,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "e1fac94e325a25b6f30ea6baf6aadb3198c0d97a5cc3f2b1dfcf2e521c8e3e5d"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 1.14,
+        "monthly": [
+          3.03,
+          2.49,
+          1.64,
+          0.87,
+          0.12,
+          0.17,
+          0.01,
+          0.01,
+          0.16,
+          0.84,
+          1.83,
+          2.63
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=25.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:30.805779+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 25.0,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "e1fac94e325a25b6f30ea6baf6aadb3198c0d97a5cc3f2b1dfcf2e521c8e3e5d"
+        }
+      },
+      "PS": {
+        "value": 90.03,
+        "monthly": [
+          89.63,
+          89.7,
+          89.87,
+          90.09,
+          90.3,
+          90.49,
+          90.55,
+          90.32,
+          90.1,
+          89.88,
+          89.74,
+          89.66
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=25.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:30.805779+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 25.0,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "e1fac94e325a25b6f30ea6baf6aadb3198c0d97a5cc3f2b1dfcf2e521c8e3e5d"
+        }
+      },
+      "RH2M": {
+        "value": 40.73,
+        "monthly": [
+          48.96,
+          50.91,
+          49.2,
+          46.25,
+          38.95,
+          41.56,
+          39.2,
+          31.69,
+          27.35,
+          30.22,
+          38.33,
+          46.75
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=25.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:30.805779+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 25.0,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "e1fac94e325a25b6f30ea6baf6aadb3198c0d97a5cc3f2b1dfcf2e521c8e3e5d"
+        }
+      },
+      "T2M": {
+        "value": 22.98,
+        "monthly": [
+          27.32,
+          26.6,
+          25.5,
+          22.82,
+          19.2,
+          15.97,
+          15.25,
+          18.67,
+          22.94,
+          26.53,
+          27.5,
+          27.65
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=25.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:30.805779+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 25.0,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "e1fac94e325a25b6f30ea6baf6aadb3198c0d97a5cc3f2b1dfcf2e521c8e3e5d"
+        }
+      },
+      "WS10M": {
+        "value": 4.17,
+        "monthly": [
+          4.14,
+          3.97,
+          3.87,
+          3.74,
+          3.6,
+          3.73,
+          4.0,
+          4.29,
+          4.82,
+          5.15,
+          4.53,
+          4.16
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=25.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:30.805779+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 25.0,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "e1fac94e325a25b6f30ea6baf6aadb3198c0d97a5cc3f2b1dfcf2e521c8e3e5d"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "botswana--22.000-26.250",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 21.55,
+        "monthly": [
+          24.92,
+          23.53,
+          21.93,
+          19.77,
+          18.19,
+          16.21,
+          17.12,
+          20.0,
+          23.22,
+          25.12,
+          24.76,
+          23.88
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=26.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:32.051345+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 26.25,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "248ecc6cfd4e0af0db1ca956ac35bb49173ca2cce5ad30af2e6ad54220156391"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 1.25,
+        "monthly": [
+          2.88,
+          2.86,
+          1.86,
+          0.85,
+          0.15,
+          0.3,
+          0.03,
+          0.02,
+          0.25,
+          1.1,
+          1.94,
+          2.88
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=26.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:32.051345+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 26.25,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "248ecc6cfd4e0af0db1ca956ac35bb49173ca2cce5ad30af2e6ad54220156391"
+        }
+      },
+      "PS": {
+        "value": 89.12,
+        "monthly": [
+          88.75,
+          88.81,
+          88.97,
+          89.18,
+          89.37,
+          89.55,
+          89.6,
+          89.39,
+          89.2,
+          89.0,
+          88.86,
+          88.78
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=26.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:32.051345+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 26.25,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "248ecc6cfd4e0af0db1ca956ac35bb49173ca2cce5ad30af2e6ad54220156391"
+        }
+      },
+      "RH2M": {
+        "value": 45.61,
+        "monthly": [
+          53.46,
+          55.64,
+          54.78,
+          51.57,
+          43.73,
+          46.08,
+          43.68,
+          35.93,
+          32.2,
+          35.66,
+          43.32,
+          51.9
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=26.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:32.051345+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 26.25,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "248ecc6cfd4e0af0db1ca956ac35bb49173ca2cce5ad30af2e6ad54220156391"
+        }
+      },
+      "T2M": {
+        "value": 21.72,
+        "monthly": [
+          25.8,
+          25.11,
+          23.93,
+          21.47,
+          18.13,
+          15.1,
+          14.45,
+          17.84,
+          21.86,
+          25.06,
+          26.03,
+          26.04
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=26.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:32.051345+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 26.25,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "248ecc6cfd4e0af0db1ca956ac35bb49173ca2cce5ad30af2e6ad54220156391"
+        }
+      },
+      "WS10M": {
+        "value": 4.42,
+        "monthly": [
+          4.48,
+          4.32,
+          4.16,
+          3.95,
+          3.71,
+          3.9,
+          4.17,
+          4.49,
+          5.1,
+          5.54,
+          4.86,
+          4.39
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=26.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:32.051345+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 26.25,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "248ecc6cfd4e0af0db1ca956ac35bb49173ca2cce5ad30af2e6ad54220156391"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "botswana--22.000-27.500",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 20.92,
+        "monthly": [
+          24.5,
+          23.14,
+          21.36,
+          19.06,
+          17.72,
+          15.67,
+          16.46,
+          19.45,
+          22.34,
+          24.19,
+          24.04,
+          23.27
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=27.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:33.507596+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 27.5,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "17a6813a732f4ae283ccdf10fda22f1911ee8d9525769f3ba15d69da4c95fc4e"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 1.27,
+        "monthly": [
+          2.89,
+          2.82,
+          1.99,
+          0.79,
+          0.16,
+          0.19,
+          0.03,
+          0.02,
+          0.22,
+          0.9,
+          2.23,
+          3.08
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=27.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:33.507596+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 27.5,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "17a6813a732f4ae283ccdf10fda22f1911ee8d9525769f3ba15d69da4c95fc4e"
+        }
+      },
+      "PS": {
+        "value": 91.05,
+        "monthly": [
+          90.65,
+          90.72,
+          90.89,
+          91.11,
+          91.31,
+          91.5,
+          91.57,
+          91.33,
+          91.13,
+          90.93,
+          90.78,
+          90.69
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=27.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:33.507596+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 27.5,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "17a6813a732f4ae283ccdf10fda22f1911ee8d9525769f3ba15d69da4c95fc4e"
+        }
+      },
+      "RH2M": {
+        "value": 48.3,
+        "monthly": [
+          56.04,
+          57.67,
+          57.62,
+          54.59,
+          47.11,
+          48.45,
+          45.82,
+          38.02,
+          34.94,
+          38.97,
+          46.39,
+          54.57
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=27.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:33.507596+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 27.5,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "17a6813a732f4ae283ccdf10fda22f1911ee8d9525769f3ba15d69da4c95fc4e"
+        }
+      },
+      "T2M": {
+        "value": 22.14,
+        "monthly": [
+          26.03,
+          25.49,
+          24.27,
+          21.88,
+          18.67,
+          15.77,
+          15.18,
+          18.51,
+          22.28,
+          25.24,
+          26.22,
+          26.29
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=27.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:33.507596+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 27.5,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "17a6813a732f4ae283ccdf10fda22f1911ee8d9525769f3ba15d69da4c95fc4e"
+        }
+      },
+      "WS10M": {
+        "value": 4.15,
+        "monthly": [
+          4.29,
+          4.12,
+          3.88,
+          3.66,
+          3.34,
+          3.47,
+          3.72,
+          4.19,
+          4.85,
+          5.3,
+          4.68,
+          4.24
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=27.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:33.507596+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.0,
+          "longitude": 27.5,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "17a6813a732f4ae283ccdf10fda22f1911ee8d9525769f3ba15d69da4c95fc4e"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "chile--24.500--70.000",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 25.94,
+        "monthly": [
+          32.98,
+          30.7,
+          27.53,
+          22.85,
+          18.42,
+          16.43,
+          17.36,
+          21.17,
+          26.08,
+          30.41,
+          33.44,
+          34.17
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:34.897338+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.5,
+          "longitude": -70.0,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "780d020594627706ae1202771e2fb2afac2fc0a7356d6f9b4d12a371910c9d63"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 0.02,
+        "monthly": [
+          0.03,
+          0.07,
+          0.02,
+          0.01,
+          0.01,
+          0.04,
+          0.02,
+          0.04,
+          0.0,
+          0.01,
+          0.01,
+          0.03
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:34.897338+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.5,
+          "longitude": -70.0,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "780d020594627706ae1202771e2fb2afac2fc0a7356d6f9b4d12a371910c9d63"
+        }
+      },
+      "PS": {
+        "value": 81.23,
+        "monthly": [
+          81.17,
+          81.17,
+          81.2,
+          81.25,
+          81.29,
+          81.31,
+          81.31,
+          81.29,
+          81.27,
+          81.22,
+          81.16,
+          81.15
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:34.897338+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.5,
+          "longitude": -70.0,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "780d020594627706ae1202771e2fb2afac2fc0a7356d6f9b4d12a371910c9d63"
+        }
+      },
+      "RH2M": {
+        "value": 33.38,
+        "monthly": [
+          44.03,
+          47.73,
+          43.51,
+          36.21,
+          30.84,
+          26.64,
+          25.23,
+          24.03,
+          25.99,
+          27.95,
+          31.77,
+          37.47
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:34.897338+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.5,
+          "longitude": -70.0,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "780d020594627706ae1202771e2fb2afac2fc0a7356d6f9b4d12a371910c9d63"
+        }
+      },
+      "T2M": {
+        "value": 15.48,
+        "monthly": [
+          18.65,
+          18.39,
+          17.67,
+          15.82,
+          13.32,
+          12.07,
+          11.52,
+          12.94,
+          14.29,
+          15.97,
+          17.2,
+          18.02
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:34.897338+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.5,
+          "longitude": -70.0,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "780d020594627706ae1202771e2fb2afac2fc0a7356d6f9b4d12a371910c9d63"
+        }
+      },
+      "WS10M": {
+        "value": 3.67,
+        "monthly": [
+          3.77,
+          3.71,
+          3.56,
+          3.44,
+          3.66,
+          3.53,
+          3.6,
+          3.69,
+          3.82,
+          3.77,
+          3.7,
+          3.74
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:34.897338+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.5,
+          "longitude": -70.0,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "780d020594627706ae1202771e2fb2afac2fc0a7356d6f9b4d12a371910c9d63"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "chile--23.500--70.000",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 25.86,
+        "monthly": [
+          32.28,
+          30.15,
+          27.32,
+          22.9,
+          18.83,
+          16.88,
+          17.82,
+          21.5,
+          26.11,
+          30.19,
+          32.94,
+          33.59
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-23.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:36.343401+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -23.5,
+          "longitude": -70.0,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "2204df392c5536ed83d31273185a1d074f5aa2f0d3a4f5be19fd4b576a46b109"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 0.02,
+        "monthly": [
+          0.03,
+          0.07,
+          0.02,
+          0.01,
+          0.01,
+          0.05,
+          0.02,
+          0.04,
+          0.0,
+          0.01,
+          0.01,
+          0.02
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-23.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:36.343401+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -23.5,
+          "longitude": -70.0,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "2204df392c5536ed83d31273185a1d074f5aa2f0d3a4f5be19fd4b576a46b109"
+        }
+      },
+      "PS": {
+        "value": 89.28,
+        "monthly": [
+          89.2,
+          89.18,
+          89.2,
+          89.26,
+          89.32,
+          89.35,
+          89.37,
+          89.35,
+          89.33,
+          89.29,
+          89.23,
+          89.21
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-23.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:36.343401+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -23.5,
+          "longitude": -70.0,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "2204df392c5536ed83d31273185a1d074f5aa2f0d3a4f5be19fd4b576a46b109"
+        }
+      },
+      "RH2M": {
+        "value": 49.8,
+        "monthly": [
+          57.9,
+          59.53,
+          57.68,
+          54.58,
+          44.9,
+          41.52,
+          39.45,
+          39.55,
+          44.56,
+          49.5,
+          53.18,
+          55.91
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-23.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:36.343401+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -23.5,
+          "longitude": -70.0,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "2204df392c5536ed83d31273185a1d074f5aa2f0d3a4f5be19fd4b576a46b109"
+        }
+      },
+      "T2M": {
+        "value": 17.32,
+        "monthly": [
+          20.01,
+          20.34,
+          19.66,
+          17.84,
+          16.39,
+          15.04,
+          14.57,
+          15.47,
+          16.02,
+          16.69,
+          17.47,
+          18.58
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-23.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:36.343401+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -23.5,
+          "longitude": -70.0,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "2204df392c5536ed83d31273185a1d074f5aa2f0d3a4f5be19fd4b576a46b109"
+        }
+      },
+      "WS10M": {
+        "value": 3.01,
+        "monthly": [
+          3.45,
+          3.33,
+          3.06,
+          2.71,
+          2.71,
+          2.63,
+          2.7,
+          2.83,
+          2.93,
+          3.1,
+          3.28,
+          3.4
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-23.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:36.343401+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -23.5,
+          "longitude": -70.0,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "2204df392c5536ed83d31273185a1d074f5aa2f0d3a4f5be19fd4b576a46b109"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "chile--22.500--70.000",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 25.77,
+        "monthly": [
+          31.58,
+          29.58,
+          27.19,
+          23.1,
+          19.22,
+          17.25,
+          18.2,
+          21.81,
+          26.22,
+          30.16,
+          32.46,
+          32.63
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:37.985646+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.5,
+          "longitude": -70.0,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "1c9090c8c752d2375f238b0952fb8c80571cd4aaf421c10dffb44bb06fd3d1f5"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 0.02,
+        "monthly": [
+          0.04,
+          0.07,
+          0.02,
+          0.01,
+          0.03,
+          0.02,
+          0.02,
+          0.02,
+          0.01,
+          0.0,
+          0.01,
+          0.02
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:37.985646+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.5,
+          "longitude": -70.0,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "1c9090c8c752d2375f238b0952fb8c80571cd4aaf421c10dffb44bb06fd3d1f5"
+        }
+      },
+      "PS": {
+        "value": 88.19,
+        "monthly": [
+          88.11,
+          88.09,
+          88.12,
+          88.18,
+          88.25,
+          88.27,
+          88.28,
+          88.26,
+          88.25,
+          88.2,
+          88.14,
+          88.13
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:37.985646+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.5,
+          "longitude": -70.0,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "1c9090c8c752d2375f238b0952fb8c80571cd4aaf421c10dffb44bb06fd3d1f5"
+        }
+      },
+      "RH2M": {
+        "value": 53.39,
+        "monthly": [
+          59.84,
+          61.16,
+          59.21,
+          57.25,
+          50.84,
+          47.75,
+          45.97,
+          44.44,
+          48.42,
+          52.81,
+          55.56,
+          57.93
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:37.985646+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.5,
+          "longitude": -70.0,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "1c9090c8c752d2375f238b0952fb8c80571cd4aaf421c10dffb44bb06fd3d1f5"
+        }
+      },
+      "T2M": {
+        "value": 17.02,
+        "monthly": [
+          19.61,
+          19.95,
+          19.33,
+          17.52,
+          16.04,
+          14.83,
+          14.38,
+          15.23,
+          15.71,
+          16.41,
+          17.15,
+          18.23
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:37.985646+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.5,
+          "longitude": -70.0,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "1c9090c8c752d2375f238b0952fb8c80571cd4aaf421c10dffb44bb06fd3d1f5"
+        }
+      },
+      "WS10M": {
+        "value": 2.7,
+        "monthly": [
+          3.1,
+          3.01,
+          2.8,
+          2.5,
+          2.43,
+          2.31,
+          2.35,
+          2.51,
+          2.65,
+          2.82,
+          2.92,
+          3.0
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:37.985646+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -22.5,
+          "longitude": -70.0,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "1c9090c8c752d2375f238b0952fb8c80571cd4aaf421c10dffb44bb06fd3d1f5"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "chile--24.000--69.375",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 25.86,
+        "monthly": [
+          32.28,
+          30.15,
+          27.32,
+          22.9,
+          18.83,
+          16.88,
+          17.82,
+          21.5,
+          26.11,
+          30.19,
+          32.94,
+          33.59
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0&longitude=-69.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:39.421402+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.0,
+          "longitude": -69.375,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "70a257da1fe18d662101287a7f7eac4dbe5a9605089622dbb5a0b7074d893850"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 0.03,
+        "monthly": [
+          0.05,
+          0.11,
+          0.04,
+          0.02,
+          0.02,
+          0.03,
+          0.02,
+          0.03,
+          0.0,
+          0.01,
+          0.01,
+          0.04
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0&longitude=-69.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:39.421402+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.0,
+          "longitude": -69.375,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "70a257da1fe18d662101287a7f7eac4dbe5a9605089622dbb5a0b7074d893850"
+        }
+      },
+      "PS": {
+        "value": 80.85,
+        "monthly": [
+          80.8,
+          80.79,
+          80.82,
+          80.86,
+          80.91,
+          80.92,
+          80.92,
+          80.91,
+          80.89,
+          80.84,
+          80.78,
+          80.78
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0&longitude=-69.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:39.421402+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.0,
+          "longitude": -69.375,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "70a257da1fe18d662101287a7f7eac4dbe5a9605089622dbb5a0b7074d893850"
+        }
+      },
+      "RH2M": {
+        "value": 27.02,
+        "monthly": [
+          38.86,
+          41.68,
+          35.79,
+          27.25,
+          23.52,
+          20.43,
+          19.57,
+          18.24,
+          20.13,
+          22.18,
+          25.84,
+          31.57
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0&longitude=-69.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:39.421402+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.0,
+          "longitude": -69.375,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "70a257da1fe18d662101287a7f7eac4dbe5a9605089622dbb5a0b7074d893850"
+        }
+      },
+      "T2M": {
+        "value": 16.42,
+        "monthly": [
+          19.12,
+          18.99,
+          18.52,
+          16.99,
+          14.52,
+          13.25,
+          12.66,
+          14.01,
+          15.5,
+          17.05,
+          17.99,
+          18.63
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0&longitude=-69.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:39.421402+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.0,
+          "longitude": -69.375,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "70a257da1fe18d662101287a7f7eac4dbe5a9605089622dbb5a0b7074d893850"
+        }
+      },
+      "WS10M": {
+        "value": 3.81,
+        "monthly": [
+          3.76,
+          3.65,
+          3.48,
+          3.51,
+          3.92,
+          3.93,
+          4.01,
+          4.0,
+          3.98,
+          3.85,
+          3.78,
+          3.8
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0&longitude=-69.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:39.421402+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.0,
+          "longitude": -69.375,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "70a257da1fe18d662101287a7f7eac4dbe5a9605089622dbb5a0b7074d893850"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "gobi-42.000-101.250",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 17.45,
+        "monthly": [
+          8.57,
+          12.52,
+          17.78,
+          22.49,
+          25.57,
+          25.55,
+          24.04,
+          22.06,
+          18.74,
+          14.44,
+          9.72,
+          7.64
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:40.514258+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.0,
+          "longitude": 101.25,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "cbf49fce7227b9cf26823974cea8a49fb648b970a3fe2be3c81e1519e2589000"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 0.13,
+        "monthly": [
+          0.02,
+          0.02,
+          0.06,
+          0.09,
+          0.1,
+          0.24,
+          0.37,
+          0.29,
+          0.27,
+          0.09,
+          0.03,
+          0.02
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:40.514258+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.0,
+          "longitude": 101.25,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "cbf49fce7227b9cf26823974cea8a49fb648b970a3fe2be3c81e1519e2589000"
+        }
+      },
+      "PS": {
+        "value": 90.95,
+        "monthly": [
+          91.76,
+          91.42,
+          91.15,
+          90.78,
+          90.47,
+          90.05,
+          89.92,
+          90.27,
+          90.83,
+          91.36,
+          91.56,
+          91.83
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:40.514258+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.0,
+          "longitude": 101.25,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "cbf49fce7227b9cf26823974cea8a49fb648b970a3fe2be3c81e1519e2589000"
+        }
+      },
+      "RH2M": {
+        "value": 32.27,
+        "monthly": [
+          55.82,
+          39.04,
+          26.89,
+          22.0,
+          19.48,
+          22.39,
+          24.85,
+          26.35,
+          27.98,
+          30.65,
+          40.67,
+          51.2
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:40.514258+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.0,
+          "longitude": 101.25,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "cbf49fce7227b9cf26823974cea8a49fb648b970a3fe2be3c81e1519e2589000"
+        }
+      },
+      "T2M": {
+        "value": 10.15,
+        "monthly": [
+          -10.42,
+          -4.73,
+          3.25,
+          11.96,
+          19.42,
+          26.17,
+          29.14,
+          26.71,
+          19.31,
+          9.33,
+          -0.4,
+          -8.72
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:40.514258+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.0,
+          "longitude": 101.25,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "cbf49fce7227b9cf26823974cea8a49fb648b970a3fe2be3c81e1519e2589000"
+        }
+      },
+      "WS10M": {
+        "value": 4.22,
+        "monthly": [
+          3.26,
+          3.78,
+          4.53,
+          4.92,
+          5.01,
+          4.75,
+          4.55,
+          4.53,
+          4.17,
+          3.87,
+          3.72,
+          3.5
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:40.514258+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.0,
+          "longitude": 101.25,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "cbf49fce7227b9cf26823974cea8a49fb648b970a3fe2be3c81e1519e2589000"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "gobi-42.000-102.500",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 17.6,
+        "monthly": [
+          8.5,
+          12.55,
+          18.14,
+          22.83,
+          25.83,
+          25.75,
+          23.98,
+          22.16,
+          18.93,
+          14.71,
+          9.88,
+          7.75
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=102.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:41.945770+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.0,
+          "longitude": 102.5,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "29e9574566ce2f04546c1ca57f84741c66b9ca31b3743748572c749450cd2a42"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 0.16,
+        "monthly": [
+          0.02,
+          0.03,
+          0.06,
+          0.11,
+          0.14,
+          0.29,
+          0.44,
+          0.33,
+          0.32,
+          0.09,
+          0.04,
+          0.03
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=102.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:41.945770+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.0,
+          "longitude": 102.5,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "29e9574566ce2f04546c1ca57f84741c66b9ca31b3743748572c749450cd2a42"
+        }
+      },
+      "PS": {
+        "value": 89.0,
+        "monthly": [
+          89.65,
+          89.37,
+          89.16,
+          88.85,
+          88.59,
+          88.22,
+          88.12,
+          88.46,
+          88.97,
+          89.41,
+          89.53,
+          89.74
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=102.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:41.945770+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.0,
+          "longitude": 102.5,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "29e9574566ce2f04546c1ca57f84741c66b9ca31b3743748572c749450cd2a42"
+        }
+      },
+      "RH2M": {
+        "value": 34.32,
+        "monthly": [
+          58.07,
+          40.74,
+          28.19,
+          23.3,
+          21.05,
+          24.12,
+          27.26,
+          29.02,
+          30.37,
+          32.65,
+          42.62,
+          54.5
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=102.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:41.945770+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.0,
+          "longitude": 102.5,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "29e9574566ce2f04546c1ca57f84741c66b9ca31b3743748572c749450cd2a42"
+        }
+      },
+      "T2M": {
+        "value": 8.83,
+        "monthly": [
+          -11.39,
+          -5.82,
+          2.01,
+          10.55,
+          17.86,
+          24.6,
+          27.58,
+          25.16,
+          17.89,
+          8.15,
+          -1.48,
+          -9.91
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=102.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:41.945770+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.0,
+          "longitude": 102.5,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "29e9574566ce2f04546c1ca57f84741c66b9ca31b3743748572c749450cd2a42"
+        }
+      },
+      "WS10M": {
+        "value": 4.5,
+        "monthly": [
+          3.54,
+          4.08,
+          4.84,
+          5.15,
+          5.31,
+          5.02,
+          4.81,
+          4.77,
+          4.41,
+          4.16,
+          4.03,
+          3.81
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=102.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:41.945770+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.0,
+          "longitude": 102.5,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "29e9574566ce2f04546c1ca57f84741c66b9ca31b3743748572c749450cd2a42"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "gobi-42.500-101.875",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 17.45,
+        "monthly": [
+          8.57,
+          12.52,
+          17.78,
+          22.49,
+          25.57,
+          25.55,
+          24.04,
+          22.06,
+          18.74,
+          14.44,
+          9.72,
+          7.64
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.5&longitude=101.875&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:43.347232+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.5,
+          "longitude": 101.875,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "d13724f54cdcf4cc770477b127dddd8e7e4e12053adff91dbe3e15c2fd5e38a2"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 0.16,
+        "monthly": [
+          0.03,
+          0.02,
+          0.07,
+          0.09,
+          0.13,
+          0.33,
+          0.46,
+          0.36,
+          0.28,
+          0.09,
+          0.03,
+          0.03
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.5&longitude=101.875&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:43.347232+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.5,
+          "longitude": 101.875,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "d13724f54cdcf4cc770477b127dddd8e7e4e12053adff91dbe3e15c2fd5e38a2"
+        }
+      },
+      "PS": {
+        "value": 88.29,
+        "monthly": [
+          88.89,
+          88.62,
+          88.43,
+          88.14,
+          87.9,
+          87.56,
+          87.46,
+          87.79,
+          88.28,
+          88.69,
+          88.78,
+          88.97
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.5&longitude=101.875&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:43.347232+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.5,
+          "longitude": 101.875,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "d13724f54cdcf4cc770477b127dddd8e7e4e12053adff91dbe3e15c2fd5e38a2"
+        }
+      },
+      "RH2M": {
+        "value": 32.93,
+        "monthly": [
+          54.88,
+          39.06,
+          27.26,
+          22.55,
+          20.42,
+          23.73,
+          26.53,
+          27.82,
+          28.78,
+          31.17,
+          41.24,
+          51.8
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.5&longitude=101.875&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:43.347232+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.5,
+          "longitude": 101.875,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "d13724f54cdcf4cc770477b127dddd8e7e4e12053adff91dbe3e15c2fd5e38a2"
+        }
+      },
+      "T2M": {
+        "value": 8.74,
+        "monthly": [
+          -11.17,
+          -5.81,
+          2.01,
+          10.5,
+          17.67,
+          24.31,
+          27.29,
+          24.95,
+          17.64,
+          8.05,
+          -1.53,
+          -9.77
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.5&longitude=101.875&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:43.347232+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.5,
+          "longitude": 101.875,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "d13724f54cdcf4cc770477b127dddd8e7e4e12053adff91dbe3e15c2fd5e38a2"
+        }
+      },
+      "WS10M": {
+        "value": 4.46,
+        "monthly": [
+          3.44,
+          4.01,
+          4.79,
+          5.23,
+          5.41,
+          5.14,
+          4.82,
+          4.66,
+          4.44,
+          4.19,
+          3.82,
+          3.59
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.5&longitude=101.875&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:43.347232+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 42.5,
+          "longitude": 101.875,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "d13724f54cdcf4cc770477b127dddd8e7e4e12053adff91dbe3e15c2fd5e38a2"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "gobi-43.000-101.250",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 17.1,
+        "monthly": [
+          7.3,
+          10.93,
+          17.44,
+          22.49,
+          25.77,
+          25.85,
+          24.22,
+          22.16,
+          18.78,
+          14.24,
+          9.14,
+          6.53
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:44.770665+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 43.0,
+          "longitude": 101.25,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "8e728c195f03693403afa573fa9852cb0680c81e0b953c36bc58fd30557c790f"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 0.2,
+        "monthly": [
+          0.03,
+          0.03,
+          0.08,
+          0.09,
+          0.18,
+          0.43,
+          0.56,
+          0.49,
+          0.28,
+          0.08,
+          0.04,
+          0.03
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:44.770665+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 43.0,
+          "longitude": 101.25,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "8e728c195f03693403afa573fa9852cb0680c81e0b953c36bc58fd30557c790f"
+        }
+      },
+      "PS": {
+        "value": 84.8,
+        "monthly": [
+          85.14,
+          84.94,
+          84.85,
+          84.68,
+          84.52,
+          84.27,
+          84.21,
+          84.51,
+          84.9,
+          85.19,
+          85.15,
+          85.23
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:44.770665+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 43.0,
+          "longitude": 101.25,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "8e728c195f03693403afa573fa9852cb0680c81e0b953c36bc58fd30557c790f"
+        }
+      },
+      "RH2M": {
+        "value": 35.5,
+        "monthly": [
+          56.64,
+          43.18,
+          30.16,
+          24.76,
+          22.83,
+          26.54,
+          29.37,
+          30.14,
+          30.89,
+          33.37,
+          44.13,
+          54.17
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:44.770665+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 43.0,
+          "longitude": 101.25,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "8e728c195f03693403afa573fa9852cb0680c81e0b953c36bc58fd30557c790f"
+        }
+      },
+      "T2M": {
+        "value": 6.59,
+        "monthly": [
+          -12.24,
+          -7.66,
+          -0.06,
+          8.19,
+          15.02,
+          21.44,
+          24.44,
+          22.27,
+          15.11,
+          5.96,
+          -3.13,
+          -10.99
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:44.770665+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 43.0,
+          "longitude": 101.25,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "8e728c195f03693403afa573fa9852cb0680c81e0b953c36bc58fd30557c790f"
+        }
+      },
+      "WS10M": {
+        "value": 4.41,
+        "monthly": [
+          3.38,
+          3.94,
+          4.81,
+          5.21,
+          5.47,
+          5.0,
+          4.62,
+          4.43,
+          4.3,
+          4.11,
+          3.97,
+          3.67
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:44.770665+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 43.0,
+          "longitude": 101.25,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "8e728c195f03693403afa573fa9852cb0680c81e0b953c36bc58fd30557c790f"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "saudi-24.000-38.125",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 22.35,
+        "monthly": [
+          16.14,
+          19.1,
+          23.16,
+          25.71,
+          27.08,
+          28.48,
+          27.5,
+          25.46,
+          23.19,
+          20.23,
+          16.98,
+          15.01
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:45.865961+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.0,
+          "longitude": 38.125,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "bf4d1a58a6cc83dbcc0807430cc7fc0e8d998cef887b44bc84357db5b11f6b99"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 0.05,
+        "monthly": [
+          0.15,
+          0.07,
+          0.01,
+          0.01,
+          0.01,
+          0.0,
+          0.0,
+          0.01,
+          0.0,
+          0.01,
+          0.21,
+          0.14
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:45.865961+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.0,
+          "longitude": 38.125,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "bf4d1a58a6cc83dbcc0807430cc7fc0e8d998cef887b44bc84357db5b11f6b99"
+        }
+      },
+      "PS": {
+        "value": 100.67,
+        "monthly": [
+          101.3,
+          101.13,
+          100.9,
+          100.67,
+          100.46,
+          100.16,
+          100.04,
+          100.06,
+          100.31,
+          100.73,
+          101.0,
+          101.24
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:45.865961+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.0,
+          "longitude": 38.125,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "bf4d1a58a6cc83dbcc0807430cc7fc0e8d998cef887b44bc84357db5b11f6b99"
+        }
+      },
+      "RH2M": {
+        "value": 46.72,
+        "monthly": [
+          50.67,
+          49.94,
+          48.15,
+          46.18,
+          42.06,
+          39.27,
+          44.68,
+          47.55,
+          44.86,
+          48.21,
+          49.39,
+          49.81
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:45.865961+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.0,
+          "longitude": 38.125,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "bf4d1a58a6cc83dbcc0807430cc7fc0e8d998cef887b44bc84357db5b11f6b99"
+        }
+      },
+      "T2M": {
+        "value": 29.0,
+        "monthly": [
+          22.25,
+          23.29,
+          25.2,
+          27.86,
+          31.15,
+          33.31,
+          33.72,
+          34.12,
+          33.51,
+          31.39,
+          27.6,
+          24.28
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:45.865961+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.0,
+          "longitude": 38.125,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "bf4d1a58a6cc83dbcc0807430cc7fc0e8d998cef887b44bc84357db5b11f6b99"
+        }
+      },
+      "WS10M": {
+        "value": 4.04,
+        "monthly": [
+          4.41,
+          4.38,
+          4.22,
+          3.78,
+          3.85,
+          4.25,
+          4.04,
+          4.09,
+          3.93,
+          3.48,
+          3.83,
+          4.26
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:45.865961+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.0,
+          "longitude": 38.125,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "bf4d1a58a6cc83dbcc0807430cc7fc0e8d998cef887b44bc84357db5b11f6b99"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "saudi-24.000-39.375",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 22.4,
+        "monthly": [
+          16.17,
+          19.31,
+          23.26,
+          25.57,
+          26.87,
+          28.56,
+          27.67,
+          25.45,
+          23.38,
+          20.42,
+          16.95,
+          15.09
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=39.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:47.330173+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.0,
+          "longitude": 39.375,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "95cc0e954535eb76e6122e7d2e53cf803ac0a8c492f03cb160d4a2eafdde38dd"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 0.05,
+        "monthly": [
+          0.12,
+          0.03,
+          0.01,
+          0.07,
+          0.02,
+          0.0,
+          0.01,
+          0.07,
+          0.0,
+          0.02,
+          0.18,
+          0.09
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=39.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:47.330173+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.0,
+          "longitude": 39.375,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "95cc0e954535eb76e6122e7d2e53cf803ac0a8c492f03cb160d4a2eafdde38dd"
+        }
+      },
+      "PS": {
+        "value": 91.6,
+        "monthly": [
+          91.96,
+          91.85,
+          91.7,
+          91.58,
+          91.49,
+          91.28,
+          91.16,
+          91.19,
+          91.42,
+          91.73,
+          91.85,
+          91.97
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=39.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:47.330173+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.0,
+          "longitude": 39.375,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "95cc0e954535eb76e6122e7d2e53cf803ac0a8c492f03cb160d4a2eafdde38dd"
+        }
+      },
+      "RH2M": {
+        "value": 30.25,
+        "monthly": [
+          45.61,
+          40.7,
+          32.01,
+          27.55,
+          20.27,
+          16.4,
+          21.89,
+          24.4,
+          20.28,
+          26.65,
+          41.6,
+          46.08
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=39.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:47.330173+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.0,
+          "longitude": 39.375,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "95cc0e954535eb76e6122e7d2e53cf803ac0a8c492f03cb160d4a2eafdde38dd"
+        }
+      },
+      "T2M": {
+        "value": 26.1,
+        "monthly": [
+          16.26,
+          18.44,
+          21.88,
+          25.81,
+          30.13,
+          32.78,
+          32.76,
+          33.45,
+          32.5,
+          28.19,
+          22.36,
+          18.26
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=39.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:47.330173+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.0,
+          "longitude": 39.375,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "95cc0e954535eb76e6122e7d2e53cf803ac0a8c492f03cb160d4a2eafdde38dd"
+        }
+      },
+      "WS10M": {
+        "value": 3.98,
+        "monthly": [
+          4.16,
+          4.38,
+          4.18,
+          4.0,
+          3.89,
+          4.09,
+          4.14,
+          3.9,
+          3.62,
+          3.45,
+          3.82,
+          4.13
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=39.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:47.330173+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.0,
+          "longitude": 39.375,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "95cc0e954535eb76e6122e7d2e53cf803ac0a8c492f03cb160d4a2eafdde38dd"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "saudi-24.500-38.750",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 22.35,
+        "monthly": [
+          16.14,
+          19.1,
+          23.16,
+          25.71,
+          27.08,
+          28.48,
+          27.5,
+          25.46,
+          23.19,
+          20.23,
+          16.98,
+          15.01
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.5&longitude=38.75&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:48.768224+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.5,
+          "longitude": 38.75,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "1bf690e35735a5e0f12eaf3baa6436aef93b1bda5906a5db9466414e9f0a32d1"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 0.05,
+        "monthly": [
+          0.13,
+          0.04,
+          0.02,
+          0.04,
+          0.01,
+          0.0,
+          0.01,
+          0.03,
+          0.0,
+          0.02,
+          0.18,
+          0.11
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.5&longitude=38.75&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:48.768224+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.5,
+          "longitude": 38.75,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "1bf690e35735a5e0f12eaf3baa6436aef93b1bda5906a5db9466414e9f0a32d1"
+        }
+      },
+      "PS": {
+        "value": 94.24,
+        "monthly": [
+          94.7,
+          94.56,
+          94.38,
+          94.22,
+          94.11,
+          93.86,
+          93.73,
+          93.76,
+          94.01,
+          94.36,
+          94.53,
+          94.69
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.5&longitude=38.75&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:48.768224+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.5,
+          "longitude": 38.75,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "1bf690e35735a5e0f12eaf3baa6436aef93b1bda5906a5db9466414e9f0a32d1"
+        }
+      },
+      "RH2M": {
+        "value": 27.84,
+        "monthly": [
+          42.35,
+          37.3,
+          29.33,
+          24.76,
+          18.43,
+          15.2,
+          19.64,
+          22.32,
+          19.54,
+          26.11,
+          37.94,
+          41.58
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.5&longitude=38.75&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:48.768224+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.5,
+          "longitude": 38.75,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "1bf690e35735a5e0f12eaf3baa6436aef93b1bda5906a5db9466414e9f0a32d1"
+        }
+      },
+      "T2M": {
+        "value": 27.4,
+        "monthly": [
+          17.12,
+          19.43,
+          22.94,
+          26.98,
+          31.45,
+          34.32,
+          34.57,
+          35.16,
+          33.97,
+          29.59,
+          23.54,
+          19.27
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.5&longitude=38.75&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:48.768224+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.5,
+          "longitude": 38.75,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "1bf690e35735a5e0f12eaf3baa6436aef93b1bda5906a5db9466414e9f0a32d1"
+        }
+      },
+      "WS10M": {
+        "value": 3.87,
+        "monthly": [
+          3.98,
+          4.14,
+          4.01,
+          3.89,
+          3.93,
+          4.13,
+          3.88,
+          3.73,
+          3.72,
+          3.4,
+          3.68,
+          3.99
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.5&longitude=38.75&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:48.768224+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 24.5,
+          "longitude": 38.75,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "1bf690e35735a5e0f12eaf3baa6436aef93b1bda5906a5db9466414e9f0a32d1"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "saudi-25.000-38.125",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 22.43,
+        "monthly": [
+          16.01,
+          19.07,
+          23.02,
+          25.45,
+          27.14,
+          29.02,
+          28.17,
+          26.06,
+          23.62,
+          19.98,
+          16.72,
+          14.82
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:50.418389+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 25.0,
+          "longitude": 38.125,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "eb3ff23dce76877e11107664d4c76a7d21d836cee292cc4aa2859ed6db17991d"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 0.05,
+        "monthly": [
+          0.14,
+          0.05,
+          0.05,
+          0.03,
+          0.01,
+          0.0,
+          0.0,
+          0.02,
+          0.0,
+          0.02,
+          0.18,
+          0.12
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:50.418389+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 25.0,
+          "longitude": 38.125,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "eb3ff23dce76877e11107664d4c76a7d21d836cee292cc4aa2859ed6db17991d"
+        }
+      },
+      "PS": {
+        "value": 93.0,
+        "monthly": [
+          93.4,
+          93.27,
+          93.11,
+          92.96,
+          92.88,
+          92.67,
+          92.53,
+          92.57,
+          92.82,
+          93.12,
+          93.26,
+          93.4
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:50.418389+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 25.0,
+          "longitude": 38.125,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "eb3ff23dce76877e11107664d4c76a7d21d836cee292cc4aa2859ed6db17991d"
+        }
+      },
+      "RH2M": {
+        "value": 30.22,
+        "monthly": [
+          46.35,
+          39.74,
+          31.38,
+          25.87,
+          19.59,
+          17.25,
+          21.68,
+          23.25,
+          22.09,
+          28.98,
+          41.72,
+          45.18
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:50.418389+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 25.0,
+          "longitude": 38.125,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "eb3ff23dce76877e11107664d4c76a7d21d836cee292cc4aa2859ed6db17991d"
+        }
+      },
+      "T2M": {
+        "value": 25.82,
+        "monthly": [
+          15.37,
+          17.74,
+          21.38,
+          25.51,
+          29.92,
+          32.56,
+          32.95,
+          33.69,
+          32.39,
+          28.38,
+          21.99,
+          17.48
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:50.418389+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 25.0,
+          "longitude": 38.125,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "eb3ff23dce76877e11107664d4c76a7d21d836cee292cc4aa2859ed6db17991d"
+        }
+      },
+      "WS10M": {
+        "value": 3.91,
+        "monthly": [
+          3.62,
+          3.89,
+          3.99,
+          3.95,
+          4.11,
+          4.47,
+          4.5,
+          4.36,
+          3.98,
+          3.28,
+          3.28,
+          3.5
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:50.418389+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 25.0,
+          "longitude": 38.125,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "eb3ff23dce76877e11107664d4c76a7d21d836cee292cc4aa2859ed6db17991d"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "reference-salda",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 17.76,
+        "monthly": [
+          8.36,
+          11.16,
+          15.77,
+          20.23,
+          23.87,
+          27.34,
+          28.19,
+          24.99,
+          20.46,
+          14.66,
+          10.27,
+          7.52
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=37.520408&longitude=29.673456&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:51.901915+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 37.520408,
+          "longitude": 29.673456,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "04cbb9294ddd5c0dbeb387a620a47f646775b69fee16b96950fcebb62fbeaedd"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 1.89,
+        "monthly": [
+          4.3,
+          3.13,
+          1.99,
+          1.73,
+          1.49,
+          0.91,
+          0.27,
+          0.27,
+          0.66,
+          1.64,
+          2.45,
+          3.91
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=37.520408&longitude=29.673456&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:51.901915+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 37.520408,
+          "longitude": 29.673456,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "04cbb9294ddd5c0dbeb387a620a47f646775b69fee16b96950fcebb62fbeaedd"
+        }
+      },
+      "PS": {
+        "value": 88.17,
+        "monthly": [
+          88.13,
+          88.04,
+          88.04,
+          88.05,
+          88.14,
+          88.13,
+          88.0,
+          88.06,
+          88.27,
+          88.42,
+          88.43,
+          88.3
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=37.520408&longitude=29.673456&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:51.901915+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 37.520408,
+          "longitude": 29.673456,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "04cbb9294ddd5c0dbeb387a620a47f646775b69fee16b96950fcebb62fbeaedd"
+        }
+      },
+      "RH2M": {
+        "value": 62.95,
+        "monthly": [
+          81.8,
+          78.89,
+          71.76,
+          67.41,
+          63.0,
+          55.41,
+          44.56,
+          42.27,
+          46.97,
+          57.9,
+          68.32,
+          78.09
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=37.520408&longitude=29.673456&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:51.901915+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 37.520408,
+          "longitude": 29.673456,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "04cbb9294ddd5c0dbeb387a620a47f646775b69fee16b96950fcebb62fbeaedd"
+        }
+      },
+      "T2M": {
+        "value": 12.14,
+        "monthly": [
+          1.23,
+          2.52,
+          5.9,
+          9.93,
+          14.79,
+          19.47,
+          23.46,
+          23.85,
+          19.46,
+          13.55,
+          7.72,
+          3.25
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=37.520408&longitude=29.673456&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:51.901915+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 37.520408,
+          "longitude": 29.673456,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "04cbb9294ddd5c0dbeb387a620a47f646775b69fee16b96950fcebb62fbeaedd"
+        }
+      },
+      "WS10M": {
+        "value": 2.74,
+        "monthly": [
+          3.11,
+          3.26,
+          3.26,
+          2.89,
+          2.54,
+          2.53,
+          2.56,
+          2.4,
+          2.43,
+          2.49,
+          2.64,
+          2.84
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=37.520408&longitude=29.673456&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:51.901915+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 37.520408,
+          "longitude": 29.673456,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "04cbb9294ddd5c0dbeb387a620a47f646775b69fee16b96950fcebb62fbeaedd"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "reference-khaybar",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 22.34,
+        "monthly": [
+          16.03,
+          19.1,
+          23.02,
+          25.33,
+          26.92,
+          29.03,
+          28.07,
+          25.56,
+          23.34,
+          19.99,
+          16.67,
+          14.87
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.719714&longitude=39.943981&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:53.321813+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 25.719714,
+          "longitude": 39.943981,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "e0050bd0ea80fd615c9eaa8a290c12d56e9a6cd06aff5d87847cc76999b7a483"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 0.07,
+        "monthly": [
+          0.18,
+          0.03,
+          0.09,
+          0.08,
+          0.04,
+          0.0,
+          0.01,
+          0.09,
+          0.0,
+          0.03,
+          0.23,
+          0.12
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.719714&longitude=39.943981&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:53.321813+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 25.719714,
+          "longitude": 39.943981,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "e0050bd0ea80fd615c9eaa8a290c12d56e9a6cd06aff5d87847cc76999b7a483"
+        }
+      },
+      "PS": {
+        "value": 86.97,
+        "monthly": [
+          87.19,
+          87.11,
+          87.0,
+          86.92,
+          86.9,
+          86.73,
+          86.58,
+          86.65,
+          86.91,
+          87.16,
+          87.19,
+          87.25
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.719714&longitude=39.943981&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:53.321813+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 25.719714,
+          "longitude": 39.943981,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "e0050bd0ea80fd615c9eaa8a290c12d56e9a6cd06aff5d87847cc76999b7a483"
+        }
+      },
+      "RH2M": {
+        "value": 26.16,
+        "monthly": [
+          43.25,
+          35.98,
+          27.57,
+          23.6,
+          17.52,
+          13.38,
+          16.59,
+          16.54,
+          15.49,
+          21.96,
+          38.41,
+          44.01
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.719714&longitude=39.943981&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:53.321813+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 25.719714,
+          "longitude": 39.943981,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "e0050bd0ea80fd615c9eaa8a290c12d56e9a6cd06aff5d87847cc76999b7a483"
+        }
+      },
+      "T2M": {
+        "value": 22.95,
+        "monthly": [
+          11.71,
+          14.21,
+          18.14,
+          22.57,
+          27.38,
+          30.63,
+          31.49,
+          32.17,
+          29.97,
+          24.86,
+          18.14,
+          13.61
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.719714&longitude=39.943981&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:53.321813+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 25.719714,
+          "longitude": 39.943981,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "e0050bd0ea80fd615c9eaa8a290c12d56e9a6cd06aff5d87847cc76999b7a483"
+        }
+      },
+      "WS10M": {
+        "value": 5.06,
+        "monthly": [
+          5.18,
+          5.58,
+          5.46,
+          5.3,
+          5.15,
+          5.12,
+          5.19,
+          4.79,
+          4.55,
+          4.4,
+          4.92,
+          5.15
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.719714&longitude=39.943981&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:53.321813+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 25.719714,
+          "longitude": 39.943981,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "e0050bd0ea80fd615c9eaa8a290c12d56e9a6cd06aff5d87847cc76999b7a483"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "reference-craters",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 16.38,
+        "monthly": [
+          6.73,
+          10.11,
+          14.51,
+          19.28,
+          23.38,
+          26.85,
+          27.36,
+          23.57,
+          18.57,
+          12.7,
+          7.76,
+          5.4
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.42&longitude=-113.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:54.765857+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 43.42,
+          "longitude": -113.5,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "2aa3103422187afa80eebe4ca49e47f7082ce68f90ff0f3337bdbd3e5afe417c"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 1.14,
+        "monthly": [
+          1.43,
+          1.28,
+          1.52,
+          1.31,
+          1.41,
+          0.92,
+          0.42,
+          0.51,
+          0.76,
+          1.08,
+          1.19,
+          1.89
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.42&longitude=-113.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:54.765857+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 43.42,
+          "longitude": -113.5,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "2aa3103422187afa80eebe4ca49e47f7082ce68f90ff0f3337bdbd3e5afe417c"
+        }
+      },
+      "PS": {
+        "value": 80.96,
+        "monthly": [
+          80.96,
+          80.75,
+          80.75,
+          80.69,
+          80.85,
+          80.99,
+          81.26,
+          81.23,
+          81.17,
+          81.06,
+          80.99,
+          80.84
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.42&longitude=-113.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:54.765857+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 43.42,
+          "longitude": -113.5,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "2aa3103422187afa80eebe4ca49e47f7082ce68f90ff0f3337bdbd3e5afe417c"
+        }
+      },
+      "RH2M": {
+        "value": 59.83,
+        "monthly": [
+          84.83,
+          82.68,
+          72.8,
+          62.38,
+          55.91,
+          47.4,
+          35.45,
+          33.36,
+          38.97,
+          53.08,
+          68.67,
+          83.68
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.42&longitude=-113.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:54.765857+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 43.42,
+          "longitude": -113.5,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "2aa3103422187afa80eebe4ca49e47f7082ce68f90ff0f3337bdbd3e5afe417c"
+        }
+      },
+      "T2M": {
+        "value": 5.69,
+        "monthly": [
+          -7.72,
+          -6.16,
+          -0.68,
+          3.92,
+          9.61,
+          15.2,
+          21.43,
+          20.0,
+          14.3,
+          6.11,
+          -1.1,
+          -7.44
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.42&longitude=-113.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:54.765857+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 43.42,
+          "longitude": -113.5,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "2aa3103422187afa80eebe4ca49e47f7082ce68f90ff0f3337bdbd3e5afe417c"
+        }
+      },
+      "WS10M": {
+        "value": 3.37,
+        "monthly": [
+          2.79,
+          3.23,
+          3.6,
+          3.7,
+          3.68,
+          3.8,
+          3.69,
+          3.51,
+          3.33,
+          3.24,
+          3.01,
+          2.91
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.42&longitude=-113.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:54.765857+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": 43.42,
+          "longitude": -113.5,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "2aa3103422187afa80eebe4ca49e47f7082ce68f90ff0f3337bdbd3e5afe417c"
+        }
+      }
+    }
+  },
+  {
+    "candidate_id": "reference-atacama",
+    "observations": {
+      "ALLSKY_SFC_SW_DWN": {
+        "value": 25.94,
+        "monthly": [
+          32.98,
+          30.7,
+          27.53,
+          22.85,
+          18.42,
+          16.43,
+          17.36,
+          21.17,
+          26.08,
+          30.41,
+          33.44,
+          34.17
+        ],
+        "unit": "MJ/m^2/day",
+        "long_name": "All Sky Surface Shortwave Downward Irradiance",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0848&longitude=-69.915069&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:56.142038+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.0848,
+          "longitude": -69.915069,
+          "original_unit": "MJ/m^2/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "8ec90789d0e4892c9c6aeabff538eea2d8eb4488109dbd38037310343c7fe7ed"
+        }
+      },
+      "PRECTOTCORR": {
+        "value": 0.02,
+        "monthly": [
+          0.02,
+          0.06,
+          0.03,
+          0.01,
+          0.01,
+          0.05,
+          0.02,
+          0.04,
+          0.0,
+          0.01,
+          0.01,
+          0.02
+        ],
+        "unit": "mm/day",
+        "long_name": "Precipitation Corrected",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0848&longitude=-69.915069&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:56.142038+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.0848,
+          "longitude": -69.915069,
+          "original_unit": "mm/day",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "8ec90789d0e4892c9c6aeabff538eea2d8eb4488109dbd38037310343c7fe7ed"
+        }
+      },
+      "PS": {
+        "value": 87.5,
+        "monthly": [
+          87.43,
+          87.41,
+          87.44,
+          87.5,
+          87.56,
+          87.59,
+          87.6,
+          87.58,
+          87.56,
+          87.51,
+          87.45,
+          87.43
+        ],
+        "unit": "kPa",
+        "long_name": "Surface Pressure",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0848&longitude=-69.915069&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:56.142038+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.0848,
+          "longitude": -69.915069,
+          "original_unit": "kPa",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "8ec90789d0e4892c9c6aeabff538eea2d8eb4488109dbd38037310343c7fe7ed"
+        }
+      },
+      "RH2M": {
+        "value": 44.09,
+        "monthly": [
+          53.39,
+          55.9,
+          53.38,
+          48.94,
+          39.84,
+          35.7,
+          33.7,
+          33.59,
+          37.79,
+          41.88,
+          45.86,
+          49.88
+        ],
+        "unit": "%",
+        "long_name": "Relative Humidity at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0848&longitude=-69.915069&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:56.142038+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.0848,
+          "longitude": -69.915069,
+          "original_unit": "%",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "8ec90789d0e4892c9c6aeabff538eea2d8eb4488109dbd38037310343c7fe7ed"
+        }
+      },
+      "T2M": {
+        "value": 17.07,
+        "monthly": [
+          19.82,
+          19.96,
+          19.28,
+          17.5,
+          15.77,
+          14.54,
+          14.03,
+          15.08,
+          15.84,
+          16.81,
+          17.68,
+          18.68
+        ],
+        "unit": "C",
+        "long_name": "Temperature at 2 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0848&longitude=-69.915069&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:56.142038+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.0848,
+          "longitude": -69.915069,
+          "original_unit": "C",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "8ec90789d0e4892c9c6aeabff538eea2d8eb4488109dbd38037310343c7fe7ed"
+        }
+      },
+      "WS10M": {
+        "value": 3.03,
+        "monthly": [
+          3.51,
+          3.37,
+          3.06,
+          2.7,
+          2.71,
+          2.65,
+          2.73,
+          2.86,
+          2.94,
+          3.13,
+          3.32,
+          3.47
+        ],
+        "unit": "m/s",
+        "long_name": "Wind Speed at 10 Meters",
+        "provenance": {
+          "dataset": "NASA POWER",
+          "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0848&longitude=-69.915069&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+          "retrieved_at": "2026-11-14T05:21:56.142038+00:00",
+          "period": [
+            null,
+            null
+          ],
+          "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
+          "latitude": -24.0848,
+          "longitude": -69.915069,
+          "original_unit": "m/s",
+          "classification": "MEASURED",
+          "note": "Gridded reanalysis/satellite-derived climatology, not an outcrop instrument measurement.",
+          "sha256": "8ec90789d0e4892c9c6aeabff538eea2d8eb4488109dbd38037310343c7fe7ed"
+        }
+      }
+    }
+  }
+]

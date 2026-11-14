@@ -13,9 +13,10 @@
 - Explorer and landing design concepts recorded in `docs/design/`.
 
 ## In progress
-- `scripts/build_discovery.py` actively acquiring and checkpointing point/SRTM/geology profiles. Rerun uses successful cached responses.
-- React/Vite dependencies installed; interface implementation next.
-- Resolve audit warnings from initial development dependency selection before final build.
+- Data acquisition finished:130 cells,16 automatic candidates,10 preliminary characterized candidates,4 references,20 climate+terrain profiles,2 planetary profiles,19 mapped geologies; no acquisition errors.
+- Landing, Explorer, mission filters, interactive MapLibre/GIBS map, Analog DNA, Reality Gap, Passport/print, Methodology and adjustable normalized utility weights implemented.
+- Strict TypeScript and static production build pass. Dependency audit reports zero vulnerabilities.
+- Browser workflow, print/mobile QA, final scientific validation and deployment packaging remain in progress.
 
 ## Resume
 Read `NEXT_STEPS.md`, `DATA_STATUS.md`, and this file. Run `git status --short --branch` and inspect the latest commit before changing files.

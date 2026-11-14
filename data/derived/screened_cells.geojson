@@ -32,7 +32,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -66,7 +68,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -100,7 +104,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -134,7 +140,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -168,7 +176,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -202,7 +212,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -236,7 +248,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -270,7 +284,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -304,7 +320,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -338,7 +356,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -372,7 +392,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -406,7 +428,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -440,7 +464,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -474,7 +500,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -508,7 +536,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -542,7 +572,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -576,7 +608,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -610,7 +644,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -644,7 +680,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -678,7 +716,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -712,7 +752,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -746,7 +788,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -780,7 +824,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -814,7 +860,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -848,7 +896,9 @@
           "classification": "DERIVED",
           "sha256": "56c8077818b3c0bb81e4efa195f897781bcb669ad9584ec05687e4c4bb24a29a"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -882,7 +932,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -916,7 +968,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -950,7 +1004,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -984,7 +1040,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1018,7 +1076,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1052,7 +1112,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1086,7 +1148,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1120,7 +1184,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1154,7 +1220,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1188,7 +1256,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1222,7 +1292,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1256,7 +1328,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1290,7 +1364,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1324,7 +1400,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1358,7 +1436,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1392,7 +1472,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1426,7 +1508,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1460,7 +1544,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1494,7 +1580,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1528,7 +1616,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1562,7 +1652,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1596,7 +1688,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1630,7 +1724,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1664,7 +1760,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1698,7 +1796,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1732,7 +1832,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1766,7 +1868,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1800,7 +1904,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1834,7 +1940,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1868,7 +1976,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1902,7 +2012,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1936,7 +2048,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -1970,7 +2084,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2004,7 +2120,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2038,7 +2156,9 @@
           "classification": "DERIVED",
           "sha256": "5d11054050ad69b730743ce69b562be9ae07030fab5c956c0ade5b5c10f5d114"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2072,7 +2192,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2106,7 +2228,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2140,7 +2264,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2174,7 +2300,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2208,7 +2336,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2242,7 +2372,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2276,7 +2408,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2310,7 +2444,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2344,7 +2480,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2378,7 +2516,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2412,7 +2552,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2446,7 +2588,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2480,7 +2624,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2514,7 +2660,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2548,7 +2696,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2582,7 +2732,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2616,7 +2768,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2650,7 +2804,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2684,7 +2840,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2718,7 +2876,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2752,7 +2912,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2786,7 +2948,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2820,7 +2984,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2854,7 +3020,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2888,7 +3056,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2922,7 +3092,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2956,7 +3128,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -2990,7 +3164,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3024,7 +3200,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3058,7 +3236,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3092,7 +3272,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3126,7 +3308,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3160,7 +3344,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3194,7 +3380,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3228,7 +3416,9 @@
           "classification": "DERIVED",
           "sha256": "5a695ae116a93457b656daf272b6f3157c462361cc525cf00124fea42d4a6905"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3262,7 +3452,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3296,7 +3488,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3330,7 +3524,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3364,7 +3560,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3398,7 +3596,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3432,7 +3632,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3466,7 +3668,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3500,7 +3704,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3534,7 +3740,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3568,7 +3776,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3602,7 +3812,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3636,7 +3848,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3670,7 +3884,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3704,7 +3920,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3738,7 +3956,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3772,7 +3992,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3806,7 +4028,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3840,7 +4064,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3874,7 +4100,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3908,7 +4136,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3942,7 +4172,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -3976,7 +4208,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -4010,7 +4244,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -4044,7 +4280,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -4078,7 +4316,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -4112,7 +4352,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -4146,7 +4388,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -4180,7 +4424,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -4214,7 +4460,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -4248,7 +4496,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -4282,7 +4532,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -4316,7 +4568,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -4350,7 +4604,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -4384,7 +4640,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     },
     {
@@ -4418,7 +4676,9 @@
           "classification": "DERIVED",
           "sha256": "82dacb7a774b5392d1da8e4c832f8afc774b14e85b0234b4ee547452f86a4582"
         },
-        "quality": "valid"
+        "quality": "valid",
+        "land_eligible": true,
+        "land_mask_note": "Natural Earth110m broad land screen; coastal classification is approximate and not field validation. All cells retained, water/coast-screened centers excluded from shortlist."
       }
     }
   ]

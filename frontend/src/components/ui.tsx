@@ -1,0 +1,11 @@
+import { ArrowUpRight, ArrowLeft, Orbit, FileText, Microscope } from 'lucide-react'
+import { Link, NavLink } from 'react-router-dom'
+import { number } from '../lib/data'
+import type { Assessment, Mission } from '../lib/models'
+export function Header() { return <header className="app-header"><Link className="brand" to="/" aria-label="TerrainX home"><Orbit size={26}/><span>Terrain<span className="brand-x">X</span></span></Link><nav aria-label="Main navigation"><NavLink to="/explorer">Discovery</NavLink><NavLink to="/methodology">Methodology</NavLink></nav><span className="header-note">Open science. Visible limits.</span></header> }
+export function EvidenceTag({kind}:{kind:string}) { return <span className={`evidence-tag tag-${kind.toLowerCase()}`}>{kind}</span> }
+export function ScoreStrip({assessment,compact=false}:{assessment:Assessment,compact?:boolean}) { return <div className={`score-strip ${compact?'compact':''}`}><div title={assessment.fidelity.reason??'Exploratory physical terrain fidelity'}><span><b>F</b> fidelity</span><strong>{number(assessment.fidelity.value,0)}</strong></div><div title="Declared model of Earth experiment suitability"><span><b>U</b> utility</span><strong>{number(assessment.utility.value,0)}</strong></div><div title="Assessed share of mission criterion weights"><span><b>C</b> coverage</span><strong>{number(100*assessment.utility.coverage,0)}<small>%</small></strong></div></div> }
+export function SourceLink({url,children}:{url:string,children:React.ReactNode}) { return <a className="source-link" href={url} target="_blank" rel="noreferrer">{children}<ArrowUpRight size={13}/></a> }
+export function BackLink({mission}:{mission:Mission}) { return <Link className="back-link" to={`/explorer?mission=${mission}`}><ArrowLeft size={16}/>Discovery atlas</Link> }
+export function SiteActions({id,mission}:{id:string,mission:Mission}) { return <div className="site-actions"><Link className="button primary" to={`/site/${id}?mission=${mission}`}><Microscope size={17}/>Analog DNA</Link><Link className="button outline" to={`/passport/${id}?mission=${mission}`}><FileText size={17}/>Analog Passport</Link></div> }
+export function Loading({message='Loading scientific workspace…'}:{message?:string}) { return <div className="loading-state" role="status"><Orbit size={32}/><p>{message}</p></div> }

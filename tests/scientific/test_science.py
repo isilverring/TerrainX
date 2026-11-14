@@ -12,6 +12,8 @@ from science.analysis.terrain import terrain_metrics
 from science.analysis.similarity import feature_similarity,physical_fidelity,scales_compatible
 from science.analysis.utility import mission_utility,combined_priority,validate_weights,WEIGHTS
 from science.analysis.discovery import select_candidates,discovery_count
+from science.analysis.discovery import on_land
+from science.ingestion.mola import read_product_metadata,point_from_offset
 
 def flat():return np.zeros((7,7))
 def profile():
@@ -110,3 +112,30 @@ def test_deterministic_selection():
 def test_criterion_provenance_required():
     c=criteria(1);c["geology"]["source_refs"]=[]
     with pytest.raises(ValueError):mission_utility(c,"jezero")
+
+def test_land_mask_excludes_water_and_holes():
+    mask={"features":[{"geometry":{"type":"Polygon","coordinates":[[[0,0],[4,0],[4,4],[0,4],[0,0]],[[1,1],[2,1],[2,2],[1,2],[1,1]]]}}]}
+    assert on_land(.5,.5,mask)
+    assert not on_land(1.5,1.5,mask)
+    assert not on_land(8,8,mask)
+def test_water_cells_excluded_from_shortlist():
+    assert not select_candidates([{"region_id":"r","id":"water","aridity":1,"latitude":20,"longitude":40,"land_eligible":False}])
+@pytest.mark.parametrize("prefix,encoding,scale",[("megt90n000eb","SignedMSB2",1),("ldem_16","SignedLSB2",.5)])
+def test_real_planetary_labels(prefix,encoding,scale):
+    directory=Path(__file__).parents[2]/"data/source/planetary"
+    metadata=read_product_metadata(directory/f"{prefix}.xml",directory/f"{prefix}.lbl")
+    assert metadata["encoding"]==encoding
+    assert metadata["height_scale"]==scale
+    assert metadata["lines"]==2880 and metadata["samples"]==5760
+    assert metadata["vertical_unit"]=="m"
+def test_cross_body_pixel_sizes_differ():
+    targets=json.loads((Path(__file__).parents[2]/"data/derived/planetary_targets.json").read_text(encoding="utf-8"))
+    assert targets[0]["terrain"]["native_resolution_m"]["y"]>targets[1]["terrain"]["native_resolution_m"]["y"]
+def test_planetary_longitude_wrap():
+    latitude,longitude=point_from_offset(0,359.99,12000,0,1737400)
+    assert abs(latitude)<1e-9 and 0<=longitude<1
+def test_reference_specific_evidence_not_overridden_by_regional_polygon():
+    d=json.loads((Path(__file__).parents[2]/"data/derived/dataset.json").read_text(encoding="utf-8"))
+    salda=next(c for c in d["candidates"] if c["id"]=="reference-salda")
+    assert salda["assessments"]["jezero"]["utility"]["criteria"]["geology"]["value"]==1
+    assert salda["assessments"]["mare-crisium"]["utility"]["criteria"]["geology"]["value"] is None

@@ -1,0 +1,159 @@
+{
+  "url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=37.520408&longitude=29.673456&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+  "retrieved_at": "2026-11-14T05:21:51.901915+00:00",
+  "sha256": "04cbb9294ddd5c0dbeb387a620a47f646775b69fee16b96950fcebb62fbeaedd",
+  "status_code": 200,
+  "data": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        29.673,
+        37.52,
+        1181.02
+      ]
+    },
+    "properties": {
+      "parameter": {
+        "ALLSKY_SFC_SW_DWN": {
+          "JAN": 8.36,
+          "FEB": 11.16,
+          "MAR": 15.77,
+          "APR": 20.23,
+          "MAY": 23.87,
+          "JUN": 27.34,
+          "JUL": 28.19,
+          "AUG": 24.99,
+          "SEP": 20.46,
+          "OCT": 14.66,
+          "NOV": 10.27,
+          "DEC": 7.52,
+          "ANN": 17.76
+        },
+        "PRECTOTCORR": {
+          "JAN": 4.3,
+          "FEB": 3.13,
+          "MAR": 1.99,
+          "APR": 1.73,
+          "MAY": 1.49,
+          "JUN": 0.91,
+          "JUL": 0.27,
+          "AUG": 0.27,
+          "SEP": 0.66,
+          "OCT": 1.64,
+          "NOV": 2.45,
+          "DEC": 3.91,
+          "ANN": 1.89
+        },
+        "PS": {
+          "JAN": 88.13,
+          "FEB": 88.04,
+          "MAR": 88.04,
+          "APR": 88.05,
+          "MAY": 88.14,
+          "JUN": 88.13,
+          "JUL": 88.0,
+          "AUG": 88.06,
+          "SEP": 88.27,
+          "OCT": 88.42,
+          "NOV": 88.43,
+          "DEC": 88.3,
+          "ANN": 88.17
+        },
+        "RH2M": {
+          "JAN": 81.8,
+          "FEB": 78.89,
+          "MAR": 71.76,
+          "APR": 67.41,
+          "MAY": 63.0,
+          "JUN": 55.41,
+          "JUL": 44.56,
+          "AUG": 42.27,
+          "SEP": 46.97,
+          "OCT": 57.9,
+          "NOV": 68.32,
+          "DEC": 78.09,
+          "ANN": 62.95
+        },
+        "T2M": {
+          "JAN": 1.23,
+          "FEB": 2.52,
+          "MAR": 5.9,
+          "APR": 9.93,
+          "MAY": 14.79,
+          "JUN": 19.47,
+          "JUL": 23.46,
+          "AUG": 23.85,
+          "SEP": 19.46,
+          "OCT": 13.55,
+          "NOV": 7.72,
+          "DEC": 3.25,
+          "ANN": 12.14
+        },
+        "WS10M": {
+          "JAN": 3.11,
+          "FEB": 3.26,
+          "MAR": 3.26,
+          "APR": 2.89,
+          "MAY": 2.54,
+          "JUN": 2.53,
+          "JUL": 2.56,
+          "AUG": 2.4,
+          "SEP": 2.43,
+          "OCT": 2.49,
+          "NOV": 2.64,
+          "DEC": 2.84,
+          "ANN": 2.74
+        }
+      }
+    },
+    "header": {
+      "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
+      "api": {
+        "version": "v2.10.1",
+        "name": "POWER Climatology API"
+      },
+      "sources": [
+        "SYN1DEG",
+        "MERRA2",
+        "POWER"
+      ],
+      "fill_value": -999.0,
+      "time_standard": "LST",
+      "range": "25-year Meteorological and Solar Monthly & Annual Climatologies (January 2001 - December 2025)"
+    },
+    "messages": [
+      "The requested parameters are retrieved from a pre-computed climatological period (January 2001 - December 2025)"
+    ],
+    "parameters": {
+      "ALLSKY_SFC_SW_DWN": {
+        "units": "MJ/m^2/day",
+        "longname": "All Sky Surface Shortwave Downward Irradiance"
+      },
+      "PRECTOTCORR": {
+        "units": "mm/day",
+        "longname": "Precipitation Corrected"
+      },
+      "PS": {
+        "units": "kPa",
+        "longname": "Surface Pressure"
+      },
+      "RH2M": {
+        "units": "%",
+        "longname": "Relative Humidity at 2 Meters"
+      },
+      "T2M": {
+        "units": "C",
+        "longname": "Temperature at 2 Meters"
+      },
+      "WS10M": {
+        "units": "m/s",
+        "longname": "Wind Speed at 10 Meters"
+      }
+    },
+    "times": {
+      "data": 0.265,
+      "process": 0.03
+    }
+  }
+}
