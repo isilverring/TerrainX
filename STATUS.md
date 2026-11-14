@@ -1,52 +1,27 @@
 # TerrainX checkpoint
 
-## Review and repair checkpoint (2026-11-14, D:\TerrainX)
-Latest teammate source pulled and reviewed: `800d5ff`. Work remains under **D:\TerrainX**. The cloud/laptop paths below describe the previous agent's session only.
+## Current state
 
-The original cached observations, planetary rasters and screening results are intact. Baseline: 57 Python tests, 45 frontend scientific tests, 13 live-network browser workflows and production build passed. Review repairs now include shared scenario state across What-if/dossiers/exports, honest Frontier comparison eligibility, correct relative-rank explanations, conditional robustness eligibility, derived/scenario atmosphere labels, source-unit handling, terrain-footprint missing-data gating, verified planetary source/window hashes and bounded/no-data-aware visual terrain fetches. Regression checks: **59 Python tests and 52 frontend unit tests pass**; 13 existing browser workflows pass after the science repairs.
+**Prompt 1 + Prompt 2 reviewed, repaired and ready for publication.** All work is under **D:\TerrainX**. GitHub: https://github.com/isilverring/TerrainX, private, main. Teammate review base: 800d5ff. Main science repair checkpoint: 2b51e12.
 
-The supplied orbital X logo has a high-contrast SVG rendition, with original and enhancement provenance preserved. Header, Passport and favicon integration is in place. Pending for this review: final responsive/live visual checks, custom-state browser round-trip and new dependency/CI checks, updated demo/deployment guide, publication of the repaired release. The hosted URL still serves the old release until publication is verified.
+Audience URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site. The owner explicitly requested **public audience access**. Pending final step: publish the tested repaired bundle, switch the existing Site to public, verify unauthenticated access and record exact source/version/deployment IDs in DEPLOYMENT.md. Until verified, the hosted version may still be the old owner-private release. Do not create another Site.
 
-Read `docs/REVIEW.md` for findings. Resume with `npm run dev`, use the bundled Node 24 runtime if the system Node is 20, then run unit/browser checks and production build. Never reset or replace the genuine data to fix a UI issue.
+## Completed and verified
 
-## Current state (2026-11-14, laptop cloud session)
-**Prompt 1 MVP complete; enhancement plan A, B and C delivered** (see `docs/ENHANCEMENT_PLAN.md` progress log). Source is in the private `https://github.com/isilverring/TerrainX` repository on `main`; the laptop folder `C:\TerrainX` should be refreshed with `git pull` (it was empty apart from `.dist` at the start of this session, and all work happened in a cloud clone pushed after each milestone).
+- Original NASA observations, source raster hashes and screening results intact. Regenerated numeric changes are floating-point rounding only.
+- 130 real POWER cells, 16 automatic candidates, 10 preliminary characterized candidates, 4 separate benchmarks; 20 POWER/SRTM profiles, 2 real planetary grids, 19 mapped geologies.
+- Frontier, Transfer Lab, Forensics, What-if/Pareto/robustness, Compare Worlds, packet exports, discovery storytelling, compare mode and guided demo retained.
+- Shared model state and packet/QR snapshots; corrected evidence comparators, rank explanations, conditional eligibility, derived/scenario physics labels, units, missing-terrain exports and source integrity enforcement.
+- Four verified NASA comparison images bundled unchanged with attribution/checksums; no API key needed.
+- Supplied orbital X shape retained with source-faithful vector geometry and silver/cyan contrast. Mars enlarged and independent of the illustrative lunar orbit.
+- Mobile Transfer Lab/What-if overflow repaired. Desktop 1568×1003 and mobile 390×844 sweep: no page overflow, missing images or page/console errors across eight routes.
+- 63 Python tests and independent reproduction pass; 52 frontend scientific tests pass; 16 browser workflows passed in development and production preview. Strict TypeScript/build pass; audit 0 known vulnerabilities.
+- Teammate dependencies: qrcode-generator and dev-only Vitest. Review adds no package dependencies. CI now runs frontend unit tests.
 
-Delivered in this session, in pushed milestones:
-1. Explorer UX: evidence-tier ranking (characterized before screened for every sort key U/C/F/P, nulls last), search, ↑/↓ keyboard navigation, map fitted to the four study regions with region boxes, persistent ranked markers with tooltips, merged layers/legend control, status icons that follow source state, safe storage, Mars/Moon glyphs.
-2. Imagery and 3D map: Esri World Imagery, dated NASA GIBS (MODIS Terra/Aqua, VIIRS SNPP), Blue Marble; AWS terrarium 3D terrain + hillshade, sky, globe toggle; selected POWER cell, 24 km SRTM lattice and its 49 sample points. Endpoints and rendering verified live in a browser.
-3. Side-by-side 3D terrain viewer (Analog DNA): 24 km analysis lattice (exact F inputs) and 96 km visualisation-only context (MOLA/LOLA native windows + live AWS terrain for Earth).
-4. Compare mode (`/compare`, up to 3), live landing globe with dataset counts, Passport QR/URL block and print pagination, ~40 glued-text fixes (dataset regenerated offline: text only, zero numeric changes).
+## Limits
 
-Checks at the last checkpoint: 57 Python scientific tests pass; `validate_results.py` 57 passed; strict TypeScript + production build pass; 6 Playwright workflows pass (run with `TERRAINX_OFFLINE=1` in the cloud sandbox, which cannot reach map tile hosts); `npm audit` 0 vulnerabilities.
+No field verification, access/permit survey, rover-mechanics validation or NASA approval. F is exploratory morphology with unequal native support. No automatic lunar-basalt match is established. Live map/terrain providers can fail; cached science, NASA comparison images, local coastlines and measured terrain remain available. Optional Diviner/SAR/Sentinel/JAXA sources are not claimed as integrated measurements.
 
-The owner-private preview at https://terrainx-discovery-lab.comfybay1.chatgpt.site still serves the **older** Prompt 1 build (commit `a058c1c`). Redeploy from the PC to publish these enhancements.
+## Recovery
 
-## Prompt 2 progress (live log; newest first)
-- **P2-1 Discovery Frontier — done.** `/frontier` + Passport "What should we measure next?". Pure `frontier.ts`: U bounds with each missing criterion at 0 and 1 (known inputs kept), P interval, best-benchmark crossing, possible rank range, declared Measurement Priority rules (not EVI). Real data: 6 Mars and 16 Moon research candidates (geology missing). Vitest unit tests (`npm run test:unit`).
-- **P2-2 Planetary Transfer Lab — done.** `/transfer-lab`: Froude number and matched speed, slope force components with a hypothetical mass, dynamic pressure from NASA POWER PS/T2M/WS10M (unit strings honored, kPa→Pa, °C→K), labelled Mars scenario (600 Pa, 210 K, CO₂) and Moon ≈ 0, prominent limitations, deterministic transfer-gap summary. `physics.ts` + 13 unit tests (prompt tests 1–10).
-- **P2-3 Analog Forensics + What-if + Pareto — done (+ P2-4 rank robustness).** Analog DNA "Analog Forensics": 2D heightmap×hillshade and slope maps by default (3D optional), 1×/3×/5× exaggeration stated, W–E/S–N profiles at true horizontal scale, quantitative table (metrics, τ, sᵢ, valid-sample flags, spacing, native resolution, F scale-check status), resolution-mismatch warning. TS port `terrain.ts` reproduces all 22 cached Python metric sets. `/what-if`: α, criterion weights, minimum coverage, tolerances → exact recomputation of F/U/C/P; before/after ranks with sentences from an exact ΔP decomposition; Pareto frontier (eligible only; low coverage hollow; benchmarks reference); seeded 200-scenario rank stability (median/best/worst/IQR, % first, % top 3). `counterfactual.ts` reproduces stored F/U/C/P exactly.
-- **P2-4 Compare Worlds — done.** `/worlds`: Lake Salda (Landsat 8 OLI, 2020-06-08) ↔ Jezero (MRO CTX) and Harrat Khaybar/Jabal Qidr (Landsat 9 OLI-2, 2024-04-25) ↔ Mare Crisium wrinkle ridge (NASA/GSFC/ASU). Original NASA image URLs verified in a browser; split-screen divider + side-by-side; match / contrast / conditions / limits cards from the NASA pages; provenance table states unstated scales/instruments; graceful fallback if images fail.
-- **P2-5 Expedition Packet + Beyond the Known Analogs + Demo — done.** `/expedition/:id` (from the Passport's "Generate Expedition Packet"): challenge identification, transfer gap, reproducibility metadata (dataset time, weights, α, γ, tolerances, rebuild command) plus JSON / CSV / GeoJSON exports generated from one packet object (`packet.ts`; unit + browser tests prove they equal the displayed values; unknowns export empty). Landing "Beyond the known analogs": best benchmark vs best characterized exploratory candidate vs top screening cell; "Unexpected within this screened sample" explained from actual sᵢ and w·u (Mars: Western Saudi Arabia · 02, P 74.8 ≥ Yungay 73.0; Moon: honest none). `/demo` "From Earth to another world": 7 scenes from real values, ←/→/Esc/Home/End, reduced motion.
-- **P2-6 Docs and verification — done.** README, SCIENCE, DATA_SOURCES, DEMO, NEXT_STEPS and in-app Methodology section 06 updated. Final checks: 57 Python tests, 45 Vitest unit tests, 13 Playwright workflows (offline mode), strict TypeScript + production build, npm audit 0 vulnerabilities.
-- **Prompt 2 complete.** Deferred / not possible here: live-image and live-terrain visual QA in a real browser (sandbox blocks NASA image and AWS hosts; endpoints were verified from the desktop browser), redeploying the private preview.
-
-## Prompt 1 baseline (still true)
-- 130 real POWER cells across four bounded regions;16 algorithmic candidates;10 preliminary characterized automatic candidates;4 separately labelled benchmarks.
-- 20 real climate profiles,20 SRTM49-point grids,2 real metadata-validated MOLA/LOLA grids,19 mapped geological responses;no acquisition errors.
-- 48 scientific tests pass plus independent reproduction of the saved shortlist,terrain metrics,F/U/C and eligible P.
-- Landing, Explorer,mission/region/evidence filters, MapLibre+GIBS,adjustable normalized mission weights, Analog DNA, Reality Gap,field hypothesis,printable Passport and Methodology implemented.
-- 4 browser workflows pass in both development and production preview. Desktop 1568x1003 and mobile 390x844;zero page/console errors in the successful main workflow;live GIBS verified;blocked-basemap fallback tested.
-- Strict TypeScript/static production build passes. MapLibre module worker explicitly bundled. Dependency audit: 0 known vulnerabilities.
-- Concept-to-render review completed. Curated actual screenshots in `docs/screenshots/`,design references in `docs/design/`,verification ledger in `docs/QA.md`.
-- Public Esri dark-gray basemap with local Natural Earth coastline fallback;no API key required. The offered CARTO key was not used or stored.
-- README,SCIENCE,DATA_SOURCES,DATA_STATUS,DEMO,deployment configurations,CI and checkpoint helper complete.
-
-## Remaining limits (not unfinished MVP work)
-No field validation,local access/permit/safety survey,rover mechanics or NASA certification. Terrain fidelity is exploratory with unequal native support. No automatic candidate has established lunar-basalt relevance in this bounded shortlist. External map tiles are best-effort. The hosted preview is private;public Vercel/Netlify instructions are ready.
-
-## Resume safely
-Read NEXT_STEPS.md,DATA_STATUS.md and SCIENCE.md;run `git status --short --branch` and `git log -5 --oneline` before changing anything. The requested MVP is complete. Optional extensions supplied by the user are documented but not claimed as integrated data.
-
-## Durable checkpoint policy
-After each future completed module:update these notes,run relevant checks,then `.\scripts\checkpoint.ps1 -Message "feat: describe the completed step"`. It commits,pushes and verifies local/remote SHAs. A sudden shutdown can still lose edits since the last checkpoint; GitHub commits are the recovery boundary. Never persist credentials.
+Read NEXT_STEPS.md, docs/REVIEW.md and LIVE_DEMO.md. After each completed milestone update notes, run relevant checks and use scripts/checkpoint.ps1. GitHub commits are the recovery boundary; power loss can still lose edits since the latest checkpoint. Never persist credentials.

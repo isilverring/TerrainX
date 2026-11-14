@@ -140,7 +140,13 @@ function PassportBody({
       </div>
       <header className="passport-header">
         <div>
-          <img className="passport-brand-mark" src="/brand/terrainx-mark.svg" alt="TerrainX orbital X" width="70" height="63" />
+          <img
+            className="passport-brand-mark"
+            src="/brand/terrainx-mark.svg"
+            alt="TerrainX orbital X"
+            width="70"
+            height="63"
+          />
           <p className="document-label">
             TerrainX /{" "}
             {packet ? "Expedition research brief" : "Scientific field briefing"}
@@ -332,7 +338,9 @@ function PassportBody({
         />
         <div>
           <strong>Live dossier</strong>
-          <a className="source-link" href={sharedUrl}>Open reproducible model snapshot</a>
+          <a className="source-link" href={sharedUrl}>
+            Open reproducible model snapshot
+          </a>
           <p className="mono">
             {window.location.origin}
             {window.location.pathname}#/{packet ? "expedition" : "passport"}/

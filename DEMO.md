@@ -1,14 +1,16 @@
 # Recommended 90-second judge demo
 
-Use the built-in guided demo (header "Guided demo" or `/#/demo`; ← → to move, Esc to exit), then show the live tools.
+Audience link: https://terrainx-discovery-lab.comfybay1.chatgpt.site. Read LIVE_DEMO.md for deployment and rehearsal. Reset both missions to release defaults first; custom settings persist across pages.
 
-1. **0–15 s · Guided demo scenes 1–3.** The challenge; four documented benchmarks versus 130 real NASA POWER cells; the funnel 130 → 16 → 10 and the top screening priorities (no winner).
-2. **15–30 s · Scene 4–5.** Western Saudi Arabia · 02 (F 95, U 66, C 100%) next to a high-U but 45%-coverage candidate: terrain similarity is not mission usefulness. Gravity 0.38×, Froude-matched 0.62 m/s, 53 Pa vs 0.76 Pa dynamic pressure.
-3. **30–45 s · Discovery Frontier.** Six Mars research candidates whose U could range ~40–98 until geology is measured; High Measurement Priority because geology is mission-essential and the interval spans the Lake Salda benchmark. "What should we measure next?": stratigraphy, grain size, XRF/Raman.
-4. **45–60 s · What if.** Drag α to 0: Gobi region · 01 moves up five places "because terrain fidelity F was weighted less heavily"; the Pareto frontier shows three useful options; reset, and ranking stability at release defaults shows Western Saudi Arabia · 02 first in 100% of 200 seeded scenarios at ±25%.
-5. **60–75 s · Analog DNA → Analog Forensics and Compare Worlds.** Measured 24 km grids side by side (×3), the quantitative table behind F = 94.7; then Lake Salda ↔ Jezero imagery with "colour does not establish mineralogy".
-6. **75–90 s · Expedition Packet.** Generate the packet, export JSON/CSV/GeoJSON, Print/Save as PDF. Close: 57 Python + 45 TypeScript tests, every number traceable.
+1. **0–15 s:** Landing → Guided demo scenes 1–3. Explain the real funnel: 130 POWER cells → 16 automatic candidates → 10 preliminary characterized candidates, with 4 separate benchmarks.
+2. **15–30 s:** Science/reality scenes. Show separate F/U/C. A high partial U with 45% coverage lacks essential geology. The 0.62 m/s Mars Froude speed for a 1 m/s Earth test is a scaling illustration, not a rover speed limit.
+3. **30–45 s:** Exit → Frontier. Six Mars and sixteen Moon research candidates need geology. Bounds evaluate missing scores at 0 and 1; they are not predicted discoveries. Show XRF/Raman/stratigraphy as proposed measurements.
+4. **45–60 s:** What if → alpha 0. Gobi region · 01 leads the eligible Mars list under utility-only weighting. Separate own-score changes from peers changing rank. Show Pareto/model sensitivity, then reset.
+5. **60–75 s:** Analog DNA → Forensics. Inspect real 7×7 Earth/MOLA grids, coarse scales and native-resolution warning. Worlds shows complete cached NASA imagery; colors do not establish mineralogy.
+6. **75–90 s:** Passport → Expedition Packet. Export JSON/CSV/GeoJSON and Print/Save as PDF. Outputs preserve the active scenario; QR links reproduce it. Close with 63 Python tests, 52 TypeScript science tests, 16 browser workflows and source traceability.
 
-Fallback: cached science, Frontier, What-if, Transfer Lab, Forensics (24 km lattice), packet and demo all work without live tiles or images.
+The seven guided scenes are manual: Next/Previous, arrows, Home/End and Esc. Reduced motion is supported. If time is tight, show the guided narrative and one Passport.
 
-Hard questions: "new" means unshortlisted in this bounded search; Frontier bounds are hypothetical, not predictions or EVI; stability is weight sensitivity, not confidence; Froude matching and dynamic pressure are not full physical similarity; the Moon has no algorithmic candidate with assessed basaltic geology — shown honestly.
+Cached data, comparison images, calculations, 24 km Forensics and exports work without provider requests after app assets load. Basemaps/GIBS and optional AWS context need network; local coastlines/markers and measured lattice remain if they fail. Keep a local production preview ready.
+
+Hard questions: "new" means unshortlisted in this bounded sample, not unknown to literature. No field campaign occurred. F is exploratory morphology with unequal native support. U is a declared heuristic and must be read with C. No automatic lunar-basalt match is claimed. Bounds are scenarios, robustness is sensitivity rather than confidence, and atmospheric values are calculations with stated assumptions.

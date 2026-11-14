@@ -3,10 +3,26 @@ import { geoOrthographic, geoPath, geoGraticule10, geoDistance } from "d3-geo";
 import type { GeoPermissibleObjects } from "d3-geo";
 import { useData } from "../lib/data";
 
+const FRAME = { x: 310, y: 290, radius: 215 };
+const ORBIT = { rx: 293, ry: 119, tilt: 24 };
+/** The Moon and its illustrative orbit share one coordinate system. */
+function orbitPoint(angle: number) {
+  const t = (angle * Math.PI) / 180,
+    a = (ORBIT.tilt * Math.PI) / 180;
+  const x = ORBIT.rx * Math.cos(t),
+    y = ORBIT.ry * Math.sin(t);
+  return {
+    x: FRAME.x + x * Math.cos(a) - y * Math.sin(a),
+    y: FRAME.y + x * Math.sin(a) + y * Math.cos(a),
+  };
+}
+
 /** Live landing globe: real Natural Earth land and the real candidate positions,
  * slowly rotating (static when the reader prefers reduced motion). */
 export default function Globe() {
   const data = useData();
+  const moon = orbitPoint(180),
+    mars = { x: 558, y: 500 };
   const [land, setLand] = useState<GeoPermissibleObjects | null>(null),
     [lambda, setLambda] = useState(-35),
     [paused, setPaused] = useState(false);
@@ -40,8 +56,8 @@ export default function Globe() {
     () =>
       geoOrthographic()
         .rotate([lambda, -14, 0])
-        .translate([310, 290])
-        .scale(215)
+        .translate([FRAME.x, FRAME.y])
+        .scale(FRAME.radius)
         .clipAngle(90),
     [lambda],
   );
@@ -105,7 +121,7 @@ export default function Globe() {
       <svg
         viewBox="0 0 620 580"
         role="img"
-        aria-label={`Rotating globe from real Natural Earth land boundaries showing ${data.summary.shortlisted_candidates} algorithmic candidates and ${data.summary.benchmark_sites} benchmark references; Moon and Mars symbols are not to scale`}
+        aria-label={`Rotating globe from real Natural Earth land boundaries showing ${data.summary.shortlisted_candidates} algorithmic candidates and ${data.summary.benchmark_sites} benchmark references; the Moon follows an illustrative orbit; Mars is a separate world outside that path. Sizes and distances are not to scale.`}
       >
         <defs>
           <radialGradient id="ocean" cx="42%" cy="38%">
@@ -120,23 +136,28 @@ export default function Globe() {
             <stop offset="0.82" stopColor="#35C3B0" stopOpacity="0" />
             <stop offset="1" stopColor="#35C3B0" stopOpacity="0.16" />
           </radialGradient>
+          <radialGradient id="mars-symbol" cx="32%" cy="25%" r="80%">
+            <stop stopColor="#F5A17D" />
+            <stop offset=".65" stopColor="#F17E5A" />
+            <stop offset="1" stopColor="#A74634" />
+          </radialGradient>
         </defs>
         <ellipse
-          cx="310"
-          cy="290"
-          rx="293"
-          ry="119"
-          transform="rotate(24 310 290)"
+          cx={FRAME.x}
+          cy={FRAME.y}
+          rx={ORBIT.rx}
+          ry={ORBIT.ry}
+          transform={`rotate(${ORBIT.tilt} ${FRAME.x} ${FRAME.y})`}
           fill="none"
           stroke="#97A8BD"
           strokeOpacity=".5"
           strokeWidth="1"
         />
-        <circle cx="310" cy="290" r="236" fill="url(#glow)" />
+        <circle cx={FRAME.x} cy={FRAME.y} r="236" fill="url(#glow)" />
         <circle
-          cx="310"
-          cy="290"
-          r="216"
+          cx={FRAME.x}
+          cy={FRAME.y}
+          r={FRAME.radius + 1}
           fill="url(#ocean)"
           stroke="#35C3B0"
           strokeWidth="1.5"
@@ -185,13 +206,45 @@ export default function Globe() {
             />
           ),
         )}
-        <circle cx="79" cy="181" r="16" fill="#C6D7E8" />
-        <text x="95" y="155" fill="#F2F5FA" fontSize="15" fontFamily="Inter">
+        <circle cx={moon.x} cy={moon.y} r="16" fill="#C6D7E8" />
+        <text
+          x={moon.x}
+          y={moon.y - 30}
+          textAnchor="middle"
+          fill="#F2F5FA"
+          fontSize="15"
+          fontFamily="Inter"
+        >
           MOON
         </text>
-        <circle cx="556" cy="417" r="16" fill="#F17E5A" />
-        <text x="571" y="450" fill="#F2F5FA" fontSize="15" fontFamily="Inter">
+        <circle
+          className="landing-mars"
+          cx={mars.x}
+          cy={mars.y}
+          r="26"
+          fill="url(#mars-symbol)"
+          stroke="#F5A17D"
+          strokeWidth=".7"
+        />
+        <text
+          x={mars.x}
+          y={mars.y + 48}
+          textAnchor="middle"
+          fill="#F2F5FA"
+          fontSize="15"
+          fontFamily="Inter"
+        >
           MARS
+        </text>
+        <text
+          x={FRAME.x}
+          y="565"
+          textAnchor="middle"
+          fill="#97A8BD"
+          fontSize="10"
+          fontFamily="Inter"
+        >
+          Illustrative Moon orbit · body sizes and distances not to scale
         </text>
       </svg>
     </div>

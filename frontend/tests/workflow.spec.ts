@@ -409,6 +409,7 @@ test("Compare Worlds shows two sourced NASA image pairs with caveats", async ({
       exact: false,
     }),
   ).toBeVisible();
+  await page.getByRole("button", { name: "Split screen" }).first().click();
   await page.locator(".split-range").first().fill("20");
   await page.getByRole("button", { name: "Side by side" }).first().click();
   await expect(page.locator(".side-frame").first()).toBeVisible();
@@ -470,4 +471,108 @@ test("guided demo navigates seven scenes with real values and keyboard controls"
   await expect(page.getByText("Earth is the training ground.")).toBeVisible();
   await page.keyboard.press("Escape");
   await expect(page).toHaveURL(/explorer/);
+});
+
+test("custom What-if settings survive dossier, export, reload and shared snapshot", async ({
+  page,
+  browser,
+}) => {
+  await page.goto("/#/what-if?mission=jezero");
+  await page.locator("#wi-alpha").fill("0.85");
+  await page.locator("#wi-t-relief_m").fill("225");
+  await page.locator("#wi-minc").fill("0.90");
+  await page
+    .locator(".whatif-table tbody tr")
+    .first()
+    .getByRole("link")
+    .click();
+  await page
+    .getByRole("link", { name: "Analog Passport", exact: true })
+    .click();
+  await page.getByRole("link", { name: /Generate Expedition Packet/ }).click();
+  const getPacket = async () => {
+    const [file] = await Promise.all([
+      page.waitForEvent("download"),
+      page.getByRole("button", { name: "JSON", exact: true }).click(),
+    ]);
+    const { readFileSync } = await import("node:fs");
+    return JSON.parse(readFileSync((await file.path())!, "utf8"));
+  };
+  const pkt = await getPacket();
+  expect(pkt.reproducibility.model.alpha).toBe(0.85);
+  expect(pkt.reproducibility.model.minimum_coverage).toBe(0.9);
+  expect(pkt.reproducibility.model.tolerances.relief_m).toBe(225);
+  const F = Number(
+    await page
+      .locator(".score-strip > div")
+      .first()
+      .locator("strong")
+      .innerText(),
+  );
+  expect(Math.round(pkt.scores.F)).toBe(F);
+  await page.reload();
+  expect((await getPacket()).scores).toEqual(pkt.scores);
+  const shared = await page
+    .getByRole("link", { name: "Open reproducible model snapshot" })
+    .getAttribute("href");
+  const context = await browser.newContext();
+  const audience = await context.newPage();
+  await audience.goto(shared!);
+  await expect(audience.locator(".packet-repro")).toContainText(
+    "0.85 · 1 · 0.90",
+  );
+  await expect(
+    audience.locator(".score-strip > div").first().locator("strong"),
+  ).toHaveText(String(F));
+  await context.close();
+});
+
+test("NASA Worlds images render and the live measured context surface is available", async ({
+  page,
+}) => {
+  test.skip(
+    offline,
+    "Live-provider verification is a separate check from cached fallback",
+  );
+  const errors: string[] = [];
+  page.on("pageerror", (e) => errors.push(e.message));
+  await page.goto("/#/worlds");
+  const images = page.locator(".worlds-pair img");
+  await expect(images).toHaveCount(4);
+  for (const img of await images.all()) {
+    await img.scrollIntoViewIfNeeded();
+    await expect
+      .poll(() => img.evaluate((el) => (el as HTMLImageElement).naturalWidth), {
+        timeout: 20000,
+      })
+      .toBeGreaterThan(0);
+  }
+  await page.goto("/#/site/saudi-24.000-39.375?mission=jezero");
+  const viewer = page.locator(".terrain-viewer");
+  await viewer
+    .getByRole("button", { name: "Regional context · 96 km" })
+    .click();
+  await expect(
+    viewer.getByRole("button", { name: "Regional context · 96 km" }),
+  ).toHaveAttribute("aria-pressed", "true");
+  await expect(viewer.locator(".forensic-table")).toContainText("2401/2401", {
+    timeout: 20000,
+  });
+  await expect(viewer).toContainText("AWS Terrain Tiles z8");
+  await viewer.getByRole("button", { name: "3D surface" }).click();
+  await expect(viewer.locator("canvas.surface-canvas")).toHaveCount(2);
+  expect(errors).toEqual([]);
+});
+
+test("science workspaces stay within a mobile viewport with scrollable data tables", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  for (const route of ["transfer-lab", "what-if", "frontier", "worlds"]) {
+    await page.goto(`/#/${route}`);
+    await expect(page.locator("h1")).toBeVisible();
+    await expect
+      .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
+      .toBeLessThanOrEqual(390);
+  }
 });

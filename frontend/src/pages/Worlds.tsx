@@ -46,7 +46,7 @@ const PAIRS: Pair[] = [
     earth: {
       title: "Lake Salda, Türkiye",
       body: "Earth",
-      src: "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/147000/147041/lakesalda_oli_2020159_lrg.jpg?w=1280",
+      src: "/nasa/salda.jpg",
       original:
         "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/147000/147041/lakesalda_oli_2020159_lrg.jpg",
       page: "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/",
@@ -59,7 +59,7 @@ const PAIRS: Pair[] = [
     planet: {
       title: "Jezero Crater, Mars",
       body: "Mars",
-      src: "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/147000/147041/20171204_JezeroCTXMosaic.jpg/jcr:content/renditions/cq5dam.web.1280.1280.jpeg",
+      src: "/nasa/jezero.jpg",
       original:
         "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/147000/147041/20171204_JezeroCTXMosaic.jpg",
       page: "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/",
@@ -96,7 +96,7 @@ const PAIRS: Pair[] = [
     earth: {
       title: "Harrat Khaybar, Saudi Arabia (Jabal Qidr, Abyad, Bayda)",
       body: "Earth",
-      src: "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/imagerecords/152000/152839/harratkhaybarzm_oli2_20240425.jpg?w=1280",
+      src: "/nasa/khaybar.jpg",
       original:
         "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/imagerecords/152000/152839/harratkhaybarzm_oli2_20240425.jpg",
       page: "https://science.nasa.gov/earth/earth-observatory/white-and-black-volcanoes-of-saudi-arabia-152839",
@@ -111,7 +111,7 @@ const PAIRS: Pair[] = [
     planet: {
       title: "Wrinkle ridge in Mare Crisium, Moon",
       body: "Moon",
-      src: "https://assets.science.nasa.gov/dynamicimage/assets/science/psd/lunar-science/2023/08/wrinkle-ridge-mare-crisium.png?w=1000",
+      src: "/nasa/crisium.png",
       original:
         "https://assets.science.nasa.gov/content/dam/science/psd/lunar-science/2023/08/wrinkle-ridge-mare-crisium.png",
       page: "https://science.nasa.gov/resource/wrinkle-ridge-in-mare-crisium/",
@@ -165,7 +165,7 @@ function Img({ im }: { im: WorldImage }) {
 
 function Split({ pair }: { pair: Pair }) {
   const [pos, setPos] = useState(50),
-    [mode, setMode] = useState<"split" | "side">("split");
+    [mode, setMode] = useState<"split" | "side">("side");
   return (
     <div className="worlds-viewer">
       <div className="segmented worlds-mode" role="group" aria-label="Layout">
@@ -229,6 +229,8 @@ function Split({ pair }: { pair: Pair }) {
       <p className="caption">
         The divider is a viewing aid only: the two images are not co-registered,
         use different instruments and are at different (unstated) scales.
+        Side-by-side shows the complete images; split view crops them to its
+        frame.
       </p>
     </div>
   );
@@ -246,7 +248,8 @@ export default function Worlds() {
           <h1>Compare Worlds</h1>
           <p className="frontier-sub">
             Original NASA imagery, side by side — with what it can and cannot
-            show.
+            show. Verified NASA display renditions are bundled for reliable
+            demos; original source links remain below.
           </p>
         </div>
       </header>

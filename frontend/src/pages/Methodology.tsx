@@ -284,7 +284,9 @@ export default function Methodology() {
           expected value of information. Measurement Priority is High when the
           gap is mission-essential (geology gates characterization) and the
           interval crosses the best benchmark or spans ≥ 3 ranks; Medium when
-          either holds; otherwise Low.
+          either holds; otherwise Low. Fully assessed comparators have all four
+          model criteria available; the incomplete candidate is excluded from
+          its own comparison pool.
         </p>
         <h3>Planetary Transfer Lab</h3>
         <div className="equation">
@@ -297,7 +299,10 @@ export default function Methodology() {
           J/(kg·K). Mars uses a labelled scenario (600 Pa, 210 K, R = 188.9);
           lunar aerodynamic q ≈ 0. Froude matching is one dynamic-similarity
           condition, not a traction, sinkage, slip or safety model; equal q is
-          not equal dust entrainment.
+          not equal dust entrainment. Density is derived from climatological
+          mean inputs, not measured directly. Dynamic pressure uses scenario
+          wind; a function of mean inputs is not generally the mean of that
+          function.
         </p>
         <h3>What if, Pareto and ranking stability</h3>
         <div className="equation">
@@ -310,8 +315,11 @@ export default function Methodology() {
           Stability uses 200 seeded scenarios (mulberry32) with weights and
           tolerances perturbed uniformly by ±range and weights renormalized; it
           reports median/best/worst rank and the share ranked first or in the
-          top three. It is weight sensitivity, not statistical confidence or a
-          probability of mission success.
+          top three. Rank intervals are conditional on eligibility; eligibility
+          share is shown separately, and first/top-three shares use all
+          scenarios. Own-score effects are separate from relative movement
+          caused by peers. It is weight sensitivity, not statistical confidence
+          or a probability of mission success.
         </p>
         <h3>Analog Forensics</h3>
         <p>

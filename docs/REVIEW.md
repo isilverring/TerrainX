@@ -16,8 +16,10 @@ No material NASA data corruption was found. Raw source responses remain unchange
 - Visualization terrain fetches could hang or decode transparent/no-data pixels as elevations. A bounded timeout and supported-pixel checks preserve unavailable states. These visual layers never enter scores.
 - Mars imagery wording now distinguishes surface liquid water from stable surface ice. Aqua availability start follows official GIBS capabilities.
 
-## Verification in progress
+## Release verification
 
-Baseline production build and all 13 browser workflows passed against real services. Science repair checks: 59 Python tests and 52 frontend unit tests pass. Final release verification and deployment results will be recorded in STATUS.md and DEPLOYMENT.md.
+Final science checks: 63 Python tests, independent result reproduction and 52 frontend unit tests pass. Sixteen workflows passed in development and production preview, including fresh-browser model snapshot/export parity, actual images, live AWS context, provider failure and mobile layouts. Desktop1568×1003/mobile390×844 sweep of eight routes had zero page/console errors, missing images or document overflow. Strict TypeScript/production build pass; npm audit reports zero known vulnerabilities. Deployment IDs/access are recorded in DEPLOYMENT.md after terminal success.
+
+The visual sweep found and repaired mobile min-content overflow in Transfer Lab and What-if. NASA comparison images now ship unchanged with a source/hash manifest; default side-by-side view shows complete images. The supplied logo's actual separated segments and tapered arcs are retained in a clean vector trace. Mars is larger and separate from the Moon's illustrative orbit.
 
 Browser plugin not available; the existing Playwright/Chrome workflow is used. Full desktop/mobile QA includes actual imagery, cached-data fallback and active-model exports. Numerical fixtures in tests are not application observations.

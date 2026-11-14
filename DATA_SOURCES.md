@@ -49,4 +49,6 @@ Observations retain original units, coordinates, period, native resolution, miss
 
 ## Optional resources supplied by the user
 
+The review bundled four unmodified NASA display renditions for audience reliability: Salda, Jezero CTX, Khaybar and the Crisium ridge. Source/credit/retrieval time/byte count/SHA-256 are in `frontend/public/nasa/imagery-manifest.json`; `scripts/cache_worlds_images.py` reproduces the cache. These images never enter scoring. Full uncropped side-by-side is the default; the optional split view crops display frames and does not co-register the images. Planetary context preprocessing now enforces original raster and native-window hashes. The original user logo is preserved in `docs/design/logo-original.jpg`; it is branding, not scientific imagery.
+
 Earthdata Search, Worldview, LRO/Diviner, CSA RCM/RADARSAT-1, Copernicus Data Space, ESA Open Science Catalog and JAXA G-Portal are recorded as possible extensions. **No measurements from these optional sources are claimed in this release.** Diviner could support a later properly matched lunar thermal study; SAR could support separately validated surface/ice-context analysis. Neither should be added as an unverified score.

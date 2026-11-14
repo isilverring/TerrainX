@@ -1,22 +1,16 @@
-# Resume TerrainX
+# Resume TerrainX safely
 
-Work in **D:\TerrainX**, tracking `origin/main`. Do not restart from an empty scaffold. Read the newest review checkpoint at the top of STATUS.md and docs/REVIEW.md first; older cloud/laptop notes below are historical.
+All work stays in **D:\TerrainX**. Repository: private isilverring/TerrainX, branch main.
 
-1. `git pull` (the laptop folder may need a fresh `git clone https://github.com/isilverring/TerrainX C:\TerrainX` if it only contains `.dist`). Then `git status --short --branch` and `git log -5 --oneline`.
-2. Read STATUS.md, DATA_STATUS.md, SCIENCE.md and `docs/ENHANCEMENT_PLAN.md` (progress log at the bottom).
-3. Local app: `npm --prefix frontend ci` then `npm run dev` from root → http://127.0.0.1:5173. Node 22+.
-4. Science checks: `.venv\Scripts\python.exe scripts\validate_results.py` (57 checks) and `.venv\Scripts\python.exe -m pytest -q`.
-5. Browser tests: `npm test` with the dev server running (needs Chrome and live tiles; set `TERRAINX_OFFLINE=1` without map access).
-6. Rebuild data only when needed: `scripts/build_planetary_profiles.py`, `scripts/build_planetary_context.py`, then `scripts/build_discovery.py` (`--offline` uses cached Earth requests).
-7. After each completed module: update STATUS/NEXT_STEPS/plan log, run checks, `scripts/checkpoint.ps1 -Message "..."`.
+1. Read STATUS.md, DEPLOYMENT.md, DATA_STATUS.md, SCIENCE.md and docs/REVIEW.md.
+2. Run git status --short --branch and git log -5 --oneline, then git pull --ff-only if clean.
+3. Use Node 22.12+ (24 recommended). Run npm --prefix frontend ci, then npm run dev → http://127.0.0.1:5173.
+4. Science: .venv\Scripts\python.exe scripts\validate_results.py (63 Python tests plus independent reproduction). Frontend science: npm run test:unit (52 tests).
+5. Build: npm run build. Preview: npm run preview → http://127.0.0.1:4173. With a server running, npm test runs 16 browser workflows. Set TERRAINX_BASE_URL for production preview. TERRAINX_OFFLINE=1 explicitly skips live-provider checks.
+6. After each completed module, update notes, run relevant checks and use scripts/checkpoint.ps1 -Message "describe the milestone". It commits, pushes and verifies the remote SHA.
 
-## Prompt 2 status
-All 12 Prompt 2 sections are implemented (see STATUS.md "Prompt 2 progress"). Unit tests: `npm run test:unit` (45). Browser: `npm test` (13 workflows; `TERRAINX_OFFLINE=1` in sandboxes).
+Prompt 1 and Prompt 2 are implemented. Review repaired scientific evidence/state/ranking contracts, added NASA image caching and retained the supplied logo geometry with improved contrast. Mars is enlarged and independent of the illustrative lunar orbit. Check STATUS.md for publication completion; do not claim deployment until its success/access checks are recorded.
 
-## Suggested next work
-- **Visual QA with live services** of Compare Worlds images, the 96 km Earth context surface and 3D fly-to on a real GPU browser.
-- **Redeploy** the private preview (or a public Netlify/Vercel judge build) from the PC; the hosted preview still runs commit `a058c1c`.
-- **Visual QA on a real GPU/browser**: 3D terrain fly-to (pitch ~62°), globe toggle, GIBS date picker edge dates, and the 96 km Earth context surface (it renders from live AWS tiles, which the cloud sandbox could not reach; only the analysis-lattice fallback and planetary context were rendered there).
-- Optional from the plan: drape a verified NASA Trek / CTX / LRO WAC image on the planetary 3D patch (check URL and licence first).
-- Refresh `docs/QA.md` and `docs/screenshots/` from a machine with live tiles (new sandbox screenshots are in `docs/screenshots/*-v2*`, `compare-desktop.png`, `landing-live-globe.png`, `viewer-crisium-lattice.png`).
-- Science extensions (unchanged): matched physical-support sensitivity analysis, field mineralogy/terrain validation, or carefully sourced Diviner/SAR/Sentinel/JAXA additions. Never infer geology from dryness; never score visualisation layers.
+Refresh data only when needed: build_planetary_profiles.py, build_planetary_context.py, build_discovery.py --offline, cache_worlds_images.py under scripts/. Never replace real observations with generated arrays.
+
+Optional future work: matched effective-resolution filtering, field mineralogy/terrain validation, or separately validated Diviner/SAR/Sentinel additions. These are not claimed as completed science.

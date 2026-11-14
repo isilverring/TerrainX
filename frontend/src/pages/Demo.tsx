@@ -269,8 +269,8 @@ export default function Demo() {
             </b>
             <span>
               Dynamic pressure of a 10 m/s wind at{" "}
-              {best?.name ?? "the Earth site"} (NASA POWER) vs the labelled Mars
-              scenario
+              {best?.name ?? "the Earth site"} (density derived from NASA POWER
+              means; hypothetical wind) vs the labelled Mars scenario
             </span>
           </div>
           <p className="demo-sub">
@@ -320,6 +320,13 @@ export default function Demo() {
       title: "TerrainX",
       body: (
         <>
+          <img
+            src="/brand/terrainx-mark.svg"
+            width="120"
+            height="109"
+            alt="TerrainX orbital X"
+            className="demo-brand-mark"
+          />
           <p className="demo-final">Earth is the training ground.</p>
           <p className="demo-sub">
             Independent research prototype · open NASA data · no NASA

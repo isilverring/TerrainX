@@ -16,6 +16,13 @@ export default function ModelControls({ mission }: { mission: Mission }) {
         Experimental utility weights, not NASA limits. Adjusting one preserves a
         total of 1.00.
       </p>
+      <p className="mono">
+        Active α {model.scenarios[mission].alpha.toFixed(2)} · minimum C{" "}
+        {(100 * model.scenarios[mission].minCoverage).toFixed(0)}%
+      </p>
+      <a href={`#/what-if?mission=${mission}`}>
+        Edit fidelity tolerances and full model
+      </a>
       {(Object.keys(labels) as (keyof Weights)[]).map((key) => (
         <label key={key} htmlFor={`weight-${key}`}>
           <span>

@@ -19,10 +19,12 @@ export function validWeights(weights: unknown): weights is Weights {
   if (!weights || typeof weights !== "object") return false;
   const w = weights as Weights;
   return (
+    Object.keys(w).length === 4 &&
     ["geology", "terrain", "aridity", "temperature"].every(
       (k) =>
         Number.isFinite(w[k as keyof Weights]) && w[k as keyof Weights] >= 0,
-    ) && Math.abs(Object.values(w).reduce((s, v) => s + v, 0) - 1) < 1e-6
+    ) &&
+    Math.abs(Object.values(w).reduce((s, v) => s + v, 0) - 1) < 1e-6
   );
 }
 export function rebalanceWeight(

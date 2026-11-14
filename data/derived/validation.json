@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-14T09:56:22.000363+00:00",
-  "passed": 59,
+  "generated_at": "2026-11-14T10:07:34.871850+00:00",
+  "passed": 63,
   "failed": 0,
   "checks": [
     "Dataset passes Pydantic validation; frontend also validates with Zod.",

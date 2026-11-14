@@ -600,9 +600,12 @@ function QuantTable({
                 ? `${earth.valid_samples}/${earth.total_samples ?? earth.valid_samples}`
                 : "—"}
               {earth &&
-              earth.valid_samples < Number(earth.total_samples ?? earth.valid_samples)
+              earth.valid_samples <
+                Number(earth.total_samples ?? earth.valid_samples)
                 ? " ⚑ missing samples"
-                : " · complete"}
+                : earth
+                  ? " · complete"
+                  : ""}
             </td>
             <td>
               {planet
@@ -620,7 +623,9 @@ function QuantTable({
           <tr>
             <th>Native source resolution</th>
             <td>
-              {lattice ? "≈ 90 m (SRTM 3″)" : "≈ 0.5 km (AWS Terrain Tiles z8)"}
+              {lattice
+                ? "≈ 90 m (SRTM 3″)"
+                : "AWS Terrain Tiles mosaic; z8 pixel support varies with latitude (see source caption), not uniform native DEM resolution"}
             </td>
             <td>
               ≈ {number((target.terrain.native_resolution_m?.y ?? 0) / 1000, 2)}{" "}

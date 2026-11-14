@@ -1,12 +1,33 @@
 /* TerrainX enhancement pass (2026-11-14): ranking tiers, search/sort, markers,
    merged map control, imagery, 3D, compare and viewer components. */
 
-.brand-mark { object-fit: contain; flex: 0 0 auto; }
-.passport-brand-mark { float: left; margin: 0 18px 12px 0; }
-.lab-table td small { display: block; color: var(--muted); font-size: 10px; }
-.passport-link .source-link { margin: 8px 0; }
-@media (max-width: 600px) { .brand-mark { width: 32px; height: 29px; } }
-@media print { .passport-brand-mark { filter: grayscale(1) brightness(0.5); } }
+.brand-mark {
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+.passport-brand-mark {
+  float: left;
+  margin: 0 18px 12px 0;
+}
+.lab-table td small {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+}
+.passport-link .source-link {
+  margin: 8px 0;
+}
+@media (max-width: 600px) {
+  .brand-mark {
+    width: 32px;
+    height: 29px;
+  }
+}
+@media print {
+  .passport-brand-mark {
+    filter: grayscale(1) brightness(0.5);
+  }
+}
 
 /* ---------- Planet selector ---------- */
 .planet-selector button .planet-glyph {
@@ -85,7 +106,9 @@
   border: 0;
   border-left: 1px solid #3a4b63;
   color: var(--muted);
-  font: 600 11px "JetBrains Mono", monospace;
+  font:
+    600 11px "JetBrains Mono",
+    monospace;
   padding: 0 10px;
   min-width: 30px;
 }
@@ -513,7 +536,9 @@
   height: 19px;
 }
 .marker-rank {
-  font: 700 9.5px "JetBrains Mono", monospace;
+  font:
+    700 9.5px "JetBrains Mono",
+    monospace;
   color: #06121c;
   line-height: 1;
   pointer-events: none;
@@ -1053,7 +1078,9 @@
 }
 .compare-group th {
   background: #0b1320;
-  font: 600 11px Inter, sans-serif !important;
+  font:
+    600 11px Inter,
+    sans-serif !important;
   text-transform: uppercase;
   letter-spacing: 0.07em;
   color: var(--muted) !important;
@@ -1416,7 +1443,9 @@
   position: absolute;
   bottom: 0;
   transform: translateX(-50%);
-  font: 9px "JetBrains Mono", monospace;
+  font:
+    9px "JetBrains Mono",
+    monospace;
   color: #5d7088;
 }
 .ic-peer {
@@ -1766,9 +1795,17 @@
 }
 .lab-grid {
   display: grid;
-  grid-template-columns: minmax(260px, 340px) 1fr;
+  grid-template-columns: minmax(260px, 340px) minmax(0, 1fr);
   gap: 28px;
   margin-top: 16px;
+}
+.lab-grid > *,
+.whatif-layout > * {
+  min-width: 0;
+}
+.lab-select select {
+  min-width: 0;
+  width: 100%;
 }
 .lab-controls {
   display: flex;
@@ -1818,7 +1855,9 @@
   gap: 8px;
 }
 .equation-card code {
-  font: 13px "JetBrains Mono", monospace;
+  font:
+    13px "JetBrains Mono",
+    monospace;
   color: #e9eef5;
 }
 .equation-card small {
@@ -1985,7 +2024,7 @@
 @media (max-width: 900px) {
   .lab-grid,
   .gap-cards {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 @media (max-width: 600px) {
@@ -2107,7 +2146,7 @@
 }
 .whatif-layout {
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 300px minmax(0, 1fr);
   gap: 28px;
   margin-top: 26px;
   align-items: start;
@@ -2249,7 +2288,7 @@
 .robust-chart {
   border: 1px solid var(--border);
   border-radius: 8px;
-  overflow: hidden;
+  overflow-x: auto;
 }
 .rb-row {
   display: grid;
@@ -2310,13 +2349,15 @@
 .rb-axis em {
   position: absolute;
   transform: translateX(-50%);
-  font: 10px "JetBrains Mono", monospace;
+  font:
+    10px "JetBrains Mono",
+    monospace;
   font-style: normal;
   color: var(--muted);
 }
 @media (max-width: 1100px) {
   .whatif-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .whatif-controls {
     position: static;
@@ -2325,6 +2366,7 @@
 }
 @media (max-width: 700px) {
   .rb-row {
+    min-width: 540px;
     grid-template-columns: 110px 1fr 46px 50px 46px;
     gap: 6px;
     padding: 8px;
@@ -2508,7 +2550,7 @@
 .side-frame img {
   width: 100%;
   aspect-ratio: 1;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 8px;
   border: 1px solid var(--border);
 }
@@ -2572,12 +2614,24 @@
   gap: 6px;
   text-align: center;
   padding: 20px;
-  background: repeating-linear-gradient(45deg, #0b1322, #0b1322 10px, #0d1726 10px, #0d1726 20px);
+  background: repeating-linear-gradient(
+    45deg,
+    #0b1322,
+    #0b1322 10px,
+    #0d1726 10px,
+    #0d1726 20px
+  );
   color: var(--muted);
   font-size: 12.5px;
 }
 .split-earth .img-fallback {
-  background: repeating-linear-gradient(-45deg, #0b1a1c, #0b1a1c 10px, #0d2022 10px, #0d2022 20px);
+  background: repeating-linear-gradient(
+    -45deg,
+    #0b1a1c,
+    #0b1a1c 10px,
+    #0d2022 10px,
+    #0d2022 20px
+  );
 }
 .img-fallback strong {
   color: var(--text);
@@ -2839,8 +2893,7 @@
   z-index: 100;
   background:
     radial-gradient(ellipse at 80% 10%, #13314455, transparent 50%),
-    radial-gradient(ellipse at 10% 90%, #3b1d1555, transparent 45%),
-    #070b14;
+    radial-gradient(ellipse at 10% 90%, #3b1d1555, transparent 45%), #070b14;
   display: flex;
   flex-direction: column;
   padding: 22px clamp(18px, 5vw, 70px);

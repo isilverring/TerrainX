@@ -56,7 +56,7 @@ Successful requests are cached. Rerun `build_discovery.py --offline` to regenera
 ```powershell
 .\.venv\Scripts\python.exe scripts\validate_results.py
 npm run build
-npm run test:unit          # 45 Vitest unit tests of the TypeScript science
+npm run test:unit          # 52 Vitest unit tests of the TypeScript science
 # With the dev server running in another terminal:
 npm test
 # In a sandbox without outbound map access:
@@ -64,7 +64,7 @@ npm test
 npm --prefix frontend audit
 ```
 
-Current scientific validation: 57 Python tests and 45 TypeScript unit tests, plus independent reproduction of saved metrics/scores (including exact reproduction of the scored MOLA/LOLA grids from the committed context windows). Strict TypeScript and static production build pass. Playwright uses the installed Chrome channel and runs 13 workflows covering the mission-to-Passport flow, mobile, map fallbacks, Analog Forensics, Discovery Frontier, Transfer Lab, What-if/robustness, Compare Worlds, Expedition Packet exports and the guided demo. `TERRAINX_OFFLINE=1` skips waits on live third-party tiles. On another machine install Chrome or adjust the channel in `frontend/playwright.config.ts`. Dependency audit reports zero known vulnerabilities with this lockfile. See `docs/QA.md` for final visual and interaction evidence.
+Current scientific validation: **63 Python tests and 52 TypeScript unit tests**, plus independent reproduction of saved metrics/scores. Strict TypeScript and static production build pass. Playwright uses installed Chrome and runs **16 workflows**, including custom-model export/shared-link round trips, real NASA imagery, live AWS context, map fallback and mobile science layouts. `TERRAINX_OFFLINE=1` skips live-provider checks. On another machine install Chrome or adjust the channel in `frontend/playwright.config.ts`. Dependency audit reports zero known vulnerabilities. See `docs/REVIEW.md` for the teammate review and repairs.
 
 New dependencies in this release: `qrcode-generator` (MIT, Passport QR) and dev-only `vitest` 5. No backend, API key or paid service was added.
 
@@ -74,7 +74,9 @@ New dependencies in this release: `qrcode-generator` (MIT, Passport QR) and dev-
 
 - **Netlify:** import using `netlify.toml`; base:`frontend`; build:`npm ci && npm run build`; publish:`dist`; Node 22.
 - **Vercel:** import root using `vercel.json`; install frontend dependencies; run root `npm run build`; serve root `dist`; Node 22+, no framework preset.
-- **Sites:**`.openai/hosting.json` retains the linked owner-private preview project. Publication status and URL are in `STATUS.md`. Do not duplicate the Site or silently change its audience. The app itself has no account system; owner-private hosting may add a preview access gate. Public judge deployment can use Netlify/Vercel without adding app authentication.
+- **Sites:** `.openai/hosting.json` retains the existing project. The owner requested public audience access during the review. Verified publication/access state is recorded in DEPLOYMENT.md. Do not duplicate the Site or change its audience without instruction.
+
+For a step-by-step public deployment and presentation guide, read **[LIVE_DEMO.md](LIVE_DEMO.md)**. The supplied orbital X logo is retained as a high-contrast vector rendition. Verified NASA comparison images are bundled with source URLs, attributions and SHA-256 in `frontend/public/nasa/imagery-manifest.json`; refresh with `python scripts/cache_worlds_images.py`.
 
 ## Actual findings and limits
 
