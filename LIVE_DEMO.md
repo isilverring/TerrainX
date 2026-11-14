@@ -9,12 +9,12 @@ The audience URL is **https://terrainx-discovery-lab.comfybay1.chatgpt.site**. P
 3. Open **Prepare → Offline**, click **Prepare offline demo**, and wait for Offline ready. Reload and rehearse once with the network disabled. Reconnect for external maps/citations. Preparation is specific to this browser/device.
 4. Return home and select **Guided demo**, or open `/#/demo`. Use Next/Previous or arrow keys; Esc exits. Scenes advance manually so the presenter controls the pace. Presentation starts with a temporary default model; its changes do not overwrite research settings. Exit restores the research model.
 5. Follow DEMO.md: show the real search, separate F/U/C, a missing-geology candidate in Frontier, Transfer Lab assumptions, measured Forensics, then Passport/Expedition Packet.
-6. Print/Save as PDF from the Passport. JSON/CSV/GeoJSON export the active model and actual candidate values. The QR code preserves the model snapshot.
+6. Print/Save as PDF from the Passport. JSON/CSV/GeoJSON export the active model and actual candidate values. The Passport/Expedition QR preserves the scoring model snapshot. The separate compact Field Study QR preserves proposed station geometry with default models; use its full JSON for the complete field book.
 7. Before presenting, check Offline ready and open Worlds, the Terrain pilot and the chosen dossier once. The NASA comparison images and scientific data ship with the app; live basemaps, GIBS and optional AWS context terrain still depend on internet. If they fail, the local coastline, cached 24 km lattice and science views remain available.
 
 ## Run a local production fallback
 
-Install Node24.x. In PowerShell:
+Install Node 24.x. In PowerShell:
 
 ```powershell
 Set-Location D:\TerrainX
@@ -41,7 +41,7 @@ Official instructions: [Import from Git](https://docs.netlify.com/start/quicksta
 
 ## Vercel alternative
 
-Import the private GitHub repository as a new project. Keep the root directory at the repository root, choose **Other** for framework, and use the committed `vercel.json`: install `npm --prefix frontend ci`, build `npm run build`, output `dist`. Select Node24.x. Deploy, check that audience protection permits your intended visitors, and verify the link in incognito. Hash routes need no rewrite rules. See [Vercel build configuration](https://vercel.com/docs/builds/configure-a-build).
+Import the private GitHub repository as a new project. Keep the root directory at the repository root, choose **Other** for framework, and use the committed `vercel.json`: install `npm --prefix frontend ci`, build `npm run build`, output `dist`. Select Node 24.x. Deploy, check that audience protection permits your intended visitors, and verify the link in incognito. Hash routes need no rewrite rules. See [Vercel build configuration](https://vercel.com/docs/builds/configure-a-build).
 
 ## Scientific demo guardrails
 
@@ -51,7 +51,7 @@ The 130 cells and 16 automatic candidates are real screening results; four bench
 
 All cells → choose the Moon mapped-basalt lead → Plan a field study opens that cell's own observations. Full study JSON preserves all notes and settings; URL sharing preserves stations/intent/models; compact QR is geometry/default-model only. Lunar pole → select a feature; ?site= survives reload. PDS MD5 verification, model-derived thermal/stability semantics and unknown codes remain visible.
 
-For audience use the ten-scene guided narrative or DEMO.md. For the mandatory short event demo use docs/SUBMISSION_GUIDE.md (aim29seconds or at most7slides), then paste the reviewed SUBMISSION.md draft into your team page yourself. Team details, recording/upload, terms and actual submission are human actions.
+For audience use the ten-scene guided narrative or DEMO.md. For the mandatory short event demo use docs/SUBMISSION_GUIDE.md (aim 29 seconds or at most 7 slides), then paste the reviewed SUBMISSION.md draft into your team page yourself. Team details, recording/upload, terms and actual submission are human actions.
 
 Prepared old builds intentionally stay available until an explicit update. To upgrade: reconnect → Prepare → Offline → Prepare offline demo → Use prepared update and reload (if shown). Rehearse offline again. Do not clear saved research just to refresh assets. Exact release/source/rollback metadata is in DEPLOYMENT.md.
 

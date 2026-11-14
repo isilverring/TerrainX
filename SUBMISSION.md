@@ -16,7 +16,7 @@ Team: [ADD ACTUAL TEAM NAME AND CONTRIBUTORS]
 
 ## Detailed description
 
-The original discovery screens130 NASA POWER precipitation cells in four bounded study regions, selecting16 geographically separated candidates and characterizing them alongside4 independent reference benchmarks. Ten automatic candidates support preliminary hypotheses under the declared default model; none is field-verified. The expanded experiment characterizes all130 cells with POWER point climate, SRTM terrain and available Macrostrat mapping. It has79 rankable Mars cells and1 lunar sampling lead under its release model. Its geographically separated Mars shortlist contains13 cells,12 absent from the original aridity shortlist. These are findings within this sample, not first-ever discoveries.
+The original discovery screens130 NASA POWER precipitation cells in four bounded study regions, selecting16 geographically separated candidates and characterizing them alongside4 independent reference benchmarks. Ten automatic candidates support preliminary hypotheses under the declared default model; none is field-verified. The expanded experiment characterizes all 130 cells with POWER point climate, SRTM terrain and available Macrostrat mapping. It has79 rankable Mars cells and1 lunar sampling lead under its release model. Its geographically separated Mars shortlist contains13 cells,12 absent from the original aridity shortlist. These are findings within this sample, not first-ever discoveries.
 
 The app reports F, U and C separately and gates a combined priority on evidence. Missing geology stays unknown. The Discovery Frontier asks which next measurement could change an interpretation; six lenses and model-sensitivity analysis show that no single ranking is universally correct. Source inspection retains actual units, periods, response hashes and observation support. A two-site Copernicus/MOLA/LOLA pilot tests common8/12km aggregation supports across40 scenarios; offsets alter interpretation more than numerical lattice refinement. Original SRTM rankings remain identifiable.
 
@@ -26,7 +26,7 @@ The Field Study Builder supports original and expanded cells with genuine cached
 
 ## Science and delivery evidence
 
-81 Python tests and independent core reproduction;89 TypeScript tests;38 production-preview browser workflows;85 responsive route/width checks. Static React/Vite build, no backend/account/paid API/LLM dependency. All numbers are source-reported, derived, declared scenarios or unavailable. Deployment evidence: DEPLOYMENT.md. Source and licence register: DATA_SOURCES.md. Package scope and limits: docs/PACKAGE_AUDIT.md.
+81 Python tests and independent core reproduction; 89 TypeScript tests; 38 production-preview browser workflows;85 responsive route/width checks. Static React/Vite build, no backend/account/paid API/LLM dependency. All numbers are source-reported, derived, declared scenarios or unavailable. Deployment evidence: DEPLOYMENT.md. Source and licence register: DATA_SOURCES.md. Package scope and limits: docs/PACKAGE_AUDIT.md.
 
 ## Data, tools and limitations
 

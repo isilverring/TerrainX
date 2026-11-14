@@ -4,9 +4,9 @@ Public audience URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site. Exis
 
 ## Prepare the release
 
-1. In D:\TerrainX inspect git status, pull --ff-only when clean, and read STATUS.md. Keep historical science releases. Use Node24.x/Python3.12.
+1. In D:\TerrainX inspect git status, pull --ff-only when clean, and read STATUS.md. Keep historical science releases. Use Node 24.x/Python 3.12.
 2. Run scientific checks, npm run test:unit and npm run build. Root dist is the publishable output; frontend/src is not a deploy archive. No API key/environment secret is needed.
-3. Run npm run preview, then the38 browser workflows against127.0.0.1:4173. Rehearse offline preparation, a new-cell field proposal, polar selection and export. Commit/push the reviewed source and verify remote HEAD.
+3. Run npm run preview, then the 38 browser workflows against 127.0.0.1:4173. Rehearse offline preparation, a new-cell field proposal, polar selection and export. Commit/push the reviewed source and verify remote HEAD.
 
 ## Publish through Codex with the Sites plugin
 
