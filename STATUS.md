@@ -1,6 +1,6 @@
 # TerrainX recovery checkpoint — comprehensive teammate review
 
-All software work for the current bounded release is complete in **D:\TerrainX**, private https://github.com/isilverring/TerrainX, main. **Current step: final public publication/verification.** Do not assume the newest GitHub commit is live; DEPLOYMENT.md records the exact saved version, source commit and deployment result.
+All software work for the current bounded release is complete in **D:\TerrainX**, private https://github.com/isilverring/TerrainX, main. **Current step: fresh public browser verification. Publication succeeded.** Do not assume the newest GitHub commit is live; DEPLOYMENT.md records the exact saved version, source commit and deployment result.
 
 ## What was reviewed and repaired
 
@@ -24,6 +24,6 @@ A: demo/evidence/replay/navigation/offline software complete; publication is the
 
 Read NEXT_STEPS.md, docs/PACKAGE_AUDIT.md, LIVE_DEMO.md and DEPLOYMENT.md. Node24.x/Python3.12. Inspect git status/log, pull --ff-only if clean. Checkpoint every completed milestone with scripts/checkpoint.ps1 and verify remote SHA. Credentials stay in memory; full rasters are ignored/re-downloadable. All historical frozen science releases stay unchanged.
 
-Existing Site: appgprj_6af7ff7626888191bcba757337fd7e9b; public https://terrainx-discovery-lab.comfybay1.chatgpt.site. User authorized publication; do not create another Site. After successful publication, record exact identifiers/commit and fresh audience checks, then commit/push completion notes. The old deployed ca32f17 remains the prior release until this succeeds.
+Existing Site: appgprj_6af7ff7626888191bcba757337fd7e9b; public https://terrainx-discovery-lab.comfybay1.chatgpt.site. User authorized publication; do not create another Site. After successful publication, record exact identifiers/commit and fresh audience checks, then commit/push completion notes. Version3 sourcec671422 is now published successfully at2026-11-14T15:45:25Z; exact opaque IDs and archive hash are recorded in DEPLOYMENT.md. Fresh public browser verification is running. The oldca32f17 version is a rollback target.
 
 Deployment/rehearsal guide: LIVE_DEMO.md and docs/DEPLOY_VERCEL.md. Submission guide: docs/SUBMISSION_GUIDE.md; draft copy: SUBMISSION.md. User records/uploads the short demo, confirms team/event details, reads/accepts terms and submits the actual event entry. No API key is needed.
