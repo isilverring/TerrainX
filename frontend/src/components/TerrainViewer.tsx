@@ -1,9 +1,16 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
-import { Box, RotateCcw, RotateCw, TriangleAlert } from "lucide-react";
-import type { Candidate, Target } from "../lib/models";
+import { Microscope, RotateCcw, RotateCw, TriangleAlert } from "lucide-react";
+import type { Assessment, Candidate, Target } from "../lib/models";
 import { earthContext } from "../lib/earthContext";
-import { number } from "../lib/data";
+import { number, labels, metricUnits } from "../lib/data";
+import {
+  centreProfiles,
+  hillshade,
+  slopeGrid,
+  surfaceFromTerrain,
+  terrainMetrics,
+} from "../lib/terrain";
 import { EvidenceTag } from "./ui";
 
 /* ------------------------------------------------------------------------------
@@ -62,7 +69,7 @@ const RAMP: [number, [number, number, number]][] = [
   [0.85, [214, 160, 112]],
   [1, [242, 245, 250]],
 ];
-function rampColor(t: number) {
+export function rampColor(t: number) {
   const x = Math.min(1, Math.max(0, t));
   for (let i = 1; i < RAMP.length; i++)
     if (x <= RAMP[i][0]) {
@@ -284,15 +291,378 @@ function loadPlanetContext() {
 }
 
 const DEFAULT_VIEW: View = { yaw: -32, pitch: 38, exaggeration: 3 };
+const EXAGGERATIONS = [1, 3, 5] as const;
+const SLOPE_RAMP = (t: number): [number, number, number] => {
+  // 0° → deep blue, mid → amber, steep → white
+  const stops: [number, [number, number, number]][] = [
+    [0, [14, 32, 58]],
+    [0.4, [42, 120, 140]],
+    [0.75, [230, 180, 120]],
+    [1, [250, 245, 235]],
+  ];
+  const x = Math.min(1, Math.max(0, t));
+  for (let i = 1; i < stops.length; i++)
+    if (x <= stops[i][0]) {
+      const [a, ca] = stops[i - 1],
+        [b, cb] = stops[i],
+        f = (x - a) / (b - a);
+      return ca.map((v, k) => v + (cb[k] - v) * f) as [number, number, number];
+    }
+  return stops[stops.length - 1][1];
+};
+
+/** 2D heightmap (relative elevation × hillshade) drawn cell by cell from the real grid. */
+function HeightMap({
+  rel,
+  spacingM,
+  colourRange,
+  exaggeration,
+  showPoints,
+  label,
+}: {
+  rel: number[][];
+  spacingM: number;
+  colourRange: number;
+  exaggeration: number;
+  showPoints: boolean;
+  label: string;
+}) {
+  const ref = useRef<HTMLCanvasElement>(null);
+  useEffect(() => {
+    const canvas = ref.current;
+    if (!canvas) return;
+    const n = rel.length,
+      size = 280,
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = size * dpr;
+    canvas.height = size * dpr;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const shade = hillshade(rel, spacingM, exaggeration),
+      cell = size / n;
+    rel.forEach((row, r) =>
+      row.forEach((z, c) => {
+        const [cr, cg, cb] = rampColor((z / colourRange + 1) / 2),
+          k = 0.45 + 0.55 * shade[r][c];
+        ctx.fillStyle = `rgb(${(cr * k) | 0},${(cg * k) | 0},${(cb * k) | 0})`;
+        ctx.fillRect(c * cell, r * cell, cell + 0.6, cell + 0.6);
+      }),
+    );
+    if (showPoints) {
+      ctx.fillStyle = "#080d18";
+      rel.forEach((row, r) =>
+        row.forEach((_, c) => {
+          ctx.beginPath();
+          ctx.arc((c + 0.5) * cell, (r + 0.5) * cell, 1.8, 0, 2 * Math.PI);
+          ctx.fill();
+        }),
+      );
+    }
+  }, [rel, spacingM, colourRange, exaggeration, showPoints]);
+  return (
+    <canvas
+      ref={ref}
+      className="forensic-map"
+      role="img"
+      aria-label={`${label} relative elevation heightmap with hillshade, north up`}
+    />
+  );
+}
+function SlopeMap({
+  slopes,
+  maxSlope,
+  label,
+}: {
+  slopes: (number | null)[][];
+  maxSlope: number;
+  label: string;
+}) {
+  const ref = useRef<HTMLCanvasElement>(null);
+  useEffect(() => {
+    const canvas = ref.current;
+    if (!canvas || !slopes.length) return;
+    const n = slopes.length,
+      size = 140,
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = size * dpr;
+    canvas.height = size * dpr;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const cell = size / n;
+    slopes.forEach((row, r) =>
+      row.forEach((v, c) => {
+        if (v == null) {
+          ctx.fillStyle = "#3a1f1a";
+        } else {
+          const [cr, cg, cb] = SLOPE_RAMP(v / Math.max(maxSlope, 1e-6));
+          ctx.fillStyle = `rgb(${cr | 0},${cg | 0},${cb | 0})`;
+        }
+        ctx.fillRect(c * cell, r * cell, cell + 0.6, cell + 0.6);
+      }),
+    );
+  }, [slopes, maxSlope]);
+  return (
+    <canvas
+      ref={ref}
+      className="forensic-slope"
+      role="img"
+      aria-label={`${label} slope map (interior samples)`}
+    />
+  );
+}
+
+/** Elevation profiles drawn at a stated vertical exaggeration (equal horizontal scale). */
+function Profiles({
+  earth,
+  planet,
+  spacingM,
+  exaggeration,
+  planetName,
+}: {
+  earth: number[][] | null;
+  planet: number[][] | null;
+  spacingM: number;
+  exaggeration: number;
+  planetName: string;
+}) {
+  const width = 520;
+  const lines = (["westEast", "southNorth"] as const).map((dir) => {
+    const e = earth ? centreProfiles(earth, spacingM)[dir] : null,
+      p = planet ? centreProfiles(planet, spacingM)[dir] : null;
+    return { dir, e, p };
+  });
+  const extent = ((earth ?? planet)!.length - 1) * spacingM;
+  const zs = lines.flatMap((l) =>
+    [...(l.e ?? []), ...(l.p ?? [])].map((x) => x.z),
+  );
+  const lo = Math.min(...zs),
+    hi = Math.max(...zs);
+  const pxPerM = width / extent;
+  const wanted = (hi - lo) * pxPerM * exaggeration;
+  const height = Math.max(40, Math.min(170, wanted));
+  const shownVE =
+    wanted > 0 ? (exaggeration * height) / Math.max(wanted, 40) : exaggeration;
+  const sx = (d: number) => ((d + extent / 2) / extent) * width;
+  const sy = (z: number) =>
+    10 + height - ((z - lo) / Math.max(hi - lo, 1e-9)) * height;
+  const path = (pts: { d: number; z: number }[]) =>
+    pts
+      .map(
+        (p, i) => `${i ? "L" : "M"}${sx(p.d).toFixed(1)},${sy(p.z).toFixed(1)}`,
+      )
+      .join("");
+  const fitted = Math.abs(shownVE - exaggeration) > 0.05;
+  return (
+    <div className="profiles">
+      {lines.map((l) => (
+        <figure key={l.dir}>
+          <figcaption>
+            {l.dir === "westEast" ? "West → East" : "South → North"} profile
+            through the centre
+          </figcaption>
+          <svg
+            viewBox={`0 0 ${width} ${height + 26}`}
+            role="img"
+            aria-label={`${l.dir} elevation profiles, relative metres`}
+          >
+            <line
+              x1="0"
+              x2={width}
+              y1={height + 10}
+              y2={height + 10}
+              stroke="#29384e"
+            />
+            {l.e ? (
+              <path
+                d={path(l.e)}
+                fill="none"
+                stroke="#35C3B0"
+                strokeWidth="2"
+              />
+            ) : null}
+            {l.p ? (
+              <path
+                d={path(l.p)}
+                fill="none"
+                stroke="#F17E5A"
+                strokeWidth="2"
+                strokeDasharray="5 3"
+              />
+            ) : null}
+            <text x="0" y={height + 24} fill="#97A8BD" fontSize="10">
+              −{(extent / 2000).toFixed(0)} km
+            </text>
+            <text
+              x={width}
+              y={height + 24}
+              fill="#97A8BD"
+              fontSize="10"
+              textAnchor="end"
+            >
+              +{(extent / 2000).toFixed(0)} km
+            </text>
+          </svg>
+        </figure>
+      ))}
+      <p className="caption">
+        <span className="swatch earth" /> Earth{" "}
+        <span className="swatch planet" /> {planetName} · relative elevation
+        (each patch minus its median), range {number(hi - lo, 0)} m · vertical
+        exaggeration{" "}
+        <strong>×{fitted ? number(shownVE, 1) : exaggeration}</strong>
+        {fitted ? ` (×${exaggeration} requested; reduced to fit)` : ""}.
+      </p>
+    </div>
+  );
+}
+
+function QuantTable({
+  candidate,
+  target,
+  assessment,
+  mode,
+  earthCtx,
+  planetCtx,
+}: {
+  candidate: Candidate;
+  target: Target;
+  assessment: Assessment;
+  mode: Mode;
+  earthCtx: number[][] | null;
+  planetCtx: number[][] | null;
+}) {
+  const lattice = mode === "analysis";
+  const earth = lattice
+    ? candidate.terrain.metrics
+    : earthCtx
+      ? terrainMetrics(earthCtx, 2000)
+      : null;
+  const planet = lattice
+    ? target.terrain.metrics
+    : planetCtx
+      ? terrainMetrics(planetCtx, 2000)
+      : null;
+  const f = assessment.fidelity;
+  return (
+    <div className="table-scroll">
+      <table className="forensic-table">
+        <caption>
+          {lattice
+            ? "Analysis lattice: the exact cached metrics behind F."
+            : "Regional context: metrics recomputed in the browser for interpretation only; they never enter F, U, C or P."}
+        </caption>
+        <thead>
+          <tr>
+            <th>Measure</th>
+            <th>Earth</th>
+            <th>{target.name}</th>
+            {lattice ? (
+              <>
+                <th>τ</th>
+                <th>sᵢ</th>
+              </>
+            ) : null}
+          </tr>
+        </thead>
+        <tbody>
+          {(Object.keys(labels) as (keyof typeof labels)[]).map((k) => {
+            const comp = f.components.find((x) => x.feature === k);
+            return (
+              <tr key={k}>
+                <th>{labels[k]}</th>
+                <td>
+                  {earth
+                    ? `${number(earth[k], 2)} ${metricUnits[k]}`
+                    : "unavailable"}
+                </td>
+                <td>
+                  {planet
+                    ? `${number(planet[k], 2)} ${metricUnits[k]}`
+                    : "not assessed"}
+                </td>
+                {lattice ? (
+                  <>
+                    <td>
+                      {comp ? `${comp.tolerance} ${metricUnits[k]}` : "—"}
+                    </td>
+                    <td>{comp ? number(comp.similarity, 3) : "—"}</td>
+                  </>
+                ) : null}
+              </tr>
+            );
+          })}
+          <tr>
+            <th>Valid samples (missing-data flag)</th>
+            <td>
+              {earth
+                ? `${earth.valid_samples}/${earth.total_samples ?? earth.valid_samples}`
+                : "—"}
+              {earth &&
+              earth.valid_samples < Number(earth.total_samples ?? earth.valid_samples)
+                ? " ⚑ missing samples"
+                : " · complete"}
+            </td>
+            <td>
+              {planet
+                ? `${planet.valid_samples}/${planet.total_samples ?? planet.valid_samples}`
+                : "—"}
+            </td>
+            {lattice ? <td colSpan={2} /> : null}
+          </tr>
+          <tr>
+            <th>Sample spacing · footprint</th>
+            <td>{lattice ? "4 km · 24 km" : "2 km · 96 km"}</td>
+            <td>{lattice ? "4 km · 24 km" : "2 km · 96 km"}</td>
+            {lattice ? <td colSpan={2} /> : null}
+          </tr>
+          <tr>
+            <th>Native source resolution</th>
+            <td>
+              {lattice ? "≈ 90 m (SRTM 3″)" : "≈ 0.5 km (AWS Terrain Tiles z8)"}
+            </td>
+            <td>
+              ≈ {number((target.terrain.native_resolution_m?.y ?? 0) / 1000, 2)}{" "}
+              km N–S ·{" "}
+              {number((target.terrain.native_resolution_m?.x ?? 0) / 1000, 2)}{" "}
+              km E–W
+            </td>
+            {lattice ? <td colSpan={2} /> : null}
+          </tr>
+          {lattice ? (
+            <tr className="f-row">
+              <th>Terrain fidelity F</th>
+              <td colSpan={4}>
+                {f.value != null ? (
+                  <>
+                    <strong className="mono">{number(f.value, 1)}</strong> = 100
+                    × mean(sᵢ) · scale checks passed (same spacing and
+                    footprint, native pixels ≤ 1.05 × spacing)
+                  </>
+                ) : (
+                  <>Not shown: {f.reason ?? "scale checks failed"}</>
+                )}
+              </td>
+            </tr>
+          ) : null}
+        </tbody>
+      </table>
+    </div>
+  );
+}
 
 export default function TerrainViewer({
   candidate,
   target,
+  assessment,
 }: {
   candidate: Candidate;
   target: Target;
+  assessment: Assessment;
 }) {
-  const [mode, setMode] = useState<Mode>("context"),
+  const [mode, setMode] = useState<Mode>("analysis"),
+    [view3d, setView3d] = useState(false),
     [view, setView] = useState<View>(DEFAULT_VIEW),
     [earthCtx, setEarthCtx] = useState<Patch | null>(null),
     [earthMeta, setEarthMeta] = useState<{
@@ -332,31 +702,20 @@ export default function TerrainViewer({
   }, [mode, candidate, target.id]);
 
   const analysisEarth: Patch | null = useMemo(() => {
-    const g = candidate.terrain.elevations_m;
-    if (
-      candidate.terrain.status !== "available" ||
-      !g ||
-      g.flat().some((v) => v == null)
-    )
-      return null;
+    const g = surfaceFromTerrain(candidate.terrain);
     // SRTM rows are stored south-to-north; the viewer uses north-to-south.
-    return {
-      grid: [...g].reverse() as number[][],
-      spacingM: candidate.terrain.sample_spacing_m ?? 4000,
-    };
+    return g
+      ? {
+          grid: [...g].reverse(),
+          spacingM: candidate.terrain.sample_spacing_m ?? 4000,
+        }
+      : null;
   }, [candidate]);
   const analysisPlanet: Patch | null = useMemo(() => {
-    const g = target.terrain.elevations_m;
-    if (
-      target.terrain.status !== "available" ||
-      !g ||
-      g.flat().some((v) => v == null)
-    )
-      return null;
-    return {
-      grid: g as number[][],
-      spacingM: target.terrain.sample_spacing_m ?? 4000,
-    };
+    const g = surfaceFromTerrain(target.terrain);
+    return g
+      ? { grid: g, spacingM: target.terrain.sample_spacing_m ?? 4000 }
+      : null;
   }, [target]);
 
   const earth = mode === "analysis" ? analysisEarth : earthCtx;
@@ -372,6 +731,21 @@ export default function TerrainViewer({
     1,
     ...[e, p].filter(Boolean).flatMap((x) => x!.rel.flat().map(Math.abs)),
   );
+  const spacing = (earth ?? planet)?.spacingM ?? 4000;
+  const eSlopes = useMemo(
+      () => (earth ? slopeGrid(earth.grid, earth.spacingM) : []),
+      [earth],
+    ),
+    pSlopes = useMemo(
+      () => (planet ? slopeGrid(planet.grid, planet.spacingM) : []),
+      [planet],
+    );
+  const maxSlope = Math.max(
+    0.5,
+    ...[...eSlopes.flat(), ...pSlopes.flat()].filter(
+      (v): v is number => v != null,
+    ),
+  );
   const drag = (dx: number, dy: number) =>
     setView((v) => ({
       ...v,
@@ -380,6 +754,36 @@ export default function TerrainViewer({
     }));
   const extentKm = mode === "analysis" ? 24 : 96;
   const planetSource = body === "Mars" ? "MOLA MEGDR 16 ppd" : "LOLA LDEM_16";
+  const panels = [
+    {
+      key: "earth",
+      title: `Earth · ${candidate.name}`,
+      source:
+        mode === "analysis"
+          ? "NASA SRTM via OpenTopoData · 7×7 at 4 km · cached"
+          : `AWS Terrain Tiles z8 (~${number((earthMeta?.pixel ?? 0) / 1000, 2)} km px) · live · visualisation only`,
+      stats: e,
+      rel: e?.rel ?? null,
+      slopes: eSlopes,
+      cls: "earth",
+      label: "Earth",
+    },
+    {
+      key: "planet",
+      title: `${body} · ${target.name}`,
+      source:
+        mode === "analysis"
+          ? `${planetSource} · 7×7 at 4 km · used for F`
+          : planetCtx
+            ? `${planetSource} · native ${number(planetCtx.native_resolution_m.y / 1000, 1)} km px · visualisation only`
+            : planetSource,
+      stats: p,
+      rel: p?.rel ?? null,
+      slopes: pSlopes,
+      cls: body === "Mars" ? "mars" : "moon",
+      label: body,
+    },
+  ];
   return (
     <section
       className="science-section terrain-viewer"
@@ -387,26 +791,20 @@ export default function TerrainViewer({
     >
       <div className="section-heading">
         <h2 id="viewer-title">
-          <Box size={20} /> 3D terrain, side by side
+          <Microscope size={20} /> Analog Forensics
         </h2>
         <EvidenceTag kind={mode === "analysis" ? "MEASURED" : "DERIVED"} />
       </div>
       <p>
-        Both surfaces share the same horizontal scale ({extentKm} × {extentKm}{" "}
-        km), the same vertical exaggeration and the same colour scale, so relief
-        can be compared by eye. Heights are relative to each patch’s median:
-        absolute Earth and {body} elevations use different datums and are not
-        comparable.
+        Measured terrain, side by side: both panels share the horizontal scale (
+        {extentKm} × {extentKm} km), the vertical exaggeration and the colour
+        scale. Heights are relative to each patch’s median; absolute Earth and{" "}
+        {body} elevations use different datums and are never compared. Grids are
+        drawn cell by cell from the actual elevation arrays — no interpolation
+        or procedural detail is added.
       </p>
       <div className="viewer-controls">
         <div className="segmented" role="group" aria-label="Viewer scale">
-          <button
-            className={mode === "context" ? "active" : ""}
-            aria-pressed={mode === "context"}
-            onClick={() => setMode("context")}
-          >
-            Regional context · 96 km
-          </button>
           <button
             className={mode === "analysis" ? "active" : ""}
             aria-pressed={mode === "analysis"}
@@ -414,36 +812,77 @@ export default function TerrainViewer({
           >
             Analysis lattice · 24 km (used for F)
           </button>
-        </div>
-        <label className="viewer-range">
-          Vertical exaggeration <b className="mono">×{view.exaggeration}</b>
-          <input
-            type="range"
-            min={1}
-            max={10}
-            step={0.5}
-            value={view.exaggeration}
-            onChange={(ev) =>
-              setView((v) => ({ ...v, exaggeration: Number(ev.target.value) }))
-            }
-          />
-        </label>
-        <div className="viewer-buttons">
           <button
-            onClick={() => setView((v) => ({ ...v, yaw: v.yaw - 30 }))}
-            aria-label="Rotate left"
+            className={mode === "context" ? "active" : ""}
+            aria-pressed={mode === "context"}
+            onClick={() => setMode("context")}
           >
-            <RotateCcw size={15} />
+            Regional context · 96 km
+          </button>
+        </div>
+        <div className="segmented" role="group" aria-label="View type">
+          <button
+            className={!view3d ? "active" : ""}
+            aria-pressed={!view3d}
+            onClick={() => setView3d(false)}
+          >
+            2D maps
           </button>
           <button
-            onClick={() => setView((v) => ({ ...v, yaw: v.yaw + 30 }))}
-            aria-label="Rotate right"
+            className={view3d ? "active" : ""}
+            aria-pressed={view3d}
+            onClick={() => setView3d(true)}
           >
-            <RotateCw size={15} />
+            3D surface
           </button>
-          <button onClick={() => setView(DEFAULT_VIEW)}>Reset view</button>
         </div>
+        <div
+          className="segmented"
+          role="group"
+          aria-label="Vertical exaggeration"
+        >
+          {EXAGGERATIONS.map((x) => (
+            <button
+              key={x}
+              className={view.exaggeration === x ? "active" : ""}
+              aria-pressed={view.exaggeration === x}
+              onClick={() => setView((v) => ({ ...v, exaggeration: x }))}
+            >
+              ×{x}
+            </button>
+          ))}
+        </div>
+        {view3d ? (
+          <div className="viewer-buttons">
+            <button
+              onClick={() => setView((v) => ({ ...v, yaw: v.yaw - 30 }))}
+              aria-label="Rotate left"
+            >
+              <RotateCcw size={15} />
+            </button>
+            <button
+              onClick={() => setView((v) => ({ ...v, yaw: v.yaw + 30 }))}
+              aria-label="Rotate right"
+            >
+              <RotateCw size={15} />
+            </button>
+            <button
+              onClick={() =>
+                setView((v) => ({
+                  ...DEFAULT_VIEW,
+                  exaggeration: v.exaggeration,
+                }))
+              }
+            >
+              Reset view
+            </button>
+          </div>
+        ) : null}
       </div>
+      <p className="ve-statement">
+        Vertical exaggeration: <strong>×{view.exaggeration}</strong> (applies to
+        hillshade, 3D surfaces and profiles). Horizontal scale is true.
+      </p>
       {error ? (
         <p className="warning-inline viewer-warning">
           <TriangleAlert size={14} />
@@ -452,78 +891,74 @@ export default function TerrainViewer({
         </p>
       ) : null}
       <div className="viewer-grid">
-        <figure className="viewer-panel earth">
-          <figcaption>
-            <strong>Earth · {candidate.name}</strong>
-            <span>
-              {mode === "analysis"
-                ? "NASA SRTM via OpenTopoData · 7×7 at 4 km · cached"
-                : `AWS Terrain Tiles z${8} (~${number((earthMeta?.pixel ?? 0) / 1000, 2)} km px) · live · visualisation only`}
-            </span>
-          </figcaption>
-          {loading && mode === "context" ? (
-            <div className="viewer-empty">Sampling terrain tiles…</div>
-          ) : e ? (
-            <SurfaceCanvas
-              patch={{ rel: e.rel, spacingM: earth!.spacingM }}
-              view={view}
-              colourRange={colourRange}
-              label="Earth"
-              onDrag={drag}
-            />
-          ) : (
-            <div className="viewer-empty">Earth terrain not assessed.</div>
-          )}
-          <dl className="viewer-stats">
-            <div>
-              <dt>Relief Q95−Q05</dt>
-              <dd className="mono">{e ? `${number(e.relief, 0)} m` : "—"}</dd>
-            </div>
-            <div>
-              <dt>Full range</dt>
-              <dd className="mono">{e ? `${number(e.range, 0)} m` : "—"}</dd>
-            </div>
-          </dl>
-        </figure>
-        <figure className={`viewer-panel ${body === "Mars" ? "mars" : "moon"}`}>
-          <figcaption>
-            <strong>
-              {body} · {target.name}
-            </strong>
-            <span>
-              {mode === "analysis"
-                ? `${planetSource} · 7×7 at 4 km · used for F`
-                : planetCtx
-                  ? `${planetSource} · native ${number(planetCtx.native_resolution_m.y / 1000, 1)} km px · visualisation only`
-                  : planetSource}
-            </span>
-          </figcaption>
-          {loading && mode === "context" ? (
-            <div className="viewer-empty">Loading planetary patch…</div>
-          ) : p ? (
-            <SurfaceCanvas
-              patch={{ rel: p.rel, spacingM: planet!.spacingM }}
-              view={view}
-              colourRange={colourRange}
-              label={body}
-              onDrag={drag}
-            />
-          ) : (
-            <div className="viewer-empty">
-              {body} terrain not assessed: no compatible DEM loaded.
-            </div>
-          )}
-          <dl className="viewer-stats">
-            <div>
-              <dt>Relief Q95−Q05</dt>
-              <dd className="mono">{p ? `${number(p.relief, 0)} m` : "—"}</dd>
-            </div>
-            <div>
-              <dt>Full range</dt>
-              <dd className="mono">{p ? `${number(p.range, 0)} m` : "—"}</dd>
-            </div>
-          </dl>
-        </figure>
+        {panels.map((panel) => (
+          <figure key={panel.key} className={`viewer-panel ${panel.cls}`}>
+            <figcaption>
+              <strong>{panel.title}</strong>
+              <span>{panel.source}</span>
+            </figcaption>
+            {loading && mode === "context" ? (
+              <div className="viewer-empty">Loading terrain…</div>
+            ) : panel.rel ? (
+              view3d ? (
+                <SurfaceCanvas
+                  patch={{ rel: panel.rel, spacingM: spacing }}
+                  view={view}
+                  colourRange={colourRange}
+                  label={panel.label}
+                  onDrag={drag}
+                />
+              ) : (
+                <div className="forensic-pair">
+                  <div>
+                    <HeightMap
+                      rel={panel.rel}
+                      spacingM={spacing}
+                      colourRange={colourRange}
+                      exaggeration={view.exaggeration}
+                      showPoints={mode === "analysis"}
+                      label={panel.label}
+                    />
+                    <small>
+                      Relative elevation × hillshade · north up · {extentKm} km
+                    </small>
+                  </div>
+                  <div>
+                    <SlopeMap
+                      slopes={panel.slopes}
+                      maxSlope={maxSlope}
+                      label={panel.label}
+                    />
+                    <small>
+                      Slope, interior samples (
+                      {mode === "analysis" ? "8 km" : "4 km"} baseline) · 0–
+                      {number(maxSlope, 1)}°
+                    </small>
+                  </div>
+                </div>
+              )
+            ) : (
+              <div className="viewer-empty">
+                {panel.label} terrain not assessed: no compatible DEM loaded, so
+                no surface is drawn.
+              </div>
+            )}
+            <dl className="viewer-stats">
+              <div>
+                <dt>Relief Q95−Q05</dt>
+                <dd className="mono">
+                  {panel.stats ? `${number(panel.stats.relief, 0)} m` : "—"}
+                </dd>
+              </div>
+              <div>
+                <dt>Full range</dt>
+                <dd className="mono">
+                  {panel.stats ? `${number(panel.stats.range, 0)} m` : "—"}
+                </dd>
+              </div>
+            </dl>
+          </figure>
+        ))}
       </div>
       <div className="viewer-legend" aria-hidden="true">
         <span className="mono">−{number(colourRange, 0)} m</span>
@@ -531,21 +966,34 @@ export default function TerrainViewer({
         <span className="mono">+{number(colourRange, 0)} m</span>
         <small>relative to each patch median · shared scale</small>
       </div>
-      <ul className="viewer-caveats">
-        <li>
-          Drag either surface to rotate both. The 96 km context grids are{" "}
-          <strong>visualisation only</strong> and never enter F, U, C or P; the
-          24 km lattice shows the exact samples behind F.
-        </li>
-        <li>
-          Effective resolutions differ: Earth tiles are ~0.5 km, LOLA ~1.9 km
-          and MOLA ~3.6 km per pixel, so the Mars surface is smoother than
-          reality at this scale.
-        </li>
-        <li>
-          Neither surface shows rover-scale rocks, slopes or landing hazards.
-        </li>
-      </ul>
+      {e && p ? (
+        <Profiles
+          earth={e.rel}
+          planet={p.rel}
+          spacingM={spacing}
+          exaggeration={view.exaggeration}
+          planetName={body}
+        />
+      ) : null}
+      <QuantTable
+        candidate={candidate}
+        target={target}
+        assessment={assessment}
+        mode={mode}
+        earthCtx={mode === "context" ? (earthCtx?.grid ?? null) : null}
+        planetCtx={
+          mode === "context" ? (planetCtx?.elevations_m ?? null) : null
+        }
+      />
+      <div className="scientific-warning">
+        Resolution mismatch: SRTM point samples (≈ 90 m native) and{" "}
+        {planetSource} pixels (≈{" "}
+        {number((target.terrain.native_resolution_m?.y ?? 0) / 1000, 1)} km)
+        share a 4 km lattice but are not filtered to a common effective
+        resolution, so F is exploratory broad morphology, not a validated
+        equivalence. Neither surface shows rover-scale rocks, slopes or landing
+        hazards.
+      </div>
     </section>
   );
 }

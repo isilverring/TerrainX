@@ -263,6 +263,8 @@ test("3D terrain viewer falls back to the cached analysis lattice without live t
   await page.goto("/#/site/saudi-24.000-39.375?mission=jezero");
   const viewer = page.locator(".terrain-viewer");
   await viewer.scrollIntoViewIfNeeded();
+  await viewer.getByRole("button", { name: /Regional context/ }).click();
+  await viewer.getByRole("button", { name: "3D surface" }).click();
   await expect(
     viewer.getByRole("button", { name: /Analysis lattice/ }),
   ).toHaveAttribute("aria-pressed", "true", { timeout: 20000 });
@@ -271,7 +273,8 @@ test("3D terrain viewer falls back to the cached analysis lattice without live t
   await expect(
     viewer.locator(".viewer-panel.mars .viewer-stats dd").first(),
   ).toHaveText("716 m");
-  await expect(viewer).toContainText("visualisation only");
+  await expect(viewer).toContainText("Showing the cached analysis lattice instead");
+  await expect(viewer).toContainText("not a validated equivalence");
 });
 
 test("compare mode shows two or three candidates side by side without a winner", async ({
@@ -338,4 +341,49 @@ test("Planetary Transfer Lab computes Froude scaling and labels scenarios", asyn
   await expect(page.locator(".lab-table .tag-assumed")).toHaveCount(2);
   await page.getByRole("button", { name: "Moon", exact: true }).click();
   await expect(kpis.nth(1)).toContainText("0.203");
+});
+
+test("What-if explorer re-ranks from real scores and reports stability", async ({
+  page,
+}) => {
+  await page.goto("/#/what-if?mission=jezero");
+  await expect(
+    page.getByRole("heading", { name: "What if the mission changes?" }),
+  ).toBeVisible();
+  const firstRow = page.locator(".whatif-table tbody tr").first();
+  await expect(firstRow).toContainText("Western Saudi Arabia · 02");
+  await page.locator("#wi-alpha").fill("0");
+  await expect(firstRow).toContainText("Gobi region · 01");
+  await expect(firstRow).toContainText(
+    "terrain fidelity F was weighted less heavily",
+  );
+  await expect(
+    page.getByText("Ranking stability under model assumptions."),
+  ).toBeVisible();
+  await expect(page.locator(".rb-row:not(.rb-head):not(.rb-axis)")).toHaveCount(
+    10,
+  );
+  await page.getByRole("button", { name: /Moon · Crisium/ }).click();
+  await expect(
+    page.getByText("no automatic candidate has assessed basaltic geology", {
+      exact: false,
+    }),
+  ).toBeVisible();
+});
+
+test("Analog Forensics defaults to measured 2D maps with a quantitative table", async ({
+  page,
+}) => {
+  await page.goto("/#/site/saudi-24.000-39.375?mission=jezero");
+  const viewer = page.locator(".terrain-viewer");
+  await viewer.scrollIntoViewIfNeeded();
+  await expect(
+    viewer.getByRole("heading", { name: /Analog Forensics/ }),
+  ).toBeVisible();
+  await expect(viewer.locator("canvas.forensic-map")).toHaveCount(2);
+  await expect(viewer.locator(".forensic-table")).toContainText("94.7");
+  await viewer.getByRole("button", { name: "×5" }).click();
+  await expect(viewer.locator(".ve-statement")).toContainText("×5");
+  await viewer.getByRole("button", { name: "3D surface" }).click();
+  await expect(viewer.locator("canvas.surface-canvas")).toHaveCount(2);
 });

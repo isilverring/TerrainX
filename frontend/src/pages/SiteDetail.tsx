@@ -64,7 +64,7 @@ export default function SiteDetail() {
         {[
           ["observations", "Observations"],
           ["terrain", "Terrain DNA"],
-          ["terrain-3d", "3D terrain"],
+          ["terrain-3d", "Forensics"],
           ["geology", "Geology"],
           ["reality-gap", "Reality gap"],
           ["field-experiment", "Experiment"],
@@ -94,7 +94,7 @@ export default function SiteDetail() {
         <Suspense
           fallback={<p className="viewer-empty">Loading 3D terrain viewer…</p>}
         >
-          <TerrainViewer candidate={c} target={target} />
+          <TerrainViewer candidate={c} target={target} assessment={a} />
         </Suspense>
       </div>
       <UtilityPanel assessment={a} />
