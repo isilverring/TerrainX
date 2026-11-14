@@ -30,6 +30,7 @@ No application authentication, database, backend, paid API, LLM or judge-time NA
 
 - **Field Study Builder** (`/field-study`): place proposed stations on the candidate's real SRTM sample grid, measure great-circle legs and the interpolated elevation trend, seed the protocol from the dataset's experiment design, answer permit/access questions, then save, export JSON (with the pinned research snapshot) and GPX, or print a field book with station sheets and sample labels. Proposals only — no access, exposure or safety is verified.
 - **Discovery Lenses** (`/lenses`): six declared, reproducible rankings of the same shortlist (baseline, your model, terrain twin, evidence-weighted, operations rehearsal, pessimistic evidence) in a rank-flow chart, with benchmarks excluded and missing geology never rewarded.
+- **Command palette** (Ctrl/⌘ K or `/`): jump to any page or to a candidate's dossier, field study or passport from the keyboard.
 
 ## Run locally
 

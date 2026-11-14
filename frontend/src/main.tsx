@@ -39,6 +39,7 @@ import {
 import "./styles/research.css";
 import "./styles/fieldstudy.css";
 import "./styles/lenses.css";
+import "./styles/palette.css";
 import {
   initialPresentation,
   initialPresentationModels,
@@ -57,6 +58,7 @@ const Demo = lazy(() => import("./pages/Demo"));
 const Research = lazy(() => import("./pages/Research"));
 const FieldStudy = lazy(() => import("./pages/FieldStudy"));
 const Lenses = lazy(() => import("./pages/Lenses"));
+import CommandPalette from "./components/CommandPalette";
 const TerrainPilot = lazy(() => import("./pages/TerrainPilot"));
 const Offline = lazy(() => import("./pages/Offline"));
 const Cases = lazy(() => import("./pages/Cases"));
@@ -239,6 +241,7 @@ function App() {
         >
           <DataContext.Provider value={assessed!}>
             <PinRelease presentation={presentation} />
+            <CommandPalette />
             <Suspense fallback={<Loading />}>
               <Routes>
                 <Route path="/" element={<Landing />} />

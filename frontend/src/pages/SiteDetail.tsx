@@ -149,6 +149,13 @@ export default function SiteDetail() {
       >
         Prepare Analog Passport
         <ArrowRight size={18} />
+      </Link>{" "}
+      <Link
+        className="button outline"
+        to={`/field-study?id=${c.id}&mission=${mission}`}
+      >
+        Plan a field study
+        <ArrowRight size={18} />
       </Link>
     </main>
   );

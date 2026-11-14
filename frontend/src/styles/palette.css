@@ -1,0 +1,221 @@
+/* Command palette (Ctrl/⌘ K or /) */
+.palette-launch {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #0d1624;
+  color: var(--muted);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.palette-launch:hover,
+.palette-launch:focus-visible {
+  color: var(--text);
+  border-color: #44536b;
+}
+.palette-launch:focus-visible {
+  outline: 2px solid var(--earth);
+  outline-offset: 2px;
+}
+.palette-launch kbd,
+.palette kbd {
+  font: 10.5px "JetBrains Mono", ui-monospace, monospace;
+  padding: 1px 5px;
+  border: 1px solid #33445c;
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  color: var(--muted);
+  background: #111a29;
+}
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.header-actions .demo-launch {
+  margin-left: 0;
+}
+@media (max-width: 1050px) {
+  .header-actions {
+    margin-left: -14px;
+  }
+  .palette-launch {
+    padding: 8px;
+  }
+  .palette-launch kbd {
+    display: none;
+  }
+}
+@media (max-width: 600px) {
+  .header-actions {
+    margin-left: -6px;
+    gap: 6px;
+  }
+}
+
+.palette-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(4, 8, 16, 0.62);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 12vh 16px 16px;
+  animation: palette-fade 0.14s ease-out;
+}
+@keyframes palette-fade {
+  from {
+    opacity: 0;
+  }
+}
+.palette {
+  width: min(640px, 100%);
+  max-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #33445c;
+  border-radius: 12px;
+  background: #0d1624;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(53, 195, 176, 0.08);
+  overflow: hidden;
+  animation: palette-rise 0.16s ease-out;
+}
+@keyframes palette-rise {
+  from {
+    transform: translateY(8px) scale(0.985);
+    opacity: 0;
+  }
+}
+.palette-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--earth);
+}
+.palette-input input {
+  flex: 1;
+  background: none;
+  border: 0;
+  outline: 0;
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+  min-width: 0;
+}
+.palette ul {
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  overflow-y: auto;
+}
+.palette-group {
+  margin: 8px 10px 4px;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--earth);
+}
+.palette-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  color: var(--text);
+}
+.palette-item span {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.palette-item strong {
+  font-weight: 500;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.palette-item small {
+  color: var(--muted);
+  font-size: 11.5px;
+}
+.palette-item.active {
+  background: rgba(53, 195, 176, 0.13);
+  box-shadow: inset 2px 0 0 var(--earth);
+}
+.palette-item svg {
+  color: var(--earth);
+  flex: none;
+}
+.palette-empty {
+  padding: 18px 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.palette footer {
+  display: flex;
+  gap: 16px;
+  padding: 9px 14px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 11px;
+}
+.palette footer span {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+@media (max-width: 600px) {
+  .palette footer {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .palette,
+  .palette-backdrop {
+    animation: none;
+  }
+}
+
+/* Landing process band: each step opens its workspace */
+.process-step {
+  position: relative;
+  color: inherit;
+  text-decoration: none;
+  padding: 10px 28px 10px 12px;
+  margin: -10px -12px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.process-step:hover,
+.process-step:focus-visible {
+  background: rgba(53, 195, 176, 0.07);
+}
+.process-step:focus-visible {
+  outline: 2px solid var(--earth);
+}
+.process-arrow {
+  position: absolute;
+  right: 8px;
+  top: 16px;
+  color: var(--earth);
+  opacity: 0;
+  transform: translateX(-4px);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.process-step:hover .process-arrow,
+.process-step:focus-visible .process-arrow {
+  opacity: 1;
+  transform: none;
+}

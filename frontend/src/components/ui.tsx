@@ -6,8 +6,10 @@ import {
   Microscope,
   Play,
   Menu,
+  Search,
   X,
 } from "lucide-react";
+import { openPalette } from "./CommandPalette";
 import { useEffect, useState, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { number } from "../lib/data";
@@ -128,24 +130,35 @@ export function Header({
       >
         {open ? <X size={20} /> : <Menu size={20} />}
       </button>
-      {presentation ? (
-        <Link
-          className="demo-launch"
-          to="/explorer?presentation=0"
-          aria-label="Exit presentation"
-          onClick={onEndPresentation}
+      <div className="header-actions">
+        <button
+          className="palette-launch"
+          onClick={openPalette}
+          aria-label="Search pages and candidates (Ctrl+K)"
+          title="Search pages and candidates (Ctrl+K or /)"
         >
-          <X size={14} /> Exit presentation
-        </Link>
-      ) : (
-        <Link
-          className="demo-launch"
-          to="/demo?presentation=1"
-          onClick={onStartPresentation}
-        >
-          <Play size={14} /> Guided demo
-        </Link>
-      )}
+          <Search size={15} />
+          <kbd>⌘K</kbd>
+        </button>
+        {presentation ? (
+          <Link
+            className="demo-launch"
+            to="/explorer?presentation=0"
+            aria-label="Exit presentation"
+            onClick={onEndPresentation}
+          >
+            <X size={14} /> Exit presentation
+          </Link>
+        ) : (
+          <Link
+            className="demo-launch"
+            to="/demo?presentation=1"
+            onClick={onStartPresentation}
+          >
+            <Play size={14} /> Guided demo
+          </Link>
+        )}
+      </div>
     </header>
   );
 }

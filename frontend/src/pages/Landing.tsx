@@ -48,18 +48,19 @@ export default function Landing() {
       </section>
       <section className="process-band" aria-label="How TerrainX works">
         {[
-          ["Discover", "Search real Earth observations"],
-          ["Compare", "Separate fidelity, utility and evidence"],
-          ["Explain", "Understand where the analogy fails"],
-          ["Prepare", "Design a testable field experiment"],
-        ].map(([title, description], i) => (
-          <div key={title}>
+          ["Discover", "Search real Earth observations", "/explorer"],
+          ["Compare", "Separate fidelity, utility and evidence — then re-rank through six lenses", "/lenses"],
+          ["Explain", "Understand where the analogy fails", "/frontier"],
+          ["Prepare", "Design a testable field experiment, stations and field book", "/field-study"],
+        ].map(([title, description, to], i) => (
+          <Link key={title} to={to} className="process-step">
             <h2>
               <span>0{i + 1}</span>
               {title}
             </h2>
             <p>{description}</p>
-          </div>
+            <ArrowRight size={16} className="process-arrow" aria-hidden="true" />
+          </Link>
         ))}
       </section>
       <BeyondKnown />
