@@ -41,8 +41,11 @@ Work continued from the laptop after Release 3 (`efa7194`). Each milestone below
   - Shared `useScienceFile` hook, `ElevationGrid` tile; command palette entries. Fixed during QA: a global `dl > div` rule squeezed score tiles; mobile grids now `minmax(0,1fr)` (no overflow at 390/1440).
   - Tests: 86 unit, 31/31 browser (+1 live-imagery skip offline), 75 Python.
 
-### Planned next (laptop)
-1. L9 integration and polish: demo/landing mentions of the 130-cell search and the lunar pole, README/NEXT_STEPS/handoff.
+- **L9 integration** — guided demo now has ten scenes: new Scene 6 "Beyond the shortlist" (Mars rankable cells, new picks vs the aridity shortlist, the first lunar-eligible cell, best/worst Earth twin at the pole) loaded from the release with checksum checks. Lenses links to the cell search. Method and reproduction notes: `docs/CELL_SEARCH_AND_POLAR.md`.
+
+### Planned next
+1. PC-side: publish the current build to the existing public Site (never create a new Site); record the deployed commit in DEPLOYMENT.md.
+2. Optional: point T2M climatology for all cells (POWER point API, 114 requests via the same browser route) so cell coverage reaches 100%; Diviner polar temperatures only with a pinned, checksum-verified product; Field Study Builder for screened cells.
 
 Cloud-session limits: the sandbox shell cannot reach map tiles, NASA, POWER, OpenTopoData or Macrostrat, so new external observations are only added when they can be fetched and checksum-verified. Publishing to the public Site remains a PC-side step.
 

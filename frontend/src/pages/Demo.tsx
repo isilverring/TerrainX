@@ -9,6 +9,9 @@ import { fetchScienceJson } from "../lib/release";
 import { beyondKnown } from "../lib/story";
 import { frontier, measurementsFor } from "../lib/frontier";
 import { useModel } from "../lib/scoring";
+import { useScienceFile } from "../lib/scienceFile";
+import { cellLabel, cellSearchSchema } from "../lib/cellSearch";
+import { lunarPolarSchema } from "../lib/lunarPolar";
 import { LENSES, agreement, lensRanking } from "../lib/lenses";
 import {
   naismithHours,
@@ -182,6 +185,17 @@ export default function Demo() {
       moonTerrain: moon[2].filter((r) => r.rank != null).length,
     };
   }, [data, model.scenarios]);
+  const cellSearch = useScienceFile("cell_search.json", cellSearchSchema, "not in this release").value;
+  const polar = useScienceFile("lunar_polar.json", lunarPolarSchema, "not in this release").value;
+  const beyond = useMemo(() => {
+    if (!cellSearch || !polar) return null;
+    const moon = cellSearch.rows.filter((r) => r.missions["mare-crisium"].rank != null);
+    const twins = polar.sites
+      .filter((x) => x.earth_twins?.length)
+      .map((x) => ({ feature: x.feature, F: x.earth_twins![0].F }))
+      .sort((a, b) => b.F - a.F);
+    return { cells: cellSearch, moon, best: twins[0], worst: twins[twins.length - 1] };
+  }, [cellSearch, polar]);
   const field = useMemo(() => {
     const g = best ? terrainGrid(best) : null;
     if (!g) return null;
@@ -339,7 +353,44 @@ export default function Demo() {
       ),
     },
     {
-      kicker: "Scene 6 · The reality gap",
+      kicker: "Scene 6 · Beyond the shortlist",
+      title: "Search every cell for the mission, and look to the lunar pole.",
+      body: beyond ? (
+        <>
+          <div className="demo-funnel demo-field-stats">
+            <div>
+              <b className="mono">{beyond.cells.missions.jezero.eligible}</b>
+              <span>of {beyond.cells.cells} cells rankable for Mars</span>
+            </div>
+            <div>
+              <b className="mono">{beyond.cells.missions.jezero.new_vs_release.length}</b>
+              <span>new picks vs the aridity shortlist</span>
+            </div>
+            <div>
+              <b className="mono">{beyond.moon.length}</b>
+              <span>{beyond.moon.length === 1 ? "lunar-eligible cell, the first found" : "lunar-eligible cells"}</span>
+            </div>
+            <div>
+              <b className="mono">F {beyond.best.F.toFixed(0)} / {beyond.worst.F.toFixed(0)}</b>
+              <span>best / worst Earth twin at the pole</span>
+            </div>
+          </div>
+          <p>
+            {beyond.moon[0] ? <>Mapped “{beyond.moon[0].geology.unit_name}” at {cellLabel(beyond.moon[0])} makes the first Earth cell rankable for Mare Crisium. </> : null}
+            At the lunar south pole, {beyond.best.feature} finds a close Earth relief twin while {beyond.worst.feature} has none — real
+            NASA LOLA elevations, checksum-verified.
+          </p>
+          <div className="source-row">
+            <Link className="button outline" to="/cells?mission=mare-crisium">Search every cell</Link>
+            <Link className="button outline" to="/lunar-pole">Lunar south pole</Link>
+          </div>
+        </>
+      ) : (
+        <p>The 130-cell search and lunar-pole module are not part of this science release.</p>
+      ),
+    },
+    {
+      kicker: "Scene 7 · The reality gap",
       title: "Earth cannot reproduce every planetary physical condition.",
       body: (
         <div className="demo-physics">
@@ -377,7 +428,7 @@ export default function Demo() {
       ),
     },
     {
-      kicker: "Scene 7 · The next experiment",
+      kicker: "Scene 8 · The next experiment",
       title:
         "Turn a possible analog into a testable mission research question.",
       body: best ? (
@@ -412,7 +463,7 @@ export default function Demo() {
       ),
     },
     {
-      kicker: "Scene 8 · Take it outside",
+      kicker: "Scene 9 · Take it outside",
       title: "From a score to stations, a traverse and a field book.",
       body:
         best && field ? (

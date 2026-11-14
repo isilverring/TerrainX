@@ -454,19 +454,21 @@ test("Expedition Packet exports JSON, CSV and GeoJSON that match the displayed s
   ).toBeVisible();
 });
 
-test("guided demo navigates nine scenes with real values and keyboard controls", async ({
+test("guided demo navigates ten scenes with real values and keyboard controls", async ({
   page,
 }) => {
   await page.goto("/#/");
   await page.getByRole("link", { name: /Guided demo/ }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
-  await expect(page.locator(".demo-count")).toHaveText("1 / 9");
+  await expect(page.locator(".demo-count")).toHaveText("1 / 10");
   await page.keyboard.press("ArrowRight");
   await page.keyboard.press("ArrowRight");
   await expect(page.locator(".demo-funnel")).toContainText("130");
   await page.getByRole("button", { name: /Next/ }).click();
   await page.getByRole("button", { name: /Next/ }).click();
   await expect(page.locator(".demo-lens-grid")).toContainText("Terrain");
+  await page.getByRole("button", { name: /Next/ }).click();
+  await expect(page.getByRole("dialog")).toContainText("lunar-eligible");
   await page.getByRole("button", { name: /Next/ }).click();
   await expect(page.locator(".demo-physics")).toContainText("0.62 m/s");
   await page.getByRole("button", { name: /Next/ }).click();

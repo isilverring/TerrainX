@@ -323,6 +323,10 @@ export default function Lenses() {
           <li>Ties break by candidate id, so every ranking is reproducible. Only “Your model” follows your What-if settings.</li>
           <li>Agreement is a count of rank positions across lenses — not a probability, and not a discovery winner.</li>
         </ol>
+        <p>
+          Lenses re-rank the 16 released candidates. To rank all 130 screened cells with real terrain and geology, open{" "}
+          <Link to={`/cells?mission=${mission}`}>Search every cell</Link>.
+        </p>
         <p className="caption mono">
           {LENS_VERSION} · {data.release?.release_id} · model {data.release?.model_version}
         </p>
