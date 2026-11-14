@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { useData, number } from "../lib/data";
 import {
   currentRelease,
@@ -67,33 +67,35 @@ function Grid({
   );
 }
 export default function TerrainPilot() {
+  const [params,setParams]=useSearchParams();
+  const filename=params.get("study")==="expanded"?"terrain_support.json":"terrain_pilot.json";
   const data = useData(),
     [pilot, setPilot] = useState<Pilot | null>(null),
     [error, setError] = useState(""),
-    [site, setSite] = useState("saudi-24.000-39.375"),
-    [mission, setMission] = useState("jezero"),
+    [site, setSite] = useState(params.get("id")??"saudi-24.000-39.375"),
+    [mission, setMission] = useState(params.get("mission")??"jezero"),
     [support, setSupport] = useState(8000),
     [offset, setOffset] = useState("center");
   useEffect(() => {
     let live = true;
     setPilot(null);
     setError("");
-    if (!currentRelease()?.files["terrain_pilot.json"]) {
+    if (!currentRelease()?.files[filename]) {
       setError(
         "The common-support pilot was not included in this historical science release.",
       );
       return;
     }
-    fetchScienceJson("terrain_pilot.json")
+    fetchScienceJson(filename)
       .then((x) => {
         const parsed = pilotSchema.parse(x);
-        if (live) setPilot(parsed);
+        if (live){setPilot(parsed);if(!parsed.results.some(r=>r.candidate_id===site))setSite(parsed.results[0].candidate_id);}
       })
       .catch((e) => live && setError(String(e)));
     return () => {
       live = false;
     };
-  }, [data.release?.release_id]);
+  }, [data.release?.release_id,filename]);
   const result = pilot?.results.find(
       (r) => r.candidate_id === site && r.mission === mission,
     ),
@@ -116,7 +118,7 @@ export default function TerrainPilot() {
           </p>
           <h1>Same window. Different worlds.</h1>
           <p>
-            A two-site experiment asks how terrain comparison changes when real
+            A {filename==="terrain_support.json"?"18-site":"two-site"} experiment asks how terrain comparison changes when real
             Earth and planetary elevations are averaged over the same physical
             area.
           </p>
@@ -129,6 +131,7 @@ export default function TerrainPilot() {
         support improves comparability; it does not establish calibrated
         physical equivalence.
       </p>
+      <label className="research-form">Support study <select aria-label="Support study" value={filename==="terrain_support.json"?"expanded":"original"} onChange={e=>{const p=new URLSearchParams(params);p.set("study",e.target.value);setParams(p);}}><option value="original">Original two-site pilot</option><option value="expanded">Expanded18-site support study</option></select></label>
       {error && <p role="status">{error}</p>}
       {pilot && result && scenario && (
         <>
@@ -180,6 +183,7 @@ export default function TerrainPilot() {
           </div>
           <section className="science-section">
             <h2>How much does the processing matter?</h2>
+            {pilot.sensitivity?.find(r=>r.candidate_id===site&&r.mission===mission)&&(()=>{const r=pilot.sensitivity!.find(r=>r.candidate_id===site&&r.mission===mission)!;return <p className="support-ranks">F-only order: best {r.best_rank??"unassessed"}, median {number(r.median_rank,1)}, worst {r.worst_rank??"unassessed"} across {r.valid_scenarios} valid choices. {r.rank_scope} Scores and ranks describe this selected sample only.</p>;})()}
             <div className="pilot-values">
               {[
                 ["Original NASA SRTM F", result.original_srtm_fidelity],
@@ -346,7 +350,7 @@ export default function TerrainPilot() {
             <div className="source-row">
               <a
                 className="button outline"
-                href={scienceAssetUrl("terrain_pilot.json")}
+                href={scienceAssetUrl(filename)}
                 download
               >
                 Download pilot data and provenance

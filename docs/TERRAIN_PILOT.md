@@ -1,5 +1,23 @@
 # Common-support terrain pilot
 
+## Expanded study (M5)
+
+The original two-site pilot and historical releases remain unchanged. `terrain_support.json` adds **18 sites, 33 verified Copernicus tiles, 36 Earth/target pairs and 360 valid support/offset comparisons**: the 13 mission-aware Mars picks, the one Moon lead and four benchmarks. It reports F-only processing order among this selected sample, not a new mission-utility ranking or confidence interval. DNA/Passport show the applicable default-tolerance range; sites without processing and polar references remain unassessed.
+
+Source manifest: `data/source/pilot/manifest.expanded.json`; independent full-raster/XML report: `validation.expanded.json`. All 132 rasters and 33 metadata XMLs were validated, with 201 source/licence objects, 153,355,534 bytes and no acquisition failures. Original source masks/periods/units/registration and per-tile licences are retained. TIFFs stay ignored; source hashes allow recovery. The expanded processing fixed the planetary offset helper's0–360E output before looking up western Earth pixels in−180–180 GeoTIFFs.
+
+Reproduce from the repo root with Node24/Python3.12:
+
+```powershell
+node scripts/acquire_terrain_support.mjs
+.venv\Scripts\python.exe scripts/verify_terrain_support_sources.py
+.venv\Scripts\python.exe scripts/cache_terrain_support.py --apply
+.venv\Scripts\python.exe scripts/build_terrain_pilot.py --expanded
+.venv\Scripts\python.exe scripts/validate_results.py
+```
+
+Acquisition stages sources under ignored outputs/m5-assets; promotion verifies checksums and never overwrites differing source bytes. The committed expanded manifest remains the expected source contract. Processing never rewrites original F/U/C/P. Smoothing and source changes can alter terrain order; common box support still does not calibrate instrument response, geology or rover safety. No polar supported terrain result is inferred from the primary-target study.
+
 This is a separate experimental result, not a replacement for the original discovery scores. Run `.venv\Scripts\python.exe scripts\build_terrain_pilot.py` after `build_planetary_profiles.py`. Missing public Copernicus assets download from the acquisition manifest and must match committed lengths and SHA-256 hashes. Full TIFF/IMG rasters remain locally cached and ignored; source labels, licences, hashes and the reproducible derived grids are committed.
 
 ## Actual inputs

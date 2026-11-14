@@ -1,0 +1,11 @@
+{
+  "sites": 18,
+  "tiles": 33,
+  "rasters": 132,
+  "metadata": 33,
+  "errors": [],
+  "missing": [],
+  "acquisition_errors": [],
+  "absent_objects": [],
+  "complete": true
+}

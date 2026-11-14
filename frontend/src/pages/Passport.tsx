@@ -16,6 +16,7 @@ import {
   packetGeoJSON,
 } from "../lib/packet";
 import QrCode from "../components/QrCode";
+import SupportSensitivity from "../components/SupportSensitivity";
 import { MeasureNext } from "../components/FrontierParts";
 import { frontier } from "../lib/frontier";
 import { useData, coordinates, statusName } from "../lib/data";
@@ -204,6 +205,7 @@ function PassportBody({
         <EvidenceTag kind={c.benchmark ? "LITERATURE-SUPPORTED" : "DERIVED"} />
       </section>
       <ScoreStrip assessment={a} />
+      <SupportSensitivity id={c.id} mission={mission}/>
       <ObservationPanel candidate={c} chart={false} />
       <TerrainPanel candidate={c} target={target} assessment={a} />
       <GeologyPanel candidate={c} />

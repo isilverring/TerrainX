@@ -34,6 +34,7 @@ export const pilotSchema = z.object({
   model: z.literal("terrainx-support-pilot-v1"),
   classification: z.string(),
   limitations: z.array(z.string()),
+  sensitivity: z.array(z.object({candidate_id:z.string(),mission:z.string(),valid_scenarios:z.number(),F_min:z.number().nullable(),F_max:z.number().nullable(),median_rank:z.number().nullable(),best_rank:z.number().nullable(),worst_rank:z.number().nullable(),rank_scope:z.string()})).optional(),
   source_manifest: z.object({
     doi: z.string().url(),
     registry_url: z.string().url(),
@@ -77,7 +78,7 @@ export const pilotSchema = z.object({
           .length(10),
       }),
     )
-    .length(4),
+    .min(1),
 });
 export type Pilot = z.infer<typeof pilotSchema>;
 export function pilotRange(scenarios: Pilot["results"][number]["scenarios"]) {

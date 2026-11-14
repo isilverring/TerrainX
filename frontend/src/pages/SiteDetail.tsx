@@ -5,6 +5,7 @@ import { useData, coordinates, statusName } from "../lib/data";
 import type { Mission } from "../lib/models";
 import { scienceAssetUrl } from "../lib/release";
 import { studyPath } from "../lib/collections";
+import SupportSensitivity from "../components/SupportSensitivity";
 import {
   BackLink,
   EvidenceTag,
@@ -58,6 +59,7 @@ export default function SiteDetail() {
         <SiteActions id={c.id} mission={mission} />
       </header>
       <ScoreStrip assessment={a} />
+      <SupportSensitivity id={c.id} mission={mission}/>
       <p className="score-explainer">
         F is exploratory terrain fidelity. U is model-based Earth experiment
         suitability. C is evidence coverage. These are separate concepts, never

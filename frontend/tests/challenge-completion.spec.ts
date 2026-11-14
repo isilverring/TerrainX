@@ -1,4 +1,14 @@
 import {test,expect} from "@playwright/test";
+test("expanded common-support grids and processing-order sensitivity remain separate from discovery",async({page})=>{
+ await page.goto("/#/terrain-pilot?study=expanded&id=chile--23.000--70.000&mission=mare-crisium");
+ await expect(page.locator(".pilot-page")).toContainText("18-site experiment");
+ await expect(page.locator(".pilot-grids svg")).toHaveCount(2);
+ await expect(page.locator(".support-ranks")).toContainText("F-only order");
+ await page.getByLabel("Common square averaging support").selectOption("12000");
+ await expect(page.locator(".pilot-page")).toContainText("12");
+ await page.goto("/#/site/chile--23.000--70.000?cohort=expanded&mission=mare-crisium");
+ await expect(page.locator(".support-sensitivity")).toContainText("10 valid support/offset choices");
+});
 test("polar reference survives dossier, export and field-study replay with utility unassessed",async({page,browser,context})=>{
  await context.grantPermissions(["clipboard-read","clipboard-write"]);
  await page.goto("/#/lunar-pole?site=haworth");

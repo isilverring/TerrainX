@@ -4,7 +4,7 @@ No existing SRTM observation, candidate ranking or scientific release is overwri
 Downloads only missing public Copernicus assets; use build_planetary_profiles.py first.
 """
 from __future__ import annotations
-import hashlib, json, math, sys
+import argparse, hashlib, json, math, sys
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from contextlib import ExitStack
@@ -76,8 +76,12 @@ def earth_source(pilot):
         row=[]
         for x in range(-3,4):
             lat,lon=point_from_offset(pilot['latitude'],pilot['longitude'],x*4000,y*4000,6371000)
+            # The planetary offset helper returns0–360E. Earth GeoTIFFs use
+            # -180–180; western sites must be converted before pixel lookup.
+            lon=(lon+180)%360-180
             col,rr=(~transform)*(lon,lat);r,c=math.floor(rr-.5),math.floor(col-.5);dy,dx=rr-.5-r,col-.5-c
             v=z[r:r+2,c:c+2];weights=np.array([[(1-dx)*(1-dy),dx*(1-dy)],[(1-dx)*dy,dx*dy]])
+            if v.shape!=(2,2):raise ValueError(f"Point baseline outside source mosaic: {pilot['id']} lat/lon{lat},{lon}, row/col{r},{c}, shape{z.shape}, transform{transform}")
             row.append(float(np.sum(v*weights)) if np.isfinite(v).all() else None)
         points.append(row)
     return grids,coverage,quality,points,assets
@@ -112,6 +116,14 @@ def point_fidelity(grid,planet):
     return {'value':100*sum(feature_similarity(metrics[k],planet['metrics'][k],t) for k,t in TOLERANCES.items())/4,'metrics':metrics,'elevations_m':grid}
 
 def main():
+    global MANIFEST, DATA
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--expanded',action='store_true',help='Use the separately verified18-site source manifest; preserve the original pilot.')
+    args=parser.parse_args()
+    if args.expanded:
+        MANIFEST=json.loads((SOURCE/'manifest.expanded.json').read_text(encoding='utf-8'))
+        extra=json.loads((ROOT/'data/derived/field_candidates.json').read_text(encoding='utf-8'))['candidates']
+        DATA={**DATA,'candidates':list({c['id']:c for c in [*extra,*DATA['candidates']]}.values())}
     verify_assets();planets={t['id']:(t,planet_source(t)) for t in DATA['targets']};results=[]
     for pilot in MANIFEST['pilots']:
         earth,cov,quality,points,assets=earth_source(pilot)
@@ -143,7 +155,7 @@ def main():
       'resampling':'GDAL area-weighted average into a local working lattice, then coverage-weighted square box means. Oversampled planetary working cells introduce no new observations. This approximates common aggregation support; native instrument response is still unequal.',
       'sample_spacing_m':4000,'gradient_baseline_m':8000,'center_footprint_m':24000,'box_supports_m':[8000,12000],
       'offsets_m':4000,'minimum_valid_area_fraction':.9,'tolerances':TOLERANCES},
-      'limitations':['Experimental two-site pilot, not a revised discovery ranking. Original SRTM F/U/C/P remain unchanged.',
+      'limitations':[f"Experimental {len(MANIFEST['pilots'])}-site support study, not a revised discovery ranking. Original SRTM F/U/C/P remain unchanged.",
         'Source change and smoothing effects are distinct: compare the Copernicus point baseline to its filtered results, not only to SRTM.',
         'Common box support does not calibrate native point-spread functions, measurement errors or mission-safety thresholds.',
         'DSM represents vegetation/buildings and edited water surfaces. Lake Salda water pixels are not bathymetry.',
@@ -151,8 +163,22 @@ def main():
         'Offsets, filter sizes and numerical lattice checks describe sensitivity to processing choices, not statistical confidence.',
         'Different vertical reference surfaces: absolute elevations never enter fidelity. No geology or rover-scale hazard claim follows.'],
       'source_manifest':MANIFEST,'results':results}
+    if args.expanded:
+        output['scope']='Expanded 18-site comparison: 13 Mars shortlist cells, 1 Moon lead and 4 benchmarks. F-only order within this selected sample; no utility or geological ranking.'
+        output['sensitivity']=[]
+        for mission in sorted({r['mission'] for r in results}):
+            group=[r for r in results if r['mission']==mission]
+            ranks={r['candidate_id']:[] for r in group}
+            for index in range(10):
+                valid=[r for r in group if r['scenarios'][index]['fidelity']['value'] is not None]
+                valid.sort(key=lambda r:(-r['scenarios'][index]['fidelity']['value'],r['candidate_id']))
+                for rank,r in enumerate(valid,1):ranks[r['candidate_id']].append(rank)
+            for r in group:
+                values=[s['fidelity']['value'] for s in r['scenarios'] if s['fidelity']['value'] is not None];rr=ranks[r['candidate_id']]
+                output['sensitivity'].append({'candidate_id':r['candidate_id'],'mission':mission,'valid_scenarios':len(values),'F_min':min(values) if values else None,'F_max':max(values) if values else None,'median_rank':float(np.median(rr)) if rr else None,'best_rank':min(rr) if rr else None,'worst_rank':max(rr) if rr else None,'rank_scope':f'F-only processing order among {len(group)} selected sites; not confidence or success probability.'})
     body=json.dumps(output,indent=2,allow_nan=False)+'\n'
-    for destination in (ROOT/'data/derived/terrain_pilot.json',ROOT/'frontend/public/data/terrain_pilot.json'):
+    filename='terrain_support.json' if args.expanded else 'terrain_pilot.json'
+    for destination in (ROOT/'data/derived'/filename,ROOT/'frontend/public/data'/filename):
         destination.write_text(body,encoding='utf-8')
     for item in results:
         values=[s['fidelity']['value'] for s in item['scenarios'] if s['fidelity']['value'] is not None]

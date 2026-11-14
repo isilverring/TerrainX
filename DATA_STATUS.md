@@ -9,6 +9,7 @@ Science release **science-b1a132b201ad2046**. Original dataset SHA256 **3515ef69
 | Field proposals |130 genuine cell characterizations plus original reference benchmarks |Proposed stations/protocols. No field measurements or access approval implied. |
 | Primary planetary profiles |Real MOLA Jezero and LOLA Mare Crisium7×7 grids |4km spacing/8km slope baseline; unequal native support is explicit. |
 | Common-support pilot |2 Earth sites ×2 targets ×10 support/offset choices =40 comparisons |Actual Copernicus DSM/masks and PDS rasters;8/12km aggregation supports; no original ranking replacement. |
+| Expanded source-support study |18 Earth sites ×2 targets ×10 choices =360 valid comparisons;33 source tiles |Default-tolerance support/offset sensitivity and F-only order within the selected sample. Original rankings unchanged; polar reference support remains unassessed. |
 | Lunar polar reference v2 |8 real LOLA feature-centre profiles;30,674 retained Diviner triangles |Model-derived thermal and sublimation-stability quantities, area weighted. Not current landing polygons, detected ice or a base-selection certification. |
 
 Independent Diviner verification downloaded 604,800,210 bytes, checked 2,880,000 records and matched published PDS MD5 **80cdfe83592a3419c74b1b55b636711e** and teammate SHA256. Every retained record matches verbatim. Proof: data/source/diviner/verification.json. Full tabular source,45MB manifest and ranged chunks are ignored and reproducibly downloadable.

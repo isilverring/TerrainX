@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "release_id": "science-b1a132b201ad2046",
+  "release_id": "science-3def8b061f0c56a5",
   "model_version": "terrainx-model-v1",
   "dataset_sha256": "3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c",
   "source_data_commit": "4f05e818ea55144598fee354ea1bdd485a6ff932",
@@ -26,7 +26,7 @@
       "bytes": 449124
     },
     "validation.json": {
-      "sha256": "2a95d1dc12237282c5aa5ae62dac41ca8d40b586157b22af4e44e5a50ce564e6",
+      "sha256": "570b7221cb1fe975d5e2107168695d6de78ccb6fbac2bfbc45e761a3ecc69bb7",
       "bytes": 1112
     },
     "case_studies.json": {
@@ -36,6 +36,10 @@
     "terrain_pilot.json": {
       "sha256": "fcfe23d0e0a86efe45248cfbc945088442cf70ca1c68c69d128a24e5f28f1cac",
       "bytes": 516779
+    },
+    "terrain_support.json": {
+      "sha256": "4193498788622512c88c89fb2634c60da5e7d553959092460949c4099b19bb58",
+      "bytes": 5068221
     },
     "cell_search.json": {
       "sha256": "d5de3525dd8f4de4c5bbbfb27c0b4cbd4ffeb207ac04ed4091956840041d2870",

@@ -10,7 +10,12 @@ import {lunarPolarSchema} from "../lunarPolar";
 import {polarReference} from "../polarReference";
 import {applyScenarios} from "../scoring";
 import {buildPacket} from "../packet";
+import {pilotSchema} from "../pilot";
 describe("explicit scientific collections",()=>{
+ it("validates all36 source-support results and retains sensitivity scope",()=>{
+  const study=pilotSchema.parse(JSON.parse(readFileSync(resolve(__dirname,"../../../public/data/terrain_support.json"),"utf8")));
+  expect(study.results).toHaveLength(36);expect(study.sensitivity).toHaveLength(36);expect(study.sensitivity![0].rank_scope).toContain("F-only");
+ });
  it("keeps real polar target identity and never imports Mare Crisium utility",()=>{
   const data=realDataset(),polar=lunarPolarSchema.parse(JSON.parse(readFileSync(resolve(__dirname,"../../../public/data/lunar_polar.json"),"utf8")));
   const scenario={jezero:defaultScenario("jezero"),"mare-crisium":defaultScenario("mare-crisium")};
