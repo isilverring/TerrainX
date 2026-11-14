@@ -181,7 +181,8 @@ test("complete scientific workflow, map, model controls, DNA, Passport and metho
   expect(
     offline
       ? consoleErrors.filter(
-          (e) => !/Failed to load resource|AJAXError|net::ERR/.test(e),
+          (e) =>
+            !/Failed to load resource|AJAXError|net::ERR|CORS policy/.test(e),
         )
       : consoleErrors,
   ).toEqual([]);
@@ -253,4 +254,22 @@ test("map retains local coastlines and markers if the external basemap fails", a
   await expect(
     page.getByRole("heading", { name: "Earth experiment suitability" }),
   ).toBeVisible();
+});
+
+test("3D terrain viewer falls back to the cached analysis lattice without live tiles", async ({
+  page,
+}) => {
+  await page.route("**/elevation-tiles-prod/**", (route) => route.abort());
+  await page.goto("/#/site/saudi-24.000-39.375?mission=jezero");
+  const viewer = page.locator(".terrain-viewer");
+  await viewer.scrollIntoViewIfNeeded();
+  await expect(
+    viewer.getByRole("button", { name: /Analysis lattice/ }),
+  ).toHaveAttribute("aria-pressed", "true", { timeout: 20000 });
+  await expect(viewer.locator("canvas.surface-canvas")).toHaveCount(2);
+  // Mars relief shown by the viewer equals the scored MOLA relief (715.6 m).
+  await expect(
+    viewer.locator(".viewer-panel.mars .viewer-stats dd").first(),
+  ).toHaveText("716 m");
+  await expect(viewer).toContainText("visualisation only");
 });

@@ -547,7 +547,8 @@ export default function EarthMap({
 
   // ---- Selected footprint ------------------------------------------------------------
   useEffect(() => {
-    const src = map.current?.getSource("footprint") as GeoJSONSource | undefined;
+    const src = map.current?.getSource("footprint") as
+      GeoJSONSource | undefined;
     if (ready && src)
       src.setData(footprint ? footprintFeatures(selected) : emptyCollection());
   }, [selected, ready, footprint]);
@@ -576,9 +577,7 @@ export default function EarthMap({
       regionFeatures(regions, region),
     );
     regionLabels.current.forEach((label, i) =>
-      label
-        .getElement()
-        .classList.toggle("active", regions[i]?.id === region),
+      label.getElement().classList.toggle("active", regions[i]?.id === region),
     );
     const r = regions.find((x) => x.id === region);
     m.fitBounds(
@@ -602,7 +601,8 @@ export default function EarthMap({
     const m = map.current;
     if (!m || !ready) return;
     const vis = (id: string, on: boolean) =>
-      m.getLayer(id) && m.setLayoutProperty(id, "visibility", on ? "visible" : "none");
+      m.getLayer(id) &&
+      m.setLayoutProperty(id, "visibility", on ? "visible" : "none");
     vis("basemap", basemap === "dark");
     vis("labels", basemap === "dark" || basemap === "satellite");
     vis("satellite", basemap === "satellite");
@@ -693,7 +693,9 @@ export default function EarthMap({
   const info = basemapInfo[basemap];
   const nativeZoom = info.nativeZoom;
   const overzoomed = zoom > nativeZoom + 0.5;
-  const failedNames = [...new Set([...failed].map((id) => EXTERNAL_SOURCES[id]))];
+  const failedNames = [
+    ...new Set([...failed].map((id) => EXTERNAL_SOURCES[id])),
+  ];
   const gibsFailed = failed.has("nasa-gibs") && basemap === "gibs";
   const today = yesterdayUtc();
   return (
@@ -711,7 +713,9 @@ export default function EarthMap({
             className={globe ? "active" : ""}
             onClick={() => setGlobe(!globe)}
             aria-pressed={globe}
-            title={globe ? "Switch to flat Mercator map" : "Switch to globe view"}
+            title={
+              globe ? "Switch to flat Mercator map" : "Switch to globe view"
+            }
           >
             <Globe2 size={16} />
             <span>Globe</span>
@@ -853,7 +857,11 @@ export default function EarthMap({
             <fieldset>
               <legend>3D terrain</legend>
               <label>
-                <input type="checkbox" checked={terrain3d} onChange={toggle3d} />
+                <input
+                  type="checkbox"
+                  checked={terrain3d}
+                  onChange={toggle3d}
+                />
                 Show 3D terrain
               </label>
               <label className="range-label">
@@ -870,8 +878,7 @@ export default function EarthMap({
                 />
               </label>
               <small>
-                Visualisation DEM (AWS terrain tiles). Never used for F, U or
-                C.
+                Visualisation DEM (AWS terrain tiles). Never used for F, U or C.
               </small>
             </fieldset>
             <div className="map-legend">

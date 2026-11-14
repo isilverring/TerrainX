@@ -20,11 +20,11 @@ is never used for scoring.
       Fly to the selected candidate at a pitch of about 60°.
 - [x] **Globe projection** (MapLibre ≥5 `projection: globe`) for the world overview, switching to Mercator when zoomed in.
 - [x] Draw each candidate's **24 × 24 km SRTM analysis footprint** and the 0.5° × 0.625° POWER cell. Make the scale distinction visible.
-- [ ] **Planetary 3D viewer**: extend `scripts/build_planetary_profiles.py` so it also exports a larger *visualisation-only*
+- [x] **Planetary 3D viewer**: extend `scripts/build_planetary_profiles.py` so it also exports a larger *visualisation-only*
       MOLA/LOLA context patch (e.g. 65 × 65 native pixels) around Jezero and Mare Crisium. Render the Earth SRTM grid and
       the planetary grid as side-by-side shaded 3D surfaces at the same horizontal scale and vertical exaggeration.
       Optionally drape a NASA Trek / CTX / LRO WAC image tile after verifying its URL and licence.
-- [ ] The 3D surface must label vertical exaggeration and point out that absolute Earth and planetary elevations are not comparable.
+- [x] The 3D surface must label vertical exaggeration and point out that absolute Earth and planetary elevations are not comparable.
 
 ## C. UX / visual fixes found in the audit
 1. ✅ Ranking puts **"Insufficient evidence" (C = 45 %) candidates first** because the list sorts by U only. Add a sort control
@@ -55,6 +55,14 @@ is never used for scoring.
   Endpoints verified live from a browser on 2026-11-14: all returned HTTP 200 except GIBS dates without imagery (404;
   VIIRS SNPP had none after 2026-11-02, NOAA-20 had gaps, so NOAA-20 was not offered) and GIBS z10 (400, native max z9).
   Browser tests: `TERRAINX_OFFLINE=1 npm test` skips live-tile waits in sandboxes.
+
+- 2026-11-14 (milestone 4): side-by-side 3D terrain viewer on the Analog DNA page. Two modes with a shared horizontal
+  scale, vertical exaggeration and colour scale: (a) 24 km analysis lattice = the exact cached SRTM and MOLA/LOLA 7×7
+  grids behind F; (b) 96 km regional context (visualisation only). Planetary context comes from native MOLA/LOLA DN
+  windows (`data/source/planetary/*_context_window.csv`) cut in a browser on the PDS origin after the whole-raster
+  SHA-256 matched `manifest.json`; `scripts/build_planetary_context.py` resamples them (same bilinear/offset rule) and
+  tests prove the windows reproduce the scored 7×7 grids exactly. Earth context is sampled live from AWS terrarium z8
+  in the browser (spot-checked against cached SRTM: within tens of metres) and falls back to the lattice offline.
 
 ## D. Environment notes
 - Laptop path is `C:\TerrainX`. The PC path is `D:\TerrainX`. Both are clones of `isilverring/TerrainX` `main`.

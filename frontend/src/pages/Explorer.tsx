@@ -148,7 +148,9 @@ export default function Explorer() {
       ),
     [filtered, mission, sortKey],
   );
-  const characterized = discovered.filter((c) => evidenceTier(c, mission) === 0),
+  const characterized = discovered.filter(
+      (c) => evidenceTier(c, mission) === 0,
+    ),
     screened = discovered.filter((c) => evidenceTier(c, mission) !== 0);
   const ordered = useMemo(
     () => [...discovered, ...references],
@@ -188,7 +190,8 @@ export default function Explorer() {
       ordered.findIndex((c) => c.id === selected?.id),
     );
     let next = index;
-    if (event.key === "ArrowDown") next = Math.min(ordered.length - 1, index + 1);
+    if (event.key === "ArrowDown")
+      next = Math.min(ordered.length - 1, index + 1);
     else if (event.key === "ArrowUp") next = Math.max(0, index - 1);
     else if (event.key === "Home") next = 0;
     else if (event.key === "End") next = ordered.length - 1;
@@ -238,7 +241,11 @@ export default function Explorer() {
       </button>
       <aside className={`mission-rail ${drawer ? "expanded" : ""}`}>
         <h1>Choose your mission</h1>
-        <div className="planet-selector" role="group" aria-label="Planetary body">
+        <div
+          className="planet-selector"
+          role="group"
+          aria-label="Planetary body"
+        >
           <button
             className={mission === "jezero" ? "active mars" : ""}
             onClick={() => chooseMission("jezero")}

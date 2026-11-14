@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { useData, coordinates, statusName } from "../lib/data";
@@ -17,6 +18,7 @@ import {
   RealityGapPanel,
   ExperimentPanel,
 } from "../components/SciencePanels";
+const TerrainViewer = lazy(() => import("../components/TerrainViewer"));
 export default function SiteDetail() {
   const data = useData(),
     { id } = useParams(),
@@ -62,6 +64,7 @@ export default function SiteDetail() {
         {[
           ["observations", "Observations"],
           ["terrain", "Terrain DNA"],
+          ["terrain-3d", "3D terrain"],
           ["geology", "Geology"],
           ["reality-gap", "Reality gap"],
           ["field-experiment", "Experiment"],
@@ -69,15 +72,12 @@ export default function SiteDetail() {
           <button
             key={id}
             onClick={() =>
-              document
-                .getElementById(id)
-                ?.scrollIntoView({
-                  behavior: window.matchMedia(
-                    "(prefers-reduced-motion: reduce)",
-                  ).matches
-                    ? "instant"
-                    : "smooth",
-                })
+              document.getElementById(id)?.scrollIntoView({
+                behavior: window.matchMedia("(prefers-reduced-motion: reduce)")
+                  .matches
+                  ? "instant"
+                  : "smooth",
+              })
             }
           >
             {label}
@@ -89,6 +89,13 @@ export default function SiteDetail() {
       </div>
       <div id="terrain">
         <TerrainPanel candidate={c} target={target} assessment={a} />
+      </div>
+      <div id="terrain-3d">
+        <Suspense
+          fallback={<p className="viewer-empty">Loading 3D terrain viewer…</p>}
+        >
+          <TerrainViewer candidate={c} target={target} />
+        </Suspense>
       </div>
       <UtilityPanel assessment={a} />
       <div id="geology">
