@@ -1,5 +1,7 @@
 # Resume the audited TerrainX release
 
+**New active scope:** implement M1–M6 in [docs/CHALLENGE_COMPLETION.md](docs/CHALLENGE_COMPLETION.md). Read its current checkpoint first; the previous bounded release below remains the baseline. The user explicitly requested all six improvements and a durable GitHub handoff. Update the checklist and STATUS after every completed milestone and push verified commits.
+
 All project work stays **D:\TerrainX**. Private repository https://github.com/isilverring/TerrainX, main. Existing public Site appgprj_6af7ff7626888191bcba757337fd7e9b, https://terrainx-discovery-lab.comfybay1.chatgpt.site. Never create a duplicate or silently change its audience.
 
 1. Read STATUS.md and DEPLOYMENT.md first. Package scope and research limits: docs/PACKAGE_AUDIT.md. Human submission: docs/SUBMISSION_GUIDE.md. Inspect git status/log; pull --ff-only only when clean.
