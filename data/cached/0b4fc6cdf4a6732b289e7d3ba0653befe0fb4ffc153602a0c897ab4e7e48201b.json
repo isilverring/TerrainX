@@ -1,0 +1,43 @@
+{
+  "url": "https://macrostrat.org/api/geologic_units/map?lat=45.0&lng=103.125&format=json",
+  "retrieved_at": "2026-11-14T13:42:57.348Z",
+  "sha256": "51711f1aad80bf9010f20a8873161b48f4b1468576538b919b6e61d25912561b",
+  "status_code": 200,
+  "data": {
+    "success": {
+      "v": 2,
+      "license": "CC-BY 4.0",
+      "data": [
+        {
+          "map_id": 3186618,
+          "source_id": 154,
+          "name": "Mesozoic sedimentary rocks",
+          "strat_name": "",
+          "lith": "sedimentary rocks",
+          "descrip": "",
+          "comments": "",
+          "macro_units": [],
+          "strat_names": [],
+          "liths": [
+            111
+          ],
+          "t_int_id": 33,
+          "t_int_age": 66,
+          "t_int_name": "Cretaceous",
+          "b_int_id": 33,
+          "b_int_age": 143.1,
+          "b_int_name": "Cretaceous",
+          "color": "#7FC64E",
+          "t_age": 66,
+          "b_age": 145,
+          "best_int_name": "Mesozoic",
+          "scale": "tiny"
+        }
+      ],
+      "refs": {
+        "154": "Chorlton, L.B. Generalized geology of the world: bedrock domains and major faults in GIS format: a small-scale world geology map with an extended geological attribute database. doi: 10.4095/223767. Geological Survey of Canada, Open File 5529. "
+      }
+    }
+  },
+  "acquired_via": "browser fetch (laptop built-in browser); body bytes re-hashed on import"
+}

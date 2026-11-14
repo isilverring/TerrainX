@@ -1,0 +1,69 @@
+{
+  "url": "https://macrostrat.org/api/geologic_units/map?lat=-22.0&lng=-70.0&format=json",
+  "retrieved_at": "2026-11-14T13:38:48.919Z",
+  "sha256": "45127e5747444a08d32219f958ce86fb906fc4200a5357b3cafcaff36a669d65",
+  "status_code": 200,
+  "data": {
+    "success": {
+      "v": 2,
+      "license": "CC-BY 4.0",
+      "data": [
+        {
+          "map_id": 4974050,
+          "source_id": 1087,
+          "name": "Jurassic Undifferentiated",
+          "strat_name": "",
+          "lith": "Volcanic",
+          "descrip": "",
+          "comments": "",
+          "macro_units": [],
+          "strat_names": [],
+          "liths": [
+            63
+          ],
+          "t_int_id": 48,
+          "t_int_age": 143.1,
+          "t_int_name": "Jurassic",
+          "b_int_id": 48,
+          "b_int_age": 201.4,
+          "b_int_name": "Jurassic",
+          "color": "#34B2C9",
+          "t_age": 143.1,
+          "b_age": 201.4,
+          "best_int_name": "Jurassic",
+          "scale": "small"
+        },
+        {
+          "map_id": 3186157,
+          "source_id": 154,
+          "name": "Cenozoic sedimentary rocks",
+          "strat_name": "",
+          "lith": "sedimentary rocks",
+          "descrip": "",
+          "comments": "",
+          "macro_units": [],
+          "strat_names": [],
+          "liths": [
+            111
+          ],
+          "t_int_id": 421,
+          "t_int_age": 0,
+          "t_int_name": "Quaternary",
+          "b_int_id": 421,
+          "b_int_age": 2.58,
+          "b_int_name": "Quaternary",
+          "color": "#F9F97F",
+          "t_age": 0,
+          "b_age": 2.588,
+          "best_int_name": "Cenozoic",
+          "scale": "tiny"
+        }
+      ],
+      "refs": {
+        "154": "Chorlton, L.B. Generalized geology of the world: bedrock domains and major faults in GIS format: a small-scale world geology map with an extended geological attribute database. doi: 10.4095/223767. Geological Survey of Canada, Open File 5529. ",
+        "1087": "Gómez, J., Schobbenhaus, C. & Montes, N.E., compilers. Geological Map of South America 2018. Scale 1:5 000 000. Commission for the Geological Map of the World (CGMW), Colombian Geological Survey and Geological Survey of Brazil. "
+      }
+    }
+  },
+  "acquired_via": "browser fetch (laptop built-in browser); body bytes re-hashed on import"
+}

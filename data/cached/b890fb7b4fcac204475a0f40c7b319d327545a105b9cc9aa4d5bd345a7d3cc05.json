@@ -1,0 +1,404 @@
+{
+  "url": "https://api.opentopodata.org/v1/srtm90m?locations=-21.6079186%2C26.1340106%7C-21.6079186%2C26.1726737%7C-21.6079186%2C26.2113369%7C-21.6079186%2C26.25%7C-21.6079186%2C26.2886631%7C-21.6079186%2C26.3273263%7C-21.6079186%2C26.3659894%7C-21.5719457%2C26.1340106%7C-21.5719457%2C26.1726737%7C-21.5719457%2C26.2113369%7C-21.5719457%2C26.25%7C-21.5719457%2C26.2886631%7C-21.5719457%2C26.3273263%7C-21.5719457%2C26.3659894%7C-21.5359729%2C26.1340106%7C-21.5359729%2C26.1726737%7C-21.5359729%2C26.2113369%7C-21.5359729%2C26.25%7C-21.5359729%2C26.2886631%7C-21.5359729%2C26.3273263%7C-21.5359729%2C26.3659894%7C-21.5%2C26.1340106%7C-21.5%2C26.1726737%7C-21.5%2C26.2113369%7C-21.5%2C26.25%7C-21.5%2C26.2886631%7C-21.5%2C26.3273263%7C-21.5%2C26.3659894%7C-21.4640271%2C26.1340106%7C-21.4640271%2C26.1726737%7C-21.4640271%2C26.2113369%7C-21.4640271%2C26.25%7C-21.4640271%2C26.2886631%7C-21.4640271%2C26.3273263%7C-21.4640271%2C26.3659894%7C-21.4280543%2C26.1340106%7C-21.4280543%2C26.1726737%7C-21.4280543%2C26.2113369%7C-21.4280543%2C26.25%7C-21.4280543%2C26.2886631%7C-21.4280543%2C26.3273263%7C-21.4280543%2C26.3659894%7C-21.3920814%2C26.1340106%7C-21.3920814%2C26.1726737%7C-21.3920814%2C26.2113369%7C-21.3920814%2C26.25%7C-21.3920814%2C26.2886631%7C-21.3920814%2C26.3273263%7C-21.3920814%2C26.3659894&interpolation=bilinear&nodata_value=null",
+  "retrieved_at": "2026-11-14T13:28:43.792Z",
+  "sha256": "a5f37d013a14f9204eb43428544263278a390ed707b2a0acd0779c0110a235ea",
+  "status_code": 200,
+  "data": {
+    "results": [
+      {
+        "dataset": "srtm90m",
+        "elevation": 1086.0,
+        "location": {
+          "lat": -21.6079186,
+          "lng": 26.1340106
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1093.0,
+        "location": {
+          "lat": -21.6079186,
+          "lng": 26.1726737
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1100.0,
+        "location": {
+          "lat": -21.6079186,
+          "lng": 26.2113369
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1105.0,
+        "location": {
+          "lat": -21.6079186,
+          "lng": 26.25
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1110.0,
+        "location": {
+          "lat": -21.6079186,
+          "lng": 26.2886631
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1115.0,
+        "location": {
+          "lat": -21.6079186,
+          "lng": 26.3273263
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1121.0,
+        "location": {
+          "lat": -21.6079186,
+          "lng": 26.3659894
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1081.0,
+        "location": {
+          "lat": -21.5719457,
+          "lng": 26.1340106
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1090.0,
+        "location": {
+          "lat": -21.5719457,
+          "lng": 26.1726737
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1097.0,
+        "location": {
+          "lat": -21.5719457,
+          "lng": 26.2113369
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1102.0,
+        "location": {
+          "lat": -21.5719457,
+          "lng": 26.25
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1106.0,
+        "location": {
+          "lat": -21.5719457,
+          "lng": 26.2886631
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1109.0,
+        "location": {
+          "lat": -21.5719457,
+          "lng": 26.3273263
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1117.0,
+        "location": {
+          "lat": -21.5719457,
+          "lng": 26.3659894
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1079.0,
+        "location": {
+          "lat": -21.5359729,
+          "lng": 26.1340106
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1087.0,
+        "location": {
+          "lat": -21.5359729,
+          "lng": 26.1726737
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1093.0,
+        "location": {
+          "lat": -21.5359729,
+          "lng": 26.2113369
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1098.0,
+        "location": {
+          "lat": -21.5359729,
+          "lng": 26.25
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1101.0,
+        "location": {
+          "lat": -21.5359729,
+          "lng": 26.2886631
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1104.0,
+        "location": {
+          "lat": -21.5359729,
+          "lng": 26.3273263
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1109.0,
+        "location": {
+          "lat": -21.5359729,
+          "lng": 26.3659894
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1074.0,
+        "location": {
+          "lat": -21.5,
+          "lng": 26.1340106
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1084.0,
+        "location": {
+          "lat": -21.5,
+          "lng": 26.1726737
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1089.0,
+        "location": {
+          "lat": -21.5,
+          "lng": 26.2113369
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1091.0,
+        "location": {
+          "lat": -21.5,
+          "lng": 26.25
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1096.0,
+        "location": {
+          "lat": -21.5,
+          "lng": 26.2886631
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1099.0,
+        "location": {
+          "lat": -21.5,
+          "lng": 26.3273263
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1101.0,
+        "location": {
+          "lat": -21.5,
+          "lng": 26.3659894
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1071.0,
+        "location": {
+          "lat": -21.4640271,
+          "lng": 26.1340106
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1079.0,
+        "location": {
+          "lat": -21.4640271,
+          "lng": 26.1726737
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1081.0,
+        "location": {
+          "lat": -21.4640271,
+          "lng": 26.2113369
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1084.0,
+        "location": {
+          "lat": -21.4640271,
+          "lng": 26.25
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1088.0,
+        "location": {
+          "lat": -21.4640271,
+          "lng": 26.2886631
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1095.0,
+        "location": {
+          "lat": -21.4640271,
+          "lng": 26.3273263
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1098.0,
+        "location": {
+          "lat": -21.4640271,
+          "lng": 26.3659894
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1062.0,
+        "location": {
+          "lat": -21.4280543,
+          "lng": 26.1340106
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1069.0,
+        "location": {
+          "lat": -21.4280543,
+          "lng": 26.1726737
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1077.0,
+        "location": {
+          "lat": -21.4280543,
+          "lng": 26.2113369
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1076.0,
+        "location": {
+          "lat": -21.4280543,
+          "lng": 26.25
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1081.0,
+        "location": {
+          "lat": -21.4280543,
+          "lng": 26.2886631
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1086.0,
+        "location": {
+          "lat": -21.4280543,
+          "lng": 26.3273263
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1094.0,
+        "location": {
+          "lat": -21.4280543,
+          "lng": 26.3659894
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1058.0,
+        "location": {
+          "lat": -21.3920814,
+          "lng": 26.1340106
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1061.0,
+        "location": {
+          "lat": -21.3920814,
+          "lng": 26.1726737
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1061.0,
+        "location": {
+          "lat": -21.3920814,
+          "lng": 26.2113369
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1070.0,
+        "location": {
+          "lat": -21.3920814,
+          "lng": 26.25
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1074.0,
+        "location": {
+          "lat": -21.3920814,
+          "lng": 26.2886631
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1082.0,
+        "location": {
+          "lat": -21.3920814,
+          "lng": 26.3273263
+        }
+      },
+      {
+        "dataset": "srtm90m",
+        "elevation": 1083.0,
+        "location": {
+          "lat": -21.3920814,
+          "lng": 26.3659894
+        }
+      }
+    ],
+    "status": "OK"
+  },
+  "acquired_via": "browser fetch (laptop built-in browser); body bytes re-hashed on import"
+}

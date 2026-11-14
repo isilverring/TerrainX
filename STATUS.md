@@ -30,12 +30,14 @@ Work continued from the laptop after Release 3 (`efa7194`). Each milestone below
 
 - **L6 guided demo chapters** — the demo now has nine scenes. New Scene 5 "Six questions" shows the five Mars candidates most consistent across the six Discovery Lenses (live from `lenses.ts`, presentation model), and states that the Moon baseline ranks 0 candidates because no lunar basalt is mapped while the terrain lens ranks 16. New Scene 8 "Take it outside" builds a relief transect for the lead candidate from its real SRTM grid (stations, traverse length, ascent, Naismith estimate) with an elevation-trend sparkline and a link into the Field Study Builder. Demo browser test updated to nine scenes.
 
-### In progress (laptop)
-- **L7 data acquisition for the 130-cell search** — the laptop's built-in browser is fetching the 114 missing OpenTopoData SRTM grids and 114 Macrostrat lookups (URLs proven byte-identical to the pipeline's cache keys by a SHA-256 over the URL list, `ab65b23b…22bc`); raw bodies + body SHA-256 are saved to Downloads and imported into `data/cached/` in the exact CachedHTTP format. LOLA `ldem_16.img` (33,177,600 bytes, pinned SHA-256 `a511e40d…54cb`) follows for the lunar polar module.
+- **L7 genuine data for the 130-cell search and the lunar south pole** — the laptop's built-in browser fetched the 114 missing OpenTopoData SRTM grids and 114 Macrostrat map lookups (URL list proven byte-identical to the pipeline's cache keys: SHA-256 `ab65b23b…22bc`). Raw bodies with SHA-256 of the exact bytes are kept in `data/source/acquisition/` and imported by `scripts/import_browser_cache.py`, which re-hashes every body and writes standard CachedHTTP records (`data/cached/`, now 293 files). LOLA `ldem_16.img` was downloaded from PDS and matched the pinned 33,177,600 bytes / SHA-256 `a511e40d…54cb`; re-extracting Mare Crisium with it reproduces the released grid exactly.
+  - `scripts/build_cell_search.py` (`terrainx-cell-search-v1`, offline from cache): all 130 cells characterized with the pipeline's own functions; F reproduces every released candidate exactly. Temperature is missing for cells (point T2M not acquired), so C ≤ 0.95 for all. Results: terrain at 130/130, geology mapped at 129/130; Mars: 79 rankable cells, mission-aware shortlist of 13 (Chile has 1 eligible cell) of which 11 are new vs the aridity shortlist. Moon: **1 rankable cell for the first time — chile −23.0, −70.0, mapped "Triassic–Jurassic Basaltic" (Macrostrat source 1087), F 66.4, P 75.6.** The released discovery and dataset are unchanged.
+  - `scripts/build_lunar_polar.py` (`terrainx-lunar-polar-v1`): LOLA 7×7 terrain at the IAU Gazetteer centres of the features naming NASA's nine Artemis III regions (Cabeus B, Haworth, Mons Malapert, Mons Mouton, Nobile, de Gerlache, Slater) plus Shackleton; Earth terrain twins (F only) against all 134 Earth profiles. Mons Mouton (flat-topped) and Cabeus B centre find strong twins (F 91–97); steep massifs/craters (Mons Malapert, Shackleton) have none (F ≈ 0–1).
+  - Tests: `tests/scientific/test_cell_search_polar.py` (8); Python suite 75 passed.
 
 ### Planned next (laptop)
-1. L8 mission-aware 130-cell search (separate versioned experiment; released discovery unchanged).
-2. L9 lunar south-polar module from checksum-verified LOLA LDEM_16.
+1. L8 UI: "Search all 130 cells" page and "Lunar south pole" page, both shipped in a new immutable science release.
+2. L9 polish, docs, demo/landing integration.
 
 Cloud-session limits: the sandbox shell cannot reach map tiles, NASA, POWER, OpenTopoData or Macrostrat, so new external observations are only added when they can be fetched and checksum-verified. Publishing to the public Site remains a PC-side step.
 

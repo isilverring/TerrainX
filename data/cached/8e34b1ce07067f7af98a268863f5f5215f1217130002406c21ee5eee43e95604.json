@@ -1,0 +1,70 @@
+{
+  "url": "https://macrostrat.org/api/geologic_units/map?lat=24.5&lng=40.0&format=json",
+  "retrieved_at": "2026-11-14T13:24:57.450Z",
+  "sha256": "42b15b5c6bd92a837461e3725049e49085358d4cdde7977fcd4cea9faa26c7a5",
+  "status_code": 200,
+  "data": {
+    "success": {
+      "v": 2,
+      "license": "CC-BY 4.0",
+      "data": [
+        {
+          "map_id": 3306996,
+          "source_id": 190,
+          "name": "",
+          "strat_name": "",
+          "lith": "sedimentary and volcaniclastic",
+          "descrip": "",
+          "comments": "",
+          "macro_units": [],
+          "strat_names": [],
+          "liths": [
+            49,
+            111
+          ],
+          "t_int_id": 263,
+          "t_int_age": 538.8,
+          "t_int_name": "Ediacaran",
+          "b_int_id": 264,
+          "b_int_age": 720,
+          "b_int_name": "Cryogenian",
+          "color": "#FF9BCD",
+          "t_age": 541,
+          "b_age": 720,
+          "best_int_name": "Neoproterozoic",
+          "scale": "small"
+        },
+        {
+          "map_id": 3193272,
+          "source_id": 154,
+          "name": "Neoproterozoic sedimentary rocks",
+          "strat_name": "",
+          "lith": "sedimentary rocks",
+          "descrip": "",
+          "comments": "",
+          "macro_units": [],
+          "strat_names": [],
+          "liths": [
+            111
+          ],
+          "t_int_id": 257,
+          "t_int_age": 538.8,
+          "t_int_name": "Neoproterozoic",
+          "b_int_id": 257,
+          "b_int_age": 1000,
+          "b_int_name": "Neoproterozoic",
+          "color": "#FF9BCD",
+          "t_age": 541,
+          "b_age": 1000,
+          "best_int_name": "Neoproterozoic",
+          "scale": "tiny"
+        }
+      ],
+      "refs": {
+        "154": "Chorlton, L.B. Generalized geology of the world: bedrock domains and major faults in GIS format: a small-scale world geology map with an extended geological attribute database. doi: 10.4095/223767. Geological Survey of Canada, Open File 5529. ",
+        "190": "Thiéblemont, D. (ed.). New edition of the 1:10,000,000 geological map of Africa. CGMW-BRGM. "
+      }
+    }
+  },
+  "acquired_via": "browser fetch (laptop built-in browser); body bytes re-hashed on import"
+}

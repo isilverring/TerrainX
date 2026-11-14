@@ -1,0 +1,71 @@
+{
+  "url": "https://macrostrat.org/api/geologic_units/map?lat=-21.5&lng=27.5&format=json",
+  "retrieved_at": "2026-11-14T13:28:49.540Z",
+  "sha256": "43833c1eabd4e21b372ea0463a4ce66c6473f54e5ce7b102b8d3c7926d6e0e19",
+  "status_code": 200,
+  "data": {
+    "success": {
+      "v": 2,
+      "license": "CC-BY 4.0",
+      "data": [
+        {
+          "map_id": 3309790,
+          "source_id": 190,
+          "name": "",
+          "strat_name": "",
+          "lith": "volcanic-sedimentary and plutonic",
+          "descrip": "",
+          "comments": "",
+          "macro_units": [],
+          "strat_names": [],
+          "liths": [
+            52,
+            63,
+            111
+          ],
+          "t_int_id": 260,
+          "t_int_age": 2500,
+          "t_int_name": "Neoarchean",
+          "b_int_id": 260,
+          "b_int_age": 2800,
+          "b_int_name": "Neoarchean",
+          "color": "#FF5CAD",
+          "t_age": 2500,
+          "b_age": 2800,
+          "best_int_name": "Neoarchean",
+          "scale": "small"
+        },
+        {
+          "map_id": 3191072,
+          "source_id": 154,
+          "name": "Archean crystalline metamorphic rocks",
+          "strat_name": "",
+          "lith": "crystalline metamorphic rocks",
+          "descrip": "",
+          "comments": "",
+          "macro_units": [],
+          "strat_names": [],
+          "liths": [
+            78
+          ],
+          "t_int_id": 132,
+          "t_int_age": 2500,
+          "t_int_name": "Archean",
+          "b_int_id": 132,
+          "b_int_age": 4031,
+          "b_int_name": "Archean",
+          "color": "#FF3399",
+          "t_age": 2500,
+          "b_age": 4000,
+          "best_int_name": "Archean",
+          "scale": "tiny"
+        }
+      ],
+      "refs": {
+        "154": "Chorlton, L.B. Generalized geology of the world: bedrock domains and major faults in GIS format: a small-scale world geology map with an extended geological attribute database. doi: 10.4095/223767. Geological Survey of Canada, Open File 5529. ",
+        "190": "Thiéblemont, D. (ed.). New edition of the 1:10,000,000 geological map of Africa. CGMW-BRGM. "
+      }
+    }
+  },
+  "acquired_via": "browser fetch (laptop built-in browser); body bytes re-hashed on import"
+}

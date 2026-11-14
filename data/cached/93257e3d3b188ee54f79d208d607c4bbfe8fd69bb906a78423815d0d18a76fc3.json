@@ -1,0 +1,70 @@
+{
+  "url": "https://macrostrat.org/api/geologic_units/map?lat=-24.5&lng=-68.125&format=json",
+  "retrieved_at": "2026-11-14T13:34:54.455Z",
+  "sha256": "111ca11fbc57f7f66f5941465725721a12fb4a31fca10183a6d9f815794f83e5",
+  "status_code": 200,
+  "data": {
+    "success": {
+      "v": 2,
+      "license": "CC-BY 4.0",
+      "data": [
+        {
+          "map_id": 4969273,
+          "source_id": 1087,
+          "name": "Paleogene - Neogene Volcano-sedimentary",
+          "strat_name": "",
+          "lith": "Volcaniclastic, volcanic",
+          "descrip": "",
+          "comments": "",
+          "macro_units": [],
+          "strat_names": [],
+          "liths": [
+            49,
+            63
+          ],
+          "t_int_id": 2,
+          "t_int_age": 2.58,
+          "t_int_name": "Neogene",
+          "b_int_id": 20,
+          "b_int_age": 66,
+          "b_int_name": "Paleogene",
+          "color": "#F4B470",
+          "t_age": 2.58,
+          "b_age": 66,
+          "best_int_name": "Cenozoic",
+          "scale": "small"
+        },
+        {
+          "map_id": 3186221,
+          "source_id": 154,
+          "name": "Cenozoic volcanic rocks",
+          "strat_name": "",
+          "lith": "intermediate-felsic volcanic rocks",
+          "descrip": "",
+          "comments": "",
+          "macro_units": [],
+          "strat_names": [],
+          "liths": [
+            63
+          ],
+          "t_int_id": 421,
+          "t_int_age": 0,
+          "t_int_name": "Quaternary",
+          "b_int_id": 474,
+          "b_int_age": 66,
+          "b_int_name": "Tertiary",
+          "color": "#F2F91D",
+          "t_age": 0,
+          "b_age": 66,
+          "best_int_name": "Cenozoic",
+          "scale": "tiny"
+        }
+      ],
+      "refs": {
+        "154": "Chorlton, L.B. Generalized geology of the world: bedrock domains and major faults in GIS format: a small-scale world geology map with an extended geological attribute database. doi: 10.4095/223767. Geological Survey of Canada, Open File 5529. ",
+        "1087": "Gómez, J., Schobbenhaus, C. & Montes, N.E., compilers. Geological Map of South America 2018. Scale 1:5 000 000. Commission for the Geological Map of the World (CGMW), Colombian Geological Survey and Geological Survey of Brazil. "
+      }
+    }
+  },
+  "acquired_via": "browser fetch (laptop built-in browser); body bytes re-hashed on import"
+}

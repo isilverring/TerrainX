@@ -1,0 +1,70 @@
+{
+  "url": "https://macrostrat.org/api/geologic_units/map?lat=-22.0&lng=-68.75&format=json",
+  "retrieved_at": "2026-11-14T13:38:51.368Z",
+  "sha256": "c4d582077342d77525a03113d9922cd0d1dd5797436e9506db93fb70f40ca1b5",
+  "status_code": 200,
+  "data": {
+    "success": {
+      "v": 2,
+      "license": "CC-BY 4.0",
+      "data": [
+        {
+          "map_id": 4970749,
+          "source_id": 1087,
+          "name": "Carboniferous - Permian Andesitic and related",
+          "strat_name": "",
+          "lith": "Andesite and related volcanic",
+          "descrip": "",
+          "comments": "",
+          "macro_units": [],
+          "strat_names": [],
+          "liths": [
+            63,
+            69
+          ],
+          "t_int_id": 75,
+          "t_int_age": 251.902,
+          "t_int_name": "Permian",
+          "b_int_id": 84,
+          "b_int_age": 358.86,
+          "b_int_name": "Carboniferous",
+          "color": "#67A599",
+          "t_age": 251.902,
+          "b_age": 358.86,
+          "best_int_name": "Paleozoic",
+          "scale": "small"
+        },
+        {
+          "map_id": 3193237,
+          "source_id": 154,
+          "name": "Mesozoic sedimentary rocks",
+          "strat_name": "",
+          "lith": "sedimentary rocks",
+          "descrip": "",
+          "comments": "",
+          "macro_units": [],
+          "strat_names": [],
+          "liths": [
+            111
+          ],
+          "t_int_id": 33,
+          "t_int_age": 66,
+          "t_int_name": "Cretaceous",
+          "b_int_id": 48,
+          "b_int_age": 201.4,
+          "b_int_name": "Jurassic",
+          "color": "#5ABC8C",
+          "t_age": 66,
+          "b_age": 201.3,
+          "best_int_name": "Mesozoic",
+          "scale": "tiny"
+        }
+      ],
+      "refs": {
+        "154": "Chorlton, L.B. Generalized geology of the world: bedrock domains and major faults in GIS format: a small-scale world geology map with an extended geological attribute database. doi: 10.4095/223767. Geological Survey of Canada, Open File 5529. ",
+        "1087": "Gómez, J., Schobbenhaus, C. & Montes, N.E., compilers. Geological Map of South America 2018. Scale 1:5 000 000. Commission for the Geological Map of the World (CGMW), Colombian Geological Survey and Geological Survey of Brazil. "
+      }
+    }
+  },
+  "acquired_via": "browser fetch (laptop built-in browser); body bytes re-hashed on import"
+}
