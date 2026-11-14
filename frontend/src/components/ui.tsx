@@ -41,6 +41,7 @@ export function Header({
         ["/what-if", "What if"],
         ["/transfer-lab", "Transfer Lab"],
         ["/worlds", "Worlds"],
+        ["/terrain-pilot", "Terrain pilot"],
         ["/methodology", "Methodology"],
       ],
     },

@@ -116,3 +116,41 @@ test("mobile navigation exposes the complete research journey", async ({
     page.getByRole("button", { name: "Open navigation" }),
   ).toHaveAttribute("aria-expanded", "false");
 });
+
+test("an imported historical study loads its exact inputs and model without retaining newer case cards", async ({
+  page,
+}) => {
+  await page.goto("/#/cases");
+  await expect(page.locator(".case-study")).toHaveCount(3);
+  const release = await (
+    await page.request.get("/releases/science-a134e4d3f6430233/manifest.json")
+  ).json();
+  await page.getByRole("link", { name: "Research", exact: true }).click();
+  const file = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export snapshot JSON" }).click();
+  const { readFileSync } = await import("node:fs");
+  const snapshot = JSON.parse(
+    readFileSync((await (await file).path())!, "utf8"),
+  );
+  snapshot.title = "Historical replay";
+  snapshot.science = release;
+  snapshot.scenarios.jezero.alpha = 0.4;
+  await page
+    .locator("input[type=file]")
+    .setInputFiles({
+      name: "historical.json",
+      mimeType: "application/json",
+      buffer: Buffer.from(JSON.stringify(snapshot)),
+    });
+  await expect(page).toHaveURL(/science=science-a134e4d3f6430233/);
+  await expect(page.getByRole("heading", { level: 1 })).not.toContainText(
+    "Research workspace",
+  );
+  await page.getByRole("link", { name: "What if", exact: true }).click();
+  await expect(page.locator("#wi-alpha")).toHaveValue("0.4");
+  await page.getByRole("link", { name: "Cases", exact: true }).click();
+  await expect(page.getByRole("status")).toContainText(
+    "not included in this historical release",
+  );
+  await expect(page.locator(".case-study")).toHaveCount(0);
+});

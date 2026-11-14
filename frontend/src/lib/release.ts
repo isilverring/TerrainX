@@ -35,12 +35,13 @@ export function activateRelease(release: ScienceRelease) {
 export async function fetchScienceJson<T = unknown>(
   filename: string,
 ): Promise<T> {
+  const release = active;
   const response = await fetch(scienceAssetUrl(filename));
   if (!response.ok) throw new Error(`Science asset ${filename} unavailable`);
   const body = await response.arrayBuffer(),
-    record = active?.files[filename];
+    record = release?.files[filename];
   if (
-    active &&
+    release &&
     (!record ||
       record.bytes !== body.byteLength ||
       (await sha256(body)) !== record.sha256)

@@ -108,7 +108,10 @@ function Footprints({ candidate: c }: { candidate: Candidate }) {
     height = 0.5 * kmPerDegree,
     span = Math.max(width, height, 24) * 1.35,
     scale = 300 / span,
-    terrain = (c.terrain.footprint_m ?? 0) / 1000;
+    terrain =
+      c.terrain.status === "available" && c.terrain.footprint_m
+        ? c.terrain.footprint_m / 1000
+        : null;
   return (
     <figure className="footprint-figure">
       <svg
@@ -125,14 +128,16 @@ function Footprints({ candidate: c }: { candidate: Candidate }) {
           stroke="#35c3b0"
           strokeDasharray="5 4"
         />
-        <rect
-          x={250 - (terrain * scale) / 2}
-          y={125 - (terrain * scale) / 2}
-          width={terrain * scale}
-          height={terrain * scale}
-          fill="#c6d7e810"
-          stroke="#c6d7e8"
-        />
+        {terrain !== null && (
+          <rect
+            x={250 - (terrain * scale) / 2}
+            y={125 - (terrain * scale) / 2}
+            width={terrain * scale}
+            height={terrain * scale}
+            fill="#c6d7e810"
+            stroke="#c6d7e8"
+          />
+        )}
         {terrain
           ? Array.from({ length: 49 }, (_, i) => (
               <circle
@@ -146,7 +151,10 @@ function Footprints({ candidate: c }: { candidate: Candidate }) {
           : null}
         <circle cx="250" cy="125" r="5" fill="#f17e5a" />
         <text x="250" y="244" textAnchor="middle" fill="#97a8bd" fontSize="12">
-          Query anchor · {number(terrain, 0)} km terrain footprint
+          Query anchor ·{" "}
+          {terrain === null
+            ? "terrain footprint unavailable"
+            : `${number(terrain, 0)} km terrain footprint`}
         </text>
       </svg>
       <figcaption>

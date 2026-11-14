@@ -29,13 +29,21 @@ export default function Cases() {
     [cases, setCases] = useState<z.infer<typeof caseSchema> | null>(null),
     [error, setError] = useState("");
   useEffect(() => {
+    let live = true;
+    setCases(null);
+    setError("");
     if (!currentRelease()?.files["case_studies.json"]) {
       setError("Case studies were not included in this historical release.");
       return;
     }
     fetchScienceJson("case_studies.json")
-      .then((x) => setCases(caseSchema.parse(x)))
-      .catch((e) => setError(String(e)));
+      .then((x) => {
+        if (live) setCases(caseSchema.parse(x));
+      })
+      .catch((e) => live && setError(String(e)));
+    return () => {
+      live = false;
+    };
   }, [data.release?.release_id]);
   return (
     <main className="document-page cases-page">
