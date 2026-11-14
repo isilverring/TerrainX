@@ -87,3 +87,213 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+.fact-trigger {
+  color: inherit;
+  font: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  gap: 7px;
+  align-items: center;
+  text-align: left;
+}
+.fact-trigger:hover {
+  color: var(--earth);
+}
+.fact-trigger:focus-visible {
+  outline: 2px solid var(--earth);
+  outline-offset: 4px;
+}
+.observation .fact-trigger strong {
+  border-bottom: 1px dotted #35c3b066;
+}
+.evidence-dialog {
+  color: var(--text);
+  background: #111a29;
+  border: 1px solid #44536b;
+  border-radius: 12px;
+  width: min(760px, calc(100vw - 32px));
+  max-height: calc(100dvh - 48px);
+  overflow: auto;
+  padding: 28px;
+  box-shadow: 0 24px 100px #0008;
+}
+.evidence-dialog::backdrop {
+  background: #02050bd9;
+  backdrop-filter: blur(5px);
+}
+.evidence-dialog-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon-button {
+  background: none;
+  color: var(--text);
+  border: 0;
+  padding: 8px;
+  cursor: pointer;
+}
+.evidence-dialog h2 {
+  font: 600 27px "Space Grotesk";
+  margin: 20px 0;
+}
+.fact-reading {
+  font-size: 30px;
+  color: var(--earth);
+}
+.fact-reading small {
+  font-size: 14px;
+}
+.evidence-metadata {
+  display: grid;
+  gap: 14px;
+  margin: 24px 0;
+}
+.evidence-metadata div {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+.evidence-metadata dt {
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.evidence-metadata dd {
+  font-size: 13px;
+  margin: 5px 0 0;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+}
+.evidence-dialog ul {
+  padding-left: 20px;
+  color: #c6d7e8;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.evidence-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.evidence-facts article {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #0d1624;
+}
+.evidence-facts article span {
+  font-size: 11px;
+  color: var(--muted);
+}
+.evidence-facts strong {
+  display: block;
+  font-size: 19px;
+  margin-top: 7px;
+}
+.evidence-facts small {
+  font: 11px Inter;
+  color: var(--muted);
+}
+.evidence-facts .fact-trigger {
+  font-size: 11px;
+  color: var(--earth);
+  flex-shrink: 0;
+}
+.footprint-figure {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: center;
+  margin: 20px 0 30px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+}
+.footprint-figure svg {
+  width: 100%;
+  max-height: 250px;
+}
+.footprint-figure figcaption {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+.case-claims {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.case-claims section {
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+}
+.case-claims h3 {
+  font-size: 14px;
+  color: var(--earth);
+}
+.case-claims p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: #c6d7e8;
+}
+.research-entry {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 38px 0;
+  border-top: 1px solid var(--border);
+}
+.research-entry h2 {
+  font: 600 28px "Space Grotesk";
+}
+.research-entry p {
+  max-width: 700px;
+  color: var(--muted);
+}
+.research-entry .button {
+  flex-shrink: 0;
+}
+.tag-nasa {
+  color: var(--earth);
+}
+@media (max-width: 700px) {
+  .footprint-figure,
+  .case-claims,
+  .evidence-facts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .research-entry {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .evidence-dialog {
+    padding: 20px;
+  }
+  .evidence-facts article {
+    gap: 10px;
+  }
+  .evidence-facts strong {
+    font-size: 16px;
+  }
+}
+@media print {
+  .evidence-dialog,
+  .fact-trigger svg {
+    display: none !important;
+  }
+  .fact-trigger {
+    color: inherit;
+  }
+  .evidence-facts article {
+    break-inside: avoid;
+  }
+}

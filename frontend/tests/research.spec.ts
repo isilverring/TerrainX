@@ -42,3 +42,32 @@ test("a missing historical release stops rather than replacing scientific inputs
   await expect(page.getByText(/No newer data were substituted/)).toBeVisible();
   await expect(page.locator(".candidate-row")).toHaveCount(0);
 });
+
+test("evidence values open source metadata and cases preserve scientific status", async ({
+  page,
+}) => {
+  await page.goto("/#/site/saudi-24.000-39.375?mission=jezero");
+  const trigger = page
+    .getByRole("button", { name: "Inspect evidence: Temperature at 2 Meters" })
+    .first();
+  await trigger.click();
+  const dialog = page.getByRole("dialog", { name: "Temperature at 2 Meters" });
+  await expect(dialog).toBeVisible();
+  await expect(dialog).toContainText("2001-01-01");
+  await expect(dialog).toContainText("not an outcrop instrument");
+  await expect(dialog).toContainText("Source response SHA-256");
+  await page.keyboard.press("Escape");
+  await expect(dialog).toHaveCount(0);
+  await page.goto("/#/cases");
+  await expect(page.locator(".case-study")).toHaveCount(3);
+  await expect(page.locator(".case-study").nth(1)).toContainText(
+    "mission-specific relevance remains unassessed",
+  );
+  await expect(page.locator(".case-study").nth(2)).toContainText(
+    "excluded from discovery counts",
+  );
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect
+    .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
+    .toBeLessThanOrEqual(390);
+});

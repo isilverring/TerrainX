@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const publicDir=path.join(root,'frontend','public');
 const filenames=['dataset.json','screened_cells.geojson','provenance.json','planetary_context.json','land.geojson','validation.json'];
+for(const optional of ['case_studies.json','terrain_pilot.json']){try{await access(path.join(publicDir,'data',optional));filenames.push(optional);}catch{}}
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 const content=await Promise.all(filenames.map(async name=>[name,await readFile(path.join(publicDir,'data',name))]));
 const files=Object.fromEntries(content.map(([name,body])=>[name,{sha256:sha(body),bytes:body.length}]));

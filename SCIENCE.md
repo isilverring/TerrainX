@@ -111,6 +111,8 @@ Best documented benchmark, best characterized exploratory candidate and the drie
 
 ## Review clarifications
 
+Release3 Evidence Inspector exposes actual source values, units, acquisition periods, HTTP response hashes and calculation inputs. Its footprint figure is a schematic of native support at the selected latitude, not authoritative POWER pixel geometry or a mapped geology polygon. Fully assessed C remains distinct from evidence strength or independence. Reviewed cases are versioned with science releases: Saudi maps support a preliminary sedimentary question; Chile's granitic/intrusive mapping does not establish the required sedimentary mission process; Salda literature supplies direct shoreline process context but remains a benchmark. Multiple generalized maps may share source inputs. See each case's primary references and spatial scope; no field result is claimed.
+
 What-if settings are now one persisted model shared across all views. Alpha, tolerances, weights and minimum coverage are included in packet metadata and Passport QR snapshots. Release dataset downloads retain default model results. Characterization and configurable ranking thresholds cannot be reduced below the original 70% evidence floor in the UI; geology remains essential even if its weight is zero.
 
 "Fully assessed" Frontier comparators have all four model criteria assessed, rather than merely 70% weighted coverage. The incomplete candidate is excluded from its comparator pool. Rank-change text separates exact own-score contributions from relative movement caused by peers. Robustness rank median/IQR/best/worst are conditional on eligibility; eligibility share is explicit, and first/top-three shares use all 200 scenarios.

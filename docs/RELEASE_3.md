@@ -4,7 +4,7 @@ Approved scope: Package A (versioned research, Evidence Inspector and case studi
 
 ## Milestones
 - Completed M1: immutable science releases and research snapshot save/export/import/replay. Historical release failure is explicit; no newest-data substitution. Packets and QR links carry release/model/hash. Frozen release bytes bypass Git newline conversion. Checks:63 existing Python tests,56 TypeScript tests, production build; existing browser flows plus snapshot replay/missing-release checks pass after fixing a navigation pinning race and static-host HTML fallback handling.
-- Pending M2: Evidence Inspector and source-scoped Saudi/Chile/Salda case studies.
+- Completed M2: click-through observation provenance and full Evidence Inspector (units, actual period, response hash, calculations, spatial applicability, dependencies and limitations); schematic support diagram; three source-scoped Saudi/Chile/Salda case studies with active scores. Latest science release2592c0ede3235c21 includes reviewed cases. Checks:59 TypeScript tests, build, source-dialog/case/mobile and existing scientific workflow browser checks pass. Pilot raw Copernicus assets acquired/verified separately; no new pilot score exists yet.
 - Pending M3: Discover / Investigate / Prepare navigation, isolated presentation session and accessible controls.
 - Pending M4: first-party offline demo preparation, atomic cache updates and offline acceptance tests.
 - Pending M5: comparable-scale pilot using verified public Copernicus GLO90 DSM and real MOLA/LOLA, separately labeled from original SRTM scores. Actual NASA SRTM dense download requires Earthdata login; partner source is available without keys.

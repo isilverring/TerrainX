@@ -63,6 +63,19 @@ export default function Landing() {
         ))}
       </section>
       <BeyondKnown />
+      <section className="research-entry">
+        <div>
+          <p className="document-label">Evidence before interpretation</p>
+          <h2>Three candidates. Three different scientific decisions.</h2>
+          <p>
+            Follow a preliminary field question, an unsupported material
+            interpretation and a documented benchmark.
+          </p>
+        </div>
+        <Link className="button primary" to="/cases">
+          Explore the case studies <ArrowRight size={18} />
+        </Link>
+      </section>
       <footer className="landing-footer">
         <strong>2026 NASA Space Apps Challenge</strong>
         <span>

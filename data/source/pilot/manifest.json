@@ -1,0 +1,988 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-11-14T11:07:31.992046+00:00",
+  "complete": true,
+  "dataset": "Copernicus DEM GLO-90 (AWS 2021 COG release)",
+  "classification": "PARTNER-SOURCE OBSERVATION / DIGITAL SURFACE MODEL",
+  "source_organizations": [
+    "European Union",
+    "ESA",
+    "DLR",
+    "Airbus Defence and Space"
+  ],
+  "hosting_provider": "Sinergise / AWS Registry of Open Data",
+  "registry_url": "https://registry.opendata.aws/copernicus-dem/",
+  "official_collection_url": "https://dataspace.copernicus.eu/explore-data/data-collections/copernicus-contributing-missions/collections-description/COP-DEM",
+  "doi": "https://doi.org/10.5270/ESA-c5d3d65",
+  "source_kind_note": "Dense Copernicus partner DSM data; not NASA SRTM and not visualization-only AWS Terrarium. Existing cached NASA SRTM analysis stays independent.",
+  "coordinate_reference": {
+    "horizontal": "WGS84-G1150 / EPSG:4326",
+    "vertical": "EGM2008 geoid / EPSG:3855",
+    "vertical_unit": "m",
+    "raster_type": "RasterPixelIsPoint; use actual GDAL transform including half-pixel offset."
+  },
+  "processing_note": "AWS COG conversion removes shared south/east edge rows/columns from original1201x1201 grids. Actual COGs are1200x1200 Float32 at3arcsec. No derived terrain/scoring arrays are in this acquisition manifest.",
+  "quality_rules": {
+    "invalid": "Exclude nonfinite elevations and pixels whose EDM==0 or FLM==0. Honor actual raster mask/nodata. These GLO90 DEM files declare no scalar nodata; do not invent a zero-elevation or -32767 fill convention.",
+    "EDM": {
+      "0": "Void (no data)",
+      "1": "Not edited",
+      "2": "Infill of external elevation data",
+      "3": "Interpolated pixels",
+      "4": "Smoothed pixels",
+      "5": "Airport editing",
+      "6": "Raised negative elevation pixels",
+      "7": "Flattened pixels",
+      "8": "Ocean pixels",
+      "9": "Lake pixels",
+      "10": "River pixels",
+      "11": "Shoreline pixels",
+      "12": "Morphed pixels",
+      "13": "Shifted pixels"
+    },
+    "FLM": {
+      "0": "Void (no data)",
+      "1": "Edited (except filled pixels)",
+      "2": "Not edited / not filled",
+      "3": "ASTER",
+      "4": "SRTM90",
+      "5": "SRTM30",
+      "6": "GMTED2010",
+      "7": "SRTM30plus",
+      "8": "TerraSAR-X Radargrammetric DEM",
+      "9": "AW3D30",
+      "100": "Norway DEM",
+      "101": "DSM05 Spain",
+      "102": "Norway DEM v2"
+    },
+    "WBM": {
+      "0": "No water",
+      "1": "Ocean",
+      "2": "Lake",
+      "3": "River"
+    },
+    "interpretation": "Water codes identify edited/flattened water-surface elevations, not lake-floor bathymetry. DSM includes vegetation/buildings; report filled/edited/water fractions. Masks do not establish mineralogy."
+  },
+  "pilots": [
+    {
+      "id": "saudi-24.000-39.375",
+      "latitude": 24.0,
+      "longitude": 39.375,
+      "tile_ids": [
+        "N23_00_E039_00",
+        "N24_00_E039_00"
+      ]
+    },
+    {
+      "id": "reference-salda",
+      "latitude": 37.520408,
+      "longitude": 29.673456,
+      "tile_ids": [
+        "N37_00_E029_00"
+      ]
+    }
+  ],
+  "licence_file": "eula_F.pdf",
+  "attribution_note": "Preserve EULA and its adapted-product attribution; official collection page supplies current required credit notices.",
+  "limitations": [
+    "DSM, not a bare-earth field survey.",
+    "Common aggregation area does not remove sensor,epoch,infill,vertical-error or native-response differences.",
+    "No rover-hazard certification or field validation."
+  ],
+  "assets": [
+    {
+      "tile_id": "N23_00_E039_00",
+      "kind": "DEM",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N23_00_E039_00_DEM/Copernicus_DSM_COG_30_N23_00_E039_00_DEM.tif",
+      "relative_path": "N23_00_E039_00/Copernicus_DSM_COG_30_N23_00_E039_00_DEM.tif",
+      "retrieved_at": "2026-11-14T11:07:34.612147+00:00",
+      "http_status": 200,
+      "response_content_type": "image/tiff",
+      "bytes": 5315964,
+      "sha256": "3e7500bbc38adf0610249e53fbc42089f21f6f1b4c3f5309614dd9c7bfd2d7f4",
+      "etag": "\"3ba24e99db3b6ee7b0d39eb7803dcd7b\"",
+      "last_modified": "Mon, 09 May 2022 12:51:11 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N23_00_E039_00_DEM/Copernicus_DSM_COG_30_N23_00_E039_00_DEM.tif",
+      "raster": {
+        "driver": "GTiff",
+        "width": 1200,
+        "height": 1200,
+        "count": 1,
+        "dtype": "float32",
+        "crs": "EPSG:4326",
+        "transform": [
+          0.0008333333333333334,
+          0.0,
+          38.999583333333334,
+          0.0,
+          -0.0008333333333333334,
+          24.000416666666666,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bounds": [
+          38.999583333333334,
+          23.000416666666666,
+          39.999583333333334,
+          24.000416666666666
+        ],
+        "pixel_spacing_degrees": [
+          0.0008333333333333334,
+          0.0008333333333333334
+        ],
+        "nodata": null,
+        "units": [
+          null
+        ],
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "area_or_point": "Point",
+        "all_pixels_read": true,
+        "finite_pixel_count": 1440000,
+        "total_pixel_count": 1440000,
+        "minimum": 41.67391586303711,
+        "maximum": 2364.31982421875
+      }
+    },
+    {
+      "tile_id": "N23_00_E039_00",
+      "kind": "EDM",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N23_00_E039_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N23_00_E039_00_EDM.tif",
+      "relative_path": "N23_00_E039_00/Copernicus_DSM_COG_30_N23_00_E039_00_EDM.tif",
+      "retrieved_at": "2026-11-14T11:07:35.889434+00:00",
+      "http_status": 200,
+      "response_content_type": "image/tiff",
+      "bytes": 43085,
+      "sha256": "43ef9a270fabcbc48919be7015d783abf43bf3a47bc7621fccdc26666867775f",
+      "etag": "\"294ff820d636bcd116bb4ca77f8e30f7\"",
+      "last_modified": "Mon, 09 May 2022 12:51:11 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N23_00_E039_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N23_00_E039_00_EDM.tif",
+      "raster": {
+        "driver": "GTiff",
+        "width": 1200,
+        "height": 1200,
+        "count": 1,
+        "dtype": "uint8",
+        "crs": "EPSG:4326",
+        "transform": [
+          0.0008333333333333334,
+          0.0,
+          38.999583333333334,
+          0.0,
+          -0.0008333333333333334,
+          24.000416666666666,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bounds": [
+          38.999583333333334,
+          23.000416666666666,
+          39.999583333333334,
+          24.000416666666666
+        ],
+        "pixel_spacing_degrees": [
+          0.0008333333333333334,
+          0.0008333333333333334
+        ],
+        "nodata": null,
+        "units": [
+          null
+        ],
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "area_or_point": "Point",
+        "all_pixels_read": true,
+        "finite_pixel_count": 1440000,
+        "total_pixel_count": 1440000,
+        "minimum": 1.0,
+        "maximum": 4.0,
+        "code_counts": {
+          "1": 1428787,
+          "2": 9435,
+          "4": 1778
+        }
+      }
+    },
+    {
+      "tile_id": "N23_00_E039_00",
+      "kind": "FLM",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N23_00_E039_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N23_00_E039_00_FLM.tif",
+      "relative_path": "N23_00_E039_00/Copernicus_DSM_COG_30_N23_00_E039_00_FLM.tif",
+      "retrieved_at": "2026-11-14T11:07:37.195691+00:00",
+      "http_status": 200,
+      "response_content_type": "image/tiff",
+      "bytes": 42634,
+      "sha256": "103aae984273ccfa0238626c36527b8d65e68553bd12b9a249c72d77d75f0145",
+      "etag": "\"8c74a346bd6e9e949973fe3d3bd32563\"",
+      "last_modified": "Mon, 09 May 2022 12:51:11 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N23_00_E039_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N23_00_E039_00_FLM.tif",
+      "raster": {
+        "driver": "GTiff",
+        "width": 1200,
+        "height": 1200,
+        "count": 1,
+        "dtype": "uint8",
+        "crs": "EPSG:4326",
+        "transform": [
+          0.0008333333333333334,
+          0.0,
+          38.999583333333334,
+          0.0,
+          -0.0008333333333333334,
+          24.000416666666666,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bounds": [
+          38.999583333333334,
+          23.000416666666666,
+          39.999583333333334,
+          24.000416666666666
+        ],
+        "pixel_spacing_degrees": [
+          0.0008333333333333334,
+          0.0008333333333333334
+        ],
+        "nodata": null,
+        "units": [
+          null
+        ],
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "area_or_point": "Point",
+        "all_pixels_read": true,
+        "finite_pixel_count": 1440000,
+        "total_pixel_count": 1440000,
+        "minimum": 1.0,
+        "maximum": 5.0,
+        "code_counts": {
+          "1": 1778,
+          "2": 1428787,
+          "3": 177,
+          "4": 3,
+          "5": 9255
+        }
+      }
+    },
+    {
+      "tile_id": "N23_00_E039_00",
+      "kind": "WBM",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N23_00_E039_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N23_00_E039_00_WBM.tif",
+      "relative_path": "N23_00_E039_00/Copernicus_DSM_COG_30_N23_00_E039_00_WBM.tif",
+      "retrieved_at": "2026-11-14T11:07:38.147444+00:00",
+      "http_status": 200,
+      "response_content_type": "image/tiff",
+      "bytes": 13204,
+      "sha256": "8ce42b7a51d689d991bb50a35db8a274d1cb6b71c2b4917c7584494092823ec2",
+      "etag": "\"0a38151863eaa6788976754f1f00e047\"",
+      "last_modified": "Mon, 09 May 2022 12:51:11 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N23_00_E039_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N23_00_E039_00_WBM.tif",
+      "raster": {
+        "driver": "GTiff",
+        "width": 1200,
+        "height": 1200,
+        "count": 1,
+        "dtype": "uint8",
+        "crs": "EPSG:4326",
+        "transform": [
+          0.0008333333333333334,
+          0.0,
+          38.999583333333334,
+          0.0,
+          -0.0008333333333333334,
+          24.000416666666666,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bounds": [
+          38.999583333333334,
+          23.000416666666666,
+          39.999583333333334,
+          24.000416666666666
+        ],
+        "pixel_spacing_degrees": [
+          0.0008333333333333334,
+          0.0008333333333333334
+        ],
+        "nodata": null,
+        "units": [
+          null
+        ],
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "area_or_point": "Point",
+        "all_pixels_read": true,
+        "finite_pixel_count": 1440000,
+        "total_pixel_count": 1440000,
+        "minimum": 0.0,
+        "maximum": 0.0,
+        "code_counts": {
+          "0": 1440000
+        }
+      }
+    },
+    {
+      "tile_id": "N23_00_E039_00",
+      "kind": "metadata",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N23_00_E039_00_DEM/Copernicus_DSM_30_N23_00_E039_00.xml",
+      "relative_path": "N23_00_E039_00/Copernicus_DSM_30_N23_00_E039_00.xml",
+      "retrieved_at": "2026-11-14T11:07:39.421421+00:00",
+      "http_status": 200,
+      "response_content_type": "application/xml",
+      "bytes": 44756,
+      "sha256": "3d253ffe6512c383ddb9e6f03ccc0611b0294f7448ec484a6c09d64988354f87",
+      "etag": "\"e32e8d1555c27b2033e5d678498f0371\"",
+      "last_modified": "Mon, 09 May 2022 12:51:11 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N23_00_E039_00_DEM/Copernicus_DSM_30_N23_00_E039_00.xml",
+      "source_acquisition_period": {
+        "start": "2011-03-23T15:26:10.459738Z",
+        "end": "2014-03-16T03:24:10.044570Z",
+        "scope": "Original TanDEM-X acquisition coverage in XML; infill sources may differ."
+      }
+    },
+    {
+      "tile_id": "N24_00_E039_00",
+      "kind": "DEM",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N24_00_E039_00_DEM/Copernicus_DSM_COG_30_N24_00_E039_00_DEM.tif",
+      "relative_path": "N24_00_E039_00/Copernicus_DSM_COG_30_N24_00_E039_00_DEM.tif",
+      "retrieved_at": "2026-11-14T11:07:41.997446+00:00",
+      "http_status": 200,
+      "response_content_type": "image/tiff",
+      "bytes": 5101669,
+      "sha256": "08e8af6aa951e04d8641e3e2626f6a9c69020a486e61e0c2ef5bf82a2f0ba397",
+      "etag": "\"39fd3736be65713a1c3accf3bbc04a65\"",
+      "last_modified": "Mon, 09 May 2022 12:51:38 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N24_00_E039_00_DEM/Copernicus_DSM_COG_30_N24_00_E039_00_DEM.tif",
+      "raster": {
+        "driver": "GTiff",
+        "width": 1200,
+        "height": 1200,
+        "count": 1,
+        "dtype": "float32",
+        "crs": "EPSG:4326",
+        "transform": [
+          0.0008333333333333334,
+          0.0,
+          38.999583333333334,
+          0.0,
+          -0.0008333333333333334,
+          25.000416666666666,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bounds": [
+          38.999583333333334,
+          24.000416666666666,
+          39.999583333333334,
+          25.000416666666666
+        ],
+        "pixel_spacing_degrees": [
+          0.0008333333333333334,
+          0.0008333333333333334
+        ],
+        "nodata": null,
+        "units": [
+          null
+        ],
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "area_or_point": "Point",
+        "all_pixels_read": true,
+        "finite_pixel_count": 1440000,
+        "total_pixel_count": 1440000,
+        "minimum": 333.5210266113281,
+        "maximum": 2202.61474609375
+      }
+    },
+    {
+      "tile_id": "N24_00_E039_00",
+      "kind": "EDM",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N24_00_E039_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N24_00_E039_00_EDM.tif",
+      "relative_path": "N24_00_E039_00/Copernicus_DSM_COG_30_N24_00_E039_00_EDM.tif",
+      "retrieved_at": "2026-11-14T11:07:43.268832+00:00",
+      "http_status": 200,
+      "response_content_type": "image/tiff",
+      "bytes": 47529,
+      "sha256": "08d43930eda86d6211aaa3d3e2cb2663fc763af9baeb59b2f1ab0c471f565580",
+      "etag": "\"93acd7aa793e9fbff639e8c82d161ffb\"",
+      "last_modified": "Mon, 09 May 2022 12:51:38 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N24_00_E039_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N24_00_E039_00_EDM.tif",
+      "raster": {
+        "driver": "GTiff",
+        "width": 1200,
+        "height": 1200,
+        "count": 1,
+        "dtype": "uint8",
+        "crs": "EPSG:4326",
+        "transform": [
+          0.0008333333333333334,
+          0.0,
+          38.999583333333334,
+          0.0,
+          -0.0008333333333333334,
+          25.000416666666666,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bounds": [
+          38.999583333333334,
+          24.000416666666666,
+          39.999583333333334,
+          25.000416666666666
+        ],
+        "pixel_spacing_degrees": [
+          0.0008333333333333334,
+          0.0008333333333333334
+        ],
+        "nodata": null,
+        "units": [
+          null
+        ],
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "area_or_point": "Point",
+        "all_pixels_read": true,
+        "finite_pixel_count": 1440000,
+        "total_pixel_count": 1440000,
+        "minimum": 1.0,
+        "maximum": 5.0,
+        "code_counts": {
+          "1": 1419689,
+          "2": 6291,
+          "3": 1,
+          "4": 13702,
+          "5": 317
+        }
+      }
+    },
+    {
+      "tile_id": "N24_00_E039_00",
+      "kind": "FLM",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N24_00_E039_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N24_00_E039_00_FLM.tif",
+      "relative_path": "N24_00_E039_00/Copernicus_DSM_COG_30_N24_00_E039_00_FLM.tif",
+      "retrieved_at": "2026-11-14T11:07:44.352839+00:00",
+      "http_status": 200,
+      "response_content_type": "image/tiff",
+      "bytes": 47102,
+      "sha256": "a8a2d765d59f2f03b32920061c6abf191ed9eea7b70dac24576b1d4af97345b0",
+      "etag": "\"3112d7b39418f4d6da5dace3d256a939\"",
+      "last_modified": "Mon, 09 May 2022 12:51:38 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N24_00_E039_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N24_00_E039_00_FLM.tif",
+      "raster": {
+        "driver": "GTiff",
+        "width": 1200,
+        "height": 1200,
+        "count": 1,
+        "dtype": "uint8",
+        "crs": "EPSG:4326",
+        "transform": [
+          0.0008333333333333334,
+          0.0,
+          38.999583333333334,
+          0.0,
+          -0.0008333333333333334,
+          25.000416666666666,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bounds": [
+          38.999583333333334,
+          24.000416666666666,
+          39.999583333333334,
+          25.000416666666666
+        ],
+        "pixel_spacing_degrees": [
+          0.0008333333333333334,
+          0.0008333333333333334
+        ],
+        "nodata": null,
+        "units": [
+          null
+        ],
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "area_or_point": "Point",
+        "all_pixels_read": true,
+        "finite_pixel_count": 1440000,
+        "total_pixel_count": 1440000,
+        "minimum": 1.0,
+        "maximum": 5.0,
+        "code_counts": {
+          "1": 14020,
+          "2": 1419689,
+          "3": 466,
+          "5": 5825
+        }
+      }
+    },
+    {
+      "tile_id": "N24_00_E039_00",
+      "kind": "WBM",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N24_00_E039_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N24_00_E039_00_WBM.tif",
+      "relative_path": "N24_00_E039_00/Copernicus_DSM_COG_30_N24_00_E039_00_WBM.tif",
+      "retrieved_at": "2026-11-14T11:07:45.263063+00:00",
+      "http_status": 200,
+      "response_content_type": "image/tiff",
+      "bytes": 13204,
+      "sha256": "4acb944b6b2369383195f6805c6bc45766846a3d4f38438ab1f55fe25c4005f0",
+      "etag": "\"1159e1b4dc6b56de2bc12b04e64f8330\"",
+      "last_modified": "Mon, 09 May 2022 12:51:38 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N24_00_E039_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N24_00_E039_00_WBM.tif",
+      "raster": {
+        "driver": "GTiff",
+        "width": 1200,
+        "height": 1200,
+        "count": 1,
+        "dtype": "uint8",
+        "crs": "EPSG:4326",
+        "transform": [
+          0.0008333333333333334,
+          0.0,
+          38.999583333333334,
+          0.0,
+          -0.0008333333333333334,
+          25.000416666666666,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bounds": [
+          38.999583333333334,
+          24.000416666666666,
+          39.999583333333334,
+          25.000416666666666
+        ],
+        "pixel_spacing_degrees": [
+          0.0008333333333333334,
+          0.0008333333333333334
+        ],
+        "nodata": null,
+        "units": [
+          null
+        ],
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "area_or_point": "Point",
+        "all_pixels_read": true,
+        "finite_pixel_count": 1440000,
+        "total_pixel_count": 1440000,
+        "minimum": 0.0,
+        "maximum": 0.0,
+        "code_counts": {
+          "0": 1440000
+        }
+      }
+    },
+    {
+      "tile_id": "N24_00_E039_00",
+      "kind": "metadata",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N24_00_E039_00_DEM/Copernicus_DSM_30_N24_00_E039_00.xml",
+      "relative_path": "N24_00_E039_00/Copernicus_DSM_30_N24_00_E039_00.xml",
+      "retrieved_at": "2026-11-14T11:07:46.335637+00:00",
+      "http_status": 200,
+      "response_content_type": "application/xml",
+      "bytes": 44756,
+      "sha256": "b63d76d93a9210fb0abe81505adc009539cc1181f8efa4eeb5c85e0135d3132f",
+      "etag": "\"2b10679072d2037727e168f32268bd3b\"",
+      "last_modified": "Mon, 09 May 2022 12:51:38 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N24_00_E039_00_DEM/Copernicus_DSM_30_N24_00_E039_00.xml",
+      "source_acquisition_period": {
+        "start": "2011-03-23T15:26:10.459738Z",
+        "end": "2014-03-16T03:24:10.044570Z",
+        "scope": "Original TanDEM-X acquisition coverage in XML; infill sources may differ."
+      }
+    },
+    {
+      "tile_id": "N37_00_E029_00",
+      "kind": "DEM",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+      "relative_path": "N37_00_E029_00/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+      "retrieved_at": "2026-11-14T11:07:48.740278+00:00",
+      "http_status": 200,
+      "response_content_type": "image/tiff",
+      "bytes": 4916335,
+      "sha256": "dfcb6a4aceacb5d1f149839215d7f0f0555590103d03a170b699c72a5b2f8d89",
+      "etag": "\"4a3c5295bc0b1cde5ec0aa4077001040\"",
+      "last_modified": "Mon, 09 May 2022 12:57:42 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_COG_30_N37_00_E029_00_DEM.tif",
+      "raster": {
+        "driver": "GTiff",
+        "width": 1200,
+        "height": 1200,
+        "count": 1,
+        "dtype": "float32",
+        "crs": "EPSG:4326",
+        "transform": [
+          0.0008333333333333334,
+          0.0,
+          28.999583333333334,
+          0.0,
+          -0.0008333333333333334,
+          38.000416666666666,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bounds": [
+          28.999583333333334,
+          37.000416666666666,
+          29.999583333333334,
+          38.000416666666666
+        ],
+        "pixel_spacing_degrees": [
+          0.0008333333333333334,
+          0.0008333333333333334
+        ],
+        "nodata": null,
+        "units": [
+          null
+        ],
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "area_or_point": "Point",
+        "all_pixels_read": true,
+        "finite_pixel_count": 1440000,
+        "total_pixel_count": 1440000,
+        "minimum": 143.9453582763672,
+        "maximum": 2517.167236328125
+      }
+    },
+    {
+      "tile_id": "N37_00_E029_00",
+      "kind": "EDM",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N37_00_E029_00_EDM.tif",
+      "relative_path": "N37_00_E029_00/Copernicus_DSM_COG_30_N37_00_E029_00_EDM.tif",
+      "retrieved_at": "2026-11-14T11:07:49.948869+00:00",
+      "http_status": 200,
+      "response_content_type": "image/tiff",
+      "bytes": 37086,
+      "sha256": "6aa8cec1ae8dd966817b11711f65a2432c00843e00526907e38845f08a1578bc",
+      "etag": "\"6a26186e4622de261fb556226ea4d803\"",
+      "last_modified": "Mon, 09 May 2022 12:57:42 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N37_00_E029_00_EDM.tif",
+      "raster": {
+        "driver": "GTiff",
+        "width": 1200,
+        "height": 1200,
+        "count": 1,
+        "dtype": "uint8",
+        "crs": "EPSG:4326",
+        "transform": [
+          0.0008333333333333334,
+          0.0,
+          28.999583333333334,
+          0.0,
+          -0.0008333333333333334,
+          38.000416666666666,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bounds": [
+          28.999583333333334,
+          37.000416666666666,
+          29.999583333333334,
+          38.000416666666666
+        ],
+        "pixel_spacing_degrees": [
+          0.0008333333333333334,
+          0.0008333333333333334
+        ],
+        "nodata": null,
+        "units": [
+          null
+        ],
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "area_or_point": "Point",
+        "all_pixels_read": true,
+        "finite_pixel_count": 1440000,
+        "total_pixel_count": 1440000,
+        "minimum": 1.0,
+        "maximum": 11.0,
+        "code_counts": {
+          "1": 1400276,
+          "2": 3005,
+          "4": 355,
+          "5": 67,
+          "9": 35441,
+          "11": 856
+        }
+      }
+    },
+    {
+      "tile_id": "N37_00_E029_00",
+      "kind": "FLM",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N37_00_E029_00_FLM.tif",
+      "relative_path": "N37_00_E029_00/Copernicus_DSM_COG_30_N37_00_E029_00_FLM.tif",
+      "retrieved_at": "2026-11-14T11:07:51.047415+00:00",
+      "http_status": 200,
+      "response_content_type": "image/tiff",
+      "bytes": 35673,
+      "sha256": "3aff54343a29a6afae04dcecd213fbd12b31a37cbfe31405dd964bc060dc8190",
+      "etag": "\"1af335eb9ea839cc59c9cc1a2fb4834d\"",
+      "last_modified": "Mon, 09 May 2022 12:57:42 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N37_00_E029_00_FLM.tif",
+      "raster": {
+        "driver": "GTiff",
+        "width": 1200,
+        "height": 1200,
+        "count": 1,
+        "dtype": "uint8",
+        "crs": "EPSG:4326",
+        "transform": [
+          0.0008333333333333334,
+          0.0,
+          28.999583333333334,
+          0.0,
+          -0.0008333333333333334,
+          38.000416666666666,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bounds": [
+          28.999583333333334,
+          37.000416666666666,
+          29.999583333333334,
+          38.000416666666666
+        ],
+        "pixel_spacing_degrees": [
+          0.0008333333333333334,
+          0.0008333333333333334
+        ],
+        "nodata": null,
+        "units": [
+          null
+        ],
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "area_or_point": "Point",
+        "all_pixels_read": true,
+        "finite_pixel_count": 1440000,
+        "total_pixel_count": 1440000,
+        "minimum": 1.0,
+        "maximum": 9.0,
+        "code_counts": {
+          "1": 36719,
+          "2": 1400276,
+          "3": 1293,
+          "4": 133,
+          "5": 1575,
+          "9": 4
+        }
+      }
+    },
+    {
+      "tile_id": "N37_00_E029_00",
+      "kind": "WBM",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N37_00_E029_00_WBM.tif",
+      "relative_path": "N37_00_E029_00/Copernicus_DSM_COG_30_N37_00_E029_00_WBM.tif",
+      "retrieved_at": "2026-11-14T11:07:51.961433+00:00",
+      "http_status": 200,
+      "response_content_type": "image/tiff",
+      "bytes": 20805,
+      "sha256": "b87d41fa0b5329f6dd37f1c53e7b90202d38ed4f74c7dededb4d2ffa495dabea",
+      "etag": "\"863b7a7c31f0b06531f67908cf2f7be4\"",
+      "last_modified": "Mon, 09 May 2022 12:57:42 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/AUXFILES/Copernicus_DSM_COG_30_N37_00_E029_00_WBM.tif",
+      "raster": {
+        "driver": "GTiff",
+        "width": 1200,
+        "height": 1200,
+        "count": 1,
+        "dtype": "uint8",
+        "crs": "EPSG:4326",
+        "transform": [
+          0.0008333333333333334,
+          0.0,
+          28.999583333333334,
+          0.0,
+          -0.0008333333333333334,
+          38.000416666666666,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "bounds": [
+          28.999583333333334,
+          37.000416666666666,
+          29.999583333333334,
+          38.000416666666666
+        ],
+        "pixel_spacing_degrees": [
+          0.0008333333333333334,
+          0.0008333333333333334
+        ],
+        "nodata": null,
+        "units": [
+          null
+        ],
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "area_or_point": "Point",
+        "all_pixels_read": true,
+        "finite_pixel_count": 1440000,
+        "total_pixel_count": 1440000,
+        "minimum": 0.0,
+        "maximum": 2.0,
+        "code_counts": {
+          "0": 1404559,
+          "2": 35441
+        }
+      }
+    },
+    {
+      "tile_id": "N37_00_E029_00",
+      "kind": "metadata",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_30_N37_00_E029_00.xml",
+      "relative_path": "N37_00_E029_00/Copernicus_DSM_30_N37_00_E029_00.xml",
+      "retrieved_at": "2026-11-14T11:07:53.040003+00:00",
+      "http_status": 200,
+      "response_content_type": "application/xml",
+      "bytes": 44710,
+      "sha256": "1860bfc9651e247b71d21769fff05108f054fd92b5487f040cdd95fd9ed83cd6",
+      "etag": "\"fbd7d9ccb4976574eaa602d6fbf4aff1\"",
+      "last_modified": "Mon, 09 May 2022 12:57:42 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/Copernicus_DSM_30_N37_00_E029_00.xml",
+      "source_acquisition_period": {
+        "start": "2011-06-12T15:56:29.201833Z",
+        "end": "2014-08-21T15:57:20.880442Z",
+        "scope": "Original TanDEM-X acquisition coverage in XML; infill sources may differ."
+      }
+    },
+    {
+      "tile_id": null,
+      "kind": "licence",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/INFO/eula_F.pdf",
+      "relative_path": "eula_F.pdf",
+      "retrieved_at": "2026-11-14T11:07:54.255306+00:00",
+      "http_status": 200,
+      "response_content_type": "application/pdf",
+      "bytes": 91158,
+      "sha256": "89ab641c75c1b64f1dacb069d419da5bdfae9501a060ca0337a2af9786a17e16",
+      "etag": "\"16fc0d9d497e07f25e95ab88102cc053\"",
+      "last_modified": "Mon, 09 May 2022 12:57:42 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N37_00_E029_00_DEM/INFO/eula_F.pdf"
+    },
+    {
+      "tile_id": null,
+      "kind": "source_readme",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/readme.html",
+      "relative_path": "readme.html",
+      "retrieved_at": "2026-11-14T11:07:55.134703+00:00",
+      "http_status": 200,
+      "response_content_type": "text/html",
+      "bytes": 8536,
+      "sha256": "922461d55070e3c7e0cf2903ec54190d69e3773da2dc9e776a3f03566cfd56d2",
+      "etag": "\"022cee281269bfa9eafa36401ef3e104\"",
+      "last_modified": "Wed, 22 Nov 2023 10:39:13 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/readme.html"
+    },
+    {
+      "tile_id": null,
+      "kind": "product_handbook",
+      "url": "https://dataspace.copernicus.eu/sites/default/files/media/files/2024-06/geo1988-copernicusdem-spe-002_producthandbook_i5.0.pdf",
+      "relative_path": "copernicus-dem-product-handbook-v5.pdf",
+      "retrieved_at": "2026-11-14T11:07:56.947368+00:00",
+      "http_status": 200,
+      "response_content_type": "application/pdf",
+      "bytes": 3541026,
+      "sha256": "b5a0b027bddef7122e39de368dba9cf10adce8631a2e3026d246b4be98c3f0c4",
+      "etag": "\"360822-61ac28c958217\"",
+      "last_modified": "Thu, 13 Jun 2024 09:59:04 GMT",
+      "resolved_url": "https://dataspace.copernicus.eu/sites/default/files/media/files/2024-06/geo1988-copernicusdem-spe-002_producthandbook_i5.0.pdf"
+    },
+    {
+      "tile_id": "N23_00_E039_00",
+      "kind": "licence",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N23_00_E039_00_DEM/INFO/eula_F.pdf",
+      "relative_path": "N23_00_E039_00/eula_F.pdf",
+      "retrieved_at": "2026-11-14T11:08:53.605461+00:00",
+      "http_status": 200,
+      "response_content_type": "application/pdf",
+      "bytes": 101172,
+      "sha256": "d6c2a50d636791276a2ba1517504eec26fd1e2bbe26d170c9a47f7317fca677f",
+      "etag": "\"0639a99ded93edf303fdea23fb3bb8c5\"",
+      "last_modified": "Mon, 09 May 2022 12:51:11 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N23_00_E039_00_DEM/INFO/eula_F.pdf"
+    },
+    {
+      "tile_id": "N24_00_E039_00",
+      "kind": "licence",
+      "url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N24_00_E039_00_DEM/INFO/eula_F.pdf",
+      "relative_path": "N24_00_E039_00/eula_F.pdf",
+      "retrieved_at": "2026-11-14T11:08:54.822878+00:00",
+      "http_status": 200,
+      "response_content_type": "application/pdf",
+      "bytes": 91158,
+      "sha256": "89ab641c75c1b64f1dacb069d419da5bdfae9501a060ca0337a2af9786a17e16",
+      "etag": "\"16fc0d9d497e07f25e95ab88102cc053\"",
+      "last_modified": "Mon, 09 May 2022 12:51:38 GMT",
+      "resolved_url": "https://copernicus-dem-90m.s3.amazonaws.com/Copernicus_DSM_COG_30_N24_00_E039_00_DEM/INFO/eula_F.pdf"
+    }
+  ],
+  "completed_at": "2026-11-14T11:07:56.955407+00:00",
+  "total_bytes": 19601562,
+  "licence_files": {
+    "N37_00_E029_00": "eula_F.pdf",
+    "N23_00_E039_00": "N23_00_E039_00/eula_F.pdf",
+    "N24_00_E039_00": "N24_00_E039_00/eula_F.pdf"
+  },
+  "licence_note": "Per-tile licence PDFs are preserved because their byte hashes differ; no equivalence was assumed."
+}

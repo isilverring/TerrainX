@@ -20,6 +20,7 @@ import {
   ExperimentPanel,
 } from "../components/SciencePanels";
 const TerrainViewer = lazy(() => import("../components/TerrainViewer"));
+const EvidenceInspector = lazy(() => import("../components/EvidenceInspector"));
 export default function SiteDetail() {
   const data = useData(),
     { id } = useParams(),
@@ -64,6 +65,7 @@ export default function SiteDetail() {
       <div className="detail-nav">
         {[
           ["observations", "Observations"],
+          ["evidence-inspector", "Evidence Inspector"],
           ["terrain", "Terrain DNA"],
           ["terrain-3d", "Forensics"],
           ["geology", "Geology"],
@@ -88,6 +90,9 @@ export default function SiteDetail() {
       <div id="observations">
         <ObservationPanel candidate={c} />
       </div>
+      <Suspense fallback={<p>Loading source inspector…</p>}>
+        <EvidenceInspector candidate={c} mission={mission} />
+      </Suspense>
       <div id="terrain">
         <TerrainPanel candidate={c} target={target} assessment={a} />
       </div>

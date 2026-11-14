@@ -2,6 +2,8 @@ import { lazy, Suspense } from "react";
 import { EvidenceTag, SourceLink } from "./ui";
 import { coordinates, labels, metricUnits, number } from "../lib/data";
 import type { Assessment, Candidate, Target } from "../lib/models";
+import { EvidenceButton } from "./EvidenceInspector";
+import { observationFact, periodText } from "../lib/evidence";
 const ClimateChart = lazy(() => import("./ClimateChart"));
 export function ObservationPanel({
   candidate,
@@ -35,15 +37,21 @@ export function ObservationPanel({
         ).map(([label, o]) => (
           <div className="observation" key={label}>
             <span>{label}</span>
-            <strong>
-              {number(o?.value, 2)}
-              <small>{o?.unit ?? "unavailable"}</small>
-            </strong>
+            {o ? (
+              <EvidenceButton fact={observationFact(candidate, label, o)}>
+                <strong>
+                  {number(o?.value, 2)}
+                  <small>{o?.unit ?? "unavailable"}</small>
+                </strong>
+              </EvidenceButton>
+            ) : (
+              <strong>
+                — <small>unavailable</small>
+              </strong>
+            )}
             {o ? (
               <SourceLink url={o.provenance.source_url}>
-                NASA POWER ·{" "}
-                {String(o.provenance.period?.[0] ?? "2001").slice(0, 4)}–
-                {String(o.provenance.period?.[1] ?? "2025").slice(0, 4)}
+                NASA POWER · {periodText(o.provenance.period)}
               </SourceLink>
             ) : (
               <EvidenceTag kind="UNAVAILABLE" />

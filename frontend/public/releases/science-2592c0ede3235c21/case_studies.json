@@ -1,0 +1,87 @@
+{
+  "schema_version": "1.0",
+  "reviewed_at": "2026-11-14",
+  "cases": [
+    {
+      "id": "saudi-field-question",
+      "candidate_id": "saudi-24.000-39.375",
+      "mission": "jezero",
+      "role": "Automatic candidate · preliminary hypothesis",
+      "title": "A terrain match becomes a field question",
+      "supported": "Generalized maps at this anchor describe Neoproterozoic sedimentary and volcaniclastic material. This supports a preliminary sedimentary fieldwork question.",
+      "scope": "Macrostrat unit 3306996/source 190 (BRGM–CGMW Africa 1:10,000,000) and unit 3193272/source 154 (generalized GSC world geology). Regional polygon intersections, not confirmed exposed outcrops or coverage across 24 km.",
+      "contradiction": "Mixed volcaniclastic material and regional map scale limit the interpretation. No cited evidence establishes a local lake, delta, carbonate-bearing outcrop or biosignature-preservation setting.",
+      "independence": "The two generalized maps may share source inputs. They are not two independent local observations.",
+      "next_measurement": "If access is permitted: local unit mapping and a GNSS-controlled transect; document bedding, grain size and sedimentary structures, then test mineral identity with petrography and Raman/XRD. XRF chemistry alone does not establish carbonate mineralogy.",
+      "hypothesis": "If permitted exposures confirm sedimentary material, a standardized transect may rehearse stratigraphic logging and evidence-preserving sample documentation.",
+      "sources": [
+        {
+          "title": "Exact Macrostrat anchor query",
+          "url": "https://macrostrat.org/api/geologic_units/map?lat=24.0&lng=39.375&format=json"
+        },
+        {
+          "title": "BRGM–CGMW Africa geological map",
+          "url": "https://www.brgm.fr/fr/reference-projet-acheve/nouvelle-edition-carte-geologique-afrique-110-000-000"
+        },
+        {
+          "title": "GSC generalized geology Open File 5529",
+          "url": "https://doi.org/10.4095/223767"
+        }
+      ]
+    },
+    {
+      "id": "chile-morphology-contrast",
+      "candidate_id": "chile--22.500--70.000",
+      "mission": "jezero",
+      "role": "Automatic candidate · mission evidence insufficient",
+      "title": "A high terrain score cannot establish geology",
+      "supported": "Real terrain and climate inputs support broad morphology and dry operating context. Regional maps identify Jurassic granitic and intrusive igneous material at the anchor.",
+      "scope": "Macrostrat unit 4973267/source 1087 (South America 1:5,000,000) and unit 3186158/source 154 (generalized world geology). These are mapped regional interpretations.",
+      "contradiction": "Mapped granitic/intrusive material does not establish the sedimentary, lacustrine or carbonate process required by this mission. Geology is not wholly unmapped; mission-specific relevance remains unassessed. High partial U does not resolve that gap.",
+      "independence": "Generalized geological maps and coarse climatology do not replace independent local sampling.",
+      "next_measurement": "Inspect detailed maps and permitted exposures for sedimentary cover. If only granitic material is confirmed, reject the sedimentary hypothesis or choose an appropriately limited navigation-workflow experiment.",
+      "hypothesis": "Field reconnaissance can test whether an accessible sedimentary exposure exists within the proposed research area; no positive geological result is predicted.",
+      "sources": [
+        {
+          "title": "Exact Macrostrat anchor query",
+          "url": "https://macrostrat.org/api/geologic_units/map?lat=-22.5&lng=-70.0&format=json"
+        },
+        {
+          "title": "Official South America geological map",
+          "url": "https://rigeo.sgb.gov.br/items/0bc12df1-38a2-485d-acd2-f03dc9a8d3a3"
+        },
+        {
+          "title": "GSC generalized geology",
+          "url": "https://doi.org/10.4095/223767"
+        }
+      ]
+    },
+    {
+      "id": "salda-direct-evidence",
+      "candidate_id": "reference-salda",
+      "mission": "jezero",
+      "role": "Documented benchmark · excluded from discovery counts",
+      "title": "What direct process evidence adds",
+      "supported": "Published shoreline hydromagnesite and microbialite evidence supports a carbonate/lacustrine process analogy. The anchor matches the published sample-station location.",
+      "scope": "The source paper's station 2/type locality is 37°31′13.47″N,29°40′24.44″E. NASA's lake-level comparison does not characterize every rock across the 24 km terrain window.",
+      "contradiction": "Living biology and modern liquid water differ from present Mars. The terrain footprint includes surrounding rocks and water; lake-surface elevation is not bathymetry. Regional ophiolite polygons do not override direct shoreline literature or establish lunar basalt relevance.",
+      "independence": "A known benchmark illustrates direct process evidence. It is never an automatic discovery. C 100% means all declared model criteria are assessed, not complete scientific knowledge.",
+      "next_measurement": "Confirm access and sampling permissions; document the exact study boundary and compare sediment/mineral observations with published shoreline measurements.",
+      "hypothesis": "A permitted shoreline documentation exercise may test whether a sampling protocol preserves mineral, textural and contextual observations from carbonate deposits.",
+      "sources": [
+        {
+          "title": "NASA Jezero–Salda comparison",
+          "url": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/"
+        },
+        {
+          "title": "NASA Lake Salda rocks",
+          "url": "https://science.nasa.gov/photojournal/lake-salda-rocks/"
+        },
+        {
+          "title": "Published locality and sample station",
+          "url": "https://doi.org/10.1080/0269249X.2023.2233519"
+        }
+      ]
+    }
+  ]
+}
