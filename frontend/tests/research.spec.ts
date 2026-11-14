@@ -88,11 +88,13 @@ test("presentation uses its own model and restores research settings on exit", a
   await page
     .getByRole("link", { name: "Exit presentation", exact: true })
     .click();
+  await expect(page.locator("main.explorer")).toBeVisible();
   await openResearch(page, "What if");
   await expect(page.locator("#wi-alpha")).toHaveValue("0.85");
   await page.getByRole("link", { name: /Guided demo/ }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
   await page.keyboard.press("Escape");
+  await expect(page.locator("main.explorer")).toBeVisible();
   await openResearch(page, "What if");
   await expect(page.locator("#wi-alpha")).toHaveValue("0.85");
   const stored = await page.evaluate(() =>
