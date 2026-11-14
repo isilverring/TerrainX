@@ -118,6 +118,10 @@ test("polar reference survives dossier, export and field-study replay with utili
   );
   await expect(fieldReplay.locator(".field-stations li")).toHaveCount(5);
   await fieldReplay.close();
+  await page.goto("/#/worlds?polar=haworth");
+  await expect(page.getByRole("alert")).toContainText("No primary-target data were substituted");
+  await page.getByRole("button",{name:"Use this workspace's primary references"}).click();
+  await expect(page.locator("main.worlds-page")).toBeVisible();
 });
 test("expanded lead opens DNA, map and a source-pinned Passport without replacing the baseline", async ({
   page,

@@ -100,6 +100,8 @@ describe("explicit scientific collections", () => {
     expect(JSON.stringify(base)).toBe(before);
   });
   it("carries explicit destination choices and pins collection in snapshot replay", () => {
+    expect(studyPath("/worlds","?polar=haworth")).toContain("polar=none");
+    expect(studyPath("/passport/example","?polar=haworth")).toContain("polar=haworth");
     expect(
       studyPath(
         "/site/example?mission=jezero",

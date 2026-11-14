@@ -7,6 +7,7 @@ import {
   expandedCollection,
   fieldSitesSchema,
   type Collection,
+  PRIMARY_REFERENCE_PAGES,
 } from "../lib/collections";
 import { lunarPolarSchema } from "../lib/lunarPolar";
 import { polarReference } from "../lib/polarReference";
@@ -77,13 +78,14 @@ export default function CollectionScope({ children }: { children: ReactNode }) {
       active_mission: mission,
     };
     try {
+      if(polarId&&PRIMARY_REFERENCE_PAGES.has(location.pathname))throw Error("This workspace uses fixed primary planetary references. Leave the polar reference explicitly, or continue it through Discovery, DNA, Passport, Research or Field study. No primary-target data were substituted.");
       if (polarId && polar.value)
         data = polarReference(data, polar.value, polarId);
       return { data: applyScenarios(data, model.scenarios), error: "" };
     } catch (e) {
       return { data, error: String(e) };
     }
-  }, [base, value, collection, mission, model.scenarios, polarId, polar.value]);
+  }, [base, value, collection, mission, model.scenarios, polarId, polar.value,location.pathname]);
   const data = built.data;
   // Route links may omit cohort; keep it explicitly in the URL before rendering
   // a dossier, so browser refresh, copied addresses and navigation agree.
@@ -127,7 +129,7 @@ export default function CollectionScope({ children }: { children: ReactNode }) {
             {polarId && (
               <span>
                 Polar reference:{" "}
-                {data.targets.find((t) => t.id === "mare-crisium")?.name} · U
+                {polar.value?.sites.find(s=>s.id===polarId)?.feature??polarId} · U
                 unassessed{" "}
                 <button
                   className="link-button"
@@ -156,6 +158,7 @@ export default function CollectionScope({ children }: { children: ReactNode }) {
                 : "Validating scientific observations…"}
             </h1>
             <p role="alert">{error || built.error || polar.error}</p>
+            {polarId&&<button className="button outline" onClick={()=>{const p=new URLSearchParams(params);p.set("polar","none");setRetainedPolar(null);setParams(p);}}>Use this workspace's primary references</button>}
           </main>
         ) : (
           children
