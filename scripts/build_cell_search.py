@@ -140,7 +140,16 @@ def main() -> None:
                 cached.append({"url": url, "sha256": rec["sha256"], "retrieved_at": rec["retrieved_at"], "file": f"data/cached/{path.name}"})
     out["provenance"] = sorted({c["url"]: c for c in cached}.values(), key=lambda c: c["url"])
     atomic_json(derived / "cell_search.json", out)
-    atomic_json(ROOT / "frontend" / "public" / "data" / "cell_search.json", out)
+    # Public copy: SRTM request URLs (~1.6 kB each) are replaced by their cache file + SHA-256;
+    # the full URLs stay in data/derived/cell_search.json and in data/cached/.
+    public = json.loads(json.dumps(out))
+    for r in public["rows"]:
+        r["terrain"].pop("source_urls", None)
+        if r["terrain"].get("elevations_m"):
+            r["terrain"]["elevations_m"] = [[None if v is None else round(v, 2) for v in row] for row in r["terrain"]["elevations_m"]]
+    public["provenance"] = [{**{k: v for k, v in c.items() if k != "url"}, "source": "OpenTopoData srtm90m" if "opentopodata" in c["url"] else c["url"]} for c in public["provenance"]]
+    target = ROOT / "frontend" / "public" / "data" / "cell_search.json"
+    target.write_text(json.dumps(public, separators=(",", ":"), allow_nan=False, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({k: out[k] for k in ("cells", "terrain_available", "geology_mapped")}, indent=2))
     for mission, m in out["missions"].items():
         print(mission, "eligible", m["eligible"], "shortlist", m["shortlist"], "new", m["new_vs_release"])

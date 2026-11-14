@@ -12,6 +12,8 @@ const PAGES: [string, string, string][] = [
   ["/explorer", "Discovery atlas", "Map, shortlist and evidence for both missions"],
   ["/frontier", "Discovery Frontier", "What missing evidence could change"],
   ["/lenses", "Discovery lenses", "Six declared re-rankings of the shortlist"],
+  ["/cells", "Search every cell", "Mission-aware ranking of all 130 screened cells"],
+  ["/lunar-pole", "Lunar south pole", "LOLA terrain at Artemis III region features"],
   ["/cases", "Case studies", "Three scientific decisions, source-scoped"],
   ["/what-if", "What if the mission changes?", "Adjust α, weights and tolerances"],
   ["/transfer-lab", "Planetary Transfer Lab", "Gravity, Froude and dynamic pressure"],

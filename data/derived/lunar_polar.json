@@ -1,12 +1,12 @@
 {
   "contract": "terrainx-lunar-polar-v1",
-  "generated_at": "2026-11-14T13:44:35.357830+00:00",
+  "generated_at": "2026-11-14T13:45:15.780150+00:00",
   "raster": {
     "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_16.img",
     "bytes": 33177600,
     "sha256": "a511e40d7a3ea3275945b4da2a1df377133264fab0be94b7434b1cf8907254cb",
     "pinned_sha256": "a511e40d7a3ea3275945b4da2a1df377133264fab0be94b7434b1cf8907254cb",
-    "verified_at": "2026-11-14T13:44:35.257001+00:00"
+    "verified_at": "2026-11-14T13:45:15.677575+00:00"
   },
   "label_metadata": {
     "pixels_per_degree": 16.0,

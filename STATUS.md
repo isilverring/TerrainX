@@ -12,7 +12,7 @@ Release 3 code and science are complete and pushed to private https://github.com
 
 Validation: 67 Python tests plus independent reproduction; 61 TypeScript science tests; 24/24 production-preview browser workflows. Visual sweep 25 page/viewport combinations (390–1568px): no overflow, missing images, framework overlays or app/console errors after fixing a tablet decorative-grid overflow. Chrome/Playwright used because Browser plugin was not available. Static build passes; dependency bundle-size warnings are nonfatal and map loads lazily. QA assets are ignored under outputs/release3-qa.
 
-Original science unchanged: 130 POWER cells, 16 automatic candidates, 10 preliminary characterized under default assumptions, 4 reference benchmarks, 20 climate/SRTM profiles, 2 genuine planetary grids, 19 mapped geology contexts. Dataset SHA-256 3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c. Current science release science-bdf38c65827e398b. Full raw rasters are ignored; pinned labels/hashes/derived grids and reproducible acquisition scripts are committed. Rasterio 1.5.2 is the new preprocessing dependency; lockfile updated.
+Original science unchanged: 130 POWER cells, 16 automatic candidates, 10 preliminary characterized under default assumptions, 4 reference benchmarks, 20 climate/SRTM profiles, 2 genuine planetary grids, 19 mapped geology contexts. Dataset SHA-256 3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c. Current science release science-1407d3729d4bd714 (laptop L8; earlier science-bdf38c65827e398b remains frozen). Full raw rasters are ignored; pinned labels/hashes/derived grids and reproducible acquisition scripts are committed. Rasterio 1.5.2 is the new preprocessing dependency; lockfile updated.
 
 ## Laptop session (cloud workspace) — Release 4 track
 
@@ -35,9 +35,14 @@ Work continued from the laptop after Release 3 (`efa7194`). Each milestone below
   - `scripts/build_lunar_polar.py` (`terrainx-lunar-polar-v1`): LOLA 7×7 terrain at the IAU Gazetteer centres of the features naming NASA's nine Artemis III regions (Cabeus B, Haworth, Mons Malapert, Mons Mouton, Nobile, de Gerlache, Slater) plus Shackleton; Earth terrain twins (F only) against all 134 Earth profiles. Mons Mouton (flat-topped) and Cabeus B centre find strong twins (F 91–97); steep massifs/craters (Mons Malapert, Shackleton) have none (F ≈ 0–1).
   - Tests: `tests/scientific/test_cell_search_polar.py` (8); Python suite 75 passed.
 
+- **L8 pages for the new science, shipped in science release `science-1407d3729d4bd714`** (adds `cell_search.json` and `lunar_polar.json`; every file is SHA-256-checked in the browser against the release manifest; older releases stay frozen and say plainly that they lack these files).
+  - `/cells` (Discover → All cells): funnel, four region small-multiples of all 130 cells coloured by P (hatched = not rankable, dashed = released shortlist, dot = mission-aware shortlist), cell detail with real 7×7 SRTM tile, released-vs-mission-aware shortlists, top-20 table, Moon callout for the first lunar-eligible (mapped basalt) cell.
+  - `/lunar-pole` (Investigate → Lunar pole): south-polar azimuthal map of the 8 IAU feature centres sized by diameter and coloured by best Earth twin F, verified-LOLA badge, LOLA 7×7 tile and metrics, closest Earth relief, twin-strength bars and caveats.
+  - Shared `useScienceFile` hook, `ElevationGrid` tile; command palette entries. Fixed during QA: a global `dl > div` rule squeezed score tiles; mobile grids now `minmax(0,1fr)` (no overflow at 390/1440).
+  - Tests: 86 unit, 31/31 browser (+1 live-imagery skip offline), 75 Python.
+
 ### Planned next (laptop)
-1. L8 UI: "Search all 130 cells" page and "Lunar south pole" page, both shipped in a new immutable science release.
-2. L9 polish, docs, demo/landing integration.
+1. L9 integration and polish: demo/landing mentions of the 130-cell search and the lunar pole, README/NEXT_STEPS/handoff.
 
 Cloud-session limits: the sandbox shell cannot reach map tiles, NASA, POWER, OpenTopoData or Macrostrat, so new external observations are only added when they can be fetched and checksum-verified. Publishing to the public Site remains a PC-side step.
 

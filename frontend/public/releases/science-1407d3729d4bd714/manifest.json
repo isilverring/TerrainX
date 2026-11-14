@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "release_id": "science-1407d3729d4bd714",
+  "model_version": "terrainx-model-v1",
+  "dataset_sha256": "3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c",
+  "source_data_commit": "f2582539560f4f4debd452fcd65dcf8310006aec",
+  "files": {
+    "dataset.json": {
+      "sha256": "3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c",
+      "bytes": 838653
+    },
+    "screened_cells.geojson": {
+      "sha256": "8a5e7a5f67e1724288af8265fef99c6cfbeb784a412392cb04ef318bab58af4a",
+      "bytes": 182144
+    },
+    "provenance.json": {
+      "sha256": "6f8b9423a282ba65f795f1cb6b20254c3bcd5cdbccec830b88031ea8013b1c0e",
+      "bytes": 52431
+    },
+    "planetary_context.json": {
+      "sha256": "008b933df91968707609ebb5fc44d2a01c847c65abec9c5ea4f670f7952c545d",
+      "bytes": 64989
+    },
+    "land.geojson": {
+      "sha256": "62ba34378350584881b944f95e545cd4db1ec37f136b7de2616b2498cbc2b346",
+      "bytes": 449124
+    },
+    "validation.json": {
+      "sha256": "9c99f17faf97319b54d0881c836ebf327ac15ab1968b37b06852b3071a198cc8",
+      "bytes": 1112
+    },
+    "case_studies.json": {
+      "sha256": "bda0e6e23310e8eb8e99d2960eaea610cd1d0a64ffcc8eb300e7d4087a8a2ee9",
+      "bytes": 5987
+    },
+    "terrain_pilot.json": {
+      "sha256": "fcfe23d0e0a86efe45248cfbc945088442cf70ca1c68c69d128a24e5f28f1cac",
+      "bytes": 516779
+    },
+    "cell_search.json": {
+      "sha256": "62c6c8cb8942fcbeeaf4c1c76d669b21a16d7b8e8e2f3b80d06300ea5dcd6627",
+      "bytes": 333420
+    },
+    "lunar_polar.json": {
+      "sha256": "2272081b60b22ffc876e0bbd99df841b618372d211031625705c62c15f33807f",
+      "bytes": 69969
+    }
+  }
+}

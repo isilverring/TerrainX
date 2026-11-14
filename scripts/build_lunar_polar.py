@@ -109,7 +109,7 @@ def main() -> None:
            "caveats": ["Feature centres from the IAU Gazetteer, not NASA landing-region polygons.", "LDEM_16 native pixels are ~1.9 km north-south; a 24 km footprint is regional relief only.", "Earth terrain twins compare relief shape (F) only; Earth cannot reproduce polar illumination, permanently shadowed cold traps, vacuum, 1.62 m/s² gravity or lunar regolith."],
            "earth_profiles_compared": len(earth), "sites": sites}
     atomic_json(derived / "lunar_polar.json", out)
-    atomic_json(ROOT / "frontend" / "public" / "data" / "lunar_polar.json", out)
+    (ROOT / "frontend" / "public" / "data" / "lunar_polar.json").write_text(json.dumps(out, separators=(",", ":"), allow_nan=False, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
 if __name__ == "__main__":
