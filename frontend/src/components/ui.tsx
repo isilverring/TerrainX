@@ -22,6 +22,7 @@ export function Header() {
         <NavLink to="/frontier">Frontier</NavLink>
         <NavLink to="/what-if">What if</NavLink>
         <NavLink to="/transfer-lab">Transfer Lab</NavLink>
+        <NavLink to="/worlds">Worlds</NavLink>
         <NavLink to="/methodology">Methodology</NavLink>
       </nav>
       <span className="header-note">Open science</span>

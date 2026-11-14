@@ -273,7 +273,9 @@ test("3D terrain viewer falls back to the cached analysis lattice without live t
   await expect(
     viewer.locator(".viewer-panel.mars .viewer-stats dd").first(),
   ).toHaveText("716 m");
-  await expect(viewer).toContainText("Showing the cached analysis lattice instead");
+  await expect(viewer).toContainText(
+    "Showing the cached analysis lattice instead",
+  );
   await expect(viewer).toContainText("not a validated equivalence");
 });
 
@@ -386,4 +388,28 @@ test("Analog Forensics defaults to measured 2D maps with a quantitative table", 
   await expect(viewer.locator(".ve-statement")).toContainText("×5");
   await viewer.getByRole("button", { name: "3D surface" }).click();
   await expect(viewer.locator("canvas.surface-canvas")).toHaveCount(2);
+});
+
+test("Compare Worlds shows two sourced NASA image pairs with caveats", async ({
+  page,
+}) => {
+  await page.goto("/#/worlds");
+  await expect(
+    page.getByRole("heading", { name: "Compare Worlds" }),
+  ).toBeVisible();
+  await expect(page.locator(".worlds-pair")).toHaveCount(2);
+  await expect(page.locator(".worlds-provenance").first()).toContainText(
+    "Landsat 8",
+  );
+  await expect(page.locator(".worlds-provenance").nth(1)).toContainText(
+    "Landsat 9",
+  );
+  await expect(
+    page.getByText("colour or brightness does not establish mineralogy", {
+      exact: false,
+    }),
+  ).toBeVisible();
+  await page.locator(".split-range").first().fill("20");
+  await page.getByRole("button", { name: "Side by side" }).first().click();
+  await expect(page.locator(".side-frame").first()).toBeVisible();
 });
