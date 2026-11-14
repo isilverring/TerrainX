@@ -38,6 +38,7 @@ import {
 } from "./lib/release";
 import "./styles/research.css";
 import "./styles/fieldstudy.css";
+import "./styles/lenses.css";
 import {
   initialPresentation,
   initialPresentationModels,
@@ -55,6 +56,7 @@ const Worlds = lazy(() => import("./pages/Worlds"));
 const Demo = lazy(() => import("./pages/Demo"));
 const Research = lazy(() => import("./pages/Research"));
 const FieldStudy = lazy(() => import("./pages/FieldStudy"));
+const Lenses = lazy(() => import("./pages/Lenses"));
 const TerrainPilot = lazy(() => import("./pages/TerrainPilot"));
 const Offline = lazy(() => import("./pages/Offline"));
 const Cases = lazy(() => import("./pages/Cases"));
@@ -253,6 +255,7 @@ function App() {
                 <Route path="/demo" element={<Demo />} />
                 <Route path="/research" element={<Research />} />
                 <Route path="/field-study" element={<FieldStudy />} />
+                <Route path="/lenses" element={<Lenses />} />
                 <Route path="/cases" element={<Cases />} />
                 <Route path="/offline" element={<Offline />} />
                 <Route path="/terrain-pilot" element={<TerrainPilot />} />

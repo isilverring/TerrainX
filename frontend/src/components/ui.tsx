@@ -32,6 +32,7 @@ export function Header({
       links: [
         ["/explorer", "Discovery"],
         ["/frontier", "Frontier"],
+        ["/lenses", "Lenses"],
         ["/cases", "Cases"],
       ],
     },

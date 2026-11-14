@@ -1,0 +1,352 @@
+/* Discovery Lenses */
+.lenses-page.document-page {
+  max-width: 1280px;
+}
+.lens-mission {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 3px;
+  background: var(--panel);
+  align-self: flex-end;
+  flex: none;
+}
+.lens-mission button {
+  border: 0;
+  background: none;
+  color: var(--muted);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.lens-mission button.active {
+  background: var(--earth);
+  color: #04110f;
+  font-weight: 600;
+}
+.lens-mission button:focus-visible,
+.lens-card:focus-visible,
+.lens-name:focus-visible {
+  outline: 2px solid var(--earth);
+  outline-offset: 2px;
+}
+.lens-cards {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+.lens-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.lens-card:hover {
+  transform: translateY(-2px);
+}
+.lens-card.active {
+  border-color: var(--earth);
+  background: linear-gradient(170deg, rgba(53, 195, 176, 0.14), transparent 70%), var(--panel);
+}
+.lens-index {
+  color: var(--earth);
+  font-size: 11px;
+}
+.lens-card strong {
+  font-size: 14.5px;
+}
+.lens-question {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+  flex: 1;
+}
+.lens-ranked {
+  font-size: 11px;
+  color: var(--moon);
+}
+.lens-flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: 20px;
+  margin-top: 22px;
+  align-items: start;
+}
+.lens-chart-wrap {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #0a101c;
+  padding: 10px 12px 6px;
+  overflow-x: auto;
+}
+.lens-chart {
+  width: 100%;
+  min-width: 640px;
+  height: auto;
+  display: block;
+}
+.lens-col {
+  fill: transparent;
+  cursor: pointer;
+}
+.lens-col.active {
+  fill: rgba(53, 195, 176, 0.07);
+}
+.lens-col-label {
+  fill: var(--muted);
+  font: 600 11px Inter, system-ui, sans-serif;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.lens-rank-label {
+  fill: #4f6179;
+  font: 10px "JetBrains Mono", ui-monospace, monospace;
+}
+.lens-band-line {
+  stroke: #29384e;
+  stroke-dasharray: 3 4;
+}
+.lens-path {
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.lens-path path {
+  fill: none;
+  stroke: var(--tint);
+  stroke-width: 2;
+  opacity: 0.55;
+}
+.lens-path path.gap {
+  stroke-dasharray: 2 5;
+  opacity: 0.14;
+}
+.lens-path.hot path.gap {
+  opacity: 0.7;
+  stroke-width: 2;
+}
+.lens-path .lens-dot {
+  fill: #0a101c;
+  stroke: var(--tint);
+  stroke-width: 2;
+}
+.lens-path .lens-dot-label {
+  fill: var(--text);
+  font: 600 9.5px "JetBrains Mono", ui-monospace, monospace;
+  pointer-events: none;
+}
+.lens-path .lens-unranked {
+  fill: none;
+  stroke: var(--tint);
+  stroke-width: 1.5;
+  opacity: 0.7;
+}
+.lens-path.dim {
+  opacity: 0.12;
+}
+.lens-path.hot path {
+  stroke-width: 3.5;
+  opacity: 1;
+}
+.lens-path.hot .lens-dot {
+  fill: var(--tint);
+}
+.lens-path.hot .lens-dot-label {
+  fill: #080d18;
+}
+.lens-story {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  padding: 16px;
+  position: sticky;
+  top: 16px;
+  min-height: 300px;
+}
+.lens-story h2 {
+  font-size: 19px;
+  margin: 6px 0 8px;
+}
+.lens-verdict {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.lens-story ul {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0;
+}
+.lens-story li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0 8px;
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.lens-story li small {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 11px;
+}
+.lens-hint {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.lens-hint > svg {
+  color: var(--earth);
+}
+.lens-legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 0 !important;
+}
+.lens-legend li::before {
+  content: "";
+  width: 18px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--tint);
+}
+.lens-eq {
+  font-size: 13px;
+  color: var(--moon);
+  background: #0d1624;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+}
+.lens-detail .caption {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.lens-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.lens-table th,
+.lens-table td {
+  text-align: left;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.lens-table th {
+  color: var(--muted);
+  font-weight: 500;
+  font-size: 11.5px;
+}
+.lens-table tr.hot td {
+  background: rgba(53, 195, 176, 0.06);
+}
+.lens-table em {
+  font-style: normal;
+  color: var(--muted);
+  font-family: Inter, system-ui, sans-serif;
+  font-size: 12px;
+}
+.lens-inputs {
+  font-size: 11.5px;
+  color: var(--muted);
+}
+.lens-name {
+  background: none;
+  border: 0;
+  padding: 0 0 0 12px;
+  color: var(--text);
+  cursor: pointer;
+  position: relative;
+  font: inherit;
+  text-align: left;
+}
+.lens-name::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -3px;
+  border-radius: 50%;
+  background: var(--tint);
+}
+.lens-chips {
+  display: inline-flex;
+  gap: 3px;
+}
+.lens-chips i {
+  font-style: normal;
+  width: 22px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  background: #142033;
+  font: 10.5px "JetBrains Mono", ui-monospace, monospace;
+  color: var(--muted);
+}
+.lens-chips i.top {
+  background: rgba(53, 195, 176, 0.2);
+  color: var(--text);
+}
+.lens-chips i.none {
+  background: transparent;
+  border: 1px dashed #33445c;
+}
+.lens-rules ol {
+  padding-left: 20px;
+  line-height: 1.7;
+  color: var(--muted);
+  font-size: 14px;
+}
+@media (max-width: 1100px) {
+  .lens-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .lens-flow {
+    grid-template-columns: 1fr;
+  }
+  .lens-story {
+    position: static;
+    min-height: 0;
+  }
+}
+@media (max-width: 640px) {
+  .lens-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .lens-mission {
+    align-self: flex-start;
+  }
+}
+.lens-empty {
+  margin: 0;
+  padding: 10px;
+  border: 1px dashed #44536b;
+  border-radius: 6px;
+  background: rgba(8, 13, 24, 0.85);
+  color: var(--muted);
+  font: 11px/1.45 Inter, system-ui, sans-serif;
+  text-align: center;
+}
+.lens-empty b {
+  display: block;
+  color: var(--mars);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+.lens-name {
+  font-family: Inter, system-ui, sans-serif;
+}
