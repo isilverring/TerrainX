@@ -1,16 +1,16 @@
 # TerrainX audience demo and deployment
 
-The audience URL is **https://terrainx-discovery-lab.comfybay1.chatgpt.site**. Public access and all 16 production browser workflows are verified; exact deployment details are in DEPLOYMENT.md. The source repository remains private. No NASA, tile or LLM API key is required.
+The audience URL is **https://terrainx-discovery-lab.comfybay1.chatgpt.site**. Public access and the reviewed production workflows are verified; exact deployment details are in DEPLOYMENT.md. The source repository remains private. No NASA, tile or LLM API key is required.
 
 ## Present the deployed demo
 
 1. Open the audience URL in a private/incognito browser window. Confirm the TerrainX landing page appears without sign-in. If access is still pending, consult DEPLOYMENT.md before sharing the link.
 2. Use a desktop browser at 100% zoom. Fullscreen with F11 if useful. The app is also usable on a phone.
-3. Open **What if** and click **Reset to release defaults** for each mission if this browser was used to experiment with settings. Changes persist across views and reloads.
-4. Return home and select **Guided demo**, or open `/#/demo`. Use Next/Previous or arrow keys; Esc exits. Scenes advance manually so the presenter controls the pace.
+3. Open **Prepare → Offline**, click **Prepare offline demo**, and wait for Offline ready. Reload and rehearse once with the network disabled. Reconnect for external maps/citations. Preparation is specific to this browser/device.
+4. Return home and select **Guided demo**, or open `/#/demo`. Use Next/Previous or arrow keys; Esc exits. Scenes advance manually so the presenter controls the pace. Presentation starts with a temporary default model; its changes do not overwrite research settings. Exit restores the research model.
 5. Follow DEMO.md: show the real search, separate F/U/C, a missing-geology candidate in Frontier, Transfer Lab assumptions, measured Forensics, then Passport/Expedition Packet.
 6. Print/Save as PDF from the Passport. JSON/CSV/GeoJSON export the active model and actual candidate values. The QR code preserves the model snapshot.
-7. Before presenting, open Worlds and the chosen dossier once. The NASA comparison images and scientific data ship with the app; live basemaps, GIBS and optional AWS context terrain still depend on internet. If they fail, the local coastline, cached 24 km lattice and science views remain available.
+7. Before presenting, check Offline ready and open Worlds, the Terrain pilot and the chosen dossier once. The NASA comparison images and scientific data ship with the app; live basemaps, GIBS and optional AWS context terrain still depend on internet. If they fail, the local coastline, cached 24 km lattice and science views remain available.
 
 ## Run a local production fallback
 
