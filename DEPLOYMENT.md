@@ -1,3 +1,20 @@
+# TerrainX public version6 — final scoped release
+
+- URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site ; audience **public**, reverified after publication.
+- Site: `appgprj_6af7ff7626888191bcba757337fd7e9b`.
+- Saved version6: `appgprj_6af7ff7626888191bcba757337fd7e9b~appgver_f34c003b3f3c8191bd1a0ea55b5c4f7a`.
+- Deployment: `appgdep_6af8c8a4454c81919469bf50fe3e1cea`.
+- Native result: **succeeded**,2026-11-14T20:46:51.683843+00:00.
+- Exact deployed source: `e201ffb81b24ce0ed0d72389152e818c634ff4c5`.
+- Science release: `science-79daa128eae12594`; original dataset SHA2563515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c unchanged.
+- Archive: `D:\TerrainX\outputs\terrainx-challenge-final.tar.gz`; SHA256319add86d4999945e5b67b0f6a9d583c063ee720e61a7af66ead3814e8b0e1b1;127,395,840 bytes;270 files.
+- Scope lock: a lunar polar reference cannot pair with Mars; literature-informed proposals remain bound to their reviewed candidate/mission. Unsupported inputs stop explicitly. General studies remain available through an explicit new-study action.
+- Verification:85 Python tests plus independent baseline reproduction;94 TypeScript tests; strict static build;43 local production workflows before the scoped correction, and all11 relevant final production checks after it.90 broad responsive cases and21 focused version5 public cases passed. **Version6 public43-workflow and21-case verification is running; record the observed outcome before closing M6.**
+
+No new dependencies or API keys. Later documentation-only commits intentionally differ from the deployed app SHA. Rehearsal/deployment: LIVE_DEMO.md and docs/DEPLOY_CHATGPT_SITE.md; submission: docs/SUBMISSION_GUIDE.md. Existing prepared browsers should open /#/offline, prepare the update and explicitly activate/reload. Saved research is retained. Browser plugin unavailable; installed Chrome/Playwright used. Firefox/Safari and formal accessibility certification remain untested. Hosted CI status is not inferred from local tests.
+
+## Previous verified version5 (rollback)
+
 # TerrainX public version5 — six-item release
 
 - URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site ; audience public.

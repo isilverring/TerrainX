@@ -1,6 +1,6 @@
 # TerrainX recovery checkpoint — six-item challenge completion
 
-**Active stage: M6 production acceptance and publication.** Work stays in D:\TerrainX, private https://github.com/isilverring/TerrainX, main. User explicitly authorized all six improvements. Canonical checklist: docs/CHALLENGE_COMPLETION.md. M1–M5 are implemented and pushed; M6 judge route and secondary research navigation are implemented, with final production/browser/visual checks and deployment pending. Public version5/source413d938 is verified with43/43 public workflows and21 focused visual cases. A final scoped-preset lock is tested and pending a small successor publication; DEPLOYMENT.md has exact version5 identifiers.
+**Active stage: M6 production acceptance and publication.** Work stays in D:\TerrainX, private https://github.com/isilverring/TerrainX, main. User explicitly authorized all six improvements. Canonical checklist: docs/CHALLENGE_COMPLETION.md. M1–M5 are implemented and pushed; M6 judge route and secondary research navigation are implemented, with final production/browser/visual checks and deployment pending. Public version6/source e201ffb published successfully at2026-11-14T20:46:51Z. Version6 fresh public43-workflow/21-case checks are running. The final scoped-preset lock passed11 production checks and94 unit tests. DEPLOYMENT.md has exact source/version/deployment IDs; close M6 only after observed public acceptance.
 
 - M0 plan: c090e4b; M1 scientific wording: b1914ba.
 - M2 explicit original/expanded collections and pinned identity:8344786.

@@ -13,7 +13,9 @@ User authorized implementation of all six items on 2026-11-14. Base: `71da14c`; 
 
 ## Current work / resume
 
-M1 complete: bounded discovery wording, preliminary characterization labels and optional challenge resources. All 3 cells/polar browser regressions passed. Original numeric files unchanged. M2 complete: explicit collection selector and pinned cohort/mission routes; all134 unique profiles available to Explorer/DNA/Passport/comparison/field planning; frozen original objects retain precedence. 91 unit tests and strict TypeScript pass; expanded workflow plus all3 field-study browser checks pass. The damaged-link test now corrupts the share payload explicitly rather than arbitrary trailing query text. Next: M3 polar identity integration. M4 primary-source investigation and M5 source-asset acquisition are running as bounded research tasks; outputs only, not yet integrated. Browser plugin unavailable; use configured installed Chrome/Playwright fallback. Node 24.x / Python 3.12; npm run test:unit; .venv\Scripts\python.exe scripts/validate_results.py; npm run build; npm test against production preview. Existing Site: appgprj_6af7ff7626888191bcba757337fd7e9b, public https://terrainx-discovery-lab.comfybay1.chatgpt.site. Do not create a duplicate.
+M1–M5 are complete and pushed. M6 code, guides, scope locks and strict build are complete; source e201ffb is successfully published as public Site version6. Final43 public workflows and21 focused visual cases are running. Exact native IDs are recorded in DEPLOYMENT.md.85 Python tests plus independent reproduction,94 TypeScript tests,43 local workflows,90 broad responsive cases and11 final production checks have passed. Version5 passed all43 public workflows before the final scoped-preset lock.
+
+Next: collect the version6 public test results; repair any actual failure before acceptance. If all pass, check M6, update STATUS/PLAN/NEXT_STEPS/DEPLOYMENT, commit/push and verify the remote SHA. No source rebuild/publication is needed for documentation-only completion notes. Stop owned Vite servers after QA. User handles video/team/terms/submission. Current source/proof files and preprocessing are already in GitHub; no untracked acquisition metadata remains pending.
 
 ## Scientific boundary
 
@@ -22,6 +24,8 @@ The official challenge accepts one or more useful analogs and does not require e
 Optional later research is not part of these six items: global search, field campaigns, measured ice, confirmed caves, full polar illumination engineering, or CSA/JAXA/SAR integration without a specific evidence need. User handles video/team/terms/actual submission. Do not stop after writing this plan.
 
 M5 asset acquisition is complete (18 sites/33 tiles/201 validated source objects) but processing is pending. New source XML/PDFs are intentionally untracked until M5 integration; use selective staging for intervening milestones, not checkpoint.ps1 --all. Proposed manifest/validation/acquisition scripts: outputs/m5-assets/. Do not change the old manifest.
+
+## Historical milestone notes (superseded by current status above)
 
 M3 completed: actual polar reference ID now survives DNA, Passport JSON/QR, snapshots and field JSON/share replay. Reference identity is separate from the legacy lunar model slot; the export explicitly documents that role. All polar utility criteria are null, coverage is0 and priority null. F uses the selected real LOLA metrics with scale/provenance gates; no96km Mare Crisium context is substituted. 92 unit tests, strict TypeScript and both new browser workflows pass. Next: M5 expanded terrain processing (assets ready), then integrate M4 scoped evidence and M6 judge route/release.
 
