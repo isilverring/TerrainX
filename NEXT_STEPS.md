@@ -1,14 +1,18 @@
 # Resume TerrainX
 
-Task 1 is complete. Work in `D:\TerrainX` (PC) or `C:\TerrainX` (laptop); both track `origin/main`. Next work is listed in `docs/ENHANCEMENT_PLAN.md` (satellite imagery, 3D terrain, UX fixes). Do not restart from an empty scaffold.
+Work in `D:\TerrainX` (PC) or `C:\TerrainX` (laptop); both track `origin/main`. Do not restart from an empty scaffold.
 
-1. Read STATUS.md,DATA_STATUS.md,SCIENCE.md and DEPLOYMENT.md.
-2. Run `git status --short --branch` and `git log -5 --oneline`. Preserve any newer user changes.
-3. The private preview is https://terrainx-discovery-lab.comfybay1.chatgpt.site . Use its existing `.openai/hosting.json` identity;do not create a duplicate.
-4. Local app:`npm --prefix frontend ci` then `npm run dev` from root. The server is127.0.0.1:5173. Node22+ recommended.
-5. Scientific checks:`.venv\Scripts\python.exe scripts\validate_results.py` (48 tests and result reproduction). Python3.12 is available via `py -3.12` on this workstation.
-6. Rebuild data only when needed:`scripts/build_planetary_profiles.py`,then `scripts/build_discovery.py` (or `--offline` to use cached Earth requests). Successful caches are retained and downloads/writes are atomic.
-7. Root `npm run build` prepares `dist/`. Browser tests:`npm test` while the dev server is running. Set `TERRAINX_BASE_URL=http://127.0.0.1:4173` for a running production preview. Four workflows currently pass.
-8. After a future completed module:update status,next steps and scientific caveats;run relevant checks;use `scripts/checkpoint.ps1` to commit,push and verify GitHub.
+1. `git pull` (the laptop folder may need a fresh `git clone https://github.com/isilverring/TerrainX C:\TerrainX` if it only contains `.dist`). Then `git status --short --branch` and `git log -5 --oneline`.
+2. Read STATUS.md, DATA_STATUS.md, SCIENCE.md and `docs/ENHANCEMENT_PLAN.md` (progress log at the bottom).
+3. Local app: `npm --prefix frontend ci` then `npm run dev` from root → http://127.0.0.1:5173. Node 22+.
+4. Science checks: `.venv\Scripts\python.exe scripts\validate_results.py` (57 checks) and `.venv\Scripts\python.exe -m pytest -q`.
+5. Browser tests: `npm test` with the dev server running (needs Chrome and live tiles; set `TERRAINX_OFFLINE=1` without map access).
+6. Rebuild data only when needed: `scripts/build_planetary_profiles.py`, `scripts/build_planetary_context.py`, then `scripts/build_discovery.py` (`--offline` uses cached Earth requests).
+7. After each completed module: update STATUS/NEXT_STEPS/plan log, run checks, `scripts/checkpoint.ps1 -Message "..."`.
 
-No required MVP task remains. Optional future work should follow the user's next prompt:matched physical-support sensitivity analysis,field mineralogy/terrain validation,or carefully sourced Diviner/SAR/Sentinel/JAXA extensions. Do not add unverified measurements or infer geology from dryness. No API key is needed for the current release.
+## Suggested next work
+- **Redeploy** the private preview (or a public Netlify/Vercel judge build) from the PC; the hosted preview still runs commit `a058c1c`.
+- **Visual QA on a real GPU/browser**: 3D terrain fly-to (pitch ~62°), globe toggle, GIBS date picker edge dates, and the 96 km Earth context surface (it renders from live AWS tiles, which the cloud sandbox could not reach; only the analysis-lattice fallback and planetary context were rendered there).
+- Optional from the plan: drape a verified NASA Trek / CTX / LRO WAC image on the planetary 3D patch (check URL and licence first).
+- Refresh `docs/QA.md` and `docs/screenshots/` from a machine with live tiles (new sandbox screenshots are in `docs/screenshots/*-v2*`, `compare-desktop.png`, `landing-live-globe.png`, `viewer-crisium-lattice.png`).
+- Science extensions (unchanged): matched physical-support sensitivity analysis, field mineralogy/terrain validation, or carefully sourced Diviner/SAR/Sentinel/JAXA additions. Never infer geology from dryness; never score visualisation layers.
