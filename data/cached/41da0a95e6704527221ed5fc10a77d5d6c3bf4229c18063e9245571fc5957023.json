@@ -1,0 +1,15 @@
+{
+  "url": "https://api.gbif.org/v1/occurrence/search?decimalLatitude=41.75%2C42.25&decimalLongitude=102.8125%2C103.4375&hasCoordinate=true&hasGeospatialIssue=false&limit=0",
+  "retrieved_at": "2026-11-14T14:35:34.262Z",
+  "sha256": "842e210a1dc11a43b863a7438d0b8ae273f0182c290a7c64e760c176778cc9fa",
+  "status_code": 200,
+  "data": {
+    "offset": 0,
+    "limit": 0,
+    "endOfRecords": true,
+    "count": 0,
+    "results": [],
+    "facets": []
+  },
+  "acquired_via": "browser fetch (laptop built-in browser); body bytes re-hashed on import"
+}

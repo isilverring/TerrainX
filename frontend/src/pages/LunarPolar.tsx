@@ -91,6 +91,13 @@ export default function LunarPolar() {
             <strong>LOLA LDEM_16 verified</strong>
             <span className="mono">SHA-256 {polar.raster.sha256.slice(0, 12)}…{polar.raster.sha256.slice(-4)}</span>
             <span>{(polar.raster.bytes / 1e6).toFixed(1)} MB · matches the checksum pinned in the repo</span>
+            {polar.diviner && (
+              <>
+                <strong className="polar-verify-2">Diviner PRP south hashed</strong>
+                <span className="mono">SHA-256 {polar.diviner.sha256.slice(0, 12)}…{polar.diviner.sha256.slice(-4)}</span>
+                <span>{(polar.diviner.bytes / 1e6).toFixed(0)} MB streamed · {polar.diviner.records_scanned.toLocaleString()} triangles scanned</span>
+              </>
+            )}
           </div>
         </div>
       </header>
@@ -125,6 +132,24 @@ export default function LunarPolar() {
               <div><dt>RMS roughness</dt><dd className="mono">{number(m.detrended_rms_m, 0)} m</dd></div>
             </dl>
           </div>
+          {site.diviner && polar.diviner && (
+            <div className="polar-diviner">
+              <h3>Diviner temperatures and ice</h3>
+              <dl className="cell-scores">
+                <div><dt>Annual max T (median)</dt><dd className="mono">{site.diviner.temp_max_k.median.toFixed(0)} K</dd></div>
+                <div><dt>Coldest annual max</dt><dd className="mono">{site.diviner.temp_max_k.min.toFixed(0)} K</dd></div>
+                <div><dt>Cold trap &lt; {polar.diviner.cold_trap_threshold_k} K</dt><dd className="mono">{Math.round(site.diviner.cold_trap_fraction * 100)}%</dd></div>
+                <div><dt>Ice stable ≤ 1 m</dt><dd className="mono">{Math.round(site.diviner.ice_stable_within_1m_fraction * 100)}%</dd></div>
+              </dl>
+              <p className="caption">
+                {site.diviner.triangles.toLocaleString()} Diviner triangles within {polar.diviner.radius_km} km · ice stable at the surface on{" "}
+                {Math.round(site.diviner.ice_surface_stable_fraction * 100)}%{site.diviner.median_ice_depth_m != null ? `, median stability depth ${site.diviner.median_ice_depth_m.toFixed(2)} m where stable` : ""}.
+                {polar.earth_coldest_cell && (
+                  <> Earth's coldest screened cell averages {polar.earth_coldest_cell.kelvin.toFixed(0)} K in its coldest month — no Earth site reaches these temperatures.</>
+                )}
+              </p>
+            </div>
+          )}
           <h3>Closest Earth relief</h3>
           <ol className="polar-twins">
             {site.earth_twins!.slice(0, 4).map((t) => (
@@ -152,7 +177,7 @@ export default function LunarPolar() {
                 <span>{s.feature}</span>
                 <i style={{ ["--f" as string]: `${f}%`, ["--c" as string]: fColor(f) }} />
                 <b className="mono">{f.toFixed(1)}</b>
-                <small className="mono">relief {number(s.terrain!.metrics.relief_m, 0)} m · p90 {number(s.terrain!.metrics.p90_slope_deg, 1)}°</small>
+                <small className="mono">relief {number(s.terrain!.metrics.relief_m, 0)} m · p90 {number(s.terrain!.metrics.p90_slope_deg, 1)}°{s.diviner ? ` · cold trap ${Math.round(s.diviner.cold_trap_fraction * 100)}%` : ""}</small>
               </button>
             );
           })}
@@ -169,6 +194,7 @@ export default function LunarPolar() {
         <h2>What no Earth site reproduces here</h2>
         <ol>
           {polar.caveats.map((c) => <li key={c}>{c}</li>)}
+          {polar.diviner && <li>Cold-trap threshold from {polar.diviner.cold_trap_reference}. {polar.diviner.notes}</li>}
           <li>Earth terrain twins are relief comparisons only; none of these Earth sites is a cold-trap or volatile analog.</li>
         </ol>
         <p className="caption">

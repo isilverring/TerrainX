@@ -1,0 +1,160 @@
+{
+  "url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-20.5&longitude=25.625&parameters=T2M_MAX%2CT2M_MIN%2CGWETTOP%2CGWETROOT%2CFROST_DAYS%2CAOD_55&community=RE&format=JSON",
+  "retrieved_at": "2026-11-14T14:32:28.254Z",
+  "sha256": "66fa914de36e44fe896cbabe4964df91e86e031c9ac4e2b3f46f41080a60b621",
+  "status_code": 200,
+  "data": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        25.625,
+        -20.5,
+        909.31
+      ]
+    },
+    "properties": {
+      "parameter": {
+        "AOD_55": {
+          "JAN": 0.17,
+          "FEB": 0.17,
+          "MAR": 0.14,
+          "APR": 0.09,
+          "MAY": 0.06,
+          "JUN": 0.09,
+          "JUL": 0.1,
+          "AUG": 0.16,
+          "SEP": 0.25,
+          "OCT": 0.24,
+          "NOV": 0.2,
+          "DEC": 0.18,
+          "ANN": 0.15
+        },
+        "FROST_DAYS": {
+          "JAN": 0.0,
+          "FEB": 0.0,
+          "MAR": 0.0,
+          "APR": 0.0,
+          "MAY": 0.0,
+          "JUN": 0.0,
+          "JUL": 0.0,
+          "AUG": 0.0,
+          "SEP": 0.0,
+          "OCT": 0.0,
+          "NOV": 0.0,
+          "DEC": 0.0,
+          "ANN": 0.0
+        },
+        "GWETROOT": {
+          "JAN": 0.34,
+          "FEB": 0.35,
+          "MAR": 0.35,
+          "APR": 0.34,
+          "MAY": 0.32,
+          "JUN": 0.32,
+          "JUL": 0.31,
+          "AUG": 0.3,
+          "SEP": 0.29,
+          "OCT": 0.29,
+          "NOV": 0.3,
+          "DEC": 0.32,
+          "ANN": 0.32
+        },
+        "GWETTOP": {
+          "JAN": 0.33,
+          "FEB": 0.34,
+          "MAR": 0.33,
+          "APR": 0.3,
+          "MAY": 0.27,
+          "JUN": 0.27,
+          "JUL": 0.25,
+          "AUG": 0.21,
+          "SEP": 0.18,
+          "OCT": 0.19,
+          "NOV": 0.25,
+          "DEC": 0.31,
+          "ANN": 0.27
+        },
+        "T2M_MAX": {
+          "JAN": 42.17,
+          "FEB": 40.94,
+          "MAR": 39.77,
+          "APR": 36.8,
+          "MAY": 34.11,
+          "JUN": 31.19,
+          "JUL": 31.62,
+          "AUG": 35.39,
+          "SEP": 39.35,
+          "OCT": 41.7,
+          "NOV": 42.43,
+          "DEC": 41.57,
+          "ANN": 42.43
+        },
+        "T2M_MIN": {
+          "JAN": 15.08,
+          "FEB": 15.29,
+          "MAR": 12.84,
+          "APR": 9.28,
+          "MAY": 3.46,
+          "JUN": 1.61,
+          "JUL": 1.44,
+          "AUG": 1.81,
+          "SEP": 5.47,
+          "OCT": 11.59,
+          "NOV": 11.84,
+          "DEC": 15.0,
+          "ANN": 1.44
+        }
+      }
+    },
+    "header": {
+      "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
+      "api": {
+        "version": "v2.10.1",
+        "name": "POWER Climatology API"
+      },
+      "sources": [
+        "SYN1DEG",
+        "MERRA2",
+        "POWER"
+      ],
+      "fill_value": -999.0,
+      "time_standard": "LST",
+      "range": "25-year Meteorological and Solar Monthly & Annual Climatologies (January 2001 - December 2025)"
+    },
+    "messages": [
+      "The requested parameters are retrieved from a pre-computed climatological period (January 2001 - December 2025)"
+    ],
+    "parameters": {
+      "AOD_55": {
+        "units": "dimensionless",
+        "longname": "Aerosol Optical Depth 55"
+      },
+      "FROST_DAYS": {
+        "units": "Days",
+        "longname": "Frost Days"
+      },
+      "GWETROOT": {
+        "units": "1",
+        "longname": "Root Zone Soil Wetness"
+      },
+      "GWETTOP": {
+        "units": "1",
+        "longname": "Surface Soil Wetness"
+      },
+      "T2M_MAX": {
+        "units": "C",
+        "longname": "Temperature at 2 Meters Maximum"
+      },
+      "T2M_MIN": {
+        "units": "C",
+        "longname": "Temperature at 2 Meters Minimum"
+      }
+    },
+    "times": {
+      "data": 0.206,
+      "process": 0.04
+    }
+  },
+  "acquired_via": "browser fetch (laptop built-in browser); body bytes re-hashed on import"
+}

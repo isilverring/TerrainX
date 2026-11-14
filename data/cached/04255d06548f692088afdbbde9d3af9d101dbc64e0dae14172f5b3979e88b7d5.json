@@ -1,0 +1,160 @@
+{
+  "url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=26.0&longitude=39.375&parameters=T2M_MAX%2CT2M_MIN%2CGWETTOP%2CGWETROOT%2CFROST_DAYS%2CAOD_55&community=RE&format=JSON",
+  "retrieved_at": "2026-11-14T14:31:27.567Z",
+  "sha256": "b5b392b01c10bdfab279ff1e55129f098a975c2254710d98894019bb8ccd2b9e",
+  "status_code": 200,
+  "data": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        39.375,
+        26.0,
+        920.23
+      ]
+    },
+    "properties": {
+      "parameter": {
+        "AOD_55": {
+          "JAN": 0.18,
+          "FEB": 0.25,
+          "MAR": 0.32,
+          "APR": 0.38,
+          "MAY": 0.39,
+          "JUN": 0.32,
+          "JUL": 0.33,
+          "AUG": 0.36,
+          "SEP": 0.35,
+          "OCT": 0.28,
+          "NOV": 0.21,
+          "DEC": 0.2,
+          "ANN": 0.3
+        },
+        "FROST_DAYS": {
+          "JAN": 0.5,
+          "FEB": 0.1,
+          "MAR": 0.0,
+          "APR": 0.0,
+          "MAY": 0.0,
+          "JUN": 0.0,
+          "JUL": 0.0,
+          "AUG": 0.0,
+          "SEP": 0.0,
+          "OCT": 0.0,
+          "NOV": 0.0,
+          "DEC": 0.0,
+          "ANN": 0.6
+        },
+        "GWETROOT": {
+          "JAN": 0.34,
+          "FEB": 0.33,
+          "MAR": 0.33,
+          "APR": 0.33,
+          "MAY": 0.33,
+          "JUN": 0.32,
+          "JUL": 0.32,
+          "AUG": 0.32,
+          "SEP": 0.32,
+          "OCT": 0.32,
+          "NOV": 0.33,
+          "DEC": 0.33,
+          "ANN": 0.33
+        },
+        "GWETTOP": {
+          "JAN": 0.16,
+          "FEB": 0.16,
+          "MAR": 0.12,
+          "APR": 0.1,
+          "MAY": 0.09,
+          "JUN": 0.06,
+          "JUL": 0.05,
+          "AUG": 0.05,
+          "SEP": 0.05,
+          "OCT": 0.05,
+          "NOV": 0.12,
+          "DEC": 0.14,
+          "ANN": 0.09
+        },
+        "T2M_MAX": {
+          "JAN": 30.57,
+          "FEB": 33.79,
+          "MAR": 38.36,
+          "APR": 40.06,
+          "MAY": 43.51,
+          "JUN": 45.36,
+          "JUL": 47.03,
+          "AUG": 46.61,
+          "SEP": 44.69,
+          "OCT": 40.79,
+          "NOV": 34.37,
+          "DEC": 30.96,
+          "ANN": 47.03
+        },
+        "T2M_MIN": {
+          "JAN": -3.02,
+          "FEB": -1.09,
+          "MAR": 1.73,
+          "APR": 6.68,
+          "MAY": 10.05,
+          "JUN": 17.66,
+          "JUL": 19.66,
+          "AUG": 19.48,
+          "SEP": 18.68,
+          "OCT": 12.02,
+          "NOV": 3.59,
+          "DEC": 0.56,
+          "ANN": -3.02
+        }
+      }
+    },
+    "header": {
+      "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
+      "api": {
+        "version": "v2.10.1",
+        "name": "POWER Climatology API"
+      },
+      "sources": [
+        "SYN1DEG",
+        "MERRA2",
+        "POWER"
+      ],
+      "fill_value": -999.0,
+      "time_standard": "LST",
+      "range": "25-year Meteorological and Solar Monthly & Annual Climatologies (January 2001 - December 2025)"
+    },
+    "messages": [
+      "The requested parameters are retrieved from a pre-computed climatological period (January 2001 - December 2025)"
+    ],
+    "parameters": {
+      "AOD_55": {
+        "units": "dimensionless",
+        "longname": "Aerosol Optical Depth 55"
+      },
+      "FROST_DAYS": {
+        "units": "Days",
+        "longname": "Frost Days"
+      },
+      "GWETROOT": {
+        "units": "1",
+        "longname": "Root Zone Soil Wetness"
+      },
+      "GWETTOP": {
+        "units": "1",
+        "longname": "Surface Soil Wetness"
+      },
+      "T2M_MAX": {
+        "units": "C",
+        "longname": "Temperature at 2 Meters Maximum"
+      },
+      "T2M_MIN": {
+        "units": "C",
+        "longname": "Temperature at 2 Meters Minimum"
+      }
+    },
+    "times": {
+      "data": 0.214,
+      "process": 0.04
+    }
+  },
+  "acquired_via": "browser fetch (laptop built-in browser); body bytes re-hashed on import"
+}

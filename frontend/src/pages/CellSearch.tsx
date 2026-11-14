@@ -4,7 +4,7 @@ import { Grid3x3, Info, Sparkles } from "lucide-react";
 import { useData, number } from "../lib/data";
 import type { Mission } from "../lib/models";
 import { useScienceFile } from "../lib/scienceFile";
-import { cellLabel, cellSearchSchema, type CellRow } from "../lib/cellSearch";
+import { DIMENSION_LABELS, cellLabel, cellSearchSchema, type CellRow } from "../lib/cellSearch";
 import ElevationGrid from "../components/ElevationGrid";
 import { BackLink } from "../components/ui";
 
@@ -19,8 +19,9 @@ function RegionPanel({
   shortlist,
   selected,
   onSelect,
-  pRange,
+  colour,
 }: {
+  colour: (r: CellRow) => number | null;
   region: { id: string; name: string; bounds: number[] };
   rows: CellRow[];
   mission: Mission;
@@ -28,7 +29,6 @@ function RegionPanel({
   shortlist: Set<string>;
   selected: string | null;
   onSelect: (id: string) => void;
-  pRange: [number, number];
 }) {
   const [w, s, e, n] = region.bounds,
     dLon = 0.625,
@@ -45,7 +45,7 @@ function RegionPanel({
           const m = r.missions[mission],
             x = (r.longitude - w) * sx,
             y = (n - r.latitude) * sy,
-            t = m.P == null ? null : (m.P - pRange[0]) / Math.max(1e-9, pRange[1] - pRange[0]);
+            t = colour(r);
           return (
             <g
               key={r.id}
@@ -82,7 +82,8 @@ export default function CellSearch() {
     [params, setParams] = useSearchParams();
   const mission: Mission = params.get("mission") === "mare-crisium" ? "mare-crisium" : "jezero";
   const { value: search, error } = useScienceFile("cell_search.json", cellSearchSchema, MISSING);
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selected, setSelected] = useState<string | null>(params.get("cell"));
+  const [colourBy, setColourBy] = useState("P");
 
   const view = useMemo(() => {
     if (!search) return null;
@@ -101,7 +102,25 @@ export default function CellSearch() {
   if (error) return <main className="document-page"><BackLink mission={mission} /><p role="alert">{error}</p></main>;
   if (!search || !view) return <main className="document-page"><p>Loading the 130-cell search…</p></main>;
 
+  const colour = (r: CellRow): number | null => {
+    if (colourBy === "P") {
+      const p = r.missions[mission].P;
+      return p == null ? null : (p - view.pRange[0]) / Math.max(1e-9, view.pRange[1] - view.pRange[0]);
+    }
+    if (colourBy === "caves") {
+      const c = r.subsurface?.class ?? "";
+      return c.startsWith("karst and") ? 1 : c.startsWith("karst") || c.startsWith("lava") ? 0.7 : c ? 0.05 : null;
+    }
+    return r.dimensions?.[colourBy] ?? null;
+  };
+  const select = (id: string) => {
+    setSelected(id);
+    const next = new URLSearchParams(params);
+    next.set("cell", id);
+    setParams(next, { replace: true });
+  };
   const pick = search.rows.find((r) => r.id === selected) ?? (view.ranked[0] ?? search.rows[0]);
+  const env = pick.environment, bio = pick.biology;
   const pm = pick.missions[mission];
   const moonFind = search.rows.filter((r) => r.missions["mare-crisium"].rank != null);
 
@@ -152,7 +171,7 @@ export default function CellSearch() {
               The aridity-only search ranked no Earth candidate for Mare Crisium, because no basalt was mapped at any of them. Searching
               all cells finds {moonFind.length === 1 ? "one" : moonFind.length}:{" "}
               {moonFind.map((r) => (
-                <button key={r.id} className="link-button" onClick={() => setSelected(r.id)}>
+                <button key={r.id} className="link-button" onClick={() => select(r.id)}>
                   {cellLabel(r)} — “{r.geology.unit_name}” (P {number(r.missions["mare-crisium"].P, 1)}, F {number(r.missions["mare-crisium"].F, 1)})
                 </button>
               ))}
@@ -181,13 +200,23 @@ export default function CellSearch() {
               releaseSet={view.releaseSet}
               shortlist={view.shortlist}
               selected={pick.id}
-              onSelect={setSelected}
-              pRange={view.pRange}
+              onSelect={select}
+              colour={colour}
             />
           ))}
+          <label className="cell-colour">
+            Colour by
+            <select value={colourBy} onChange={(e) => setColourBy(e.target.value)}>
+              <option value="P">Mission priority P</option>
+              {Object.entries(DIMENSION_LABELS).map(([k, l]) => (
+                <option key={k} value={k} disabled={!search.rows.some((r) => r.dimensions?.[k] != null)}>{l} (percentile)</option>
+              ))}
+              <option value="caves" disabled={!search.rows.some((r) => r.subsurface)}>Cave host rock (proxy)</option>
+            </select>
+          </label>
           <div className="cell-legend">
-            <span><i className="lg-ramp" /> P {number(view.pRange[0], 0)}–{number(view.pRange[1], 0)}</span>
-            <span><i className="lg-hatch" /> not rankable</span>
+            <span><i className="lg-ramp" /> {colourBy === "P" ? `P ${number(view.pRange[0], 0)}–${number(view.pRange[1], 0)}` : colourBy === "caves" ? "soluble or volcanic host rock" : "low → high percentile"}</span>
+            <span><i className="lg-hatch" /> {colourBy === "P" ? "not rankable" : "no data"}</span>
             <span><i className="lg-release" /> released (aridity) shortlist</span>
             <span><i className="lg-star" /> mission-aware shortlist</span>
           </div>
@@ -215,6 +244,47 @@ export default function CellSearch() {
           <p className="caption">
             {pick.geology.source_refs[0] && <a href={pick.geology.source_refs[0]} target="_blank" rel="noreferrer">Macrostrat query</a>} · aridity {number(pick.aridity, 2)} · annual precipitation {number(pick.annual_precip_mm, 0)} mm
           </p>
+          {pick.dimensions && (
+            <div className="cell-dims">
+              <h3>Analog dimensions <small>percentile of 130 cells</small></h3>
+              {Object.entries(DIMENSION_LABELS).map(([k, l]) => {
+                const v = pick.dimensions?.[k];
+                return (
+                  <div key={k} className="cell-dim" title={search.dimension_definitions?.[k]}>
+                    <span>{l}</span>
+                    <i style={{ ["--v" as string]: `${(v ?? 0) * 100}%` }} aria-hidden="true" />
+                    <b className="mono">{v == null ? "—" : Math.round(v * 100)}</b>
+                  </div>
+                );
+              })}
+              <ul className="cell-facts">
+                {env && (
+                  <>
+                    <li>Temperature {number(env.coldest_month_min_c, 0)} to {number(env.warmest_month_max_c, 0)} °C · {number(env.frost_days_per_year, 0)} frost days/yr</li>
+                    <li>Soil wetness {number(env.soil_wetness_top, 2)} (surface) · {number(env.soil_wetness_root, 2)} (root zone)</li>
+                    <li>Aerosol optical depth {number(env.aerosol_optical_depth_550, 2)} at 550 nm</li>
+                  </>
+                )}
+                {bio && <li>{bio.gbif_occurrences.toLocaleString()} GBIF occurrence records ({number(bio.per_1000_km2, 1)} per 1000 km²)</li>}
+                {pick.subsurface?.class && <li>Subsurface: {pick.subsurface.class}{[...pick.subsurface.karst_units, ...pick.subsurface.lava_units].length ? ` — ${[...new Set([...pick.subsurface.karst_units, ...pick.subsurface.lava_units])].slice(0, 2).join("; ")}` : ""}</li>}
+                {pick.mobility && <li>Slopes over 10° on {Math.round(pick.mobility.over_10_deg * 100)}% of 8 km baselines (max {number(pick.mobility.max_deg, 1)}°)</li>}
+              </ul>
+              <p className="caption">
+                Earth-side measurements. GBIF counts track sampling effort; host rock is not a cave inventory.
+                {env && <> <a href={env.source_url} target="_blank" rel="noreferrer">POWER</a></>}
+                {bio && <> · <a href={bio.source_url} target="_blank" rel="noreferrer">GBIF</a></>}
+              </p>
+            </div>
+          )}
+          <figure className="cell-gibs">
+            <img
+              src={`https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi?SERVICE=WMS&REQUEST=GetMap&VERSION=1.3.0&LAYERS=MODIS_Terra_CorrectedReflectance_TrueColor&STYLES=&FORMAT=image/jpeg&CRS=EPSG:4326&BBOX=${pick.latitude - 0.25},${pick.longitude - 0.3125},${pick.latitude + 0.25},${pick.longitude + 0.3125}&WIDTH=320&HEIGHT=256&TIME=2025-06-01`}
+              alt={`NASA MODIS Terra true-colour image of the cell around ${cellLabel(pick)}, 2025-06-01`}
+              loading="lazy"
+              onError={(e) => ((e.currentTarget.parentElement as HTMLElement).dataset.offline = "1")}
+            />
+            <figcaption>NASA GIBS · MODIS Terra true colour · 2025-06-01 · 0.5° × 0.625° cell (needs internet)</figcaption>
+          </figure>
           {pick.released_candidate && (
             <Link className="button outline" to={`/site/${pick.id}?mission=${mission}`}>Analog DNA</Link>
           )}
@@ -240,7 +310,7 @@ export default function CellSearch() {
                     both = view.releaseSet.has(id) && view.shortlist.has(id);
                   return (
                     <li key={id} className={both ? "both" : ""}>
-                      <button className="link-button" onClick={() => setSelected(id)}>{r.region_id} · {cellLabel(r)}</button>
+                      <button className="link-button" onClick={() => select(id)}>{r.region_id} · {cellLabel(r)}</button>
                       <span className="mono">{r.missions[mission].P == null ? "—" : `P ${r.missions[mission].P!.toFixed(1)}`}</span>
                     </li>
                   );
@@ -263,7 +333,7 @@ export default function CellSearch() {
                 return (
                   <tr key={r.id} className={pick.id === r.id ? "hot" : ""}>
                     <td className="mono">{m.rank}</td>
-                    <td><button className="link-button" onClick={() => setSelected(r.id)}>{r.region_id} · {cellLabel(r)}</button></td>
+                    <td><button className="link-button" onClick={() => select(r.id)}>{r.region_id} · {cellLabel(r)}</button></td>
                     <td className="mono">{number(m.P, 1)}</td>
                     <td className="mono">{number(m.F, 1)}</td>
                     <td className="mono">{number(m.U, 1)}</td>
@@ -281,7 +351,7 @@ export default function CellSearch() {
         <h2>How this experiment differs</h2>
         <ol>
           <li>Every cell uses the pipeline's own SRTM sampler, terrain metrics, Macrostrat classifier, utility, fidelity and priority functions; F reproduces every released candidate exactly.</li>
-          <li>Point temperature climatology was not acquired for cells, so the temperature criterion is missing for all {search.cells} (coverage ≤ 95%) — applied equally, never counted as zero.</li>
+          <li>{search.contract === "terrainx-cell-search-v1" ? `Point temperature climatology was not acquired for cells in this release, so the temperature criterion is missing for all ${search.cells} (coverage ≤ 95%).` : "Every cell has the same NASA POWER point climatology as the released candidates, so criteria, coverage and P are computed exactly as in the released model."}</li>
           <li>Missing or unmatched geology is never rewarded: such cells are listed as not rankable.</li>
           <li>Raw responses were fetched by a browser and re-hashed on import; {search.provenance.length} cached sources carry SHA-256 hashes.</li>
           <li>Mapped regional units are not field-confirmed lithology. Every pick is a hypothesis for verification.</li>

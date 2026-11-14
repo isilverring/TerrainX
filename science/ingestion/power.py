@@ -71,3 +71,12 @@ def fetch_regional(client: CachedHTTP, region: dict):
 
 def fetch_point(client: CachedHTTP, latitude: float, longitude: float):
     return client.get(BASE + "/point", {"latitude": latitude, "longitude": longitude, "parameters": PARAMETERS, "community": "AG", "format": "JSON"})
+
+
+ENV_PARAMETERS = "T2M_MAX,T2M_MIN,GWETTOP,GWETROOT,FROST_DAYS,AOD_55"
+
+
+def fetch_environment(client: CachedHTTP, latitude: float, longitude: float):
+    """Environmental-extremes climatology (2001–2025): temperature extremes, soil wetness,
+    frost days and aerosol optical depth. Used by the cell search; never by released scores."""
+    return client.get(BASE + "/point", {"latitude": latitude, "longitude": longitude, "parameters": ENV_PARAMETERS, "community": "RE", "format": "JSON"})

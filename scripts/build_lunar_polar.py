@@ -61,6 +61,59 @@ def verify_raster(planetary: Path) -> dict:
     return {"url": pinned["url"], "bytes": pinned["bytes"], "sha256": digest, "pinned_sha256": pinned["sha256"], "verified_at": datetime.now(timezone.utc).isoformat()}
 
 
+DIVINER_BUNDLE = ROOT / "data" / "source" / "acquisition" / "terrainx-diviner-prp-south-sites.json"
+DIVINER_RADIUS_KM = 12.5
+COLD_TRAP_K = 110.0  # water-ice cold-trap threshold used by Paige et al. (2010), Science 330, 479
+
+
+def _gc_km(lat1, lon1, lat2, lon2, r=1737.4):
+    import math
+    p, q, dl = math.radians(lat1), math.radians(lat2), math.radians(lon2 - lon1)
+    h = math.sin((q - p) / 2) ** 2 + math.cos(p) * math.cos(q) * math.sin(dl / 2) ** 2
+    return 2 * r * math.asin(min(1, math.sqrt(h)))
+
+
+def diviner_summary() -> dict | None:
+    """Per-site statistics from LRO Diviner PRP south triangles (fixed-width columns per its PDS4 label)."""
+    if not DIVINER_BUNDLE.exists():
+        return None
+    import statistics
+    bundle = json.loads(DIVINER_BUNDLE.read_text(encoding="utf-8"))
+    sites = {s["id"]: s for s in SITES}
+    per = {k: [] for k in sites}
+    for line in bundle["records"]:
+        sid, _dist, rec = line.split("\t", 2)
+        clon, clat = float(rec[126:141]), float(rec[143:158])
+        t_avg, t_max, ice = float(rec[177:185]), float(rec[187:195]), float(rec[197:208])
+        site = sites[sid]
+        d = _gc_km(site["latitude"], site["longitude"], clat, clon)
+        if d > DIVINER_RADIUS_KM + 1e-6:
+            raise ValueError(f"Kept Diviner triangle outside the site radius: {sid} {d:.3f} km")
+        per[sid].append((t_avg, t_max, ice))
+    out = {}
+    for sid, rows in per.items():
+        if not rows:
+            out[sid] = None
+            continue
+        tmax = [r[1] for r in rows]
+        tavg = [r[0] for r in rows]
+        # Documented codes: 0 = stable at surface, 0 < d <= 2.8738 m stable at depth d, -999 = deeper.
+        # -1 appears in the file but is not defined by the PDS3/PDS4 labels or catalogue: reported, never interpreted.
+        stable = [r[2] for r in rows if r[2] >= 0.0]
+        out[sid] = {
+            "triangles": len(rows),
+            "temp_max_k": {"min": min(tmax), "median": statistics.median(tmax), "max": max(tmax)},
+            "temp_avg_k": {"min": min(tavg), "median": statistics.median(tavg), "max": max(tavg)},
+            "cold_trap_fraction": sum(t < COLD_TRAP_K for t in tmax) / len(rows),
+            "ice_surface_stable_fraction": sum(r[2] == 0.0 for r in rows) / len(rows),
+            "ice_stable_within_1m_fraction": sum(0.0 <= r[2] <= 1.0 for r in rows) / len(rows),
+            "ice_stable_within_2_87m_fraction": len(stable) / len(rows),
+            "ice_undocumented_code_fraction": sum(r[2] == -1.0 for r in rows) / len(rows),
+            "median_ice_depth_m": statistics.median(stable) if stable else None,
+        }
+    return {"product": "LRO Diviner Polar Resource Product, south (dlre_prp_south.tab)", "url": bundle["url"], "bytes": bundle["bytes"], "sha256": bundle["sha256"], "label_url": bundle["label_url"], "records_scanned": bundle["records_scanned"], "radius_km": DIVINER_RADIUS_KM, "cold_trap_threshold_k": COLD_TRAP_K, "cold_trap_reference": "Paige et al. (2010), Diviner Lunar Radiometer observations of cold traps in the Moon's south polar region, Science 330, 479–482", "notes": "temp_max: modelled annual maximum surface temperature; temp_avg: annual average at 2 cm depth; ice depth: depth where water ice sublimates at 1 kg m⁻² per billion years (0 = stable at the surface; −999 = deeper than 2.87 m). The file also contains −1, which its labels and catalogue do not define; those triangles are counted separately and not interpreted. PDS label publishes no checksum; SHA-256 recorded over the full 604,800,210-byte stream at retrieval.", "sites": out}
+
+
 def earth_profiles(derived: Path) -> list[dict]:
     """Every Earth terrain profile already in the repo: released candidates/benchmarks and the 130-cell search."""
     dataset = json.loads((derived / "dataset.json").read_text(encoding="utf-8"))
@@ -104,9 +157,21 @@ def main() -> None:
             row.update(status="unavailable", reason=str(exc))
         sites.append(row)
         print(site["feature"], row["status"], row.get("reason", "") or f"relief {row['terrain']['metrics']['relief_m']:.0f} m, best Earth F {row['earth_twins'][0]['F']:.1f}" if row["status"] == "available" else row.get("reason"))
-    out = {"contract": CONTRACT, "generated_at": datetime.now(timezone.utc).isoformat(), "raster": raster, "label_metadata": {k: metadata[k] for k in ("pixels_per_degree", "map_sphere_radius_m", "height_scale", "acquisition_period") if k in metadata},
+    diviner = diviner_summary()
+    if diviner:
+        for row in sites:
+            row["diviner"] = diviner["sites"].get(row["id"])
+        diviner = {k: v for k, v in diviner.items() if k != "sites"}
+    search = derived / "cell_search.json"
+    earth_cold = None
+    if search.exists():
+        envs = [(r["id"], r["environment"]["coldest_month_min_c"]) for r in json.loads(search.read_text(encoding="utf-8"))["rows"] if r.get("environment") and r["environment"].get("coldest_month_min_c") is not None]
+        if envs:
+            cid, c = min(envs, key=lambda x: x[1])
+            earth_cold = {"cell": cid, "coldest_month_min_c": c, "kelvin": c + 273.15, "source": "NASA POWER T2M_MIN monthly climatology 2001–2025"}
+    out = {"contract": CONTRACT, "diviner": diviner, "earth_coldest_cell": earth_cold, "generated_at": datetime.now(timezone.utc).isoformat(), "raster": raster, "label_metadata": {k: metadata[k] for k in ("pixels_per_degree", "map_sphere_radius_m", "height_scale", "acquisition_period") if k in metadata},
            "sources": [{"title": "NASA: Artemis III candidate landing regions (2024-10-28)", "url": ARTEMIS_SOURCE}, {"title": "IAU Gazetteer of Planetary Nomenclature", "url": "https://planetarynames.wr.usgs.gov/"}, {"title": "LRO LOLA LDEM_16 (PDS Geosciences)", "url": raster["url"]}],
-           "caveats": ["Feature centres from the IAU Gazetteer, not NASA landing-region polygons.", "LDEM_16 native pixels are ~1.9 km north-south; a 24 km footprint is regional relief only.", "Earth terrain twins compare relief shape (F) only; Earth cannot reproduce polar illumination, permanently shadowed cold traps, vacuum, 1.62 m/s² gravity or lunar regolith."],
+           "caveats": ["Diviner values summarise all PRP triangles whose centres lie within 12.5 km of each feature centre; modelled thermal products, not in-situ measurements." , "Feature centres from the IAU Gazetteer, not NASA landing-region polygons.", "LDEM_16 native pixels are ~1.9 km north-south; a 24 km footprint is regional relief only.", "Earth terrain twins compare relief shape (F) only; Earth cannot reproduce polar illumination, permanently shadowed cold traps, vacuum, 1.62 m/s² gravity or lunar regolith."],
            "earth_profiles_compared": len(earth), "sites": sites}
     atomic_json(derived / "lunar_polar.json", out)
     (ROOT / "frontend" / "public" / "data" / "lunar_polar.json").write_text(json.dumps(out, separators=(",", ":"), allow_nan=False, ensure_ascii=False) + "\n", encoding="utf-8")

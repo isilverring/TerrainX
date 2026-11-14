@@ -19,7 +19,7 @@ ROWS = {r["id"]: r for r in SEARCH["rows"]}
 def test_every_screened_cell_is_characterized_once():
     cells = json.loads((DERIVED / "screened_cells.geojson").read_text(encoding="utf-8"))["features"]
     assert sorted(ROWS) == sorted(f["properties"]["id"] for f in cells)
-    assert SEARCH["contract"] == "terrainx-cell-search-v1"
+    assert SEARCH["contract"] == "terrainx-cell-search-v2"
     assert not SEARCH["errors"]
 
 
@@ -31,10 +31,22 @@ def test_fidelity_matches_the_released_candidates_exactly():
             assert ROWS[c["id"]]["missions"][mission]["F"] == pytest.approx(a["fidelity"]["value"], abs=1e-9)
 
 
-def test_missing_evidence_is_never_scored_and_temperature_stays_missing():
+def test_cells_reproduce_released_utility_coverage_and_priority():
+    for c in DATASET["candidates"]:
+        if c["benchmark"]:
+            continue
+        for mission, a in c["assessments"].items():
+            m = ROWS[c["id"]]["missions"][mission]
+            assert m["C"] == pytest.approx(a["utility"]["coverage"], abs=1e-12)
+            for got, want in ((m["U"], a["utility"]["value"]), (m["P"], a["priority"])):
+                assert (got is None) == (want is None)
+                if want is not None:
+                    assert got == pytest.approx(want, abs=1e-9)
+
+
+def test_missing_evidence_is_never_scored():
     for r in SEARCH["rows"]:
         for m in r["missions"].values():
-            assert m["criteria"]["temperature"] is None
             if m["criteria"]["geology"] is None:
                 assert m["P"] is None and m["rank"] is None and m["reason"]
 

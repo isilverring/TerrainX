@@ -1,12 +1,30 @@
 {
   "contract": "terrainx-lunar-polar-v1",
-  "generated_at": "2026-11-14T13:45:15.780150+00:00",
+  "diviner": {
+    "product": "LRO Diviner Polar Resource Product, south (dlre_prp_south.tab)",
+    "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_prp/dlre_prp_south.tab",
+    "bytes": 604800210,
+    "sha256": "393deaa5d8925d45bb2ed608f937a824f5eae029c2558aad1d2da8206b83a62d",
+    "label_url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_prp/dlre_prp_south.xml",
+    "records_scanned": 2880000,
+    "radius_km": 12.5,
+    "cold_trap_threshold_k": 110.0,
+    "cold_trap_reference": "Paige et al. (2010), Diviner Lunar Radiometer observations of cold traps in the Moon's south polar region, Science 330, 479–482",
+    "notes": "temp_max: modelled annual maximum surface temperature; temp_avg: annual average at 2 cm depth; ice depth: depth where water ice sublimates at 1 kg m⁻² per billion years (0 = stable at the surface; −999 = deeper than 2.87 m). The file also contains −1, which its labels and catalogue do not define; those triangles are counted separately and not interpreted. PDS label publishes no checksum; SHA-256 recorded over the full 604,800,210-byte stream at retrieval."
+  },
+  "earth_coldest_cell": {
+    "cell": "gobi-43.500-103.750",
+    "coldest_month_min_c": -32.13,
+    "kelvin": 241.01999999999998,
+    "source": "NASA POWER T2M_MIN monthly climatology 2001–2025"
+  },
+  "generated_at": "2026-11-14T14:40:23.552328+00:00",
   "raster": {
     "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_16.img",
     "bytes": 33177600,
     "sha256": "a511e40d7a3ea3275945b4da2a1df377133264fab0be94b7434b1cf8907254cb",
     "pinned_sha256": "a511e40d7a3ea3275945b4da2a1df377133264fab0be94b7434b1cf8907254cb",
-    "verified_at": "2026-11-14T13:45:15.677575+00:00"
+    "verified_at": "2026-11-14T14:40:23.355641+00:00"
   },
   "label_metadata": {
     "pixels_per_degree": 16.0,
@@ -32,6 +50,7 @@
     }
   ],
   "caveats": [
+    "Diviner values summarise all PRP triangles whose centres lie within 12.5 km of each feature centre; modelled thermal products, not in-situ measurements.",
     "Feature centres from the IAU Gazetteer, not NASA landing-region polygons.",
     "LDEM_16 native pixels are ~1.9 km north-south; a 24 km footprint is regional relief only.",
     "Earth terrain twins compare relief shape (F) only; Earth cannot reproduce polar illumination, permanently shadowed cold traps, vacuum, 1.62 m/s² gravity or lunar regolith."
@@ -458,7 +477,26 @@
           }
         }
       ],
-      "earth_compared": 134
+      "earth_compared": 134,
+      "diviner": {
+        "triangles": 3861,
+        "temp_max_k": {
+          "min": 50.897,
+          "median": 232.26,
+          "max": 294.791
+        },
+        "temp_avg_k": {
+          "min": 40.803,
+          "median": 83.827,
+          "max": 121.259
+        },
+        "cold_trap_fraction": 0.13727013727013726,
+        "ice_surface_stable_fraction": 0.003108003108003108,
+        "ice_stable_within_1m_fraction": 0.8425278425278425,
+        "ice_stable_within_2_87m_fraction": 0.8448588448588449,
+        "ice_undocumented_code_fraction": 0.13623413623413624,
+        "median_ice_depth_m": 0.06216
+      }
     },
     {
       "id": "haworth",
@@ -880,7 +918,26 @@
           }
         }
       ],
-      "earth_compared": 134
+      "earth_compared": 134,
+      "diviner": {
+        "triangles": 3825,
+        "temp_max_k": {
+          "min": 26.77,
+          "median": 60.708,
+          "max": 93.289
+        },
+        "temp_avg_k": {
+          "min": 26.112,
+          "median": 39.233,
+          "max": 48.608
+        },
+        "cold_trap_fraction": 1.0,
+        "ice_surface_stable_fraction": 0.0,
+        "ice_stable_within_1m_fraction": 0.0,
+        "ice_stable_within_2_87m_fraction": 0.0,
+        "ice_undocumented_code_fraction": 1.0,
+        "median_ice_depth_m": null
+      }
     },
     {
       "id": "mons-malapert",
@@ -1302,7 +1359,26 @@
           }
         }
       ],
-      "earth_compared": 134
+      "earth_compared": 134,
+      "diviner": {
+        "triangles": 3835,
+        "temp_max_k": {
+          "min": 131.754,
+          "median": 277.272,
+          "max": 337.147
+        },
+        "temp_avg_k": {
+          "min": 59.481,
+          "median": 143.436,
+          "max": 201.382
+        },
+        "cold_trap_fraction": 0.0,
+        "ice_surface_stable_fraction": 0.0,
+        "ice_stable_within_1m_fraction": 0.2260756192959583,
+        "ice_stable_within_2_87m_fraction": 0.23259452411994785,
+        "ice_undocumented_code_fraction": 0.0,
+        "median_ice_depth_m": 0.171095
+      }
     },
     {
       "id": "mons-mouton",
@@ -1724,7 +1800,26 @@
           }
         }
       ],
-      "earth_compared": 134
+      "earth_compared": 134,
+      "diviner": {
+        "triangles": 3840,
+        "temp_max_k": {
+          "min": 51.141,
+          "median": 233.1845,
+          "max": 318.609
+        },
+        "temp_avg_k": {
+          "min": 40.121,
+          "median": 126.197,
+          "max": 174.316
+        },
+        "cold_trap_fraction": 0.01484375,
+        "ice_surface_stable_fraction": 0.00703125,
+        "ice_stable_within_1m_fraction": 0.35625,
+        "ice_stable_within_2_87m_fraction": 0.36015625,
+        "ice_undocumented_code_fraction": 0.008854166666666666,
+        "median_ice_depth_m": 0.15614
+      }
     },
     {
       "id": "nobile",
@@ -2146,7 +2241,26 @@
           }
         }
       ],
-      "earth_compared": 134
+      "earth_compared": 134,
+      "diviner": {
+        "triangles": 3839,
+        "temp_max_k": {
+          "min": 37.814,
+          "median": 225.675,
+          "max": 326.522
+        },
+        "temp_avg_k": {
+          "min": 34.111,
+          "median": 100.288,
+          "max": 147.596
+        },
+        "cold_trap_fraction": 0.1635842667361292,
+        "ice_surface_stable_fraction": 0.06564209429538942,
+        "ice_stable_within_1m_fraction": 0.5517061734826778,
+        "ice_stable_within_2_87m_fraction": 0.5545715029955718,
+        "ice_undocumented_code_fraction": 0.09716071893722324,
+        "median_ice_depth_m": 0.01334
+      }
     },
     {
       "id": "de-gerlache",
@@ -2568,7 +2682,26 @@
           }
         }
       ],
-      "earth_compared": 134
+      "earth_compared": 134,
+      "diviner": {
+        "triangles": 3824,
+        "temp_max_k": {
+          "min": 35.243,
+          "median": 96.91550000000001,
+          "max": 308.405
+        },
+        "temp_avg_k": {
+          "min": 30.399,
+          "median": 59.9645,
+          "max": 153.98
+        },
+        "cold_trap_fraction": 0.5258891213389121,
+        "ice_surface_stable_fraction": 0.016213389121338913,
+        "ice_stable_within_1m_fraction": 0.4233786610878661,
+        "ice_stable_within_2_87m_fraction": 0.4280857740585774,
+        "ice_undocumented_code_fraction": 0.518305439330544,
+        "median_ice_depth_m": 0.01342
+      }
     },
     {
       "id": "slater",
@@ -2990,7 +3123,26 @@
           }
         }
       ],
-      "earth_compared": 134
+      "earth_compared": 134,
+      "diviner": {
+        "triangles": 3826,
+        "temp_max_k": {
+          "min": 38.305,
+          "median": 177.85899999999998,
+          "max": 297.858
+        },
+        "temp_avg_k": {
+          "min": 27.845,
+          "median": 51.84,
+          "max": 125.049
+        },
+        "cold_trap_fraction": 0.42890747516989025,
+        "ice_surface_stable_fraction": 0.012284370099320438,
+        "ice_stable_within_1m_fraction": 0.5734448510193414,
+        "ice_stable_within_2_87m_fraction": 0.5742289597490852,
+        "ice_undocumented_code_fraction": 0.4239414532148458,
+        "median_ice_depth_m": 0.01333
+      }
     },
     {
       "id": "shackleton",
@@ -3412,7 +3564,26 @@
           }
         }
       ],
-      "earth_compared": 134
+      "earth_compared": 134,
+      "diviner": {
+        "triangles": 3824,
+        "temp_max_k": {
+          "min": 67.507,
+          "median": 201.60950000000003,
+          "max": 347.804
+        },
+        "temp_avg_k": {
+          "min": 45.416,
+          "median": 64.997,
+          "max": 173.721
+        },
+        "cold_trap_fraction": 0.47201882845188287,
+        "ice_surface_stable_fraction": 0.06799163179916318,
+        "ice_stable_within_1m_fraction": 0.28164225941422594,
+        "ice_stable_within_2_87m_fraction": 0.28844142259414224,
+        "ice_undocumented_code_fraction": 0.40559623430962344,
+        "median_ice_depth_m": 0.05733
+      }
     }
   ]
 }

@@ -40,8 +40,26 @@ export const lunarPolarSchema = z.object({
         )
         .optional(),
       earth_compared: z.number().optional(),
+      diviner: z
+        .object({
+          triangles: z.number(),
+          temp_max_k: z.object({ min: z.number(), median: z.number(), max: z.number() }),
+          temp_avg_k: z.object({ min: z.number(), median: z.number(), max: z.number() }),
+          cold_trap_fraction: z.number(),
+          ice_surface_stable_fraction: z.number(),
+          ice_stable_within_1m_fraction: z.number(),
+          ice_stable_within_2_87m_fraction: z.number(),
+          median_ice_depth_m: z.number().nullable(),
+        })
+        .nullable()
+        .optional(),
     }),
   ),
+  diviner: z
+    .object({ product: z.string(), url: z.string(), bytes: z.number(), sha256: z.string(), label_url: z.string(), records_scanned: z.number(), radius_km: z.number(), cold_trap_threshold_k: z.number(), cold_trap_reference: z.string(), notes: z.string() })
+    .nullable()
+    .optional(),
+  earth_coldest_cell: z.object({ cell: z.string(), coldest_month_min_c: z.number(), kelvin: z.number(), source: z.string() }).nullable().optional(),
 });
 export type LunarPolar = z.infer<typeof lunarPolarSchema>;
 

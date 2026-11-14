@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
-  "release_id": "science-1407d3729d4bd714",
+  "release_id": "science-91ab51a87315622e",
   "model_version": "terrainx-model-v1",
   "dataset_sha256": "3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c",
-  "source_data_commit": "f2582539560f4f4debd452fcd65dcf8310006aec",
+  "source_data_commit": "47b5528de5e534695949c6135cc2d87168ac36db",
   "files": {
     "dataset.json": {
       "sha256": "3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c",
@@ -38,12 +38,12 @@
       "bytes": 516779
     },
     "cell_search.json": {
-      "sha256": "62c6c8cb8942fcbeeaf4c1c76d669b21a16d7b8e8e2f3b80d06300ea5dcd6627",
-      "bytes": 333420
+      "sha256": "c5cf48aa6c4e8a732c67c4183b6e72cb54a1c11948c1977d54ab51ea59e9afd4",
+      "bytes": 664759
     },
     "lunar_polar.json": {
-      "sha256": "2272081b60b22ffc876e0bbd99df841b618372d211031625705c62c15f33807f",
-      "bytes": 69969
+      "sha256": "3f2c00b29c8fd43abe6b1ac1ae2d200a5406486f3354b2612a8ef9bdb05f9c2d",
+      "bytes": 74678
     }
   }
 }

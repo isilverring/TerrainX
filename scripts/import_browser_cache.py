@@ -20,7 +20,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from science.ingestion.cache import CACHE, atomic_json
 
-ALLOWED = ("https://api.opentopodata.org/v1/srtm90m?", "https://macrostrat.org/api/geologic_units/map?")
+ALLOWED = ("https://api.opentopodata.org/v1/srtm90m?", "https://macrostrat.org/api/geologic_units/map?", "https://power.larc.nasa.gov/api/temporal/climatology/point?", "https://api.gbif.org/v1/occurrence/search?")
 
 
 def import_bundle(path: Path) -> tuple[int, int]:

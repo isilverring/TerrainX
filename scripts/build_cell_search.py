@@ -34,8 +34,68 @@ from science.analysis.terrain import terrain_metrics
 from science.analysis.discovery import distance_km
 from science.analysis.similarity import physical_fidelity
 from science.analysis.utility import mission_utility, combined_priority
+from science.ingestion.power import fetch_point, parse_point, fetch_environment, clean, MONTHS
+from science.ingestion.gbif import fetch_occurrence_count
+import importlib.util as _ilu
+import numpy as np
 
-CONTRACT = "terrainx-cell-search-v1"
+_spec = _ilu.spec_from_file_location("build_discovery", ROOT / "scripts" / "build_discovery.py")
+_bd = _ilu.module_from_spec(_spec)
+_spec.loader.exec_module(_bd)
+released_criteria = _bd.criteria_for  # identical criterion formulas to the released model
+
+KARST = ("limestone", "dolomite", "carbonate", "marble", "gypsum", "evaporite", "anhydrite")
+LAVA = ("basalt", "basaltic", "lava", "mafic volcanic", "andesite")
+
+
+def subsurface_potential(geology: dict) -> dict:
+    """Lithology-only proxy: units in which caves commonly form. Never evidence that a cave exists."""
+    karst, lava = [], []
+    for u in geology.get("units") or []:
+        text = " ".join(str(u.get(k, "")) for k in ("name", "strat_name", "lith", "descrip")).lower()
+        label = u.get("name") or u.get("strat_name") or u.get("lith") or "unnamed unit"
+        if any(w in text for w in KARST):
+            karst.append(label)
+        if any(w in text for w in LAVA):
+            lava.append(label)
+    kind = "karst and lava-tube host rocks" if karst and lava else "karst-prone (soluble rock)" if karst else "lava-tube-prone (volcanic flows)" if lava else "no cave-forming host rock mapped" if geology.get("units") else None
+    return {"class": kind, "karst_units": sorted(set(karst))[:4], "lava_units": sorted(set(lava))[:4], "method": "Macrostrat lithology keywords; a host-rock proxy, not a cave inventory."}
+
+
+def slope_exceedance(elevations, spacing_m=4000.0) -> dict | None:
+    z = np.array([[np.nan if v is None else v for v in row] for row in elevations], dtype=float)
+    gx = (z[1:-1, 2:] - z[1:-1, :-2]) / (2 * spacing_m)
+    gy = (z[2:, 1:-1] - z[:-2, 1:-1]) / (2 * spacing_m)
+    s = np.degrees(np.arctan(np.hypot(gx, gy)))
+    s = s[np.isfinite(s)]
+    if s.size == 0:
+        return None
+    return {"over_5_deg": float((s > 5).mean()), "over_10_deg": float((s > 10).mean()), "over_15_deg": float((s > 15).mean()), "max_deg": float(s.max()), "baseline_m": 2 * spacing_m}
+
+
+def environment(record: dict) -> dict:
+    data = record["data"]
+    fill = data.get("header", {}).get("fill_value", -999)
+    par = data["properties"]["parameter"]
+    monthly = {k: [clean(v.get(m), fill) for m in MONTHS] for k, v in par.items()}
+    ann = {k: clean(v.get("ANN"), fill) for k, v in par.items()}
+    tmax = [v for v in monthly.get("T2M_MAX", []) if v is not None]
+    tmin = [v for v in monthly.get("T2M_MIN", []) if v is not None]
+    frost = [v for v in monthly.get("FROST_DAYS", []) if v is not None]
+    return {
+        "warmest_month_max_c": max(tmax) if tmax else None,
+        "coldest_month_min_c": min(tmin) if tmin else None,
+        "annual_span_c": (max(tmax) - min(tmin)) if tmax and tmin else None,
+        "frost_days_per_year": sum(frost) if len(frost) == 12 else None,
+        "soil_wetness_top": ann.get("GWETTOP"),
+        "soil_wetness_root": ann.get("GWETROOT"),
+        "aerosol_optical_depth_550": ann.get("AOD_55"),
+        "units": {k: data["parameters"][k]["units"] for k in par},
+        "period": data.get("header", {}).get("range"),
+        "source_url": record["url"], "sha256": record["sha256"], "retrieved_at": record["retrieved_at"],
+    }
+
+CONTRACT = "terrainx-cell-search-v2"
 ALPHA = {"jezero": .30, "mare-crisium": .55}
 PER_REGION, SEPARATION_KM = 4, 65
 
@@ -99,10 +159,34 @@ def main() -> None:
         row["terrain"] = {k: terrain.get(k) for k in ("status", "reason", "elevations_m", "sample_spacing_m", "footprint_m", "native_resolution_m", "metrics")}
         row["terrain"]["source_urls"] = [s["source_url"] for s in terrain.get("provenance", [])]
         row["geology"] = {"status": geology.get("status"), "unit_name": unit.get("name") or unit.get("strat_name") or None, "lith": unit.get("lith") or None, "description": (unit.get("descrip") or "")[:400] or None, "map_id": unit.get("map_id"), "source_id": unit.get("source_id"), "age": unit.get("best_int_name"), "units_count": len(geology.get("units") or []), "source_refs": geology.get("source_refs", [])}
+        try:
+            climate = parse_point(fetch_point(client, lat, lon), lat, lon)
+        except Exception as exc:
+            climate = {}
+            errors.append({"cell": cell["id"], "stage": "power-point", "reason": str(exc)})
+        try:
+            row["environment"] = environment(fetch_environment(client, lat, lon))
+        except Exception as exc:
+            row["environment"] = None
+            errors.append({"cell": cell["id"], "stage": "power-environment", "reason": str(exc)})
+        try:
+            g = fetch_occurrence_count(client, lat, lon)
+            s_, n_, w_, e_ = lat - .25, lat + .25, lon - .3125, lon + .3125
+            area = (0.5 * 111.195) * (0.625 * 111.195 * np.cos(np.radians(lat)))
+            row["biology"] = {"gbif_occurrences": g["count"], "per_1000_km2": 1000 * g["count"] / area, "cell_area_km2": area, "source_url": g["source_url"], "sha256": g["sha256"], "caveat": "Recorded occurrences reflect sampling effort as much as life; a documented-biology proxy, not habitability."}
+        except Exception as exc:
+            row["biology"] = None
+            errors.append({"cell": cell["id"], "stage": "gbif", "reason": str(exc)})
+        row["subsurface"] = subsurface_potential(geology)
+        row["mobility"] = slope_exceedance(terrain["elevations_m"]) if terrain.get("status") == "available" else None
+        row["climate"] = {k: (climate.get(k) or {}).get("value") for k in ("T2M", "WS10M", "ALLSKY_SFC_SW_DWN", "RH2M", "PS")} if climate else None
+        if climate:
+            row["climate"]["annual_precip_mm"] = climate.get("annual_precip_mm")
+            row["climate"]["seasonal_temperature_range_c"] = climate.get("seasonal_temperature_range_c")
         row["missions"] = {}
         for target in targets:
             mission = target["id"]
-            crit = criteria(cell, terrain, geology, mission)
+            crit = released_criteria({"climate": climate, "terrain": terrain, "geology": geology}, mission) if climate else criteria(cell, terrain, geology, mission)
             utility = mission_utility(crit, mission)
             fidelity = physical_fidelity(terrain, target.get("terrain"))
             priority = combined_priority(fidelity["value"], utility, ALPHA[mission])
@@ -116,7 +200,7 @@ def main() -> None:
             row["missions"][mission] = {"F": fidelity["value"], "U": utility["value"], "C": utility["coverage"], "P": priority, "reason": reason if priority is None else None, "criteria": {k: v["value"] for k, v in crit.items()}, "geology_rationale": crit["geology"]["rationale"]}
         rows.append(row)
 
-    out = {"contract": CONTRACT, "generated_at": datetime.now(timezone.utc).isoformat(), "cells": len(rows), "terrain_available": sum(r["terrain"]["status"] == "available" for r in rows), "geology_mapped": sum(r["geology"]["status"] == "mapped" for r in rows), "rules": {"alpha": ALPHA, "per_region": PER_REGION, "separation_km": SEPARATION_KM, "temperature": "missing for all cells (not acquired)", "ranking": "combined priority P per mission; P requires F, assessed geology and C >= 0.70"}, "released_shortlist": released, "missions": {}, "rows": [], "errors": errors}
+    out = {"contract": CONTRACT, "generated_at": datetime.now(timezone.utc).isoformat(), "cells": len(rows), "terrain_available": sum(r["terrain"]["status"] == "available" for r in rows), "geology_mapped": sum(r["geology"]["status"] == "mapped" for r in rows), "rules": {"alpha": ALPHA, "per_region": PER_REGION, "separation_km": SEPARATION_KM, "temperature": "NASA POWER point T2M climatology for every cell (same request and formula as released candidates)", "ranking": "combined priority P per mission; P requires F, assessed geology and C >= 0.70"}, "released_shortlist": released, "missions": {}, "rows": [], "errors": errors}
     for target in targets:
         mission = target["id"]
         flat = [{**r, "P": r["missions"][mission]["P"], "F": r["missions"][mission]["F"]} for r in rows]
@@ -129,10 +213,31 @@ def main() -> None:
     for r in rows:
         for m in r["missions"].values():
             m.setdefault("rank", None)
+    # Earth-side analog dimensions as percentiles across the 130 cells (higher = more Moon/Mars-like).
+    dims = {
+        "soil_dryness": lambda r: None if not r.get("environment") or r["environment"]["soil_wetness_top"] is None else 1 - r["environment"]["soil_wetness_top"],
+        "thermal_extremes": lambda r: None if not r.get("environment") else r["environment"]["annual_span_c"],
+        "dust_loading": lambda r: None if not r.get("environment") else r["environment"]["aerosol_optical_depth_550"],
+        "life_scarcity": lambda r: None if not r.get("biology") else -r["biology"]["per_1000_km2"],
+        "rugged_terrain": lambda r: None if not (r["terrain"].get("metrics")) else r["terrain"]["metrics"]["p90_slope_deg"],
+    }
+    for name, f in dims.items():
+        vals = sorted(v for v in (f(r) for r in rows) if v is not None)
+        for r in rows:
+            v = f(r)
+            r.setdefault("dimensions", {})[name] = None if v is None else sum(x <= v for x in vals) / len(vals)
+    out["dimension_definitions"] = {
+        "soil_dryness": "1 − GWETTOP (NASA POWER surface soil wetness, 2001–2025), percentile",
+        "thermal_extremes": "warmest-month mean daily maximum − coldest-month mean daily minimum (POWER T2M_MAX/T2M_MIN), percentile",
+        "dust_loading": "annual aerosol optical depth at 550 nm (POWER AOD_55, MERRA-2), percentile",
+        "life_scarcity": "inverse of GBIF georeferenced occurrence density in the 0.5° × 0.625° cell, percentile (sampling-biased proxy)",
+        "rugged_terrain": "90th-percentile 8 km-baseline slope from the SRTM grid, percentile",
+    }
     out["rows"] = rows
     cached = []
     for r in rows:
-        for url in r["terrain"]["source_urls"] + r["geology"]["source_refs"]:
+        extra = [x["source_url"] for x in (r.get("environment"), r.get("biology")) if x]
+        for url in r["terrain"]["source_urls"] + r["geology"]["source_refs"] + extra:
             import hashlib
             path = CACHE / (hashlib.sha256(url.encode()).hexdigest() + ".json")
             if path.exists():
@@ -148,6 +253,10 @@ def main() -> None:
         if r["terrain"].get("elevations_m"):
             r["terrain"]["elevations_m"] = [[None if v is None else round(v, 2) for v in row] for row in r["terrain"]["elevations_m"]]
     public["provenance"] = [{**{k: v for k, v in c.items() if k != "url"}, "source": "OpenTopoData srtm90m" if "opentopodata" in c["url"] else c["url"]} for c in public["provenance"]]
+    for r in public["rows"]:
+        for k in ("environment", "biology"):
+            if r.get(k):
+                r[k].pop("units", None)
     target = ROOT / "frontend" / "public" / "data" / "cell_search.json"
     target.write_text(json.dumps(public, separators=(",", ":"), allow_nan=False, ensure_ascii=False) + "\n", encoding="utf-8")
     print(json.dumps({k: out[k] for k in ("cells", "terrain_available", "geology_mapped")}, indent=2))

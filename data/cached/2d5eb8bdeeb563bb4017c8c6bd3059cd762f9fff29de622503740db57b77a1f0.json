@@ -1,0 +1,160 @@
+{
+  "url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=45.0&longitude=101.875&parameters=T2M_MAX%2CT2M_MIN%2CGWETTOP%2CGWETROOT%2CFROST_DAYS%2CAOD_55&community=RE&format=JSON",
+  "retrieved_at": "2026-11-14T14:37:11.120Z",
+  "sha256": "7c7df4d02d61122de23a056dccf32cb4f9812b132732d6e15bb46b0df47de645",
+  "status_code": 200,
+  "data": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        101.875,
+        45.0,
+        1648.21
+      ]
+    },
+    "properties": {
+      "parameter": {
+        "AOD_55": {
+          "JAN": 0.05,
+          "FEB": 0.09,
+          "MAR": 0.15,
+          "APR": 0.19,
+          "MAY": 0.22,
+          "JUN": 0.33,
+          "JUL": 0.31,
+          "AUG": 0.26,
+          "SEP": 0.19,
+          "OCT": 0.11,
+          "NOV": 0.08,
+          "DEC": 0.04,
+          "ANN": 0.17
+        },
+        "FROST_DAYS": {
+          "JAN": 31.0,
+          "FEB": 28.2,
+          "MAR": 30.8,
+          "APR": 22.5,
+          "MAY": 7.3,
+          "JUN": 0.1,
+          "JUL": 0.0,
+          "AUG": 0.0,
+          "SEP": 5.2,
+          "OCT": 26.2,
+          "NOV": 29.9,
+          "DEC": 31.0,
+          "ANN": 212.3
+        },
+        "GWETROOT": {
+          "JAN": 0.39,
+          "FEB": 0.39,
+          "MAR": 0.39,
+          "APR": 0.38,
+          "MAY": 0.38,
+          "JUN": 0.39,
+          "JUL": 0.4,
+          "AUG": 0.41,
+          "SEP": 0.4,
+          "OCT": 0.39,
+          "NOV": 0.39,
+          "DEC": 0.39,
+          "ANN": 0.39
+        },
+        "GWETTOP": {
+          "JAN": 0.3,
+          "FEB": 0.3,
+          "MAR": 0.32,
+          "APR": 0.28,
+          "MAY": 0.26,
+          "JUN": 0.29,
+          "JUL": 0.35,
+          "AUG": 0.35,
+          "SEP": 0.34,
+          "OCT": 0.31,
+          "NOV": 0.31,
+          "DEC": 0.3,
+          "ANN": 0.31
+        },
+        "T2M_MAX": {
+          "JAN": 0.76,
+          "FEB": 8.57,
+          "MAR": 18.03,
+          "APR": 28.19,
+          "MAY": 31.13,
+          "JUN": 35.52,
+          "JUL": 36.97,
+          "AUG": 35.58,
+          "SEP": 28.64,
+          "OCT": 22.22,
+          "NOV": 12.75,
+          "DEC": 2.87,
+          "ANN": 36.97
+        },
+        "T2M_MIN": {
+          "JAN": -30.59,
+          "FEB": -29.49,
+          "MAR": -27.03,
+          "APR": -16.32,
+          "MAY": -7.57,
+          "JUN": -0.97,
+          "JUL": 3.51,
+          "AUG": 0.8,
+          "SEP": -7.15,
+          "OCT": -14.77,
+          "NOV": -22.95,
+          "DEC": -28.12,
+          "ANN": -30.59
+        }
+      }
+    },
+    "header": {
+      "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
+      "api": {
+        "version": "v2.10.1",
+        "name": "POWER Climatology API"
+      },
+      "sources": [
+        "SYN1DEG",
+        "MERRA2",
+        "POWER"
+      ],
+      "fill_value": -999.0,
+      "time_standard": "LST",
+      "range": "25-year Meteorological and Solar Monthly & Annual Climatologies (January 2001 - December 2025)"
+    },
+    "messages": [
+      "The requested parameters are retrieved from a pre-computed climatological period (January 2001 - December 2025)"
+    ],
+    "parameters": {
+      "AOD_55": {
+        "units": "dimensionless",
+        "longname": "Aerosol Optical Depth 55"
+      },
+      "FROST_DAYS": {
+        "units": "Days",
+        "longname": "Frost Days"
+      },
+      "GWETROOT": {
+        "units": "1",
+        "longname": "Root Zone Soil Wetness"
+      },
+      "GWETTOP": {
+        "units": "1",
+        "longname": "Surface Soil Wetness"
+      },
+      "T2M_MAX": {
+        "units": "C",
+        "longname": "Temperature at 2 Meters Maximum"
+      },
+      "T2M_MIN": {
+        "units": "C",
+        "longname": "Temperature at 2 Meters Minimum"
+      }
+    },
+    "times": {
+      "data": 0.272,
+      "process": 0.03
+    }
+  },
+  "acquired_via": "browser fetch (laptop built-in browser); body bytes re-hashed on import"
+}

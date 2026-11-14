@@ -1,0 +1,160 @@
+{
+  "url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-21.0&longitude=25.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
+  "retrieved_at": "2026-11-14T14:32:08.222Z",
+  "sha256": "3694cbd87b84f38da8b72aec14934a6ba1fb7e0249e14a4f0f2666ae42b62c4e",
+  "status_code": 200,
+  "data": {
+    "type": "Feature",
+    "geometry": {
+      "type": "Point",
+      "coordinates": [
+        25.0,
+        -21.0,
+        919.77
+      ]
+    },
+    "properties": {
+      "parameter": {
+        "ALLSKY_SFC_SW_DWN": {
+          "JAN": 25.5,
+          "FEB": 24.08,
+          "MAR": 22.53,
+          "APR": 20.61,
+          "MAY": 18.4,
+          "JUN": 16.16,
+          "JUL": 16.6,
+          "AUG": 19.35,
+          "SEP": 22.45,
+          "OCT": 25.05,
+          "NOV": 24.92,
+          "DEC": 24.52,
+          "ANN": 21.67
+        },
+        "PRECTOTCORR": {
+          "JAN": 3.02,
+          "FEB": 2.94,
+          "MAR": 1.71,
+          "APR": 0.73,
+          "MAY": 0.07,
+          "JUN": 0.15,
+          "JUL": 0.01,
+          "AUG": 0.01,
+          "SEP": 0.09,
+          "OCT": 0.55,
+          "NOV": 1.64,
+          "DEC": 2.7,
+          "ANN": 1.13
+        },
+        "PS": {
+          "JAN": 90.77,
+          "FEB": 90.84,
+          "MAR": 91.01,
+          "APR": 91.25,
+          "MAY": 91.47,
+          "JUN": 91.67,
+          "JUL": 91.74,
+          "AUG": 91.49,
+          "SEP": 91.25,
+          "OCT": 91.01,
+          "NOV": 90.88,
+          "DEC": 90.81,
+          "ANN": 91.19
+        },
+        "RH2M": {
+          "JAN": 49.66,
+          "FEB": 51.94,
+          "MAR": 50.35,
+          "APR": 46.56,
+          "MAY": 39.45,
+          "JUN": 41.7,
+          "JUL": 39.03,
+          "AUG": 31.26,
+          "SEP": 26.57,
+          "OCT": 28.82,
+          "NOV": 38.15,
+          "DEC": 47.59,
+          "ANN": 40.87
+        },
+        "T2M": {
+          "JAN": 27.97,
+          "FEB": 27.27,
+          "MAR": 26.17,
+          "APR": 23.62,
+          "MAY": 19.87,
+          "JUN": 16.7,
+          "JUL": 15.97,
+          "AUG": 19.39,
+          "SEP": 23.73,
+          "OCT": 27.57,
+          "NOV": 28.49,
+          "DEC": 28.32,
+          "ANN": 23.74
+        },
+        "WS10M": {
+          "JAN": 4.12,
+          "FEB": 3.93,
+          "MAR": 3.89,
+          "APR": 3.73,
+          "MAY": 3.51,
+          "JUN": 3.6,
+          "JUL": 3.87,
+          "AUG": 4.02,
+          "SEP": 4.54,
+          "OCT": 5.01,
+          "NOV": 4.4,
+          "DEC": 4.06,
+          "ANN": 4.06
+        }
+      }
+    },
+    "header": {
+      "title": "NASA/POWER Source Native Resolution Climatology Climatologies",
+      "api": {
+        "version": "v2.10.1",
+        "name": "POWER Climatology API"
+      },
+      "sources": [
+        "SYN1DEG",
+        "MERRA2",
+        "POWER"
+      ],
+      "fill_value": -999.0,
+      "time_standard": "LST",
+      "range": "25-year Meteorological and Solar Monthly & Annual Climatologies (January 2001 - December 2025)"
+    },
+    "messages": [
+      "The requested parameters are retrieved from a pre-computed climatological period (January 2001 - December 2025)"
+    ],
+    "parameters": {
+      "ALLSKY_SFC_SW_DWN": {
+        "units": "MJ/m^2/day",
+        "longname": "All Sky Surface Shortwave Downward Irradiance"
+      },
+      "PRECTOTCORR": {
+        "units": "mm/day",
+        "longname": "Precipitation Corrected"
+      },
+      "PS": {
+        "units": "kPa",
+        "longname": "Surface Pressure"
+      },
+      "RH2M": {
+        "units": "%",
+        "longname": "Relative Humidity at 2 Meters"
+      },
+      "T2M": {
+        "units": "C",
+        "longname": "Temperature at 2 Meters"
+      },
+      "WS10M": {
+        "units": "m/s",
+        "longname": "Wind Speed at 10 Meters"
+      }
+    },
+    "times": {
+      "data": 0.258,
+      "process": 0.03
+    }
+  },
+  "acquired_via": "browser fetch (laptop built-in browser); body bytes re-hashed on import"
+}

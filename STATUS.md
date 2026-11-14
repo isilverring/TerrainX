@@ -12,7 +12,7 @@ Release 3 code and science are complete and pushed to private https://github.com
 
 Validation: 67 Python tests plus independent reproduction; 61 TypeScript science tests; 24/24 production-preview browser workflows. Visual sweep 25 page/viewport combinations (390–1568px): no overflow, missing images, framework overlays or app/console errors after fixing a tablet decorative-grid overflow. Chrome/Playwright used because Browser plugin was not available. Static build passes; dependency bundle-size warnings are nonfatal and map loads lazily. QA assets are ignored under outputs/release3-qa.
 
-Original science unchanged: 130 POWER cells, 16 automatic candidates, 10 preliminary characterized under default assumptions, 4 reference benchmarks, 20 climate/SRTM profiles, 2 genuine planetary grids, 19 mapped geology contexts. Dataset SHA-256 3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c. Current science release science-1407d3729d4bd714 (laptop L8; earlier science-bdf38c65827e398b remains frozen). Full raw rasters are ignored; pinned labels/hashes/derived grids and reproducible acquisition scripts are committed. Rasterio 1.5.2 is the new preprocessing dependency; lockfile updated.
+Original science unchanged: 130 POWER cells, 16 automatic candidates, 10 preliminary characterized under default assumptions, 4 reference benchmarks, 20 climate/SRTM profiles, 2 genuine planetary grids, 19 mapped geology contexts. Dataset SHA-256 3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c. Current science release science-91ab51a87315622e (laptop L11; earlier releases incl. science-1407d3729d4bd714 and science-bdf38c65827e398b remain frozen). Full raw rasters are ignored; pinned labels/hashes/derived grids and reproducible acquisition scripts are committed. Rasterio 1.5.2 is the new preprocessing dependency; lockfile updated.
 
 ## Laptop session (cloud workspace) — Release 4 track
 
@@ -45,8 +45,17 @@ Work continued from the laptop after Release 3 (`efa7194`). Each milestone below
 
 - **L10 submission prep** — `docs/PLAN.md` (challenge page + Resources tab re-read 2026-11-14; deadline Sun 15 Nov 23:59 local; ≤30 s video or ≤7 slides; P0/P1/P2 plan with a 30-second demo script). `docs/DEPLOY_VERCEL.md` and an extended `vercel.json` (no-cache service worker, immutable assets/releases, security headers); root `npm run build` verified to reproduce release `science-1407d3729d4bd714`. New `/challenge` page mapping all 12 challenge dimensions to TerrainX (4 covered, 5 partial, 3 gaps) and the data in use; landing "latest findings" strip read live from the release. Tests: 86 unit, 32/32 browser (+1 live-imagery skip), 75 Python.
 
+- **L11 closing gaps (in progress, committed mid-way at the user's request)** — new genuine data via the laptop browser, URL list hash-proven identical to pipeline keys (`2ad963db…6d6f`), bodies re-hashed on import (`data/cached/` now 667 records):
+  - NASA POWER point climatology for all 114 remaining cells (exact released request) → cell U/C/P now reproduce all 74 released values with zero difference; `terrainx-cell-search-v2`.
+  - NASA POWER environment climatology 2001–2025 for all 130 cells (`fetch_environment`: T2M_MAX/MIN, FROST_DAYS, GWETTOP/GWETROOT, AOD_55) and GBIF occurrence counts per cell (`science/ingestion/gbif.py`).
+  - Derived per cell: subsurface host-rock proxy (karst / lava-tube units from Macrostrat; 13 lava-tube-prone, 3 karst-prone), slope exceedance, and five Earth-side analog dimensions as percentiles (soil dryness, thermal extremes, dust loading, life scarcity, rugged terrain).
+  - LRO Diviner Polar Resource Product south (604,800,210 bytes streamed; full-stream SHA-256 `393deaa5…a62d`; all 2,880,000 records aligned): 30,674 triangles within 12.5 km of the 8 polar sites → annual max/avg temperature, cold-trap share (<110 K, Paige et al. 2010) and ice-stability depth. Example: Haworth 100% cold trap. The file uses an ice-depth code −1 not defined in its labels/catalogue; counted separately, never interpreted.
+  - UI: `/cells` colour-by selector (P, five dimensions, cave host rock), analog-dimension bars, environment/biology/subsurface/mobility facts, NASA GIBS MODIS image per cell, `?cell=` deep links. `/lunar-pole` Diviner block per site, Diviner hash badge, Earth's coldest cell (241 K) vs polar temperatures.
+  - New science release `science-91ab51a87315622e`. Tests: 76 Python, 86 unit, 32/32 browser (+1 live-imagery skip).
+  - Still to do in L11: record the Diviner bundle MD5 published in the PDS bundle manifest; update `/challenge` statuses and docs/PLAN.md; polar site deep links; add tests for the new fields.
+
 ### Planned next
-See `docs/PLAN.md` — P0: deploy + verify, record the 30-second demo, write the project page, final QA, tag the submitted commit.
+See `docs/PLAN.md` — P0 (deploy, demo, project page) is with the user.
 
 Cloud-session limits: the sandbox shell cannot reach map tiles, NASA, POWER, OpenTopoData or Macrostrat, so new external observations are only added when they can be fetched and checksum-verified. Publishing to the public Site remains a PC-side step.
 

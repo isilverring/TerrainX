@@ -38,9 +38,40 @@ export const cellRowSchema = z.object({
     source_refs: z.array(z.string()),
   }),
   missions: z.record(z.string(), missionResult),
+  climate: z.record(z.string(), num).nullable().optional(),
+  environment: z
+    .object({
+      warmest_month_max_c: num,
+      coldest_month_min_c: num,
+      annual_span_c: num,
+      frost_days_per_year: num,
+      soil_wetness_top: num,
+      soil_wetness_root: num,
+      aerosol_optical_depth_550: num,
+      period: z.string().nullable().optional(),
+      source_url: z.string(),
+      sha256: z.string(),
+    })
+    .passthrough()
+    .nullable()
+    .optional(),
+  biology: z
+    .object({ gbif_occurrences: z.number(), per_1000_km2: z.number(), cell_area_km2: z.number(), source_url: z.string(), caveat: z.string() })
+    .passthrough()
+    .nullable()
+    .optional(),
+  subsurface: z
+    .object({ class: z.string().nullable(), karst_units: z.array(z.string()), lava_units: z.array(z.string()), method: z.string() })
+    .nullable()
+    .optional(),
+  mobility: z
+    .object({ over_5_deg: z.number(), over_10_deg: z.number(), over_15_deg: z.number(), max_deg: z.number(), baseline_m: z.number() })
+    .nullable()
+    .optional(),
+  dimensions: z.record(z.string(), num).optional(),
 });
 export const cellSearchSchema = z.object({
-  contract: z.literal("terrainx-cell-search-v1"),
+  contract: z.enum(["terrainx-cell-search-v1", "terrainx-cell-search-v2"]),
   generated_at: z.string(),
   cells: z.number(),
   terrain_available: z.number(),
@@ -58,6 +89,7 @@ export const cellSearchSchema = z.object({
     }),
   ),
   rows: z.array(cellRowSchema),
+  dimension_definitions: z.record(z.string(), z.string()).optional(),
   provenance: z.array(z.object({ sha256: z.string(), retrieved_at: z.string(), file: z.string(), source: z.string() })),
   errors: z.array(z.unknown()),
 });
@@ -70,3 +102,11 @@ export function cellLabel(c: { latitude: number; longitude: number }) {
     ew = c.longitude < 0 ? "W" : "E";
   return `${Math.abs(c.latitude).toFixed(2)}°${ns} ${Math.abs(c.longitude).toFixed(3)}°${ew}`;
 }
+
+export const DIMENSION_LABELS: Record<string, string> = {
+  soil_dryness: "Soil dryness",
+  thermal_extremes: "Thermal extremes",
+  dust_loading: "Dust loading",
+  life_scarcity: "Life scarcity",
+  rugged_terrain: "Rugged terrain",
+};
