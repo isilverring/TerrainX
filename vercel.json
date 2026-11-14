@@ -1,0 +1,6 @@
+{
+  "installCommand":"npm --prefix frontend ci",
+  "buildCommand":"npm run build",
+  "outputDirectory":"dist",
+  "framework":null
+}

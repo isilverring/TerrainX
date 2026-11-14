@@ -46,7 +46,7 @@ def main():
         for observation in (v for v in climate.values() if isinstance(v,dict)):
             assert observation["unit"] and observation["provenance"]["source_url"].startswith("https://power.larc.nasa.gov/")
             assert observation["provenance"]["retrieved_at"] and observation["provenance"]["sha256"]
-            assert observation["provenance"]["period"]
+            assert observation["provenance"]["period"] and all(observation["provenance"]["period"])
         if climate.get("PRECTOTCORR"):
             p=climate["PRECTOTCORR"]
             close(annual_precipitation(p["value"],p["unit"]),climate["annual_precip_mm"])

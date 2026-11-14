@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at": "2026-11-14T05:28:13.317796+00:00",
+  "generated_at": "2026-11-14T06:26:33.461890+00:00",
   "regions": [
     {
       "id": "saudi",
@@ -100,8 +100,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-21.0&longitude=25.625&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:27.901892+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -21.0,
@@ -135,8 +135,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-21.0&longitude=25.625&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:27.901892+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -21.0,
@@ -170,8 +170,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-21.0&longitude=25.625&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:27.901892+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -21.0,
@@ -205,8 +205,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-21.0&longitude=25.625&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:27.901892+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -21.0,
@@ -240,8 +240,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-21.0&longitude=25.625&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:27.901892+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -21.0,
@@ -275,8 +275,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-21.0&longitude=25.625&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:27.901892+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -21.0,
@@ -813,8 +813,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=25.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:30.805779+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -848,8 +848,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=25.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:30.805779+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -883,8 +883,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=25.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:30.805779+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -918,8 +918,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=25.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:30.805779+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -953,8 +953,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=25.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:30.805779+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -988,8 +988,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=25.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:30.805779+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -1526,8 +1526,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=26.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:32.051345+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -1561,8 +1561,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=26.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:32.051345+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -1596,8 +1596,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=26.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:32.051345+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -1631,8 +1631,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=26.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:32.051345+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -1666,8 +1666,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=26.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:32.051345+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -1701,8 +1701,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=26.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:32.051345+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -2239,8 +2239,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=27.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:33.507596+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -2274,8 +2274,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=27.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:33.507596+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -2309,8 +2309,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=27.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:33.507596+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -2344,8 +2344,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=27.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:33.507596+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -2379,8 +2379,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=27.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:33.507596+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -2414,8 +2414,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.0&longitude=27.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:33.507596+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.0,
@@ -2954,8 +2954,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:34.897338+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.5,
@@ -2989,8 +2989,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:34.897338+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.5,
@@ -3024,8 +3024,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:34.897338+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.5,
@@ -3059,8 +3059,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:34.897338+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.5,
@@ -3094,8 +3094,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:34.897338+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.5,
@@ -3129,8 +3129,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:34.897338+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.5,
@@ -3665,8 +3665,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-23.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:36.343401+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -23.5,
@@ -3700,8 +3700,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-23.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:36.343401+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -23.5,
@@ -3735,8 +3735,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-23.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:36.343401+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -23.5,
@@ -3770,8 +3770,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-23.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:36.343401+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -23.5,
@@ -3805,8 +3805,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-23.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:36.343401+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -23.5,
@@ -3840,8 +3840,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-23.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:36.343401+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -23.5,
@@ -4376,8 +4376,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:37.985646+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.5,
@@ -4411,8 +4411,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:37.985646+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.5,
@@ -4446,8 +4446,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:37.985646+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.5,
@@ -4481,8 +4481,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:37.985646+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.5,
@@ -4516,8 +4516,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:37.985646+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.5,
@@ -4551,8 +4551,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-22.5&longitude=-70.0&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:37.985646+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -22.5,
@@ -5087,8 +5087,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0&longitude=-69.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:39.421402+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.0,
@@ -5122,8 +5122,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0&longitude=-69.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:39.421402+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.0,
@@ -5157,8 +5157,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0&longitude=-69.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:39.421402+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.0,
@@ -5192,8 +5192,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0&longitude=-69.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:39.421402+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.0,
@@ -5227,8 +5227,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0&longitude=-69.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:39.421402+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.0,
@@ -5262,8 +5262,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0&longitude=-69.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:39.421402+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.0,
@@ -5798,8 +5798,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:40.514258+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.0,
@@ -5833,8 +5833,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:40.514258+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.0,
@@ -5868,8 +5868,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:40.514258+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.0,
@@ -5903,8 +5903,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:40.514258+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.0,
@@ -5938,8 +5938,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:40.514258+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.0,
@@ -5973,8 +5973,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:40.514258+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.0,
@@ -6485,8 +6485,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=102.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:41.945770+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.0,
@@ -6520,8 +6520,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=102.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:41.945770+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.0,
@@ -6555,8 +6555,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=102.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:41.945770+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.0,
@@ -6590,8 +6590,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=102.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:41.945770+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.0,
@@ -6625,8 +6625,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=102.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:41.945770+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.0,
@@ -6660,8 +6660,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.0&longitude=102.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:41.945770+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.0,
@@ -7170,8 +7170,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.5&longitude=101.875&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:43.347232+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.5,
@@ -7205,8 +7205,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.5&longitude=101.875&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:43.347232+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.5,
@@ -7240,8 +7240,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.5&longitude=101.875&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:43.347232+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.5,
@@ -7275,8 +7275,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.5&longitude=101.875&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:43.347232+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.5,
@@ -7310,8 +7310,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.5&longitude=101.875&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:43.347232+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.5,
@@ -7345,8 +7345,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=42.5&longitude=101.875&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:43.347232+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 42.5,
@@ -7857,8 +7857,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:44.770665+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 43.0,
@@ -7892,8 +7892,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:44.770665+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 43.0,
@@ -7927,8 +7927,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:44.770665+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 43.0,
@@ -7962,8 +7962,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:44.770665+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 43.0,
@@ -7997,8 +7997,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:44.770665+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 43.0,
@@ -8032,8 +8032,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.0&longitude=101.25&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:44.770665+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 43.0,
@@ -8544,8 +8544,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:45.865961+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.0,
@@ -8579,8 +8579,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:45.865961+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.0,
@@ -8614,8 +8614,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:45.865961+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.0,
@@ -8649,8 +8649,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:45.865961+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.0,
@@ -8684,8 +8684,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:45.865961+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.0,
@@ -8719,8 +8719,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:45.865961+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.0,
@@ -9201,8 +9201,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=39.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:47.330173+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.0,
@@ -9236,8 +9236,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=39.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:47.330173+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.0,
@@ -9271,8 +9271,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=39.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:47.330173+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.0,
@@ -9306,8 +9306,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=39.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:47.330173+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.0,
@@ -9341,8 +9341,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=39.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:47.330173+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.0,
@@ -9376,8 +9376,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.0&longitude=39.375&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:47.330173+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.0,
@@ -9915,8 +9915,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.5&longitude=38.75&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:48.768224+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.5,
@@ -9950,8 +9950,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.5&longitude=38.75&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:48.768224+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.5,
@@ -9985,8 +9985,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.5&longitude=38.75&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:48.768224+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.5,
@@ -10020,8 +10020,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.5&longitude=38.75&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:48.768224+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.5,
@@ -10055,8 +10055,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.5&longitude=38.75&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:48.768224+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.5,
@@ -10090,8 +10090,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=24.5&longitude=38.75&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:48.768224+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 24.5,
@@ -10629,8 +10629,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:50.418389+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 25.0,
@@ -10664,8 +10664,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:50.418389+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 25.0,
@@ -10699,8 +10699,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:50.418389+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 25.0,
@@ -10734,8 +10734,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:50.418389+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 25.0,
@@ -10769,8 +10769,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:50.418389+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 25.0,
@@ -10804,8 +10804,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.0&longitude=38.125&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:50.418389+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 25.0,
@@ -11376,8 +11376,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=37.520408&longitude=29.673456&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:51.901915+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 37.520408,
@@ -11411,8 +11411,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=37.520408&longitude=29.673456&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:51.901915+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 37.520408,
@@ -11446,8 +11446,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=37.520408&longitude=29.673456&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:51.901915+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 37.520408,
@@ -11481,8 +11481,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=37.520408&longitude=29.673456&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:51.901915+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 37.520408,
@@ -11516,8 +11516,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=37.520408&longitude=29.673456&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:51.901915+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 37.520408,
@@ -11551,8 +11551,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=37.520408&longitude=29.673456&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:51.901915+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 37.520408,
@@ -12121,8 +12121,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.719714&longitude=39.943981&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:53.321813+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 25.719714,
@@ -12156,8 +12156,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.719714&longitude=39.943981&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:53.321813+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 25.719714,
@@ -12191,8 +12191,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.719714&longitude=39.943981&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:53.321813+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 25.719714,
@@ -12226,8 +12226,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.719714&longitude=39.943981&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:53.321813+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 25.719714,
@@ -12261,8 +12261,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.719714&longitude=39.943981&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:53.321813+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 25.719714,
@@ -12296,8 +12296,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25.719714&longitude=39.943981&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:53.321813+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 25.719714,
@@ -12859,8 +12859,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.42&longitude=-113.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:54.765857+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 43.42,
@@ -12894,8 +12894,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.42&longitude=-113.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:54.765857+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 43.42,
@@ -12929,8 +12929,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.42&longitude=-113.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:54.765857+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 43.42,
@@ -12964,8 +12964,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.42&longitude=-113.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:54.765857+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 43.42,
@@ -12999,8 +12999,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.42&longitude=-113.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:54.765857+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 43.42,
@@ -13034,8 +13034,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=43.42&longitude=-113.5&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:54.765857+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": 43.42,
@@ -13673,8 +13673,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0848&longitude=-69.915069&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:56.142038+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.0848,
@@ -13708,8 +13708,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0848&longitude=-69.915069&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:56.142038+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.0848,
@@ -13743,8 +13743,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0848&longitude=-69.915069&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:56.142038+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.0848,
@@ -13778,8 +13778,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0848&longitude=-69.915069&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:56.142038+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.0848,
@@ -13813,8 +13813,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0848&longitude=-69.915069&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:56.142038+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.0848,
@@ -13848,8 +13848,8 @@
             "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=-24.0848&longitude=-69.915069&parameters=PRECTOTCORR%2CT2M%2CWS10M%2CALLSKY_SFC_SW_DWN%2CPS%2CRH2M&community=AG&format=JSON",
             "retrieved_at": "2026-11-14T05:21:56.142038+00:00",
             "period": [
-              null,
-              null
+              "20010101",
+              "20251231"
             ],
             "native_resolution": "MERRA-2 meteorology 0.5° × 0.625°; CERES solar 1° × 1°",
             "latitude": -24.0848,

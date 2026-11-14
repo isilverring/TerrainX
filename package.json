@@ -1,0 +1,12 @@
+{
+  "name":"terrainx-workspace",
+  "private":true,
+  "type":"module",
+  "scripts":{
+    "dev":"npm --prefix frontend run dev",
+    "build":"npm --prefix frontend run build && node scripts/build_static.mjs",
+    "test":"npm --prefix frontend test",
+    "preview":"npm --prefix frontend run preview"
+  },
+  "engines":{"node":">=22"}
+}

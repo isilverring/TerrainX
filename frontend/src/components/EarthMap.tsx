@@ -15,10 +15,11 @@ export default function EarthMap({candidates,selected,onSelect}:Props) {
   if(!container.current)return
   let active=true
   try {
-   const instance=new maplibregl.Map({container:container.current,center:[28,14],zoom:1.25,minZoom:1,maxZoom:16,style:{version:8,sources:{basemap:{type:'raster',tiles:['https://basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'],tileSize:256,attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors · © <a href="https://carto.com/attributions">CARTO</a>'}},layers:[{id:'basemap',type:'raster',source:'basemap',paint:{'raster-opacity':.85}}]},attributionControl:{compact:true}})
+   const instance=new maplibregl.Map({container:container.current,center:[28,14],zoom:1.25,minZoom:1,maxZoom:16,style:{version:8,sources:{land:{type:'geojson',data:'/data/land.geojson',attribution:'Natural Earth'},basemap:{type:'raster',tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}'],tileSize:256,maxzoom:10,attribution:'Esri, HERE, Garmin, © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, GIS user community'},labels:{type:'raster',tiles:['https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Reference/MapServer/tile/{z}/{y}/{x}'],tileSize:256,maxzoom:10}},layers:[{id:'background',type:'background',paint:{'background-color':'#090f19'}},{id:'land',type:'fill',source:'land',paint:{'fill-color':'#1d3149'}},{id:'coastlines',type:'line',source:'land',paint:{'line-color':'#48647e','line-width':.5}},{id:'basemap',type:'raster',source:'basemap',paint:{'raster-opacity':.8}},{id:'labels',type:'raster',source:'labels'}]},attributionControl:{compact:false}})
    map.current=instance
    instance.addControl(new maplibregl.NavigationControl({showCompass:false}),'top-right')
-   instance.on('load',async()=>{
+   // Overlay readiness must not wait for every remote raster tile to finish.
+   instance.once('style.load',async()=>{
     if(!active)return
     try {
      const response=await fetch('/data/screened_cells.geojson')

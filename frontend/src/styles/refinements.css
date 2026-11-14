@@ -1,0 +1,45 @@
+/* Concept-to-render refinements: legible desktop density and genuine map canvas. */
+.atlas-panel > .map-canvas.maplibregl-map{position:absolute;inset:68px 0 0;height:calc(100% - 68px);width:100%}
+.brand-x{color:var(--text)}
+.landing-header nav{margin-left:auto}
+.landing-header .header-note{display:none}
+.maplibregl-ctrl-attrib{background:#111a29ee!important;color:var(--muted)!important}
+.maplibregl-ctrl-attrib a{color:#c6d7e8!important}
+@media(max-width:600px){.map-legend{bottom:87px}}
+@media(min-width:1151px){
+ .explorer{grid-template-columns:minmax(260px,22%) minmax(300px,1fr) minmax(360px,30%)}
+ .mission-rail{padding:22px}
+ .mission-rail h1{font-size:27px}
+ .mission-rail label,.mission-rail h3{font-size:13px}
+ .mission-rail p{font-size:15px}
+ .mission-rail .rail-context{font-size:12px}
+ .mission-rail select{font-size:13px}
+ .source-status>div{font-size:12px}
+ .source-status>div>span:last-child{font-size:11px}
+ .atlas-heading h2,.results-title h2{font-size:26px}
+ .results-title p{font-size:11px}
+ .candidate-name strong{font-size:14px}
+ .candidate-name .status-label{font-size:10px}
+ .candidate-row{padding:15px 19px}
+ .score-strip.compact span{font-size:10px}
+ .score-strip.compact strong{font-size:22px}
+ .insufficient{font-size:10px}
+ .selected-summary{padding:19px}
+ .selected-summary h2{font-size:22px}
+ .evidence-rationale{font-size:12px}
+ .warning-inline{font-size:10px}
+ .site-actions .button{font-size:12px;padding:13px 9px}
+ .hero-copy h1{font-size:clamp(62px,5.3vw,84px)}
+ .hero-copy>p{font-size:27px}
+ .launch{font-size:24px;min-width:450px;justify-content:space-between;padding:21px 27px}
+ .powered{font-size:17px}
+ .powered span{font-size:12px}
+ .process-band h2{font-size:32px}
+ .process-band h2 span{font-size:29px}
+ .process-band p{font-size:15px}
+ .landing-footer strong{font-size:14px}
+ .landing-footer span{font-size:12px}
+ .landing-footer small{font-size:10px}
+ .app-header nav a{font-size:16px}
+ .brand{font-size:32px}
+}

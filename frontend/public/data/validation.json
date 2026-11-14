@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-14T06:23:09.952215+00:00",
-  "passed": 47,
+  "generated_at": "2026-11-14T06:27:06.700738+00:00",
+  "passed": 48,
   "failed": 0,
   "checks": [
     "Dataset passes Pydantic validation; frontend also validates with Zod.",
@@ -23,5 +23,5 @@
     "geology_mapped": 19,
     "errors": []
   },
-  "dataset_sha256": "b32919331aba3addb39de0a9cb0dc74a449c4cfc6ea2e36b15bb542622d65dde"
+  "dataset_sha256": "d0c8bfb5b670bc9f5fdf52a254d324b9206aedde5d84c9140c4a101c6d637639"
 }

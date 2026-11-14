@@ -7,6 +7,7 @@ import numpy as np
 import pytest
 
 from science.ingestion.power import clean,annual_precipitation,parse_point,parse_regional
+from science.ingestion.power import acquisition_period
 from science.ingestion.srtm import grid_coordinates,batches,sample_grid
 from science.analysis.terrain import terrain_metrics
 from science.analysis.similarity import feature_similarity,physical_fidelity,scales_compatible
@@ -27,6 +28,9 @@ def test_precip_invalid_units():
 @pytest.mark.parametrize("v",[-999,None,float("nan"),float("inf"),"missing",True])
 def test_missing(v):assert clean(v) is None
 def test_negative_precip_missing():assert annual_precipitation(-1,"mm/day") is None
+def test_point_period_header_range():
+    assert acquisition_period({"range":"25-year Meteorological and Solar Monthly & Annual Climatologies (January 2001 - December 2025)"})==["20010101","20251231"]
+    assert acquisition_period({}) is None
 def test_regional_live_fixture():
     raw=json.loads((Path(__file__).parents[2]/"data/source/research/power_regional.json").read_text(encoding="utf-8"))
     data=raw.get("data",raw)

@@ -15,3 +15,7 @@ data/source/**/*.tif
 data/source/**/*.zip
 artifacts/qa/
 *.log
+*.tsbuildinfo
+frontend/test-results/
+frontend/playwright-report/
+outputs/

@@ -6,6 +6,8 @@ import type { Dataset } from './lib/models'
 import { Header, Loading } from './components/ui'
 import Landing from './pages/Landing'
 import './styles/index.css'
+import './styles/model.css'
+import './styles/refinements.css'
 import { ModelContext, applyWeights, defaultWeights, rebalanceWeight, storedWeights } from './lib/scoring'
 const Explorer=lazy(()=>import('./pages/Explorer'))
 const SiteDetail=lazy(()=>import('./pages/SiteDetail'))
