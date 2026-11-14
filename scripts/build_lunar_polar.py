@@ -26,13 +26,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from science.ingestion.cache import atomic_json
+from science.ingestion.cache import atomic_json, stable_science_json
 from science.ingestion.mola import extract_terrain_grid, read_product_metadata
 from science.ingestion.lola import LOLA_BASE
 from science.analysis.terrain import terrain_metrics
 from science.analysis.similarity import physical_fidelity
 
-CONTRACT = "terrainx-lunar-polar-v1"
+CONTRACT = "terrainx-lunar-polar-v2"
 GAZETTEER = "https://planetarynames.wr.usgs.gov/Feature/{id}"
 ARTEMIS_SOURCE = "https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/"
 # IAU Gazetteer of Planetary Nomenclature (planetocentric, +East, -180..180), retrieved 2026-11-14.
@@ -77,41 +77,27 @@ def diviner_summary() -> dict | None:
     """Per-site statistics from LRO Diviner PRP south triangles (fixed-width columns per its PDS4 label)."""
     if not DIVINER_BUNDLE.exists():
         return None
-    import statistics
+    from science.ingestion.diviner import validate_label,parse_record,summarize
     bundle = json.loads(DIVINER_BUNDLE.read_text(encoding="utf-8"))
-    sites = {s["id"]: s for s in SITES}
-    per = {k: [] for k in sites}
-    for line in bundle["records"]:
-        sid, _dist, rec = line.split("\t", 2)
-        clon, clat = float(rec[126:141]), float(rec[143:158])
-        t_avg, t_max, ice = float(rec[177:185]), float(rec[187:195]), float(rec[197:208])
-        site = sites[sid]
-        d = _gc_km(site["latitude"], site["longitude"], clat, clon)
-        if d > DIVINER_RADIUS_KM + 1e-6:
-            raise ValueError(f"Kept Diviner triangle outside the site radius: {sid} {d:.3f} km")
-        per[sid].append((t_avg, t_max, ice))
-    out = {}
-    for sid, rows in per.items():
-        if not rows:
-            out[sid] = None
-            continue
-        tmax = [r[1] for r in rows]
-        tavg = [r[0] for r in rows]
-        # Documented codes: 0 = stable at surface, 0 < d <= 2.8738 m stable at depth d, -999 = deeper.
-        # -1 appears in the file but is not defined by the PDS3/PDS4 labels or catalogue: reported, never interpreted.
-        stable = [r[2] for r in rows if r[2] >= 0.0]
-        out[sid] = {
-            "triangles": len(rows),
-            "temp_max_k": {"min": min(tmax), "median": statistics.median(tmax), "max": max(tmax)},
-            "temp_avg_k": {"min": min(tavg), "median": statistics.median(tavg), "max": max(tavg)},
-            "cold_trap_fraction": sum(t < COLD_TRAP_K for t in tmax) / len(rows),
-            "ice_surface_stable_fraction": sum(r[2] == 0.0 for r in rows) / len(rows),
-            "ice_stable_within_1m_fraction": sum(0.0 <= r[2] <= 1.0 for r in rows) / len(rows),
-            "ice_stable_within_2_87m_fraction": len(stable) / len(rows),
-            "ice_undocumented_code_fraction": sum(r[2] == -1.0 for r in rows) / len(rows),
-            "median_ice_depth_m": statistics.median(stable) if stable else None,
-        }
-    return {"product": "LRO Diviner Polar Resource Product, south (dlre_prp_south.tab)", "url": bundle["url"], "bytes": bundle["bytes"], "sha256": bundle["sha256"], "label_url": bundle["label_url"], "records_scanned": bundle["records_scanned"], "radius_km": DIVINER_RADIUS_KM, "cold_trap_threshold_k": COLD_TRAP_K, "cold_trap_reference": "Paige et al. (2010), Diviner Lunar Radiometer observations of cold traps in the Moon's south polar region, Science 330, 479–482", "notes": "temp_max: modelled annual maximum surface temperature; temp_avg: annual average at 2 cm depth; ice depth: depth where water ice sublimates at 1 kg m⁻² per billion years (0 = stable at the surface; −999 = deeper than 2.87 m). The file also contains −1, which its labels and catalogue do not define; those triangles are counted separately and not interpreted. PDS label publishes no checksum; SHA-256 recorded over the full 604,800,210-byte stream at retrieval.", "sites": out}
+    validate_label(bundle["label_xml"],bundle["label_sha256"])
+    verification_path=ROOT/"data/source/diviner/verification.json"
+    verification=json.loads(verification_path.read_text(encoding="utf-8")) if verification_path.exists() else None
+    if verification and (verification['sha256']!=bundle['sha256'] or verification['published_md5']!=verification['md5']):raise ValueError('Diviner verification mismatch')
+    sites = {site['id']:site for site in SITES};per={sid:[] for sid in sites}
+    seen=set()
+    for line in bundle['records']:
+        sid,_dist,raw=line.split('\t',2)
+        if (sid,raw) in seen:raise ValueError('Duplicate retained triangle')
+        seen.add((sid,raw));record=parse_record(raw);site=sites[sid]
+        if _gc_km(site['latitude'],site['longitude'],record['tri_clat'],record['tri_clon'])>DIVINER_RADIUS_KM+1e-6:raise ValueError('Retained triangle outside site support')
+        per[sid].append(record)
+    return {'product':'LRO Diviner Polar Resource Product south','url':bundle['url'],'bytes':bundle['bytes'],'sha256':bundle['sha256'],
+      'label_url':bundle['label_url'],'label_sha256':bundle['label_sha256'],'records_scanned':bundle['records_scanned'],
+      'radius_km':DIVINER_RADIUS_KM,'cold_trap_threshold_k':COLD_TRAP_K,'cold_trap_reference':'Paige et al. (2010), Science330,479–482',
+      'verification':verification,'classification':'MODEL-DERIVED THERMAL / ICE-STABILITY PRODUCT',
+      'notes':'Annual maximum surface temperature and annual average at2cm depth are model products. Ice stability is a sublimation-model depth, not detected ice. Fractions weight actual triangle surface area (centroid-selected, boundary not clipped); medians count triangles equally. Undefined negative ice codes stay unknown. POWER air climatology is not the same physical observable as lunar surface temperature.',
+      'sites':{sid:summarize(rows) for sid,rows in per.items()}}
+
 
 
 def earth_profiles(derived: Path) -> list[dict]:
@@ -173,7 +159,7 @@ def main() -> None:
            "sources": [{"title": "NASA: Artemis III candidate landing regions (2024-10-28)", "url": ARTEMIS_SOURCE}, {"title": "IAU Gazetteer of Planetary Nomenclature", "url": "https://planetarynames.wr.usgs.gov/"}, {"title": "LRO LOLA LDEM_16 (PDS Geosciences)", "url": raster["url"]}],
            "caveats": ["Diviner values summarise all PRP triangles whose centres lie within 12.5 km of each feature centre; modelled thermal products, not in-situ measurements." , "Feature centres from the IAU Gazetteer, not NASA landing-region polygons.", "LDEM_16 native pixels are ~1.9 km north-south; a 24 km footprint is regional relief only.", "Earth terrain twins compare relief shape (F) only; Earth cannot reproduce polar illumination, permanently shadowed cold traps, vacuum, 1.62 m/s² gravity or lunar regolith."],
            "earth_profiles_compared": len(earth), "sites": sites}
-    atomic_json(derived / "lunar_polar.json", out)
+    out=stable_science_json(derived / "lunar_polar.json", out)
     (ROOT / "frontend" / "public" / "data" / "lunar_polar.json").write_text(json.dumps(out, separators=(",", ":"), allow_nan=False, ensure_ascii=False) + "\n", encoding="utf-8")
 
 

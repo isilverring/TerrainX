@@ -1,12 +1,23 @@
 import { z } from "zod";
 
 const metrics = z
-  .object({ median_slope_deg: z.number(), p90_slope_deg: z.number(), relief_m: z.number(), detrended_rms_m: z.number() })
+  .object({
+    median_slope_deg: z.number(),
+    p90_slope_deg: z.number(),
+    relief_m: z.number(),
+    detrended_rms_m: z.number(),
+  })
   .passthrough();
 export const lunarPolarSchema = z.object({
-  contract: z.literal("terrainx-lunar-polar-v1"),
+  contract: z.enum(["terrainx-lunar-polar-v1", "terrainx-lunar-polar-v2"]),
   generated_at: z.string(),
-  raster: z.object({ url: z.string(), bytes: z.number(), sha256: z.string(), pinned_sha256: z.string(), verified_at: z.string() }),
+  raster: z.object({
+    url: z.string(),
+    bytes: z.number(),
+    sha256: z.string(),
+    pinned_sha256: z.string(),
+    verified_at: z.string(),
+  }),
   sources: z.array(z.object({ title: z.string(), url: z.string() })),
   caveats: z.array(z.string()),
   earth_profiles_compared: z.number(),
@@ -23,7 +34,11 @@ export const lunarPolarSchema = z.object({
       status: z.string(),
       reason: z.string().optional(),
       terrain: z
-        .object({ elevations_m: z.array(z.array(z.number())), metrics, native_resolution_m: z.record(z.string(), z.number()) })
+        .object({
+          elevations_m: z.array(z.array(z.number())),
+          metrics,
+          native_resolution_m: z.record(z.string(), z.number()),
+        })
         .passthrough()
         .optional(),
       earth_twins: z
@@ -43,9 +58,17 @@ export const lunarPolarSchema = z.object({
       diviner: z
         .object({
           triangles: z.number(),
-          temp_max_k: z.object({ min: z.number(), median: z.number(), max: z.number() }),
-          temp_avg_k: z.object({ min: z.number(), median: z.number(), max: z.number() }),
-          cold_trap_fraction: z.number(),
+          temp_max_k: z
+            .object({ min: z.number(), median: z.number(), max: z.number() })
+            .nullable(),
+          temp_avg_k: z
+            .object({ min: z.number(), median: z.number(), max: z.number() })
+            .nullable(),
+          cold_trap_fraction: z.number().nullable(),
+          ice_undocumented_code_fraction: z.number().optional(),
+          thermal_valid_area_fraction: z.number().optional(),
+          sampled_triangle_area_km2: z.number().optional(),
+          fraction_basis: z.string().optional(),
           ice_surface_stable_fraction: z.number(),
           ice_stable_within_1m_fraction: z.number(),
           ice_stable_within_2_87m_fraction: z.number(),
@@ -56,15 +79,50 @@ export const lunarPolarSchema = z.object({
     }),
   ),
   diviner: z
-    .object({ product: z.string(), url: z.string(), bytes: z.number(), sha256: z.string(), label_url: z.string(), records_scanned: z.number(), radius_km: z.number(), cold_trap_threshold_k: z.number(), cold_trap_reference: z.string(), notes: z.string() })
+    .object({
+      verification: z
+        .object({
+          md5: z.string(),
+          published_md5: z.string(),
+          published_manifest_url: z.string(),
+          sha256: z.string(),
+          retained_records_verified: z.number(),
+        })
+        .passthrough()
+        .nullable()
+        .optional(),
+      product: z.string(),
+      url: z.string(),
+      bytes: z.number(),
+      sha256: z.string(),
+      label_url: z.string(),
+      records_scanned: z.number(),
+      radius_km: z.number(),
+      cold_trap_threshold_k: z.number(),
+      cold_trap_reference: z.string(),
+      notes: z.string(),
+    })
     .nullable()
     .optional(),
-  earth_coldest_cell: z.object({ cell: z.string(), coldest_month_min_c: z.number(), kelvin: z.number(), source: z.string() }).nullable().optional(),
+  earth_coldest_cell: z
+    .object({
+      cell: z.string(),
+      coldest_month_min_c: z.number(),
+      kelvin: z.number(),
+      source: z.string(),
+    })
+    .nullable()
+    .optional(),
 });
 export type LunarPolar = z.infer<typeof lunarPolarSchema>;
 
 /** South-polar azimuthal-equidistant projection: pole at centre, 0° longitude up, east clockwise. */
-export function polarXY(lat: number, lon: number, radiusPx: number, maxColat: number) {
+export function polarXY(
+  lat: number,
+  lon: number,
+  radiusPx: number,
+  maxColat: number,
+) {
   const r = ((90 + lat) / maxColat) * radiusPx,
     a = (lon * Math.PI) / 180;
   return { x: r * Math.sin(a), y: -r * Math.cos(a) };

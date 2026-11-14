@@ -20,3 +20,7 @@ frontend/test-results/
 frontend/playwright-report/
 outputs/
 frontend/public/build-info.json
+data/source/diviner/*.tab
+data/source/diviner/*.partial
+data/source/diviner/*.md5
+data/source/diviner/chunks/

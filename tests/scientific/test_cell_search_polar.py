@@ -19,7 +19,7 @@ ROWS = {r["id"]: r for r in SEARCH["rows"]}
 def test_every_screened_cell_is_characterized_once():
     cells = json.loads((DERIVED / "screened_cells.geojson").read_text(encoding="utf-8"))["features"]
     assert sorted(ROWS) == sorted(f["properties"]["id"] for f in cells)
-    assert SEARCH["contract"] == "terrainx-cell-search-v2"
+    assert SEARCH["contract"] == "terrainx-cell-search-v3"
     assert not SEARCH["errors"]
 
 

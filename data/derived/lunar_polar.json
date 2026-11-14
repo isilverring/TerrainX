@@ -1,16 +1,19 @@
 {
-  "contract": "terrainx-lunar-polar-v1",
+  "contract": "terrainx-lunar-polar-v2",
   "diviner": {
-    "product": "LRO Diviner Polar Resource Product, south (dlre_prp_south.tab)",
+    "product": "LRO Diviner Polar Resource Product south",
     "url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_prp/dlre_prp_south.tab",
     "bytes": 604800210,
     "sha256": "393deaa5d8925d45bb2ed608f937a824f5eae029c2558aad1d2da8206b83a62d",
     "label_url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_prp/dlre_prp_south.xml",
+    "label_sha256": "24a7bba837bbf013f59dc657a8766b6c4d1d06c0d4eea35a5f497908b17beece",
     "records_scanned": 2880000,
     "radius_km": 12.5,
     "cold_trap_threshold_k": 110.0,
-    "cold_trap_reference": "Paige et al. (2010), Diviner Lunar Radiometer observations of cold traps in the Moon's south polar region, Science 330, 479–482",
-    "notes": "temp_max: modelled annual maximum surface temperature; temp_avg: annual average at 2 cm depth; ice depth: depth where water ice sublimates at 1 kg m⁻² per billion years (0 = stable at the surface; −999 = deeper than 2.87 m). The file also contains −1, which its labels and catalogue do not define; those triangles are counted separately and not interpreted. PDS label publishes no checksum; SHA-256 recorded over the full 604,800,210-byte stream at retrieval."
+    "cold_trap_reference": "Paige et al. (2010), Science330,479–482",
+    "verification": null,
+    "classification": "MODEL-DERIVED THERMAL / ICE-STABILITY PRODUCT",
+    "notes": "Annual maximum surface temperature and annual average at2cm depth are model products. Ice stability is a sublimation-model depth, not detected ice. Fractions weight actual triangle surface area (centroid-selected, boundary not clipped); medians count triangles equally. Undefined negative ice codes stay unknown. POWER air climatology is not the same physical observable as lunar surface temperature."
   },
   "earth_coldest_cell": {
     "cell": "gobi-43.500-103.750",
@@ -18,13 +21,13 @@
     "kelvin": 241.01999999999998,
     "source": "NASA POWER T2M_MIN monthly climatology 2001–2025"
   },
-  "generated_at": "2026-11-14T14:40:23.552328+00:00",
+  "generated_at": "2026-11-14T14:57:06.184475+00:00",
   "raster": {
     "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_16.img",
     "bytes": 33177600,
     "sha256": "a511e40d7a3ea3275945b4da2a1df377133264fab0be94b7434b1cf8907254cb",
     "pinned_sha256": "a511e40d7a3ea3275945b4da2a1df377133264fab0be94b7434b1cf8907254cb",
-    "verified_at": "2026-11-14T14:40:23.355641+00:00"
+    "verified_at": "2026-11-14T14:57:04.080250+00:00"
   },
   "label_metadata": {
     "pixels_per_degree": 16.0,
@@ -142,7 +145,7 @@
         },
         "metrics": {
           "median_slope_deg": 1.2587152693136754,
-          "p90_slope_deg": 2.538246489218213,
+          "p90_slope_deg": 2.5382464892182135,
           "relief_m": 745.8136017999996,
           "relative_relief": 0.031075566741666647,
           "detrended_rms_m": 191.8196331310535,
@@ -203,7 +206,7 @@
             "detrended_rms_m": 0.9879
           },
           "earth_metrics": {
-            "median_slope_deg": 2.3509597755231524,
+            "median_slope_deg": 2.350959775523153,
             "p90_slope_deg": 4.5585251984259765,
             "relief_m": 704.0,
             "relative_relief": 0.029333333333333333,
@@ -273,7 +276,7 @@
           "name": "saudi-25.000-38.750",
           "kind": "screened cell",
           "region_id": "saudi",
-          "F": 94.90277248160658,
+          "F": 94.90277248160659,
           "components": {
             "median_slope_deg": 0.9255,
             "p90_slope_deg": 0.9695,
@@ -285,7 +288,7 @@
             "p90_slope_deg": 3.7818555896105077,
             "relief_m": 733.1999999999992,
             "relative_relief": 0.03054999999999997,
-            "detrended_rms_m": 158.22575164607375,
+            "detrended_rms_m": 158.22575164607377,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -337,7 +340,7 @@
             "p90_slope_deg": 4.742433493143649,
             "relief_m": 758.0,
             "relative_relief": 0.03158333333333333,
-            "detrended_rms_m": 193.12340274561925,
+            "detrended_rms_m": 193.1234027456192,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -359,11 +362,11 @@
             "detrended_rms_m": 0.7713
           },
           "earth_metrics": {
-            "median_slope_deg": 1.1196244709005743,
+            "median_slope_deg": 1.1196244709005745,
             "p90_slope_deg": 2.95915276761381,
             "relief_m": 687.0,
             "relative_relief": 0.028625,
-            "detrended_rms_m": 137.77577471490542,
+            "detrended_rms_m": 137.77577471490545,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -389,7 +392,7 @@
             "p90_slope_deg": 4.984195489454741,
             "relief_m": 651.1999999999998,
             "relative_relief": 0.027133333333333325,
-            "detrended_rms_m": 171.3476008363404,
+            "detrended_rms_m": 171.34760083634038,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -415,7 +418,7 @@
             "p90_slope_deg": 4.535016986338925,
             "relief_m": 816.2000000000003,
             "relative_relief": 0.03400833333333334,
-            "detrended_rms_m": 151.3438342453973,
+            "detrended_rms_m": 151.34383424539732,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -480,6 +483,8 @@
       "earth_compared": 134,
       "diviner": {
         "triangles": 3861,
+        "sampled_triangle_area_km2": 490.3099633355689,
+        "thermal_valid_area_fraction": 1.0,
         "temp_max_k": {
           "min": 50.897,
           "median": 232.26,
@@ -490,12 +495,14 @@
           "median": 83.827,
           "max": 121.259
         },
-        "cold_trap_fraction": 0.13727013727013726,
-        "ice_surface_stable_fraction": 0.003108003108003108,
-        "ice_stable_within_1m_fraction": 0.8425278425278425,
-        "ice_stable_within_2_87m_fraction": 0.8448588448588449,
-        "ice_undocumented_code_fraction": 0.13623413623413624,
-        "median_ice_depth_m": 0.06216
+        "cold_trap_fraction": 0.13711482396522523,
+        "ice_surface_stable_fraction": 0.0031029368585137264,
+        "ice_stable_within_1m_fraction": 0.8427244825140178,
+        "ice_stable_within_2_87m_fraction": 0.8450518377613746,
+        "ice_undocumented_code_fraction": 0.13607847558714492,
+        "ice_deeper_than_model_fraction": 0.018869686651480408,
+        "median_ice_depth_m": 0.06216,
+        "fraction_basis": "3D triangle surface area for triangles selected by centroid; boundary triangles are not clipped to the12.5km circle. Medians are unweighted triangle medians."
       }
     },
     {
@@ -622,7 +629,7 @@
             "p90_slope_deg": 6.087535514496079,
             "relief_m": 1324.3999999999996,
             "relative_relief": 0.05518333333333332,
-            "detrended_rms_m": 389.3032899180594,
+            "detrended_rms_m": 389.30328991805936,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -697,7 +704,7 @@
           },
           "earth_metrics": {
             "median_slope_deg": 3.4753741448035,
-            "p90_slope_deg": 7.817001092126158,
+            "p90_slope_deg": 7.817001092126157,
             "relief_m": 792.5999999999999,
             "relative_relief": 0.033025,
             "detrended_rms_m": 269.3237613384512,
@@ -714,7 +721,7 @@
           "name": "chile--24.000--67.500",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 50.57158035658751,
+          "F": 50.571580356587496,
           "components": {
             "median_slope_deg": 0.8635,
             "p90_slope_deg": 0.9573,
@@ -723,10 +730,10 @@
           },
           "earth_metrics": {
             "median_slope_deg": 3.289300445644375,
-            "p90_slope_deg": 7.243731440773838,
+            "p90_slope_deg": 7.243731440773837,
             "relief_m": 1153.3999999999983,
             "relative_relief": 0.04805833333333326,
-            "detrended_rms_m": 267.26015319076004,
+            "detrended_rms_m": 267.26015319076,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -740,7 +747,7 @@
           "name": "chile--25.000--68.125",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 50.11356357876961,
+          "F": 50.113563578769615,
           "components": {
             "median_slope_deg": 0.7355,
             "p90_slope_deg": 0.8775,
@@ -752,7 +759,7 @@
             "p90_slope_deg": 6.164597939251853,
             "relief_m": 955.0,
             "relative_relief": 0.03979166666666667,
-            "detrended_rms_m": 298.75154184835264,
+            "detrended_rms_m": 298.7515418483527,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -844,7 +851,7 @@
           "name": "chile--22.000--67.500",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 44.12516134323928,
+          "F": 44.12516134323927,
           "components": {
             "median_slope_deg": 0.9997,
             "p90_slope_deg": 0.7563,
@@ -856,7 +863,7 @@
             "p90_slope_deg": 4.984195489454741,
             "relief_m": 651.1999999999998,
             "relative_relief": 0.027133333333333325,
-            "detrended_rms_m": 171.3476008363404,
+            "detrended_rms_m": 171.34760083634038,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -921,6 +928,8 @@
       "earth_compared": 134,
       "diviner": {
         "triangles": 3825,
+        "sampled_triangle_area_km2": 493.24262105948117,
+        "thermal_valid_area_fraction": 1.0,
         "temp_max_k": {
           "min": 26.77,
           "median": 60.708,
@@ -936,7 +945,9 @@
         "ice_stable_within_1m_fraction": 0.0,
         "ice_stable_within_2_87m_fraction": 0.0,
         "ice_undocumented_code_fraction": 1.0,
-        "median_ice_depth_m": null
+        "ice_deeper_than_model_fraction": 0.0,
+        "median_ice_depth_m": null,
+        "fraction_basis": "3D triangle surface area for triangles selected by centroid; boundary triangles are not clipped to the12.5km circle. Medians are unweighted triangle medians."
       }
     },
     {
@@ -1023,8 +1034,8 @@
           "y": 1895.209402
         },
         "metrics": {
-          "median_slope_deg": 14.938827330110815,
-          "p90_slope_deg": 21.07340295300903,
+          "median_slope_deg": 14.938827330110811,
+          "p90_slope_deg": 21.073402953009026,
           "relief_m": 3603.8175439999995,
           "relative_relief": 0.15015906433333331,
           "detrended_rms_m": 1104.8705563056412,
@@ -1051,7 +1062,7 @@
           "name": "saudi-24.500-38.125",
           "kind": "screened cell",
           "region_id": "saudi",
-          "F": 1.2498081504880965,
+          "F": 1.2498081504880991,
           "components": {
             "median_slope_deg": 0.0004,
             "p90_slope_deg": 0.0496,
@@ -1077,7 +1088,7 @@
           "name": "chile--22.000--68.125",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 1.1894050165488117,
+          "F": 1.189405016548813,
           "components": {
             "median_slope_deg": 0.0028,
             "p90_slope_deg": 0.0447,
@@ -1103,7 +1114,7 @@
           "name": "chile--25.000--68.750",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 0.7608383986471022,
+          "F": 0.760838398647103,
           "components": {
             "median_slope_deg": 0.0007,
             "p90_slope_deg": 0.0298,
@@ -1112,7 +1123,7 @@
           },
           "earth_metrics": {
             "median_slope_deg": 3.4753741448035,
-            "p90_slope_deg": 7.817001092126158,
+            "p90_slope_deg": 7.817001092126157,
             "relief_m": 792.5999999999999,
             "relative_relief": 0.033025,
             "detrended_rms_m": 269.3237613384512,
@@ -1129,7 +1140,7 @@
           "name": "chile--24.000--67.500",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 0.5586450669580398,
+          "F": 0.5586450669580406,
           "components": {
             "median_slope_deg": 0.0005,
             "p90_slope_deg": 0.0218,
@@ -1138,10 +1149,10 @@
           },
           "earth_metrics": {
             "median_slope_deg": 3.289300445644375,
-            "p90_slope_deg": 7.243731440773838,
+            "p90_slope_deg": 7.243731440773837,
             "relief_m": 1153.3999999999983,
             "relative_relief": 0.04805833333333326,
-            "detrended_rms_m": 267.26015319076004,
+            "detrended_rms_m": 267.26015319076,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -1155,7 +1166,7 @@
           "name": "Northern Chile / Altiplano · 01",
           "kind": "released candidate",
           "region_id": "chile",
-          "F": 0.44534657337002537,
+          "F": 0.4453465733700258,
           "components": {
             "median_slope_deg": 0.0008,
             "p90_slope_deg": 0.017,
@@ -1181,7 +1192,7 @@
           "name": "chile--25.000--68.125",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 0.326337634893037,
+          "F": 0.32633763489303796,
           "components": {
             "median_slope_deg": 0.0013,
             "p90_slope_deg": 0.0117,
@@ -1193,7 +1204,7 @@
             "p90_slope_deg": 6.164597939251853,
             "relief_m": 955.0,
             "relative_relief": 0.03979166666666667,
-            "detrended_rms_m": 298.75154184835264,
+            "detrended_rms_m": 298.7515418483527,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -1207,7 +1218,7 @@
           "name": "chile--24.500--68.125",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 0.3069096154903012,
+          "F": 0.3069096154903021,
           "components": {
             "median_slope_deg": 0.0011,
             "p90_slope_deg": 0.0112,
@@ -1219,7 +1230,7 @@
             "p90_slope_deg": 6.087535514496079,
             "relief_m": 1324.3999999999996,
             "relative_relief": 0.05518333333333332,
-            "detrended_rms_m": 389.3032899180594,
+            "detrended_rms_m": 389.30328991805936,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -1233,7 +1244,7 @@
           "name": "Lake Salda shoreline",
           "kind": "reference analog",
           "region_id": "benchmark",
-          "F": 0.21610356328987212,
+          "F": 0.21610356328987268,
           "components": {
             "median_slope_deg": 0.0001,
             "p90_slope_deg": 0.0085,
@@ -1259,7 +1270,7 @@
           "name": "chile--22.000--68.750",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 0.165142623855876,
+          "F": 0.16514262385587616,
           "components": {
             "median_slope_deg": 0.0004,
             "p90_slope_deg": 0.0062,
@@ -1271,7 +1282,7 @@
             "p90_slope_deg": 5.139761723781448,
             "relief_m": 1069.9999999999995,
             "relative_relief": 0.044583333333333315,
-            "detrended_rms_m": 194.17869147576494,
+            "detrended_rms_m": 194.17869147576496,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -1285,7 +1296,7 @@
           "name": "Western Saudi Arabia · 02",
           "kind": "released candidate",
           "region_id": "saudi",
-          "F": 0.14673373016159985,
+          "F": 0.1467337301616005,
           "components": {
             "median_slope_deg": 0.0,
             "p90_slope_deg": 0.0058,
@@ -1311,7 +1322,7 @@
           "name": "chile--22.000--67.500",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 0.14233298868473096,
+          "F": 0.14233298868473138,
           "components": {
             "median_slope_deg": 0.0,
             "p90_slope_deg": 0.0056,
@@ -1323,7 +1334,7 @@
             "p90_slope_deg": 4.984195489454741,
             "relief_m": 651.1999999999998,
             "relative_relief": 0.027133333333333325,
-            "detrended_rms_m": 171.3476008363404,
+            "detrended_rms_m": 171.34760083634038,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -1337,7 +1348,7 @@
           "name": "chile--22.500--68.125",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 0.14128550094447362,
+          "F": 0.14128550094447404,
           "components": {
             "median_slope_deg": 0.0005,
             "p90_slope_deg": 0.0051,
@@ -1349,7 +1360,7 @@
             "p90_slope_deg": 4.831337860544374,
             "relief_m": 1167.0,
             "relative_relief": 0.048625,
-            "detrended_rms_m": 175.49742686048762,
+            "detrended_rms_m": 175.49742686048765,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -1362,6 +1373,8 @@
       "earth_compared": 134,
       "diviner": {
         "triangles": 3835,
+        "sampled_triangle_area_km2": 518.6205983193529,
+        "thermal_valid_area_fraction": 1.0,
         "temp_max_k": {
           "min": 131.754,
           "median": 277.272,
@@ -1374,10 +1387,12 @@
         },
         "cold_trap_fraction": 0.0,
         "ice_surface_stable_fraction": 0.0,
-        "ice_stable_within_1m_fraction": 0.2260756192959583,
-        "ice_stable_within_2_87m_fraction": 0.23259452411994785,
+        "ice_stable_within_1m_fraction": 0.21875799474751154,
+        "ice_stable_within_2_87m_fraction": 0.22519893782437495,
         "ice_undocumented_code_fraction": 0.0,
-        "median_ice_depth_m": 0.171095
+        "ice_deeper_than_model_fraction": 0.7748010621756252,
+        "median_ice_depth_m": 0.171095,
+        "fraction_basis": "3D triangle surface area for triangles selected by centroid; boundary triangles are not clipped to the12.5km circle. Medians are unweighted triangle medians."
       }
     },
     {
@@ -1468,7 +1483,7 @@
           "p90_slope_deg": 5.034430595216645,
           "relief_m": 1251.6309131999988,
           "relative_relief": 0.052151288049999946,
-          "detrended_rms_m": 209.91958866540446,
+          "detrended_rms_m": 209.9195886654045,
           "valid_samples": 49,
           "total_samples": 49,
           "sample_spacing_m": 4000,
@@ -1530,7 +1545,7 @@
             "p90_slope_deg": 4.831337860544374,
             "relief_m": 1167.0,
             "relative_relief": 0.048625,
-            "detrended_rms_m": 175.49742686048762,
+            "detrended_rms_m": 175.49742686048765,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -1582,7 +1597,7 @@
             "p90_slope_deg": 5.139761723781448,
             "relief_m": 1069.9999999999995,
             "relative_relief": 0.044583333333333315,
-            "detrended_rms_m": 194.17869147576494,
+            "detrended_rms_m": 194.17869147576496,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -1596,7 +1611,7 @@
           "name": "chile--24.000--67.500",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 83.62988640450273,
+          "F": 83.62988640450276,
           "components": {
             "median_slope_deg": 0.8846,
             "p90_slope_deg": 0.907,
@@ -1605,10 +1620,10 @@
           },
           "earth_metrics": {
             "median_slope_deg": 3.289300445644375,
-            "p90_slope_deg": 7.243731440773838,
+            "p90_slope_deg": 7.243731440773837,
             "relief_m": 1153.3999999999983,
             "relative_relief": 0.04805833333333326,
-            "detrended_rms_m": 267.26015319076004,
+            "detrended_rms_m": 267.26015319076,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -1708,7 +1723,7 @@
             "detrended_rms_m": 0.9964
           },
           "earth_metrics": {
-            "median_slope_deg": 2.3509597755231524,
+            "median_slope_deg": 2.350959775523153,
             "p90_slope_deg": 4.5585251984259765,
             "relief_m": 704.0,
             "relative_relief": 0.029333333333333333,
@@ -1778,7 +1793,7 @@
           "name": "chile--23.000--67.500",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 72.96338509352475,
+          "F": 72.96338509352474,
           "components": {
             "median_slope_deg": 0.9406,
             "p90_slope_deg": 0.9983,
@@ -1790,7 +1805,7 @@
             "p90_slope_deg": 4.742433493143649,
             "relief_m": 758.0,
             "relative_relief": 0.03158333333333333,
-            "detrended_rms_m": 193.12340274561925,
+            "detrended_rms_m": 193.1234027456192,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -1803,6 +1818,8 @@
       "earth_compared": 134,
       "diviner": {
         "triangles": 3840,
+        "sampled_triangle_area_km2": 497.5641016386981,
+        "thermal_valid_area_fraction": 1.0,
         "temp_max_k": {
           "min": 51.141,
           "median": 233.1845,
@@ -1813,12 +1830,14 @@
           "median": 126.197,
           "max": 174.316
         },
-        "cold_trap_fraction": 0.01484375,
-        "ice_surface_stable_fraction": 0.00703125,
-        "ice_stable_within_1m_fraction": 0.35625,
-        "ice_stable_within_2_87m_fraction": 0.36015625,
-        "ice_undocumented_code_fraction": 0.008854166666666666,
-        "median_ice_depth_m": 0.15614
+        "cold_trap_fraction": 0.015155370455845684,
+        "ice_surface_stable_fraction": 0.007305562788837158,
+        "ice_stable_within_1m_fraction": 0.35608099838738705,
+        "ice_stable_within_2_87m_fraction": 0.3599747409184849,
+        "ice_undocumented_code_fraction": 0.008926264496820678,
+        "ice_deeper_than_model_fraction": 0.6310989945846944,
+        "median_ice_depth_m": 0.15614,
+        "fraction_basis": "3D triangle surface area for triangles selected by centroid; boundary triangles are not clipped to the12.5km circle. Medians are unweighted triangle medians."
       }
     },
     {
@@ -1945,7 +1964,7 @@
             "p90_slope_deg": 6.087535514496079,
             "relief_m": 1324.3999999999996,
             "relative_relief": 0.05518333333333332,
-            "detrended_rms_m": 389.3032899180594,
+            "detrended_rms_m": 389.30328991805936,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -2049,7 +2068,7 @@
             "p90_slope_deg": 6.164597939251853,
             "relief_m": 955.0,
             "relative_relief": 0.03979166666666667,
-            "detrended_rms_m": 298.75154184835264,
+            "detrended_rms_m": 298.7515418483527,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -2072,7 +2091,7 @@
           },
           "earth_metrics": {
             "median_slope_deg": 3.4753741448035,
-            "p90_slope_deg": 7.817001092126158,
+            "p90_slope_deg": 7.817001092126157,
             "relief_m": 792.5999999999999,
             "relative_relief": 0.033025,
             "detrended_rms_m": 269.3237613384512,
@@ -2089,7 +2108,7 @@
           "name": "chile--24.000--67.500",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 47.51795366380116,
+          "F": 47.51795366380115,
           "components": {
             "median_slope_deg": 0.8536,
             "p90_slope_deg": 0.9967,
@@ -2098,10 +2117,10 @@
           },
           "earth_metrics": {
             "median_slope_deg": 3.289300445644375,
-            "p90_slope_deg": 7.243731440773838,
+            "p90_slope_deg": 7.243731440773837,
             "relief_m": 1153.3999999999983,
             "relative_relief": 0.04805833333333326,
-            "detrended_rms_m": 267.26015319076004,
+            "detrended_rms_m": 267.26015319076,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -2153,7 +2172,7 @@
             "p90_slope_deg": 4.831337860544374,
             "relief_m": 1167.0,
             "relative_relief": 0.048625,
-            "detrended_rms_m": 175.49742686048762,
+            "detrended_rms_m": 175.49742686048765,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -2179,7 +2198,7 @@
             "p90_slope_deg": 5.139761723781448,
             "relief_m": 1069.9999999999995,
             "relative_relief": 0.044583333333333315,
-            "detrended_rms_m": 194.17869147576494,
+            "detrended_rms_m": 194.17869147576496,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -2205,7 +2224,7 @@
             "p90_slope_deg": 4.742433493143649,
             "relief_m": 758.0,
             "relative_relief": 0.03158333333333333,
-            "detrended_rms_m": 193.12340274561925,
+            "detrended_rms_m": 193.1234027456192,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -2244,6 +2263,8 @@
       "earth_compared": 134,
       "diviner": {
         "triangles": 3839,
+        "sampled_triangle_area_km2": 497.69738356957356,
+        "thermal_valid_area_fraction": 1.0,
         "temp_max_k": {
           "min": 37.814,
           "median": 225.675,
@@ -2254,12 +2275,14 @@
           "median": 100.288,
           "max": 147.596
         },
-        "cold_trap_fraction": 0.1635842667361292,
-        "ice_surface_stable_fraction": 0.06564209429538942,
-        "ice_stable_within_1m_fraction": 0.5517061734826778,
-        "ice_stable_within_2_87m_fraction": 0.5545715029955718,
-        "ice_undocumented_code_fraction": 0.09716071893722324,
-        "median_ice_depth_m": 0.01334
+        "cold_trap_fraction": 0.16322296661516641,
+        "ice_surface_stable_fraction": 0.06587686373771012,
+        "ice_stable_within_1m_fraction": 0.552824162971856,
+        "ice_stable_within_2_87m_fraction": 0.5556931826763043,
+        "ice_undocumented_code_fraction": 0.09656939712475943,
+        "ice_deeper_than_model_fraction": 0.3477374201989362,
+        "median_ice_depth_m": 0.01334,
+        "fraction_basis": "3D triangle surface area for triangles selected by centroid; boundary triangles are not clipped to the12.5km circle. Medians are unweighted triangle medians."
       }
     },
     {
@@ -2435,7 +2458,7 @@
           },
           "earth_metrics": {
             "median_slope_deg": 3.4753741448035,
-            "p90_slope_deg": 7.817001092126158,
+            "p90_slope_deg": 7.817001092126157,
             "relief_m": 792.5999999999999,
             "relative_relief": 0.033025,
             "detrended_rms_m": 269.3237613384512,
@@ -2461,10 +2484,10 @@
           },
           "earth_metrics": {
             "median_slope_deg": 3.289300445644375,
-            "p90_slope_deg": 7.243731440773838,
+            "p90_slope_deg": 7.243731440773837,
             "relief_m": 1153.3999999999983,
             "relative_relief": 0.04805833333333326,
-            "detrended_rms_m": 267.26015319076004,
+            "detrended_rms_m": 267.26015319076,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -2516,7 +2539,7 @@
             "p90_slope_deg": 6.164597939251853,
             "relief_m": 955.0,
             "relative_relief": 0.03979166666666667,
-            "detrended_rms_m": 298.75154184835264,
+            "detrended_rms_m": 298.7515418483527,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -2542,7 +2565,7 @@
             "p90_slope_deg": 6.087535514496079,
             "relief_m": 1324.3999999999996,
             "relative_relief": 0.05518333333333332,
-            "detrended_rms_m": 389.3032899180594,
+            "detrended_rms_m": 389.30328991805936,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -2568,7 +2591,7 @@
             "p90_slope_deg": 5.139761723781448,
             "relief_m": 1069.9999999999995,
             "relative_relief": 0.044583333333333315,
-            "detrended_rms_m": 194.17869147576494,
+            "detrended_rms_m": 194.17869147576496,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -2594,7 +2617,7 @@
             "p90_slope_deg": 4.831337860544374,
             "relief_m": 1167.0,
             "relative_relief": 0.048625,
-            "detrended_rms_m": 175.49742686048762,
+            "detrended_rms_m": 175.49742686048765,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -2672,7 +2695,7 @@
             "p90_slope_deg": 4.742433493143649,
             "relief_m": 758.0,
             "relative_relief": 0.03158333333333333,
-            "detrended_rms_m": 193.12340274561925,
+            "detrended_rms_m": 193.1234027456192,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -2685,6 +2708,8 @@
       "earth_compared": 134,
       "diviner": {
         "triangles": 3824,
+        "sampled_triangle_area_km2": 503.46867157350545,
+        "thermal_valid_area_fraction": 1.0,
         "temp_max_k": {
           "min": 35.243,
           "median": 96.91550000000001,
@@ -2695,12 +2720,14 @@
           "median": 59.9645,
           "max": 153.98
         },
-        "cold_trap_fraction": 0.5258891213389121,
-        "ice_surface_stable_fraction": 0.016213389121338913,
-        "ice_stable_within_1m_fraction": 0.4233786610878661,
-        "ice_stable_within_2_87m_fraction": 0.4280857740585774,
-        "ice_undocumented_code_fraction": 0.518305439330544,
-        "median_ice_depth_m": 0.01342
+        "cold_trap_fraction": 0.5286076001338034,
+        "ice_surface_stable_fraction": 0.015918591028826465,
+        "ice_stable_within_1m_fraction": 0.4197440167925909,
+        "ice_stable_within_2_87m_fraction": 0.4245090047142674,
+        "ice_undocumented_code_fraction": 0.5211196438467531,
+        "ice_deeper_than_model_fraction": 0.054371351438979525,
+        "median_ice_depth_m": 0.01342,
+        "fraction_basis": "3D triangle surface area for triangles selected by centroid; boundary triangles are not clipped to the12.5km circle. Medians are unweighted triangle medians."
       }
     },
     {
@@ -2788,7 +2815,7 @@
         },
         "metrics": {
           "median_slope_deg": 6.803871245538641,
-          "p90_slope_deg": 8.596782199718533,
+          "p90_slope_deg": 8.596782199718534,
           "relief_m": 1603.021603,
           "relative_relief": 0.06679256679166666,
           "detrended_rms_m": 413.00094739255206,
@@ -2815,7 +2842,7 @@
           "name": "chile--24.500--68.125",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 65.64938474491002,
+          "F": 65.64938474491001,
           "components": {
             "median_slope_deg": 0.6148,
             "p90_slope_deg": 0.8817,
@@ -2827,7 +2854,7 @@
             "p90_slope_deg": 6.087535514496079,
             "relief_m": 1324.3999999999996,
             "relative_relief": 0.05518333333333332,
-            "detrended_rms_m": 389.3032899180594,
+            "detrended_rms_m": 389.30328991805936,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -2893,7 +2920,7 @@
           "name": "chile--25.000--68.125",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 46.278877187387735,
+          "F": 46.27887718738775,
           "components": {
             "median_slope_deg": 0.6492,
             "p90_slope_deg": 0.8884,
@@ -2905,7 +2932,7 @@
             "p90_slope_deg": 6.164597939251853,
             "relief_m": 955.0,
             "relative_relief": 0.03979166666666667,
-            "detrended_rms_m": 298.75154184835264,
+            "detrended_rms_m": 298.7515418483527,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -2919,7 +2946,7 @@
           "name": "Northern Chile / Altiplano · 01",
           "kind": "released candidate",
           "region_id": "chile",
-          "F": 43.3950722790175,
+          "F": 43.39507227901749,
           "components": {
             "median_slope_deg": 0.5657,
             "p90_slope_deg": 0.9376,
@@ -2954,7 +2981,7 @@
           },
           "earth_metrics": {
             "median_slope_deg": 3.4753741448035,
-            "p90_slope_deg": 7.817001092126158,
+            "p90_slope_deg": 7.817001092126157,
             "relief_m": 792.5999999999999,
             "relative_relief": 0.033025,
             "detrended_rms_m": 269.3237613384512,
@@ -2971,7 +2998,7 @@
           "name": "chile--24.000--67.500",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 40.75196196866786,
+          "F": 40.75196196866785,
           "components": {
             "median_slope_deg": 0.5035,
             "p90_slope_deg": 0.964,
@@ -2980,10 +3007,10 @@
           },
           "earth_metrics": {
             "median_slope_deg": 3.289300445644375,
-            "p90_slope_deg": 7.243731440773838,
+            "p90_slope_deg": 7.243731440773837,
             "relief_m": 1153.3999999999983,
             "relative_relief": 0.04805833333333326,
-            "detrended_rms_m": 267.26015319076004,
+            "detrended_rms_m": 267.26015319076,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -2997,7 +3024,7 @@
           "name": "chile--24.000--68.125",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 34.6005689701276,
+          "F": 34.60056897012759,
           "components": {
             "median_slope_deg": 0.4801,
             "p90_slope_deg": 0.7515,
@@ -3023,7 +3050,7 @@
           "name": "chile--22.500--68.125",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 31.99836573806379,
+          "F": 31.998365738063782,
           "components": {
             "median_slope_deg": 0.5056,
             "p90_slope_deg": 0.7531,
@@ -3035,7 +3062,7 @@
             "p90_slope_deg": 4.831337860544374,
             "relief_m": 1167.0,
             "relative_relief": 0.048625,
-            "detrended_rms_m": 175.49742686048762,
+            "detrended_rms_m": 175.49742686048765,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -3049,7 +3076,7 @@
           "name": "chile--22.000--68.750",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 31.34334158393847,
+          "F": 31.343341583938468,
           "components": {
             "median_slope_deg": 0.4503,
             "p90_slope_deg": 0.7874,
@@ -3061,7 +3088,7 @@
             "p90_slope_deg": 5.139761723781448,
             "relief_m": 1069.9999999999995,
             "relative_relief": 0.044583333333333315,
-            "detrended_rms_m": 194.17869147576494,
+            "detrended_rms_m": 194.17869147576496,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -3075,7 +3102,7 @@
           "name": "Lake Salda shoreline",
           "kind": "reference analog",
           "region_id": "benchmark",
-          "F": 29.872694091893432,
+          "F": 29.872694091893425,
           "components": {
             "median_slope_deg": 0.322,
             "p90_slope_deg": 0.8391,
@@ -3101,7 +3128,7 @@
           "name": "chile--23.000--67.500",
           "kind": "screened cell",
           "region_id": "chile",
-          "F": 29.42250623108619,
+          "F": 29.42250623108618,
           "components": {
             "median_slope_deg": 0.4203,
             "p90_slope_deg": 0.743,
@@ -3113,7 +3140,7 @@
             "p90_slope_deg": 4.742433493143649,
             "relief_m": 758.0,
             "relative_relief": 0.03158333333333333,
-            "detrended_rms_m": 193.12340274561925,
+            "detrended_rms_m": 193.1234027456192,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -3126,6 +3153,8 @@
       "earth_compared": 134,
       "diviner": {
         "triangles": 3826,
+        "sampled_triangle_area_km2": 496.5599562666914,
+        "thermal_valid_area_fraction": 1.0,
         "temp_max_k": {
           "min": 38.305,
           "median": 177.85899999999998,
@@ -3136,12 +3165,14 @@
           "median": 51.84,
           "max": 125.049
         },
-        "cold_trap_fraction": 0.42890747516989025,
-        "ice_surface_stable_fraction": 0.012284370099320438,
-        "ice_stable_within_1m_fraction": 0.5734448510193414,
-        "ice_stable_within_2_87m_fraction": 0.5742289597490852,
-        "ice_undocumented_code_fraction": 0.4239414532148458,
-        "median_ice_depth_m": 0.01333
+        "cold_trap_fraction": 0.42667208784324956,
+        "ice_surface_stable_fraction": 0.012239263128507134,
+        "ice_stable_within_1m_fraction": 0.5756133250680019,
+        "ice_stable_within_2_87m_fraction": 0.5764083812524904,
+        "ice_undocumented_code_fraction": 0.4217267952239516,
+        "ice_deeper_than_model_fraction": 0.0018648235235581027,
+        "median_ice_depth_m": 0.01333,
+        "fraction_basis": "3D triangle surface area for triangles selected by centroid; boundary triangles are not clipped to the12.5km circle. Medians are unweighted triangle medians."
       }
     },
     {
@@ -3317,7 +3348,7 @@
           },
           "earth_metrics": {
             "median_slope_deg": 3.4753741448035,
-            "p90_slope_deg": 7.817001092126158,
+            "p90_slope_deg": 7.817001092126157,
             "relief_m": 792.5999999999999,
             "relative_relief": 0.033025,
             "detrended_rms_m": 269.3237613384512,
@@ -3343,10 +3374,10 @@
           },
           "earth_metrics": {
             "median_slope_deg": 3.289300445644375,
-            "p90_slope_deg": 7.243731440773838,
+            "p90_slope_deg": 7.243731440773837,
             "relief_m": 1153.3999999999983,
             "relative_relief": 0.04805833333333326,
-            "detrended_rms_m": 267.26015319076004,
+            "detrended_rms_m": 267.26015319076,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -3398,7 +3429,7 @@
             "p90_slope_deg": 6.164597939251853,
             "relief_m": 955.0,
             "relative_relief": 0.03979166666666667,
-            "detrended_rms_m": 298.75154184835264,
+            "detrended_rms_m": 298.7515418483527,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -3424,7 +3455,7 @@
             "p90_slope_deg": 6.087535514496079,
             "relief_m": 1324.3999999999996,
             "relative_relief": 0.05518333333333332,
-            "detrended_rms_m": 389.3032899180594,
+            "detrended_rms_m": 389.30328991805936,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -3476,7 +3507,7 @@
             "p90_slope_deg": 5.139761723781448,
             "relief_m": 1069.9999999999995,
             "relative_relief": 0.044583333333333315,
-            "detrended_rms_m": 194.17869147576494,
+            "detrended_rms_m": 194.17869147576496,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -3528,7 +3559,7 @@
             "p90_slope_deg": 4.984195489454741,
             "relief_m": 651.1999999999998,
             "relative_relief": 0.027133333333333325,
-            "detrended_rms_m": 171.3476008363404,
+            "detrended_rms_m": 171.34760083634038,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -3554,7 +3585,7 @@
             "p90_slope_deg": 4.831337860544374,
             "relief_m": 1167.0,
             "relative_relief": 0.048625,
-            "detrended_rms_m": 175.49742686048762,
+            "detrended_rms_m": 175.49742686048765,
             "valid_samples": 49,
             "total_samples": 49,
             "sample_spacing_m": 4000,
@@ -3567,6 +3598,8 @@
       "earth_compared": 134,
       "diviner": {
         "triangles": 3824,
+        "sampled_triangle_area_km2": 539.5228025348181,
+        "thermal_valid_area_fraction": 1.0,
         "temp_max_k": {
           "min": 67.507,
           "median": 201.60950000000003,
@@ -3577,12 +3610,14 @@
           "median": 64.997,
           "max": 173.721
         },
-        "cold_trap_fraction": 0.47201882845188287,
-        "ice_surface_stable_fraction": 0.06799163179916318,
-        "ice_stable_within_1m_fraction": 0.28164225941422594,
-        "ice_stable_within_2_87m_fraction": 0.28844142259414224,
-        "ice_undocumented_code_fraction": 0.40559623430962344,
-        "median_ice_depth_m": 0.05733
+        "cold_trap_fraction": 0.48746437898818495,
+        "ice_surface_stable_fraction": 0.0732121192317416,
+        "ice_stable_within_1m_fraction": 0.28581973724778037,
+        "ice_stable_within_2_87m_fraction": 0.2923703049826674,
+        "ice_undocumented_code_fraction": 0.415980346582656,
+        "ice_deeper_than_model_fraction": 0.2916493484346765,
+        "median_ice_depth_m": 0.05733,
+        "fraction_basis": "3D triangle surface area for triangles selected by centroid; boundary triangles are not clipped to the12.5km circle. Medians are unweighted triangle medians."
       }
     }
   ]

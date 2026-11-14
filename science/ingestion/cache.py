@@ -21,6 +21,19 @@ def atomic_json(path: Path, value: object) -> None:
     os.replace(temporary, path)
 
 
+def stable_science_json(path: Path, value: dict) -> dict:
+    """Retain a reproducible build's prior timestamps when only audit times changed."""
+    def substantive(item):
+        if isinstance(item, dict):return {k:substantive(v) for k,v in item.items() if k not in {'generated_at','verified_at'}}
+        if isinstance(item, list):return [substantive(v) for v in item]
+        return item
+    if path.exists():
+        previous=json.loads(path.read_text(encoding='utf-8'))
+        if substantive(previous)==substantive(value):return previous
+    atomic_json(path,value)
+    return value
+
+
 class CachedHTTP:
     def __init__(self, offline: bool = False):
         self.offline = offline
