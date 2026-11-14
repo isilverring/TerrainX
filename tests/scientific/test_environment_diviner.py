@@ -48,3 +48,11 @@ def test_area_weighting_and_unknown_ice_do_not_become_detected_ice():
     for r in rows:r['temp_max']=None
     assert summarize(rows)['cold_trap_fraction'] is None
     assert summarize(rows)['temp_max_k'] is None
+
+def test_independent_diviner_verification_matches_the_published_checksum():
+    proof=json.loads((ROOT/'data/source/diviner/verification.json').read_text(encoding='utf-8'))
+    bundle=json.loads((ROOT/'data/source/acquisition/terrainx-diviner-prp-south-sites.json').read_text(encoding='utf-8'))
+    assert proof['md5']==proof['published_md5']=='80cdfe83592a3419c74b1b55b636711e'
+    assert proof['sha256']==bundle['sha256']
+    assert proof['bytes']==604800210 and proof['records_scanned']==2880000
+    assert proof['retained_records_verified']==len(bundle['records'])==30674

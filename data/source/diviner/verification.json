@@ -1,0 +1,15 @@
+{
+  "source_url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/data_derived_prp/dlre_prp_south.tab",
+  "bytes": 604800210,
+  "sha256": "393deaa5d8925d45bb2ed608f937a824f5eae029c2558aad1d2da8206b83a62d",
+  "md5": "80cdfe83592a3419c74b1b55b636711e",
+  "published_md5": "80cdfe83592a3419c74b1b55b636711e",
+  "published_manifest_url": "https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/urn-nasa-pds-lro_diviner_derived1.md5",
+  "published_manifest_line": "80CDFE83592A3419C74B1B55B636711E  data_derived_prp\\dlre_prp_south.tab",
+  "published_manifest_sha256": "1a1cc4ce307a8afb8e9166f32659844269baa27e0ef6b4571a1d4834b50309a6",
+  "records_scanned": 2880000,
+  "retained_records_verified": 30674,
+  "unique_records_verified": 30674,
+  "label_sha256": "24a7bba837bbf013f59dc657a8766b6c4d1d06c0d4eea35a5f497908b17beece",
+  "verified_at": "2026-11-14T15:06:23.699060+00:00"
+}
