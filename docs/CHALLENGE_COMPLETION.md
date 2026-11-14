@@ -1,6 +1,6 @@
-# Approved six-item challenge completion — agent handoff
+# Six approved challenge improvements — completed agent handoff
 
-User authorized implementation of all six items on 2026-11-14. Base: `71da14c`; live version 4 remains the recovery release until a replacement is verified. Work in D:\TerrainX. Keep historical science releases immutable. After every milestone: relevant checks, update this checklist and STATUS.md, commit/push with scripts/checkpoint.ps1, verify remote SHA. Never claim unfinished science is validated.
+All six items authorized by the user are implemented, committed, pushed and publicly verified. Work remains in D:\TerrainX, private https://github.com/isilverring/TerrainX, main. Public Site version6 deploys exact application source `e201ffb81b24ce0ed0d72389152e818c634ff4c5`; later test/documentation commits intentionally follow without runtime changes. Exact deployment/archive identifiers: ../DEPLOYMENT.md.
 
 ## Implementation checklist
 
@@ -9,36 +9,35 @@ User authorized implementation of all six items on 2026-11-14. Base: `71da14c`; 
 - [x] **M3 — Complete polar journey.** Selected verified polar reference can continue to Earth comparison, dossier and field plan without becoming Mare Crisium. Keep terrain fidelity separate from mission utility; unassessed utility stays null. Acceptance: selected feature survives navigation/export/replay, actual LOLA/Diviner provenance and limitations retained, no unsupported resource/safety score.
 - [x] **M4 — Candidate characterization.** Independently investigate one exploratory Mars lead and the mapped-basalt Moon lead; document exact evidence geography, supported process, contradictions, next measurement and experiment. Name a subsite only if supported. Acceptance: primary citations, explicit source footprints and negative/inconclusive results; no invented mineralogy or field confirmation.
 - [x] **M5 — Comparable-scale terrain.** Extend the two-site common-support experiment to the selected demo leads and benchmarks, using validated real DEM/masks/PDS products; display support/offset sensitivity beside exploratory F. Acceptance: checksums/quality/support metadata, reproduction/tests, actual rank sensitivity; unprocessed sites marked unassessed. Preserve original rankings.
-- [ ] **M6 — Judge route and release.** Short challenge → sample → exploratory lead → evidence/gaps → experiment path; secondary research navigation. Update demo/submission/deployment guides, run all relevant tests/build and desktop/mobile QA, deploy to the existing public ChatGPT Site and verify fresh sessions. Acceptance: live workflow, offline rehearsal, exact version/SHA/recovery record.
+- [x] **M6 — Judge route and release.** Short challenge → sample → exploratory lead → evidence/gaps → experiment path; secondary research navigation. Update demo/submission/deployment guides, run all relevant tests/build and desktop/mobile QA, deploy to the existing public ChatGPT Site and verify fresh sessions. Acceptance: live workflow, offline rehearsal, exact version/SHA/recovery record.
 
-## Current work / resume
+## Current state / resume
 
-M1–M5 are complete and pushed. M6 code, guides, scope locks and strict build are complete; source e201ffb is successfully published as public Site version6. Final43 public workflows and21 focused visual cases are running. Exact native IDs are recorded in DEPLOYMENT.md.85 Python tests plus independent reproduction,94 TypeScript tests,43 local workflows,90 broad responsive cases and11 final production checks have passed. Version5 passed all43 public workflows before the final scoped-preset lock.
+**No implementation or deployment step remains open for these six items.** Read STATUS.md and DEPLOYMENT.md, inspect git status/log, and pull --ff-only when clean. Do not restart completed milestones or create another Site. User handles the recording/upload, team details, terms and actual event submission. Broader field/global/illumination research is optional future work, not an unfinished software checkpoint.
 
-Next: collect the version6 public test results; repair any actual failure before acceptance. If all pass, check M6, update STATUS/PLAN/NEXT_STEPS/DEPLOYMENT, commit/push and verify the remote SHA. No source rebuild/publication is needed for documentation-only completion notes. Stop owned Vite servers after QA. User handles video/team/terms/submission. Current source/proof files and preprocessing are already in GitHub; no untracked acquisition metadata remains pending.
+Final evidence:85 Python tests plus independent original-result reproduction;94 TypeScript tests; strict static build;43/43 fresh unauthenticated public Chrome/Playwright workflows;90 broad route/viewport cases and21 focused public cases. Correct title/content, no framework overlay or application exception, no overflow/missing local images, and interactions/export/replay/offline behavior were verified. The presentation test now awaits the actual exit destination before interacting; runtime source did not change for that readiness correction. Firefox/Safari and formal accessibility certification remain untested; hosted CI success is not inferred from local tests.
+
+## Durable milestone commits
+
+- Plan/checklist c090e4b; scientific wording b1914ba.
+- Explicit original/expanded collection workflow8344786.
+- Polar physical-reference dossiers and replay d3327ec.
+- Expanded18-site/360-comparison support study39d4309.
+- Scoped literature cases and proposals b23049d.
+- Judge route/navigation7c13db5; release guides73ded13.
+- Reference-domain safeguards413d938; scoped candidate/mission locks e201ffb.
+- Deployment and final acceptance metadata are in later commits. Use git log for the latest recovery HEAD.
+
+## Reproduce and verify
+
+Use Node24.x/Python3.12. From the repo root: .venv\Scripts\python.exe scripts/validate_results.py; npm run test:unit; npm run build; npm run preview. Set TERRAINX_BASE_URL=http://127.0.0.1:4173 and run npm test (43 workflows). Browser plugin absent, so configured Chrome/Playwright was used. CI uses Chromium. App/data need no paid API key or runtime NASA request.
+
+Source-support methods/download/checksums: TERRAIN_PILOT.md. Primary case extraction/geographic scope: CANDIDATE_CASES.md. Original caches, source labels/licences and frozen science releases remain preserved; large rasters stay ignored and reproducibly downloadable. Original dataset SHA2563515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c unchanged. Current science: science-79daa128eae12594.
 
 ## Scientific boundary
 
-The official challenge accepts one or more useful analogs and does not require every suggested dimension or partner dataset. Direct NASA challenge retrieval returned 502 during review; indexed official summary and the detailed local-event reproduction were checked. Sources: https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/ and https://hackathlone.com/challenges/permanent-moon-base-locations-and-mars.
+The original130-cell/16-candidate/4-benchmark study is preserved. Expanded collection exposes134 unique profiles. The Moon paper reports basaltic andesite and andesite at published localities inside its approximate window; no uniform basalt or new field discovery follows. The regional Mars core is55.681km outside its candidate window, so its measured properties are not transferred. Source-scoped protocols remain locked to the reviewed candidate/mission; general studies are an explicit separate action.
 
-Optional later research is not part of these six items: global search, field campaigns, measured ice, confirmed caves, full polar illumination engineering, or CSA/JAXA/SAR integration without a specific evidence need. User handles video/team/terms/actual submission. Do not stop after writing this plan.
+Polar reference IDs are independent of the legacy lunar model slot. Polar utility criteria remain null, assessed utility-weight coverage0 and priority null. No primary-target imagery, supported-terrain result or utility score is substituted for a polar reference. Existing prepared browsers must explicitly prepare/activate the update via /#/offline.
 
-M5 asset acquisition is complete (18 sites/33 tiles/201 validated source objects) but processing is pending. New source XML/PDFs are intentionally untracked until M5 integration; use selective staging for intervening milestones, not checkpoint.ps1 --all. Proposed manifest/validation/acquisition scripts: outputs/m5-assets/. Do not change the old manifest.
-
-## Historical milestone notes (superseded by current status above)
-
-M3 completed: actual polar reference ID now survives DNA, Passport JSON/QR, snapshots and field JSON/share replay. Reference identity is separate from the legacy lunar model slot; the export explicitly documents that role. All polar utility criteria are null, coverage is0 and priority null. F uses the selected real LOLA metrics with scale/provenance gates; no96km Mare Crisium context is substituted. 92 unit tests, strict TypeScript and both new browser workflows pass. Next: M5 expanded terrain processing (assets ready), then integrate M4 scoped evidence and M6 judge route/release.
-
-M5 complete: separate terrain_support.json/manifest.expanded.json covers18 sites,33 tiles,201 source/licence objects,36 Earth/target pairs and360 valid processing choices. Actual F-only rank sensitivity and default-model ranges visible; original pilot and discovery scores unchanged. Fixed0–360 to−180–180 western Earth point lookup. 83 Python tests + independent core reproduction;93 TypeScript tests;4 targeted new/pilot browser workflows pass. Current immutable release includes the new file. Full TIFFs ignored; new XML/PDF metadata and acquisition/verification/cache scripts are committed with this milestone. Next: M4 scoped candidate evidence, then M6 judge route/full release.
-
-M4 complete: independently sourced cases for Moon chile--23.000--70.000 (published VO193 basaltic-andesite and VO191 andesite inside the window) and Mars botswana--21.500-25.625 (regional context only; Mosu core55.681km outside). No uniform-basalt/local-Jezero confirmation or score upgrade. Reproducible positions/scopes, literature-informed field JSON/share protocol, Passport evidence, and explicit negative-result handling implemented.94 unit tests, strict TypeScript,2 new Python scope tests and4 new browser workflows pass. Next: M6 short judge route/navigation, complete full QA/build, docs and deployment.
-
-M6 implementation checkpoint: /guide provides five evidence-backed steps and Moon/Mars cases; primary navigation is compact, advanced pages under Research tools. Menu-height clipping fixed;94 unit tests,85 Python tests plus independent baseline reproduction and6 research/navigation checks pass. Full production/offline/responsive acceptance and publication are in progress; M6 checkbox intentionally remains open. Public version4 remains the recovery release.
-
-M6 local acceptance:43/43 production workflows,90 responsive cases and8 targeted checks after final cohort/mobile/CTA refinements pass.85 Python/94 TypeScript tests and strict production build pass. Guides/submission draft updated for five-step flow and Research tools navigation. Publication and fresh public43-workflow verification remain pending. Next: commit reviewed source, rebuild exact SHA, final focused visual check, package/deploy existing public Site, record native identifiers and public results.
-
-Final reference-domain safeguard: polar references continue only through reference-aware Discovery/DNA/Passport/Compare/Research/Field workflows. Fixed primary-target imagery/search/utility studies explicitly use their own targets; a crafted incompatible polar URL stops rather than labeling Mare Crisium imagery or scores as Haworth.94 unit tests and the existing polar browser flow cover this guard and its explicit recovery action. Rebuild exact source after this checkpoint; publication remains pending.
-
-Version5 published successfully and passed all43 public workflows plus21 focused visual cases (DEPLOYMENT.md has exact IDs). Final scope-lock correction prevents pairing a lunar reference with Mars or changing a literature-informed proposal into an unsupported candidate/mission. Scoped controls are locked, out-of-scope inputs stop explicitly, and general studies remain available.94 unit tests, strict TypeScript and relevant browser checks pass; publish the correction as the successor version before closing M6.
-
-Version6 native publication succeeded;21 public visual cases pass. First full run42/43 exposed test readiness after presentation exit, not a scientific result mismatch. The test now verifies the actual Explorer destination before opening its secondary menu. Runtime source remains e201ffb; full public acceptance rerun is in progress.
+Global/high-latitude expansion, field validation, measured ice, confirmed caves, regolith mechanics and independent illumination engineering remain research limits. Source use does not imply NASA endorsement. The challenge accepts useful focused analog questions; every suggested dimension/partner dataset is not mandatory. Official URL: https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/ . Direct retrieval returned502 during review; indexed official summary and detailed local-event reproduction were checked.

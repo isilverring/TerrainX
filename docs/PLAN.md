@@ -1,6 +1,6 @@
 # Current plan — six approved follow-up items
 
-Canonical implementation/recovery checklist: [CHALLENGE_COMPLETION.md](CHALLENGE_COMPLETION.md). M1–M5 are pushed; M6 code/guide/navigation is pushed as7c13db5, with final visual refinements tested.85 Python/94 TypeScript tests,43 local production workflows and90 responsive cases pass; public release acceptance is the remaining step. DEPLOYMENT.md is authoritative about what is live. Broader research/field work remains outside these six items.
+Canonical completed checklist: [CHALLENGE_COMPLETION.md](CHALLENGE_COMPLETION.md). **All six items are implemented, pushed and publicly verified as version6/source e201ffb.**85 Python/94 TypeScript tests,43/43 public workflows,90 broad responsive cases and21 focused public cases pass. DEPLOYMENT.md records exact native identifiers. No software/deployment step remains open; human submission and optional research are separate.
 
 The older Packages A/B/C audit and its earlier delivery plan follow for history. Common-support coverage has since expanded from two to18 sites; polar identity now continues into dossiers/proposals, with utility explicitly unassessed.
 
