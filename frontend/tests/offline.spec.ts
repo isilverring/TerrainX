@@ -45,6 +45,15 @@ test("prepared production demo reloads and opens lazy science views without a ne
   await page.reload();
   await page.getByRole("link", { name: "Cases", exact: true }).click();
   await expect(page.locator(".case-study")).toHaveCount(3);
+  await page.goto("/#/cells?mission=mare-crisium&cell=chile--23.000--70.000");
+  await page
+    .getByRole("link", { name: "Plan a field study for this cell" })
+    .click();
+  await page.getByRole("button", { name: "Suggest relief transect" }).click();
+  await expect(page.locator(".field-stations li")).toHaveCount(5);
+  await page.goto("/#/lunar-pole?site=haworth");
+  await expect(page.locator(".polar-detail h2")).toHaveText("Haworth");
+  await expect(page.locator(".polar-verify")).toContainText("PDS MD5 verified");
   await page.goto("/#/site/saudi-24.000-39.375?mission=jezero");
   await expect(
     page.getByRole("heading", { name: /NASA Earth observations/ }),

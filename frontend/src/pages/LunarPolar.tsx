@@ -13,8 +13,16 @@ import { BackLink } from "../components/ui";
 
 const MISSING =
   "The lunar south-pole module is not part of this historical science release. No newer data were substituted.";
-const fColor = (f: number) =>
-  f >= 80 ? "#3ec9b0" : f >= 50 ? "#f2c14e" : f >= 20 ? "#ff8a65" : "#7b8798";
+const fColor = (f: number | null) =>
+  f === null
+    ? "#7b8798"
+    : f >= 80
+      ? "#3ec9b0"
+      : f >= 50
+        ? "#f2c14e"
+        : f >= 20
+          ? "#ff8a65"
+          : "#7b8798";
 type Site = Polar["sites"][number];
 
 function PolarMap({
@@ -72,7 +80,7 @@ function PolarMap({
       {sites.map((s, i) => {
         const p = polarXY(s.latitude, s.longitude, R, maxColat),
           rr = Math.max(5, (s.diameter_km / 2 / 30.3 / maxColat) * R),
-          best = s.earth_twins?.[0]?.F ?? 0,
+          best = s.earth_twins?.[0]?.F ?? null,
           sel = s.id === selected;
         return (
           <g
@@ -82,7 +90,7 @@ function PolarMap({
             tabIndex={0}
             role="button"
             aria-pressed={sel}
-            aria-label={`${s.feature}: best Earth terrain twin F ${best.toFixed(1)}`}
+            aria-label={`${s.feature}: best Earth terrain twin F ${number(best, 1)}`}
             onClick={() => onSelect(s.id)}
             onKeyDown={(e) =>
               (e.key === "Enter" || e.key === " ") && onSelect(s.id)
@@ -140,10 +148,22 @@ export default function LunarPolar() {
       </main>
     );
   const sites = polar.sites.filter((s) => s.status === "available");
+  if (!sites.length)
+    return (
+      <main className="document-page">
+        <h1>No validated polar terrain profiles are available</h1>
+        <p role="status">
+          Source-derived metrics remain unavailable. No replacement terrain was
+          generated.
+        </p>
+      </main>
+    );
   const site = sites.find((s) => s.id === selected) ?? sites[0];
-  const ranked = [...sites].sort(
-    (a, b) => (b.earth_twins?.[0]?.F ?? 0) - (a.earth_twins?.[0]?.F ?? 0),
-  );
+  const ranked = sites
+    .filter((s) => s.earth_twins?.length)
+    .sort(
+      (a, b) => (b.earth_twins?.[0]?.F ?? 0) - (a.earth_twins?.[0]?.F ?? 0),
+    );
   const m = site.terrain!.metrics;
   const name = (id: string, fallback: string) => {
     const known = data.candidates.find((c) => c.id === id)?.name;
@@ -363,7 +383,7 @@ export default function LunarPolar() {
           )}
           <h3>Closest Earth relief</h3>
           <ol className="polar-twins">
-            {site.earth_twins!.slice(0, 4).map((t) => (
+            {(site.earth_twins ?? []).slice(0, 4).map((t) => (
               <li key={t.id}>
                 <span>
                   <strong>{name(t.id, t.name)}</strong>

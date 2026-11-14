@@ -22,7 +22,10 @@
 }
 .palette-launch kbd,
 .palette kbd {
-  font: 10.5px "JetBrains Mono", ui-monospace, monospace;
+  font:
+    10.5px "JetBrains Mono",
+    ui-monospace,
+    monospace;
   padding: 1px 5px;
   border: 1px solid #33445c;
   border-bottom-width: 2px;
@@ -83,7 +86,9 @@
   border: 1px solid #33445c;
   border-radius: 12px;
   background: #0d1624;
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(53, 195, 176, 0.08);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(53, 195, 176, 0.08);
   overflow: hidden;
   animation: palette-rise 0.16s ease-out;
 }
@@ -212,10 +217,57 @@
   color: var(--earth);
   opacity: 0;
   transform: translateX(-4px);
-  transition: opacity 0.2s, transform 0.2s;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
 }
 .process-step:hover .process-arrow,
 .process-step:focus-visible .process-arrow {
   opacity: 1;
   transform: none;
+}
+
+.palette-backdrop {
+  margin: 0;
+  border: 0;
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  color: var(--text);
+}
+
+@media (max-width: 1200px) {
+  .transfer-page .lab-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.polar-page {
+  overflow-wrap: anywhere;
+}
+.polar-pair {
+  grid-template-columns: 132px minmax(0, 1fr);
+}
+.polar-pair .cell-scores,
+.polar-diviner .cell-scores {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.polar-detail,
+.polar-verify > div {
+  min-width: 0;
+}
+.polar-diviner a {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 600px) {
+  .header-actions .demo-launch {
+    font-size: 0;
+    gap: 0;
+    width: 34px;
+    height: 34px;
+    padding: 8px;
+    justify-content: center;
+  }
 }

@@ -98,8 +98,14 @@ function WorldMap({ cells }: { cells: [number, number][] }) {
 }
 
 /** Elevation trend of a relief transect, drawn from the interpolated real SRTM grid. */
-function ProfileSpark({ points }: { points: { d: number; z: number | null }[] }) {
-  const valid = points.filter((p): p is { d: number; z: number } => p.z != null);
+function ProfileSpark({
+  points,
+}: {
+  points: { d: number; z: number | null }[];
+}) {
+  const valid = points.filter(
+    (p): p is { d: number; z: number } => p.z != null,
+  );
   if (valid.length < 2) return null;
   const W = 640,
     H = 150,
@@ -109,14 +115,27 @@ function ProfileSpark({ points }: { points: { d: number; z: number | null }[] })
     hi = Math.max(...zs),
     x = (d: number) => 10 + (d / maxD) * (W - 20),
     y = (z: number) => H - 18 - ((z - lo) / Math.max(1, hi - lo)) * (H - 40);
-  const line = valid.map((p, i) => `${i ? "L" : "M"}${x(p.d).toFixed(1)},${y(p.z).toFixed(1)}`).join("");
+  const line = valid
+    .map((p, i) => `${i ? "L" : "M"}${x(p.d).toFixed(1)},${y(p.z).toFixed(1)}`)
+    .join("");
   return (
-    <svg className="demo-profile" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Elevation trend from ${Math.round(lo)} to ${Math.round(hi)} metres along ${(maxD / 1000).toFixed(1)} km`}>
+    <svg
+      className="demo-profile"
+      viewBox={`0 0 ${W} ${H}`}
+      role="img"
+      aria-label={`Elevation trend from ${Math.round(lo)} to ${Math.round(hi)} metres along ${(maxD / 1000).toFixed(1)} km`}
+    >
       <path d={`${line}L${x(maxD)},${H - 18}L10,${H - 18}Z`} className="area" />
       <path d={line} className="line" />
-      <text x="10" y={H - 3}>0 km</text>
-      <text x={W - 10} y={H - 3} textAnchor="end">{(maxD / 1000).toFixed(1)} km</text>
-      <text x="10" y="12">{Math.round(hi)} m</text>
+      <text x="10" y={H - 3}>
+        0 km
+      </text>
+      <text x={W - 10} y={H - 3} textAnchor="end">
+        {(maxD / 1000).toFixed(1)} km
+      </text>
+      <text x="10" y="12">
+        {Math.round(hi)} m
+      </text>
     </svg>
   );
 }
@@ -185,16 +204,31 @@ export default function Demo() {
       moonTerrain: moon[2].filter((r) => r.rank != null).length,
     };
   }, [data, model.scenarios]);
-  const cellSearch = useScienceFile("cell_search.json", cellSearchSchema, "not in this release").value;
-  const polar = useScienceFile("lunar_polar.json", lunarPolarSchema, "not in this release").value;
+  const cellSearch = useScienceFile(
+    "cell_search.json",
+    cellSearchSchema,
+    "not in this release",
+  ).value;
+  const polar = useScienceFile(
+    "lunar_polar.json",
+    lunarPolarSchema,
+    "not in this release",
+  ).value;
   const beyond = useMemo(() => {
     if (!cellSearch || !polar) return null;
-    const moon = cellSearch.rows.filter((r) => r.missions["mare-crisium"].rank != null);
+    const moon = cellSearch.rows.filter(
+      (r) => r.missions["mare-crisium"].rank != null,
+    );
     const twins = polar.sites
       .filter((x) => x.earth_twins?.length)
       .map((x) => ({ feature: x.feature, F: x.earth_twins![0].F }))
       .sort((a, b) => b.F - a.F);
-    return { cells: cellSearch, moon, best: twins[0], worst: twins[twins.length - 1] };
+    return {
+      cells: cellSearch,
+      moon,
+      best: twins[0],
+      worst: twins[twins.length - 1],
+    };
   }, [cellSearch, polar]);
   const field = useMemo(() => {
     const g = best ? terrainGrid(best) : null;
@@ -320,7 +354,11 @@ export default function Demo() {
       title: "Ask the shortlist a different question and the order changes.",
       body: (
         <>
-          <div className="demo-lens-grid" role="table" aria-label="Mars ranks across six lenses">
+          <div
+            className="demo-lens-grid"
+            role="table"
+            aria-label="Mars ranks across six lenses"
+          >
             <div role="row" className="head">
               <span role="columnheader">Candidate</span>
               {LENSES.map((l) => (
@@ -331,9 +369,15 @@ export default function Demo() {
             </div>
             {lensSummary.rows.map((a) => (
               <div role="row" key={a.id}>
-                <span role="cell">{data.candidates.find((c) => c.id === a.id)?.name}</span>
+                <span role="cell">
+                  {data.candidates.find((c) => c.id === a.id)?.name}
+                </span>
                 {a.ranks.map((r, k) => (
-                  <b role="cell" key={k} className={r == null ? "none" : r <= 3 ? "top" : ""}>
+                  <b
+                    role="cell"
+                    key={k}
+                    className={r == null ? "none" : r <= 3 ? "top" : ""}
+                  >
                     {r ?? "—"}
                   </b>
                 ))}
@@ -341,10 +385,11 @@ export default function Demo() {
             ))}
           </div>
           <p>
-            The five Mars candidates that stay highest across six declared lenses (green: top 3). On the Moon, the release baseline ranks{" "}
-            <strong>{lensSummary.moonBaseline}</strong> candidates — no lunar basalt is mapped at
-            any of them — while the terrain-twin lens still ranks{" "}
-            <strong>{lensSummary.moonTerrain}</strong>.
+            The five Mars candidates that stay highest across six declared
+            lenses (green: top 3). On the Moon, the release baseline ranks{" "}
+            <strong>{lensSummary.moonBaseline}</strong> candidates — no lunar
+            basalt is mapped at any of them — while the terrain-twin lens still
+            ranks <strong>{lensSummary.moonTerrain}</strong>.
           </p>
           <Link className="button outline" to="/lenses">
             Open Discovery lenses
@@ -363,30 +408,52 @@ export default function Demo() {
               <span>of {beyond.cells.cells} cells rankable for Mars</span>
             </div>
             <div>
-              <b className="mono">{beyond.cells.missions.jezero.new_vs_release.length}</b>
+              <b className="mono">
+                {beyond.cells.missions.jezero.new_vs_release.length}
+              </b>
               <span>new picks vs the aridity shortlist</span>
             </div>
             <div>
               <b className="mono">{beyond.moon.length}</b>
-              <span>{beyond.moon.length === 1 ? "lunar-eligible cell, the first found" : "lunar-eligible cells"}</span>
+              <span>
+                {beyond.moon.length === 1
+                  ? "lunar-eligible cell, the first found"
+                  : "lunar-eligible cells"}
+              </span>
             </div>
             <div>
-              <b className="mono">F {beyond.best.F.toFixed(0)} / {beyond.worst.F.toFixed(0)}</b>
+              <b className="mono">
+                F {beyond.best.F.toFixed(0)} / {beyond.worst.F.toFixed(0)}
+              </b>
               <span>best / worst Earth twin at the pole</span>
             </div>
           </div>
           <p>
-            {beyond.moon[0] ? <>Mapped “{beyond.moon[0].geology.unit_name}” at {cellLabel(beyond.moon[0])} makes the first Earth cell rankable for Mare Crisium. </> : null}
-            At the lunar south pole, {beyond.best.feature} finds a close Earth relief twin while {beyond.worst.feature} has none — real
-            NASA LOLA elevations, checksum-verified.
+            {beyond.moon[0] ? (
+              <>
+                Mapped “{beyond.moon[0].geology.unit_name}” at{" "}
+                {cellLabel(beyond.moon[0])} makes the first Earth cell rankable
+                for Mare Crisium.{" "}
+              </>
+            ) : null}
+            At the lunar south pole, {beyond.best.feature} finds a close Earth
+            relief twin while {beyond.worst.feature} has none — real NASA LOLA
+            elevations, checksum-verified.
           </p>
           <div className="source-row">
-            <Link className="button outline" to="/cells?mission=mare-crisium">Search every cell</Link>
-            <Link className="button outline" to="/lunar-pole">Lunar south pole</Link>
+            <Link className="button outline" to="/cells?mission=mare-crisium">
+              Search every cell
+            </Link>
+            <Link className="button outline" to="/lunar-pole">
+              Lunar south pole
+            </Link>
           </div>
         </>
       ) : (
-        <p>The 130-cell search and lunar-pole module are not part of this science release.</p>
+        <p>
+          The 130-cell search and lunar-pole module are not part of this science
+          release.
+        </p>
       ),
     },
     {
@@ -475,7 +542,9 @@ export default function Demo() {
                 <span>proposed stations</span>
               </div>
               <div>
-                <b className="mono">{(field.totals.distanceM / 1000).toFixed(1)} km</b>
+                <b className="mono">
+                  {(field.totals.distanceM / 1000).toFixed(1)} km
+                </b>
                 <span>straight-line traverse</span>
               </div>
               <div>
@@ -483,15 +552,25 @@ export default function Demo() {
                 <span>ascent (4 km trend)</span>
               </div>
               <div>
-                <b className="mono">{naismithHours(field.totals.distanceM, field.totals.ascentM).toFixed(1)} h</b>
+                <b className="mono">
+                  {naismithHours(
+                    field.totals.distanceM,
+                    field.totals.ascentM,
+                  ).toFixed(1)}{" "}
+                  h
+                </b>
                 <span>Naismith estimate</span>
               </div>
             </div>
             <p className="demo-sub">
-              A lowest-to-highest relief transect across {best.name}, built from the real SRTM samples.
-              Proposals only — access, exposure and safety are verified on the ground.
+              A lowest-to-highest relief transect across {best.name}, built from
+              the real SRTM samples. Proposals only — access, exposure and
+              safety are verified on the ground.
             </p>
-            <Link className="button primary" to={`/field-study?id=${best.id}&mission=jezero`}>
+            <Link
+              className="button primary"
+              to={`/field-study?id=${best.id}&mission=jezero`}
+            >
               Plan this field study
             </Link>
           </>
@@ -531,6 +610,11 @@ export default function Demo() {
   );
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      if (
+        e.defaultPrevented ||
+        (e.target instanceof HTMLElement && e.target.closest(".palette"))
+      )
+        return;
       if (e.key === "Tab") {
         const controls = [
             ...(dialogRef.current?.querySelectorAll<HTMLElement>(

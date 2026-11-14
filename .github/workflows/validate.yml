@@ -18,3 +18,16 @@ jobs:
       - run: npm --prefix frontend ci
       - run: npm run test:unit
       - run: npm run build
+      - name: Install Chromium for production browser checks
+        run: npx --prefix frontend playwright install --with-deps chromium
+      - name: Test the static production application
+        run: npm test
+        env:
+          TERRAINX_BASE_URL: http://127.0.0.1:4173
+          TERRAINX_BROWSER_CHANNEL: chromium
+          TERRAINX_OFFLINE: '1'
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: browser-failure-evidence
+          path: artifacts/qa/test-results

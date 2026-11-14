@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "release_id": "science-aefba628a0d697b6",
+  "release_id": "science-b1a132b201ad2046",
   "model_version": "terrainx-model-v1",
   "dataset_sha256": "3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c",
   "source_data_commit": "4f05e818ea55144598fee354ea1bdd485a6ff932",
@@ -26,7 +26,7 @@
       "bytes": 449124
     },
     "validation.json": {
-      "sha256": "9c99f17faf97319b54d0881c836ebf327ac15ab1968b37b06852b3071a198cc8",
+      "sha256": "2a95d1dc12237282c5aa5ae62dac41ca8d40b586157b22af4e44e5a50ce564e6",
       "bytes": 1112
     },
     "case_studies.json": {
