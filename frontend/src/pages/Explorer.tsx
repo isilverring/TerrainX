@@ -139,6 +139,7 @@ export default function Explorer() {
     [query, setQuery] = useState(""),
     [focus, setFocus] = useState({ id: "", n: 0 });
   const [selectedId, setSelectedId] = useState<string>(() => {
+    if (params.get("id")) return params.get("id")!;
     try {
       return JSON.parse(safeStorage.get(SELECTION_KEY) ?? "{}").id ?? "";
     } catch {
@@ -227,10 +228,11 @@ export default function Explorer() {
       );
   }, [selected, mission]);
   function chooseMission(next: Mission) {
-    setParams({ mission: next });
+    const p=new URLSearchParams(params);p.set("mission",next);setParams(p);
   }
   function select(id: string, focusRow = false) {
     setSelectedId(id);
+    const p=new URLSearchParams(params);p.set("id",id);setParams(p,{replace:true});
     setFocus((f) => ({ id, n: f.n + 1 }));
     const row = listRef.current?.querySelector<HTMLButtonElement>(
       `[data-candidate-id="${CSS.escape(id)}"]`,
@@ -359,7 +361,7 @@ export default function Explorer() {
             <span>
               real cells screened
               <br />
-              {data.summary.shortlisted_candidates} algorithmic candidates
+              {data.collection === "expanded" ? `${data.candidates.filter(c=>!c.benchmark).length} screened-cell profiles` : `${data.summary.shortlisted_candidates} algorithmic candidates`}
             </span>
           </div>
         </section>

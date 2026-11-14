@@ -158,6 +158,8 @@ export const targetSchema = z
   })
   .passthrough();
 export const datasetSchema = z.object({
+  collection: z.enum(["original", "expanded"]).optional(),
+  active_mission: z.enum(["jezero", "mare-crisium"]).optional(),
   release: z
     .object({
       release_id: z.string(),

@@ -5,6 +5,7 @@ import type { Scenario } from "./counterfactual";
 const scenario = z.custom<Scenario>(validScenario, "Unsupported mission model");
 export const snapshotSchema = z.object({
   snapshot_version: z.literal("1.0"),
+  collection: z.enum(["original", "expanded"]).optional(),
   title: z.string().min(1).max(120),
   created_at: z.string().datetime(),
   science: z.object({
@@ -32,6 +33,7 @@ export function makeSnapshot(
     throw new Error("Candidate is outside this release");
   return snapshotSchema.parse({
     snapshot_version: "1.0",
+    collection: data.collection ?? "original",
     title,
     created_at: new Date().toISOString(),
     science: data.release,
@@ -45,6 +47,7 @@ export function makeSnapshot(
 }
 export function snapshotLink(snapshot: ResearchSnapshot) {
   const params = new URLSearchParams({
+    cohort: snapshot.collection ?? "original",
     mission: snapshot.mission,
     science: snapshot.science.release_id,
     datahash: snapshot.science.dataset_sha256,

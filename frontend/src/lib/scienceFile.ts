@@ -8,7 +8,7 @@ import { useData } from "./data";
  * the release manifest (via fetchScienceJson) and its shape with Zod. A historical
  * release without the file reports that plainly instead of substituting newer data.
  */
-export function useScienceFile<T extends z.ZodTypeAny>(filename: string, schema: T, missing: string) {
+export function useScienceFile<T extends z.ZodTypeAny>(filename: string, schema: T, missing: string, enabled = true) {
   const data = useData(),
     [value, setValue] = useState<z.infer<T> | null>(null),
     [error, setError] = useState("");
@@ -16,6 +16,7 @@ export function useScienceFile<T extends z.ZodTypeAny>(filename: string, schema:
     let live = true;
     setValue(null);
     setError("");
+    if (!enabled) return;
     if (!currentRelease()?.files[filename]) {
       setError(missing);
       return;
@@ -26,6 +27,6 @@ export function useScienceFile<T extends z.ZodTypeAny>(filename: string, schema:
     return () => {
       live = false;
     };
-  }, [data.release?.release_id, filename, schema, missing]);
+  }, [data.release?.release_id, filename, schema, missing, enabled]);
   return { value, error };
 }

@@ -29,10 +29,9 @@ import { DataContext, useData, number } from "../lib/data";
 import { applyScenarios, useModel } from "../lib/scoring";
 import { defaultScenario } from "../lib/counterfactual";
 import { makeSnapshot, checkSnapshotRelease } from "../lib/snapshots";
-import { candidateSchema } from "../lib/models";
-import { z } from "zod";
 import { useScienceFile } from "../lib/scienceFile";
 import { currentRelease } from "../lib/release";
+import { fieldSitesSchema } from "../lib/collections";
 import type { Mission } from "../lib/models";
 import { download } from "../lib/packet";
 import {
@@ -78,10 +77,6 @@ const slug = (s: string) =>
     .replace(/^-|-$/g, "")
     .slice(0, 50) || "field-study";
 
-const fieldSitesSchema = z.object({
-  contract: z.literal("terrainx-field-sites-v1"),
-  candidates: z.array(candidateSchema),
-});
 export default function FieldStudy() {
   const base = useData(),
     [params] = useSearchParams();
@@ -203,6 +198,7 @@ function FieldStudyEditor() {
         jezero: defaultScenario("jezero"),
         "mare-crisium": defaultScenario("mare-crisium"),
       };
+      base.snapshot.collection = s.o ?? data.collection ?? "original";
       return {
         ...base,
         hypothesis: s.h || base.hypothesis,
@@ -224,8 +220,9 @@ function FieldStudyEditor() {
     [newItem, setNewItem] = useState({ measurements: "", equipment: "" }),
     [mapImage, setMapImage] = useState<string | null>(null);
   const base = `${window.location.origin}${window.location.pathname}#/field-study?share=`;
-  const shareUrl = base + encodeShare(study),
-    qrUrl = base + encodeShare(study, true);
+  const contextQuery=`&cohort=${study.snapshot.collection??"original"}&mission=${study.mission}`;
+  const shareUrl = base + encodeShare(study) + contextQuery,
+    qrUrl = base + encodeShare(study, true) + contextQuery;
 
   const studyData = useMemo(
     () => applyScenarios(data, study.snapshot.scenarios),

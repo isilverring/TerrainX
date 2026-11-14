@@ -560,12 +560,15 @@ export default function CellSearch() {
             </figcaption>
           </figure>
           {pick.land_eligible !== false && (
-            <Link
+            <div className="toolbar-actions"><Link
               className="button primary"
-              to={`/field-study?id=${pick.id}&mission=${mission}`}
+              to={`/field-study?id=${pick.id}&mission=${mission}&cohort=expanded`}
             >
               Plan a field study for this cell
             </Link>
+            <Link className="button outline" to={`/site/${pick.id}?mission=${mission}&cohort=expanded`}>Open Analog DNA</Link>
+            <Link className="button outline" to={`/passport/${pick.id}?mission=${mission}&cohort=expanded`}>Open Analog Passport</Link>
+            <Link className="button outline" to={`/explorer?mission=${mission}&cohort=expanded&id=${pick.id}`}>Open in discovery map</Link></div>
           )}
           {pick.released_candidate && (
             <Link

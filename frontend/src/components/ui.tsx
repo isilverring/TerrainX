@@ -13,6 +13,7 @@ import { openPalette } from "./CommandPalette";
 import { useEffect, useState, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { number } from "../lib/data";
+import { studyPath } from "../lib/collections";
 import type { Assessment, Mission } from "../lib/models";
 export function Header({
   presentation = false,
@@ -114,7 +115,7 @@ export function Header({
             <span>{group.name}</span>
             <div>
               {group.links.map(([path, label]) => (
-                <NavLink key={path} to={path}>
+                <NavLink key={path} to={studyPath(path,location.search)}>
                   {label}
                 </NavLink>
               ))}
@@ -221,23 +222,25 @@ export function SourceLink({
   );
 }
 export function BackLink({ mission }: { mission: Mission }) {
+  const location=useLocation();
   return (
-    <Link className="back-link" to={`/explorer?mission=${mission}`}>
+    <Link className="back-link" to={studyPath(`/explorer?mission=${mission}`,location.search)}>
       <ArrowLeft size={16} />
       Discovery atlas
     </Link>
   );
 }
 export function SiteActions({ id, mission }: { id: string; mission: Mission }) {
+  const location=useLocation();
   return (
     <div className="site-actions">
-      <Link className="button primary" to={`/site/${id}?mission=${mission}`}>
+      <Link className="button primary" to={studyPath(`/site/${id}?mission=${mission}`,location.search)}>
         <Microscope size={17} />
         Analog DNA
       </Link>
       <Link
         className="button outline"
-        to={`/passport/${id}?mission=${mission}`}
+        to={studyPath(`/passport/${id}?mission=${mission}`,location.search)}
       >
         <FileText size={17} />
         Analog Passport

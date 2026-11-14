@@ -97,7 +97,10 @@ test("field study share link reopens the same stations on another device", async
     "Opened a shared plan",
   );
   // A damaged link is refused rather than guessed.
-  await other.goto(url.slice(0, -12) + "%%broken");
+  const damaged=new URL(url), parts=new URLSearchParams(damaged.hash.split("?")[1]);
+  parts.set("share", parts.get("share")!.slice(0,-12)+"%%broken");
+  damaged.hash="/field-study?"+parts;
+  await other.goto(damaged.href);
   await other.reload();
   await expect(other.getByRole("alert")).toContainText("damaged or incomplete");
 });

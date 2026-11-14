@@ -70,6 +70,8 @@ export function buildPacket(
     app: APP,
     generated_at: generatedAt,
     reproducibility: {
+      collection: data.collection ?? "original",
+      candidate_source_file: data.collection === "expanded" && !c.benchmark ? "field_candidates.json (original IDs retain frozen dataset.json records)" : "dataset.json",
       science_release: data.release?.release_id ?? null,
       dataset_sha256: data.release?.dataset_sha256 ?? null,
       model_version: data.release?.model_version ?? "terrainx-model-v1",

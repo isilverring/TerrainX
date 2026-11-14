@@ -16,6 +16,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { DataContext, loadData } from "./lib/data";
+import CollectionScope from "./components/CollectionScope";
 import type { Dataset } from "./lib/models";
 import { Header, Loading } from "./components/ui";
 import Landing from "./pages/Landing";
@@ -83,6 +84,14 @@ function PinRelease({ presentation }: { presentation: boolean }) {
       p.set("science", data.release.release_id);
       changed = true;
     }
+    if (data.collection && !p.has("cohort")) {
+      p.set("cohort", data.collection);
+      changed = true;
+    }
+    if (data.active_mission && !p.has("mission")) {
+      p.set("mission", data.active_mission);
+      changed = true;
+    }
     if (presentation && !p.has("presentation")) {
       p.set("presentation", "1");
       changed = true;
@@ -92,6 +101,8 @@ function PinRelease({ presentation }: { presentation: boolean }) {
     }
   }, [
     data?.release?.release_id,
+    data?.collection,
+    data?.active_mission,
     location.pathname,
     location.search,
     navigate,
@@ -244,6 +255,7 @@ function App() {
           }}
         >
           <DataContext.Provider value={assessed!}>
+            <CollectionScope>
             <PinRelease presentation={presentation} />
             <CommandPalette />
             <Suspense fallback={<Loading />}>
@@ -283,6 +295,7 @@ function App() {
                 />
               </Routes>
             </Suspense>
+            </CollectionScope>
           </DataContext.Provider>
         </ModelContext.Provider>
       ) : (

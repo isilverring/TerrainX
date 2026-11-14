@@ -78,6 +78,7 @@ function PassportBody({
   const pkt = useMemo(() => buildPacket(data, c, mission), [data, c, mission]);
   const base = `terrainx-${c.id}-${mission}`;
   const sharedParams = new URLSearchParams({
+    cohort: data.collection ?? "original",
     mission,
     model: JSON.stringify(model.scenarios[mission]),
   });
