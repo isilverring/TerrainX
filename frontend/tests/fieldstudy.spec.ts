@@ -66,3 +66,23 @@ test("field study is usable on a phone without horizontal overflow", async ({ pa
   const width = await page.evaluate(() => document.documentElement.scrollWidth);
   expect(width).toBeLessThanOrEqual(390);
 });
+
+test("field study share link reopens the same stations on another device", async ({ page, context }) => {
+  await context.grantPermissions(["clipboard-read", "clipboard-write"]);
+  await page.goto("/#/field-study?id=saudi-24.000-39.375&mission=jezero");
+  await page.getByRole("button", { name: "Suggest relief transect" }).click();
+  await page.getByLabel("Study title").fill("Shared traverse");
+  await page.getByRole("button", { name: "Copy share link" }).click();
+  await expect(page.locator(".field-message")).toContainText("Share link copied");
+  const url = await page.evaluate(() => navigator.clipboard.readText());
+  expect(url).toContain("#/field-study?share=");
+  const other = await context.newPage();
+  await other.goto(url);
+  await expect(other.locator(".field-stations li")).toHaveCount(5);
+  await expect(other.getByLabel("Study title")).toHaveValue("Shared traverse");
+  await expect(other.locator(".field-message")).toContainText("Opened a shared plan");
+  // A damaged link is refused rather than guessed.
+  await other.goto(url.slice(0, -12) + "%%broken");
+  await other.reload();
+  await expect(other.locator(".field-message")).toContainText("Shared plan not opened");
+});

@@ -13,6 +13,7 @@ import {
 import {
   Compass,
   Download,
+  Link2,
   FolderOpen,
   MapPinned,
   Plus,
@@ -33,7 +34,10 @@ import {
   STATION_KINDS,
   SAMPLE_FIELDS,
   compass,
+  decodeShare,
   elevationAt,
+  encodeShare,
+  stationsFromShare,
   equipmentFor,
   fieldStudySchema,
   legs,
@@ -53,12 +57,15 @@ import {
   type StationKind,
 } from "../lib/fieldStudy";
 import FieldPlanner from "../components/FieldPlanner";
+import QrCode from "../components/QrCode";
 import { BackLink } from "../components/ui";
 
 const MISSION_LABEL: Record<Mission, string> = {
   jezero: "Mars · Jezero Crater",
   "mare-crisium": "Moon · Mare Crisium",
 };
+/** Longest URL we render as a QR code (byte-mode capacity at error level M is ~2.3 kB). */
+const QR_MAX = 1100;
 const slug = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 50) || "field-study";
 
 export default function FieldStudy() {
@@ -77,13 +84,45 @@ export default function FieldStudy() {
     const snapshot = makeSnapshot(data, model.scenarios, mission, c.id, title ?? `Field study · ${c.name}`);
     return newFieldStudy(snapshot, c, mission, title ?? `Field study · ${c.name}`);
   };
-  const [study, setStudy] = useState<Study>(() => fresh(initialCandidate, initialMission));
+  // A ?share= link reopens the same stations and intent, only on the identical release.
+  const shared = useMemo(() => {
+    const code = params.get("share");
+    if (!code) return null;
+    try {
+      const s = decodeShare(code);
+      if (s.r !== data.release?.release_id)
+        return { error: `This shared plan was made on ${s.r}; this site serves ${data.release?.release_id}. No newer data were substituted.` };
+      const c = data.candidates.find((x) => x.id === s.c);
+      if (!c || !terrainGrid(c)) return { error: "The shared candidate is not in this release." };
+      return { share: s };
+    } catch {
+      return { error: "This share link is damaged or incomplete." };
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const [study, setStudy] = useState<Study>(() => {
+    if (shared && "share" in shared && shared.share) {
+      const s = shared.share,
+        base = fresh(s.c, s.m, s.t);
+      return { ...base, hypothesis: s.h || base.hypothesis, stations: stationsFromShare(s) };
+    }
+    return fresh(initialCandidate, initialMission);
+  });
   const [kind, setKind] = useState<StationKind>("observation"),
     [selected, setSelected] = useState<string | null>(null),
     [saved, setSaved] = useState(savedFieldStudies),
-    [message, setMessage] = useState(""),
+    [message, setMessage] = useState(() =>
+      shared && "error" in shared
+        ? `Shared plan not opened: ${shared.error}`
+        : shared
+          ? "Opened a shared plan: stations, title and hypothesis. Protocol lists start from the dataset defaults — save it to keep a copy."
+          : "",
+    ),
     [newItem, setNewItem] = useState({ measurements: "", equipment: "" }),
     [mapImage, setMapImage] = useState<string | null>(null);
+  const base = `${window.location.origin}${window.location.pathname}#/field-study?share=`;
+  const shareUrl = base + encodeShare(study),
+    qrUrl = base + encodeShare(study, true);
 
   const candidate = data.candidates.find((c) => c.id === study.candidate_id)!;
   const grid = useMemo(() => terrainGrid(candidate)!, [candidate]);
@@ -692,6 +731,20 @@ export default function FieldStudy() {
           >
             <Printer size={16} /> Print field book
           </button>
+          <button
+            className="button outline"
+            disabled={!study.stations.length}
+            onClick={async () => {
+              try {
+                await navigator.clipboard.writeText(shareUrl);
+                setMessage(`Share link copied (${shareUrl.length} characters). It opens these stations only on ${study.snapshot.science.release_id}.`);
+              } catch {
+                window.prompt("Copy this share link", shareUrl);
+              }
+            }}
+          >
+            <Link2 size={16} /> Copy share link
+          </button>
           <label className="button outline file-button">
             <Upload size={16} /> Import JSON
             <input
@@ -756,7 +809,7 @@ export default function FieldStudy() {
         </p>
       </section>
 
-      <FieldBook study={study} mapImage={mapImage} candidateName={candidate.name} stationZ={stationZ} sampleLabel={(s, n) => sampleId(candidate, s, n)} />
+      <FieldBook study={study} shareUrl={study.stations.length && qrUrl.length <= QR_MAX ? qrUrl : null} mapImage={mapImage} candidateName={candidate.name} stationZ={stationZ} sampleLabel={(s, n) => sampleId(candidate, s, n)} />
     </main>
   );
 }
@@ -764,12 +817,14 @@ export default function FieldStudy() {
 /** Print-only field book: protocol, station sheets with blank observation lines, cut-out sample labels. */
 function FieldBook({
   study,
+  shareUrl,
   mapImage,
   candidateName,
   stationZ,
   sampleLabel,
 }: {
   study: Study;
+  shareUrl: string | null;
   mapImage: string | null;
   candidateName: string;
   stationZ: (s: Station) => number | null;
@@ -778,7 +833,13 @@ function FieldBook({
   const samples = study.stations.filter((s) => s.kind === "sample");
   return (
     <section className="fieldbook-print" aria-hidden="true">
-      <header>
+      <header className="fb-header">
+        {shareUrl && (
+          <div className="fb-qr">
+            <QrCode value={shareUrl} size={190} label="Open this field study's stations" />
+            <span>Scan to open these stations</span>
+          </div>
+        )}
         <p>TerrainX field book · proposal, not a verified plan</p>
         <h1>{study.title}</h1>
         <p>

@@ -110,3 +110,46 @@ describe("relief transect, traverse and exports", () => {
     expect(gpx).not.toContain("<B>");
   });
 });
+
+describe("field study share links", () => {
+  const c = withGrid[0],
+    g = terrainGrid(c)!;
+  const snapshot = makeSnapshot(data, scenarios, "jezero", c.id, "Ünïcode · étude «test»");
+  const study = {
+    ...newFieldStudy(snapshot, c, "jezero", "Ünïcode · étude «test»"),
+    stations: reliefTransect(g),
+  };
+  it("round-trips title, hypothesis, release and stations (including unicode)", async () => {
+    const { encodeShare, decodeShare, stationsFromShare } = await import("../fieldStudy");
+    const code = encodeShare(study);
+    expect(code).toMatch(/^[A-Za-z0-9_-]+$/);
+    const back = decodeShare(code);
+    expect(back.t).toBe(study.title);
+    expect(back.r).toBe(manifest.release_id);
+    expect(back.h).toBe(study.hypothesis);
+    expect(stationsFromShare(back)).toEqual(study.stations);
+  });
+  it("refuses tampered or malformed links", async () => {
+    const { decodeShare } = await import("../fieldStudy");
+    expect(() => decodeShare("not-base64!!")).toThrow();
+    const bad = btoa(JSON.stringify({ v: 1, r: "science-x", c: "a", m: "jezero", t: "t", h: "", s: [] }));
+    expect(() => decodeShare(bad)).toThrow();
+  });
+});
+
+describe("compact share codes for printed QR", () => {
+  it("drop free text, keep stations within ~1 m and stay short", async () => {
+    const { encodeShare, decodeShare, stationsFromShare } = await import("../fieldStudy");
+    const c = withGrid[0],
+      g = terrainGrid(c)!;
+    const snapshot = makeSnapshot(data, scenarios, "jezero", c.id, "QR");
+    const study = { ...newFieldStudy(snapshot, c, "jezero", "QR"), stations: [...reliefTransect(g), ...reliefTransect(g).map((s) => ({ ...s, id: s.id.replace("S", "T") }))] };
+    const code = encodeShare(study, true);
+    expect(code.length).toBeLessThan(encodeShare(study).length);
+    const back = stationsFromShare(decodeShare(code));
+    back.forEach((s, i) => {
+      expect(haversineM(s, study.stations[i])).toBeLessThan(1.2);
+      expect(s.purpose).toBe("");
+    });
+  });
+});

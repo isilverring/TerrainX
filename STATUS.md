@@ -26,9 +26,12 @@ Work continued from the laptop after Release 3 (`efa7194`). Each milestone below
 
 - **L4 navigation & integration** — Command palette (Ctrl/⌘ K, `/`, or the search pill in the header): fuzzy jump to every page and to each candidate's Analog DNA, Field study or Passport, full keyboard control and Escape from anywhere. Header actions regrouped so search + Guided demo never collide at desktop/tablet/phone widths. Landing "Discover · Compare · Explain · Prepare" band now opens Explorer, Lenses, Frontier and Field Study. Analog DNA gains "Plan a field study". Files: `components/CommandPalette.tsx`, `styles/palette.css`, tests `src/lib/__tests__/palette.test.ts`, `tests/palette.spec.ts`. Checks: 81 unit tests, 28/28 browser workflows (+1 live-imagery skip offline).
 
+- **L5 field-study share links** — "Copy share link" encodes title, hypothesis and stations (base64url JSON, Zod-validated on open) into `#/field-study?share=…`; it opens only on the identical science release and refuses damaged or mismatched links with a stated reason. The printed field book carries a compact QR (stations rounded to 1e-5° ≈ 1 m, no free text) sized to scan from paper — decoding verified with OpenCV on a 3× print render. Tests: 84 unit, 29/29 browser workflows (+1 live-imagery skip offline).
+
 ### Planned next (laptop)
 1. Optional lunar-polar / Diviner module — only with genuine, checksum-pinned source data (the sandbox cannot reach PDS directly; the laptop browser can be used to fetch and verify files).
-2. Further polish candidates: guided-demo chapter for Lenses/Field Study; field-study share link (URL-encoded stations).
+2. Guided-demo chapter for Lenses and the Field Study Builder (keep presentation isolation tests green).
+3. PC-side: publish the current build to the existing public Site (never create a new Site) and record the deployed commit in DEPLOYMENT.md.
 
 Cloud-session limits: the sandbox shell cannot reach map tiles, NASA, POWER, OpenTopoData or Macrostrat, so new external observations are only added when they can be fetched and checksum-verified. Publishing to the public Site remains a PC-side step.
 

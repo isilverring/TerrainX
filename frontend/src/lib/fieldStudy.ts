@@ -374,3 +374,71 @@ export function persistFieldStudies(studies: FieldStudy[]) {
     return false;
   }
 }
+
+/* ---------- Share links: stations + intent in the URL, pinned to the release ---------- */
+const shareSchema = z.object({
+  v: z.literal(1),
+  r: z.string().regex(/^science-[a-f0-9]{16}$/),
+  c: z.string().min(1).max(80),
+  m: z.enum(["jezero", "mare-crisium"]),
+  t: z.string().min(1).max(120),
+  h: z.string().max(1200),
+  s: z
+    .array(
+      z.tuple([
+        z.string().min(1).max(40),
+        z.string().min(1).max(80),
+        z.enum(["observation", "sample", "transect", "imaging", "instrument"]),
+        z.number().min(-90).max(90),
+        z.number().min(-180).max(180),
+        z.string().max(400),
+      ]),
+    )
+    .max(24),
+});
+export type SharedStudy = z.infer<typeof shareSchema>;
+
+const toBase64Url = (text: string) => {
+  const bytes = new TextEncoder().encode(text);
+  let bin = "";
+  bytes.forEach((b) => (bin += String.fromCharCode(b)));
+  return btoa(bin).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
+};
+const fromBase64Url = (code: string) => {
+  const bin = atob(code.replace(/-/g, "+").replace(/_/g, "/"));
+  return new TextDecoder().decode(Uint8Array.from(bin, (ch) => ch.charCodeAt(0)));
+};
+
+/**
+ * `compact` drops free text (hypothesis, purposes) and rounds coordinates to 1e-5° (~1 m)
+ * so a printed QR code stays scannable; the printed field book carries the full text.
+ */
+export function encodeShare(study: FieldStudy, compact = false) {
+  const r5 = (v: number) => Math.round(v * 1e5) / 1e5;
+  const payload: SharedStudy = {
+    v: 1,
+    r: study.snapshot.science.release_id,
+    c: study.candidate_id,
+    m: study.mission,
+    t: study.title,
+    h: compact ? "" : study.hypothesis,
+    s: study.stations.map((s) => [
+      s.id,
+      s.name,
+      s.kind,
+      compact ? r5(s.lat) : s.lat,
+      compact ? r5(s.lon) : s.lon,
+      compact ? "" : s.purpose,
+    ]),
+  };
+  return toBase64Url(JSON.stringify(payload));
+}
+export function decodeShare(code: string): SharedStudy {
+  if (code.length > 20000) throw new Error("Share link is too long");
+  return shareSchema.parse(JSON.parse(fromBase64Url(code)));
+}
+export function stationsFromShare(shared: SharedStudy): Station[] {
+  return shared.s.map(([id, name, kind, lat, lon, purpose]) =>
+    stationSchema.parse({ id, name, kind, lat, lon, purpose }),
+  );
+}
