@@ -112,6 +112,12 @@ export default function Cases() {
               >
                 Save a research study
               </Link>
+              <Link
+                className="button outline"
+                to={`/field-study?id=${c.id}&mission=${item.mission}`}
+              >
+                Plan a field study
+              </Link>
             </div>
           </article>
         );

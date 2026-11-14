@@ -26,6 +26,10 @@ No application authentication, database, backend, paid API, LLM or judge-time NA
 - **Expedition Packet** (`/expedition/:id`): printable brief plus JSON, CSV and GeoJSON exports of the active state.
 - **Beyond the known analogs** (landing) and the **guided demo** (`/demo`, "From Earth to another world").
 
+### Release 4 track (laptop)
+
+- **Field Study Builder** (`/field-study`): place proposed stations on the candidate's real SRTM sample grid, measure great-circle legs and the interpolated elevation trend, seed the protocol from the dataset's experiment design, answer permit/access questions, then save, export JSON (with the pinned research snapshot) and GPX, or print a field book with station sheets and sample labels. Proposals only — no access, exposure or safety is verified.
+
 ## Run locally
 
 Node 22.12+ (24 recommended) and Python 3.12 recommended. This workstation has Python 3.12 via `py -3.12`; its Windows Store `python` alias is not a usable interpreter. Use a supported Node runtime; this release is validated with Node 24.22.1.

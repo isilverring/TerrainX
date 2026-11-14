@@ -244,6 +244,12 @@ export default function Research() {
           </div>
         )}
       </section>
+      <Link
+        className="button primary research-field-link"
+        to={`/field-study?id=${candidate}&mission=${mission}`}
+      >
+        Plan a field study for this candidate
+      </Link>{" "}
       <Link className="button outline" to="/methodology">
         Inspect model equations and limitations
       </Link>

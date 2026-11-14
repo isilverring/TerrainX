@@ -49,6 +49,7 @@ export function Header({
       name: "Prepare",
       links: [
         ["/research", "Research"],
+        ["/field-study", "Field study"],
         ["/offline", "Offline"],
       ],
     },
