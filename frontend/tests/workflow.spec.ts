@@ -413,3 +413,61 @@ test("Compare Worlds shows two sourced NASA image pairs with caveats", async ({
   await page.getByRole("button", { name: "Side by side" }).first().click();
   await expect(page.locator(".side-frame").first()).toBeVisible();
 });
+
+test("Expedition Packet exports JSON, CSV and GeoJSON that match the displayed scores", async ({
+  page,
+}) => {
+  await page.goto("/#/expedition/saudi-24.000-39.375?mission=jezero");
+  await expect(
+    page.getByRole("heading", { name: "EXPEDITION PACKET" }),
+  ).toBeVisible();
+  const shownF = await page
+    .locator(".score-strip > div")
+    .nth(0)
+    .locator("strong")
+    .textContent();
+  const [json] = await Promise.all([
+    page.waitForEvent("download"),
+    page.getByRole("button", { name: "JSON", exact: true }).click(),
+  ]);
+  const { readFileSync } = await import("node:fs");
+  const pkt = JSON.parse(readFileSync((await json.path())!, "utf8"));
+  expect(Math.round(pkt.scores.F)).toBe(Number(shownF));
+  expect(pkt.candidate.id).toBe("saudi-24.000-39.375");
+  expect(pkt.reproducibility.model.weights.geology).toBeCloseTo(0.55, 9);
+  const [csv] = await Promise.all([
+    page.waitForEvent("download"),
+    page.getByRole("button", { name: "CSV" }).click(),
+  ]);
+  expect(readFileSync((await csv.path())!, "utf8")).toContain(
+    "F terrain fidelity",
+  );
+  const [geo] = await Promise.all([
+    page.waitForEvent("download"),
+    page.getByRole("button", { name: "GeoJSON" }).click(),
+  ]);
+  const g = JSON.parse(readFileSync((await geo.path())!, "utf8"));
+  expect(g.features[0].geometry.coordinates).toEqual([39.375, 24]);
+  await expect(
+    page.getByRole("heading", { name: "Reproducibility metadata" }),
+  ).toBeVisible();
+});
+
+test("guided demo navigates seven scenes with real values and keyboard controls", async ({
+  page,
+}) => {
+  await page.goto("/#/");
+  await page.getByRole("link", { name: /Guided demo/ }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await expect(page.locator(".demo-count")).toHaveText("1 / 7");
+  await page.keyboard.press("ArrowRight");
+  await page.keyboard.press("ArrowRight");
+  await expect(page.locator(".demo-funnel")).toContainText("130");
+  await page.getByRole("button", { name: /Next/ }).click();
+  await page.getByRole("button", { name: /Next/ }).click();
+  await expect(page.locator(".demo-physics")).toContainText("0.62 m/s");
+  await page.keyboard.press("End");
+  await expect(page.getByText("Earth is the training ground.")).toBeVisible();
+  await page.keyboard.press("Escape");
+  await expect(page).toHaveURL(/explorer/);
+});

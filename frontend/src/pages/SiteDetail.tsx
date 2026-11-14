@@ -44,7 +44,7 @@ export default function SiteDetail() {
             Analog DNA · {target.body} / {target.name}
           </p>
           <h1>{c.name}</h1>
-          <p className="mono">{coordinates(c)} · 24×24km terrain analysis</p>
+          <p className="mono">{coordinates(c)} · 24 × 24 km terrain analysis</p>
           <div className="identity-tags">
             <EvidenceTag
               kind={c.benchmark ? "LITERATURE-SUPPORTED" : "DERIVED"}

@@ -1,5 +1,19 @@
 import { Link, useParams, useSearchParams } from "react-router-dom";
-import { Printer } from "lucide-react";
+import {
+  Braces,
+  FileSpreadsheet,
+  MapPinned,
+  PackageOpen,
+  Printer,
+} from "lucide-react";
+import { useMemo } from "react";
+import {
+  APP,
+  buildPacket,
+  download,
+  packetCsv,
+  packetGeoJSON,
+} from "../lib/packet";
 import QrCode from "../components/QrCode";
 import { MeasureNext } from "../components/FrontierParts";
 import { frontier } from "../lib/frontier";
@@ -19,14 +33,13 @@ import {
   ExperimentPanel,
   UtilityPanel,
 } from "../components/SciencePanels";
-export default function Passport() {
+export default function Passport({ packet = false }: { packet?: boolean }) {
   const data = useData(),
     { id } = useParams(),
     [params] = useSearchParams();
   const mission: Mission =
     params.get("mission") === "mare-crisium" ? "mare-crisium" : "jezero";
-  const c = data.candidates.find((c) => c.id === id),
-    target = data.targets.find((t) => t.id === mission)!;
+  const c = data.candidates.find((c) => c.id === id);
   if (!c)
     return (
       <main className="document-page">
@@ -34,21 +47,89 @@ export default function Passport() {
         <Link to="/explorer">Return to atlas</Link>
       </main>
     );
-  const a = c.assessments[mission];
+  return <PassportBody packet={packet} candidateId={c.id} mission={mission} />;
+}
+
+function PassportBody({
+  packet,
+  candidateId,
+  mission,
+}: {
+  packet: boolean;
+  candidateId: string;
+  mission: Mission;
+}) {
+  const data = useData();
+  const c = data.candidates.find((x) => x.id === candidateId)!,
+    target = data.targets.find((t) => t.id === mission)!,
+    a = c.assessments[mission];
+  const pkt = useMemo(() => buildPacket(data, c, mission), [data, c, mission]);
+  const base = `terrainx-${c.id}-${mission}`;
   return (
-    <main className="document-page passport-page">
+    <main
+      className={`document-page passport-page ${packet ? "packet-page" : ""}`}
+    >
       <div className="passport-toolbar">
         <BackLink mission={mission} />
-        <button className="button primary" onClick={() => window.print()}>
-          <Printer size={17} />
-          Print / Save as PDF
-        </button>
+        <div className="toolbar-actions">
+          {packet ? (
+            <>
+              <button
+                className="button outline"
+                onClick={() =>
+                  download(
+                    `${base}.json`,
+                    JSON.stringify(pkt, null, 2),
+                    "application/json",
+                  )
+                }
+              >
+                <Braces size={16} /> JSON
+              </button>
+              <button
+                className="button outline"
+                onClick={() =>
+                  download(`${base}.csv`, packetCsv(pkt), "text/csv")
+                }
+              >
+                <FileSpreadsheet size={16} /> CSV
+              </button>
+              <button
+                className="button outline"
+                onClick={() =>
+                  download(
+                    `${base}.geojson`,
+                    JSON.stringify(packetGeoJSON(pkt), null, 2),
+                    "application/geo+json",
+                  )
+                }
+              >
+                <MapPinned size={16} /> GeoJSON
+              </button>
+            </>
+          ) : (
+            <Link
+              className="button outline"
+              to={`/expedition/${c.id}?mission=${mission}`}
+            >
+              <PackageOpen size={16} /> Generate Expedition Packet
+            </Link>
+          )}
+          <button className="button primary" onClick={() => window.print()}>
+            <Printer size={17} />
+            Print / Save as PDF
+          </button>
+        </div>
       </div>
       <header className="passport-header">
         <div>
-          <p className="document-label">TerrainX / Scientific field briefing</p>
-          <h1>ANALOG PASSPORT</h1>
+          <p className="document-label">
+            TerrainX /{" "}
+            {packet ? "Expedition research brief" : "Scientific field briefing"}
+          </p>
+          <h1>{packet ? "EXPEDITION PACKET" : "ANALOG PASSPORT"}</h1>
           <p>Planetary Analog Discovery & Mission Readiness Lab</p>
+          {packet ? <p className="packet-challenge">{APP.challenge}</p> : null}
         </div>
         <div className="passport-number mono">
           {c.id}
@@ -84,7 +165,7 @@ export default function Passport() {
           </div>
           <div>
             <dt>Terrain footprint</dt>
-            <dd>24×24km · 7×7 samples · 4km spacing</dd>
+            <dd>24 × 24 km · 7 × 7 samples · 4 km spacing</dd>
           </div>
           <div>
             <dt>Evidence status</dt>
@@ -103,8 +184,104 @@ export default function Passport() {
       <MeasureNext
         candidate={c}
         mission={mission}
-        row={frontier(data.candidates, mission).find((r) => r.candidate.id === c.id)}
+        row={frontier(data.candidates, mission).find(
+          (r) => r.candidate.id === c.id,
+        )}
       />
+      {packet ? (
+        <>
+          <section className="science-section">
+            <div className="section-heading">
+              <h2>Planetary transfer gap</h2>
+              <EvidenceTag kind="ASSUMED" />
+            </div>
+            <div className="gap-cards">
+              {(
+                [
+                  [
+                    "Meaningfully comparable",
+                    pkt.transfer_gap.comparable,
+                    "ok",
+                  ],
+                  [
+                    "Needs scaling or controlled experiments",
+                    pkt.transfer_gap.scaling,
+                    "scale",
+                  ],
+                  [
+                    "Needs vacuum, radiation, environmental or reduced-gravity facilities",
+                    pkt.transfer_gap.facilities,
+                    "facility",
+                  ],
+                  ["Remains unvalidated", pkt.transfer_gap.unvalidated, "open"],
+                ] as const
+              ).map(([t, items, k]) => (
+                <div key={t} className={`gap-card ${k}`}>
+                  <h3>{t}</h3>
+                  <ul>
+                    {items.map((x) => (
+                      <li key={x}>{x}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </section>
+          <section className="science-section packet-repro">
+            <div className="section-heading">
+              <h2>Reproducibility metadata</h2>
+              <EvidenceTag kind="DERIVED" />
+            </div>
+            <dl>
+              <div>
+                <dt>Packet generated</dt>
+                <dd className="mono">{pkt.generated_at}</dd>
+              </div>
+              <div>
+                <dt>Dataset generated</dt>
+                <dd className="mono">
+                  {pkt.reproducibility.dataset_generated_at}
+                </dd>
+              </div>
+              <div>
+                <dt>Criterion weights</dt>
+                <dd className="mono">
+                  {Object.entries(pkt.reproducibility.model.weights)
+                    .map(([k, v]) => `${k} ${Number(v).toFixed(2)}`)
+                    .join(" · ")}
+                </dd>
+              </div>
+              <div>
+                <dt>α · γ · minimum coverage</dt>
+                <dd className="mono">
+                  {pkt.reproducibility.model.alpha} ·{" "}
+                  {pkt.reproducibility.model.gamma} · 0.70
+                </dd>
+              </div>
+              <div>
+                <dt>Similarity tolerances</dt>
+                <dd className="mono">
+                  {Object.entries(pkt.reproducibility.model.tolerances)
+                    .map(([k, v]) => `${k} ${v}`)
+                    .join(" · ") || "not applicable (F unavailable)"}
+                </dd>
+              </div>
+              <div>
+                <dt>Reproduce</dt>
+                <dd className="mono">
+                  python scripts/build_discovery.py --offline && python
+                  scripts/validate_results.py
+                </dd>
+              </div>
+            </dl>
+            <p className="caption">
+              JSON, CSV and GeoJSON exports are generated from this same packet
+              object; CSV contains only numeric features with units and
+              classifications; unknown values are left empty, never zero.
+            </p>
+          </section>
+        </>
+      ) : null}
       <section className="science-section passport-sources">
         <h2>Data provenance & references</h2>
         <p>

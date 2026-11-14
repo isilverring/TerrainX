@@ -2,6 +2,7 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Globe from "../components/Globe";
 import { useData } from "../lib/data";
+import BeyondKnown from "../components/BeyondKnown";
 export default function Landing() {
   const { summary } = useData();
   const stats: [number, string][] = [
@@ -61,6 +62,7 @@ export default function Landing() {
           </div>
         ))}
       </section>
+      <BeyondKnown />
       <footer className="landing-footer">
         <strong>2026 NASA Space Apps Challenge</strong>
         <span>

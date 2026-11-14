@@ -4,6 +4,7 @@ import {
   Orbit,
   FileText,
   Microscope,
+  Play,
 } from "lucide-react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { number } from "../lib/data";
@@ -25,7 +26,9 @@ export function Header() {
         <NavLink to="/worlds">Worlds</NavLink>
         <NavLink to="/methodology">Methodology</NavLink>
       </nav>
-      <span className="header-note">Open science</span>
+      <Link className="demo-launch" to="/demo">
+        <Play size={14} /> Guided demo
+      </Link>
     </header>
   );
 }

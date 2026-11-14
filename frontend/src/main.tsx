@@ -25,6 +25,7 @@ const Frontier = lazy(() => import("./pages/Frontier"));
 const TransferLab = lazy(() => import("./pages/TransferLab"));
 const WhatIf = lazy(() => import("./pages/WhatIf"));
 const Worlds = lazy(() => import("./pages/Worlds"));
+const Demo = lazy(() => import("./pages/Demo"));
 function App() {
   const [data, setData] = useState<Dataset | null>(null),
     [error, setError] = useState("");
@@ -85,12 +86,14 @@ function App() {
                 <Route path="/explorer" element={<Explorer />} />
                 <Route path="/site/:id" element={<SiteDetail />} />
                 <Route path="/passport/:id" element={<Passport />} />
+                <Route path="/expedition/:id" element={<Passport packet />} />
                 <Route path="/methodology" element={<Methodology />} />
                 <Route path="/compare" element={<Compare />} />
                 <Route path="/frontier" element={<Frontier />} />
                 <Route path="/transfer-lab" element={<TransferLab />} />
                 <Route path="/what-if" element={<WhatIf />} />
                 <Route path="/worlds" element={<Worlds />} />
+                <Route path="/demo" element={<Demo />} />
                 <Route
                   path="*"
                   element={
