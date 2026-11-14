@@ -53,6 +53,7 @@ const WhatIf = lazy(() => import("./pages/WhatIf"));
 const Worlds = lazy(() => import("./pages/Worlds"));
 const Demo = lazy(() => import("./pages/Demo"));
 const Research = lazy(() => import("./pages/Research"));
+const Offline = lazy(() => import("./pages/Offline"));
 const Cases = lazy(() => import("./pages/Cases"));
 function PinRelease({ presentation }: { presentation: boolean }) {
   const data = React.useContext(DataContext),
@@ -249,6 +250,7 @@ function App() {
                 <Route path="/demo" element={<Demo />} />
                 <Route path="/research" element={<Research />} />
                 <Route path="/cases" element={<Cases />} />
+                <Route path="/offline" element={<Offline />} />
                 <Route
                   path="*"
                   element={

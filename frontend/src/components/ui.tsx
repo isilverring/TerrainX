@@ -46,7 +46,10 @@ export function Header({
     },
     {
       name: "Prepare",
-      links: [["/research", "Research"]],
+      links: [
+        ["/research", "Research"],
+        ["/offline", "Offline"],
+      ],
     },
   ];
   return (
