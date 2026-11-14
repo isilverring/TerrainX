@@ -1,0 +1,61 @@
+{
+  "built_at": "2026-11-14T05:18:30.013135+00:00",
+  "sources": [
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/urn-nasa-pds-mgs_mola_topography_derived/meg016/megt90n000eb.lbl",
+      "file": "megt90n000eb.lbl",
+      "bytes": 4813,
+      "sha256": "0f2bd919dddb86d83489a008d3007bd915507c892a0f22ce49ad5dd5d2fc7d8a",
+      "retrieved_at": "2026-11-14T05:12:41.314874+00:00"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/urn-nasa-pds-mgs_mola_topography_derived/meg016/megt90n000eb.xml",
+      "file": "megt90n000eb.xml",
+      "bytes": 15528,
+      "sha256": "c393221db2de31916b30113ce28841dd967456dadb9bf2735eb30496eb37afa2",
+      "retrieved_at": "2026-11-14T05:13:00.334451+00:00"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/urn-nasa-pds-mgs_mola_topography_derived/meg016/megt90n000eb.hdr",
+      "file": "megt90n000eb.hdr",
+      "bytes": 1060,
+      "sha256": "1d3d3bab68cf7f709db3f3c8dfb64cd1611392b7b6d170c5f55406aee2c783e7",
+      "retrieved_at": "2026-11-14T05:13:01.160194+00:00"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/urn-nasa-pds-mgs_mola_topography_derived/meg016/megt90n000eb.img",
+      "file": "megt90n000eb.img",
+      "bytes": 33177600,
+      "sha256": "d18d9b9ab8c5516d02e157dd2cde0f1d0d160c21940e953ba22391269a545e7b",
+      "retrieved_at": "2026-11-14T05:13:35.908618+00:00"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_16.lbl",
+      "file": "ldem_16.lbl",
+      "bytes": 5121,
+      "sha256": "9aef29463ccc6ed3a3fbe0df3ecd830a99c69e16b564f455507dee2697096579",
+      "retrieved_at": "2026-11-14T05:12:42.066591+00:00"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_16.xml",
+      "file": "ldem_16.xml",
+      "bytes": 11941,
+      "sha256": "011ebff260abb7c9a10a0f18601d7505e807b9a1b51d238b5587f5b02de59218",
+      "retrieved_at": "2026-11-14T05:13:01.926931+00:00"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_16.img",
+      "file": "ldem_16.img",
+      "bytes": 33177600,
+      "sha256": "a511e40d7a3ea3275945b4da2a1df377133264fab0be94b7434b1cf8907254cb",
+      "retrieved_at": "2026-11-14T05:13:37.428519+00:00"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/catalog/dsmap.cat",
+      "file": "dsmap.cat",
+      "bytes": 7378,
+      "sha256": "351c8d9ad77470f3f432e5ea7f55498e22aa5701d5ef7145bee3a2c0d3b52b76",
+      "retrieved_at": "2026-11-14T05:13:02.718057+00:00"
+    }
+  ]
+}

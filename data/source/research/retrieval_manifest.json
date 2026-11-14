@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-11-14T05:19:04.8068787Z",
+  "entries": [
+    {
+      "file": "data/source/research/gibs_capabilities.xml",
+      "source_url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/1.0.0/WMTSCapabilities.xml",
+      "cached_at": "2026-11-14T05:12:53.8539211Z",
+      "sha256": "ea3bcb771880e92426b75823a05b678bf73f30db74efd96e7e5d106496ec692b",
+      "bytes": 5842320,
+      "http_status": 200,
+      "classification": "raw HTTP response"
+    },
+    {
+      "file": "data/source/research/gibs_saudia_2025-06-01_z3_r3_c4.jpeg",
+      "source_url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_CorrectedReflectance_TrueColor/default/2025-06-01/GoogleMapsCompatible_Level9/3/3/4.jpeg",
+      "cached_at": "2026-11-14T05:14:16.2818241Z",
+      "sha256": "1dfbb32c08ad66610de2391791125e1425d056234a1a056bcfe781708b186fc1",
+      "bytes": 16632,
+      "http_status": 200,
+      "classification": "raw HTTP response"
+    },
+    {
+      "file": "data/source/research/gibs_verified_layer.xml",
+      "source_url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/1.0.0/WMTSCapabilities.xml",
+      "cached_at": "2026-11-14T05:15:32.9748987Z",
+      "sha256": "ad120c906612cd622ced02ae38fc47aa4081b1575399ad5517c83c67216048c2",
+      "bytes": 3507,
+      "http_status": 200,
+      "classification": "extracted source metadata"
+    },
+    {
+      "file": "data/source/research/gibs_verified_tilematrix.xml",
+      "source_url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/1.0.0/WMTSCapabilities.xml",
+      "cached_at": "2026-11-14T05:15:32.9830803Z",
+      "sha256": "25ce936f4951cb279b4c025131127131b1325782c6215b10ea1be6e36685fcc8",
+      "bytes": 3738,
+      "http_status": 200,
+      "classification": "extracted source metadata"
+    },
+    {
+      "file": "data/source/research/macrostrat_docs.json",
+      "source_url": "https://macrostrat.org/api/geologic_units/map",
+      "cached_at": "2026-11-14T05:12:55.6927026Z",
+      "sha256": "dff8ec5f7c593de711dd031142e0db29238b4f3df32ca208ff2846f76247735a",
+      "bytes": 2321,
+      "http_status": 200,
+      "classification": "raw HTTP response"
+    },
+    {
+      "file": "data/source/research/macrostrat_salda.json",
+      "source_url": "https://macrostrat.org/api/geologic_units/map?lat=37.54&lng=29.67",
+      "cached_at": "2026-11-14T05:12:56.4525441Z",
+      "sha256": "5d19a980860c54c24cf93a504a45e39c06af2f285b0520def3bc2cf204c83c89",
+      "bytes": 1290,
+      "http_status": 200,
+      "classification": "raw HTTP response"
+    },
+    {
+      "file": "data/source/research/power_botswana.json",
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-22&latitude-max=-19&longitude-min=24.5&longitude-max=27.5&parameters=PRECTOTCORR&community=AG&format=JSON",
+      "cached_at": "2026-11-14T05:14:11.9915849Z",
+      "sha256": "c95363b15e6fb26ab926c12cd020405ef4e5e1f5cc6ba721c85b9362dcdb1356",
+      "bytes": 9941,
+      "http_status": 200,
+      "classification": "raw HTTP response"
+    },
+    {
+      "file": "data/source/research/power_chile.json",
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=-25&latitude-max=-22&longitude-min=-70&longitude-max=-67&parameters=PRECTOTCORR&community=AG&format=JSON",
+      "cached_at": "2026-11-14T05:14:12.9514829Z",
+      "sha256": "f4f8bcc883b8d374e0a20d632438f1a89bf53f2f5782306603281f5a52223b3c",
+      "bytes": 10017,
+      "http_status": 200,
+      "classification": "raw HTTP response"
+    },
+    {
+      "file": "data/source/research/power_gobi.json",
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=42&latitude-max=45&longitude-min=101&longitude-max=104&parameters=PRECTOTCORR&community=AG&format=JSON",
+      "cached_at": "2026-11-14T05:14:13.8856381Z",
+      "sha256": "4ddbad4bcab014564638857b9f38645550ab5beabda72e03bc36df084e084ca3",
+      "bytes": 9985,
+      "http_status": 200,
+      "classification": "raw HTTP response"
+    },
+    {
+      "file": "data/source/research/power_point.json",
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/point?latitude=25&longitude=39.375&parameters=PRECTOTCORR,T2M,WS10M,ALLSKY_SFC_SW_DWN,PS,RH2M&community=AG&format=JSON",
+      "cached_at": "2026-11-14T05:14:15.0071661Z",
+      "sha256": "f1d24ecd00bc86628e2a340c9790925e1e0bde0c87a2c781ed09333c3896cd5a",
+      "bytes": 1997,
+      "http_status": 200,
+      "classification": "raw HTTP response"
+    },
+    {
+      "file": "data/source/research/power_regional.json",
+      "source_url": "https://power.larc.nasa.gov/api/temporal/climatology/regional?latitude-min=24&latitude-max=26&longitude-min=38&longitude-max=41&parameters=PRECTOTCORR&community=AG&format=JSON",
+      "cached_at": "2026-11-14T05:12:54.8965709Z",
+      "sha256": "f3f69bf1e203b6cbb3dc23733c7afb75c1e9bb5d34898ca724cfd88cb77acda0",
+      "bytes": 7200,
+      "http_status": 200,
+      "classification": "raw HTTP response"
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "classification": "literature-supported benchmark metadata; not new discoveries or measurements",
+  "benchmarks": [
+    {
+      "id": "reference-salda",
+      "name": "Lake Salda shoreline",
+      "country": "Türkiye",
+      "latitude": 37.520408,
+      "longitude": 29.673456,
+      "coordinate_scope": "Published hydromagnesite stromatolite sample location, southeast shore; representative analysis anchor",
+      "status": "REFERENCE ANALOG",
+      "discovery_origin": "literature benchmark",
+      "material_process": "Hydromagnesite-bearing microbialite and lacustrine shoreline sedimentation",
+      "mars_relevance": "direct geological/process evidence for carbonate preservation and lacustrine sampling research",
+      "moon_relevance": "unassessed basaltic relevance",
+      "limits": ["Modern water and biological mineral formation differ from the present Martian surface", "Broad terrain footprint includes lake water and surrounding ophiolitic rocks", "No claim of a field permit or safe sampling access"],
+      "references": [
+        {"title": "NASA — Jez like Mars", "url": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/", "supports": "Jezero analogy, shoreline hydromagnesite and microbialites"},
+        {"title": "NASA — Lake Salda Rocks", "url": "https://science.nasa.gov/photojournal/lake-salda-rocks/", "supports": "Microbialites and mission-preparation research context"},
+        {"title": "Solak et al. — Gomphonella saldanensis from hydromagnesite stromatolites", "url": "https://repository.ukim.mk/bitstream/20.500.12188/30852/1/2023%20-%20Solak%20et%20al.%20-%20Gomphonella%20saldanensis%20sp.%20nov.%20%20Bacillariophyceae%20%20from%20hydromagnesite%20stromatolites%20in%20Salda%20Lake%20%20Turkey.pdf", "supports": "Exact reported sample coordinates and hydromagnesite stromatolite context"}
+      ]
+    },
+    {
+      "id": "reference-khaybar",
+      "name": "Jabal Qidr · Harrat Khaybar",
+      "country": "Saudi Arabia",
+      "latitude": 25.719714,
+      "longitude": 39.943981,
+      "coordinate_scope": "Published Jabal Qidr coordinate; broad analysis footprint includes mixed volcanics",
+      "status": "REFERENCE ANALOG",
+      "discovery_origin": "literature benchmark",
+      "material_process": "Basaltic lava flows and a volcanic cone, with neighboring felsic volcanic units",
+      "mars_relevance": "unassessed direct lacustrine or carbonate relevance",
+      "moon_relevance": "documented basaltic geological sampling context",
+      "limits": ["Harrat Khaybar is not uniformly basaltic", "Coarse terrain cannot resolve lava cavities, crust stability or wheel hazards", "Earth atmosphere, weathering and gravity differ from the Moon"],
+      "references": [
+        {"title": "NASA — White and Black Volcanoes of Saudi Arabia", "url": "https://science.nasa.gov/earth/earth-observatory/white-and-black-volcanoes-of-saudi-arabia-152839/", "supports": "Qidr basaltic flows versus neighboring rhyolitic and tuff units"},
+        {"title": "Saudi Geological Survey — March 2024 Scientific Newsletter", "url": "https://sgs.gov.sa/storage/media/7268/MARCH-2024-Scientific-Newsletter.pdf", "supports": "Jabal Qidr published coordinate"},
+        {"title": "Smithsonian GVP — Harrat Khaybar subfeatures", "url": "https://volcano.si.edu/volcano.cfm?vn=231060&vtab=Subfeatures", "supports": "Volcanic field geodiversity and independent coarse Qidr coordinates"}
+      ]
+    },
+    {
+      "id": "reference-craters",
+      "name": "Craters of the Moon volcanic field",
+      "country": "United States",
+      "latitude": 43.42,
+      "longitude": -113.5,
+      "coordinate_scope": "USGS regional volcanic-field coordinate; not a surveyed collection outcrop",
+      "status": "REFERENCE ANALOG",
+      "discovery_origin": "literature benchmark",
+      "material_process": "Basaltic lava flows, cinder cones and fissure volcanism",
+      "mars_relevance": "unassessed direct lacustrine or carbonate relevance",
+      "moon_relevance": "documented basaltic geological sampling and volcanic navigation context",
+      "limits": ["Terrestrial vegetation, weathering and atmosphere", "Lava terrain is not lunar impact-produced regolith", "Public-land research permissions and local safety unassessed"],
+      "references": [
+        {"title": "USGS — Craters of the Moon Volcanic Field", "url": "https://www.usgs.gov/volcanoes/craters-of-the-moon-volcanic-field", "supports": "Regional coordinates and basalt composition"},
+        {"title": "National Park Service — Craters of the Moon FAQ", "url": "https://www.nps.gov/crmo/faqs.htm", "supports": "Previously used NASA exploration preparation benchmark context"}
+      ]
+    },
+    {
+      "id": "reference-atacama",
+      "name": "Yungay subsurface clay reference",
+      "country": "Chile",
+      "latitude": -24.0848,
+      "longitude": -69.915069,
+      "coordinate_scope": "First pit coordinates reported by a primary subsurface clay study",
+      "status": "REFERENCE ANALOG",
+      "discovery_origin": "literature benchmark",
+      "material_process": "Hyperarid soil with documented inhabited wet subsurface illite-smectite and associated minerals",
+      "mars_relevance": "partial geological/process relevance for mineral preservation and sampling; no direct Jezero delta equivalence",
+      "moon_relevance": "unassessed basaltic relevance",
+      "limits": ["The studied subsurface is wet and inhabited; aridity does not mean sterility", "Jezero lacustrine depositional processes are not established for this site", "Atmosphere, radiation and gravity remain terrestrial"],
+      "references": [
+        {"title": "Inhabited subsurface wet smectites in the hyperarid core of the Atacama Desert as an analog for the search for life on Mars", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7645800/", "supports": "Exact first-pit coordinates, clay/mineral context, water and biological limitations"}
+      ]
+    }
+  ],
+  "gibs": {
+    "layer": "MODIS_Terra_CorrectedReflectance_TrueColor",
+    "crs": "EPSG:3857",
+    "tile_matrix_set": "GoogleMapsCompatible_Level9",
+    "date": "2025-06-01",
+    "tile_size": 256,
+    "max_zoom": 9,
+    "format": "image/jpeg",
+    "template": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/MODIS_Terra_CorrectedReflectance_TrueColor/default/2025-06-01/GoogleMapsCompatible_Level9/{z}/{y}/{x}.jpeg",
+    "attribution": "NASA GIBS / MODIS Terra",
+    "verification": "Capabilities layer/matrix and representative JPEG tile successfully retrieved"
+  },
+  "challenge": {
+    "title": "Identify Earth Locations that Analog the Permanent Moon Base Locations and Mars",
+    "url": "https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/",
+    "event_year": 2026,
+    "theme": "The Next Frontier",
+    "event_dates": "2026-11-14/2026-11-15",
+    "event_source": "https://www.spaceappschallenge.org/2026/",
+    "theme_source": "https://www.spaceappschallenge.org/blog/explore-the-next-frontier-at-the-2026-nasa-space-apps-challenge/",
+    "endorsement": "TerrainX is independent; no NASA endorsement or site certification"
+  }
+}

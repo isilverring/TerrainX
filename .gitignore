@@ -8,6 +8,7 @@ dist/
 .env*
 !.env.example
 .cache/
+.tools/
 data/source/**/*.img
 data/source/**/*.IMG
 data/source/**/*.tif

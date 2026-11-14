@@ -1,0 +1,48 @@
+{
+  "success": {
+    "v": 2,
+    "license": "CC-BY 4.0",
+    "description": "Geologic map units from various data sources",
+    "options": {
+      "parameters": {
+        "scale": "Can be 'small', 'medium', or 'large'",
+        "map_id": "integer, one or more polygon map_ids to search for",
+        "lat": "A valid latitude in decimal degrees",
+        "lng": "A valid longitude in decimal degrees",
+        "strat_name_id": "integer, one or more valid strat_name_ids from /defs/strat_names",
+        "unit_id": "integer, one or more valid unit_ids from /units",
+        "format": "Desired output format"
+      },
+      "output_formats": [
+        "json",
+        "csv",
+        "geojson",
+        "geojson_bare",
+        "topojson",
+        "topojson_bare"
+      ],
+      "examples": [
+        "/api/v2/geologic_units/map?lat=43&lng=-89.3"
+      ],
+      "fields": {
+        "map_id": "",
+        "source_id": "integer, unique Burwell source",
+        "name": "text, the name of the entity",
+        "strat_name": "text, informal unit name",
+        "lith": "text, specific lithology, see /defs/lithologies",
+        "descrip": "text, description of entity in plain text",
+        "comments": "string, notes assigned to object",
+        "macro_units": "array of integers, the unit_ids of Macrostrat units matched to the polygon or unit_link",
+        "strat_names": "array of integer, strat_name_ids matched to the polygon or unit_link",
+        "t_int_id": "integer, the ID of the chronostratigraphic interval containing the top boundary of the unit",
+        "t_int_age": "float, the top age of the chronostratigraphic interval containing the top boundary of the unit",
+        "t_int_name": "text, the name of the chronostratigraphic interval containing the top boundary of the unit",
+        "b_int_id": "integer, the ID of the chronostratigraphic interval containing the bottom boundary of the unit",
+        "b_int_age": "float, the bottom age of the chronostratigraphic interval containing the bottom boundary of the unit",
+        "b_int_name": "text, the name of the chronostratigraphic interval containing the bottom boundary of the unit",
+        "color": "text, recommended coloring for units based on dominant lithology",
+        "scale": "text, the Burwell scale the source belongs to"
+      }
+    }
+  }
+}

@@ -1,0 +1,542 @@
+{
+  "description": "Actual source integer DNs used by bilinear extraction, including all four source pixels per sample. These are observations/derived source values, never test fixtures.",
+  "sample_bits": 16,
+  "height_scale": 1.0,
+  "samples": [
+    {
+      "row": 1141,
+      "column": 1235,
+      "dn": -2061,
+      "latitude": 18.65625,
+      "longitude": 77.21875
+    },
+    {
+      "row": 1141,
+      "column": 1236,
+      "dn": -2106,
+      "latitude": 18.65625,
+      "longitude": 77.28125
+    },
+    {
+      "row": 1141,
+      "column": 1237,
+      "dn": -2088,
+      "latitude": 18.65625,
+      "longitude": 77.34375
+    },
+    {
+      "row": 1141,
+      "column": 1238,
+      "dn": -2219,
+      "latitude": 18.65625,
+      "longitude": 77.40625
+    },
+    {
+      "row": 1141,
+      "column": 1239,
+      "dn": -2412,
+      "latitude": 18.65625,
+      "longitude": 77.46875
+    },
+    {
+      "row": 1141,
+      "column": 1240,
+      "dn": -2426,
+      "latitude": 18.65625,
+      "longitude": 77.53125
+    },
+    {
+      "row": 1141,
+      "column": 1241,
+      "dn": -2474,
+      "latitude": 18.65625,
+      "longitude": 77.59375
+    },
+    {
+      "row": 1141,
+      "column": 1242,
+      "dn": -2501,
+      "latitude": 18.65625,
+      "longitude": 77.65625
+    },
+    {
+      "row": 1141,
+      "column": 1243,
+      "dn": -2475,
+      "latitude": 18.65625,
+      "longitude": 77.71875
+    },
+    {
+      "row": 1142,
+      "column": 1235,
+      "dn": -2089,
+      "latitude": 18.59375,
+      "longitude": 77.21875
+    },
+    {
+      "row": 1142,
+      "column": 1236,
+      "dn": -2061,
+      "latitude": 18.59375,
+      "longitude": 77.28125
+    },
+    {
+      "row": 1142,
+      "column": 1237,
+      "dn": -2146,
+      "latitude": 18.59375,
+      "longitude": 77.34375
+    },
+    {
+      "row": 1142,
+      "column": 1238,
+      "dn": -2408,
+      "latitude": 18.59375,
+      "longitude": 77.40625
+    },
+    {
+      "row": 1142,
+      "column": 1239,
+      "dn": -2487,
+      "latitude": 18.59375,
+      "longitude": 77.46875
+    },
+    {
+      "row": 1142,
+      "column": 1240,
+      "dn": -2499,
+      "latitude": 18.59375,
+      "longitude": 77.53125
+    },
+    {
+      "row": 1142,
+      "column": 1241,
+      "dn": -2526,
+      "latitude": 18.59375,
+      "longitude": 77.59375
+    },
+    {
+      "row": 1142,
+      "column": 1242,
+      "dn": -2551,
+      "latitude": 18.59375,
+      "longitude": 77.65625
+    },
+    {
+      "row": 1142,
+      "column": 1243,
+      "dn": -2550,
+      "latitude": 18.59375,
+      "longitude": 77.71875
+    },
+    {
+      "row": 1143,
+      "column": 1235,
+      "dn": -2039,
+      "latitude": 18.53125,
+      "longitude": 77.21875
+    },
+    {
+      "row": 1143,
+      "column": 1236,
+      "dn": -2024,
+      "latitude": 18.53125,
+      "longitude": 77.28125
+    },
+    {
+      "row": 1143,
+      "column": 1237,
+      "dn": -2342,
+      "latitude": 18.53125,
+      "longitude": 77.34375
+    },
+    {
+      "row": 1143,
+      "column": 1238,
+      "dn": -2431,
+      "latitude": 18.53125,
+      "longitude": 77.40625
+    },
+    {
+      "row": 1143,
+      "column": 1239,
+      "dn": -2546,
+      "latitude": 18.53125,
+      "longitude": 77.46875
+    },
+    {
+      "row": 1143,
+      "column": 1240,
+      "dn": -2556,
+      "latitude": 18.53125,
+      "longitude": 77.53125
+    },
+    {
+      "row": 1143,
+      "column": 1241,
+      "dn": -2568,
+      "latitude": 18.53125,
+      "longitude": 77.59375
+    },
+    {
+      "row": 1143,
+      "column": 1242,
+      "dn": -2584,
+      "latitude": 18.53125,
+      "longitude": 77.65625
+    },
+    {
+      "row": 1143,
+      "column": 1243,
+      "dn": -2584,
+      "latitude": 18.53125,
+      "longitude": 77.71875
+    },
+    {
+      "row": 1144,
+      "column": 1235,
+      "dn": -2009,
+      "latitude": 18.46875,
+      "longitude": 77.21875
+    },
+    {
+      "row": 1144,
+      "column": 1236,
+      "dn": -1952,
+      "latitude": 18.46875,
+      "longitude": 77.28125
+    },
+    {
+      "row": 1144,
+      "column": 1237,
+      "dn": -2364,
+      "latitude": 18.46875,
+      "longitude": 77.34375
+    },
+    {
+      "row": 1144,
+      "column": 1238,
+      "dn": -2480,
+      "latitude": 18.46875,
+      "longitude": 77.40625
+    },
+    {
+      "row": 1144,
+      "column": 1239,
+      "dn": -2568,
+      "latitude": 18.46875,
+      "longitude": 77.46875
+    },
+    {
+      "row": 1144,
+      "column": 1240,
+      "dn": -2588,
+      "latitude": 18.46875,
+      "longitude": 77.53125
+    },
+    {
+      "row": 1144,
+      "column": 1241,
+      "dn": -2614,
+      "latitude": 18.46875,
+      "longitude": 77.59375
+    },
+    {
+      "row": 1144,
+      "column": 1242,
+      "dn": -2622,
+      "latitude": 18.46875,
+      "longitude": 77.65625
+    },
+    {
+      "row": 1144,
+      "column": 1243,
+      "dn": -2620,
+      "latitude": 18.46875,
+      "longitude": 77.71875
+    },
+    {
+      "row": 1145,
+      "column": 1235,
+      "dn": -2033,
+      "latitude": 18.40625,
+      "longitude": 77.21875
+    },
+    {
+      "row": 1145,
+      "column": 1236,
+      "dn": -1801,
+      "latitude": 18.40625,
+      "longitude": 77.28125
+    },
+    {
+      "row": 1145,
+      "column": 1237,
+      "dn": -2402,
+      "latitude": 18.40625,
+      "longitude": 77.34375
+    },
+    {
+      "row": 1145,
+      "column": 1238,
+      "dn": -2561,
+      "latitude": 18.40625,
+      "longitude": 77.40625
+    },
+    {
+      "row": 1145,
+      "column": 1239,
+      "dn": -2609,
+      "latitude": 18.40625,
+      "longitude": 77.46875
+    },
+    {
+      "row": 1145,
+      "column": 1240,
+      "dn": -2632,
+      "latitude": 18.40625,
+      "longitude": 77.53125
+    },
+    {
+      "row": 1145,
+      "column": 1241,
+      "dn": -2628,
+      "latitude": 18.40625,
+      "longitude": 77.59375
+    },
+    {
+      "row": 1145,
+      "column": 1242,
+      "dn": -2650,
+      "latitude": 18.40625,
+      "longitude": 77.65625
+    },
+    {
+      "row": 1145,
+      "column": 1243,
+      "dn": -2645,
+      "latitude": 18.40625,
+      "longitude": 77.71875
+    },
+    {
+      "row": 1146,
+      "column": 1235,
+      "dn": -1949,
+      "latitude": 18.34375,
+      "longitude": 77.21875
+    },
+    {
+      "row": 1146,
+      "column": 1236,
+      "dn": -1864,
+      "latitude": 18.34375,
+      "longitude": 77.28125
+    },
+    {
+      "row": 1146,
+      "column": 1237,
+      "dn": -2288,
+      "latitude": 18.34375,
+      "longitude": 77.34375
+    },
+    {
+      "row": 1146,
+      "column": 1238,
+      "dn": -2569,
+      "latitude": 18.34375,
+      "longitude": 77.40625
+    },
+    {
+      "row": 1146,
+      "column": 1239,
+      "dn": -2612,
+      "latitude": 18.34375,
+      "longitude": 77.46875
+    },
+    {
+      "row": 1146,
+      "column": 1240,
+      "dn": -2660,
+      "latitude": 18.34375,
+      "longitude": 77.53125
+    },
+    {
+      "row": 1146,
+      "column": 1241,
+      "dn": -2663,
+      "latitude": 18.34375,
+      "longitude": 77.59375
+    },
+    {
+      "row": 1146,
+      "column": 1242,
+      "dn": -2664,
+      "latitude": 18.34375,
+      "longitude": 77.65625
+    },
+    {
+      "row": 1146,
+      "column": 1243,
+      "dn": -2662,
+      "latitude": 18.34375,
+      "longitude": 77.71875
+    },
+    {
+      "row": 1147,
+      "column": 1235,
+      "dn": -1920,
+      "latitude": 18.28125,
+      "longitude": 77.21875
+    },
+    {
+      "row": 1147,
+      "column": 1236,
+      "dn": -1850,
+      "latitude": 18.28125,
+      "longitude": 77.28125
+    },
+    {
+      "row": 1147,
+      "column": 1237,
+      "dn": -2250,
+      "latitude": 18.28125,
+      "longitude": 77.34375
+    },
+    {
+      "row": 1147,
+      "column": 1238,
+      "dn": -2584,
+      "latitude": 18.28125,
+      "longitude": 77.40625
+    },
+    {
+      "row": 1147,
+      "column": 1239,
+      "dn": -2632,
+      "latitude": 18.28125,
+      "longitude": 77.46875
+    },
+    {
+      "row": 1147,
+      "column": 1240,
+      "dn": -2667,
+      "latitude": 18.28125,
+      "longitude": 77.53125
+    },
+    {
+      "row": 1147,
+      "column": 1241,
+      "dn": -2678,
+      "latitude": 18.28125,
+      "longitude": 77.59375
+    },
+    {
+      "row": 1147,
+      "column": 1242,
+      "dn": -2683,
+      "latitude": 18.28125,
+      "longitude": 77.65625
+    },
+    {
+      "row": 1147,
+      "column": 1243,
+      "dn": -2695,
+      "latitude": 18.28125,
+      "longitude": 77.71875
+    },
+    {
+      "row": 1148,
+      "column": 1235,
+      "dn": -1843,
+      "latitude": 18.21875,
+      "longitude": 77.21875
+    },
+    {
+      "row": 1148,
+      "column": 1236,
+      "dn": -1762,
+      "latitude": 18.21875,
+      "longitude": 77.28125
+    },
+    {
+      "row": 1148,
+      "column": 1237,
+      "dn": -2127,
+      "latitude": 18.21875,
+      "longitude": 77.34375
+    },
+    {
+      "row": 1148,
+      "column": 1238,
+      "dn": -2579,
+      "latitude": 18.21875,
+      "longitude": 77.40625
+    },
+    {
+      "row": 1148,
+      "column": 1239,
+      "dn": -2616,
+      "latitude": 18.21875,
+      "longitude": 77.46875
+    },
+    {
+      "row": 1148,
+      "column": 1240,
+      "dn": -2641,
+      "latitude": 18.21875,
+      "longitude": 77.53125
+    },
+    {
+      "row": 1148,
+      "column": 1241,
+      "dn": -2680,
+      "latitude": 18.21875,
+      "longitude": 77.59375
+    },
+    {
+      "row": 1148,
+      "column": 1242,
+      "dn": -2698,
+      "latitude": 18.21875,
+      "longitude": 77.65625
+    },
+    {
+      "row": 1148,
+      "column": 1243,
+      "dn": -2706,
+      "latitude": 18.21875,
+      "longitude": 77.71875
+    }
+  ],
+  "target_id": "jezero",
+  "provenance": [
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/urn-nasa-pds-mgs_mola_topography_derived/meg016/megt90n000eb.lbl",
+      "file": "megt90n000eb.lbl",
+      "bytes": 4813,
+      "sha256": "0f2bd919dddb86d83489a008d3007bd915507c892a0f22ce49ad5dd5d2fc7d8a",
+      "retrieved_at": "2026-11-14T05:12:41.314874+00:00"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/urn-nasa-pds-mgs_mola_topography_derived/meg016/megt90n000eb.xml",
+      "file": "megt90n000eb.xml",
+      "bytes": 15528,
+      "sha256": "c393221db2de31916b30113ce28841dd967456dadb9bf2735eb30496eb37afa2",
+      "retrieved_at": "2026-11-14T05:13:00.334451+00:00"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/urn-nasa-pds-mgs_mola_topography_derived/meg016/megt90n000eb.hdr",
+      "file": "megt90n000eb.hdr",
+      "bytes": 1060,
+      "sha256": "1d3d3bab68cf7f709db3f3c8dfb64cd1611392b7b6d170c5f55406aee2c783e7",
+      "retrieved_at": "2026-11-14T05:13:01.160194+00:00"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mgs/urn-nasa-pds-mgs_mola_topography_derived/meg016/megt90n000eb.img",
+      "file": "megt90n000eb.img",
+      "bytes": 33177600,
+      "sha256": "d18d9b9ab8c5516d02e157dd2cde0f1d0d160c21940e953ba22391269a545e7b",
+      "retrieved_at": "2026-11-14T05:13:35.908618+00:00"
+    }
+  ]
+}

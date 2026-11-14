@@ -1,0 +1,980 @@
+[
+  {
+    "id": "jezero",
+    "body": "Mars",
+    "name": "Jezero Crater",
+    "latitude": 18.45,
+    "longitude": 77.45,
+    "mission": "Sedimentary sampling and rover geological fieldwork",
+    "context": "Ancient lake and delta environments motivate sedimentary sampling, lacustrine-process study and mineral-preservation experiments. Carbonate relevance must be independently supported at each Earth subsite.",
+    "source_refs": [
+      {
+        "id": "mola-megdr",
+        "title": "NASA PDS MGS MOLA MEGDR topography",
+        "organization": "NASA PDS / Washington University",
+        "url": "https://pds-geosciences.wustl.edu/missions/mgs/megdr.html",
+        "classification": "measured-and-gridded"
+      },
+      {
+        "id": "nasa-jezero-salda",
+        "title": "Jez Like Mars",
+        "organization": "NASA Earth Observatory",
+        "url": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/",
+        "classification": "literature-supported"
+      }
+    ],
+    "terrain": {
+      "status": "available",
+      "elevations_m": [
+        [
+          -2074.11744,
+          -2098.324445,
+          -2169.407367,
+          -2360.724361,
+          -2428.218348,
+          -2476.230519,
+          -2501.223586
+        ],
+        [
+          -2074.496287,
+          -2105.491537,
+          -2306.85557,
+          -2470.069293,
+          -2505.132761,
+          -2531.396092,
+          -2555.59697
+        ],
+        [
+          -2025.431333,
+          -2151.228154,
+          -2400.142621,
+          -2518.128649,
+          -2561.085733,
+          -2577.829157,
+          -2592.38944
+        ],
+        [
+          -1984.927601,
+          -2105.099906,
+          -2447.81802,
+          -2557.5,
+          -2597.829426,
+          -2617.814222,
+          -2630.119714
+        ],
+        [
+          -1950.548659,
+          -2051.408968,
+          -2474.125552,
+          -2596.309006,
+          -2637.369589,
+          -2641.354407,
+          -2654.905988
+        ],
+        [
+          -1913.145457,
+          -2033.145098,
+          -2442.330205,
+          -2607.601827,
+          -2656.385238,
+          -2669.737576,
+          -2673.268162
+        ],
+        [
+          -1856.362865,
+          -1964.847215,
+          -2407.541314,
+          -2610.750416,
+          -2648.144757,
+          -2678.398551,
+          -2692.208803
+        ]
+      ],
+      "sample_spacing_m": 4000,
+      "footprint_m": 24000,
+      "grid_shape": [
+        7,
+        7
+      ],
+      "valid_sample_count": 49,
+      "native_resolution_m": {
+        "x": 3514.052746,
+        "y": 3704.461337
+      },
+      "effective_resolution_m": 3704.461337,
+      "resampling": "bilinear interpolation of validated native pixel-center height values to a 7x7, 4-km local-offset grid; no additional filtering",
+      "measurement_scale": "broad regional terrain only, approximately 24x24 km center-to-center footprint; sample lattice is not native pixel resolution",
+      "coordinates": [
+        [
+          {
+            "latitude": 18.65233868,
+            "longitude": 77.23631852,
+            "x_m": -12000,
+            "y_m": 12000
+          },
+          {
+            "latitude": 18.6524053,
+            "longitude": 77.30754564,
+            "x_m": -8000,
+            "y_m": 12000
+          },
+          {
+            "latitude": 18.65244526,
+            "longitude": 77.37877281,
+            "x_m": -4000,
+            "y_m": 12000
+          },
+          {
+            "latitude": 18.65245858,
+            "longitude": 77.45,
+            "x_m": 0,
+            "y_m": 12000
+          },
+          {
+            "latitude": 18.65244526,
+            "longitude": 77.52122719,
+            "x_m": 4000,
+            "y_m": 12000
+          },
+          {
+            "latitude": 18.6524053,
+            "longitude": 77.59245436,
+            "x_m": 8000,
+            "y_m": 12000
+          },
+          {
+            "latitude": 18.65233868,
+            "longitude": 77.66368148,
+            "x_m": 12000,
+            "y_m": 12000
+          }
+        ],
+        [
+          {
+            "latitude": 18.58485268,
+            "longitude": 77.23640305,
+            "x_m": -12000,
+            "y_m": 8000
+          },
+          {
+            "latitude": 18.58491918,
+            "longitude": 77.307602,
+            "x_m": -8000,
+            "y_m": 8000
+          },
+          {
+            "latitude": 18.58495909,
+            "longitude": 77.37880099,
+            "x_m": -4000,
+            "y_m": 8000
+          },
+          {
+            "latitude": 18.58497239,
+            "longitude": 77.45,
+            "x_m": 0,
+            "y_m": 8000
+          },
+          {
+            "latitude": 18.58495909,
+            "longitude": 77.52119901,
+            "x_m": 4000,
+            "y_m": 8000
+          },
+          {
+            "latitude": 18.58491918,
+            "longitude": 77.592398,
+            "x_m": 8000,
+            "y_m": 8000
+          },
+          {
+            "latitude": 18.58485268,
+            "longitude": 77.66359695,
+            "x_m": 12000,
+            "y_m": 8000
+          }
+        ],
+        [
+          {
+            "latitude": 18.51736667,
+            "longitude": 77.23648732,
+            "x_m": -12000,
+            "y_m": 4000
+          },
+          {
+            "latitude": 18.51743307,
+            "longitude": 77.30765817,
+            "x_m": -8000,
+            "y_m": 4000
+          },
+          {
+            "latitude": 18.51747291,
+            "longitude": 77.37882908,
+            "x_m": -4000,
+            "y_m": 4000
+          },
+          {
+            "latitude": 18.51748619,
+            "longitude": 77.45,
+            "x_m": 0,
+            "y_m": 4000
+          },
+          {
+            "latitude": 18.51747291,
+            "longitude": 77.52117092,
+            "x_m": 4000,
+            "y_m": 4000
+          },
+          {
+            "latitude": 18.51743307,
+            "longitude": 77.59234183,
+            "x_m": 8000,
+            "y_m": 4000
+          },
+          {
+            "latitude": 18.51736667,
+            "longitude": 77.66351268,
+            "x_m": 12000,
+            "y_m": 4000
+          }
+        ],
+        [
+          {
+            "latitude": 18.44988066,
+            "longitude": 77.23657132,
+            "x_m": -12000,
+            "y_m": 0
+          },
+          {
+            "latitude": 18.44994696,
+            "longitude": 77.30771417,
+            "x_m": -8000,
+            "y_m": 0
+          },
+          {
+            "latitude": 18.44998674,
+            "longitude": 77.37885708,
+            "x_m": -4000,
+            "y_m": 0
+          },
+          {
+            "latitude": 18.45,
+            "longitude": 77.45,
+            "x_m": 0,
+            "y_m": 0
+          },
+          {
+            "latitude": 18.44998674,
+            "longitude": 77.52114292,
+            "x_m": 4000,
+            "y_m": 0
+          },
+          {
+            "latitude": 18.44994696,
+            "longitude": 77.59228583,
+            "x_m": 8000,
+            "y_m": 0
+          },
+          {
+            "latitude": 18.44988066,
+            "longitude": 77.66342868,
+            "x_m": 12000,
+            "y_m": 0
+          }
+        ],
+        [
+          {
+            "latitude": 18.38239465,
+            "longitude": 77.23665505,
+            "x_m": -12000,
+            "y_m": -4000
+          },
+          {
+            "latitude": 18.38246085,
+            "longitude": 77.30777,
+            "x_m": -8000,
+            "y_m": -4000
+          },
+          {
+            "latitude": 18.38250057,
+            "longitude": 77.37888499,
+            "x_m": -4000,
+            "y_m": -4000
+          },
+          {
+            "latitude": 18.38251381,
+            "longitude": 77.45,
+            "x_m": 0,
+            "y_m": -4000
+          },
+          {
+            "latitude": 18.38250057,
+            "longitude": 77.52111501,
+            "x_m": 4000,
+            "y_m": -4000
+          },
+          {
+            "latitude": 18.38246085,
+            "longitude": 77.59223,
+            "x_m": 8000,
+            "y_m": -4000
+          },
+          {
+            "latitude": 18.38239465,
+            "longitude": 77.66334495,
+            "x_m": 12000,
+            "y_m": -4000
+          }
+        ],
+        [
+          {
+            "latitude": 18.31490865,
+            "longitude": 77.23673853,
+            "x_m": -12000,
+            "y_m": -8000
+          },
+          {
+            "latitude": 18.31497474,
+            "longitude": 77.30782565,
+            "x_m": -8000,
+            "y_m": -8000
+          },
+          {
+            "latitude": 18.31501439,
+            "longitude": 77.37891281,
+            "x_m": -4000,
+            "y_m": -8000
+          },
+          {
+            "latitude": 18.31502761,
+            "longitude": 77.45,
+            "x_m": 0,
+            "y_m": -8000
+          },
+          {
+            "latitude": 18.31501439,
+            "longitude": 77.52108719,
+            "x_m": 4000,
+            "y_m": -8000
+          },
+          {
+            "latitude": 18.31497474,
+            "longitude": 77.59217435,
+            "x_m": 8000,
+            "y_m": -8000
+          },
+          {
+            "latitude": 18.31490865,
+            "longitude": 77.66326147,
+            "x_m": 12000,
+            "y_m": -8000
+          }
+        ],
+        [
+          {
+            "latitude": 18.24742264,
+            "longitude": 77.23682174,
+            "x_m": -12000,
+            "y_m": -12000
+          },
+          {
+            "latitude": 18.24748863,
+            "longitude": 77.30788112,
+            "x_m": -8000,
+            "y_m": -12000
+          },
+          {
+            "latitude": 18.24752822,
+            "longitude": 77.37894055,
+            "x_m": -4000,
+            "y_m": -12000
+          },
+          {
+            "latitude": 18.24754142,
+            "longitude": 77.45,
+            "x_m": 0,
+            "y_m": -12000
+          },
+          {
+            "latitude": 18.24752822,
+            "longitude": 77.52105945,
+            "x_m": 4000,
+            "y_m": -12000
+          },
+          {
+            "latitude": 18.24748863,
+            "longitude": 77.59211888,
+            "x_m": 8000,
+            "y_m": -12000
+          },
+          {
+            "latitude": 18.24742264,
+            "longitude": 77.66317826,
+            "x_m": 12000,
+            "y_m": -12000
+          }
+        ]
+      ],
+      "metadata": {
+        "product_id": "urn:nasa:pds:mgs_mola_topography_derived:data_meg016:megt90n000eb",
+        "dataset": "NASA MGS MOLA MEGDR 16 ppd v2.0",
+        "lines": 2880,
+        "samples": 5760,
+        "encoding": "SignedMSB2",
+        "byte_order": "big-endian",
+        "sample_bits": 16,
+        "offset_bytes": 0,
+        "vertical_unit": "m",
+        "original_unit": "signed integer DN; PDS unit meter, with label scaling applied",
+        "converted_unit": "m",
+        "source_organization": "NASA / Goddard Space Flight Center / PDS Geosciences Node",
+        "height_scale": 1.0,
+        "height_formula": "height_m = DN; planetary radius minus GMM3 areoid",
+        "vertical_reference": "GMM3 (mgm1025), degree/order 50 areoid",
+        "projection": "Equirectangular / simple cylindrical",
+        "pixels_per_degree": 16.0,
+        "latitude_convention": "Planetocentric",
+        "longitude_convention": "0-360 degrees, positive east",
+        "coordinate_system": "PLANETOCENTRIC",
+        "map_sphere_radius_m": 3396000.0,
+        "pixel_registration": "area / pixel center: lon=(column+0.5)/16; lat=90-(row+0.5)/16, zero-based indices",
+        "upperleft_corner_x_m": -10668848.652,
+        "upperleft_corner_y_m": 5334424.326,
+        "no_data": "No explicit missing-data constant in this product's PDS label; supplied grid includes source-team interpolation. All extracted DNs are checked against documented global extrema.",
+        "valid_dn_range": [
+          -8177,
+          21171
+        ],
+        "acquisition_period": {
+          "start": "1997-09-15T19:10:00.000Z",
+          "end": "2001-06-30T11:10:40.000Z"
+        },
+        "classification": "derived-from-observed"
+      },
+      "warnings": [
+        "MOLA and LOLA have unequal native physical pixel sizes at 16 pixels/degree.",
+        "Earth SRTM point samples and planetary gridded/interpolated altimetry have unequal effective resolution; common spacing does not establish identical scale response.",
+        "Broad terrain comparison cannot resolve rover-scale rocks, wheel-soil interaction, fine delta geology or landing hazards.",
+        "Absolute elevations use different reference surfaces and must not enter cross-body fidelity scores."
+      ],
+      "provenance": [
+        {
+          "url": "https://pds-geosciences.wustl.edu/mgs/urn-nasa-pds-mgs_mola_topography_derived/meg016/megt90n000eb.lbl",
+          "file": "megt90n000eb.lbl",
+          "bytes": 4813,
+          "sha256": "0f2bd919dddb86d83489a008d3007bd915507c892a0f22ce49ad5dd5d2fc7d8a",
+          "retrieved_at": "2026-11-14T05:12:41.314874+00:00"
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/mgs/urn-nasa-pds-mgs_mola_topography_derived/meg016/megt90n000eb.xml",
+          "file": "megt90n000eb.xml",
+          "bytes": 15528,
+          "sha256": "c393221db2de31916b30113ce28841dd967456dadb9bf2735eb30496eb37afa2",
+          "retrieved_at": "2026-11-14T05:13:00.334451+00:00"
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/mgs/urn-nasa-pds-mgs_mola_topography_derived/meg016/megt90n000eb.hdr",
+          "file": "megt90n000eb.hdr",
+          "bytes": 1060,
+          "sha256": "1d3d3bab68cf7f709db3f3c8dfb64cd1611392b7b6d170c5f55406aee2c783e7",
+          "retrieved_at": "2026-11-14T05:13:01.160194+00:00"
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/mgs/urn-nasa-pds-mgs_mola_topography_derived/meg016/megt90n000eb.img",
+          "file": "megt90n000eb.img",
+          "bytes": 33177600,
+          "sha256": "d18d9b9ab8c5516d02e157dd2cde0f1d0d160c21940e953ba22391269a545e7b",
+          "retrieved_at": "2026-11-14T05:13:35.908618+00:00"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mare-crisium",
+    "body": "Moon",
+    "name": "Mare Crisium",
+    "latitude": 16.18,
+    "longitude": 59.1,
+    "mission": "Basaltic sampling, navigation and surface-operations field tests",
+    "context": "Mare Crisium contains a basalt-flooded ancient impact basin and compressional wrinkle ridges. Terrestrial basaltic sites can support geological and navigation workflows, but Earth cannot reproduce lunar gravity, vacuum, radiation or regolith mechanics.",
+    "source_refs": [
+      {
+        "id": "lola-gdrdem",
+        "title": "LRO LOLA Gridded Data Record Shape Map",
+        "organization": "NASA PDS / Washington University",
+        "url": "https://ode.rsl.wustl.edu/moon/pagehelp/Content/Missions_Instruments/Lunar%20Reconnaissance%20Orbiter%20(LRO)/LOLA/GDR/GDRDEM.htm",
+        "classification": "measured-and-gridded"
+      },
+      {
+        "id": "nasa-mare-crisium",
+        "title": "Wrinkle Ridge in Mare Crisium",
+        "organization": "NASA / GSFC / Arizona State University",
+        "url": "https://science.nasa.gov/resource/wrinkle-ridge-in-mare-crisium/",
+        "classification": "literature-supported"
+      }
+    ],
+    "terrain": {
+      "status": "available",
+      "elevations_m": [
+        [
+          -3610.311571,
+          -3613.347923,
+          -3611.204157,
+          -3605.46264,
+          -3592.062222,
+          -3571.474487,
+          -3544.964176
+        ],
+        [
+          -3606.616464,
+          -3609.913959,
+          -3608.061547,
+          -3601.674912,
+          -3584.248261,
+          -3564.425288,
+          -3540.570735
+        ],
+        [
+          -3589.143843,
+          -3601.37255,
+          -3597.447116,
+          -3592.226561,
+          -3575.753183,
+          -3554.846926,
+          -3533.944753
+        ],
+        [
+          -3563.940633,
+          -3577.858158,
+          -3573.97348,
+          -3570.443,
+          -3559.704631,
+          -3542.575925,
+          -3528.374065
+        ],
+        [
+          -3531.569365,
+          -3547.218044,
+          -3550.722862,
+          -3550.610787,
+          -3547.229887,
+          -3536.443374,
+          -3527.130369
+        ],
+        [
+          -3517.796851,
+          -3535.895953,
+          -3542.976863,
+          -3545.646187,
+          -3547.601974,
+          -3538.336772,
+          -3530.066756
+        ],
+        [
+          -3524.529672,
+          -3534.618312,
+          -3541.689077,
+          -3545.001754,
+          -3589.930317,
+          -3542.386365,
+          -3540.232297
+        ]
+      ],
+      "sample_spacing_m": 4000,
+      "footprint_m": 24000,
+      "grid_shape": [
+        7,
+        7
+      ],
+      "valid_sample_count": 49,
+      "native_resolution_m": {
+        "x": 1820.142078,
+        "y": 1895.209402
+      },
+      "effective_resolution_m": 1895.209402,
+      "resampling": "bilinear interpolation of validated native pixel-center height values to a 7x7, 4-km local-offset grid; no additional filtering",
+      "measurement_scale": "broad regional terrain only, approximately 24x24 km center-to-center footprint; sample lattice is not native pixel resolution",
+      "coordinates": [
+        [
+          {
+            "latitude": 16.57533415,
+            "longitude": 58.68711082,
+            "x_m": -12000,
+            "y_m": 12000
+          },
+          {
+            "latitude": 16.57555664,
+            "longitude": 58.82474034,
+            "x_m": -8000,
+            "y_m": 12000
+          },
+          {
+            "latitude": 16.57569014,
+            "longitude": 58.9623701,
+            "x_m": -4000,
+            "y_m": 12000
+          },
+          {
+            "latitude": 16.57573463,
+            "longitude": 59.1,
+            "x_m": 0,
+            "y_m": 12000
+          },
+          {
+            "latitude": 16.57569014,
+            "longitude": 59.2376299,
+            "x_m": 4000,
+            "y_m": 12000
+          },
+          {
+            "latitude": 16.57555664,
+            "longitude": 59.37525966,
+            "x_m": 8000,
+            "y_m": 12000
+          },
+          {
+            "latitude": 16.57533415,
+            "longitude": 59.51288918,
+            "x_m": 12000,
+            "y_m": 12000
+          }
+        ],
+        [
+          {
+            "latitude": 16.44342393,
+            "longitude": 58.68739065,
+            "x_m": -12000,
+            "y_m": 8000
+          },
+          {
+            "latitude": 16.44364568,
+            "longitude": 58.82492689,
+            "x_m": -8000,
+            "y_m": 8000
+          },
+          {
+            "latitude": 16.44377874,
+            "longitude": 58.96246338,
+            "x_m": -4000,
+            "y_m": 8000
+          },
+          {
+            "latitude": 16.44382309,
+            "longitude": 59.1,
+            "x_m": 0,
+            "y_m": 8000
+          },
+          {
+            "latitude": 16.44377874,
+            "longitude": 59.23753662,
+            "x_m": 4000,
+            "y_m": 8000
+          },
+          {
+            "latitude": 16.44364568,
+            "longitude": 59.37507311,
+            "x_m": 8000,
+            "y_m": 8000
+          },
+          {
+            "latitude": 16.44342393,
+            "longitude": 59.51260935,
+            "x_m": 12000,
+            "y_m": 8000
+          }
+        ],
+        [
+          {
+            "latitude": 16.3115137,
+            "longitude": 58.68766864,
+            "x_m": -12000,
+            "y_m": 4000
+          },
+          {
+            "latitude": 16.31173473,
+            "longitude": 58.82511222,
+            "x_m": -8000,
+            "y_m": 4000
+          },
+          {
+            "latitude": 16.31186734,
+            "longitude": 58.96255605,
+            "x_m": -4000,
+            "y_m": 4000
+          },
+          {
+            "latitude": 16.31191154,
+            "longitude": 59.1,
+            "x_m": 0,
+            "y_m": 4000
+          },
+          {
+            "latitude": 16.31186734,
+            "longitude": 59.23744395,
+            "x_m": 4000,
+            "y_m": 4000
+          },
+          {
+            "latitude": 16.31173473,
+            "longitude": 59.37488778,
+            "x_m": 8000,
+            "y_m": 4000
+          },
+          {
+            "latitude": 16.3115137,
+            "longitude": 59.51233136,
+            "x_m": 12000,
+            "y_m": 4000
+          }
+        ],
+        [
+          {
+            "latitude": 16.17960347,
+            "longitude": 58.68794481,
+            "x_m": -12000,
+            "y_m": 0
+          },
+          {
+            "latitude": 16.17982377,
+            "longitude": 58.82529633,
+            "x_m": -8000,
+            "y_m": 0
+          },
+          {
+            "latitude": 16.17995594,
+            "longitude": 58.96264811,
+            "x_m": -4000,
+            "y_m": 0
+          },
+          {
+            "latitude": 16.18,
+            "longitude": 59.1,
+            "x_m": 0,
+            "y_m": 0
+          },
+          {
+            "latitude": 16.17995594,
+            "longitude": 59.23735189,
+            "x_m": 4000,
+            "y_m": 0
+          },
+          {
+            "latitude": 16.17982377,
+            "longitude": 59.37470367,
+            "x_m": 8000,
+            "y_m": 0
+          },
+          {
+            "latitude": 16.17960347,
+            "longitude": 59.51205519,
+            "x_m": 12000,
+            "y_m": 0
+          }
+        ],
+        [
+          {
+            "latitude": 16.04769324,
+            "longitude": 58.68821915,
+            "x_m": -12000,
+            "y_m": -4000
+          },
+          {
+            "latitude": 16.0479128,
+            "longitude": 58.82547923,
+            "x_m": -8000,
+            "y_m": -4000
+          },
+          {
+            "latitude": 16.04804454,
+            "longitude": 58.96273955,
+            "x_m": -4000,
+            "y_m": -4000
+          },
+          {
+            "latitude": 16.04808846,
+            "longitude": 59.1,
+            "x_m": 0,
+            "y_m": -4000
+          },
+          {
+            "latitude": 16.04804454,
+            "longitude": 59.23726045,
+            "x_m": 4000,
+            "y_m": -4000
+          },
+          {
+            "latitude": 16.0479128,
+            "longitude": 59.37452077,
+            "x_m": 8000,
+            "y_m": -4000
+          },
+          {
+            "latitude": 16.04769324,
+            "longitude": 59.51178085,
+            "x_m": 12000,
+            "y_m": -4000
+          }
+        ],
+        [
+          {
+            "latitude": 15.915783,
+            "longitude": 58.68849167,
+            "x_m": -12000,
+            "y_m": -8000
+          },
+          {
+            "latitude": 15.91600184,
+            "longitude": 58.82566091,
+            "x_m": -8000,
+            "y_m": -8000
+          },
+          {
+            "latitude": 15.91613314,
+            "longitude": 58.9628304,
+            "x_m": -4000,
+            "y_m": -8000
+          },
+          {
+            "latitude": 15.91617691,
+            "longitude": 59.1,
+            "x_m": 0,
+            "y_m": -8000
+          },
+          {
+            "latitude": 15.91613314,
+            "longitude": 59.2371696,
+            "x_m": 4000,
+            "y_m": -8000
+          },
+          {
+            "latitude": 15.91600184,
+            "longitude": 59.37433909,
+            "x_m": 8000,
+            "y_m": -8000
+          },
+          {
+            "latitude": 15.915783,
+            "longitude": 59.51150833,
+            "x_m": 12000,
+            "y_m": -8000
+          }
+        ],
+        [
+          {
+            "latitude": 15.78387276,
+            "longitude": 58.68876238,
+            "x_m": -12000,
+            "y_m": -12000
+          },
+          {
+            "latitude": 15.78409088,
+            "longitude": 58.82584139,
+            "x_m": -8000,
+            "y_m": -12000
+          },
+          {
+            "latitude": 15.78422174,
+            "longitude": 58.96292063,
+            "x_m": -4000,
+            "y_m": -12000
+          },
+          {
+            "latitude": 15.78426537,
+            "longitude": 59.1,
+            "x_m": 0,
+            "y_m": -12000
+          },
+          {
+            "latitude": 15.78422174,
+            "longitude": 59.23707937,
+            "x_m": 4000,
+            "y_m": -12000
+          },
+          {
+            "latitude": 15.78409088,
+            "longitude": 59.37415861,
+            "x_m": 8000,
+            "y_m": -12000
+          },
+          {
+            "latitude": 15.78387276,
+            "longitude": 59.51123762,
+            "x_m": 12000,
+            "y_m": -12000
+          }
+        ]
+      ],
+      "metadata": {
+        "product_id": "urn:nasa:pds:lro_lola_rdr:data_gridded:ldem_16",
+        "dataset": "NASA LRO LOLA LDEM_16 V3.1",
+        "lines": 2880,
+        "samples": 5760,
+        "encoding": "SignedLSB2",
+        "byte_order": "little-endian",
+        "sample_bits": 16,
+        "offset_bytes": 0,
+        "vertical_unit": "m",
+        "original_unit": "signed integer DN; PDS unit meter, with label scaling applied",
+        "converted_unit": "m",
+        "source_organization": "NASA / Goddard Space Flight Center / PDS Geosciences Node",
+        "height_scale": 0.5,
+        "height_formula": "height_m = DN * 0.5; reference-radius offset NOT added",
+        "vertical_reference": "height above 1737400 m reference sphere",
+        "projection": "Equirectangular / simple cylindrical",
+        "pixels_per_degree": 16.0,
+        "latitude_convention": "Planetocentric",
+        "longitude_convention": "0-360 degrees, positive east",
+        "coordinate_system": "MEAN EARTH/POLAR AXIS OF DE421",
+        "map_sphere_radius_m": 1737400.0,
+        "pixel_registration": "area / pixel center: lon=(column+0.5)/16; lat=90-(row+0.5)/16, zero-based indices",
+        "upperleft_corner_x_m": -5458204.8,
+        "upperleft_corner_y_m": 2729102.4,
+        "no_data": "No explicit missing-data constant in this product's PDS label; supplied grid includes source-team interpolation. All extracted DNs are checked against documented global extrema.",
+        "valid_dn_range": [
+          -18150,
+          21580
+        ],
+        "acquisition_period": {
+          "start": "2009-07-13T17:33:17Z",
+          "end": "2016-11-29T05:48:19Z"
+        },
+        "classification": "derived-from-observed"
+      },
+      "warnings": [
+        "MOLA and LOLA have unequal native physical pixel sizes at 16 pixels/degree.",
+        "Earth SRTM point samples and planetary gridded/interpolated altimetry have unequal effective resolution; common spacing does not establish identical scale response.",
+        "Broad terrain comparison cannot resolve rover-scale rocks, wheel-soil interaction, fine delta geology or landing hazards.",
+        "Absolute elevations use different reference surfaces and must not enter cross-body fidelity scores."
+      ],
+      "provenance": [
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_16.lbl",
+          "file": "ldem_16.lbl",
+          "bytes": 5121,
+          "sha256": "9aef29463ccc6ed3a3fbe0df3ecd830a99c69e16b564f455507dee2697096579",
+          "retrieved_at": "2026-11-14T05:12:42.066591+00:00"
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_16.xml",
+          "file": "ldem_16.xml",
+          "bytes": 11941,
+          "sha256": "011ebff260abb7c9a10a0f18601d7505e807b9a1b51d238b5587f5b02de59218",
+          "retrieved_at": "2026-11-14T05:13:01.926931+00:00"
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/data/lola_gdr/cylindrical/img/ldem_16.img",
+          "file": "ldem_16.img",
+          "bytes": 33177600,
+          "sha256": "a511e40d7a3ea3275945b4da2a1df377133264fab0be94b7434b1cf8907254cb",
+          "retrieved_at": "2026-11-14T05:13:37.428519+00:00"
+        },
+        {
+          "url": "https://pds-geosciences.wustl.edu/lro/lro-l-lola-3-rdr-v1/lrolol_1xxx/catalog/dsmap.cat",
+          "file": "dsmap.cat",
+          "bytes": 7378,
+          "sha256": "351c8d9ad77470f3f432e5ea7f55498e22aa5701d5ef7145bee3a2c0d3b52b76",
+          "retrieved_at": "2026-11-14T05:13:02.718057+00:00"
+        }
+      ]
+    }
+  }
+]
