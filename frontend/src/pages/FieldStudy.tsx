@@ -32,7 +32,7 @@ import { makeSnapshot, checkSnapshotRelease } from "../lib/snapshots";
 import { useScienceFile } from "../lib/scienceFile";
 import { currentRelease } from "../lib/release";
 import { fieldSitesSchema } from "../lib/collections";
-import {siteEvidenceSchema} from "../lib/siteEvidence";
+import { siteEvidenceSchema } from "../lib/siteEvidence";
 import type { Mission } from "../lib/models";
 import { download } from "../lib/packet";
 import {
@@ -69,7 +69,10 @@ const MISSION_LABEL: Record<Mission, string> = {
   jezero: "Mars · Jezero Crater",
   "mare-crisium": "Moon · Mare Crisium",
 };
-const referenceLabel=(study:Study)=>study.snapshot.target_reference?study.snapshot.target_reference.replace("lunar-polar:","Moon · polar "):MISSION_LABEL[study.mission];
+const referenceLabel = (study: Study) =>
+  study.snapshot.target_reference
+    ? study.snapshot.target_reference.replace("lunar-polar:", "Moon · polar ")
+    : MISSION_LABEL[study.mission];
 /** Longest URL we render as a QR code (byte-mode capacity at error level M is ~2.3 kB). */
 const QR_MAX = 1100;
 const slug = (s: string) =>
@@ -87,8 +90,13 @@ export default function FieldStudy() {
     fieldSitesSchema,
     "Historical release has no expanded field-site file.",
   );
-  const sourceProtocol=params.get("protocol")==="source";
-  const evidence=useScienceFile("site_evidence.json",siteEvidenceSchema,"Requested literature-informed protocol is absent from this pinned release.",sourceProtocol);
+  const sourceProtocol = params.get("protocol") === "source";
+  const evidence = useScienceFile(
+    "site_evidence.json",
+    siteEvidenceSchema,
+    "Requested literature-informed protocol is absent from this pinned release.",
+    sourceProtocol,
+  );
   const merged = useMemo(
     () => ({
       ...base,
@@ -103,15 +111,49 @@ export default function FieldStudy() {
     }),
     [base, extra],
   );
-  const proposal=useMemo(()=>{
-    if(!sourceProtocol||!evidence.value)return merged;
-    return {...merged,proposal_protocol:"site-evidence" as const,candidates:merged.candidates.map(c=>{
-      const item=evidence.value!.cases.find(s=>s.candidate_id===c.id);if(!item)return c;
-      const previous=c.assessments[item.mission], p=item.experiment;
-      return {...c,assessments:{...c.assessments,[item.mission]:{...previous,experiment:{...previous.experiment,hypothesis:p.hypothesis,objective:p.objective,why_useful:item.supported,equipment:p.equipment,measurements:p.procedure,success_indicator:p.success_indicator,next_measurement:item.next_measurement,unvalidated:p.unvalidated,cannot_reproduce:[p.cannot_reproduce],evidence_gate:item.classification,classification:"ASSUMED / PROPOSED, LITERATURE-INFORMED"}}}};
-    })};
-  },[merged,sourceProtocol,evidence.value]);
-  if(sourceProtocol&&!evidence.value)return <main className="document-page"><h1>Validating literature-informed protocol</h1>{evidence.error&&<p role="alert">{evidence.error}</p>}</main>;
+  const proposal = useMemo(() => {
+    if (!sourceProtocol || !evidence.value) return merged;
+    return {
+      ...merged,
+      proposal_protocol: "site-evidence" as const,
+      candidates: merged.candidates.map((c) => {
+        const item = evidence.value!.cases.find((s) => s.candidate_id === c.id);
+        if (!item) return c;
+        const previous = c.assessments[item.mission],
+          p = item.experiment;
+        return {
+          ...c,
+          assessments: {
+            ...c.assessments,
+            [item.mission]: {
+              ...previous,
+              experiment: {
+                ...previous.experiment,
+                hypothesis: p.hypothesis,
+                objective: p.objective,
+                why_useful: item.supported,
+                equipment: p.equipment,
+                measurements: p.procedure,
+                success_indicator: p.success_indicator,
+                next_measurement: item.next_measurement,
+                unvalidated: p.unvalidated,
+                cannot_reproduce: [p.cannot_reproduce],
+                evidence_gate: item.classification,
+                classification: "ASSUMED / PROPOSED, LITERATURE-INFORMED",
+              },
+            },
+          },
+        };
+      }),
+    };
+  }, [merged, sourceProtocol, evidence.value]);
+  if (sourceProtocol && !evidence.value)
+    return (
+      <main className="document-page">
+        <h1>Validating literature-informed protocol</h1>
+        {evidence.error && <p role="alert">{evidence.error}</p>}
+      </main>
+    );
   if (currentRelease()?.files["field_candidates.json"] && !extra && !error)
     return (
       <main className="document-page">
@@ -212,8 +254,8 @@ function FieldStudyEditor() {
         "mare-crisium": defaultScenario("mare-crisium"),
       };
       base.snapshot.collection = s.o ?? data.collection ?? "original";
-      if(s.p)base.snapshot.target_reference=s.p;
-      if(s.e)base.snapshot.proposal_protocol=s.e;
+      if (s.p) base.snapshot.target_reference = s.p;
+      if (s.e) base.snapshot.proposal_protocol = s.e;
       return {
         ...base,
         hypothesis: s.h || base.hypothesis,
@@ -235,7 +277,7 @@ function FieldStudyEditor() {
     [newItem, setNewItem] = useState({ measurements: "", equipment: "" }),
     [mapImage, setMapImage] = useState<string | null>(null);
   const base = `${window.location.origin}${window.location.pathname}#/field-study?share=`;
-  const contextQuery=`&cohort=${study.snapshot.collection??"original"}&mission=${study.mission}${study.snapshot.target_reference?"&polar="+study.snapshot.target_reference.replace("lunar-polar:",""):""}${study.snapshot.proposal_protocol?"&protocol=source":""}`;
+  const contextQuery = `&cohort=${study.snapshot.collection ?? "original"}&mission=${study.mission}&polar=${study.snapshot.target_reference ? study.snapshot.target_reference.replace("lunar-polar:", "") : "none"}${study.snapshot.proposal_protocol ? "&protocol=source" : ""}`;
   const shareUrl = base + encodeShare(study) + contextQuery,
     qrUrl = base + encodeShare(study, true) + contextQuery;
 
@@ -441,7 +483,9 @@ function FieldStudyEditor() {
           >
             <option value="jezero">{MISSION_LABEL.jezero}</option>
             <option value="mare-crisium">
-              {data.target_reference ? `Moon · ${data.targets.find(t=>t.id==="mare-crisium")!.name} (utility unassessed)` : MISSION_LABEL["mare-crisium"]}
+              {data.target_reference
+                ? `Moon · ${data.targets.find((t) => t.id === "mare-crisium")!.name} (utility unassessed)`
+                : MISSION_LABEL["mare-crisium"]}
             </option>
           </select>
         </label>

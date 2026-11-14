@@ -1,3 +1,4 @@
+import { openResearch } from "./helpers";
 import { test, expect } from "@playwright/test";
 import { mkdir } from "node:fs/promises";
 import { resolve } from "node:path";
@@ -167,7 +168,7 @@ test("complete scientific workflow, map, model controls, DNA, Passport and metho
     fullPage: true,
   });
   await page.emulateMedia({ media: "screen" });
-  await page.getByRole("link", { name: "Methodology", exact: true }).click();
+  await openResearch(page, "Methodology");
   await expect(
     page.getByRole("heading", { name: "A useful analogy has visible limits." }),
   ).toBeVisible();
@@ -474,7 +475,9 @@ test("guided demo navigates ten scenes with real values and keyboard controls", 
   await page.getByRole("button", { name: /Next/ }).click();
   await page.getByRole("button", { name: /Next/ }).click();
   await expect(page.locator(".demo-profile")).toBeVisible();
-  await expect(page.locator(".demo-field-stats")).toContainText("proposed stations");
+  await expect(page.locator(".demo-field-stats")).toContainText(
+    "proposed stations",
+  );
   await page.keyboard.press("End");
   await expect(page.getByText("Earth is the training ground.")).toBeVisible();
   await page.keyboard.press("Escape");

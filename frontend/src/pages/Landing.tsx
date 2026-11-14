@@ -32,6 +32,12 @@ export default function Landing() {
             Launch Discovery Engine
             <ArrowRight size={24} />
           </Link>
+          <Link
+            className="button outline judge-entry"
+            to="/guide?cohort=expanded&polar=none"
+          >
+            Start the five-step judge path
+          </Link>
           <dl className="hero-stats" aria-label="Current dataset">
             {stats.map(([value, label]) => (
               <div key={label}>
@@ -50,9 +56,17 @@ export default function Landing() {
       <section className="process-band" aria-label="How TerrainX works">
         {[
           ["Discover", "Search real Earth observations", "/explorer"],
-          ["Compare", "Separate fidelity, utility and evidence — then re-rank through six lenses", "/lenses"],
+          [
+            "Compare",
+            "Separate fidelity, utility and evidence — then re-rank through six lenses",
+            "/lenses",
+          ],
           ["Explain", "Understand where the analogy fails", "/frontier"],
-          ["Prepare", "Design a testable field experiment, stations and field book", "/field-study"],
+          [
+            "Prepare",
+            "Design a testable field experiment, stations and field book",
+            "/field-study",
+          ],
         ].map(([title, description, to], i) => (
           <Link key={title} to={to} className="process-step">
             <h2>
@@ -60,7 +74,11 @@ export default function Landing() {
               {title}
             </h2>
             <p>{description}</p>
-            <ArrowRight size={16} className="process-arrow" aria-hidden="true" />
+            <ArrowRight
+              size={16}
+              className="process-arrow"
+              aria-hidden="true"
+            />
           </Link>
         ))}
       </section>

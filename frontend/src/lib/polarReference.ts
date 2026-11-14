@@ -1,23 +1,176 @@
-import { candidateSchema, metricsSchema, type Candidate, type Dataset, type Target } from "./models";
+import {
+  candidateSchema,
+  metricsSchema,
+  type Candidate,
+  type Dataset,
+  type Target,
+} from "./models";
 import { DEFAULT_TOLERANCES, FEATURES } from "./counterfactual";
 import type { LunarPolar } from "./lunarPolar";
-export function polarReference(data:Dataset, polar:LunarPolar, id:string):Dataset {
- const site=polar.sites.find(s=>s.id===id&&s.status==="available"&&s.terrain);
- if(!site?.terrain)throw Error("Requested polar reference is unavailable in the pinned release. No other target substituted.");
- const referenceId=`lunar-polar:${site.id}`, metrics=metricsSchema.parse(site.terrain.metrics);
- const terrain=candidateSchema.shape.terrain.parse({...site.terrain,metrics,status:"available",provenance:[{source_url:polar.raster.url,retrieved_at:polar.raster.verified_at,classification:"DERIVED; timestamp is raster verification, not acquisition",original_unit:"m",sha256:polar.raster.sha256}]});
- const target:Target={id:"mare-crisium",reference_id:referenceId,body:"Moon",name:site.feature,latitude:site.latitude,longitude:site.longitude,
-  mission:"Lunar polar reconnaissance — utility unassessed",context:"Verified IAU feature-centre terrain, not a landing polygon. Thermal and stability products are models, not measured ice. No polar mission-utility model has been calibrated.",terrain,source_refs:[...polar.sources,{title:`IAU ${site.feature}`,url:site.gazetteer_url}]};
- const candidates=data.candidates.map((c):Candidate=>{
-  const previous=c.assessments["mare-crisium"], e=c.terrain;
-  const compatible=e.status==="available"&&e.metrics&&e.provenance?.length&&e.sample_spacing_m===terrain.sample_spacing_m&&e.footprint_m===terrain.footprint_m&&e.native_resolution_m&&terrain.native_resolution_m&&Math.max(...Object.values(e.native_resolution_m),...Object.values(terrain.native_resolution_m))<=(e.sample_spacing_m??0)*1.05;
-  const components=compatible?FEATURES.map(feature=>{const earth=e.metrics![feature],planet=metrics[feature],tolerance=DEFAULT_TOLERANCES[feature];return {feature,earth,planet,tolerance,weight:.25,similarity:Math.exp(-.5*((earth-planet)/tolerance)**2)};}):[];
-  const reason="No assessed polar mission-utility criteria. Terrain fidelity alone does not establish operational, thermal or resource suitability.";
-  const assessment={...previous,fidelity:{value:components.length===4?100*components.reduce((s,c)=>s+c.similarity,0)/4:null,components,reason:components.length===4?null:"Insufficient compatible terrain data",warning:"Exploratory 4 km sample spacing / 24 km window with unequal native observation support; no landing-hazard or scale-equivalence certification."},priority:null,
-   utility:{...previous.utility,value:null,coverage:0,status:c.benchmark?"REFERENCE ANALOG":"SCREENED CANDIDATE",evidence_label:"Polar utility not assessed",note:reason,criteria:Object.fromEntries(Object.keys(previous.utility.criteria).map(k=>[k,{value:null,rationale:reason,classification:"UNAVAILABLE",source_refs:polar.sources.map(s=>s.url)}]))},
-   reality_gap:{...previous.reality_gap,match:["Only the displayed broad-scale terrain metrics are compared with "+site.feature+"."],mission_use:"Propose a terrain mapping/navigation workflow; utility remains unassessed.",missing:["Mission-specific geological/process relevance", "Local traversability and soil mechanics", "Polar illumination, actual resource abundance and mission utility"],conclusion:reason},
-   experiment:{...previous.experiment,hypothesis:`A proposed Earth relief transect can rehearse mapping and documentation workflows relevant to ${site.feature}, without reproducing lunar polar conditions.`,objective:"Rehearse terrain mapping and navigation documentation",why_useful:"Test the workflow against cached regional terrain; usefulness still requires independent assessment.",equipment:["Differential GNSS","Camera or permitted photogrammetry survey","Field log"],measurements:["Georeferenced route and terrain observations","Map/ground discrepancies","Navigation decisions and uncertainties"],success_indicator:"Proposed protocol-completion indicator: three documented stations with source/ground discrepancies retained; not a safety or analogy pass threshold.",next_measurement:"Acquire local high-resolution topography and a mission-specific operations brief before assessing utility.",unvalidated:reason,evidence_gate:"RESEARCH PROPOSAL — polar utility and field conditions unassessed",classification:"ASSUMED / PROPOSED"}};
-  return {...c,assessments:{...c.assessments,"mare-crisium":assessment}};
- });
- return {...data,target_reference:referenceId,candidates,targets:data.targets.map(t=>t.id==="mare-crisium"?target:t)};
+export function polarReference(
+  data: Dataset,
+  polar: LunarPolar,
+  id: string,
+): Dataset {
+  const site = polar.sites.find(
+    (s) => s.id === id && s.status === "available" && s.terrain,
+  );
+  if (!site?.terrain)
+    throw Error(
+      "Requested polar reference is unavailable in the pinned release. No other target substituted.",
+    );
+  const referenceId = `lunar-polar:${site.id}`,
+    metrics = metricsSchema.parse(site.terrain.metrics);
+  const terrain = candidateSchema.shape.terrain.parse({
+    ...site.terrain,
+    metrics,
+    status: "available",
+    provenance: [
+      {
+        source_url: polar.raster.url,
+        retrieved_at: polar.raster.verified_at,
+        classification:
+          "DERIVED; timestamp is raster verification, not acquisition",
+        original_unit: "m",
+        sha256: polar.raster.sha256,
+      },
+    ],
+  });
+  const target: Target = {
+    id: "mare-crisium",
+    reference_id: referenceId,
+    body: "Moon",
+    name: site.feature,
+    latitude: site.latitude,
+    longitude: site.longitude,
+    mission: "Lunar polar reconnaissance — utility unassessed",
+    context:
+      "Verified IAU feature-centre terrain, not a landing polygon. Thermal and stability products are models, not measured ice. No polar mission-utility model has been calibrated.",
+    terrain,
+    source_refs: [
+      ...polar.sources,
+      { title: `IAU ${site.feature}`, url: site.gazetteer_url },
+    ],
+  };
+  const candidates = data.candidates.map((c): Candidate => {
+    const previous = c.assessments["mare-crisium"],
+      e = c.terrain;
+    const compatible =
+      e.status === "available" &&
+      e.metrics &&
+      e.provenance?.length &&
+      e.sample_spacing_m === terrain.sample_spacing_m &&
+      e.footprint_m === terrain.footprint_m &&
+      e.native_resolution_m &&
+      terrain.native_resolution_m &&
+      Math.max(
+        ...Object.values(e.native_resolution_m),
+        ...Object.values(terrain.native_resolution_m),
+      ) <=
+        (e.sample_spacing_m ?? 0) * 1.05;
+    const components = compatible
+      ? FEATURES.map((feature) => {
+          const earth = e.metrics![feature],
+            planet = metrics[feature],
+            tolerance = DEFAULT_TOLERANCES[feature];
+          return {
+            feature,
+            earth,
+            planet,
+            tolerance,
+            weight: 0.25,
+            similarity: Math.exp(-0.5 * ((earth - planet) / tolerance) ** 2),
+          };
+        })
+      : [];
+    const reason =
+      "No assessed polar mission-utility criteria. Terrain fidelity alone does not establish operational, thermal or resource suitability.";
+    const assessment = {
+      ...previous,
+      fidelity: {
+        value:
+          components.length === 4
+            ? (100 * components.reduce((s, c) => s + c.similarity, 0)) / 4
+            : null,
+        components,
+        reason:
+          components.length === 4
+            ? null
+            : "Insufficient compatible terrain data",
+        warning:
+          "Exploratory 4 km sample spacing / 24 km window with unequal native observation support; no landing-hazard or scale-equivalence certification.",
+      },
+      priority: null,
+      utility: {
+        ...previous.utility,
+        value: null,
+        coverage: 0,
+        status: c.benchmark ? "REFERENCE ANALOG" : "SCREENED CANDIDATE",
+        evidence_label: "Polar utility not assessed",
+        note: reason,
+        criteria: Object.fromEntries(
+          Object.keys(previous.utility.criteria).map((k) => [
+            k,
+            {
+              value: null,
+              rationale: reason,
+              classification: "UNAVAILABLE",
+              source_refs: polar.sources.map((s) => s.url),
+            },
+          ]),
+        ),
+      },
+      reality_gap: {
+        ...previous.reality_gap,
+        match: [
+          "Only the displayed broad-scale terrain metrics are compared with " +
+            site.feature +
+            ".",
+        ],
+        mission_use:
+          "Propose a terrain mapping/navigation workflow; utility remains unassessed.",
+        missing: [
+          "Mission-specific geological/process relevance",
+          "Local traversability and soil mechanics",
+          "Polar illumination, actual resource abundance and mission utility",
+        ],
+        conclusion: reason,
+      },
+      experiment: {
+        ...previous.experiment,
+        hypothesis: `A proposed Earth relief transect can rehearse mapping and documentation workflows relevant to ${site.feature}, without reproducing lunar polar conditions.`,
+        objective: "Rehearse terrain mapping and navigation documentation",
+        why_useful:
+          "Test the workflow against cached regional terrain; usefulness still requires independent assessment.",
+        equipment: [
+          "Differential GNSS",
+          "Camera or permitted photogrammetry survey",
+          "Field log",
+        ],
+        measurements: [
+          "Georeferenced route and terrain observations",
+          "Map/ground discrepancies",
+          "Navigation decisions and uncertainties",
+        ],
+        success_indicator:
+          "Proposed protocol-completion indicator: three documented stations with source/ground discrepancies retained; not a safety or analogy pass threshold.",
+        next_measurement:
+          "Acquire local high-resolution topography and a mission-specific operations brief before assessing utility.",
+        unvalidated: reason,
+        evidence_gate:
+          "RESEARCH PROPOSAL — polar utility and field conditions unassessed",
+        classification: "ASSUMED / PROPOSED",
+      },
+    };
+    return {
+      ...c,
+      assessments: { ...c.assessments, "mare-crisium": assessment },
+    };
+  });
+  return {
+    ...data,
+    target_reference: referenceId,
+    candidates,
+    targets: data.targets.map((t) => (t.id === "mare-crisium" ? target : t)),
+  };
 }

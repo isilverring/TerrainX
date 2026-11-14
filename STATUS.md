@@ -1,8 +1,19 @@
 # TerrainX recovery checkpoint — six-item challenge completion
 
-**Active work:** user authorized all six follow-up improvements. Canonical checklist, acceptance criteria and restart instructions: [docs/CHALLENGE_COMPLETION.md](docs/CHALLENGE_COMPLETION.md). Base `71da14c` pulled clean/up to date. M1 scientific wording complete; 3 targeted browser checks pass. M2 collection flow complete: strict TypeScript,91 unit tests and expanded/field browser workflows pass. M3 polar identity complete, with no inherited Mare Crisium utility;92 unit tests, strict TypeScript and new browser workflows pass. M5 completed:18-site/360-comparison support study,83 Python and93 TypeScript tests,4 targeted browser workflows pass. M4 scoped literature cases/proposals complete:94 unit tests,2 geographic evidence tests and4 new browser workflows pass. Only M6 remains: judge route/navigation, full QA/build, final documentation and public deployment. See checklist for bounded M4/M5 research in progress. The version 4 release below is the working recovery baseline, not completion of this new scope. Commit/push after each milestone.
+**Active stage: M6 production acceptance and publication.** Work stays in D:\TerrainX, private https://github.com/isilverring/TerrainX, main. User explicitly authorized all six improvements. Canonical checklist: docs/CHALLENGE_COMPLETION.md. M1–M5 are implemented and pushed; M6 judge route and secondary research navigation are implemented, with final production/browser/visual checks and deployment pending. The public Site still serves version4/source b6d8000 until DEPLOYMENT.md records a newer native success.
 
-**The audited bounded release is complete and publicly deployed.** Work stays in **D:\TerrainX**, private https://github.com/isilverring/TerrainX, main. Version 4 deploys source `b6d8000710b0390f4e209579945fb3900f8e88e4`; all **38/38 fresh unauthenticated public workflows passed**, including offline reload and failed-update recovery. Deployment/submission guides and package boundaries are complete. User's recording/team/terms/actual submission remain human actions. Later documentation-only commits intentionally differ from the deployed app SHA; DEPLOYMENT.md records exact identifiers.
+- M0 plan: c090e4b; M1 scientific wording: b1914ba.
+- M2 explicit original/expanded collections and pinned identity:8344786.
+- M3 polar dossiers/field replay with unassessed utility: d3327ec.
+- M5 expanded common-support study:39d4309,18 sites/33 tiles/360 valid comparisons; original results unchanged.
+- M4 scoped geological evidence/proposals: b23049d, local basaltic-andesite/andesite evidence and an explicit regional Mars evidence gap.
+- M6 implemented: five-step /guide, simpler primary navigation and Research tools menu. Repaired clipped menu height and exact reference reset in replay.94 TypeScript tests,85 Python tests plus independent baseline reproduction and6 research/navigation browser checks pass. Full43-production-workflow run and90+ responsive cases are next; do not claim these passed yet.
+
+Resume: inspect git status/log and this checklist. Node24/Python3.12. npm run build; npm run preview; TERRAINX_BASE_URL=http://127.0.0.1:4173 npm test. Browser plugin absent: use configured Chrome/Playwright. All new real data/source metadata are cached; full TIFF/IMG files remain ignored and reproducibly downloadable. Source-support reproduction: docs/TERRAIN_PILOT.md; cases: docs/CANDIDATE_CASES.md. Freeze/release build, commit/push each completed milestone and verify remote SHA. Exact publication requires Sites helper, save, deploy and fresh public checks on existing project appgprj_6af7ff7626888191bcba757337fd7e9b. Do not create another Site. Credentials stay in memory.
+
+The original dataset SHA256 remains3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c. Original130 cells/16 candidates/10 preliminary characterized/4 benchmarks stay unchanged. Expanded collection134 unique profiles. Polar physical reference identity is separate from the legacy lunar model slot; utility criteria remain null, coverage0 and priority null. Model results are never field validation, ice detection, cave confirmation, or NASA approval. User handles video/team/terms/actual submission.
+
+## Earlier audited release history (baseline)
 
 ## What was reviewed and repaired
 

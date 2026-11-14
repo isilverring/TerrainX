@@ -52,12 +52,13 @@ export default function Cases() {
       <header className="document-title">
         <div>
           <p className="document-label">
-            Three scientific decisions · source-scoped research
+            Baseline studies and exploratory leads · source-scoped research
           </p>
           <h1>From screening to a field question</h1>
           <p>
-            A supported hypothesis, a contradictory material interpretation, and
-            a documented benchmark. Scores reflect your active model.
+            Follow local literature evidence, unresolved regional context and
+            documented benchmarks. Scores reflect the active model; cited
+            material observations retain their own geographic scope.
           </p>
         </div>
       </header>

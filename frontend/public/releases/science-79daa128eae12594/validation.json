@@ -1,0 +1,27 @@
+{
+  "generated_at": "2026-11-14T20:09:39.263039+00:00",
+  "passed": 85,
+  "failed": 0,
+  "checks": [
+    "Dataset passes Pydantic validation; frontend also validates with Zod.",
+    "All 130 screened cells retained and deterministic shortlist reproduced from cached data.",
+    "All terrain metrics reproduce from the actual cached sample grids.",
+    "All mission F/U/C and eligible combined priorities independently recomputed.",
+    "Numeric climate observations have source URL, period, actual units, timestamp and source-body hash.",
+    "Benchmarks remain references and are excluded from automatic discovery counts.",
+    "Geology and evidence gates are enforced; no unknown value is substituted with zero."
+  ],
+  "summary": {
+    "screened_cells": 130,
+    "valid_screened_cells": 130,
+    "shortlisted_candidates": 16,
+    "characterized_candidates": 10,
+    "benchmark_sites": 4,
+    "climate_profiles": 20,
+    "terrain_profiles": 20,
+    "planetary_profiles": 2,
+    "geology_mapped": 19,
+    "errors": []
+  },
+  "dataset_sha256": "3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c"
+}

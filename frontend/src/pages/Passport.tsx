@@ -18,8 +18,8 @@ import {
 import QrCode from "../components/QrCode";
 import SupportSensitivity from "../components/SupportSensitivity";
 import SiteEvidence from "../components/SiteEvidence";
-import {useScienceFile} from "../lib/scienceFile";
-import {siteEvidenceSchema} from "../lib/siteEvidence";
+import { useScienceFile } from "../lib/scienceFile";
+import { siteEvidenceSchema } from "../lib/siteEvidence";
 import { MeasureNext } from "../components/FrontierParts";
 import { frontier } from "../lib/frontier";
 import { useData, coordinates, statusName } from "../lib/data";
@@ -65,7 +65,11 @@ function PassportBody({
   mission: Mission;
 }) {
   const data = useData();
-  const independent=useScienceFile("site_evidence.json",siteEvidenceSchema,"No scoped case literature in this release.");
+  const independent = useScienceFile(
+    "site_evidence.json",
+    siteEvidenceSchema,
+    "No scoped case literature in this release.",
+  );
   const model = useModel();
   const [params] = useSearchParams();
   const incomingModel = params.get("model");
@@ -80,7 +84,15 @@ function PassportBody({
   const c = data.candidates.find((x) => x.id === candidateId)!,
     target = data.targets.find((t) => t.id === mission)!,
     a = c.assessments[mission];
-  const pkt = useMemo(() => ({...buildPacket(data,c,mission),independent_site_evidence:independent.value?.cases.find(item=>item.candidate_id===c.id)??null}), [data,c,mission,independent.value]);
+  const pkt = useMemo(
+    () => ({
+      ...buildPacket(data, c, mission),
+      independent_site_evidence:
+        independent.value?.cases.find((item) => item.candidate_id === c.id) ??
+        null,
+    }),
+    [data, c, mission, independent.value],
+  );
   const base = `terrainx-${c.id}-${mission}`;
   const sharedParams = new URLSearchParams({
     cohort: data.collection ?? "original",
@@ -88,7 +100,12 @@ function PassportBody({
     model: JSON.stringify(model.scenarios[mission]),
   });
   if (data.release) sharedParams.set("science", data.release.release_id);
-  if(data.target_reference)sharedParams.set("polar",data.target_reference.replace("lunar-polar:",""));
+  sharedParams.set(
+    "polar",
+    data.target_reference
+      ? data.target_reference.replace("lunar-polar:", "")
+      : "none",
+  );
   if (data.release) sharedParams.set("datahash", data.release.dataset_sha256);
   if (params.get("presentation") === "1") sharedParams.set("presentation", "1");
   const sharedUrl = `${window.location.origin}${window.location.pathname}#/${packet ? "expedition" : "passport"}/${c.id}?${sharedParams}`;
@@ -103,7 +120,11 @@ function PassportBody({
             <>
               <button
                 className="button outline"
-                disabled={!!data.release?.files["site_evidence.json"]&&!independent.value&&!independent.error}
+                disabled={
+                  !!data.release?.files["site_evidence.json"] &&
+                  !independent.value &&
+                  !independent.error
+                }
                 onClick={() =>
                   download(
                     `${base}.json`,
@@ -210,8 +231,8 @@ function PassportBody({
         <EvidenceTag kind={c.benchmark ? "LITERATURE-SUPPORTED" : "DERIVED"} />
       </section>
       <ScoreStrip assessment={a} />
-      <SupportSensitivity id={c.id} mission={mission}/>
-      <SiteEvidence id={c.id}/>
+      <SupportSensitivity id={c.id} mission={mission} />
+      <SiteEvidence id={c.id} />
       <ObservationPanel candidate={c} chart={false} />
       <TerrainPanel candidate={c} target={target} assessment={a} />
       <GeologyPanel candidate={c} />

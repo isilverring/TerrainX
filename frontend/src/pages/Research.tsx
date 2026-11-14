@@ -56,7 +56,11 @@ export default function Research() {
   };
   const open = (s: ResearchSnapshot) => {
     try {
-      if (s.science.release_id === data.release?.release_id)
+      if (
+        s.science.release_id === data.release?.release_id &&
+        (s.collection ?? "original") === (data.collection ?? "original") &&
+        s.target_reference === data.target_reference
+      )
         checkSnapshotRelease(s, data);
       model.replace(s.scenarios);
       try {

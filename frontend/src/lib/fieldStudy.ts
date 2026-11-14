@@ -258,7 +258,9 @@ export function newFieldStudy(
     candidate_id: candidate.id,
     mission,
     target_reference: snapshot.target_reference,
-    mission_role: snapshot.target_reference ? "Legacy lunar model slot only; target_reference is the physical reference. Utility is unassessed." : "Mission preset and planetary reference",
+    mission_role: snapshot.target_reference
+      ? "Legacy lunar model slot only; target_reference is the physical reference. Utility is unassessed."
+      : "Mission preset and planetary reference",
     hypothesis: exp.hypothesis,
     objective: exp.objective,
     stations: [],
@@ -450,7 +452,7 @@ export function toGpx(
     .join("\n");
   return `<?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.1" creator="TerrainX Field Study Builder" xmlns="http://www.topografix.com/GPX/1/1">
-  <metadata><name>${xml(study.title)}</name><desc>${xml(`${candidate.name} · ${study.mission} · science ${study.snapshot.science.release_id}. Elevations are bilinear interpolations of cached SRTM samples (4 km spacing); proposal only, no field verification.`)}</desc><time>${study.updated_at}</time></metadata>
+  <metadata><name>${xml(study.title)}</name><desc>${xml(`${candidate.name} · ${study.snapshot.target_reference ?? study.mission} · science ${study.snapshot.science.release_id}. Elevations are bilinear interpolations of cached SRTM samples (4 km spacing); proposal only, no field verification.`)}</desc><time>${study.updated_at}</time></metadata>
 ${wpts}
   <rte><name>${xml(`${study.title} — proposed traverse`)}</name>
 ${rtepts}
@@ -494,7 +496,10 @@ const shareSchema = z.object({
   mv: z.literal("terrainx-model-v1").optional(),
   q: snapshotSchema.shape.scenarios.optional(),
   o: z.enum(["original", "expanded"]).optional(),
-  p: z.string().regex(/^lunar-polar:[a-z0-9-]+$/).optional(),
+  p: z
+    .string()
+    .regex(/^lunar-polar:[a-z0-9-]+$/)
+    .optional(),
   e: z.literal("site-evidence").optional(),
   c: z.string().min(1).max(80),
   m: z.enum(["jezero", "mare-crisium"]),

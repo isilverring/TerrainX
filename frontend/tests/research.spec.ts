@@ -1,10 +1,11 @@
+import { openResearch } from "./helpers";
 import { test, expect } from "@playwright/test";
 test("research snapshots pin the release and reopen the same custom model", async ({
   page,
 }) => {
   await page.goto("/#/what-if?mission=jezero");
   await page.locator("#wi-alpha").fill("0.85");
-  await page.getByRole("link", { name: "Research", exact: true }).click();
+  await openResearch(page, "Research");
   await expect(
     page.getByRole("heading", { name: "Research workspace" }),
   ).toBeVisible();
@@ -29,7 +30,7 @@ test("research snapshots pin the release and reopen the same custom model", asyn
   await expect(page).toHaveURL(
     new RegExp(`science=${snapshot.science.release_id}`),
   );
-  await page.getByRole("link", { name: "What if", exact: true }).click();
+  await openResearch(page, "What if");
   await expect(page.locator("#wi-alpha")).toHaveValue("0.85");
 });
 test("a missing historical release stops rather than replacing scientific inputs", async ({
@@ -86,12 +87,12 @@ test("presentation uses its own model and restores research settings on exit", a
   await page
     .getByRole("link", { name: "Exit presentation", exact: true })
     .click();
-  await page.getByRole("link", { name: "What if", exact: true }).click();
+  await openResearch(page, "What if");
   await expect(page.locator("#wi-alpha")).toHaveValue("0.85");
   await page.getByRole("link", { name: /Guided demo/ }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
   await page.keyboard.press("Escape");
-  await page.getByRole("link", { name: "What if", exact: true }).click();
+  await openResearch(page, "What if");
   await expect(page.locator("#wi-alpha")).toHaveValue("0.85");
   const stored = await page.evaluate(() =>
     JSON.parse(localStorage.getItem("terrainx-scenarios-v1")!),
@@ -108,7 +109,7 @@ test("mobile navigation exposes the complete research journey", async ({
   await expect(
     page.getByRole("navigation", { name: "Main navigation" }),
   ).toBeVisible();
-  await page.getByRole("link", { name: "Research", exact: true }).click();
+  await openResearch(page, "Research");
   await expect(
     page.getByRole("heading", { name: "Research workspace" }),
   ).toBeVisible();
@@ -125,7 +126,7 @@ test("an imported historical study loads its exact inputs and model without reta
   const release = await (
     await page.request.get("/releases/science-a134e4d3f6430233/manifest.json")
   ).json();
-  await page.getByRole("link", { name: "Research", exact: true }).click();
+  await openResearch(page, "Research");
   const file = page.waitForEvent("download");
   await page.getByRole("button", { name: "Export snapshot JSON" }).click();
   const { readFileSync } = await import("node:fs");
@@ -135,18 +136,16 @@ test("an imported historical study loads its exact inputs and model without reta
   snapshot.title = "Historical replay";
   snapshot.science = release;
   snapshot.scenarios.jezero.alpha = 0.4;
-  await page
-    .locator("input[type=file]")
-    .setInputFiles({
-      name: "historical.json",
-      mimeType: "application/json",
-      buffer: Buffer.from(JSON.stringify(snapshot)),
-    });
+  await page.locator("input[type=file]").setInputFiles({
+    name: "historical.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify(snapshot)),
+  });
   await expect(page).toHaveURL(/science=science-a134e4d3f6430233/);
   await expect(page.getByRole("heading", { level: 1 })).not.toContainText(
     "Research workspace",
   );
-  await page.getByRole("link", { name: "What if", exact: true }).click();
+  await openResearch(page, "What if");
   await expect(page.locator("#wi-alpha")).toHaveValue("0.4");
   await page.getByRole("link", { name: "Cases", exact: true }).click();
   await expect(page.getByRole("status")).toContainText(

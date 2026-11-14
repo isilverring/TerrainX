@@ -67,6 +67,7 @@ import CommandPalette from "./components/CommandPalette";
 const TerrainPilot = lazy(() => import("./pages/TerrainPilot"));
 const Offline = lazy(() => import("./pages/Offline"));
 const Cases = lazy(() => import("./pages/Cases"));
+const JudgeGuide = lazy(() => import("./pages/JudgeGuide"));
 function PinRelease({ presentation }: { presentation: boolean }) {
   const data = React.useContext(DataContext),
     location = useLocation(),
@@ -92,7 +93,10 @@ function PinRelease({ presentation }: { presentation: boolean }) {
       p.set("mission", data.active_mission);
       changed = true;
     }
-    if(data.target_reference&&!p.has("polar")){p.set("polar",data.target_reference.replace("lunar-polar:",""));changed=true;}
+    if (data.target_reference && !p.has("polar")) {
+      p.set("polar", data.target_reference.replace("lunar-polar:", ""));
+      changed = true;
+    }
     if (presentation && !p.has("presentation")) {
       p.set("presentation", "1");
       changed = true;
@@ -258,45 +262,46 @@ function App() {
         >
           <DataContext.Provider value={assessed!}>
             <CollectionScope>
-            <PinRelease presentation={presentation} />
-            <CommandPalette />
-            <Suspense fallback={<Loading />}>
-              <Routes>
-                <Route path="/" element={<Landing />} />
-                <Route path="/explorer" element={<Explorer />} />
-                <Route path="/site/:id" element={<SiteDetail />} />
-                <Route path="/passport/:id" element={<Passport />} />
-                <Route path="/expedition/:id" element={<Passport packet />} />
-                <Route path="/methodology" element={<Methodology />} />
-                <Route path="/compare" element={<Compare />} />
-                <Route path="/frontier" element={<Frontier />} />
-                <Route path="/transfer-lab" element={<TransferLab />} />
-                <Route path="/what-if" element={<WhatIf />} />
-                <Route path="/worlds" element={<Worlds />} />
-                <Route path="/demo" element={<Demo />} />
-                <Route path="/research" element={<Research />} />
-                <Route
-                  path="/field-study"
-                  element={<FieldStudy key={route.search} />}
-                />
-                <Route path="/lenses" element={<Lenses />} />
-                <Route path="/cells" element={<CellSearch />} />
-                <Route path="/lunar-pole" element={<LunarPolar />} />
-                <Route path="/challenge" element={<ChallengeFit />} />
-                <Route path="/cases" element={<Cases />} />
-                <Route path="/offline" element={<Offline />} />
-                <Route path="/terrain-pilot" element={<TerrainPilot />} />
-                <Route
-                  path="*"
-                  element={
-                    <main className="error-state">
-                      <h1>Page not found</h1>
-                      <a href="#/explorer">Return to Discovery</a>
-                    </main>
-                  }
-                />
-              </Routes>
-            </Suspense>
+              <PinRelease presentation={presentation} />
+              <CommandPalette />
+              <Suspense fallback={<Loading />}>
+                <Routes>
+                  <Route path="/" element={<Landing />} />
+                  <Route path="/explorer" element={<Explorer />} />
+                  <Route path="/site/:id" element={<SiteDetail />} />
+                  <Route path="/passport/:id" element={<Passport />} />
+                  <Route path="/expedition/:id" element={<Passport packet />} />
+                  <Route path="/methodology" element={<Methodology />} />
+                  <Route path="/compare" element={<Compare />} />
+                  <Route path="/frontier" element={<Frontier />} />
+                  <Route path="/transfer-lab" element={<TransferLab />} />
+                  <Route path="/what-if" element={<WhatIf />} />
+                  <Route path="/worlds" element={<Worlds />} />
+                  <Route path="/demo" element={<Demo />} />
+                  <Route path="/research" element={<Research />} />
+                  <Route
+                    path="/field-study"
+                    element={<FieldStudy key={route.search} />}
+                  />
+                  <Route path="/lenses" element={<Lenses />} />
+                  <Route path="/cells" element={<CellSearch />} />
+                  <Route path="/lunar-pole" element={<LunarPolar />} />
+                  <Route path="/challenge" element={<ChallengeFit />} />
+                  <Route path="/cases" element={<Cases />} />
+                  <Route path="/guide" element={<JudgeGuide />} />
+                  <Route path="/offline" element={<Offline />} />
+                  <Route path="/terrain-pilot" element={<TerrainPilot />} />
+                  <Route
+                    path="*"
+                    element={
+                      <main className="error-state">
+                        <h1>Page not found</h1>
+                        <a href="#/explorer">Return to Discovery</a>
+                      </main>
+                    }
+                  />
+                </Routes>
+              </Suspense>
             </CollectionScope>
           </DataContext.Provider>
         </ModelContext.Provider>

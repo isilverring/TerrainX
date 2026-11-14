@@ -17,6 +17,11 @@ type Item = {
 
 const PAGES: [string, string, string][] = [
   [
+    "/guide?cohort=expanded&polar=none",
+    "Judge path",
+    "Five decisions from the challenge to a sourced field proposal",
+  ],
+  [
     "/explorer",
     "Discovery atlas",
     "Map, shortlist and evidence for both missions",

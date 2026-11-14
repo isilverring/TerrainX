@@ -10,7 +10,7 @@ import {
   X,
 } from "lucide-react";
 import { openPalette } from "./CommandPalette";
-import { useEffect, useState, useRef } from "react";
+import { useLayoutEffect, useState, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { number } from "../lib/data";
 import { studyPath } from "../lib/collections";
@@ -27,8 +27,12 @@ export function Header({
   const location = useLocation(),
     landing = location.pathname === "/",
     [open, setOpen] = useState(false),
+    [researchOpen, setResearchOpen] = useState(false),
     toggle = useRef<HTMLButtonElement>(null);
-  useEffect(() => setOpen(false), [location.pathname]);
+  useLayoutEffect(() => {
+    setOpen(false);
+    setResearchOpen(false);
+  }, [location.pathname]);
   const groups = [
     {
       name: "Discover",
@@ -66,6 +70,7 @@ export function Header({
       onKeyDown={(e) => {
         if (e.key === "Escape") {
           setOpen(false);
+          setResearchOpen(false);
           toggle.current?.focus();
         }
       }}
@@ -110,15 +115,60 @@ export function Header({
         className={`journey-nav ${open ? "is-open" : ""}`}
         aria-label="Main navigation"
       >
+        <div className="journey-group">
+          <span>Mission workflow</span>
+          <div>
+            {[
+              ["/guide?cohort=expanded&polar=none", "Start here"],
+              ["/explorer", "Discovery"],
+              ["/cells", "All cells"],
+              ["/cases", "Cases"],
+              ["/field-study", "Field study"],
+            ].map(([path, label]) => (
+              <NavLink key={path} to={studyPath(path, location.search)}>
+                {label}
+              </NavLink>
+            ))}
+            <button
+              className="research-toggle"
+              aria-expanded={researchOpen}
+              aria-controls="research-navigation"
+              onClick={() => setResearchOpen((v) => !v)}
+            >
+              Research tools
+            </button>
+          </div>
+        </div>
+      </nav>
+      <nav
+        id="research-navigation"
+        className="research-menu"
+        aria-label="Research tools"
+        hidden={!researchOpen}
+      >
+        <button
+          className="research-close"
+          aria-label="Close research tools"
+          onClick={() => setResearchOpen(false)}
+        >
+          <X size={18} />
+        </button>
         {groups.map((group) => (
           <div className="journey-group" key={group.name}>
             <span>{group.name}</span>
             <div>
-              {group.links.map(([path, label]) => (
-                <NavLink key={path} to={studyPath(path,location.search)}>
-                  {label}
-                </NavLink>
-              ))}
+              {group.links
+                .filter(
+                  ([path]) =>
+                    !["/explorer", "/cells", "/cases", "/field-study"].includes(
+                      path,
+                    ),
+                )
+                .map(([path, label]) => (
+                  <NavLink key={path} to={studyPath(path, location.search)}>
+                    {label}
+                  </NavLink>
+                ))}
             </div>
           </div>
         ))}
@@ -222,25 +272,31 @@ export function SourceLink({
   );
 }
 export function BackLink({ mission }: { mission: Mission }) {
-  const location=useLocation();
+  const location = useLocation();
   return (
-    <Link className="back-link" to={studyPath(`/explorer?mission=${mission}`,location.search)}>
+    <Link
+      className="back-link"
+      to={studyPath(`/explorer?mission=${mission}`, location.search)}
+    >
       <ArrowLeft size={16} />
       Discovery atlas
     </Link>
   );
 }
 export function SiteActions({ id, mission }: { id: string; mission: Mission }) {
-  const location=useLocation();
+  const location = useLocation();
   return (
     <div className="site-actions">
-      <Link className="button primary" to={studyPath(`/site/${id}?mission=${mission}`,location.search)}>
+      <Link
+        className="button primary"
+        to={studyPath(`/site/${id}?mission=${mission}`, location.search)}
+      >
         <Microscope size={17} />
         Analog DNA
       </Link>
       <Link
         className="button outline"
-        to={studyPath(`/passport/${id}?mission=${mission}`,location.search)}
+        to={studyPath(`/passport/${id}?mission=${mission}`, location.search)}
       >
         <FileText size={17} />
         Analog Passport
