@@ -33,7 +33,7 @@ import type { FeatureKey, Scenario } from "../lib/counterfactual";
 import { CRITERIA, criterionNames } from "../lib/frontier";
 import type { CriterionKey } from "../lib/frontier";
 import { rebalanceWeight, useModel } from "../lib/scoring";
-import { labels, metricUnits } from "../lib/data";
+import { labels, unitSuffix } from "../lib/data";
 import { BackLink, EvidenceTag } from "../components/ui";
 import { MarsGlyph, MoonGlyph } from "../components/glyphs";
 
@@ -224,7 +224,7 @@ export default function WhatIf() {
               min={DEFAULT_TOLERANCES[f] * 0.25}
               max={DEFAULT_TOLERANCES[f] * 3}
               step={DEFAULT_TOLERANCES[f] * 0.05}
-              display={`${number(s.tolerances[f], f.endsWith("deg") ? 2 : 0)} ${metricUnits[f]}`}
+              display={`${number(s.tolerances[f], f.endsWith("deg") ? 2 : 0)}${unitSuffix(f)}`}
               onChange={(v) =>
                 update({
                   tolerances: { ...s.tolerances, [f]: v } as Record<

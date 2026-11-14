@@ -3,7 +3,7 @@ import type { PointerEvent as ReactPointerEvent } from "react";
 import { Microscope, RotateCcw, RotateCw, TriangleAlert } from "lucide-react";
 import type { Assessment, Candidate, Target } from "../lib/models";
 import { earthContext } from "../lib/earthContext";
-import { number, labels, metricUnits } from "../lib/data";
+import { number, labels, unitSuffix } from "../lib/data";
 import {
   centreProfiles,
   hillshade,
@@ -577,18 +577,18 @@ function QuantTable({
                 <th>{labels[k]}</th>
                 <td>
                   {earth
-                    ? `${number(earth[k], 2)} ${metricUnits[k]}`
+                    ? `${number(earth[k], 2)}${unitSuffix(k)}`
                     : "unavailable"}
                 </td>
                 <td>
                   {planet
-                    ? `${number(planet[k], 2)} ${metricUnits[k]}`
+                    ? `${number(planet[k], 2)}${unitSuffix(k)}`
                     : "not assessed"}
                 </td>
                 {lattice ? (
                   <>
                     <td>
-                      {comp ? `${comp.tolerance} ${metricUnits[k]}` : "—"}
+                      {comp ? `${comp.tolerance}${unitSuffix(k)}` : "—"}
                     </td>
                     <td>{comp ? number(comp.similarity, 3) : "—"}</td>
                   </>

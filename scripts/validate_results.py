@@ -60,6 +60,13 @@ def main():
             if a["fidelity"]["value"] is not None:assert a["fidelity"]["source_refs"]
     checks=["Dataset passes Pydantic validation; frontend also validates with Zod.","All 130 screened cells retained and deterministic shortlist reproduced from cached data.","All terrain metrics reproduce from the actual cached sample grids.","All mission F/U/C and eligible combined priorities independently recomputed.","Numeric climate observations have source URL, period, actual units, timestamp and source-body hash.","Benchmarks remain references and are excluded from automatic discovery counts.","Geology and evidence gates are enforced; no unknown value is substituted with zero."]
     validation={"generated_at":datetime.now(timezone.utc).isoformat(),"passed":len(cases),"failed":0,"checks":checks,"summary":payload["summary"],"dataset_sha256":hashlib.sha256((ROOT/"data/derived/dataset.json").read_bytes()).hexdigest()}
+    # Re-running an unchanged validation must not mint a new immutable science release:
+    # keep the previous timestamp when every substantive field is identical.
+    previous_path=ROOT/"frontend/public/data/validation.json"
+    if previous_path.exists():
+        previous=json.loads(previous_path.read_text(encoding="utf-8"))
+        if {k:v for k,v in previous.items() if k!="generated_at"}=={k:v for k,v in validation.items() if k!="generated_at"}:
+            validation["generated_at"]=previous.get("generated_at",validation["generated_at"])
     atomic_json(ROOT/"data/derived/validation.json",validation)
     atomic_json(ROOT/"frontend/public/data/validation.json",validation)
     print(json.dumps(validation,indent=2))

@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { EvidenceTag, SourceLink } from "./ui";
-import { coordinates, labels, metricUnits, number } from "../lib/data";
+import { coordinates, labels, number, unitSuffix } from "../lib/data";
 import type { Assessment, Candidate, Target } from "../lib/models";
 import { EvidenceButton } from "./EvidenceInspector";
 import { observationFact, periodText } from "../lib/evidence";
@@ -137,15 +137,15 @@ export function TerrainPanel({
                   <th>{label}</th>
                   <td>
                     {number(earth?.[k], 2)}
-                    {metricUnits[k]}
+                    {unitSuffix(k)}
                   </td>
                   <td>
                     {number(planet?.[k], 2)}
-                    {metricUnits[k]}
+                    {unitSuffix(k)}
                   </td>
                   <td>
                     {component
-                      ? `${number(component.tolerance, 0)}${metricUnits[k]}`
+                      ? `${number(component.tolerance, 0)}${unitSuffix(k)}`
                       : "Not assessed"}
                   </td>
                 </tr>

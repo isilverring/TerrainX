@@ -18,7 +18,7 @@ No material NASA data corruption was found. Raw source responses remain unchange
 
 ## Release verification
 
-Final science checks: 63 Python tests, independent result reproduction and 52 frontend unit tests pass. Sixteen workflows passed in development and production preview, including fresh-browser model snapshot/export parity, actual images, live AWS context, provider failure and mobile layouts. Desktop1568×1003/mobile390×844 sweep of eight routes had zero page/console errors, missing images or document overflow. Strict TypeScript/production build pass; npm audit reports zero known vulnerabilities. Deployment IDs/access are recorded in DEPLOYMENT.md after terminal success.
+Final science checks: 63 Python tests, independent result reproduction and 52 frontend unit tests pass. Sixteen workflows passed in development and production preview, including fresh-browser model snapshot/export parity, actual images, live AWS context, provider failure and mobile layouts. Desktop 1568×1003/mobile 390×844 sweep of eight routes had zero page/console errors, missing images or document overflow. Strict TypeScript/production build pass; npm audit reports zero known vulnerabilities. Deployment IDs/access are recorded in DEPLOYMENT.md after terminal success.
 
 The visual sweep found and repaired mobile min-content overflow in Transfer Lab and What-if. NASA comparison images now ship unchanged with a source/hash manifest; default side-by-side view shows complete images. The supplied logo's actual separated segments and tapered arcs are retained in a clean vector trace. Mars is larger and separate from the Moon's illustrative orbit.
 

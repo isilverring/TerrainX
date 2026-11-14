@@ -5,7 +5,7 @@ import {
   useData,
   coordinates,
   labels,
-  metricUnits,
+  unitSuffix,
   number,
   statusName,
 } from "../lib/data";
@@ -253,13 +253,13 @@ export default function Compare() {
                   target={
                     <span className="mono">
                       {number(target.terrain.metrics?.[k], 1)}
-                      {metricUnits[k]}
+                      {unitSuffix(k)}
                     </span>
                   }
                   cells={picked.map((c) => (
                     <span className="mono">
                       {number(c.terrain.metrics?.[k], 1)}
-                      {metricUnits[k]}
+                      {unitSuffix(k)}
                     </span>
                   ))}
                 />

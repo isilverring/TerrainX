@@ -10,7 +10,7 @@ All work stays in **D:\TerrainX**, tracking `origin/main`. Private repository: [
 
 ## Working experience
 
-Release3 adds immutable, checksummed science releases; save/export/import of exact research models; an Evidence Inspector; three source-scoped case studies; Discover / Investigate / Prepare navigation; presentation settings isolated from research; and verified offline demo preparation. A separate **Terrain pilot** compares real Copernicus/MOLA/LOLA terrain under common8/12km aggregation supports and40 processing scenarios. Original SRTM discovery scores remain unchanged. See [docs/RELEASE_3.md](docs/RELEASE_3.md) and [docs/TERRAIN_PILOT.md](docs/TERRAIN_PILOT.md). Keep historical frontend/public/releases folders intact. Scientific model changes require a new model version or an explicit compatibility implementation.
+Release 3 adds immutable, checksummed science releases; save/export/import of exact research models; an Evidence Inspector; three source-scoped case studies; Discover / Investigate / Prepare navigation; presentation settings isolated from research; and verified offline demo preparation. A separate **Terrain pilot** compares real Copernicus/MOLA/LOLA terrain under common 8/12 km aggregation supports and 40 processing scenarios. Original SRTM discovery scores remain unchanged. See [docs/RELEASE_3.md](docs/RELEASE_3.md) and [docs/TERRAIN_PILOT.md](docs/TERRAIN_PILOT.md). Keep historical frontend/public/releases folders intact. Scientific model changes require a new model version or an explicit compatibility implementation.
 
 Landing with a live rotating globe of the real candidates and headline counts; Mars/Jezero and Moon/Mare Crisium Explorer; interactive MapLibre Earth atlas fitted to the four study regions, with ranked persistent markers, hover tooltips, study-region boxes and the selected candidate's POWER cell, 24 km SRTM lattice and 49 sample positions. Basemaps: Esri Dark Gray, Esri World Imagery, dated NASA GIBS daily imagery (MODIS Terra/Aqua, VIIRS SNPP) and NASA Blue Marble relief, plus optional 3D terrain (AWS Terrain Tiles, visualisation only), hillshade and a globe view. Results are grouped so characterized candidates always rank before screened ones, sortable by U, C, F or P, searchable, keyboard-navigable (↑/↓) and comparable side by side (up to three). Separate F/U/C and gated P; adjustable normalized mission weights; Analog DNA with real values/units and a side-by-side 3D terrain viewer (Earth vs MOLA/LOLA at the same scale); geological citations; Reality Gap; field hypothesis; printable Analog Passport with a QR/URL link; Methodology and source register. Mobile mission drawer, reduced-motion support, lazy map/charts/viewer and runtime Zod data validation are implemented.
 
@@ -28,7 +28,7 @@ No application authentication, database, backend, paid API, LLM or judge-time NA
 
 ## Run locally
 
-Node22.12+ (24 recommended) and Python3.12 recommended. This workstation has Python 3.12 via `py -3.12`; its Windows Store `python` alias is not a usable interpreter. Use a supported Node runtime; this release is validated with Node24.22.1.
+Node 22.12+ (24 recommended) and Python 3.12 recommended. This workstation has Python 3.12 via `py -3.12`; its Windows Store `python` alias is not a usable interpreter. Use a supported Node runtime; this release is validated with Node 24.22.1.
 
 ```powershell
 Set-Location D:\TerrainX
@@ -67,9 +67,9 @@ npm test
 npm --prefix frontend audit
 ```
 
-Current scientific validation: **67 Python tests and61 TypeScript unit tests**, plus independent reproduction of saved metrics/scores. Strict TypeScript and static production build pass. Playwright uses installed Chrome and runs **24 production-preview workflows**, including custom-model export/shared-link round trips, real NASA imagery, live AWS context, map fallback and mobile science layouts. `TERRAINX_OFFLINE=1` skips live-provider checks. On another machine install Chrome or adjust the channel in `frontend/playwright.config.ts`. Dependency audit reports zero known vulnerabilities. See `docs/REVIEW.md` for the teammate review and repairs.
+Current scientific validation: **67 Python tests and 61 TypeScript unit tests**, plus independent reproduction of saved metrics/scores. Strict TypeScript and static production build pass. Playwright uses installed Chrome and runs **24 production-preview workflows**, including custom-model export/shared-link round trips, real NASA imagery, live AWS context, map fallback and mobile science layouts. `TERRAINX_OFFLINE=1` skips live-provider checks. On another machine install Chrome or adjust the channel in `frontend/playwright.config.ts`. Dependency audit reports zero known vulnerabilities. See `docs/REVIEW.md` for the teammate review and repairs.
 
-New dependencies in this release: `qrcode-generator` (MIT, Passport QR) and dev-only `vitest` 5. Release3 adds rasterio1.5.2 and its locked Python dependencies for the offline scientific preprocessing; no frontend package dependencies, backend, API key or paid service were added.
+New dependencies in this release: `qrcode-generator` (MIT, Passport QR) and dev-only `vitest` 5. Release 3 adds rasterio 1.5.2 and its locked Python dependencies for the offline scientific preprocessing; no frontend package dependencies, backend, API key or paid service were added.
 
 ## Static deployment
 
@@ -83,7 +83,7 @@ For a step-by-step public deployment and presentation guide, read **[LIVE_DEMO.m
 
 ## Actual findings and limits
 
-130 real cells;16 automatic candidates;10 preliminary characterized candidates;4 benchmarks;20 real climate profiles;20 SRTM grids;2 planetary DEM profiles;19 mapped geologies; no acquisition errors. No automatic candidate has established direct lunar-basalt relevance in the selected evidence. No field experiment or NASA certification is claimed.
+130 real cells; 16 automatic candidates; 10 preliminary characterized candidates; 4 benchmarks; 20 real climate profiles; 20 SRTM grids; 2 planetary DEM profiles; 19 mapped geologies; no acquisition errors. No automatic candidate has established direct lunar-basalt relevance in the selected evidence. No field experiment or NASA certification is claimed.
 
 POWER cells are not outcrop measurements. SRTM≈90 m native support is sampled at 4 km, not used as a 90 m hazard map. Common spacing does not eliminate unequal Earth/MOLA/LOLA support. Mapped lithology is not verified mineralogy. Scores are declared assumptions, not probabilities. Read [SCIENCE.md](SCIENCE.md), [DATA_SOURCES.md](DATA_SOURCES.md) and the in-app methods.
 

@@ -137,6 +137,11 @@ export const metricUnits = {
   relief_m: "m",
   detrended_rms_m: "m",
 } as const;
+/** Unit suffix with SI spacing: angles attach ("1.27°"), metres take a space ("719.20 m"). */
+export function unitSuffix(key: keyof typeof metricUnits): string {
+  const unit = metricUnits[key];
+  return unit === "°" ? unit : ` ${unit}`;
+}
 export function statusName(status: string) {
   return status.toLowerCase().replaceAll("_", " ");
 }
