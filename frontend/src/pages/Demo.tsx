@@ -8,6 +8,15 @@ import { useData, number } from "../lib/data";
 import { fetchScienceJson } from "../lib/release";
 import { beyondKnown } from "../lib/story";
 import { frontier, measurementsFor } from "../lib/frontier";
+import { useModel } from "../lib/scoring";
+import { LENSES, agreement, lensRanking } from "../lib/lenses";
+import {
+  naismithHours,
+  reliefTransect,
+  terrainGrid,
+  traverseProfile,
+  traverseTotals,
+} from "../lib/fieldStudy";
 import {
   GRAVITY,
   MARS_SCENARIO,
@@ -85,6 +94,30 @@ function WorldMap({ cells }: { cells: [number, number][] }) {
   );
 }
 
+/** Elevation trend of a relief transect, drawn from the interpolated real SRTM grid. */
+function ProfileSpark({ points }: { points: { d: number; z: number | null }[] }) {
+  const valid = points.filter((p): p is { d: number; z: number } => p.z != null);
+  if (valid.length < 2) return null;
+  const W = 640,
+    H = 150,
+    maxD = valid[valid.length - 1].d,
+    zs = valid.map((p) => p.z),
+    lo = Math.min(...zs),
+    hi = Math.max(...zs),
+    x = (d: number) => 10 + (d / maxD) * (W - 20),
+    y = (z: number) => H - 18 - ((z - lo) / Math.max(1, hi - lo)) * (H - 40);
+  const line = valid.map((p, i) => `${i ? "L" : "M"}${x(p.d).toFixed(1)},${y(p.z).toFixed(1)}`).join("");
+  return (
+    <svg className="demo-profile" viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Elevation trend from ${Math.round(lo)} to ${Math.round(hi)} metres along ${(maxD / 1000).toFixed(1)} km`}>
+      <path d={`${line}L${x(maxD)},${H - 18}L10,${H - 18}Z`} className="area" />
+      <path d={line} className="line" />
+      <text x="10" y={H - 3}>0 km</text>
+      <text x={W - 10} y={H - 3} textAnchor="end">{(maxD / 1000).toFixed(1)} km</text>
+      <text x="10" y="12">{Math.round(hi)} m</text>
+    </svg>
+  );
+}
+
 export default function Demo() {
   const dialogRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -95,6 +128,7 @@ export default function Demo() {
     };
   }, []);
   const data = useData(),
+    model = useModel(),
     navigate = useNavigate();
   const [i, setI] = useState(0);
   const [cells, setCells] = useState<[number, number][]>([]);
@@ -137,6 +171,24 @@ export default function Demo() {
     () => frontier(data.candidates, "jezero")[0],
     [data],
   );
+  const lensSummary = useMemo(() => {
+    const ranks = (m: "jezero" | "mare-crisium") =>
+      LENSES.map((l) => lensRanking(data.candidates, m, l, model.scenarios[m]));
+    const mars = ranks("jezero"),
+      moon = ranks("mare-crisium");
+    return {
+      rows: agreement(mars).slice(0, 5),
+      moonBaseline: moon[0].filter((r) => r.rank != null).length,
+      moonTerrain: moon[2].filter((r) => r.rank != null).length,
+    };
+  }, [data, model.scenarios]);
+  const field = useMemo(() => {
+    const g = best ? terrainGrid(best) : null;
+    if (!g) return null;
+    const stations = reliefTransect(g),
+      profile = traverseProfile(g, stations, 200);
+    return { stations, profile, totals: traverseTotals(profile) };
+  }, [best]);
   const atm = best ? earthAtmosphere(best) : null;
   const rhoE = atm && "density" in atm ? atm.density! : null;
   const qE = rhoE != null ? dynamicPressure(rhoE, 10) : null,
@@ -250,7 +302,44 @@ export default function Demo() {
       ),
     },
     {
-      kicker: "Scene 5 · The reality gap",
+      kicker: "Scene 5 · Six questions",
+      title: "Ask the shortlist a different question and the order changes.",
+      body: (
+        <>
+          <div className="demo-lens-grid" role="table" aria-label="Mars ranks across six lenses">
+            <div role="row" className="head">
+              <span role="columnheader">Candidate</span>
+              {LENSES.map((l) => (
+                <span role="columnheader" key={l.id}>
+                  {l.short}
+                </span>
+              ))}
+            </div>
+            {lensSummary.rows.map((a) => (
+              <div role="row" key={a.id}>
+                <span role="cell">{data.candidates.find((c) => c.id === a.id)?.name}</span>
+                {a.ranks.map((r, k) => (
+                  <b role="cell" key={k} className={r == null ? "none" : r <= 3 ? "top" : ""}>
+                    {r ?? "—"}
+                  </b>
+                ))}
+              </div>
+            ))}
+          </div>
+          <p>
+            The five Mars candidates that stay highest across six declared lenses (green: top 3). On the Moon, the release baseline ranks{" "}
+            <strong>{lensSummary.moonBaseline}</strong> candidates — no lunar basalt is mapped at
+            any of them — while the terrain-twin lens still ranks{" "}
+            <strong>{lensSummary.moonTerrain}</strong>.
+          </p>
+          <Link className="button outline" to="/lenses">
+            Open Discovery lenses
+          </Link>
+        </>
+      ),
+    },
+    {
+      kicker: "Scene 6 · The reality gap",
       title: "Earth cannot reproduce every planetary physical condition.",
       body: (
         <div className="demo-physics">
@@ -288,7 +377,7 @@ export default function Demo() {
       ),
     },
     {
-      kicker: "Scene 6 · The next experiment",
+      kicker: "Scene 7 · The next experiment",
       title:
         "Turn a possible analog into a testable mission research question.",
       body: best ? (
@@ -321,6 +410,43 @@ export default function Demo() {
       ) : (
         <p>No characterized candidate for this mission.</p>
       ),
+    },
+    {
+      kicker: "Scene 8 · Take it outside",
+      title: "From a score to stations, a traverse and a field book.",
+      body:
+        best && field ? (
+          <>
+            <ProfileSpark points={field.profile} />
+            <div className="demo-funnel demo-field-stats">
+              <div>
+                <b className="mono">{field.stations.length}</b>
+                <span>proposed stations</span>
+              </div>
+              <div>
+                <b className="mono">{(field.totals.distanceM / 1000).toFixed(1)} km</b>
+                <span>straight-line traverse</span>
+              </div>
+              <div>
+                <b className="mono">+{Math.round(field.totals.ascentM)} m</b>
+                <span>ascent (4 km trend)</span>
+              </div>
+              <div>
+                <b className="mono">{naismithHours(field.totals.distanceM, field.totals.ascentM).toFixed(1)} h</b>
+                <span>Naismith estimate</span>
+              </div>
+            </div>
+            <p className="demo-sub">
+              A lowest-to-highest relief transect across {best.name}, built from the real SRTM samples.
+              Proposals only — access, exposure and safety are verified on the ground.
+            </p>
+            <Link className="button primary" to={`/field-study?id=${best.id}&mission=jezero`}>
+              Plan this field study
+            </Link>
+          </>
+        ) : (
+          <p>No candidate with a terrain grid for this mission.</p>
+        ),
     },
     {
       kicker: "Final",

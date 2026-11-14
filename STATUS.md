@@ -28,10 +28,14 @@ Work continued from the laptop after Release 3 (`efa7194`). Each milestone below
 
 - **L5 field-study share links** — "Copy share link" encodes title, hypothesis and stations (base64url JSON, Zod-validated on open) into `#/field-study?share=…`; it opens only on the identical science release and refuses damaged or mismatched links with a stated reason. The printed field book carries a compact QR (stations rounded to 1e-5° ≈ 1 m, no free text) sized to scan from paper — decoding verified with OpenCV on a 3× print render. Tests: 84 unit, 29/29 browser workflows (+1 live-imagery skip offline).
 
+- **L6 guided demo chapters** — the demo now has nine scenes. New Scene 5 "Six questions" shows the five Mars candidates most consistent across the six Discovery Lenses (live from `lenses.ts`, presentation model), and states that the Moon baseline ranks 0 candidates because no lunar basalt is mapped while the terrain lens ranks 16. New Scene 8 "Take it outside" builds a relief transect for the lead candidate from its real SRTM grid (stations, traverse length, ascent, Naismith estimate) with an elevation-trend sparkline and a link into the Field Study Builder. Demo browser test updated to nine scenes.
+
+### In progress (laptop)
+- **L7 data acquisition for the 130-cell search** — the laptop's built-in browser is fetching the 114 missing OpenTopoData SRTM grids and 114 Macrostrat lookups (URLs proven byte-identical to the pipeline's cache keys by a SHA-256 over the URL list, `ab65b23b…22bc`); raw bodies + body SHA-256 are saved to Downloads and imported into `data/cached/` in the exact CachedHTTP format. LOLA `ldem_16.img` (33,177,600 bytes, pinned SHA-256 `a511e40d…54cb`) follows for the lunar polar module.
+
 ### Planned next (laptop)
-1. Optional lunar-polar / Diviner module — only with genuine, checksum-pinned source data (the sandbox cannot reach PDS directly; the laptop browser can be used to fetch and verify files).
-2. Guided-demo chapter for Lenses and the Field Study Builder (keep presentation isolation tests green).
-3. PC-side: publish the current build to the existing public Site (never create a new Site) and record the deployed commit in DEPLOYMENT.md.
+1. L8 mission-aware 130-cell search (separate versioned experiment; released discovery unchanged).
+2. L9 lunar south-polar module from checksum-verified LOLA LDEM_16.
 
 Cloud-session limits: the sandbox shell cannot reach map tiles, NASA, POWER, OpenTopoData or Macrostrat, so new external observations are only added when they can be fetched and checksum-verified. Publishing to the public Site remains a PC-side step.
 

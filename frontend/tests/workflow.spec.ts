@@ -454,19 +454,25 @@ test("Expedition Packet exports JSON, CSV and GeoJSON that match the displayed s
   ).toBeVisible();
 });
 
-test("guided demo navigates seven scenes with real values and keyboard controls", async ({
+test("guided demo navigates nine scenes with real values and keyboard controls", async ({
   page,
 }) => {
   await page.goto("/#/");
   await page.getByRole("link", { name: /Guided demo/ }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
-  await expect(page.locator(".demo-count")).toHaveText("1 / 7");
+  await expect(page.locator(".demo-count")).toHaveText("1 / 9");
   await page.keyboard.press("ArrowRight");
   await page.keyboard.press("ArrowRight");
   await expect(page.locator(".demo-funnel")).toContainText("130");
   await page.getByRole("button", { name: /Next/ }).click();
   await page.getByRole("button", { name: /Next/ }).click();
+  await expect(page.locator(".demo-lens-grid")).toContainText("Terrain");
+  await page.getByRole("button", { name: /Next/ }).click();
   await expect(page.locator(".demo-physics")).toContainText("0.62 m/s");
+  await page.getByRole("button", { name: /Next/ }).click();
+  await page.getByRole("button", { name: /Next/ }).click();
+  await expect(page.locator(".demo-profile")).toBeVisible();
+  await expect(page.locator(".demo-field-stats")).toContainText("proposed stations");
   await page.keyboard.press("End");
   await expect(page.getByText("Earth is the training ground.")).toBeVisible();
   await page.keyboard.press("Escape");
