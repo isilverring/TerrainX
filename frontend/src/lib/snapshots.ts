@@ -6,6 +6,7 @@ const scenario = z.custom<Scenario>(validScenario, "Unsupported mission model");
 export const snapshotSchema = z.object({
   snapshot_version: z.literal("1.0"),
   collection: z.enum(["original", "expanded"]).optional(),
+  target_reference: z.string().regex(/^lunar-polar:[a-z0-9-]+$/).optional(),
   title: z.string().min(1).max(120),
   created_at: z.string().datetime(),
   science: z.object({
@@ -34,6 +35,7 @@ export function makeSnapshot(
   return snapshotSchema.parse({
     snapshot_version: "1.0",
     collection: data.collection ?? "original",
+    target_reference: data.target_reference,
     title,
     created_at: new Date().toISOString(),
     science: data.release,
@@ -53,12 +55,14 @@ export function snapshotLink(snapshot: ResearchSnapshot) {
     datahash: snapshot.science.dataset_sha256,
     model: JSON.stringify(snapshot.scenarios[snapshot.mission]),
   });
+  if(snapshot.target_reference)params.set("polar",snapshot.target_reference.replace("lunar-polar:",""));
   return `#/${snapshot.candidate_id ? `site/${snapshot.candidate_id}` : "explorer"}?${params}`;
 }
 export function checkSnapshotRelease(
   snapshot: ResearchSnapshot,
   data: Dataset,
 ) {
+  if(snapshot.target_reference!==data.target_reference)throw Error("Saved planetary reference differs from the active target. Reopen its pinned link; no target substituted.");
   if (
     snapshot.science.release_id !== data.release?.release_id ||
     snapshot.science.dataset_sha256 !== data.release?.dataset_sha256

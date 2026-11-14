@@ -1,4 +1,23 @@
 import {test,expect} from "@playwright/test";
+test("polar reference survives dossier, export and field-study replay with utility unassessed",async({page,browser,context})=>{
+ await context.grantPermissions(["clipboard-read","clipboard-write"]);
+ await page.goto("/#/lunar-pole?site=haworth");
+ await page.getByRole("link",{name:"Compare Earth with Haworth",exact:true}).first().click();
+ await expect(page.locator("main.detail-page .document-label").first()).toContainText("Haworth");
+ await expect(page.locator(".score-strip").first()).toContainText("0%");
+ await page.getByRole("link",{name:"Prepare Analog Passport"}).click();
+ const replay=await page.locator(".passport-link a").getAttribute("href");
+ const other=await browser.newPage();await other.goto(replay!);await expect(other.locator("main.passport-page")).toContainText("Haworth");await other.close();
+ await page.getByRole("link",{name:"Discovery atlas",exact:true}).click();
+ await expect(page.locator("#target option:checked")).toHaveText("Haworth · Moon");
+ await page.getByRole("link",{name:"Field study",exact:true}).click();
+ await expect(page.getByLabel("Planetary mission")).toContainText("Haworth");
+ await page.getByRole("button",{name:"Suggest relief transect"}).click();
+ const file=page.waitForEvent("download");await page.getByRole("button",{name:"Export JSON",exact:true}).click();
+ const {readFileSync}=await import("node:fs");const study=JSON.parse(readFileSync((await(await file).path())!,"utf8"));expect(study.target_reference).toBe("lunar-polar:haworth");expect(study.snapshot.target_reference).toBe("lunar-polar:haworth");
+ await page.getByRole("button",{name:"Copy share link"}).click();const fieldLink=await page.evaluate(()=>navigator.clipboard.readText());
+ const fieldReplay=await browser.newPage();await fieldReplay.goto(fieldLink);await expect(fieldReplay.getByLabel("Planetary mission")).toContainText("Haworth");await expect(fieldReplay.locator(".field-stations li")).toHaveCount(5);await fieldReplay.close();
+});
 test("expanded lead opens DNA, map and a source-pinned Passport without replacing the baseline",async({page,browser})=>{
  await page.goto("/#/cells?mission=mare-crisium&cell=chile--23.000--70.000");
  await page.getByRole("link",{name:"Open Analog DNA",exact:true}).click();

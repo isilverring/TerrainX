@@ -83,6 +83,7 @@ function PassportBody({
     model: JSON.stringify(model.scenarios[mission]),
   });
   if (data.release) sharedParams.set("science", data.release.release_id);
+  if(data.target_reference)sharedParams.set("polar",data.target_reference.replace("lunar-polar:",""));
   if (data.release) sharedParams.set("datahash", data.release.dataset_sha256);
   if (params.get("presentation") === "1") sharedParams.set("presentation", "1");
   const sharedUrl = `${window.location.origin}${window.location.pathname}#/${packet ? "expedition" : "passport"}/${c.id}?${sharedParams}`;

@@ -6,7 +6,20 @@ import {expandedCollection,fieldSitesSchema,studyPath} from "../collections";
 import {makeSnapshot,snapshotLink} from "../snapshots";
 import {defaultScenario} from "../counterfactual";
 import {releaseSchema} from "../release";
+import {lunarPolarSchema} from "../lunarPolar";
+import {polarReference} from "../polarReference";
+import {applyScenarios} from "../scoring";
+import {buildPacket} from "../packet";
 describe("explicit scientific collections",()=>{
+ it("keeps real polar target identity and never imports Mare Crisium utility",()=>{
+  const data=realDataset(),polar=lunarPolarSchema.parse(JSON.parse(readFileSync(resolve(__dirname,"../../../public/data/lunar_polar.json"),"utf8")));
+  const scenario={jezero:defaultScenario("jezero"),"mare-crisium":defaultScenario("mare-crisium")};
+  const referenced=applyScenarios(polarReference(data,polar,"haworth"),scenario);
+  const c=referenced.candidates[0],assessment=c.assessments["mare-crisium"];
+  expect(referenced.target_reference).toBe("lunar-polar:haworth");expect(assessment.utility.value).toBeNull();expect(assessment.utility.coverage).toBe(0);expect(assessment.priority).toBeNull();
+  const packet=buildPacket(referenced,c,"mare-crisium");expect(packet.target.id).toBe("lunar-polar:haworth");expect(packet.target.name).toBe("Haworth");
+  expect(()=>polarReference(data,polar,"missing")).toThrow(/unavailable/);
+ });
  it("retains original objects and numeric results while exposing all130 cells",()=>{
   const base=realDataset(), before=JSON.stringify(base);
   const extra=fieldSitesSchema.parse(JSON.parse(readFileSync(resolve(__dirname,"../../../public/data/field_candidates.json"),"utf8")));

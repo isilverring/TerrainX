@@ -92,6 +92,7 @@ function PinRelease({ presentation }: { presentation: boolean }) {
       p.set("mission", data.active_mission);
       changed = true;
     }
+    if(data.target_reference&&!p.has("polar")){p.set("polar",data.target_reference.replace("lunar-polar:",""));changed=true;}
     if (presentation && !p.has("presentation")) {
       p.set("presentation", "1");
       changed = true;
@@ -103,6 +104,7 @@ function PinRelease({ presentation }: { presentation: boolean }) {
     data?.release?.release_id,
     data?.collection,
     data?.active_mission,
+    data?.target_reference,
     location.pathname,
     location.search,
     navigate,

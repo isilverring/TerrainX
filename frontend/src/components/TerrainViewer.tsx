@@ -690,7 +690,7 @@ export default function TerrainViewer({
     setEarthCtx(null);
     Promise.all([
       earthContext(candidate.id, candidate.latitude, candidate.longitude),
-      loadPlanetContext(),
+      target.reference_id ? Promise.resolve([]) : loadPlanetContext(),
     ])
       .then(([earth, planets]) => {
         if (!live) return;
@@ -707,7 +707,7 @@ export default function TerrainViewer({
     return () => {
       live = false;
     };
-  }, [mode, candidate, target.id]);
+  }, [mode, candidate, target.id, target.reference_id]);
 
   const analysisEarth: Patch | null = useMemo(() => {
     const g = surfaceFromTerrain(candidate.terrain);
@@ -822,6 +822,8 @@ export default function TerrainViewer({
           </button>
           <button
             className={mode === "context" ? "active" : ""}
+            disabled={!!target.reference_id}
+            title={target.reference_id ? "No96 km context window exists for this polar reference; the measured24 km lattice remains available." : undefined}
             aria-pressed={mode === "context"}
             onClick={() => setMode("context")}
           >

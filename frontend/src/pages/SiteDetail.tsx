@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { useData, coordinates, statusName } from "../lib/data";
 import type { Mission } from "../lib/models";
 import { scienceAssetUrl } from "../lib/release";
+import { studyPath } from "../lib/collections";
 import {
   BackLink,
   EvidenceTag,
@@ -130,7 +131,7 @@ export default function SiteDetail() {
         </div>
         <Link
           className="button outline"
-          to={`/research?mission=${mission}&id=${c.id}`}
+          to={studyPath(`/research?mission=${mission}&id=${c.id}`,params.toString())}
         >
           Save research snapshot
         </Link>
@@ -145,14 +146,14 @@ export default function SiteDetail() {
       </section>
       <Link
         className="button primary"
-        to={`/passport/${c.id}?mission=${mission}`}
+        to={studyPath(`/passport/${c.id}?mission=${mission}`,params.toString())}
       >
         Prepare Analog Passport
         <ArrowRight size={18} />
       </Link>{" "}
       <Link
         className="button outline"
-        to={`/field-study?id=${c.id}&mission=${mission}`}
+        to={studyPath(`/field-study?id=${c.id}&mission=${mission}`,params.toString())}
       >
         Plan a field study
         <ArrowRight size={18} />

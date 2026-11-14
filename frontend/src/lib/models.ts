@@ -144,6 +144,7 @@ export const candidateSchema = z.object({
 });
 export const targetSchema = z
   .object({
+    reference_id: z.string().optional(),
     id: z.enum(["jezero", "mare-crisium"]),
     body: z.string(),
     name: z.string(),
@@ -160,6 +161,7 @@ export const targetSchema = z
 export const datasetSchema = z.object({
   collection: z.enum(["original", "expanded"]).optional(),
   active_mission: z.enum(["jezero", "mare-crisium"]).optional(),
+  target_reference: z.string().optional(),
   release: z
     .object({
       release_id: z.string(),

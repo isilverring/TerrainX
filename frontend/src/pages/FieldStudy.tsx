@@ -68,6 +68,7 @@ const MISSION_LABEL: Record<Mission, string> = {
   jezero: "Mars · Jezero Crater",
   "mare-crisium": "Moon · Mare Crisium",
 };
+const referenceLabel=(study:Study)=>study.snapshot.target_reference?study.snapshot.target_reference.replace("lunar-polar:","Moon · polar "):MISSION_LABEL[study.mission];
 /** Longest URL we render as a QR code (byte-mode capacity at error level M is ~2.3 kB). */
 const QR_MAX = 1100;
 const slug = (s: string) =>
@@ -199,6 +200,7 @@ function FieldStudyEditor() {
         "mare-crisium": defaultScenario("mare-crisium"),
       };
       base.snapshot.collection = s.o ?? data.collection ?? "original";
+      if(s.p)base.snapshot.target_reference=s.p;
       return {
         ...base,
         hypothesis: s.h || base.hypothesis,
@@ -220,7 +222,7 @@ function FieldStudyEditor() {
     [newItem, setNewItem] = useState({ measurements: "", equipment: "" }),
     [mapImage, setMapImage] = useState<string | null>(null);
   const base = `${window.location.origin}${window.location.pathname}#/field-study?share=`;
-  const contextQuery=`&cohort=${study.snapshot.collection??"original"}&mission=${study.mission}`;
+  const contextQuery=`&cohort=${study.snapshot.collection??"original"}&mission=${study.mission}${study.snapshot.target_reference?"&polar="+study.snapshot.target_reference.replace("lunar-polar:",""):""}`;
   const shareUrl = base + encodeShare(study) + contextQuery,
     qrUrl = base + encodeShare(study, true) + contextQuery;
 
@@ -426,7 +428,7 @@ function FieldStudyEditor() {
           >
             <option value="jezero">{MISSION_LABEL.jezero}</option>
             <option value="mare-crisium">
-              {MISSION_LABEL["mare-crisium"]}
+              {data.target_reference ? `Moon · ${data.targets.find(t=>t.id==="mare-crisium")!.name} (utility unassessed)` : MISSION_LABEL["mare-crisium"]}
             </option>
           </select>
         </label>
@@ -1118,7 +1120,7 @@ function FieldStudyEditor() {
                 <p>
                   {data.candidates.find((c) => c.id === s.candidate_id)?.name ??
                     s.candidate_id}{" "}
-                  · {MISSION_LABEL[s.mission]} · {s.stations.length} stations
+                  · {referenceLabel(s)} · {s.stations.length} stations
                 </p>
                 <p className="mono">
                   {s.snapshot.science.release_id} · {s.updated_at.slice(0, 10)}
@@ -1202,7 +1204,7 @@ function FieldBook({
         <p>TerrainX field book · proposal, not a verified plan</p>
         <h1>{study.title}</h1>
         <p>
-          {candidateName} · {MISSION_LABEL[study.mission]} ·{" "}
+          {candidateName} · {referenceLabel(study)} ·{" "}
           {study.snapshot.science.release_id} · dataset SHA-256{" "}
           {study.snapshot.science.dataset_sha256.slice(0, 16)}… · printed{" "}
           {new Date().toISOString().slice(0, 10)}

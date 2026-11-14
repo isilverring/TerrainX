@@ -228,7 +228,7 @@ export default function Explorer() {
       );
   }, [selected, mission]);
   function chooseMission(next: Mission) {
-    const p=new URLSearchParams(params);p.set("mission",next);setParams(p);
+    const p=new URLSearchParams(params);p.set("mission",next);if(next==="jezero")p.set("polar","none");setParams(p);
   }
   function select(id: string, focusRow = false) {
     setSelectedId(id);
@@ -292,7 +292,7 @@ export default function Explorer() {
         aria-expanded={drawer}
       >
         <SlidersHorizontal size={17} />
-        {mission === "jezero" ? "Mars · Jezero" : "Moon · Mare Crisium"}
+        {target.body} · {target.name}
         <span className="mobile-mission-hint">Mission & filters</span>
         <ChevronDown size={16} />
       </button>
@@ -328,7 +328,7 @@ export default function Explorer() {
             onChange={(e) => chooseMission(e.target.value as Mission)}
           >
             <option value="jezero">Jezero Crater · Mars</option>
-            <option value="mare-crisium">Mare Crisium · Moon</option>
+            <option value="mare-crisium">{data.targets.find(t=>t.id==="mare-crisium")?.name} · Moon</option>
           </select>
           <h3>Mission objective</h3>
           <p>{target.mission}</p>

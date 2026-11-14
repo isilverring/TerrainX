@@ -90,7 +90,8 @@ export function buildPacket(
       note: "Scores reflect active weights, alpha, tolerances and evidence threshold. The offline pipeline reproduces default scores; apply this exported model to reproduce a custom scenario.",
     },
     target: {
-      id: target.id,
+      id: target.reference_id ?? target.id,
+      context: target.context,
       body: target.body,
       name: target.name,
       latitude: target.latitude,
