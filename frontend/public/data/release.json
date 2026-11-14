@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "release_id": "science-3def8b061f0c56a5",
+  "release_id": "science-6e7e5551a1e40a96",
   "model_version": "terrainx-model-v1",
   "dataset_sha256": "3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c",
   "source_data_commit": "4f05e818ea55144598fee354ea1bdd485a6ff932",
@@ -40,6 +40,10 @@
     "terrain_support.json": {
       "sha256": "4193498788622512c88c89fb2634c60da5e7d553959092460949c4099b19bb58",
       "bytes": 5068221
+    },
+    "site_evidence.json": {
+      "sha256": "3e64b4f44cd4a8025a1c59e65a136fa905c72387a5dfebc05838e01cacac39c6",
+      "bytes": 10736
     },
     "cell_search.json": {
       "sha256": "d5de3525dd8f4de4c5bbbfb27c0b4cbd4ffeb207ac04ed4091956840041d2870",

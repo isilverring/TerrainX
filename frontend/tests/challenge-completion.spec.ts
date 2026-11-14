@@ -1,4 +1,14 @@
 import {test,expect} from "@playwright/test";
+test("independent cases expose local volcanic contradiction and regional Mars evidence gap",async({page})=>{
+ await page.goto("/#/cases");await expect(page.locator(".site-evidence")).toHaveCount(2);
+ const moon=page.locator("#evidence-chile--23\\.000--70\\.000");
+ await expect(moon).toContainText("Basaltic-andesite lava");await expect(moon).toContainText("9.9 km");
+ const mars=page.locator(".site-evidence").filter({hasText:"geographic evidence gap"});await expect(mars).toContainText("55.7 km");await expect(mars).toContainText("outside the analysis window; measurements not transferred");
+ await moon.getByRole("link",{name:"Use literature-informed field proposal"}).click();
+ await expect(page.locator(".field-page")).toBeVisible();
+ const file=page.waitForEvent("download");await page.getByRole("button",{name:"Export JSON",exact:true}).click();const {readFileSync}=await import("node:fs");const study=JSON.parse(readFileSync((await(await file).path())!,"utf8"));
+ expect(study.hypothesis).toContain("material classes and alteration");expect(study.snapshot.proposal_protocol).toBe("site-evidence");
+});
 test("expanded common-support grids and processing-order sensitivity remain separate from discovery",async({page})=>{
  await page.goto("/#/terrain-pilot?study=expanded&id=chile--23.000--70.000&mission=mare-crisium");
  await expect(page.locator(".pilot-page")).toContainText("18-site experiment");

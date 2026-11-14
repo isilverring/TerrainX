@@ -32,6 +32,7 @@ import { makeSnapshot, checkSnapshotRelease } from "../lib/snapshots";
 import { useScienceFile } from "../lib/scienceFile";
 import { currentRelease } from "../lib/release";
 import { fieldSitesSchema } from "../lib/collections";
+import {siteEvidenceSchema} from "../lib/siteEvidence";
 import type { Mission } from "../lib/models";
 import { download } from "../lib/packet";
 import {
@@ -86,6 +87,8 @@ export default function FieldStudy() {
     fieldSitesSchema,
     "Historical release has no expanded field-site file.",
   );
+  const sourceProtocol=params.get("protocol")==="source";
+  const evidence=useScienceFile("site_evidence.json",siteEvidenceSchema,"Requested literature-informed protocol is absent from this pinned release.",sourceProtocol);
   const merged = useMemo(
     () => ({
       ...base,
@@ -100,6 +103,15 @@ export default function FieldStudy() {
     }),
     [base, extra],
   );
+  const proposal=useMemo(()=>{
+    if(!sourceProtocol||!evidence.value)return merged;
+    return {...merged,proposal_protocol:"site-evidence" as const,candidates:merged.candidates.map(c=>{
+      const item=evidence.value!.cases.find(s=>s.candidate_id===c.id);if(!item)return c;
+      const previous=c.assessments[item.mission], p=item.experiment;
+      return {...c,assessments:{...c.assessments,[item.mission]:{...previous,experiment:{...previous.experiment,hypothesis:p.hypothesis,objective:p.objective,why_useful:item.supported,equipment:p.equipment,measurements:p.procedure,success_indicator:p.success_indicator,next_measurement:item.next_measurement,unvalidated:p.unvalidated,cannot_reproduce:[p.cannot_reproduce],evidence_gate:item.classification,classification:"ASSUMED / PROPOSED, LITERATURE-INFORMED"}}}};
+    })};
+  },[merged,sourceProtocol,evidence.value]);
+  if(sourceProtocol&&!evidence.value)return <main className="document-page"><h1>Validating literature-informed protocol</h1>{evidence.error&&<p role="alert">{evidence.error}</p>}</main>;
   if (currentRelease()?.files["field_candidates.json"] && !extra && !error)
     return (
       <main className="document-page">
@@ -127,7 +139,7 @@ export default function FieldStudy() {
       </main>
     );
   return (
-    <DataContext.Provider value={merged}>
+    <DataContext.Provider value={proposal}>
       <FieldStudyEditor />
     </DataContext.Provider>
   );
@@ -201,6 +213,7 @@ function FieldStudyEditor() {
       };
       base.snapshot.collection = s.o ?? data.collection ?? "original";
       if(s.p)base.snapshot.target_reference=s.p;
+      if(s.e)base.snapshot.proposal_protocol=s.e;
       return {
         ...base,
         hypothesis: s.h || base.hypothesis,
@@ -222,7 +235,7 @@ function FieldStudyEditor() {
     [newItem, setNewItem] = useState({ measurements: "", equipment: "" }),
     [mapImage, setMapImage] = useState<string | null>(null);
   const base = `${window.location.origin}${window.location.pathname}#/field-study?share=`;
-  const contextQuery=`&cohort=${study.snapshot.collection??"original"}&mission=${study.mission}${study.snapshot.target_reference?"&polar="+study.snapshot.target_reference.replace("lunar-polar:",""):""}`;
+  const contextQuery=`&cohort=${study.snapshot.collection??"original"}&mission=${study.mission}${study.snapshot.target_reference?"&polar="+study.snapshot.target_reference.replace("lunar-polar:",""):""}${study.snapshot.proposal_protocol?"&protocol=source":""}`;
   const shareUrl = base + encodeShare(study) + contextQuery,
     qrUrl = base + encodeShare(study, true) + contextQuery;
 

@@ -4,6 +4,7 @@ import { z } from "zod";
 import { useData } from "../lib/data";
 import { fetchScienceJson, currentRelease } from "../lib/release";
 import { BackLink, ScoreStrip, SourceLink } from "../components/ui";
+import SiteEvidence from "../components/SiteEvidence";
 const caseSchema = z.object({
   schema_version: z.literal("1.0"),
   reviewed_at: z.string(),
@@ -61,6 +62,7 @@ export default function Cases() {
         </div>
       </header>
       {error ? <p role="status">{error}</p> : null}
+      <SiteEvidence/>
       {cases?.cases.map((item) => {
         const c = data.candidates.find((c) => c.id === item.candidate_id);
         if (!c) return null;

@@ -17,6 +17,9 @@ import {
 } from "../lib/packet";
 import QrCode from "../components/QrCode";
 import SupportSensitivity from "../components/SupportSensitivity";
+import SiteEvidence from "../components/SiteEvidence";
+import {useScienceFile} from "../lib/scienceFile";
+import {siteEvidenceSchema} from "../lib/siteEvidence";
 import { MeasureNext } from "../components/FrontierParts";
 import { frontier } from "../lib/frontier";
 import { useData, coordinates, statusName } from "../lib/data";
@@ -62,6 +65,7 @@ function PassportBody({
   mission: Mission;
 }) {
   const data = useData();
+  const independent=useScienceFile("site_evidence.json",siteEvidenceSchema,"No scoped case literature in this release.");
   const model = useModel();
   const [params] = useSearchParams();
   const incomingModel = params.get("model");
@@ -76,7 +80,7 @@ function PassportBody({
   const c = data.candidates.find((x) => x.id === candidateId)!,
     target = data.targets.find((t) => t.id === mission)!,
     a = c.assessments[mission];
-  const pkt = useMemo(() => buildPacket(data, c, mission), [data, c, mission]);
+  const pkt = useMemo(() => ({...buildPacket(data,c,mission),independent_site_evidence:independent.value?.cases.find(item=>item.candidate_id===c.id)??null}), [data,c,mission,independent.value]);
   const base = `terrainx-${c.id}-${mission}`;
   const sharedParams = new URLSearchParams({
     cohort: data.collection ?? "original",
@@ -99,6 +103,7 @@ function PassportBody({
             <>
               <button
                 className="button outline"
+                disabled={!!data.release?.files["site_evidence.json"]&&!independent.value&&!independent.error}
                 onClick={() =>
                   download(
                     `${base}.json`,
@@ -206,6 +211,7 @@ function PassportBody({
       </section>
       <ScoreStrip assessment={a} />
       <SupportSensitivity id={c.id} mission={mission}/>
+      <SiteEvidence id={c.id}/>
       <ObservationPanel candidate={c} chart={false} />
       <TerrainPanel candidate={c} target={target} assessment={a} />
       <GeologyPanel candidate={c} />

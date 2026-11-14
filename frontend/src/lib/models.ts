@@ -162,6 +162,7 @@ export const datasetSchema = z.object({
   collection: z.enum(["original", "expanded"]).optional(),
   active_mission: z.enum(["jezero", "mare-crisium"]).optional(),
   target_reference: z.string().optional(),
+  proposal_protocol: z.literal("site-evidence").optional(),
   release: z
     .object({
       release_id: z.string(),

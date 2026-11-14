@@ -1,0 +1,184 @@
+{
+  "schema_version": "1.0",
+  "reviewed_at": "2026-11-14",
+  "method": "Human-readable primary literature review assisted by AI. Reported sample positions remain distinct from screening-cell centres and proposed field stations. No scoring category is silently upgraded.",
+  "cases": [
+    {
+      "candidate_id": "chile--23.000--70.000",
+      "mission": "mare-crisium",
+      "title": "A volcanic lead with a material contradiction",
+      "subsite": "Published VO193 locality, La Negra Formation (Mantos Blancos\u2013Baquedano area)",
+      "classification": "LITERATURE-SUPPORTED / PRELIMINARY RESEARCH CASE",
+      "supported": "Published local volcanic samples support questions about volcanic texture, material heterogeneity and sampling workflows within this regional terrain window.",
+      "contradiction": "The reported rocks include basaltic andesite and andesite. They do not establish a uniformly basaltic cell, pure basalt at the centre, lunar mare composition or regolith equivalence.",
+      "scope": "Reported literature points within the approximate 24 km DEM window; these are previously published localities, not new field discoveries. Exposure, access and positional error require verification.",
+      "next_measurement": "Verify exact exposure, material class and alteration at the intended station using permitted field logging, petrography and laboratory whole-rock analysis.",
+      "sources": [
+        {
+          "id": "oliveros2007",
+          "title": "Oliveros et al. (2007), Jurassic\u2013Early Cretaceous Coastal Cordillera magmatism; Table 1a, p.212",
+          "url": "https://www.andeangeology.cl/index.php/revista1/article/download/V34n2-a03/490",
+          "doi": "https://doi.org/10.5027/andgeoV34n2-a03",
+          "geographic_scope": "Northern Chile Coastal Cordillera, including the reported La Negra Formation localities",
+          "accessed_at": "2026-11-14"
+        }
+      ],
+      "reported_points": [
+        {
+          "id": "VO193",
+          "latitude_dms": [
+            23,
+            4,
+            48,
+            "S"
+          ],
+          "longitude_dms": [
+            69,
+            57,
+            30,
+            "W"
+          ],
+          "material": "Basaltic-andesite lava",
+          "source_id": "oliveros2007",
+          "coordinate_datum": "Not identified in the reviewed table; positional uncertainty unassessed",
+          "latitude": -23.08,
+          "longitude": -69.95833333333334,
+          "derived_scope": {
+            "distance_from_center_km": 9.864553607889698,
+            "east_m": 4264.811235649214,
+            "north_m": -8895.594131564509,
+            "within_approximate_analysis_window": true,
+            "classification": "DERIVED",
+            "method": "Spherical haversine distance; local equirectangular offsets with Earth6371000m, consistent with the SRTM sampling window; source datum uncertainty unassessed."
+          },
+          "source_url": "https://www.andeangeology.cl/index.php/revista1/article/download/V34n2-a03/490",
+          "classification": "LITERATURE-SUPPORTED / REPORTED POSITION"
+        },
+        {
+          "id": "VO191",
+          "latitude_dms": [
+            23,
+            4,
+            53,
+            "S"
+          ],
+          "longitude_dms": [
+            69,
+            56,
+            11,
+            "W"
+          ],
+          "material": "Andesite lava",
+          "source_id": "oliveros2007",
+          "coordinate_datum": "Not identified in the reviewed table; positional uncertainty unassessed",
+          "latitude": -23.08138888888889,
+          "longitude": -69.9363888888889,
+          "derived_scope": {
+            "distance_from_center_km": 11.147640423916561,
+            "east_m": 6510.94515309154,
+            "north_m": -9050.031529682074,
+            "within_approximate_analysis_window": true,
+            "classification": "DERIVED",
+            "method": "Spherical haversine distance; local equirectangular offsets with Earth6371000m, consistent with the SRTM sampling window; source datum uncertainty unassessed."
+          },
+          "source_url": "https://www.andeangeology.cl/index.php/revista1/article/download/V34n2-a03/490",
+          "classification": "LITERATURE-SUPPORTED / REPORTED POSITION"
+        }
+      ],
+      "experiment": {
+        "hypothesis": "A rover-style observation protocol can document and test distinctions between local volcanic material classes and alteration, with disagreements retained.",
+        "objective": "Rehearse geological observation and sampling; do not assume mare-material equivalence.",
+        "equipment": [
+          "GNSS and scaled photography",
+          "Field logging and mineralogical screening",
+          "Permitted representative samples",
+          "Petrography and whole-rock laboratory analysis with duplicates"
+        ],
+        "procedure": [
+          "Confirm access, permits and exposure before selecting stations.",
+          "Log ten accessible outcrops with coordinates, photographs and alteration descriptions.",
+          "Pre-register material classification rules and conduct duplicate laboratory comparisons."
+        ],
+        "success_indicator": "Proposed completion criterion: ten complete georeferenced records and documented duplicate comparisons. Classification agreement is a result to measure, not an existing value.",
+        "unvalidated": "No field survey, access approval, local material confirmation at proposed stations or experiment outcome exists.",
+        "cannot_reproduce": "Lunar vacuum, gravity, radiation, regolith mechanics and space weathering."
+      },
+      "candidate_center": {
+        "latitude": -23.0,
+        "longitude": -70.0
+      }
+    },
+    {
+      "candidate_id": "botswana--21.500-25.625",
+      "mission": "jezero",
+      "title": "A sedimentary research question with a geographic evidence gap",
+      "subsite": null,
+      "classification": "REGIONAL LITERATURE / LOCAL INTERPRETATION UNRESOLVED",
+      "supported": "Regional Makgadikgadi studies motivate investigation of playa sediments, groundwater and depositional processes. The candidate was selected algorithmically within this bounded search.",
+      "contradiction": "The reviewed regional studies do not verify a lacustrine section, carbonate unit, delta or biosignature-preservation site inside this cell. A published Mosu core is outside the DEM window. Regional Martian comparisons concern Meridiani/Arabia Terra, not demonstrated Jezero equivalence.",
+      "scope": "Keep the coordinate-based candidate identity. No named literature subsite within this terrain window was verified; measurements from other parts of the basin are not transferred.",
+      "next_measurement": "Acquire a local stratigraphic log and mineral identification to establish whether water-influenced deposits are actually exposed. Retain an inconclusive or negative result.",
+      "sources": [
+        {
+          "id": "franchi2022",
+          "title": "Franchi et al. (2022), Makgadikgadi palaeoenvironmental evolution; Table 1 coring localities",
+          "url": "https://www.frontiersin.org/journals/ecology-and-evolution/articles/10.3389/fevo.2022.818417/full",
+          "doi": "https://doi.org/10.3389/fevo.2022.818417",
+          "geographic_scope": "Published basin coring localities; not the candidate centre",
+          "accessed_at": "2026-11-14"
+        },
+        {
+          "id": "schmidt2023",
+          "title": "Schmidt et al. (2023), Makgadikgadi groundwater and Martian playa environments",
+          "url": "https://www.frontiersin.org/journals/astronomy-and-space-sciences/articles/10.3389/fspas.2023.1108386/full",
+          "doi": "https://doi.org/10.3389/fspas.2023.1108386",
+          "geographic_scope": "Regional fault/groundwater study and Meridiani/Arabia Terra interpretation; not a Jezero field validation",
+          "accessed_at": "2026-11-14"
+        }
+      ],
+      "reported_points": [
+        {
+          "id": "Southern Sua Pan\u2013Mosu core",
+          "latitude": -21.18837,
+          "longitude": 26.04583,
+          "material": "Published sediment core locality; observations not transferred to the candidate",
+          "source_id": "franchi2022",
+          "coordinate_datum": "Published decimal geographic coordinates; positional uncertainty unassessed",
+          "derived_scope": {
+            "distance_from_center_km": 55.680758985415544,
+            "east_m": 43538.10945461233,
+            "north_m": 34651.67499024395,
+            "within_approximate_analysis_window": false,
+            "classification": "DERIVED",
+            "method": "Spherical haversine distance; local equirectangular offsets with Earth6371000m, consistent with the SRTM sampling window; source datum uncertainty unassessed."
+          },
+          "source_url": "https://www.frontiersin.org/journals/ecology-and-evolution/articles/10.3389/fevo.2022.818417/full",
+          "classification": "LITERATURE-SUPPORTED / REPORTED POSITION"
+        }
+      ],
+      "experiment": {
+        "hypothesis": "Accessible exposures within the candidate window may allow a rover-style test distinguishing aeolian and water-influenced depositional facies; this remains unestablished.",
+        "objective": "Determine whether a local geological fieldwork hypothesis is supportable.",
+        "equipment": [
+          "GNSS, scaled photography and field logs",
+          "Grain-size and sedimentary-structure observations",
+          "Permitted samples for XRD/mineralogical analysis"
+        ],
+        "procedure": [
+          "Confirm permits, access and whether suitable exposures exist.",
+          "Record three georeferenced sections, grain size and sedimentary structures if available.",
+          "Compare independent facies classifications and preserve disagreements or insufficient exposure."
+        ],
+        "success_indicator": "Proposed protocol-completion indicator: three documented station logs and independent classifications, or an explicit insufficient-exposure result. No expected mineral concentration or success probability is assumed.",
+        "unvalidated": "No local mineralogical, lacustrine, carbonate or biosignature evidence has been established by this review.",
+        "cannot_reproduce": "Martian gravity, atmospheric composition/pressure, radiation and ancient depositional history."
+      },
+      "candidate_center": {
+        "latitude": -21.5,
+        "longitude": 25.625
+      }
+    }
+  ],
+  "source_sha256": "604b071f9e515799e51d423a297fc086dae9107eb79cf053fee206cd9421d161",
+  "score_policy": "No original or expanded screening scores changed. These are scoped literature interpretations and proposed experiments, not new NASA measurements."
+}

@@ -11,7 +11,12 @@ import {polarReference} from "../polarReference";
 import {applyScenarios} from "../scoring";
 import {buildPacket} from "../packet";
 import {pilotSchema} from "../pilot";
+import {siteEvidenceSchema} from "../siteEvidence";
 describe("explicit scientific collections",()=>{
+ it("retains scoped literature positions independently from candidate measurements",()=>{
+  const evidence=siteEvidenceSchema.parse(JSON.parse(readFileSync(resolve(__dirname,"../../../public/data/site_evidence.json"),"utf8")));
+  expect(evidence.cases).toHaveLength(2);expect(evidence.cases[0].reported_points[0].material).toBe("Basaltic-andesite lava");expect(evidence.cases[1].reported_points[0].derived_scope.within_approximate_analysis_window).toBe(false);
+ });
  it("validates all36 source-support results and retains sensitivity scope",()=>{
   const study=pilotSchema.parse(JSON.parse(readFileSync(resolve(__dirname,"../../../public/data/terrain_support.json"),"utf8")));
   expect(study.results).toHaveLength(36);expect(study.sensitivity).toHaveLength(36);expect(study.sensitivity![0].rank_scope).toContain("F-only");

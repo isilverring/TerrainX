@@ -7,6 +7,7 @@ export const snapshotSchema = z.object({
   snapshot_version: z.literal("1.0"),
   collection: z.enum(["original", "expanded"]).optional(),
   target_reference: z.string().regex(/^lunar-polar:[a-z0-9-]+$/).optional(),
+  proposal_protocol: z.literal("site-evidence").optional(),
   title: z.string().min(1).max(120),
   created_at: z.string().datetime(),
   science: z.object({
@@ -36,6 +37,7 @@ export function makeSnapshot(
     snapshot_version: "1.0",
     collection: data.collection ?? "original",
     target_reference: data.target_reference,
+    proposal_protocol: data.proposal_protocol,
     title,
     created_at: new Date().toISOString(),
     science: data.release,
