@@ -6,7 +6,7 @@
 
 A working static React/Vite scientific discovery application and reproducible Python pipeline for the 2026 NASA Space Apps challenge, [Identify Earth Locations that Analog the Permanent Moon Base Locations and Mars](https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/). Independent project; NASA data use does not imply endorsement.
 
-All work stays in **D:\TerrainX** (PC) or **C:\TerrainX** (laptop); both track `origin/main`. Private repository: [isilverring/TerrainX](https://github.com/isilverring/TerrainX). Read [STATUS.md](STATUS.md), [NEXT_STEPS.md](NEXT_STEPS.md) and [DATA_STATUS.md](DATA_STATUS.md) before resuming after a stop, power issue or usage limit.
+All work stays in **D:\TerrainX**, tracking `origin/main`. Private repository: [isilverring/TerrainX](https://github.com/isilverring/TerrainX). **[Open the public audience demo](https://terrainx-discovery-lab.comfybay1.chatgpt.site)**. Read [STATUS.md](STATUS.md), [NEXT_STEPS.md](NEXT_STEPS.md) and [DATA_STATUS.md](DATA_STATUS.md) before resuming after a stop, power issue or usage limit.
 
 ## Working experience
 

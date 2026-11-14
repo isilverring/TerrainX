@@ -1,13 +1,18 @@
-# TerrainX deployed release
+# TerrainX public audience release
 
-- Live owner-private preview: https://terrainx-discovery-lab.comfybay1.chatgpt.site
+- Public URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site
+- Audience: **public**, explicitly requested by the owner; no visitor sign-in required. Source GitHub repository remains private.
 - Site project: `appgprj_6af7ff7626888191bcba757337fd7e9b`
-- Saved version: `appgprj_6af7ff7626888191bcba757337fd7e9b~appgver_f39a57ce28c4819195dbe0bc6101bc3a`
-- Deployment: `appgdep_6af809132a008191aa5888959d21b618`
-- Backend publication status: **succeeded**, verified 2026-11-14T07:09:25Z.
-- Exact published source commit: `a058c1c594a7c3f29db1d1dfa94547f4d1e27650`.
-- Publication artifact: `D:\TerrainX\outputs\terrainx-release.tar.gz` (ignored build artifact).
+- Saved version: `appgprj_6af7ff7626888191bcba757337fd7e9b~appgver_b07041429d008191bb9fd5486f53163c`
+- Deployment: `appgdep_6af8357c44d88191bc183f181b648959`
+- Deployment result: **succeeded**, verified 2026-11-14T10:18:54.289972+00:00.
+- Audience update: public access revision 2, verified 2026-11-14T10:19:15.691202+00:00.
+- Exact deployed source commit: `ca32f17f46c05276541d8b62c246dbfc89f66b4c`.
+- Build artifact: `D:\TerrainX\outputs\terrainx-reviewed-release.tar.gz` (ignored).
+- Fresh unauthenticated Playwright/Chrome sessions passed **all 16 production workflows on the public URL**.
+- Additional live 3D/globe round-trip: zero page/console errors; 89 successful terrain tile responses.
+- Science: 63 Python tests, independent result reproduction, 52 TypeScript science tests; strict TypeScript/build pass; npm audit 0 known vulnerabilities.
 
-The application has no authentication code. Sites hosting currently restricts this preview to its owner; audience was not expanded. Public judge deployment instructions for Netlify/Vercel are in README.md and require no application account system or secrets. Do not create a duplicate Site; retain `.openai/hosting.json` identity.
+The linked Site identity is retained in .openai/hosting.json. Do not create a duplicate. It was published using the previously owner-private operation, then its audience was changed to public as the owner requested. Native access and live browser checks both confirm the public result.
 
-Subsequent documentation-only commits record this deployment and recovery state. The deployed application/data match the published source commit above; consult `git log` for the latest recovery-documentation checkpoint.
+Later documentation-only commits record completion; app/data correspond to the source commit above. Use git log for the latest recovery checkpoint. Read LIVE_DEMO.md for presentation, local fallback and step-by-step Netlify/Vercel instructions. No API keys or runtime secrets are needed.

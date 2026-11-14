@@ -1,5 +1,15 @@
 # TerrainX verification and visual review
 
+## Reviewed public release (2026-11-14)
+
+Latest app source: ca32f17. Public URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site. Fresh unauthenticated Chrome sessions passed all 16 production workflows; the same workflows passed locally. Python scientific tests:63; TypeScript scientific tests:52; independent dataset reproduction/build/audit pass. Additional live 3D/globe round-trip had zero page/console errors and89 HTTP200 terrain responses. Browser plugin not available; regular Playwright used installed Chrome.
+
+Desktop1568×1003 and mobile390×844 sweeps covered Landing,Explorer,Frontier,Transfer Lab,What-if,Worlds,Expedition Packet and Demo: correct page identity, meaningful content, no framework overlay, zero page/console errors, all images loaded, no document overflow. Transfer Lab and What-if mobile overflow found in the first sweep was repaired and regression-tested. Custom model → dossier → packet → reload → fresh-browser QR snapshot retains F/U/C/P,alpha,weights,tolerances and threshold. Real NASA image pairs render; failed map/context providers retain honest fallback. Print/PDF output was generated successfully.
+
+Visual reference review: the user's original separated X segments and tapered orbital arcs are retained in the production SVG; original JPEG is preserved. Mars enlarged and positioned independently of the illustrative lunar orbit. Complete side-by-side NASA imagery is default; optional split cropping is disclosed. Source integrity and missing-data defects are recorded in docs/REVIEW.md. Current uncommitted QA captures live under ignored outputs/review-qa/; historical screenshots below describe the original MVP.
+
+Remaining limits: Chromium desktop/mobile emulation; not Safari/Firefox or physical GPU/device certification. External tiles remain network-dependent, and no field/mission validation is claimed. Historical report follows.
+
 ## Environment and target flow
 
 Browser plugin/skill was not available in this session; regular Playwright used installed Google Chrome. Development URL:http://127.0.0.1:5173/. Production preview:http://127.0.0.1:4173/. Desktop1568×1003 matches the concept dimensions; mobile390×844.

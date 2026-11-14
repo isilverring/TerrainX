@@ -2,9 +2,9 @@
 
 ## Current state
 
-**Prompt 1 + Prompt 2 reviewed, repaired and ready for publication.** All work is under **D:\TerrainX**. GitHub: https://github.com/isilverring/TerrainX, private, main. Teammate review base: 800d5ff. Main science repair checkpoint: 2b51e12.
+**Prompt 1 + Prompt 2 reviewed, repaired, publicly deployed and verified.** All work is under **D:\TerrainX**. GitHub: https://github.com/isilverring/TerrainX, private, main. Teammate review base: 800d5ff. Main science repair checkpoint: 2b51e12. Deployed application commit: ca32f17.
 
-Audience URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site. The owner explicitly requested **public audience access**. Pending final step: publish the tested repaired bundle, switch the existing Site to public, verify unauthenticated access and record exact source/version/deployment IDs in DEPLOYMENT.md. Until verified, the hosted version may still be the old owner-private release. Do not create another Site.
+Audience URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site. Public audience access was explicitly requested and is **verified**. Deployment succeeded 2026-11-14T10:18:54Z; public policy revision 2 was verified at10:19:15Z. All 16 production workflows also passed in fresh unauthenticated sessions on the public URL. Exact source/version/deployment IDs are in DEPLOYMENT.md. No required review work remains. Do not create another Site.
 
 ## Completed and verified
 
