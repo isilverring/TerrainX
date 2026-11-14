@@ -83,6 +83,7 @@ function PassportBody({
   });
   if (data.release) sharedParams.set("science", data.release.release_id);
   if (data.release) sharedParams.set("datahash", data.release.dataset_sha256);
+  if (params.get("presentation") === "1") sharedParams.set("presentation", "1");
   const sharedUrl = `${window.location.origin}${window.location.pathname}#/${packet ? "expedition" : "passport"}/${c.id}?${sharedParams}`;
   return (
     <main

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import { geoEquirectangular, geoPath } from "d3-geo";
@@ -86,6 +86,14 @@ function WorldMap({ cells }: { cells: [number, number][] }) {
 }
 
 export default function Demo() {
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const previous = document.activeElement as HTMLElement | null;
+    dialogRef.current?.focus();
+    return () => {
+      if (previous?.isConnected) previous.focus();
+    };
+  }, []);
   const data = useData(),
     navigate = useNavigate();
   const [i, setI] = useState(0);
@@ -340,9 +348,33 @@ export default function Demo() {
     (n: number) => setI(Math.max(0, Math.min(last, n))),
     [last],
   );
-  const exit = useCallback(() => navigate("/explorer"), [navigate]);
+  const exit = useCallback(
+    () => navigate("/explorer?presentation=0"),
+    [navigate],
+  );
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Tab") {
+        const controls = [
+            ...(dialogRef.current?.querySelectorAll<HTMLElement>(
+              'a[href],button:not([disabled]),input:not([disabled]),[tabindex="0"]',
+            ) ?? []),
+          ],
+          first = controls[0],
+          last = controls[controls.length - 1];
+        if (
+          e.shiftKey &&
+          (document.activeElement === first ||
+            document.activeElement === dialogRef.current)
+        ) {
+          e.preventDefault();
+          last?.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first?.focus();
+        }
+        return;
+      }
       if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
         e.preventDefault();
         go(i + 1);
@@ -359,13 +391,17 @@ export default function Demo() {
   const scene = scenes[i];
   return (
     <div
+      ref={dialogRef}
+      tabIndex={-1}
       className="demo"
       role="dialog"
       aria-modal="true"
       aria-label="From Earth to another world — guided demo"
     >
       <div className="demo-top">
-        <span className="demo-brand">From Earth to another world</span>
+        <span className="demo-brand">
+          From Earth to another world · presentation model
+        </span>
         <span className="mono demo-count">
           {i + 1} / {scenes.length}
         </span>

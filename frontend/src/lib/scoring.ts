@@ -227,7 +227,10 @@ export function storedScenarios(): Record<Mission, Scenario> {
     const incoming = JSON.parse(params.get("model") ?? "null");
     const mission =
       params.get("mission") === "mare-crisium" ? "mare-crisium" : "jezero";
-    if (validScenario(incoming)) scenarios[mission] = incoming;
+    const presenting =
+      params.get("presentation") === "1" ||
+      window.location.hash.split("?")[0] === "#/demo";
+    if (validScenario(incoming) && !presenting) scenarios[mission] = incoming;
   } catch {
     /* A malformed shared model never replaces validated defaults. */
   }

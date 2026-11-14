@@ -5,15 +5,79 @@ import {
   FileText,
   Microscope,
   Play,
+  Menu,
+  X,
 } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { number } from "../lib/data";
 import type { Assessment, Mission } from "../lib/models";
-export function Header() {
-  const landing = useLocation().pathname === "/";
+export function Header({
+  presentation = false,
+  onStartPresentation = () => {},
+  onEndPresentation = () => {},
+}: {
+  presentation?: boolean;
+  onStartPresentation?: () => void;
+  onEndPresentation?: () => void;
+}) {
+  const location = useLocation(),
+    landing = location.pathname === "/",
+    [open, setOpen] = useState(false),
+    toggle = useRef<HTMLButtonElement>(null);
+  useEffect(() => setOpen(false), [location.pathname]);
+  const groups = [
+    {
+      name: "Discover",
+      links: [
+        ["/explorer", "Discovery"],
+        ["/frontier", "Frontier"],
+        ["/cases", "Cases"],
+      ],
+    },
+    {
+      name: "Investigate",
+      links: [
+        ["/what-if", "What if"],
+        ["/transfer-lab", "Transfer Lab"],
+        ["/worlds", "Worlds"],
+        ["/methodology", "Methodology"],
+      ],
+    },
+    {
+      name: "Prepare",
+      links: [["/research", "Research"]],
+    },
+  ];
   return (
-    <header className={`app-header ${landing ? "landing-header" : ""}`}>
-      <Link className="brand" to="/" aria-label="TerrainX home">
+    <header
+      className={`app-header ${landing ? "landing-header" : ""}`}
+      onKeyDown={(e) => {
+        if (e.key === "Escape") {
+          setOpen(false);
+          toggle.current?.focus();
+        }
+      }}
+    >
+      <a
+        className="skip-link"
+        href="#main-content"
+        onClick={(e) => {
+          e.preventDefault();
+          const main =
+            document.querySelector<HTMLElement>("main,[role=dialog]");
+          main?.setAttribute("tabindex", "-1");
+          main?.focus();
+        }}
+      >
+        Skip to main content
+      </a>
+      <Link
+        className="brand"
+        to={presentation ? "/?presentation=0" : "/"}
+        aria-label="TerrainX home"
+        onClick={onEndPresentation}
+      >
         <img
           className="brand-mark"
           src="/brand/terrainx-mark.svg"
@@ -23,20 +87,59 @@ export function Header() {
         />
         <span>
           Terrain<span className="brand-x">X</span>
+          {presentation ? (
+            <small className="brand-mode">
+              Presenting · research preserved
+            </small>
+          ) : null}
         </span>
       </Link>
-      <nav aria-label="Main navigation">
-        <NavLink to="/explorer">Discovery</NavLink>
-        <NavLink to="/frontier">Frontier</NavLink>
-        <NavLink to="/what-if">What if</NavLink>
-        <NavLink to="/transfer-lab">Transfer Lab</NavLink>
-        <NavLink to="/worlds">Worlds</NavLink>
-        <NavLink to="/methodology">Methodology</NavLink>
-        <NavLink to="/research">Research</NavLink>
+      <nav
+        id="journey-navigation"
+        className={`journey-nav ${open ? "is-open" : ""}`}
+        aria-label="Main navigation"
+      >
+        {groups.map((group) => (
+          <div className="journey-group" key={group.name}>
+            <span>{group.name}</span>
+            <div>
+              {group.links.map(([path, label]) => (
+                <NavLink key={path} to={path}>
+                  {label}
+                </NavLink>
+              ))}
+            </div>
+          </div>
+        ))}
       </nav>
-      <Link className="demo-launch" to="/demo">
-        <Play size={14} /> Guided demo
-      </Link>
+      <button
+        ref={toggle}
+        className="mobile-nav-button"
+        aria-label={open ? "Close navigation" : "Open navigation"}
+        aria-expanded={open}
+        aria-controls="journey-navigation"
+        onClick={() => setOpen((x) => !x)}
+      >
+        {open ? <X size={20} /> : <Menu size={20} />}
+      </button>
+      {presentation ? (
+        <Link
+          className="demo-launch"
+          to="/explorer?presentation=0"
+          aria-label="Exit presentation"
+          onClick={onEndPresentation}
+        >
+          <X size={14} /> Exit presentation
+        </Link>
+      ) : (
+        <Link
+          className="demo-launch"
+          to="/demo?presentation=1"
+          onClick={onStartPresentation}
+        >
+          <Play size={14} /> Guided demo
+        </Link>
+      )}
     </header>
   );
 }

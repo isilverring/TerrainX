@@ -71,3 +71,48 @@ test("evidence values open source metadata and cases preserve scientific status"
     .poll(() => page.evaluate(() => document.documentElement.scrollWidth))
     .toBeLessThanOrEqual(390);
 });
+
+test("presentation uses its own model and restores research settings on exit", async ({
+  page,
+}) => {
+  await page.goto("/#/what-if?mission=jezero");
+  await page.locator("#wi-alpha").fill("0.85");
+  await page.getByRole("link", { name: /Guided demo/ }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await page.keyboard.press("End");
+  await page.goto("/#/what-if?mission=jezero&presentation=1");
+  await expect(page.locator("#wi-alpha")).toHaveValue("0.3");
+  await page.locator("#wi-alpha").fill("0.65");
+  await page
+    .getByRole("link", { name: "Exit presentation", exact: true })
+    .click();
+  await page.getByRole("link", { name: "What if", exact: true }).click();
+  await expect(page.locator("#wi-alpha")).toHaveValue("0.85");
+  await page.getByRole("link", { name: /Guided demo/ }).click();
+  await expect(page.getByRole("dialog")).toBeVisible();
+  await page.keyboard.press("Escape");
+  await page.getByRole("link", { name: "What if", exact: true }).click();
+  await expect(page.locator("#wi-alpha")).toHaveValue("0.85");
+  const stored = await page.evaluate(() =>
+    JSON.parse(localStorage.getItem("terrainx-scenarios-v1")!),
+  );
+  expect(stored.jezero.alpha).toBe(0.85);
+});
+
+test("mobile navigation exposes the complete research journey", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/#/");
+  await page.getByRole("button", { name: "Open navigation" }).click();
+  await expect(
+    page.getByRole("navigation", { name: "Main navigation" }),
+  ).toBeVisible();
+  await page.getByRole("link", { name: "Research", exact: true }).click();
+  await expect(
+    page.getByRole("heading", { name: "Research workspace" }),
+  ).toBeVisible();
+  await expect(
+    page.getByRole("button", { name: "Open navigation" }),
+  ).toHaveAttribute("aria-expanded", "false");
+});

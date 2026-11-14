@@ -8,7 +8,7 @@ const publicDir=path.join(root,'frontend','public');
 const filenames=['dataset.json','screened_cells.geojson','provenance.json','planetary_context.json','land.geojson','validation.json'];
 for(const optional of ['case_studies.json','terrain_pilot.json']){try{await access(path.join(publicDir,'data',optional));filenames.push(optional);}catch{}}
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
-const content=await Promise.all(filenames.map(async name=>[name,await readFile(path.join(publicDir,'data',name))]));
+const content=await Promise.all(filenames.map(async name=>{const target=path.join(publicDir,'data',name),raw=await readFile(target),body=Buffer.from(raw.toString('utf8').replace(/\r\n/g,'\n'));if(!raw.equals(body))await writeFile(target,body);return[name,body];}));
 const files=Object.fromEntries(content.map(([name,body])=>[name,{sha256:sha(body),bytes:body.length}]));
 const releaseId='science-'+sha(JSON.stringify(files)).slice(0,16);
 const destination=path.join(publicDir,'releases',releaseId);

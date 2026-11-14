@@ -297,3 +297,124 @@
     break-inside: avoid;
   }
 }
+.app-header .journey-nav {
+  flex: 1;
+  gap: 26px;
+  justify-content: center;
+}
+.journey-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+.journey-group > span {
+  font: 9px "JetBrains Mono";
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #7d91a9;
+}
+.journey-group > div {
+  display: flex;
+  gap: 17px;
+}
+.app-header .journey-nav a {
+  font-size: 12px;
+  padding-top: 0;
+  border-bottom-width: 2px;
+  padding-bottom: 5px;
+}
+.mobile-nav-button {
+  display: none;
+}
+.brand-mode {
+  display: block;
+  font: 8px Inter;
+  letter-spacing: 0.02em;
+  color: var(--earth);
+  margin-top: 2px;
+}
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -100px;
+  background: var(--earth);
+  color: #06171b;
+  padding: 10px;
+  z-index: 100;
+}
+.skip-link:focus {
+  top: 8px;
+}
+.app-header {
+  gap: 24px;
+}
+.research-page .source-row a {
+  max-width: 100%;
+}
+:focus-visible {
+  outline: 2px solid var(--earth);
+  outline-offset: 3px;
+}
+@media (max-width: 1200px) {
+  .app-header .journey-nav {
+    gap: 16px;
+  }
+  .journey-group > div {
+    gap: 12px;
+  }
+  .app-header .journey-nav a {
+    font-size: 11px;
+  }
+}
+@media (max-width: 1050px) {
+  .mobile-nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    background: #111a29;
+    border: 1px solid var(--border);
+    color: var(--text);
+    border-radius: 6px;
+    margin-left: auto;
+  }
+  .app-header .journey-nav {
+    display: none !important;
+  }
+  .app-header .journey-nav.is-open {
+    display: grid !important;
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    top: calc(100% + 8px);
+    height: auto;
+    padding: 20px;
+    background: #111a29;
+    border: 1px solid #44536b;
+    border-radius: 9px;
+    gap: 20px;
+    box-shadow: 0 16px 50px #0009;
+    z-index: 40;
+    mask-image: none;
+    -webkit-mask-image: none;
+    overflow: visible;
+  }
+  .journey-group > div {
+    flex-wrap: wrap;
+    gap: 12px 22px;
+  }
+  .app-header .journey-nav a {
+    font-size: 14px;
+    padding: 6px 0;
+  }
+  .brand-mode {
+    font-size: 7px;
+  }
+}
+@media print {
+  .mobile-nav-button,
+  .skip-link {
+    display: none !important;
+  }
+}

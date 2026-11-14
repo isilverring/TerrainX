@@ -100,14 +100,26 @@ export function rankCandidates(
 export const safeStorage = {
   get(key: string): string | null {
     try {
-      return window.localStorage.getItem(key);
+      const name =
+        new URLSearchParams(window.location.hash.split("?")[1]).get(
+          "presentation",
+        ) === "1"
+          ? `presentation:${key}`
+          : key;
+      return window.localStorage.getItem(name);
     } catch {
       return null;
     }
   },
   set(key: string, value: string) {
     try {
-      window.localStorage.setItem(key, value);
+      const name =
+        new URLSearchParams(window.location.hash.split("?")[1]).get(
+          "presentation",
+        ) === "1"
+          ? `presentation:${key}`
+          : key;
+      window.localStorage.setItem(name, value);
     } catch {
       /* Storage is a convenience only. */
     }

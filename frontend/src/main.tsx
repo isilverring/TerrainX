@@ -37,6 +37,11 @@ import {
   type ScienceRelease,
 } from "./lib/release";
 import "./styles/research.css";
+import {
+  initialPresentation,
+  initialPresentationModels,
+  presentationDefaults,
+} from "./lib/presentation";
 const Explorer = lazy(() => import("./pages/Explorer"));
 const SiteDetail = lazy(() => import("./pages/SiteDetail"));
 const Passport = lazy(() => import("./pages/Passport"));
@@ -49,7 +54,7 @@ const Worlds = lazy(() => import("./pages/Worlds"));
 const Demo = lazy(() => import("./pages/Demo"));
 const Research = lazy(() => import("./pages/Research"));
 const Cases = lazy(() => import("./pages/Cases"));
-function PinRelease() {
+function PinRelease({ presentation }: { presentation: boolean }) {
   const data = React.useContext(DataContext),
     location = useLocation(),
     navigate = useNavigate();
@@ -61,24 +66,55 @@ function PinRelease() {
     const p = new URLSearchParams(
       separator < 0 ? "" : actual.slice(separator + 1),
     );
+    let changed = false;
     if (!p.has("science")) {
       p.set("science", data.release.release_id);
+      changed = true;
+    }
+    if (presentation && !p.has("presentation")) {
+      p.set("presentation", "1");
+      changed = true;
+    }
+    if (changed) {
       navigate({ pathname, search: p.toString() }, { replace: true });
     }
-  }, [data?.release?.release_id, location.pathname, location.search, navigate]);
+  }, [
+    data?.release?.release_id,
+    location.pathname,
+    location.search,
+    navigate,
+    presentation,
+  ]);
   return null;
 }
 function App() {
+  const route = useLocation();
   const [data, setData] = useState<Dataset | null>(null),
     [error, setError] = useState("");
   const [scenarios, setScenarios] = useState(storedScenarios);
+  const [presentation, setPresentation] = useState(initialPresentation),
+    presentationRef = useRef(presentation);
+  const [presentationModels, setPresentationModels] = useState(
+    initialPresentationModels,
+  );
+  const effectiveModels = presentation ? presentationModels : scenarios;
+  const editModels = presentation ? setPresentationModels : setScenarios;
   const [releaseId, setReleaseId] = useState(releaseFromHash),
     loadedRelease = useRef<string | undefined>(undefined),
     loadedHash = useRef<string | undefined>(undefined);
-  useEffect(() => {
+  useLayoutEffect(() => {
     const change = () => {
-      const p = new URLSearchParams(window.location.hash.split("?")[1]),
+      const hash = window.location.hash.slice(1),
+        p = new URLSearchParams(hash.split("?")[1]),
         id = p.get("science");
+      const demo = hash.split("?")[0] === "/demo",
+        explicit = p.get("presentation");
+      const mode =
+        explicit === "0"
+          ? false
+          : demo || explicit === "1" || presentationRef.current;
+      presentationRef.current = mode;
+      setPresentation(mode);
       if (id && id !== loadedRelease.current) setReleaseId(id);
       if (
         id === loadedRelease.current &&
@@ -95,19 +131,21 @@ function App() {
           mission =
             p.get("mission") === "mare-crisium" ? "mare-crisium" : "jezero";
         if (validScenario(incoming))
-          setScenarios((current) => ({ ...current, [mission]: incoming }));
+          (mode ? setPresentationModels : setScenarios)((current) => ({
+            ...current,
+            [mission]: incoming,
+          }));
       } catch {}
     };
-    window.addEventListener("hashchange", change);
-    return () => window.removeEventListener("hashchange", change);
-  }, []);
+    change();
+  }, [route.pathname, route.search]);
   const weights = {
-    jezero: scenarios.jezero.weights,
-    "mare-crisium": scenarios["mare-crisium"].weights,
+    jezero: effectiveModels.jezero.weights,
+    "mare-crisium": effectiveModels["mare-crisium"].weights,
   };
   const assessed = useMemo(
-    () => (data ? applyScenarios(data, scenarios) : null),
-    [data, scenarios],
+    () => (data ? applyScenarios(data, effectiveModels) : null),
+    [data, effectiveModels],
   );
   useEffect(() => {
     try {
@@ -135,8 +173,17 @@ function App() {
     };
   }, [releaseId]);
   return (
-    <HashRouter>
-      <Header />
+    <>
+      <Header
+        presentation={presentation}
+        onEndPresentation={() => {
+          presentationRef.current = false;
+          setPresentation(false);
+        }}
+        onStartPresentation={() =>
+          setPresentationModels(presentationDefaults())
+        }
+      />
       {error ? (
         <main className="error-state">
           <h1>Scientific data could not be loaded.</h1>
@@ -154,19 +201,19 @@ function App() {
             Open current release explicitly
           </a>
         </main>
-      ) : data ? (
+      ) : data && (!releaseId || data.release?.release_id === releaseId) ? (
         <ModelContext.Provider
           value={{
             weights,
-            scenarios,
-            replace: setScenarios,
+            scenarios: effectiveModels,
+            replace: editModels,
             update: (mission, patch) =>
-              setScenarios((current) => ({
+              editModels((current) => ({
                 ...current,
                 [mission]: { ...current[mission], ...patch },
               })),
             change: (mission, key, value) =>
-              setScenarios((current) => ({
+              editModels((current) => ({
                 ...current,
                 [mission]: {
                   ...current[mission],
@@ -178,14 +225,14 @@ function App() {
                 },
               })),
             reset: (mission) =>
-              setScenarios((current) => ({
+              editModels((current) => ({
                 ...current,
                 [mission]: defaultScenario(mission),
               })),
           }}
         >
           <DataContext.Provider value={assessed!}>
-            <PinRelease />
+            <PinRelease presentation={presentation} />
             <Suspense fallback={<Loading />}>
               <Routes>
                 <Route path="/" element={<Landing />} />
@@ -218,11 +265,13 @@ function App() {
       ) : (
         <Loading message="Validating cached NASA observations…" />
       )}
-    </HashRouter>
+    </>
   );
 }
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <HashRouter>
+      <App />
+    </HashRouter>
   </React.StrictMode>,
 );

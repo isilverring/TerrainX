@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "release_id": "science-2592c0ede3235c21",
+  "release_id": "science-bd590c6e72dfd1cd",
   "model_version": "terrainx-model-v1",
   "dataset_sha256": "3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c",
   "source_data_commit": "4f05e818ea55144598fee354ea1bdd485a6ff932",
@@ -22,16 +22,16 @@
       "bytes": 64989
     },
     "land.geojson": {
-      "sha256": "0996ae87491513a5f2dda04589377a47ffec35fdf507a24b0a1e99e0295dea03",
-      "bytes": 472382
+      "sha256": "62ba34378350584881b944f95e545cd4db1ec37f136b7de2616b2498cbc2b346",
+      "bytes": 449124
     },
     "validation.json": {
-      "sha256": "ff88e26768e822c7e93f0ef3df6e3aac8b4b8445d3886f0f9e9e050ffc2b08a3",
-      "bytes": 1138
+      "sha256": "901889371c6beabc716798a438592b4931ab2870815ffbc8423115ced11e9f58",
+      "bytes": 1112
     },
     "case_studies.json": {
-      "sha256": "0677bef5e3ecd69478e14ff4d7cacdaf9785216659fedf7e1186240fa68cdba0",
-      "bytes": 6074
+      "sha256": "bda0e6e23310e8eb8e99d2960eaea610cd1d0a64ffcc8eb300e7d4087a8a2ee9",
+      "bytes": 5987
     }
   }
 }
