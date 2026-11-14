@@ -6,7 +6,8 @@ import {
   PackageOpen,
   Printer,
 } from "lucide-react";
-import { useMemo } from "react";
+import { useMemo, useEffect } from "react";
+import { useModel, validScenario } from "../lib/scoring";
 import {
   APP,
   buildPacket,
@@ -60,11 +61,27 @@ function PassportBody({
   mission: Mission;
 }) {
   const data = useData();
+  const model = useModel();
+  const [params] = useSearchParams();
+  const incomingModel = params.get("model");
+  useEffect(() => {
+    try {
+      const incoming = JSON.parse(incomingModel ?? "null");
+      if (validScenario(incoming)) model.update(mission, incoming);
+    } catch {
+      /* Invalid shared model is ignored. */
+    }
+  }, [incomingModel, mission]);
   const c = data.candidates.find((x) => x.id === candidateId)!,
     target = data.targets.find((t) => t.id === mission)!,
     a = c.assessments[mission];
   const pkt = useMemo(() => buildPacket(data, c, mission), [data, c, mission]);
   const base = `terrainx-${c.id}-${mission}`;
+  const sharedParams = new URLSearchParams({
+    mission,
+    model: JSON.stringify(model.scenarios[mission]),
+  });
+  const sharedUrl = `${window.location.origin}${window.location.pathname}#/${packet ? "expedition" : "passport"}/${c.id}?${sharedParams}`;
   return (
     <main
       className={`document-page passport-page ${packet ? "packet-page" : ""}`}
@@ -123,6 +140,7 @@ function PassportBody({
       </div>
       <header className="passport-header">
         <div>
+          <img className="passport-brand-mark" src="/brand/terrainx-mark.svg" alt="TerrainX orbital X" width="70" height="63" />
           <p className="document-label">
             TerrainX /{" "}
             {packet ? "Expedition research brief" : "Scientific field briefing"}
@@ -255,7 +273,8 @@ function PassportBody({
                 <dt>α · γ · minimum coverage</dt>
                 <dd className="mono">
                   {pkt.reproducibility.model.alpha} ·{" "}
-                  {pkt.reproducibility.model.gamma} · 0.70
+                  {pkt.reproducibility.model.gamma} ·{" "}
+                  {pkt.reproducibility.model.minimum_coverage.toFixed(2)}
                 </dd>
               </div>
               <div>
@@ -307,16 +326,23 @@ function PassportBody({
       </section>
       <section className="passport-link" aria-label="Online version">
         <QrCode
-          value={window.location.href}
+          value={sharedUrl}
+          size={160}
           label="QR code linking to this Analog Passport online"
         />
         <div>
           <strong>Live dossier</strong>
-          <p className="mono">{window.location.href}</p>
+          <a className="source-link" href={sharedUrl}>Open reproducible model snapshot</a>
+          <p className="mono">
+            {window.location.origin}
+            {window.location.pathname}#/{packet ? "expedition" : "passport"}/
+            {c.id}?mission={mission}
+          </p>
           <p>
             Scan or open the link for the interactive version: Analog DNA, the
-            3D terrain viewer, adjustable model weights and source links. The
-            printed copy reflects the model weights in use at{" "}
+            3D terrain viewer, adjustable model weights and source links. The QR
+            code preserves the active model, including weights, α, tolerances
+            and coverage threshold. The printed copy reflects settings in use at{" "}
             {new Date().toISOString().slice(0, 16).replace("T", " ")} UTC.
           </p>
         </div>

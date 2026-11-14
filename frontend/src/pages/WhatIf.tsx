@@ -32,7 +32,7 @@ import {
 import type { FeatureKey, Scenario } from "../lib/counterfactual";
 import { CRITERIA, criterionNames } from "../lib/frontier";
 import type { CriterionKey } from "../lib/frontier";
-import { rebalanceWeight } from "../lib/scoring";
+import { rebalanceWeight, useModel } from "../lib/scoring";
 import { labels, metricUnits } from "../lib/data";
 import { BackLink, EvidenceTag } from "../components/ui";
 import { MarsGlyph, MoonGlyph } from "../components/glyphs";
@@ -42,9 +42,12 @@ const SOURCES: Record<CriterionKey, [string, string]> = {
     "LITERATURE-SUPPORTED",
     "Macrostrat mapped units and cited literature; unknown stays unknown",
   ],
-  terrain: ["DERIVED", "NASA SRTM 7×7 lattice (p90 slope)"],
-  aridity: ["MEASURED", "NASA POWER precipitation (annual proxy)"],
-  temperature: ["MEASURED", "NASA POWER 2 m air temperature"],
+  terrain: ["ASSUMED", "Fieldwork heuristic from measured NASA SRTM p90 slope"],
+  aridity: ["ASSUMED", "Dryness heuristic from NASA POWER precipitation"],
+  temperature: [
+    "ASSUMED",
+    "Field-operation heuristic from NASA POWER air temperature",
+  ],
 };
 
 function Range({
@@ -94,16 +97,9 @@ export default function WhatIf() {
   const mission: Mission =
     params.get("mission") === "mare-crisium" ? "mare-crisium" : "jezero";
   const base = useMemo(() => defaultScenario(mission), [mission]);
-  const [scenarios, setScenarios] = useState<Record<Mission, Scenario>>({
-    jezero: defaultScenario("jezero"),
-    "mare-crisium": defaultScenario("mare-crisium"),
-  });
-  const s = scenarios[mission];
-  const update = (patch: Partial<Scenario>) =>
-    setScenarios((all) => ({
-      ...all,
-      [mission]: { ...all[mission], ...patch },
-    }));
+  const model = useModel();
+  const s = model.scenarios[mission];
+  const update = (patch: Partial<Scenario>) => model.update(mission, patch);
   const [range, setRange] = useState(0.25),
     [seed, setSeed] = useState(20261003);
 
@@ -150,8 +146,8 @@ export default function WhatIf() {
           </p>
           <h1>What if the mission changes?</h1>
           <p className="frontier-sub">
-            Every number is recomputed from stored inputs with the pipeline’s
-            own equations.
+            Every number is recomputed from stored inputs. These settings also
+            apply to Discovery, dossiers and expedition exports until reset.
           </p>
         </div>
         <div className="segmented" role="group" aria-label="Mission">
@@ -211,7 +207,7 @@ export default function WhatIf() {
             id="wi-minc"
             label="Minimum evidence coverage"
             value={s.minCoverage}
-            min={0.4}
+            min={0.7}
             max={1}
             step={0.05}
             display={`${(100 * s.minCoverage).toFixed(0)}%`}
@@ -509,7 +505,10 @@ export default function WhatIf() {
               settings, renormalizing weights. This measures weight/tolerance
               sensitivity only: it is not statistical confidence, not evidence
               completeness, not measurement uncertainty, and not a probability
-              of mission success or of a correct planetary analogy.
+              of mission success or of a correct planetary analogy. Rank medians
+              and intervals include only scenarios where that candidate is
+              eligible; eligibility share is shown separately. First and
+              top-three shares use all scenarios.
             </p>
             <div className="robust-controls">
               <Range
@@ -549,7 +548,7 @@ export default function WhatIf() {
                 <div className="rb-row rb-head" role="row">
                   <span>Candidate</span>
                   <span>Rank interval (best · IQR · worst, ● median)</span>
-                  <span>Median</span>
+                  <span>Median / eligible</span>
                   <span>Ranked 1st</span>
                   <span>Top 3</span>
                 </div>
@@ -575,7 +574,13 @@ export default function WhatIf() {
                         />
                         <i className="rb-med" style={{ left: x(st.median) }} />
                       </span>
-                      <span className="mono">{number(st.median, 1)}</span>
+                      <span className="mono">
+                        {number(st.median, 1)}
+                        <small>
+                          {" "}
+                          · {(100 * st.eligibleShare).toFixed(0)}% eligible
+                        </small>
+                      </span>
                       <span className="mono">
                         {(100 * st.firstShare).toFixed(0)}%
                       </span>

@@ -89,7 +89,7 @@ describe("atmosphere", () => {
       expect(c.climate.PS!.unit).toBe("kPa");
       expect(atm.pressurePa).toBeCloseTo(c.climate.PS!.value! * 1000, 9);
       expect(atm.temperatureK).toBeCloseTo(c.climate.T2M!.value! + 273.15, 9);
-      expect(atm.classification).toBe("OBSERVED");
+      expect(atm.classification).toBe("DERIVED");
       expect(atm.density!).toBeGreaterThan(0.8);
       expect(atm.density!).toBeLessThan(1.4);
     }

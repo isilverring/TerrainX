@@ -1,5 +1,14 @@
 # TerrainX checkpoint
 
+## Review and repair checkpoint (2026-11-14, D:\TerrainX)
+Latest teammate source pulled and reviewed: `800d5ff`. Work remains under **D:\TerrainX**. The cloud/laptop paths below describe the previous agent's session only.
+
+The original cached observations, planetary rasters and screening results are intact. Baseline: 57 Python tests, 45 frontend scientific tests, 13 live-network browser workflows and production build passed. Review repairs now include shared scenario state across What-if/dossiers/exports, honest Frontier comparison eligibility, correct relative-rank explanations, conditional robustness eligibility, derived/scenario atmosphere labels, source-unit handling, terrain-footprint missing-data gating, verified planetary source/window hashes and bounded/no-data-aware visual terrain fetches. Regression checks: **59 Python tests and 52 frontend unit tests pass**; 13 existing browser workflows pass after the science repairs.
+
+The supplied orbital X logo has a high-contrast SVG rendition, with original and enhancement provenance preserved. Header, Passport and favicon integration is in place. Pending for this review: final responsive/live visual checks, custom-state browser round-trip and new dependency/CI checks, updated demo/deployment guide, publication of the repaired release. The hosted URL still serves the old release until publication is verified.
+
+Read `docs/REVIEW.md` for findings. Resume with `npm run dev`, use the bundled Node 24 runtime if the system Node is 20, then run unit/browser checks and production build. Never reset or replace the genuine data to fix a UI issue.
+
 ## Current state (2026-11-14, laptop cloud session)
 **Prompt 1 MVP complete; enhancement plan A, B and C delivered** (see `docs/ENHANCEMENT_PLAN.md` progress log). Source is in the private `https://github.com/isilverring/TerrainX` repository on `main`; the laptop folder `C:\TerrainX` should be refreshed with `git pull` (it was empty apart from `.dist` at the start of this session, and all work happened in a cloud clone pushed after each milestone).
 

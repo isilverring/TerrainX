@@ -14,6 +14,7 @@ export function Header() {
   return (
     <header className={`app-header ${landing ? "landing-header" : ""}`}>
       <Link className="brand" to="/" aria-label="TerrainX home">
+        <img className="brand-mark" src="/brand/terrainx-mark.svg" alt="" width="42" height="38" />
         <span>
           Terrain<span className="brand-x">X</span>
         </span>

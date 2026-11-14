@@ -30,7 +30,7 @@ export const gibsProducts: GibsProduct[] = [
     id: "aqua",
     label: "MODIS Aqua true colour",
     layer: "MODIS_Aqua_CorrectedReflectance_TrueColor",
-    start: "2002-07-04",
+    start: "2002-07-03",
   },
   {
     id: "viirs",

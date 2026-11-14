@@ -13,6 +13,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import hashlib
+import json
 import math
 from pathlib import Path
 import struct
@@ -21,6 +22,18 @@ from science.ingestion.mola import point_from_offset, read_product_metadata
 
 CONTEXT_SPACING_M = 2000
 CONTEXT_HALF_SAMPLES = 24  # 49 x 49 samples, +/-48 km
+WINDOW_SHA256 = {
+    "jezero": "d98addf88a2a17155ea5cfb88bd9adafce5543d9c30f6d8e8202ca3e7756399f",
+    "mare-crisium": "803badee583ad7bf3c131613584687353be35a2ed4fdc88cf872454ee7af710f",
+}
+
+
+def verify_raster(image: Path, record: dict) -> None:
+    """Refuse to attach a manifest hash to an unverified source file."""
+    if image.stat().st_size != record.get("bytes"):
+        raise ValueError("Raster byte count disagrees with source manifest")
+    if hashlib.sha256(image.read_bytes()).hexdigest() != record.get("sha256"):
+        raise ValueError("Raster SHA-256 disagrees with source manifest")
 
 
 @dataclass(frozen=True)
@@ -116,6 +129,11 @@ def load_window(source_dir: Path, spec: WindowSpec) -> tuple[NativeWindow, dict]
     image = source_dir / spec.image_name
     csv_path = source_dir / spec.csv_name
     if image.exists():
+        manifest = json.loads((source_dir / "manifest.json").read_text(encoding="utf-8"))
+        record = next((r for r in manifest["sources"] if r["file"] == spec.image_name), None)
+        if record is None:
+            raise ValueError("Raster has no source manifest record")
+        verify_raster(image, record)
         values = cut_window_from_image(image, metadata, spec)
         text = window_csv_text(values)
         if csv_path.exists() and csv_path.read_text(encoding="utf-8").strip() != text:
@@ -126,9 +144,12 @@ def load_window(source_dir: Path, spec: WindowSpec) -> tuple[NativeWindow, dict]
         text = csv_path.read_text(encoding="utf-8").strip()
         values = parse_window_csv(text, spec)
         origin = "committed native DN window (raster not cached locally)"
+    window_hash = hashlib.sha256(text.encode("utf-8")).hexdigest()
+    if window_hash != WINDOW_SHA256[spec.target_id]:
+        raise ValueError("Native window SHA-256 disagrees with verified extraction")
     return NativeWindow(spec, values, metadata), {
         "window_file": spec.csv_name,
-        "window_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
+        "window_sha256": window_hash,
         "window_origin": origin,
         "rows": [spec.row0, spec.row0 + spec.rows - 1],
         "columns": [spec.col0, spec.col0 + spec.cols - 1],

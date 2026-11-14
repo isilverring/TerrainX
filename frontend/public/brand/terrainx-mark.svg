@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 1160" role="img" aria-labelledby="title">
+  <title id="title">TerrainX orbital X</title>
+  <g fill="none" stroke="#35C3B0" stroke-width="65">
+    <ellipse cx="640" cy="580" rx="645" ry="223" transform="rotate(-37 640 580)"/>
+  </g>
+  <g fill="#C6D7E8">
+    <path d="M207 337H464L1008 944H757Z"/>
+    <path d="M776 337H984L466 909H260Z"/>
+  </g>
+  <path d="M1180 262C1198 406 1020 644 730 819C511 953 327 1010 170 988C391 1001 622 875 831 721C1044 565 1161 393 1180 262Z" fill="#35C3B0"/>
+</svg>

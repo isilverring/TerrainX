@@ -57,6 +57,19 @@ export function mercatorPixel(lat: number, lon: number, zoom: number) {
 export function decodeTerrarium(r: number, g: number, b: number) {
   return r * 256 + g + b / 256 - 32768;
 }
+export function supportedTerrainPixel(data: Uint8ClampedArray, i: number) {
+  const height = decodeTerrarium(data[i], data[i + 1], data[i + 2]);
+  if (
+    data[i + 3] !== 255 ||
+    !Number.isFinite(height) ||
+    height < -12000 ||
+    height > 10000
+  )
+    throw new Error(
+      "Unsupported or missing terrain pixel; no elevation inferred",
+    );
+  return height;
+}
 
 const cache = new Map<string, Promise<ContextGrid>>();
 
@@ -65,16 +78,24 @@ async function loadTile(z: number, x: number, y: number) {
     .replace("{z}", String(z))
     .replace("{x}", String(x))
     .replace("{y}", String(y));
-  const response = await fetch(url, { mode: "cors" });
+  const response = await fetch(url, {
+    mode: "cors",
+    signal: AbortSignal.timeout(12000),
+  });
   if (!response.ok)
     throw new Error(`Terrain tile ${z}/${x}/${y}: HTTP ${response.status}`);
   const bitmap = await createImageBitmap(await response.blob());
+  if (bitmap.width !== TILE || bitmap.height !== TILE) {
+    bitmap.close();
+    throw new Error("Unexpected terrain tile dimensions");
+  }
   const canvas = document.createElement("canvas");
   canvas.width = bitmap.width;
   canvas.height = bitmap.height;
   const context = canvas.getContext("2d", { willReadFrequently: true });
   if (!context) throw new Error("Canvas unavailable for terrain decoding");
   context.drawImage(bitmap, 0, 0);
+  bitmap.close();
   return { url, data: context.getImageData(0, 0, TILE, TILE).data };
 }
 
@@ -136,7 +157,7 @@ export function earthContext(
         data = tiles.get(`${tx}/${ty}`);
       if (!data) throw new Error("Terrain tile coverage incomplete");
       const i = 4 * ((py - ty * TILE) * TILE + (px - tx * TILE));
-      return decodeTerrarium(data[i], data[i + 1], data[i + 2]);
+      return supportedTerrainPixel(data, i);
     };
     const elevations = points.map((row) =>
       row.map(({ x, y }) => {

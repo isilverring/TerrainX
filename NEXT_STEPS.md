@@ -1,6 +1,6 @@
 # Resume TerrainX
 
-Work in `D:\TerrainX` (PC) or `C:\TerrainX` (laptop); both track `origin/main`. Do not restart from an empty scaffold.
+Work in **D:\TerrainX**, tracking `origin/main`. Do not restart from an empty scaffold. Read the newest review checkpoint at the top of STATUS.md and docs/REVIEW.md first; older cloud/laptop notes below are historical.
 
 1. `git pull` (the laptop folder may need a fresh `git clone https://github.com/isilverring/TerrainX C:\TerrainX` if it only contains `.dist`). Then `git status --short --branch` and `git log -5 --oneline`.
 2. Read STATUS.md, DATA_STATUS.md, SCIENCE.md and `docs/ENHANCEMENT_PLAN.md` (progress log at the bottom).

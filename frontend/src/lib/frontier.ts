@@ -54,6 +54,8 @@ export function utilityBounds(
   for (const k of CRITERIA) {
     const w = weights[k] ?? 0,
       v = criteria[k]?.value;
+    if (!Number.isFinite(w) || w < 0)
+      throw new Error("Weights must be finite and nonnegative");
     total += w;
     if (v == null) {
       missing.push(k);
@@ -193,7 +195,7 @@ export interface FrontierRow {
   /** Best fully-assessed benchmark for this mission, if any. */
   benchmark: { name: string; utility: number } | null;
   crossesBenchmark: boolean;
-  /** Possible rank among fully assessed (C ≥ 0.70) algorithmic candidates once measured. */
+  /** Possible rank among candidates whose four model criteria are all assessed. */
   rankRange: { best: number; worst: number; of: number };
   swings: {
     key: CriterionKey;
@@ -216,23 +218,25 @@ export function measurementPriority(
 }
 
 /** Pure: Discovery Frontier rows for one mission. */
+export function fullyAssessed(c: Candidate, mission: Mission) {
+  const a = c.assessments[mission];
+  return (
+    a.utility.value != null &&
+    CRITERIA.every((k) => a.utility.criteria[k]?.value != null)
+  );
+}
 export function frontier(
   candidates: Candidate[],
   mission: Mission,
 ): FrontierRow[] {
-  const assessedPeers = candidates
-    .filter(
-      (c) => !c.benchmark && c.assessments[mission].utility.coverage >= 0.7,
-    )
-    .map((c) => c.assessments[mission].utility.value)
-    .filter((v): v is number => v != null);
+  const assessedPeers = candidates.filter(
+    (c) => !c.benchmark && fullyAssessed(c, mission),
+  );
   const benchmarks = candidates
-    .filter(
-      (c) => c.benchmark && c.assessments[mission].utility.coverage >= 0.7,
-    )
+    .filter((c) => c.benchmark && fullyAssessed(c, mission))
     .map((c) => ({
       name: c.name,
-      utility: c.assessments[mission].utility.value ?? -1,
+      utility: c.assessments[mission].utility.value!,
     }))
     .sort((a, b) => b.utility - a.utility);
   const best = benchmarks[0] ?? null;
@@ -262,10 +266,13 @@ export function frontier(
       );
     const crossesBenchmark =
       !!best && bounds.min < best.utility && bounds.max > best.utility;
+    const peers = assessedPeers
+      .filter((peer) => peer.id !== c.id)
+      .map((peer) => peer.assessments[mission].utility.value!);
     const rankRange = {
-      best: rankAmong(bounds.max, assessedPeers),
-      worst: rankAmong(bounds.min, assessedPeers),
-      of: assessedPeers.length + 1,
+      best: rankAmong(bounds.max, peers),
+      worst: rankAmong(bounds.min, peers),
+      of: peers.length + 1,
     };
     const essential = swings.some((s) => s.essential);
     const span = rankRange.worst - rankRange.best;

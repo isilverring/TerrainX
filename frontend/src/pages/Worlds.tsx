@@ -80,7 +80,7 @@ const PAIRS: Pair[] = [
     ],
     conditions: [
       "Earth: dense N₂/O₂ atmosphere, liquid water, rain-driven erosion and vegetation.",
-      "Mars: thin CO₂ atmosphere, no stable surface water today, wind and radiation dominate surface alteration.",
+      "Mars: thin CO₂ atmosphere, no persistent stable surface liquid water today; wind and radiation contribute to surface alteration. Surface ice exists.",
     ],
     limits: [
       "Natural-colour Landsat and greyscale CTX are different instruments, bands and resolutions; colour or brightness does not establish mineralogy.",

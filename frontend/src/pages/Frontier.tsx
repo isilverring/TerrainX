@@ -3,7 +3,12 @@ import { ArrowUpRight, Telescope, TriangleAlert } from "lucide-react";
 import { useMemo } from "react";
 import { useData, number, coordinates } from "../lib/data";
 import type { Mission } from "../lib/models";
-import { frontier, criterionNames, measurementsFor } from "../lib/frontier";
+import {
+  frontier,
+  criterionNames,
+  measurementsFor,
+  fullyAssessed,
+} from "../lib/frontier";
 import { BackLink, EvidenceTag } from "../components/ui";
 import { MarsGlyph, MoonGlyph } from "../components/glyphs";
 import {
@@ -23,9 +28,7 @@ export default function Frontier() {
     [data, mission],
   );
   const peers = data.candidates
-    .filter(
-      (c) => !c.benchmark && c.assessments[mission].utility.coverage >= 0.7,
-    )
+    .filter((c) => !c.benchmark && fullyAssessed(c, mission))
     .map((c) => c.assessments[mission].utility.value!)
     .filter((v) => v != null);
   const crossing = rows.filter((r) => r.crossesBenchmark).length;

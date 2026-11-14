@@ -1,6 +1,13 @@
 /* TerrainX enhancement pass (2026-11-14): ranking tiers, search/sort, markers,
    merged map control, imagery, 3D, compare and viewer components. */
 
+.brand-mark { object-fit: contain; flex: 0 0 auto; }
+.passport-brand-mark { float: left; margin: 0 18px 12px 0; }
+.lab-table td small { display: block; color: var(--muted); font-size: 10px; }
+.passport-link .source-link { margin: 8px 0; }
+@media (max-width: 600px) { .brand-mark { width: 32px; height: 29px; } }
+@media print { .passport-brand-mark { filter: grayscale(1) brightness(0.5); } }
+
 /* ---------- Planet selector ---------- */
 .planet-selector button .planet-glyph {
   flex-shrink: 0;

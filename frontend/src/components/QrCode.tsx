@@ -14,7 +14,7 @@ export default function QrCode({
   qr.addData(value);
   qr.make();
   const n = qr.getModuleCount(),
-    quiet = 2;
+    quiet = 4;
   let d = "";
   for (let r = 0; r < n; r++)
     for (let c = 0; c < n; c++)

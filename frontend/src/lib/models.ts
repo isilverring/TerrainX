@@ -110,6 +110,7 @@ const assessment = z.object({
   priority: z.number().nullable(),
   alpha: z.number(),
   gamma: z.number(),
+  minimum_coverage: z.number().optional(),
   reality_gap: realityGap,
   experiment,
 });

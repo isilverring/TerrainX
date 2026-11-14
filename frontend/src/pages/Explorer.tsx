@@ -86,10 +86,10 @@ function CandidateRow({
           </span>
         </div>
         <ScoreStrip assessment={a} compact />
-        {a.utility.coverage < 0.7 ? (
+        {a.utility.evidence_label === "Insufficient evidence" ? (
           <small className="insufficient">
             <TriangleAlert size={11} />
-            Insufficient evidence · U is partial (
+            Required evidence missing · assessed weight (
             {number(100 * a.utility.coverage, 0)}% of weight assessed)
           </small>
         ) : null}
@@ -568,7 +568,7 @@ export default function Explorer() {
             <p className="evidence-rationale">
               {a.utility.criteria.geology.rationale}
             </p>
-            {a.utility.coverage < 0.7 ? (
+            {a.utility.evidence_label === "Insufficient evidence" ? (
               <p className="warning-inline">
                 <TriangleAlert size={14} />
                 Insufficient evidence for characterization.

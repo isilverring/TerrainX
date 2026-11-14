@@ -118,7 +118,7 @@ export function equalDynamicPressureSpeed(
 
 export interface AtmosphereState {
   body: Body;
-  classification: "OBSERVED" | "SCENARIO" | "APPROXIMATION";
+  classification: "OBSERVED" | "DERIVED" | "SCENARIO" | "APPROXIMATION";
   label: string;
   pressurePa: number | null;
   temperatureK: number | null;
@@ -142,22 +142,48 @@ export function earthAtmosphere(
       missing,
       reason: `NASA POWER ${missing.join(" and ")} unavailable for this location; Earth density is not computed.`,
     };
-  const pressurePa = pressureToPa(PS!.value!, PS!.unit);
-  const temperatureK = temperatureToK(T2M!.value!, T2M!.unit);
+  let pressurePa: number, temperatureK: number;
+  try {
+    pressurePa = pressureToPa(PS!.value!, PS!.unit);
+    temperatureK = temperatureToK(T2M!.value!, T2M!.unit);
+    gasDensity(pressurePa, temperatureK, R_DRY_AIR);
+  } catch (error) {
+    return {
+      missing: ["valid PS/T2M units or values"],
+      reason: `Earth density unavailable: ${String(error)}`,
+    };
+  }
+  const windUnit = WS10M?.unit.trim().toLowerCase().replace(/\s/g, "");
+  const windSpeed =
+    WS10M?.value == null
+      ? null
+      : windUnit === "m/s" || windUnit === "ms-1"
+        ? WS10M.value
+        : windUnit === "km/h"
+          ? WS10M.value / 3.6
+          : null;
+  const period = PS!.provenance.period;
+  const periodLabel = Array.isArray(period)
+    ? period.join("–")
+    : (period ?? "period unavailable");
   return {
     body: "earth",
-    classification: "OBSERVED",
-    label: `NASA POWER climatology at ${candidate.name} (2001–2025 means)`,
+    classification: "DERIVED",
+    label: `Dry-air density derived from NASA POWER at ${candidate.name} (${periodLabel})`,
     pressurePa,
     temperatureK,
     rSpecific: R_DRY_AIR,
     density: gasDensity(pressurePa, temperatureK, R_DRY_AIR),
-    windSpeed: WS10M?.value ?? null,
+    windSpeed,
     notes: [
       `PS ${PS!.value} ${PS!.unit} → ${pressurePa.toFixed(0)} Pa`,
       `T2M ${T2M!.value} ${T2M!.unit} → ${temperatureK.toFixed(2)} K`,
       "Dry-air approximation R = 287.05 J/(kg·K); humidity is ignored.",
-      "Annual-mean values; density varies with season and time of day.",
+      "Density is calculated from climatological mean pressure and temperature, not an observed mean density. The ratio of means need not equal the mean of the ratio.",
+      "Dynamic pressure uses the adjustable scenario wind, not an observed pressure or mean wind-pressure climatology; q at a mean wind is not mean q.",
+      ...(WS10M && windSpeed == null
+        ? ["Wind unavailable: missing value or unsupported source unit."]
+        : []),
     ],
   };
 }

@@ -77,12 +77,12 @@ export function buildPacket(
         weights,
         alpha: a.alpha,
         gamma: a.gamma,
-        minimum_coverage: 0.7,
+        minimum_coverage: a.minimum_coverage ?? 0.7,
         tolerances: Object.fromEntries(
           a.fidelity.components.map((x) => [x.feature, x.tolerance]),
         ),
       },
-      note: "Scores reflect the model weights active when the packet was generated.",
+      note: "Scores reflect active weights, alpha, tolerances and evidence threshold. The offline pipeline reproduces default scores; apply this exported model to reproduce a custom scenario.",
     },
     target: {
       id: target.id,
@@ -101,9 +101,9 @@ export function buildPacket(
       benchmark: c.benchmark,
       discovery_note: c.benchmark
         ? "Documented benchmark reference; never counted as a new discovery."
-        : a.utility.coverage >= 0.7
+        : a.utility.status === "CHARACTERIZED CANDIDATE"
           ? "Exploratory research candidate selected algorithmically; requires field validation."
-          : "Research candidate requiring validation (evidence coverage below 70%).",
+          : "Research candidate requiring validation; geological relevance or required evidence remains insufficient.",
       coordinate_scope:
         c.coordinate_scope ??
         "Automatically selected NASA POWER cell centre; field subsite not yet chosen.",
@@ -296,7 +296,13 @@ export function packetCsv(p: Packet) {
 /** GeoJSON (WGS84 lon/lat) of the Earth candidate point and its 24 km SRTM lattice footprint. */
 export function packetGeoJSON(p: Packet) {
   const { latitude: lat, longitude: lon } = p.candidate;
-  const half = (p.terrain.footprint_m ?? 24000) / 2;
+  const footprint = p.terrain.footprint_m;
+  const hasFootprint =
+    p.terrain.status === "available" &&
+    footprint != null &&
+    Number.isFinite(footprint) &&
+    footprint > 0;
+  const half = hasFootprint ? footprint / 2 : 0;
   const props = {
     id: p.candidate.id,
     name: p.candidate.name,
@@ -315,18 +321,22 @@ export function packetGeoJSON(p: Packet) {
         properties: { ...props, kind: "candidate" },
         geometry: { type: "Point" as const, coordinates: [lon, lat] },
       },
-      {
-        type: "Feature" as const,
-        properties: {
-          id: p.candidate.id,
-          kind: "srtm-analysis-footprint",
-          footprint_m: p.terrain.footprint_m,
-        },
-        geometry: {
-          type: "Polygon" as const,
-          coordinates: [squareAround(lat, lon, half)],
-        },
-      },
+      ...(hasFootprint
+        ? [
+            {
+              type: "Feature" as const,
+              properties: {
+                id: p.candidate.id,
+                kind: "srtm-analysis-footprint",
+                footprint_m: p.terrain.footprint_m,
+              },
+              geometry: {
+                type: "Polygon" as const,
+                coordinates: [squareAround(lat, lon, half)],
+              },
+            },
+          ]
+        : []),
     ],
   };
 }

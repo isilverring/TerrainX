@@ -377,18 +377,26 @@ export default function TransferLab() {
                   <tr>
                     <th>Earth</th>
                     <td>
-                      <EvidenceTag
-                        kind={earthOk ? "MEASURED" : "UNAVAILABLE"}
-                      />
+                      <EvidenceTag kind={earthOk ? "DERIVED" : "UNAVAILABLE"} />
                     </td>
-                    <td>{earthOk ? number(earth.pressurePa, 0) : "—"}</td>
-                    <td>{earthOk ? number(earth.temperatureK, 2) : "—"}</td>
-                    <td>{earthOk ? "287.05 (dry air)" : "—"}</td>
-                    <td>{earthOk ? number(earth.density, 4) : "—"}</td>
+                    <td>
+                      {earthOk ? number(earth.pressurePa, 0) : "—"}
+                      <small> NASA POWER input</small>
+                    </td>
+                    <td>
+                      {earthOk ? number(earth.temperatureK, 2) : "—"}
+                      <small> NASA POWER input</small>
+                    </td>
+                    <td>{earthOk ? "287.05 (dry air assumption)" : "—"}</td>
+                    <td>
+                      {earthOk ? number(earth.density, 4) : "—"}
+                      <small> calculated</small>
+                    </td>
                     <td>
                       {q.earth != null
                         ? `${number(q.earth, 2)} Pa`
                         : "not computed"}
+                      <small> scenario calculation</small>
                     </td>
                   </tr>
                   <tr>
@@ -418,7 +426,8 @@ export default function TransferLab() {
             </div>
             {earthOk ? (
               <p className="lab-note">
-                {earth.notes.join(" · ")} Measured mean 10 m wind at this site:{" "}
+                {earth.label}. {earth.notes.join(" · ")} NASA POWER mean 10 m
+                wind:{" "}
                 <strong className="mono">
                   {number(earth.windSpeed, 2)} m/s
                 </strong>
@@ -499,7 +508,7 @@ export default function TransferLab() {
                     <Line
                       type="monotone"
                       dataKey="earth"
-                      name="Earth (NASA POWER)"
+                      name="Earth (derived scenario)"
                       stroke="#35C3B0"
                       dot={false}
                       strokeWidth={2}

@@ -11,11 +11,11 @@ import "./styles/refinements.css";
 import "./styles/enhancements.css";
 import {
   ModelContext,
-  applyWeights,
-  defaultWeights,
+  applyScenarios,
   rebalanceWeight,
-  storedWeights,
+  storedScenarios,
 } from "./lib/scoring";
+import { defaultScenario } from "./lib/counterfactual";
 const Explorer = lazy(() => import("./pages/Explorer"));
 const SiteDetail = lazy(() => import("./pages/SiteDetail"));
 const Passport = lazy(() => import("./pages/Passport"));
@@ -29,18 +29,22 @@ const Demo = lazy(() => import("./pages/Demo"));
 function App() {
   const [data, setData] = useState<Dataset | null>(null),
     [error, setError] = useState("");
-  const [weights, setWeights] = useState(storedWeights);
+  const [scenarios, setScenarios] = useState(storedScenarios);
+  const weights = {
+    jezero: scenarios.jezero.weights,
+    "mare-crisium": scenarios["mare-crisium"].weights,
+  };
   const assessed = useMemo(
-    () => (data ? applyWeights(data, weights) : null),
-    [data, weights],
+    () => (data ? applyScenarios(data, scenarios) : null),
+    [data, scenarios],
   );
   useEffect(() => {
     try {
-      localStorage.setItem("terrainx-weights-v1", JSON.stringify(weights));
+      localStorage.setItem("terrainx-scenarios-v1", JSON.stringify(scenarios));
     } catch {
       /* Storage optional. */
     }
-  }, [weights]);
+  }, [scenarios]);
   useEffect(() => {
     loadData()
       .then(setData)
@@ -67,15 +71,28 @@ function App() {
         <ModelContext.Provider
           value={{
             weights,
-            change: (mission, key, value) =>
-              setWeights((current) => ({
+            scenarios,
+            update: (mission, patch) =>
+              setScenarios((current) => ({
                 ...current,
-                [mission]: rebalanceWeight(current[mission], key, value),
+                [mission]: { ...current[mission], ...patch },
+              })),
+            change: (mission, key, value) =>
+              setScenarios((current) => ({
+                ...current,
+                [mission]: {
+                  ...current[mission],
+                  weights: rebalanceWeight(
+                    current[mission].weights,
+                    key,
+                    value,
+                  ),
+                },
               })),
             reset: (mission) =>
-              setWeights((current) => ({
+              setScenarios((current) => ({
                 ...current,
-                [mission]: defaultWeights[mission],
+                [mission]: defaultScenario(mission),
               })),
           }}
         >

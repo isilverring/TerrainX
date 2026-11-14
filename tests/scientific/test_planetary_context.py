@@ -6,7 +6,7 @@ from pathlib import Path
 
 import pytest
 
-from science.ingestion.planetary_context import WINDOWS, load_window, parse_window_csv, window_csv_text
+from science.ingestion.planetary_context import WINDOWS, load_window, parse_window_csv, window_csv_text, verify_raster
 
 ROOT = Path(__file__).resolve().parents[2]
 SOURCE = ROOT / "data" / "source" / "planetary"
@@ -60,3 +60,27 @@ def test_csv_round_trip():
     spec = WINDOWS["jezero"]
     text = (SOURCE / spec.csv_name).read_text(encoding="utf-8").strip()
     assert window_csv_text(parse_window_csv(text, spec)) == text
+
+
+def test_source_manifest_rejects_same_size_modified_raster(tmp_path):
+    import hashlib
+    image = tmp_path / "raster.img"
+    image.write_bytes(b"verified")
+    record = {"bytes": 8, "sha256": hashlib.sha256(b"verified").hexdigest()}
+    verify_raster(image, record)
+    image.write_bytes(b"modified")
+    with pytest.raises(ValueError, match="SHA-256"):
+        verify_raster(image, record)
+
+
+def test_fallback_window_rejects_modified_pixel(tmp_path):
+    import shutil
+    spec = WINDOWS["jezero"]
+    for name in (spec.label_xml, spec.label_pds3, spec.csv_name):
+        shutil.copyfile(SOURCE / name, tmp_path / name)
+    path = tmp_path / spec.csv_name
+    values = parse_window_csv(path.read_text(), spec)
+    values[0][0] += 1
+    path.write_text(window_csv_text(values))
+    with pytest.raises(ValueError, match="SHA-256"):
+        load_window(tmp_path, spec)

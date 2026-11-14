@@ -1,0 +1,23 @@
+# Teammate enhancement review
+
+Reviewed `c10fccf..800d5ff` on 2026-11-14. The teammate added useful Discovery Frontier, Transfer Lab, Forensics, What-if/Pareto/robustness, imagery, packet exports and guided-demo features. These are retained.
+
+No material NASA data corruption was found. Raw source responses remain unchanged; both full planetary raster hashes match the original manifest. Regenerated numerical differences are floating-point rounding (maximum absolute change 5.68e-14). Original counts remain 130 cells, 16 automatic candidates, 10 preliminary characterized candidates and 4 separate benchmarks. Eight NASA image display/original URLs returned HTTP 200; GIBS products and matrix sets were checked against official capabilities.
+
+## Repaired defects
+
+- What-if had local model state, so dossier/export navigation silently reverted alpha, tolerances, thresholds and sometimes weights. One persisted mission scenario now drives all views and packet metadata; Passport QR links carry a validated scenario snapshot.
+- Frontier called coverage >=70% "fully assessed", allowing unknown-geology comparators after weight changes and potential self-comparison. Comparator criteria must now all be assessed; self is excluded and null benchmark U is never replaced by -1.
+- Rank explanations confused a candidate's own score movement with peer-relative rank changes. These are now stated separately. New eligibility reports actual coverage/threshold changes.
+- Robustness rank intervals omitted unranked scenarios without disclosure. Eligible scenario share is now explicit; rank intervals are conditional on eligibility, while first/top-three shares use all scenarios.
+- Transfer Lab labeled calculated density and adjustable-wind dynamic pressure as measurements. Input observations, dry-air assumptions, derived density and scenario pressure are now distinguished. Actual periods and wind units are honored; invalid units remain unavailable. Nonlinear calculations from means are not observed climatological means.
+- GeoJSON exported a fabricated 24 km footprint if terrain metadata was missing. Only the real coordinate point is unconditional; analysis polygons require available terrain and actual footprint metadata.
+- Planetary context extraction copied manifest hashes without enforcing them. Full raster bytes/hash and trusted extracted-window hashes are now verified.
+- Visualization terrain fetches could hang or decode transparent/no-data pixels as elevations. A bounded timeout and supported-pixel checks preserve unavailable states. These visual layers never enter scores.
+- Mars imagery wording now distinguishes surface liquid water from stable surface ice. Aqua availability start follows official GIBS capabilities.
+
+## Verification in progress
+
+Baseline production build and all 13 browser workflows passed against real services. Science repair checks: 59 Python tests and 52 frontend unit tests pass. Final release verification and deployment results will be recorded in STATUS.md and DEPLOYMENT.md.
+
+Browser plugin not available; the existing Playwright/Chrome workflow is used. Full desktop/mobile QA includes actual imagery, cached-data fallback and active-model exports. Numerical fixtures in tests are not application observations.

@@ -212,20 +212,16 @@ export function explain(
     let sentence: string;
     if (!a.eligible) sentence = `Not ranked: ${a.reason}.`;
     else if (!b.eligible)
-      sentence = `Newly rankable because the minimum evidence coverage changed.`;
+      sentence = `Newly rankable under the changed model: coverage ${(100 * b.C).toFixed(0)}% → ${(100 * a.C).toFixed(0)}%, required ${(100 * base.minCoverage).toFixed(0)}% → ${(100 * next.minCoverage).toFixed(0)}%; geological evidence remains required.`;
     else if (Math.abs(size) < 0.05)
       sentence =
         "Essentially unchanged by these settings; any rank change comes from other candidates moving.";
     else {
       const dir = size > 0 ? "upward" : "downward";
-      const move =
-        rankDelta == null || rankDelta === 0
-          ? `Its score moved ${dir} (${pDelta! >= 0 ? "+" : ""}${pDelta!.toFixed(1)} P)`
-          : `This candidate moved ${rankDelta > 0 ? "upward" : "downward"} ${Math.abs(rankDelta)} place${Math.abs(rankDelta) > 1 ? "s" : ""}`;
+      const move = `Its own P changed by ${pDelta! >= 0 ? "+" : ""}${pDelta!.toFixed(1)}; the largest model contribution was ${dir}`;
       if (driver === "alpha") {
-        const fBetter = (a.F ?? 0) > (a.U ?? 0);
         const fMore = next.alpha > base.alpha;
-        sentence = `${move} mainly because terrain fidelity F was weighted ${fMore ? "more" : "less"} heavily relative to utility U (F ${a.F!.toFixed(0)} vs U ${a.U!.toFixed(0)}${fBetter === fMore ? "" : ""}).`;
+        sentence = `${move} because terrain fidelity F was weighted ${fMore ? "more" : "less"} heavily relative to utility U (F ${a.F!.toFixed(0)} vs U ${a.U!.toFixed(0)}).`;
       } else if (driver === "tolerances")
         sentence = `${move} mainly because the similarity tolerances changed its terrain fidelity (F ${b.F!.toFixed(1)} → ${a.F!.toFixed(1)}).`;
       else {
@@ -246,6 +242,10 @@ export function explain(
         const heavier = next.weights[k] > base.weights[k];
         sentence = `${move} mainly because ${criterionNames[k].toLowerCase()} was weighted ${heavier ? "more" : "less"} heavily and scores ${(a.criteria[k] ?? 0).toFixed(2)} here.`;
       }
+      sentence +=
+        rankDelta === 0
+          ? " Its rank is unchanged."
+          : ` Rank ${b.rank} → ${a.rank} depends on all candidates; ${rankDelta! > 0 ? "it overtook peers" : "peers overtook it"}, not solely on its own score change.`;
     }
     return {
       id: c.id,
@@ -300,6 +300,8 @@ export interface Stability {
   firstShare: number;
   top3Share: number;
   ranks: number[];
+  eligibleScenarios: number;
+  eligibleShare: number;
 }
 /**
  * Ranking stability under model assumptions: N scenarios with weights and tolerances
@@ -360,6 +362,8 @@ export function robustness(
       firstShare: s.filter((r) => r === 1).length / n,
       top3Share: s.filter((r) => r <= 3).length / n,
       ranks: list,
+      eligibleScenarios: list.length,
+      eligibleShare: list.length / n,
     };
   });
   stats.sort(
