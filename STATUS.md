@@ -13,6 +13,10 @@ Checks at the last checkpoint: 57 Python scientific tests pass; `validate_result
 
 The owner-private preview at https://terrainx-discovery-lab.comfybay1.chatgpt.site still serves the **older** Prompt 1 build (commit `a058c1c`). Redeploy from the PC to publish these enhancements.
 
+## Prompt 2 progress (live log; newest first)
+- **P2-1 Discovery Frontier — done.** `/frontier` + Passport "What should we measure next?". Pure `frontier.ts`: U bounds with each missing criterion at 0 and 1 (known inputs kept), P interval, best-benchmark crossing, possible rank range, declared Measurement Priority rules (not EVI). Real data: 6 Mars and 16 Moon research candidates (geology missing). Vitest unit tests (`npm run test:unit`).
+- Remaining (in priority order): P2-2 Planetary Transfer Lab · P2-3 Analog Forensics + What-if explorer + Pareto · P2-4 Rank robustness + Compare Worlds · P2-5 Expedition Packet exports + Beyond the Known Analogs + Demo mode · P2-6 docs and final verification.
+
 ## Prompt 1 baseline (still true)
 - 130 real POWER cells across four bounded regions;16 algorithmic candidates;10 preliminary characterized automatic candidates;4 separately labelled benchmarks.
 - 20 real climate profiles,20 SRTM49-point grids,2 real metadata-validated MOLA/LOLA grids,19 mapped geological responses;no acquisition errors.

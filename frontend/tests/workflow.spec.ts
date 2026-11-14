@@ -296,3 +296,27 @@ test("compare mode shows two or three candidates side by side without a winner",
     .click();
   await expect(table.locator("thead th")).toHaveCount(4);
 });
+
+test("Discovery Frontier lists research candidates with hypothetical bounds", async ({
+  page,
+}) => {
+  await page.goto("/#/frontier?mission=jezero");
+  await expect(
+    page.getByRole("heading", { name: "Discovery Frontier" }),
+  ).toBeVisible();
+  await expect(page.locator(".frontier-card")).toHaveCount(6);
+  await expect(page.locator(".frontier-card").first()).toContainText(
+    "Research candidate requiring validation",
+  );
+  await expect(
+    page.getByText("not a formal expected value of information", {
+      exact: false,
+    }),
+  ).toBeVisible();
+  await page.getByRole("button", { name: /Moon · Crisium/ }).click();
+  await expect(page.locator(".frontier-card")).toHaveCount(16);
+  await page.goto("/#/passport/chile--22.500--70.000?mission=jezero");
+  await expect(
+    page.getByRole("heading", { name: "What should we measure next?" }),
+  ).toBeVisible();
+});

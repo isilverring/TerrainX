@@ -21,6 +21,7 @@ const SiteDetail = lazy(() => import("./pages/SiteDetail"));
 const Passport = lazy(() => import("./pages/Passport"));
 const Methodology = lazy(() => import("./pages/Methodology"));
 const Compare = lazy(() => import("./pages/Compare"));
+const Frontier = lazy(() => import("./pages/Frontier"));
 function App() {
   const [data, setData] = useState<Dataset | null>(null),
     [error, setError] = useState("");
@@ -83,6 +84,7 @@ function App() {
                 <Route path="/passport/:id" element={<Passport />} />
                 <Route path="/methodology" element={<Methodology />} />
                 <Route path="/compare" element={<Compare />} />
+                <Route path="/frontier" element={<Frontier />} />
                 <Route
                   path="*"
                   element={

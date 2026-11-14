@@ -1,6 +1,8 @@
 import { Link, useParams, useSearchParams } from "react-router-dom";
 import { Printer } from "lucide-react";
 import QrCode from "../components/QrCode";
+import { MeasureNext } from "../components/FrontierParts";
+import { frontier } from "../lib/frontier";
 import { useData, coordinates, statusName } from "../lib/data";
 import type { Mission } from "../lib/models";
 import {
@@ -98,6 +100,11 @@ export default function Passport() {
       <UtilityPanel assessment={a} />
       <RealityGapPanel assessment={a} />
       <ExperimentPanel assessment={a} />
+      <MeasureNext
+        candidate={c}
+        mission={mission}
+        row={frontier(data.candidates, mission).find((r) => r.candidate.id === c.id)}
+      />
       <section className="science-section passport-sources">
         <h2>Data provenance & references</h2>
         <p>

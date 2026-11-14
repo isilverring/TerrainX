@@ -1,12 +1,15 @@
 {
-  "name":"terrainx-workspace",
-  "private":true,
-  "type":"module",
-  "scripts":{
-    "dev":"npm --prefix frontend run dev",
-    "build":"npm --prefix frontend run build && node scripts/build_static.mjs",
-    "test":"npm --prefix frontend test",
-    "preview":"npm --prefix frontend run preview"
+  "name": "terrainx-workspace",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "npm --prefix frontend run dev",
+    "build": "npm --prefix frontend run build && node scripts/build_static.mjs",
+    "test": "npm --prefix frontend test",
+    "preview": "npm --prefix frontend run preview",
+    "test:unit": "npm --prefix frontend run test:unit"
   },
-  "engines":{"node":">=22"}
+  "engines": {
+    "node": ">=22"
+  }
 }
