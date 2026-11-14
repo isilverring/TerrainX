@@ -2,11 +2,15 @@ import { test, expect } from "@playwright/test";
 test("prepared production demo reloads and opens lazy science views without a network", async ({
   page,
   context,
-  baseURL,
 }) => {
+  const catalogue = await page.request.get("/offline-index.json");
+  let production = false;
+  try {
+    production = (await catalogue.json()).schema_version === 1;
+  } catch {}
   test.skip(
-    !baseURL?.includes(":4173"),
-    "Offline acceptance uses the actual production build on port4173.",
+    !production,
+    "Offline acceptance requires the production catalogue (local preview or public deployment).",
   );
   await page.goto("/#/offline");
   await page

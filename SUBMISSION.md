@@ -1,27 +1,35 @@
-# TerrainX judge briefing
+# TerrainX — project-page draft
 
-**Planetary Analog Discovery & Mission Readiness Lab** — independent2026 NASA Space Apps project. Challenge reference: https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/. The supplied challenge brief guides the implementation; the live challenge URL returned502 during the final source check. No NASA endorsement or field-validation claim.
+Replace team details and the demo link yourself. Follow [docs/SUBMISSION_GUIDE.md](docs/SUBMISSION_GUIDE.md) for the current deadline/format and human submission steps.
 
-## What actually exists
+## Project title and summary
 
-130 real NASA POWER grid cells in four bounded regions;16 deterministic automatic candidates;10 preliminary characterized candidates under default assumptions;4 separately labelled reference benchmarks.20 cached POWER point profiles,20 SRTM grids,2 genuine planetary terrain profiles and19 mapped geology contexts. No unverified “winner.”
+**TerrainX — Planetary Analog Discovery & Mission Readiness Lab**
 
-Separate F terrain fidelity, U mission utility and C evidence coverage, with gated combined priority. Evidence Inspector links claims to units, dates, source hashes, observation support and shared-input limitations. Three Saudi/Chile/Salda cases demonstrate a preliminary hypothesis, a missing mission-specific relevance and a published benchmark. Missing values remain null.
+Before exploring another world, mission teams need to know where—and what—to test on Earth. TerrainX combines cached NASA observations, planetary topography and mapped geological evidence to screen terrestrial field-testing opportunities. It keeps physical terrain fidelity, mission utility and evidence coverage separate. A reproducible130-cell search reveals mission-dependent leads; a verified lunar south-pole module exposes terrain and thermal differences. Users can inspect sources, challenge scoring assumptions and prepare a proposed field study with stations, measurements and explicit limitations. No score certifies a planetary analog or predicts mission success.
 
-Release3 terrain pilot:2 Earth sites ×2 targets ×10 processing choices =40 real comparisons. Copernicus GLO90 DSM with quality masks, MOLA/LOLA and common8/12km aggregation support. Original SRTM rankings remain intact. Window sensitivity is substantial; numerical convergence is not confidence. All sources, actual results and licence attribution: docs/TERRAIN_PILOT.md.
+Final project: https://terrainx-discovery-lab.comfybay1.chatgpt.site
 
-## Why this matters
+Short demo: [ADD YOUR PUBLIC VIDEO OR SLIDES LINK]
 
-- Impact: directs the next field measurement for mission-specific testing rather than declaring analog equivalence.
-- Creativity: Discovery Frontier, transparent uncertainty gaps and a processing-sensitivity terrain pilot turn screening into a testable question.
-- Validity: reproducible numerical functions, checksum-pinned releases, explicit geological gates and scale/physics limitations.67 Python and61 TypeScript tests;24 production-preview browser workflows.
-- Relevance: NASA POWER/SRTM/MOLA/LOLA/GIBS and NASA geological/imagery references support the Earth–Moon/Mars mission use cases. Copernicus is clearly a partner source.
-- Presentation: interactive atlas, evidence-backed dossiers, Transfer Lab, Forensics, isolated90-second guided narrative and printable/exportable expedition packet. Offline-prepared science survives tile outages.
+Team: [ADD ACTUAL TEAM NAME AND CONTRIBUTORS]
 
-## Submission and rehearsal
+## Detailed description
 
-Use the public URL in DEPLOYMENT.md. Prepare → Offline before the audience demo, then run DEMO.md. Export a Research snapshot to retain the exact release/model and a packet for the chosen site. Include source repository access as permitted by the event; it remains private. The app has no backend, paid API, account requirement or LLM dependency. No new key is needed.
+The original discovery screens130 NASA POWER precipitation cells in four bounded study regions, selecting16 geographically separated candidates and characterizing them alongside4 independent reference benchmarks. Ten automatic candidates support preliminary hypotheses under the declared default model; none is field-verified. The expanded experiment characterizes all130 cells with POWER point climate, SRTM terrain and available Macrostrat mapping. It has79 rankable Mars cells and1 lunar sampling lead under its release model. Its geographically separated Mars shortlist contains13 cells,12 absent from the original aridity shortlist. These are findings within this sample, not first-ever discoveries.
 
-## Honest limits
+The app reports F, U and C separately and gates a combined priority on evidence. Missing geology stays unknown. The Discovery Frontier asks which next measurement could change an interpretation; six lenses and model-sensitivity analysis show that no single ranking is universally correct. Source inspection retains actual units, periods, response hashes and observation support. A two-site Copernicus/MOLA/LOLA pilot tests common8/12km aggregation supports across40 scenarios; offsets alter interpretation more than numerical lattice refinement. Original SRTM rankings remain identifiable.
 
-No field campaign, mineralogical confirmation, access/permit assessment, rover safety certification or NASA approval. Coarse morphology cannot resolve rocks or wheel-soil mechanics. Copernicus water pixels are edited surface elevations; some infill shares SRTM inputs. Aggregation support does not calibrate instrument response. Utility weights, tolerances and scenarios are declared assumptions. Optional polar/SAR/Diviner integrations and a field-study planner are future work.
+The lunar reference samples real LOLA profiles at eight IAU feature centres associated with a dated NASA region announcement. Its Diviner thermal/ice-stability model summaries are independently verified against the604.8MB PDS source and published MD5. Area weighting, undefined ice codes and air-versus-surface temperature differences are explicit. Modelled stability is not detected ice, and feature centres are not landing polygons.
+
+The Field Study Builder supports original and expanded cells with genuine cached terrain, proposed stations, local notes, saved models, JSON/GPX and a printable field book. Full study JSON preserves all fields; URL sharing preserves stations/intent/models, while compact QR links are explicitly narrower. Presentation settings preserve the research model. Verified offline preparation supports science and exports while external maps are unavailable.
+
+## Science and delivery evidence
+
+81 Python tests and independent core reproduction;89 TypeScript tests;38 production-preview browser workflows;85 responsive route/width checks. Static React/Vite build, no backend/account/paid API/LLM dependency. All numbers are source-reported, derived, declared scenarios or unavailable. Deployment evidence: DEPLOYMENT.md. Source and licence register: DATA_SOURCES.md. Package scope and limits: docs/PACKAGE_AUDIT.md.
+
+## Data, tools and limitations
+
+NASA POWER; NASA SRTM via OpenTopoData; NASA PDS MOLA, LOLA and Diviner; NASA GIBS and original NASA reference imagery; Copernicus GLO90; Macrostrat; GBIF occurrence counts; Natural Earth. Python/NumPy/rasterio/Pydantic/pytest; React/TypeScript/Vite/MapLibre/Recharts/Zod; browser print and Playwright. AI-assisted development is disclosed in the submission guide; complete that field with the team's actual tools.
+
+No field validation, confirmed local mineralogy, verified cave inventory, measured ice abundance, independent illumination-engineering model, operational safety result or NASA endorsement. POWER wetness and AOD are model/column descriptors; GBIF density reflects reporting effort, not life scarcity. F remains exploratory morphology, and utility coefficients are experimental assumptions. Broader/global and field validation are future research.

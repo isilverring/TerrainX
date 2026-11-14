@@ -1,3 +1,7 @@
+# Historical Release3 checkpoints
+
+Current comprehensive Release4 audit/results: PACKAGE_AUDIT.md; current publication: ../DEPLOYMENT.md. Counts and optional items below describe Release3, not the final audited application.
+
 # Release 3 implementation checkpoints
 
 Approved scope: Package A (versioned research, Evidence Inspector and case studies, clearer navigation/presentation, offline preparation and validated public release), then the comparable-terrain pilot. The lunar-polar extension remains optional. All work stays D:\TerrainX.

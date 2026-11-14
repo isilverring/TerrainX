@@ -1,20 +1,16 @@
-# Recommended 90-second judge demo
+# TerrainX audience walkthrough
 
-Audience link: https://terrainx-discovery-lab.comfybay1.chatgpt.site. Read LIVE_DEMO.md for deployment and rehearsal. Prepare the Offline demo before presenting. Guided demo uses a temporary default model; exit restores your research settings.
+For the mandatory short submission demo, use docs/SUBMISSION_GUIDE.md (aim29seconds or at most7slides). This90-second walkthrough is for the audience and questions.
 
-1. **0–15 s:** Landing → Guided demo scenes 1–3. Explain the real funnel: 130 POWER cells → 16 automatic candidates → 10 preliminary characterized candidates, with 4 separate benchmarks.
-2. **15–30 s:** Science/reality scenes. Show separate F/U/C. A high partial U with 45% coverage lacks essential geology. The 0.62 m/s Mars Froude speed for a 1 m/s Earth test is a scaling illustration, not a rover speed limit.
-3. **30–45 s:** Exit → Frontier. Six Mars and sixteen Moon research candidates need geology. Bounds evaluate missing scores at 0 and 1; they are not predicted discoveries. Show XRF/Raman/stratigraphy as proposed measurements.
-4. **45–60 s:** What if → alpha 0. Gobi region · 01 leads the eligible Mars list under utility-only weighting. Separate own-score changes from peers changing rank. Show Pareto/model sensitivity, then reset.
-5. **60–75 s:** Analog DNA → Forensics. Inspect real 7×7 Earth/MOLA grids, coarse scales and native-resolution warning. Worlds shows complete cached NASA imagery; colors do not establish mineralogy.
-6. **75–90 s:** Passport → Expedition Packet. Export JSON/CSV/GeoJSON and Print/Save as PDF. Outputs preserve the active scenario; QR links reproduce it. Close with67 Python tests,61 TypeScript science tests,24 production-preview browser workflows and source traceability.
+1. **0–15s — Discover:** landing → All cells. Explain130 real screened cells, original16 automatic candidates and4 benchmarks. The expanded mission-aware search is a separate experiment, not a rewritten historical discovery.
+2. **15–30s — Investigate a lead:** select Moon and the23°S70°W mapped-basalt cell. It is a preliminary regional-map lead within this sample, not confirmed subsite basalt. Show source units/hashes and coverage as input availability.
+3. **30–45s — Compare carefully:** show F/U/C separately, missing geology in Frontier, and one scientific case. Terrain pilot changes8→12km support; actual grids and offset sensitivity reveal methodological limits. No score is a success probability.
+4. **45–60s — Lunar reference:** open Lunar pole (Haworth or Mons Mouton). Eight IAU feature-centre profiles, verified LOLA/Diviner source and modeled thermal/stability results. Unknown codes are visible; no ice detection or current landing polygon claim.
+5. **60–75s — Reality gap:** Transfer Lab explains gravity/Froude and air-versus-surface distinctions. Open What-if or Lenses for mission-dependent rankings if questions allow.
+6. **75–90s — Prepare:** All cells → Plan a field study → Suggest relief transect. Show proposed stations, field measurement questions, JSON/GPX/print and source-pinned sharing. Finish with the next measurement, not a discovered winner.
 
-The seven guided scenes are manual: Next/Previous, arrows, Home/End and Esc. Reduced motion is supported. If time is tight, show the guided narrative and one Passport.
+The manual guided narrative has10 scenes: arrows, Next/Previous, Home/End, Esc. Search uses Ctrl/⌘K or / and has its own modal keyboard focus. Presentation models preserve research settings; exit restores them. Original logo remains; Mars is independent of the Moon illustration.
 
-Cached data, comparison images, calculations, 24 km Forensics and exports work without provider requests after app assets load. Basemaps/GIBS and optional AWS context need network; local coastlines/markers and measured lattice remain if they fail. Keep a local production preview ready.
+Before presenting: Prepare → Offline → wait for Ready → reload/network-off rehearsal. The app, cached science, measured grids, source metadata and images/exports remain; external basemaps/GIBS/citations need network. Keep a local production preview ready (LIVE_DEMO.md).
 
-Hard questions: "new" means unshortlisted in this bounded sample, not unknown to literature. No field campaign occurred. F is exploratory morphology with unequal native support. U is a declared heuristic and must be read with C. No automatic lunar-basalt match is claimed. Bounds are scenarios, robustness is sensitivity rather than confidence, and atmospheric values are calculations with stated assumptions.
-
-## Release3 alternate scientific story
-
-0–15s: real search funnel and separate benchmarks.15–30s: Saudi case → click a measured value to reveal units, period, response hash and spatial limits.30–45s: Chile case demonstrates why a high partial U is not a geological conclusion.45–60s: Terrain pilot changes common support8→12km and shows actual grids and offset sensitivity.60–75s: Transfer Lab explains the reality gap.75–90s: Passport → field measurement proposal → export a release-pinned research snapshot. Lake Salda remains the independently documented reference, never a new discovery. Submission talking points are in SUBMISSION.md.
+Checks:81 Python,89 TypeScript,38 production-preview browser workflows and85 responsive cases. No field campaign, mineralogical confirmation, observed ice, verified cave inventory, rover safety certification or NASA endorsement. See docs/PACKAGE_AUDIT.md for package boundaries and SUBMISSION.md for the project-page draft.

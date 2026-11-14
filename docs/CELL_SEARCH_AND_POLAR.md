@@ -1,38 +1,28 @@
-# 130-cell mission-aware search and lunar south-polar module
+# Expanded cell search and polar model — reproducibility
 
-Two separate, versioned experiments added on the laptop (checkpoints L7–L9). Neither changes the released discovery (`dataset.json`, aridity-ranked shortlist, scores). Both ship in science release `science-1407d3729d4bd714`; older releases stay frozen.
+Current contracts: terrainx-cell-search-v3, terrainx-field-sites-v1 and terrainx-lunar-polar-v2. They are separate from the original16-candidate discovery and do not overwrite its scores. All are pinned in immutable science releases; unavailable historical files never fall back to newest observations.
 
-## Data acquisition (genuine, checksum-tracked)
+## Reproduce under D:\TerrainX
 
-The cloud build workspace cannot reach OpenTopoData, Macrostrat or NASA PDS, so the laptop's built-in browser fetched the data:
-
-| Source | Requests | How integrity is kept |
-|---|---|---|
-| OpenTopoData `srtm90m` (NASA SRTM) | 114 (7×7 grid per cell) | Request URLs rebuilt in the browser and proven byte-identical to the pipeline's cache keys (SHA-256 of the URL list `ab65b23bfd4f…22bc`). Raw bodies + SHA-256 of the exact bytes saved in `data/source/acquisition/terrainx-cells-srtm.json`. |
-| Macrostrat `geologic_units/map` | 114 | Same; `data/source/acquisition/terrainx-cells-macrostrat.json`. |
-| NASA PDS LOLA `ldem_16.img` | 1 file, 33,177,600 bytes | Must match the SHA-256 pinned in `data/source/planetary/manifest.json` (`a511e40d7a3e…54cb`); `build_lunar_polar.py` refuses to run otherwise. Re-extracting Mare Crisium with it reproduces the released grid exactly. |
-| IAU Gazetteer of Planetary Nomenclature | 2 searches (lat −90…−80) | Feature IDs, centres and diameters recorded in `scripts/build_lunar_polar.py` with Gazetteer links. |
-
-`scripts/import_browser_cache.py` re-hashes every body and writes standard CachedHTTP records (`data/cached/`, keyed by SHA-256 of the URL), so the unmodified pipeline functions run offline.
-
-## Reproduce
-
-```bash
-python scripts/import_browser_cache.py data/source/acquisition/terrainx-cells-srtm.json data/source/acquisition/terrainx-cells-macrostrat.json
-python scripts/build_cell_search.py          # offline from cache; --online to fetch missing entries
-python scripts/build_lunar_polar.py          # needs data/source/planetary/ldem_16.img (git-ignored, 33 MB)
-python -m pytest tests/scientific/test_cell_search_polar.py
+```powershell
+.venv\Scripts\python.exe scripts\build_planetary_profiles.py
+.venv\Scripts\python.exe scripts\import_browser_cache.py data\source\acquisition\terrainx-cells-srtm.json data\source\acquisition\terrainx-cells-macrostrat.json data\source\acquisition\terrainx-cells-power-gbif.json
+.venv\Scripts\python.exe scripts\verify_diviner_source.py
+.venv\Scripts\python.exe scripts\build_cell_search.py
+.venv\Scripts\python.exe scripts\build_lunar_polar.py
+.venv\Scripts\python.exe scripts\validate_results.py
+npm run test:unit
+npm run build
 ```
 
-## Cell search (`terrainx-cell-search-v1`)
+Successful source JSON caches are already committed; browser bundle import re-hashes original bodies. Verify the command's accepted bundle files before refreshing; full Diviner and planetary sources are ignored and downloaded only during preprocessing. The Diviner verifier uses resumable8MB ranges, checks the PDS manifest MD5/full SHA256 and verifies every retained record against the independent source. The604.8MB source is not sent to judges.
 
-- Every one of the 130 screened NASA POWER cells is characterized with the pipeline's own `sample_grid`, `terrain_metrics`, `fetch_geology`/`classify_geology`, `mission_utility`, `physical_fidelity` and `combined_priority`. F reproduces every released candidate exactly.
-- Point T2M climatology was not acquired for cells, so the temperature criterion is missing for all cells (coverage ≤ 95%), applied equally and never counted as zero. P therefore differs slightly from released candidates' P.
-- Shortlists use the released rules (4 per region, 65 km separation) but sort by P instead of aridity.
-- Results (release `science-1407…`): terrain 130/130, mapped geology 129/130. Mars: 79 rankable cells; mission-aware shortlist 13 (Chile has 1 eligible cell), 11 new vs the aridity shortlist. Moon: 1 rankable cell — 23.0°S 70.0°W, Macrostrat "Triassic–Jurassic Basaltic" (source 1087), F 66.4, P 75.6. A mapped regional unit, not field-confirmed basalt.
+Cell search uses the same numerical/core geology/utility functions as the released discovery, with actual point climatology for every cell. All130 receive terrain;129 have mapped context. Geology and coverage gate P; approximate land eligibility is respected. Deterministic shortlists use4 per region and65km separation. Actual results:79 eligible Mars cells,13 Mars picks (12 new vs aridity),1 Moon mapped-basalt lead at23°S70°W. These are bounded-sample hypotheses, not validated new analogs.
 
-## Lunar south pole (`terrainx-lunar-polar-v1`)
+Public climate observations retain units, period, retrieval and source-response hashes. Soil wetness, climatological temperature span, column AOD, inverse GBIF reporting density and coarse slope percentiles are descriptive Earth comparisons, not increased planetary equivalence. Keyword host-rock context is not a cave inventory.
 
-- LOLA 7×7, 4 km grids (same extraction as Mare Crisium) at the IAU centres of Cabeus B, Haworth, Mons Malapert, Mons Mouton, Nobile, de Gerlache and Slater — the features naming NASA's nine Artemis III candidate regions (NASA news release, 2024-10-28) — plus Shackleton as a reference. These centres are not NASA's landing-region polygons.
-- Earth terrain twins compare relief shape (F) against all 134 Earth profiles (130 cells + 4 references). Strongest: Cabeus B (F 97), Mons Mouton (F 91). Weakest: Mons Malapert (F 1), Shackleton (F 0) — no close relief in the four study regions.
-- Terrain twins say nothing about polar illumination, permanently shadowed cold traps, volatiles, vacuum, 1.62 m/s² gravity or regolith.
+The field-site file contains genuine full characterizations for the130 cells, using existing deterministic experiment templates explicitly labeled proposals. It is consumed only by the Field Study Builder; original discovery counts remain16 +4 references. Shared field links request their source release; saved models are used for study scores. Full JSON is the complete exchange format; compact QR has narrower scope.
+
+Polar LOLA extraction uses validated PDS labels/raster hash at eight IAU feature centres. The associated NASA region list is dated October2024; centres are not landing polygons. Diviner PRP records are selected within12.5km by triangle centroid. Actual3D facet areas weight thermal/stability fractions; boundary facets are not clipped. Temperature medians are per triangle. Model ice depth0 means modeled surface stability; positive depths through2.8738m are modeled depth;−999 means beyond the model depth; other negative codes are unknown. No ice detection or resource abundance follows. Undefined code area and missing thermal area are visible.
+
+Unchanged reruns preserve cell/polar bytes and audit timestamps through stable_science_json. Numeric or provenance changes create a new release. Keep every historical release untouched. Broader common-support coverage, global search, polar illumination engineering and field validation remain separate research.

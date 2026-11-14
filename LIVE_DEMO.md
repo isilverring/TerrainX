@@ -14,7 +14,7 @@ The audience URL is **https://terrainx-discovery-lab.comfybay1.chatgpt.site**. P
 
 ## Run a local production fallback
 
-Install Node 22.12+ (Node 24 recommended). In PowerShell:
+Install Node24.x. In PowerShell:
 
 ```powershell
 Set-Location D:\TerrainX
@@ -30,7 +30,7 @@ Open http://127.0.0.1:4173 and keep that terminal running. This tests the produc
 
 1. Sign into Netlify and choose **Add new project → Import an existing project**.
 2. Select GitHub and grant access to the private `isilverring/TerrainX` repository. Select branch `main`.
-3. Use the committed `netlify.toml`: base directory **frontend**, build command **npm ci && npm run build**, publish directory **dist**, Node **22** (latest 22.x).
+3. Use the committed `netlify.toml`: base directory **frontend**, build command **npm ci && npm run build**, publish directory **dist**, Node **24** (24.x).
 4. Deploy. No environment variables or API keys are needed. Netlify publishes the built frontend, not the private repository history.
 5. Open the resulting URL in incognito and click Discovery, Frontier, Transfer Lab and Guided demo. Test a direct `/#/passport/...` link, JSON export and Print. Share that public URL.
 6. Future pushes to `main` trigger the connected deployment. Keep the last successful deployment until the new build passes.
@@ -41,8 +41,16 @@ Official instructions: [Import from Git](https://docs.netlify.com/start/quicksta
 
 ## Vercel alternative
 
-Import the private GitHub repository as a new project. Keep the root directory at the repository root, choose **Other** for framework, and use the committed `vercel.json`: install `npm --prefix frontend ci`, build `npm run build`, output `dist`. Select Node 22.x or 24.x. Deploy, check that audience protection permits your intended visitors, and verify the link in incognito. Hash routes need no rewrite rules. See [Vercel build configuration](https://vercel.com/docs/builds/configure-a-build).
+Import the private GitHub repository as a new project. Keep the root directory at the repository root, choose **Other** for framework, and use the committed `vercel.json`: install `npm --prefix frontend ci`, build `npm run build`, output `dist`. Select Node24.x. Deploy, check that audience protection permits your intended visitors, and verify the link in incognito. Hash routes need no rewrite rules. See [Vercel build configuration](https://vercel.com/docs/builds/configure-a-build).
 
 ## Scientific demo guardrails
 
 The 130 cells and 16 automatic candidates are real screening results; four benchmarks are separate. Ten automatic candidates support preliminary hypotheses under default weights. None is field-validated. No automatic lunar-basalt match is established. Frontier endpoints are hypothetical bounds, physics sliders are scenarios, and rank stability is model sensitivity. Show coverage alongside utility. Do not describe scores as success probabilities or NASA certification.
+
+## Audited release additions and submission
+
+All cells → choose the Moon mapped-basalt lead → Plan a field study opens that cell's own observations. Full study JSON preserves all notes and settings; URL sharing preserves stations/intent/models; compact QR is geometry/default-model only. Lunar pole → select a feature; ?site= survives reload. PDS MD5 verification, model-derived thermal/stability semantics and unknown codes remain visible.
+
+For audience use the ten-scene guided narrative or DEMO.md. For the mandatory short event demo use docs/SUBMISSION_GUIDE.md (aim29seconds or at most7slides), then paste the reviewed SUBMISSION.md draft into your team page yourself. Team details, recording/upload, terms and actual submission are human actions.
+
+Prepared old builds intentionally stay available until an explicit update. To upgrade: reconnect → Prepare → Offline → Prepare offline demo → Use prepared update and reload (if shown). Rehearse offline again. Do not clear saved research just to refresh assets. Exact release/source/rollback metadata is in DEPLOYMENT.md.

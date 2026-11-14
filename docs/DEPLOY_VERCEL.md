@@ -9,10 +9,10 @@ TerrainX is a fully static site (React + Vite, hash routes, no server, no API ke
 | Install command | `npm --prefix frontend ci` |
 | Build command | `npm run build` (runs `prepare_release.mjs` → `tsc` → `vite build` → offline catalogue → copies to `/dist`) |
 | Output directory | `dist` |
-| Node.js | root `package.json` has `"engines": {"node": ">=22.12"}`; Vercel lets `engines` take precedence over the dashboard setting, so it builds on its newest available major. To pin, change it to `"24.x"`. |
+| Node.js | **24.x**, pinned by root package.json and validated locally. |
 | Caching | `sw.js` and `offline-index.json` never cached; `/assets/*` and `/releases/*` immutable for a year; `/data/*` 5 minutes |
 
-The build is verified locally with exactly these commands (`npm --prefix frontend ci && npm run build` at the repo root). It reproduces the committed science release `science-1407d3729d4bd714` byte-for-byte; if a build ever reports a *new* release ID, someone changed a file in `frontend/public/data/` — commit that new `frontend/public/releases/<id>/` folder rather than deleting old ones.
+The build is verified locally with exactly these commands (`npm --prefix frontend ci && npm run build` at the repo root). It reproduces the committed science release `science-b1a132b201ad2046` byte-for-byte; if a build ever reports a *new* release ID, someone changed a file in `frontend/public/data/` — commit that new `frontend/public/releases/<id>/` folder rather than deleting old ones.
 
 ## Option A — dashboard (recommended, about 5 minutes)
 
@@ -72,8 +72,8 @@ TERRAINX_BASE_URL=https://<project>.vercel.app npx playwright test
 |---|---|
 | `Found invalid Node.js Version` | Set root `package.json` engines to a supported major, e.g. `"24.x"`, and redeploy. |
 | `Immutable science asset changed` during build | A file in `frontend/public/data/` differs from a frozen release. Never edit frozen release folders; rebuild locally, commit the new `releases/<id>/` folder. |
-| Stale page after redeploy | Old service worker from a prepared offline demo. Open `/#/offline` → **Clear prepared files**, or hard-reload. `sw.js` is served `no-cache`, so this resolves on the next visit. |
+| Stale page after redeploy | Prepared offline builds stay pinned intentionally. Reconnect, open `/#/offline`, prepare the update and explicitly activate/reload. Clear prepared files is a fallback and does not erase saved studies. |
 | Map tiles blank | External tile hosts blocked by the network; science views still work. |
 | Visitors asked to log in | They opened a preview/deployment URL. Share the production domain or adjust Deployment Protection. |
 
-Keep the existing public Site (see `DEPLOYMENT.md`) unchanged; Vercel is an additional host, not a replacement.
+The existing public ChatGPT Site is also updated as requested; Vercel remains an optional additional host. See DEPLOYMENT.md for exact live version and rollback.

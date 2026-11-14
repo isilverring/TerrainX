@@ -28,3 +28,15 @@ Audit base: `0f326ff`, pulled with a clean fast-forward from `efa7194` (11 teamm
 After every completed milestone: relevant tests, status notes, commit, push and remote SHA verification. Deployment is authorized by the user's latest instruction. Video recording, team details, submission/terms and other human actions remain with the user. No actual challenge submission will be made.
 
 Optional research, not release acceptance: global exhaustive search, new SAR/JAXA/Diviner-illumination products, field validation, high-latitude Earth DEMs and common-support analysis beyond the current two-site feasibility pilot. These require independently validated data and must stay explicitly unavailable until implemented.
+
+## Repair results (current software)
+
+| Package | Result after audit | Explicit boundary |
+|---|---|---|
+| A | Software checks complete: exact historical replay, evidence/cases, navigation, isolated presentation and offline new routes. Public publication is the final release step; DEPLOYMENT.md records its result. | External maps/citations need internet; browser caches can be evicted. |
+| B | Implemented: two-site common-support feasibility pilot,130-cell mission-aware expansion, six ranking lenses and real-cell Field Study Builder with saved-model export/replay. | Common-support analysis remains a two-site pilot; larger/global search and field validation are future research, not claimed complete. |
+| C | Implemented bounded reference: eight source-verified LOLA feature profiles and independently verified Diviner thermal/stability summaries with area weighting, unknown-code handling and deep links. | No landing polygons, illumination-engineering model, high-latitude Earth terrain campaign, measured ice abundance or confirmed base suitability. These remain unassessed. |
+
+Fixed in9382a55: environmental units/provenance, unsupported proxy interpretations, land gate, area-weighted polar statistics and stale challenge claims. Independently verified in db039a9:604,800,210 source bytes; PDS MD5 match; all30,674 retained records exact. Completed in b6c807d: expanded cell-to-field workflow, saved-model/full-link replay, compact-QR scope, damaged-link refusal and polar deep links. Verified in41ed530:81 Python/89 TypeScript/38 production browser tests,85 responsive route/width cases, modal focus/keyboard repairs and offline new tools. CI browser checks are configured; local results do not assert the hosted CI result.
+
+No software gate is intentionally left at the teammate's midway checkpoint. Scientific unknowns remain unknown. The original draft's broader optional research should not be described as completed by a working interface. Final public verification and human actions are recorded separately in the deployment/submission guides.

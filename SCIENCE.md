@@ -1,3 +1,13 @@
+# Current audit additions
+
+Release4 contracts are terrainx-cell-search-v3 and terrainx-lunar-polar-v2, separate from the preserved original model.81 Python/89 TypeScript tests and38 production browser checks pass. Per-variable units/periods/source hashes remain attached to public climate data. Relative Earth percentiles are not Moon/Mars similarity. GBIF is a sampling/reporting quantity, AOD550 is column aerosol extinction and GWET is a model index; no life-scarcity, surface-dust or ice equivalence is inferred.
+
+Diviner layout/units/record lengths are label-validated. The full source matches published PDS MD5 and every retained record. Temperature/stability are model products, not measured ice. Area fractions weight3D facet areas for centroid-selected triangles; medians remain unweighted. Unknown ice codes and invalid thermal values stay unavailable. Thermal fractions use valid thermal area; no valid values yields null. POWER air climatology is not a lunar surface thermal measurement.
+
+Field studies use each study's saved model and exact release. Complete JSON export/import retains the full proposal; URL links retain stations/intent/models and automatically load historical inputs. Compact printed QR deliberately retains geometry with release-default models. No route safety, permits or observed experiment outcomes follow from the interpolated4km lattice. Rebuild methods: docs/CELL_SEARCH_AND_POLAR.md. Package boundaries: docs/PACKAGE_AUDIT.md.
+
+The original core equations and scale limitations follow below; historical counts in earlier notes describe their respective releases.
+
 # TerrainX scientific method and actual findings
 
 Independent research prototype: no planetary equivalence, field verification, rover/landing safety certification or NASA approval is claimed.

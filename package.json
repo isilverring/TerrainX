@@ -10,6 +10,6 @@
     "test:unit": "npm --prefix frontend run test:unit"
   },
   "engines": {
-    "node": ">=22.12"
+    "node": "24.x"
   }
 }

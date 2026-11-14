@@ -8,6 +8,12 @@ A working static React/Vite scientific discovery application and reproducible Py
 
 All work stays in **D:\TerrainX**, tracking `origin/main`. Private repository: [isilverring/TerrainX](https://github.com/isilverring/TerrainX). **[Open the public audience demo](https://terrainx-discovery-lab.comfybay1.chatgpt.site)**. Read [STATUS.md](STATUS.md), [NEXT_STEPS.md](NEXT_STEPS.md) and [DATA_STATUS.md](DATA_STATUS.md) before resuming after a stop, power issue or usage limit.
 
+## Current audited release
+
+The teammate's11-commit continuation was fully reviewed through0f326ff, then repaired and tested. Current checks: **81 Python /89 TypeScript /38 production browser workflows**, plus85 responsive route/width cases. [Package A/B/C status](docs/PACKAGE_AUDIT.md), [submission steps](docs/SUBMISSION_GUIDE.md), [deployment steps](LIVE_DEMO.md). Exact live source/version: DEPLOYMENT.md.
+
+Expanded130-cell search retains units/source hashes and has79 eligible Mars cells, a13-cell separated shortlist (12 new versus aridity), and1 mapped-basalt lunar lead within this sample. Original discovery16 +4 benchmarks is unchanged. All130 cells can seed proposed field studies. Full study JSON preserves the entire plan; share URLs preserve stations/intent/models and pin historical inputs. Lunar module:8 verified LOLA feature profiles and area-weighted Diviner model summaries independently matched to PDS source bytes/MD5. These are not landing polygons or measured ice.
+
 ## Working experience
 
 Release 3 adds immutable, checksummed science releases; save/export/import of exact research models; an Evidence Inspector; three source-scoped case studies; Discover / Investigate / Prepare navigation; presentation settings isolated from research; and verified offline demo preparation. A separate **Terrain pilot** compares real Copernicus/MOLA/LOLA terrain under common 8/12 km aggregation supports and 40 processing scenarios. Original SRTM discovery scores remain unchanged. See [docs/RELEASE_3.md](docs/RELEASE_3.md) and [docs/TERRAIN_PILOT.md](docs/TERRAIN_PILOT.md). Keep historical frontend/public/releases folders intact. Scientific model changes require a new model version or an explicit compatibility implementation.
@@ -37,7 +43,7 @@ No application authentication, database, backend, paid API, LLM or judge-time NA
 
 ## Run locally
 
-Node 22.12+ (24 recommended) and Python 3.12 recommended. This workstation has Python 3.12 via `py -3.12`; its Windows Store `python` alias is not a usable interpreter. Use a supported Node runtime; this release is validated with Node 24.22.1.
+Node24.x and Python 3.12 recommended. This workstation has Python 3.12 via `py -3.12`; its Windows Store `python` alias is not a usable interpreter. Use a supported Node runtime; this release is validated with Node 24.22.1.
 
 ```powershell
 Set-Location D:\TerrainX
@@ -68,7 +74,7 @@ Successful requests are cached. Rerun `build_discovery.py --offline` to regenera
 ```powershell
 .\.venv\Scripts\python.exe scripts\validate_results.py
 npm run build
-npm run test:unit          # 61 Vitest unit tests of the TypeScript science
+npm run test:unit          # 89 Vitest unit tests of the TypeScript science
 # With the dev server running in another terminal:
 npm test
 # In a sandbox without outbound map access:
@@ -76,7 +82,7 @@ npm test
 npm --prefix frontend audit
 ```
 
-Current scientific validation: **67 Python tests and 61 TypeScript unit tests**, plus independent reproduction of saved metrics/scores. Strict TypeScript and static production build pass. Playwright uses installed Chrome and runs **24 production-preview workflows**, including custom-model export/shared-link round trips, real NASA imagery, live AWS context, map fallback and mobile science layouts. `TERRAINX_OFFLINE=1` skips live-provider checks. On another machine install Chrome or adjust the channel in `frontend/playwright.config.ts`. Dependency audit reports zero known vulnerabilities. See `docs/REVIEW.md` for the teammate review and repairs.
+Current scientific validation: **81 Python tests and89 TypeScript unit tests**, plus independent reproduction of saved metrics/scores. Strict TypeScript and static production build pass. Playwright uses installed Chrome and runs **38 production-preview workflows**, including custom-model export/shared-link round trips, real NASA imagery, live AWS context, map fallback and mobile science layouts. `TERRAINX_OFFLINE=1` skips live-provider checks. On another machine install Chrome or adjust the channel in `frontend/playwright.config.ts`. Dependency audit reports zero known vulnerabilities. See `docs/REVIEW.md` for the teammate review and repairs.
 
 New dependencies in this release: `qrcode-generator` (MIT, Passport QR) and dev-only `vitest` 5. Release 3 adds rasterio 1.5.2 and its locked Python dependencies for the offline scientific preprocessing; no frontend package dependencies, backend, API key or paid service were added.
 
@@ -84,15 +90,15 @@ New dependencies in this release: `qrcode-generator` (MIT, Passport QR) and dev-
 
 `npm run build` builds `frontend/dist`, generates a verified first-party offline catalogue and copies a clean root **dist/** release. Open Prepare → Offline while online, click Prepare, then rehearse after disabling the network. Third-party tiles and external source links remain online-only. Hash routes work on static hosts without server rewrites. No runtime secrets/environment variables are required.
 
-- **Netlify:** import using `netlify.toml`; base:`frontend`; build:`npm ci && npm run build`; publish:`dist`; Node 22.
-- **Vercel:** import root using `vercel.json`; install frontend dependencies; run root `npm run build`; serve root `dist`; Node 22+, no framework preset.
+- **Netlify:** import using `netlify.toml`; base:`frontend`; build:`npm ci && npm run build`; publish:`dist`; Node24.
+- **Vercel:** import root using `vercel.json`; install frontend dependencies; run root `npm run build`; serve root `dist`; Node24, no framework preset.
 - **Sites:** `.openai/hosting.json` retains the existing project. The owner requested public audience access during the review. Verified publication/access state is recorded in DEPLOYMENT.md. Do not duplicate the Site or change its audience without instruction.
 
 For a step-by-step public deployment and presentation guide, read **[LIVE_DEMO.md](LIVE_DEMO.md)**. The supplied orbital X logo is retained as a high-contrast vector rendition. Verified NASA comparison images are bundled with source URLs, attributions and SHA-256 in `frontend/public/nasa/imagery-manifest.json`; refresh with `python scripts/cache_worlds_images.py`.
 
 ## Actual findings and limits
 
-130 real cells; 16 automatic candidates; 10 preliminary characterized candidates; 4 benchmarks; 20 real climate profiles; 20 SRTM grids; 2 planetary DEM profiles; 19 mapped geologies; no acquisition errors. No automatic candidate has established direct lunar-basalt relevance in the selected evidence. No field experiment or NASA certification is claimed.
+130 real cells; 16 automatic candidates; 10 preliminary characterized candidates; 4 benchmarks; 20 real climate profiles; 20 SRTM grids; 2 planetary DEM profiles; 19 mapped geologies; no acquisition errors. No original16-candidate entry establishes direct lunar-basalt relevance; the separate130-cell search has one regionally mapped basalt lead requiring field verification. No field experiment or NASA certification is claimed.
 
 POWER cells are not outcrop measurements. SRTM≈90 m native support is sampled at 4 km, not used as a 90 m hazard map. Common spacing does not eliminate unequal Earth/MOLA/LOLA support. Mapped lithology is not verified mineralogy. Scores are declared assumptions, not probabilities. Read [SCIENCE.md](SCIENCE.md), [DATA_SOURCES.md](DATA_SOURCES.md) and the in-app methods.
 

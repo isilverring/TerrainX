@@ -51,7 +51,16 @@ Observations retain original units, coordinates, period, native resolution, miss
 
 The review bundled four unmodified NASA display renditions for audience reliability: Salda, Jezero CTX, Khaybar and the Crisium ridge. Source/credit/retrieval time/byte count/SHA-256 are in `frontend/public/nasa/imagery-manifest.json`; `scripts/cache_worlds_images.py` reproduces the cache. These images never enter scoring. Full uncropped side-by-side is the default; the optional split view crops display frames and does not co-register the images. Planetary context preprocessing now enforces original raster and native-window hashes. The original user logo is preserved in `docs/design/logo-original.jpg`; it is branding, not scientific imagery.
 
-Earthdata Search, Worldview, LRO/Diviner, CSA RCM/RADARSAT-1, Copernicus Data Space, ESA Open Science Catalog and JAXA G-Portal are recorded as possible extensions. **No measurements from these optional sources are claimed in this release.** Diviner could support a later properly matched lunar thermal study; SAR could support separately validated surface/ice-context analysis. Neither should be added as an unverified score.
+NASA GIBS/Worldview access, NASA PDS LRO LOLA/Diviner and ESA Copernicus DEM are now used with explicit product semantics. CSA RADARSAT, ESA Sentinel/SAR and JAXA sources remain optional and are not claimed as integrated observations.
 
 ## Copernicus partner DSM — separate pilot
 Three actual GLO90 AWS2021 COG tiles, EDM/FLM/WBM masks and source XML/licences are cached and checksum-verified. This is an EU/ESA/DLR/Airbus partner source, not NASA SRTM or visualization-only Terrarium. DSM includes water-surface editing and may contain SRTM fills. Per-tile provenance: data/source/pilot/manifest.json. Processing and licence attribution: docs/TERRAIN_PILOT.md.
+
+## Audited expanded sources
+
+- NASA POWER point climate/environment: all130 cells, actual API metadata retained. AOD550 is column aerosol extinction, not a dust-specific measurement; GWET is modeled relative soil wetness. See each cell's source details.
+- [GBIF occurrence API](https://techdocs.gbif.org/en/openapi/v1/occurrence): bounding-box counts, query URL/hash/retrieval preserved. Reporting density is sampling-dependent; no inference of life scarcity or habitability. Underlying contributing datasets retain their own attribution/licences.
+- [LRO Diviner derived PRP archive](https://pds-geosciences.wustl.edu/lro/urn-nasa-pds-lro_diviner_derived1/): PDS label-validated fixed-width thermal/ice-stability model records. Independent full-source digest and published MD5 proof under data/source/diviner/verification.json; scripts/verify_diviner_source.py reproduces acquisition. No detection of water ice claimed.
+- [NASA's October28,2024 region announcement](https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/) and [IAU Gazetteer](https://planetarynames.wr.usgs.gov/): dated feature context/centres, not current landing commitments or landing polygons.
+
+The app includes source-reported, derived and modeled quantities with distinct limits. Source acquisition and scientific pipeline use no paid key or LLM endpoint.

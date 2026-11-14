@@ -1,22 +1,20 @@
-# Scientific data status
+# Current scientific data status
 
-Acquisition complete with no errors. Verified regional responses contain 130 real grid cells (25Saudi,35Botswana,35Chile,35Gobi). Deterministic search selected 16 automatic candidates. All 16 plus 4 separately labelled benchmarks have real POWER point and SRTM terrain profiles. Macrostrat returned mapped units for 19 of 20 locations. Ten automatic candidates have enough mapped evidence for a preliminary mission-specific hypothesis; none is field-validated.
+Science release **science-b1a132b201ad2046**. Original dataset SHA256 **3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c**. Historical release folders remain immutable. Core scientific validation:81 Python tests plus independent reproduction;89 TypeScript tests;38 production-preview workflows. See DEPLOYMENT.md for exact public publication.
 
-The deployable release is `data/derived/dataset.json`, copied to `frontend/public/data/dataset.json`. Successful raw JSON payloads and retrieval records are versioned in `data/cached/`. Derived annual precipitation, seasonal range, terrain metrics and F/U/C preserve links to their source observations.
+| Analysis | Actual available data | Interpretation |
+|---|---|---|
+| Original discovery |130 real POWER regional cells;16 automatic candidates;4 benchmarks;20 climate/SRTM profiles;19 mapped geology contexts |10 automatic entries support preliminary default-model hypotheses. Benchmarks never count as new discoveries. |
+| Expanded cell search v3 |130 point climates,130 SRTM7×7 grids,129 mapped geology contexts,130 environmental climatologies and130 GBIF count queries |79 Mars/1Moon rankable cells. Mars shortlist13,12 new vs original; Moon mapped-basalt lead needs verification. Original scores unchanged. |
+| Field proposals |130 genuine cell characterizations plus original reference benchmarks |Proposed stations/protocols. No field measurements or access approval implied. |
+| Primary planetary profiles |Real MOLA Jezero and LOLA Mare Crisium7×7 grids |4km spacing/8km slope baseline; unequal native support is explicit. |
+| Common-support pilot |2 Earth sites ×2 targets ×10 support/offset choices =40 comparisons |Actual Copernicus DSM/masks and PDS rasters;8/12km aggregation supports; no original ranking replacement. |
+| Lunar polar reference v2 |8 real LOLA feature-centre profiles;30,674 retained Diviner triangles |Model-derived thermal and sublimation-stability quantities, area weighted. Not current landing polygons, detected ice or a base-selection certification. |
 
-Both MOLA and LOLA rasters are available and validated. Extracted 49-point target grids are in `planetary_targets.json`. Native source pixels, labels, checksums and acquisition metadata are under `data/source/planetary/`. Original 33MB rasters remain local and are reproducibly downloadable.
+Independent Diviner verification downloaded604,800,210 bytes, checked2,880,000 records and matched published PDS MD5 **80cdfe83592a3419c74b1b55b636711e** and teammate SHA256. Every retained record matches verbatim. Proof: data/source/diviner/verification.json. Full tabular source,45MB manifest and ranged chunks are ignored and reproducibly downloadable.
 
-POWER precipitation units are mm/day; annual proxy is 365.25×daily. Actual meteorological grid is 0.5°×0.625°, 2001–2025. Solar flux under AG is MJ/m²/day. Coarse grid climatology is not an outcrop instrument measurement.
+All numeric climate observations retain original units, source URL, actual period, response hash, retrieval time and coordinates. POWER meteorological support is0.5°×0.625° (solar1°×1°), climatology2001–2025; not outcrop measurements. Annual precipitation proxy requires mm/day. Monthly mean daily maxima/minima are not absolute extremes. GWET is model wetness, AOD550 column aerosol extinction and GBIF a reporting count; none establishes ice, dust composition, sterility or habitability.
 
-Required sources: NASA POWER regional and point climatology, NASA SRTM via OpenTopoData, MOLA, LOLA, NASA GIBS, NASA mission references, and Macrostrat.
+SRTM nominal90m input is sampled at4km over24km; coarse slopes cannot identify boulders or certify safety. The Natural Earth110m land mask is approximate. Mapped units do not confirm subsite mineralogy or cave presence. Diviner medians count triangles equally; fractions use their3D surface areas, selected by centroid without clipping boundary triangles. Undefined negative ice-depth codes remain unknown.
 
-Benchmark subsite evidence takes precedence over broad regional lithology. In particular, the Salda hydromagnesite shoreline benchmark cannot gain lunar basalt relevance from a coarse ophiolite map polygon. Unknown remains null.
-
-The search applies a broad Natural Earth 110m land mask before shortlist selection. All 130 precipitation cells remain in the GeoJSON; coast/water-screened centers are not silently removed from the research record. The mask is not field-scale coastline validation.
-
-**Visualisation-only context (2026-11-14).** `data/derived/planetary_context.json` (also in `frontend/public/data/`) holds 49×49, 2 km, 96 km MOLA and LOLA context grids for the 3D viewer, built from the committed native DN windows `data/source/planetary/*_context_window.csv` (window SHA-256 recorded in `tests/scientific/test_planetary_context.py`; both windows reproduce the scored 7×7 grids exactly). Earth context surfaces are sampled live in the browser from AWS Terrain Tiles and are not cached. None of these enter F, U, C or P.
-
-**Reviewed regeneration (2026-11-14).** Rationale strings were respaced and the dataset regenerated from cached inputs. Source observations and findings remain intact; maximum numeric difference versus the original MVP is 5.68e-14 (floating-point rounding). Current independent validation passes 63 Python tests. Planetary context extraction now verifies raster/window hashes; bundled NASA image renditions have their own integrity manifest.
-
-## Release3 added science
-Original discovery:130 real cells,16 automatic candidates,10 preliminary characterized under defaults,4 benchmarks unchanged. Separate real Copernicus/MOLA/LOLA pilot:2 Earth sites ×2 targets ×10 processing scenarios =40 valid comparisons. Three denseDSM tiles with quality masks downloaded,19.6MB total acquired assets including metadata/licences. Source windows and40 results reproducible; no new field campaign or confirmed analog. See docs/TERRAIN_PILOT.md.
+No source-acquisition errors are recorded in original or expanded datasets. Cached raw JSON bodies and source records are preserved. Full33MB planetary rasters and dense pilot TIFFs are ignored; labels/checksums/derived arrays are committed. See SCIENCE.md, DATA_SOURCES.md and docs/CELL_SEARCH_AND_POLAR.md for methods and reproduction.

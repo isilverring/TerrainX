@@ -1,0 +1,42 @@
+# Submit TerrainX — step by step
+
+The app and supporting software are prepared. You handle the video/slides, team details and actual submission. The public project link is https://terrainx-discovery-lab.comfybay1.chatgpt.site; confirm the latest successful version in [DEPLOYMENT.md](../DEPLOYMENT.md).
+
+## Confirm the deadline and format
+
+1. Sign into the official Space Apps account yourself. Open your team and its Project tab; confirm its challenge, event and deadline. The2026 event page lists **15November2026,23:59 local time**; the organizing team says the timezone follows the team owner's Local Event. Check earlier local judging requirements too. Do not infer it solely from the computer's Riyadh timezone. [Event page](https://www.spaceappschallenge.org/2026/), [organizing-team answer](https://github.com/nasa/spaceapps/discussions/1916).
+2. Prepare one short demo: aim for a29-second video, or use no more than7slides including title and closing. Keep the project page in English; use English subtitles if narration is in another language. The longer in-app guided demo is supplementary. [NASA-hosted format answer](https://github.com/nasa/spaceapps/discussions/1991), [official guide](https://www.spaceappschallenge.org/resources/project-submission-guide/). Direct guide retrieval intermittently returned502; the current portal instructions govern.
+3. Upload the demo to your chosen host. Test both demo and app links in a fresh incognito window, signed out. Neither should ask judges to request access. Avoid an expiring preview URL.
+
+## Record a29-second demonstration
+
+Prepare → Offline first, then open these screens in advance. Use your original TerrainX logo, real data and readable captures. Do not include unverified output, access tokens or account screens.
+
+| Time | Screen | Suggested narration |
+|---|---|---|
+|0–5s|Landing|“TerrainX finds where on Earth to rehearse Moon and Mars field science.”|
+|5–12s|All cells|“We characterize130 NASA observation cells, then rank their evidence for a specific mission.”|
+|12–18s|Moon cell lead|“A mapped-basalt lead emerges in this sample, with field verification still required.”|
+|18–24s|Lunar pole|“Verified LOLA and Diviner products expose both terrain opportunities and thermal limits.”|
+|24–29s|Field Study Builder|“Turn a lead into a reproducible field proposal, with sources, gaps and proposed measurements.”|
+
+For the Moon cell, open `/#/cells?mission=mare-crisium&cell=chile--23.000--70.000`. Polar example: `/#/lunar-pole?site=haworth`. Proposed field study: select “Plan a field study for this cell,” suggest a relief transect, and show the proposal label. The40 common-support pilot scenarios are available for deeper questions, not required in a29-second clip.
+
+Slide alternative:1title/team;2challenge;3NASA/partner data;4F/U/C and missing evidence;5bounded130-cell findings;6polar model limitations;7proposed field experiment/public link. Count every title/closing slide.
+
+## Fill the Project tab
+
+Use [SUBMISSION.md](../SUBMISSION.md) as draft copy, then add your team's actual details and demo URL. Typical fields are project title, summary, final-project URL, demo URL, detailed description, NASA/partner/other sources, tools and AI use. Confirm the live form rather than assuming field names or character limits.
+
+- Title: **TerrainX — Planetary Analog Discovery & Mission Readiness Lab**.
+- Final project: the public ChatGPT Site URL above. The source repository is private; the public app is the accessible final artifact. Follow any additional local source-sharing requirement.
+- Demo: your tested short video or slide link; never the29-second script document alone.
+- Sources: NASA POWER, SRTM via OpenTopoData, PDS MOLA/LOLA/Diviner, NASA GIBS and NASA reference imagery; Copernicus GLO90; Macrostrat; GBIF; Natural Earth. Detailed citations and limitations are in DATA_SOURCES.md and the app.
+- AI disclosure draft: “OpenAI Codex assisted software implementation, numerical routines, debugging, tests and documentation. A teammate's AI agent also assisted development and preprocessing. Scientific values originate from cited source products or explicit calculations; synthetic fixtures are limited to tests. The team reviewed the scientific interpretation.” Add other tools/models actually used; do not invent them.
+- Keep the no-endorsement statement and the distinction between observations, derived metrics, model assumptions and unknowns.
+
+Read the terms yourself and submit. Retain the portal confirmation and the submitted app/source version. If the portal permits edits, follow its rules; do not assume either editability or irreversibility without checking.
+
+## Final checks you perform
+
+Confirm names/roles, challenge selection, owner-event timezone, short-demo duration/slide count, English/subtitles, public links, actual tool disclosures and acknowledgements. Record the submitted commit and URLs after final submission; an optional submission tag should identify that exact version. No field campaign, mineralogical confirmation, measured lunar ice, rover safety certification or NASA approval is claimed.
