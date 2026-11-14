@@ -20,6 +20,7 @@ export function Header() {
       <nav aria-label="Main navigation">
         <NavLink to="/explorer">Discovery</NavLink>
         <NavLink to="/frontier">Frontier</NavLink>
+        <NavLink to="/transfer-lab">Transfer Lab</NavLink>
         <NavLink to="/methodology">Methodology</NavLink>
       </nav>
       <span className="header-note">Open science</span>

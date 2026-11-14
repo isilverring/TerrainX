@@ -1691,3 +1691,304 @@
     -webkit-print-color-adjust: exact;
   }
 }
+
+/* ---------- Planetary Transfer Lab ---------- */
+.transfer-page .science-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.world-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 26px 0 4px;
+}
+.world-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  background: #0d1624;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.world-card::after {
+  content: "";
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  opacity: 0.18;
+}
+.world-card.earth::after {
+  background: radial-gradient(circle at 35% 35%, #35c3b0, #0d3b4f 70%);
+}
+.world-card.mars::after {
+  background: radial-gradient(circle at 35% 35%, #f6a07f, #6b2a17 70%);
+}
+.world-card.moon::after {
+  background: radial-gradient(circle at 35% 35%, #e6eef6, #4b5866 70%);
+}
+.world-card.target {
+  border-color: #6c86a4;
+  box-shadow: inset 0 0 0 1px #6c86a455;
+}
+.world-card span {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.world-card strong {
+  font-size: 30px;
+  font-weight: 400;
+}
+.world-card strong small {
+  font-size: 13px;
+  color: var(--muted);
+}
+.world-card em {
+  font-style: normal;
+  font-size: 11px;
+  color: var(--muted);
+}
+.lab-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 340px) 1fr;
+  gap: 28px;
+  margin-top: 16px;
+}
+.lab-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.lab-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12.5px;
+  color: #c6d7e8;
+}
+.lab-slider span {
+  display: flex;
+  justify-content: space-between;
+}
+.lab-slider b {
+  color: var(--earth);
+  font-weight: 400;
+}
+.lab-slider input {
+  accent-color: var(--earth);
+}
+.lab-select {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12.5px;
+  color: #c6d7e8;
+}
+.lab-select select {
+  background: #0c1421;
+  color: var(--text);
+  border: 1px solid #44536b;
+  border-radius: 5px;
+  padding: 9px;
+  font-size: 12.5px;
+}
+.equation-card {
+  border: 1px solid #2c3d55;
+  border-radius: 8px;
+  background: #0b1322;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.equation-card code {
+  font: 13px "JetBrains Mono", monospace;
+  color: #e9eef5;
+}
+.equation-card small {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.lab-kpis {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 0 0 8px;
+}
+.lab-kpis div {
+  background: #0d1624;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.lab-kpis dt {
+  font-size: 11px;
+  color: var(--muted);
+}
+.lab-kpis dd {
+  margin: 0;
+  font-size: 24px;
+  color: var(--text);
+}
+.lab-kpis dd small {
+  font-size: 12px;
+  color: var(--muted);
+}
+.lab-outputs h3 {
+  font-size: 12.5px !important;
+  color: #adbed4;
+  margin: 18px 0 8px !important;
+}
+.lab-bar {
+  display: grid;
+  grid-template-columns: 64px 1fr 110px;
+  gap: 12px;
+  align-items: center;
+  font-size: 12px;
+  margin: 5px 0;
+}
+.lab-bar i {
+  height: 10px;
+  border-radius: 5px;
+  background: #18263a;
+  overflow: hidden;
+}
+.lab-bar em {
+  display: block;
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.25s;
+}
+.lab-bar.earth em {
+  background: var(--earth);
+}
+.lab-bar.mars em {
+  background: var(--mars);
+}
+.lab-bar.moon em {
+  background: var(--moon);
+}
+.lab-bar b {
+  font-weight: 400;
+  text-align: right;
+}
+.limitation-banner {
+  display: flex;
+  gap: 14px;
+  margin-top: 22px;
+  padding: 16px 18px;
+  border: 1px solid #e6b48c66;
+  border-left: 4px solid #e6b48c;
+  border-radius: 8px;
+  background: #e6b48c0d;
+}
+.limitation-banner svg {
+  color: #e6b48c;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.limitation-banner strong {
+  font-size: 14px;
+}
+.limitation-banner p {
+  margin: 6px 0 0;
+  font-size: 13px !important;
+  line-height: 1.6;
+  color: #d6dfea;
+}
+.lab-table th,
+.lab-table td {
+  white-space: nowrap;
+}
+.lab-note {
+  font-size: 11.5px !important;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.lab-callout {
+  font-size: 14px !important;
+  line-height: 1.6;
+  padding: 12px 14px;
+  border-radius: 6px;
+  background: #35c3b00f;
+  border: 1px solid #35c3b033;
+}
+.lab-chart {
+  margin-top: 12px;
+}
+.lab-chart small {
+  font-size: 11px;
+  color: var(--muted);
+}
+.gap-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+.gap-card {
+  border: 1px solid var(--border);
+  border-top: 3px solid;
+  border-radius: 8px;
+  padding: 16px 18px;
+  background: #0d1624;
+}
+.gap-card.ok {
+  border-top-color: var(--earth);
+}
+.gap-card.scale {
+  border-top-color: #e6b48c;
+}
+.gap-card.facility {
+  border-top-color: var(--moon);
+}
+.gap-card.open {
+  border-top-color: var(--mars);
+}
+.gap-card > span {
+  font-size: 11px;
+  color: var(--muted);
+}
+.gap-card h3 {
+  font-size: 15px !important;
+  margin: 4px 0 10px !important;
+}
+.gap-card ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: #c5d0df;
+}
+@media (max-width: 900px) {
+  .lab-grid,
+  .gap-cards {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 600px) {
+  .world-strip {
+    grid-template-columns: 1fr;
+  }
+  .lab-kpis {
+    grid-template-columns: 1fr;
+  }
+  .lab-bar {
+    grid-template-columns: 54px 1fr 86px;
+  }
+}

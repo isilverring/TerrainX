@@ -320,3 +320,22 @@ test("Discovery Frontier lists research candidates with hypothetical bounds", as
     page.getByRole("heading", { name: "What should we measure next?" }),
   ).toBeVisible();
 });
+
+test("Planetary Transfer Lab computes Froude scaling and labels scenarios", async ({
+  page,
+}) => {
+  await page.goto("/#/transfer-lab?target=mars&id=saudi-24.000-39.375");
+  await expect(
+    page.getByRole("heading", { name: "Planetary Transfer Lab" }),
+  ).toBeVisible();
+  const kpis = page.locator(".lab-kpis dd");
+  await expect(kpis.nth(0)).toHaveText("0.0510"); // 0.5² / (9.80665 · 0.5)
+  await expect(kpis.nth(1)).toContainText("0.308");
+  await expect(
+    page.getByText("Froude matching is not full physical similarity."),
+  ).toBeVisible();
+  await expect(page.locator(".lab-table")).toContainText("91,600");
+  await expect(page.locator(".lab-table .tag-assumed")).toHaveCount(2);
+  await page.getByRole("button", { name: "Moon", exact: true }).click();
+  await expect(kpis.nth(1)).toContainText("0.203");
+});

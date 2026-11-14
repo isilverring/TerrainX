@@ -15,7 +15,8 @@ The owner-private preview at https://terrainx-discovery-lab.comfybay1.chatgpt.si
 
 ## Prompt 2 progress (live log; newest first)
 - **P2-1 Discovery Frontier — done.** `/frontier` + Passport "What should we measure next?". Pure `frontier.ts`: U bounds with each missing criterion at 0 and 1 (known inputs kept), P interval, best-benchmark crossing, possible rank range, declared Measurement Priority rules (not EVI). Real data: 6 Mars and 16 Moon research candidates (geology missing). Vitest unit tests (`npm run test:unit`).
-- Remaining (in priority order): P2-2 Planetary Transfer Lab · P2-3 Analog Forensics + What-if explorer + Pareto · P2-4 Rank robustness + Compare Worlds · P2-5 Expedition Packet exports + Beyond the Known Analogs + Demo mode · P2-6 docs and final verification.
+- **P2-2 Planetary Transfer Lab — done.** `/transfer-lab`: Froude number and matched speed, slope force components with a hypothetical mass, dynamic pressure from NASA POWER PS/T2M/WS10M (unit strings honored, kPa→Pa, °C→K), labelled Mars scenario (600 Pa, 210 K, CO₂) and Moon ≈ 0, prominent limitations, deterministic transfer-gap summary. `physics.ts` + 13 unit tests (prompt tests 1–10).
+- Remaining (in priority order): P2-3 Analog Forensics + What-if explorer + Pareto · P2-4 Rank robustness + Compare Worlds · P2-5 Expedition Packet exports + Beyond the Known Analogs + Demo mode · P2-6 docs and final verification.
 
 ## Prompt 1 baseline (still true)
 - 130 real POWER cells across four bounded regions;16 algorithmic candidates;10 preliminary characterized automatic candidates;4 separately labelled benchmarks.
