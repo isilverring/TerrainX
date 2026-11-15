@@ -42,4 +42,6 @@ U3 prepublication:85 Python tests + independent numerical reproduction,99 TypeSc
 
 Publication checkpoint: final source b6bbbe7 rebuilt successfully; all7 final usability regressions pass against production preview. Version7 native publication succeeded2026-11-15T02:11:15Z and public audience was reverified. Full50 public workflows and36 focused public visual checks are running. DEPLOYMENT.md records exact identifiers/checksums. Leave U3 open until these finish. Do not republish for subsequent acceptance/documentation-only commits.
 
+Version7 acceptance completed:50/50 fresh public workflows and36 focused public cases passed. Human-style screenshot review additionally found a clipped comparison target toggle and negative-number-plus-N/E polar notation. A small runtime follow-up wraps comparison header controls, uses the existing hemisphere formatter for the actual target and labels null U as unassessed. The comparison regression now checks correct S/W notation and unclipped controls. Publish this correction as the successor version, then perform final public acceptance; version7 remains a tested rollback.
+
 Next agent: inspect git status/log and STATUS.md before continuing. Update this file at each milestone. Do not treat completed earlier scope as unfinished.

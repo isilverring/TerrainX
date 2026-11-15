@@ -1,6 +1,6 @@
 # TerrainX active recovery checkpoint — usability follow-up
 
-**Usability follow-up published; final public acceptance running (2026-11-15).** U1–U2 complete in docs/UX_REFINEMENT.md. Version7/source b6bbbe76d64c777981432e074ef8cd7a0852fe49 is live at https://terrainx-discovery-lab.comfybay1.chatgpt.site ; audience public. Native publication succeeded2026-11-15T02:11:15Z. Exact metadata: DEPLOYMENT.md. Current work: finish50 fresh public browser workflows and36 focused public visual cases, then close U3/update handoff and stop owned QA servers. Do not republish for documentation-only commits.
+**Final comparison presentation correction ready (2026-11-15).** U1–U2 complete in docs/UX_REFINEMENT.md. Version7/source b6bbbe76d64c777981432e074ef8cd7a0852fe49 is publicly live and passes50/50 workflows +36 focused visual cases. Screenshot review found comparison target-toggle clipping and polar hemisphere notation; both are fixed in source with an extended regression. Rebuild/publish the successor, perform final public acceptance, close U3/update handoff and stop owned QA servers. DEPLOYMENT.md records version7 as tested rollback. Do not republish for documentation-only commits.
 
 Prepublication:85 Python + independent reproduction,99 unit tests, strict production build,49/49 full browser flows plus7 final usability flows,126 responsive cases. Scientific source data unchanged. User logo and independent Mars preserved. Work remains D:\TerrainX, private isilverring/TerrainX main; milestone pushes verified.
 

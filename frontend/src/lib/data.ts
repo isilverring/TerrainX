@@ -37,7 +37,7 @@ export function number(value: number | null | undefined, digits = 1) {
         minimumFractionDigits: digits,
       });
 }
-export function coordinates(c: Candidate) {
+export function coordinates(c: Pick<Candidate, "latitude" | "longitude">) {
   return `${Math.abs(c.latitude).toFixed(3)}° ${c.latitude >= 0 ? "N" : "S"}  /  ${Math.abs(c.longitude).toFixed(3)}° ${c.longitude >= 0 ? "E" : "W"}`;
 }
 export type SortKey = "U" | "C" | "F" | "P";

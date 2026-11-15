@@ -116,9 +116,9 @@ export default function Compare() {
           </p>
           <h1>Compare candidates</h1>
           <p>
-            Values are shown next to each other, not combined. No winner is
-            declared: F, U and C answer different questions, and a partial U (C
-            below 70 %) is not comparable to a fully assessed one.
+            Inspect observations, evidence gaps and model scores side by side.
+            F, U and C answer different questions. A partial utility score is
+            not equivalent to a well-supported assessment.
           </p>
         </div>
         <div className="segmented" role="group" aria-label="Mission">
@@ -179,7 +179,7 @@ export default function Compare() {
                   <span className="compare-kicker">Planetary target</span>
                   <strong>{target.name}</strong>
                   <span className="mono">
-                    {target.body} · {target.latitude}°N {target.longitude}°E
+                    {target.body} · {coordinates(target)}
                   </span>
                 </th>
                 {picked.map((c) => {
@@ -241,7 +241,13 @@ export default function Compare() {
                   return (
                     <span className={cov < 0.7 ? "coverage-low" : ""}>
                       <Bar value={100 * cov} />
-                      {cov < 0.7 ? <small>U is partial</small> : null}
+                      {cov < 0.7 ? (
+                        <small>
+                          {c.assessments[mission].utility.value == null
+                            ? "U not assessed"
+                            : "U is partial"}
+                        </small>
+                      ) : null}
                     </span>
                   );
                 })}

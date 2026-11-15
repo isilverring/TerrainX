@@ -194,6 +194,13 @@ test("comparison edits keep expanded study and lunar polar target identity", asy
   );
   await expect(page.locator(".compare-table")).toBeVisible();
   await expect(page.locator(".target-cell strong")).toHaveText("Haworth");
+  await expect(page.locator("thead .target-cell")).toContainText("87.450° S");
+  await expect(page.locator("thead .target-cell")).toContainText("5.170° W");
+  expect(
+    await page
+      .locator(".segmented")
+      .evaluate((e) => e.scrollWidth <= e.clientWidth),
+  ).toBe(true);
   await expect(
     page.getByRole("button", { name: "Mars · Jezero", exact: true }),
   ).toBeDisabled();

@@ -9,7 +9,7 @@
 - Science release `science-79daa128eae12594`; original dataset SHA2563515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c unchanged.
 - Helper archive: `D:\TerrainX\outputs\terrainx-usability-v7.tar.gz`; compressed file16,162,705 bytes, local SHA25690a19f784cf43570041e41488cdc875c70ae83bd94abffe120895d2921bd6bb4.
 - Native saved archive metadata:270 files,127,406,080 bytes, content hash sha256:44b1d73b97c7eae0cc316da9ebb9becbe06ac451f8bb64d5a135576a9bc9baa0. This is the native tar-content metadata, separate from the local compressed-file checksum.
-- Prepublication:85 Python + independent reproduction,99 unit tests, production build;49 prior production workflows +7 final usability flows pass.126 local responsive cases passed. **Fresh public50-workflow suite and36 focused visual cases are in progress; do not claim final acceptance until their results are recorded.**
+- Prepublication:85 Python + independent reproduction,99 unit tests, production build;49 prior production workflows +7 final usability flows pass.126 local responsive cases passed. **Fresh public50/50 workflows and36 focused visual cases pass.** A successor corrects comparison target-control clipping and polar coordinate notation found by screenshot review; do not close the usability scope until that correction is published and checked.
 
 Work: docs/UX_REFINEMENT.md. Existing prepared browsers must open /#/offline, prepare the update and explicitly activate/reload. Saved studies remain. No new dependency or API key. Browser plugin unavailable; installed Chrome/Playwright is the verification fallback. User handles video/team/terms/submission.
 
