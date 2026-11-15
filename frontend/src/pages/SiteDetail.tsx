@@ -172,6 +172,13 @@ export default function SiteDetail() {
       >
         Plan a field study
         <ArrowRight size={18} />
+      </Link>{" "}
+      <Link
+        className="button outline"
+        to={studyPath(`/research-lab?id=${c.id}`, params.toString())}
+      >
+        Open in the Research Lab
+        <ArrowRight size={18} />
       </Link>
     </main>
   );

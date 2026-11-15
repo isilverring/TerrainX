@@ -568,6 +568,7 @@ export default function CellSearch() {
             </Link>
             <Link className="button outline" to={`/site/${pick.id}?mission=${mission}&cohort=expanded`}>Open Analog DNA</Link>
             <Link className="button outline" to={`/passport/${pick.id}?mission=${mission}&cohort=expanded`}>Open Analog Passport</Link>
+            <Link className="button outline" to={`/research-lab?id=${pick.id}&cohort=expanded&polar=none`}>Research Lab</Link>
             <Link className="button outline" to={`/explorer?mission=${mission}&cohort=expanded&id=${pick.id}`}>Open in discovery map</Link></div>
           )}
           {pick.released_candidate && (

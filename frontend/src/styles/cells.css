@@ -522,8 +522,8 @@
   border-color: #3ec9b0;
   color: #3ec9b0;
 }
-.fit-chip.partial,
-.fit-card.partial header svg {
+.fit-chip.bounded,
+.fit-card.bounded header svg {
   border-color: #f2c14e;
   color: #f2c14e;
 }
@@ -550,7 +550,7 @@
 .fit-card.covered {
   border-top-color: #3ec9b0;
 }
-.fit-card.partial {
+.fit-card.bounded {
   border-top-color: #f2c14e;
 }
 .fit-card.gap {
@@ -578,7 +578,9 @@
   font-size: 13px;
   line-height: 1.55;
   color: #c5d0df;
-  flex: 1;
+}
+.fit-card nav {
+  margin-top: auto;
 }
 .fit-card nav {
   display: flex;
@@ -589,6 +591,50 @@
 .fit-card nav a {
   color: var(--earth);
 }
+.fit-evidence {
+  display: grid !important;
+  gap: 4px;
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+.fit-evidence > div {
+  display: grid !important;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 8px;
+  padding: 4px 0;
+  border-top: 1px dashed #2b3647;
+}
+.fit-evidence dt {
+  font-size: 10.5px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-top: 2px;
+}
+.fit-evidence dd {
+  margin: 0;
+  color: #c5d0df;
+}
+.fit-evidence .measured dt { color: #3ec9b0; }
+.fit-evidence .modeled dt { color: #f2c14e; }
+.fit-evidence .unknown dt { color: #ff8a65; }
+.fit-lab {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid #f2c14e66;
+  background: #f2c14e14;
+  color: var(--text);
+  font-size: 12.5px;
+  text-decoration: none;
+}
+.fit-lab:hover { border-color: #f2c14e; }
+.fit-lab-row { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; }
+.fit-refs { font-size: 11.5px; color: var(--muted); }
+.fit-page .caption a { display: inline-flex; align-items: center; gap: 4px; }
 .fit-data {
   list-style: none;
   padding: 0;

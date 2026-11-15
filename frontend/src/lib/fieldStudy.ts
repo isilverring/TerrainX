@@ -189,6 +189,9 @@ export const fieldStudySchema = z
     mission: z.enum(["jezero", "mare-crisium"]),
     target_reference: z.string().optional(),
     mission_role: z.string().optional(),
+    lab_module: z
+      .enum(["mineralogy", "illumination", "resources", "dust", "biology", "caves", "operations", "base"])
+      .optional(),
     hypothesis: z.string().max(1200),
     objective: z.string().max(400),
     stations: z.array(stationSchema).max(24),
@@ -501,6 +504,9 @@ const shareSchema = z.object({
     .regex(/^lunar-polar:[a-z0-9-]+$/)
     .optional(),
   e: z.literal("site-evidence").optional(),
+  l: z
+    .enum(["mineralogy", "illumination", "resources", "dust", "biology", "caves", "operations", "base"])
+    .optional(),
   c: z.string().min(1).max(80),
   m: z.enum(["jezero", "mare-crisium"]),
   t: z.string().min(1).max(120),
@@ -547,6 +553,7 @@ export function encodeShare(study: FieldStudy, compact = false) {
     o: study.snapshot.collection ?? "original",
     p: study.snapshot.target_reference,
     e: study.snapshot.proposal_protocol,
+    l: study.lab_module,
     ...(compact ? {} : { q: study.snapshot.scenarios }),
     c: study.candidate_id,
     m: study.mission,

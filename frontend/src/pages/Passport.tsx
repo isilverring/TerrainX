@@ -19,6 +19,7 @@ import QrCode from "../components/QrCode";
 import SupportSensitivity from "../components/SupportSensitivity";
 import SiteEvidence from "../components/SiteEvidence";
 import ResearchTrail from "../components/ResearchTrail";
+import OpenQuestions from "../components/OpenQuestions";
 import { studyPath } from "../lib/collections";
 import { useScienceFile } from "../lib/scienceFile";
 import { siteEvidenceSchema } from "../lib/siteEvidence";
@@ -359,6 +360,7 @@ function PassportBody({
           </section>
         </>
       ) : null}
+      <OpenQuestions id={c.id} mission={mission} />
       <section className="science-section passport-sources">
         <h2>Data provenance & references</h2>
         <p>

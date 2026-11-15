@@ -1,3 +1,4 @@
+import { LAB_MODULES } from "../lib/researchLab";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { CornerDownLeft, Search } from "lucide-react";
@@ -57,6 +58,11 @@ const PAGES: [string, string, string][] = [
   ["/worlds", "Compare Worlds", "Original NASA imagery side by side"],
   ["/terrain-pilot", "Terrain pilot", "Common-support Copernicus vs MOLA/LOLA"],
   ["/methodology", "Methodology", "Equations, sources and limits"],
+  [
+    "/research-lab",
+    "Research Lab",
+    "Eight bounded tools for the challenge's open questions",
+  ],
   ["/research", "Research workspace", "Pinned, reproducible snapshots"],
   [
     "/field-study",
@@ -104,6 +110,14 @@ export default function CommandPalette() {
       to,
       keywords: `${label} ${hint}`,
     }));
+    const labs = LAB_MODULES.map((m) => ({
+      id: `lab:${m.id}`,
+      group: "Research Lab",
+      label: m.title,
+      hint: m.question,
+      to: `/research-lab?module=${m.id}`,
+      keywords: `${m.title} ${m.question} ${m.id} research lab`,
+    }));
     const candidates = data.candidates.flatMap((c) => {
       const kind = c.benchmark ? "reference analog" : c.status.toLowerCase();
       return [
@@ -124,6 +138,14 @@ export default function CommandPalette() {
           keywords: `${c.name} ${c.region_id} field study plan stations`,
         },
         {
+          id: `rl:${c.id}`,
+          group: "Candidates",
+          label: `${c.name} — Research Lab`,
+          hint: "Measured, modeled and unknown evidence",
+          to: `/research-lab?id=${c.id}`,
+          keywords: `${c.name} ${c.region_id} research lab evidence minerals dust caves`,
+        },
+        {
           id: `pp:${c.id}`,
           group: "Candidates",
           label: `${c.name} — passport`,
@@ -133,7 +155,7 @@ export default function CommandPalette() {
         },
       ];
     });
-    return [...pages, ...candidates];
+    return [...pages, ...labs, ...candidates];
   }, [data]);
 
   const results = useMemo(() => {

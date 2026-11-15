@@ -740,3 +740,33 @@
     color: #555;
   }
 }
+
+/* Research Lab protocol banner */
+.lab-protocol-banner {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 1.25rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-left: 4px solid #f2c14e;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #f2c14e12, transparent 70%), var(--panel);
+}
+.lab-protocol-banner strong { display: block; margin-bottom: 0.25rem; }
+.lab-protocol-banner p { margin: 0; font-size: 0.9rem; opacity: 0.85; max-width: 72ch; }
+.lab-protocol-banner a {
+  white-space: nowrap;
+  font-size: 13px;
+  padding: 7px 12px;
+  border: 1px solid #f2c14e66;
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+}
+.lab-protocol-banner a:hover { border-color: #f2c14e; }
+@media (max-width: 720px) {
+  .lab-protocol-banner { flex-direction: column; align-items: flex-start; }
+  .lab-protocol-banner a { white-space: normal; }
+}

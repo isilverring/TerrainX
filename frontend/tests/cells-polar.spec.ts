@@ -58,9 +58,14 @@ test("landing findings come from the release and the challenge-fit page lists ga
     page.getByRole("heading", { name: /What the challenge asks/ }),
   ).toBeVisible();
   await expect(page.locator(".fit-card")).toHaveCount(12);
-  await expect(
-    page.locator(".fit-card").filter({ hasText: "No verified cave" }),
-  ).toBeVisible();
+  const caves = page.locator(".fit-card").filter({ hasText: "Caves at the candidate cells" });
+  await expect(caves).toBeVisible();
+  await expect(caves.locator(".fit-evidence dt")).toHaveText(["Measured", "Modeled", "Still unknown"]);
+  await expect(page.locator(".fit-chip.bounded")).toContainText("8");
+  await expect(page.locator(".fit-lab")).toHaveCount(8);
+  await caves.locator(".fit-lab").click();
+  await expect(page).toHaveURL(/research-lab\?module=caves/);
+  await page.goBack();
   await expect(page.locator(".fit-data")).toContainText("Diviner modeled");
   await expect(page.locator(".document-title")).toContainText(
     "does not require every dimension or partner",

@@ -4,21 +4,41 @@ import {
   CircleDashed,
   CircleSlash,
   ExternalLink,
+  FlaskConical,
 } from "lucide-react";
 import { BackLink } from "../components/ui";
+import { useData } from "../lib/data";
+import { useScienceFile } from "../lib/scienceFile";
+import { LAB_MODULES, challengeEvidenceSchema, type LabModule } from "../lib/researchLab";
 
-type Status = "covered" | "partial" | "gap";
-/** Suggested challenge dimensions; these are optional avenues, not a compliance checklist. */
-const DIMENSIONS: {
+type Status = "covered" | "bounded" | "gap";
+/**
+ * Suggested challenge dimensions; these are optional avenues, not a compliance checklist.
+ * "bounded" means a working analysis workflow with source-scoped evidence: what is measured,
+ * what is only modeled, and what software cannot supply are listed separately.
+ */
+type Dimension = {
   dimension: string;
   status: Status;
   what: string;
   where: [string, string][];
-}[] = [
+  lab?: LabModule;
+  /** Evidence-registry categories counted as reference records for this dimension. */
+  categories?: string[];
+  measured?: string;
+  modeled?: string;
+  unknown?: string;
+};
+const DIMENSIONS: Dimension[] = [
   {
     dimension: "Geology, mineralogy and surface materials",
-    status: "partial",
-    what: "Macrostrat mapped context for129/130 cells and19/20 released sites; basalt / sedimentary relevance per mission. Mapped regional units, not mineralogy.",
+    status: "bounded",
+    lab: "mineralogy",
+    categories: ["mineralogy", "surface_materials"],
+    what: "Macrostrat mapped context for 129/130 cells and 19/20 released sites, with basalt or sedimentary relevance per mission.",
+    measured: "Published XRD and mineral data at the Salda and Yungay reference stations.",
+    modeled: "Mapped regional units and keyword relevance. These are not mineral maps.",
+    unknown: "Outcrop mineralogy at the candidate cells. That needs samples.",
     where: [
       ["/cells", "Search every cell"],
       ["/cases", "Cases"],
@@ -36,14 +56,26 @@ const DIMENSIONS: {
   },
   {
     dimension: "Temperature, illumination and environmental extremes",
-    status: "partial",
-    what: "NASA POWER air climatology for all130 cells and Diviner model-derived lunar thermal summaries. These are different observables; no illumination model or exact thermal analog claim.",
-    where: [["/transfer-lab", "Transfer Lab"]],
+    status: "bounded",
+    lab: "illumination",
+    what: "NASA POWER climatology and 2025 daily envelopes for Earth cells. On the Moon, SPICE solar geometry with LOLA horizons at eight feature centres, plus Diviner thermal summaries.",
+    measured: "Diviner-derived lunar temperatures and POWER reanalysis air temperatures. These are different observables.",
+    modeled: "Hourly solar fraction over 2025 with a bounded 72-ray horizon.",
+    unknown: "Ground-truth illumination at a landing polygon, and an exact thermal analog.",
+    where: [
+      ["/transfer-lab", "Transfer Lab"],
+      ["/lunar-pole", "Lunar pole"],
+    ],
   },
   {
     dimension: "Water, ice, permafrost and resources",
-    status: "partial",
-    what: "POWER modeled soil-wetness indices and Diviner modeled ice-stability depth. Neither is a measurement of water ice; permafrost, abundance and field resources remain unassessed.",
+    status: "bounded",
+    lab: "resources",
+    categories: ["resources", "water_ice", "permafrost", "water_environment"],
+    what: "POWER soil-wetness indices, Diviner ice-stability depth, documented permafrost and LCROSS references, and recovery scenarios.",
+    measured: "The LCROSS Cabeus impact and a GTN-P permafrost borehole. These are references, not candidate cells.",
+    modeled: "Soil-wetness indices and ice-stability depth. Neither measures ice.",
+    unknown: "Resource abundance at any candidate.",
     where: [
       ["/cells", "Earth context"],
       ["/lunar-pole", "Lunar stability model"],
@@ -51,14 +83,23 @@ const DIMENSIONS: {
   },
   {
     dimension: "Dust, wind, erosion, atmospheric processes",
-    status: "partial",
-    what: "POWER wind/pressure and column aerosol optical depth550nm. AOD is not dust-specific composition, surface deposition or a dust-entrainment model.",
+    status: "bounded",
+    lab: "dust",
+    what: "POWER wind, pressure and aerosol optical depth at 550 nm, with Shao–Lu and log-law grain-motion scenarios.",
+    measured: "Column AOD and wind from reanalysis. AOD is not dust-specific.",
+    modeled: "Threshold friction velocity for user-declared grain sizes and surface roughness.",
+    unknown: "Surface grain size, deposition and entrainment at the site.",
     where: [["/transfer-lab", "Transfer Lab"]],
   },
   {
     dimension: "Biology, extremophiles, habitability, biosignatures",
-    status: "partial",
-    what: "GBIF recorded occurrence density for screened cells plus cited Salda/Yungay studies. Counts reflect reporting and sampling; no inference of life scarcity, sterility, habitability or biosignature preservation.",
+    status: "bounded",
+    lab: "biology",
+    categories: ["biology", "biosignatures", "habitability"],
+    what: "GBIF occurrence density for screened cells, published Salda and Yungay studies, and an assay-quality tool for blanks and controls.",
+    measured: "The published reference-station studies.",
+    modeled: "Assay quality from user replicates. GBIF counts reflect reporting effort, not life scarcity.",
+    unknown: "Habitability or biosignature preservation at the candidates.",
     where: [
       ["/cells", "Reporting context"],
       ["/worlds", "Compare Worlds"],
@@ -66,14 +107,23 @@ const DIMENSIONS: {
   },
   {
     dimension: "Caves, lava tubes, subsurface",
-    status: "partial",
-    what: "Mapped soluble/volcanic host-rock keyword context. No verified cave or lava-tube inventory; coarse4km terrain cannot detect entrances or subsurface geometry.",
+    status: "bounded",
+    lab: "caves",
+    categories: ["caves", "subsurface"],
+    what: "Documented NPS and USFS lava-tube references with relative survey stations, plus mapped soluble or volcanic host-rock context.",
+    measured: "Locations and descriptions of documented caves from agency sources.",
+    modeled: "Host-rock keyword context. The coarse 4 km terrain cannot detect entrances.",
+    unknown: "Caves at the candidate cells.",
     where: [["/cells", "Mapped host context"]],
   },
   {
     dimension: "Landing, mobility, navigation, robotic and human operations",
-    status: "partial",
-    what: "Operations-rehearsal lens, Froude scaling, slope forces, field-study traverses and GPX. Not a hazard or traversability survey.",
+    status: "bounded",
+    lab: "operations",
+    what: "Least-cost routes on 18 Copernicus 250 m lattices with slope limits, GeoJSON export, the operations lens, Froude scaling and field-study GPX.",
+    measured: "Copernicus GLO-90 elevations with water and void masks.",
+    modeled: "Routes under declared slope and cost limits.",
+    unknown: "A hazard survey or traversability certification.",
     where: [
       ["/lenses", "Lenses"],
       ["/field-study", "Field study"],
@@ -99,8 +149,12 @@ const DIMENSIONS: {
   },
   {
     dimension: "Permanent Moon-base locations",
-    status: "partial",
-    what: "LOLA and Diviner models at IAU feature centres associated with NASA's October2024 region list. Feature centres are not landing polygons; illumination, engineering access and actual ice abundance remain unassessed.",
+    status: "bounded",
+    lab: "base",
+    what: "LOLA, Diviner and SPICE illumination models at IAU feature centres associated with NASA's October 2024 region list, with trade-off and autonomy scenarios.",
+    measured: "LOLA topography and Diviner temperatures at the feature centres.",
+    modeled: "Solar fraction, longest darkness and battery autonomy for user-declared loads.",
+    unknown: "Landing polygons, engineering access and actual ice abundance.",
     where: [["/lunar-pole", "Lunar pole"]],
   },
   {
@@ -124,13 +178,26 @@ const DATA: [string, string, boolean][] = [
     "/lunar-pole",
     true,
   ],
+  ["NASA NAIF SPICE kernels and JPL Horizons", "/research-lab?module=illumination", true],
   ["CSA RADARSAT / JAXA G-Portal", "", false],
 ];
-const ICON = { covered: CheckCircle2, partial: CircleDashed, gap: CircleSlash };
-const LABEL = { covered: "Covered", partial: "Partial", gap: "Not yet" };
+const ICON = { covered: CheckCircle2, bounded: FlaskConical, gap: CircleSlash };
+const LABEL = { covered: "Covered", bounded: "Bounded workflow", gap: "Not yet" };
 
 export default function ChallengeFit() {
   const count = (s: Status) => DIMENSIONS.filter((d) => d.status === s).length;
+  const data = useData(),
+    hasRegistry = !!data.release?.files["challenge_evidence.json"];
+  const evidence = useScienceFile(
+    "challenge_evidence.json",
+    challengeEvidenceSchema,
+    "This pinned release has no evidence registry.",
+    hasRegistry,
+  );
+  const references = (d: Dimension) =>
+    evidence.value && d.categories
+      ? evidence.value.records.filter((r) => r.categories.some((c) => d.categories!.includes(c))).length
+      : null;
   return (
     <main className="document-page fit-page">
       <BackLink mission="jezero" />
@@ -147,13 +214,19 @@ export default function ChallengeFit() {
           </p>
         </div>
         <div className="fit-score" aria-label="Coverage summary">
-          {(["covered", "partial", "gap"] as Status[]).map((s) => (
+          {(["covered", "bounded", "gap"] as Status[]).map((s) => (
             <span key={s} className={`fit-chip ${s}`}>
               <b className="mono">{count(s)}</b> {LABEL[s]}
             </span>
           ))}
         </div>
       </header>
+      {!hasRegistry && (
+        <p className="release-note">
+          This pinned release predates the Research Lab evidence registry. Reference-record counts are hidden,
+          and no newer evidence was substituted. The tools still open, but they report what is unavailable.
+        </p>
+      )}
       <section className="fit-grid">
         {DIMENSIONS.map((d) => {
           const Icon = ICON[d.status];
@@ -165,6 +238,35 @@ export default function ChallengeFit() {
                 <span className="fit-tag">{LABEL[d.status]}</span>
               </header>
               <p>{d.what}</p>
+              {d.status === "bounded" && (
+                <dl className="fit-evidence">
+                  <div className="measured">
+                    <dt>Measured</dt>
+                    <dd>{d.measured}</dd>
+                  </div>
+                  <div className="modeled">
+                    <dt>Modeled</dt>
+                    <dd>{d.modeled}</dd>
+                  </div>
+                  <div className="unknown">
+                    <dt>Still unknown</dt>
+                    <dd>{d.unknown}</dd>
+                  </div>
+                </dl>
+              )}
+              {d.lab && (
+                <div className="fit-lab-row">
+                  <Link className="fit-lab" to={`/research-lab?module=${d.lab}`}>
+                    <FlaskConical size={14} aria-hidden="true" />
+                    {LAB_MODULES.find((m) => m.id === d.lab)!.title} tool
+                  </Link>
+                  {references(d) ? (
+                    <span className="fit-refs mono">
+                      {references(d)} reference record{references(d) === 1 ? "" : "s"}
+                    </span>
+                  ) : null}
+                </div>
+              )}
               {d.where.length > 0 && (
                 <nav aria-label={`Where: ${d.dimension}`}>
                   {d.where.map(([to, label]) => (

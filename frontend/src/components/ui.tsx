@@ -1,6 +1,7 @@
 import {
   ArrowUpRight,
   ArrowLeft,
+  ChevronDown,
   Orbit,
   FileText,
   Microscope,
@@ -10,7 +11,7 @@ import {
   X,
 } from "lucide-react";
 import { openPalette } from "./CommandPalette";
-import { useLayoutEffect, useState, useRef } from "react";
+import { useEffect, useLayoutEffect, useState, useRef } from "react";
 import { Link, NavLink, useLocation, useParams } from "react-router-dom";
 import { number } from "../lib/data";
 import { studyPath } from "../lib/collections";
@@ -33,6 +34,15 @@ export function Header({
     setOpen(false);
     setResearchOpen(false);
   }, [location.pathname]);
+  // A click anywhere outside the header closes the research menu.
+  useEffect(() => {
+    if (!researchOpen) return;
+    const close = (e: PointerEvent) => {
+      if (!(e.target as Element | null)?.closest?.(".app-header")) setResearchOpen(false);
+    };
+    document.addEventListener("pointerdown", close);
+    return () => document.removeEventListener("pointerdown", close);
+  }, [researchOpen]);
   const groups = [
     {
       name: "Discover",
@@ -48,6 +58,8 @@ export function Header({
       name: "Investigate",
       links: [
         ["/what-if", "What if"],
+        ["/research-lab", "Research Lab"],
+        ["/challenge", "Challenge fit"],
         ["/transfer-lab", "Transfer Lab"],
         ["/worlds", "Worlds"],
         ["/lunar-pole", "Lunar pole"],
@@ -152,6 +164,7 @@ export function Header({
               onClick={() => setResearchOpen((v) => !v)}
             >
               Research tools
+              <ChevronDown size={13} aria-hidden="true" />
             </button>
           </div>
         </div>

@@ -730,13 +730,31 @@
   line-height: 1.7;
 }
 .research-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  align-self: flex-start;
+  margin-top: -5px;
   background: transparent;
   border: 1px solid #29384e;
-  border-radius: 6px;
+  border-radius: 999px;
   color: #35c3b0;
-  padding: 5px 8px;
+  padding: 4px 8px 4px 11px;
   font: inherit;
+  font-size: 12px;
   cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.research-toggle:hover,
+.research-toggle[aria-expanded="true"] {
+  border-color: #35c3b0;
+  background: #35c3b014;
+}
+.research-toggle svg {
+  transition: transform 0.15s;
+}
+.research-toggle[aria-expanded="true"] svg {
+  transform: rotate(180deg);
 }
 .app-header .research-menu {
   height: auto;
@@ -809,4 +827,34 @@
   .guide-page * {
     scroll-behavior: auto !important;
   }
+}
+
+/* Passport: open challenge questions */
+.open-questions h2 { display: flex; align-items: center; gap: 8px; }
+.open-questions ol { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 0; counter-reset: oq; }
+.open-questions li {
+  counter-increment: oq;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1.2fr) minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: baseline;
+  padding: 8px 0;
+  border-top: 1px solid var(--border);
+  font-size: 13.5px;
+}
+.open-questions li::before { content: counter(oq, decimal-leading-zero); font-family: ui-monospace, monospace; color: var(--muted); font-size: 12px; }
+.open-questions .oq-closes { color: var(--muted); font-size: 12.5px; }
+.open-questions .oq-links { display: flex; gap: 10px; font-size: 12.5px; }
+.open-questions .oq-links a { color: var(--earth); }
+@media (max-width: 760px) {
+  .open-questions li { grid-template-columns: 28px minmax(0, 1fr); }
+  .open-questions .oq-closes, .open-questions .oq-links { grid-column: 2; }
+}
+@media print {
+  .open-questions .oq-links { display: none; }
+  .open-questions li { grid-template-columns: 24px 1.2fr 1fr; break-inside: avoid; }
+  .open-questions .oq-closes { color: #333; }
+}
+.research-menu .journey-group {
+  justify-content: flex-start;
 }

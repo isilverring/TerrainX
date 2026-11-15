@@ -61,6 +61,7 @@ import {
   type Station,
   type StationKind,
 } from "../lib/fieldStudy";
+import { LAB_PROTOCOLS, applyLabProtocol, isLabModule, labTitle } from "../lib/labProtocols";
 import FieldPlanner from "../components/FieldPlanner";
 import QrCode from "../components/QrCode";
 import { BackLink } from "../components/ui";
@@ -204,7 +205,7 @@ export default function FieldStudy() {
   return (
     <DataContext.Provider value={proposal}>
       <FieldStudyEditor
-        key={`${base.release?.release_id}:${base.collection}:${base.target_reference ?? "primary"}:${sourceProtocol}:${params.get("share") ?? "general"}`}
+        key={`${base.release?.release_id}:${base.collection}:${base.target_reference ?? "primary"}:${sourceProtocol}:${params.get("share") ?? "general"}:${params.get("lab") ?? ""}`}
       />
     </DataContext.Provider>
   );
@@ -279,13 +280,19 @@ function FieldStudyEditor() {
       base.snapshot.collection = s.o ?? data.collection ?? "original";
       if (s.p) base.snapshot.target_reference = s.p;
       if (s.e) base.snapshot.proposal_protocol = s.e;
+      const withLab = s.l ? applyLabProtocol(base, s.l, base.title.replace(/^Field study · /, "")) : base;
       return {
-        ...base,
-        hypothesis: s.h || base.hypothesis,
+        ...withLab,
+        hypothesis: s.h || withLab.hypothesis,
         stations: stationsFromShare(s),
       };
     }
-    return fresh(initialCandidate, initialMission);
+    const start = fresh(initialCandidate, initialMission),
+      lab = params.get("lab");
+    // A Research Lab link seeds its protocol template; every field stays editable.
+    return isLabModule(lab)
+      ? applyLabProtocol(start, lab, data.candidates.find((c) => c.id === start.candidate_id)?.name ?? start.candidate_id)
+      : start;
   });
   const [kind, setKind] = useState<StationKind>("observation"),
     [selected, setSelected] = useState<string | null>(null),
@@ -478,6 +485,21 @@ function FieldStudyEditor() {
           </ul>
         </div>
       </header>
+      {study.lab_module && (
+        <aside className="lab-protocol-banner" aria-label="Research Lab protocol">
+          <div>
+            <strong>Protocol from the Research Lab · {labTitle(study.lab_module)}</strong>
+            <p>
+              Fills: {LAB_PROTOCOLS[study.lab_module].closes}. These are the measurements that would
+              answer the question in the field. They are a proposal: they are not observations and they
+              do not change any released score. Edit anything below.
+            </p>
+          </div>
+          <Link to={`/research-lab?module=${study.lab_module}&id=${study.candidate_id}&mission=${study.mission}`}>
+            Back to the {labTitle(study.lab_module)} module
+          </Link>
+        </aside>
+      )}
 
       <section className="field-setup" aria-label="Study setup">
         <label className="field-span">
@@ -1332,6 +1354,12 @@ function FieldBook({
             unverified.
           </figcaption>
         </figure>
+      )}
+      {study.lab_module && (
+        <p>
+          Research Lab protocol: {labTitle(study.lab_module)}. It addresses this challenge gap:{" "}
+          {LAB_PROTOCOLS[study.lab_module].closes}.
+        </p>
       )}
       <h2>Hypothesis</h2>
       <p>{study.hypothesis}</p>
