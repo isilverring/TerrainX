@@ -228,3 +228,35 @@
 @media (max-width: 900px) {
   .demo-lab-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 26px;
+  padding: 7px 14px 7px 11px;
+  border: 1px solid #35c3b055;
+  border-radius: 999px;
+  background: #35c3b00f;
+  color: #cfe9e4;
+  font-size: 13px;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+.hero-eyebrow:hover { border-color: var(--earth); background: #35c3b01c; }
+.hero-eyebrow svg { color: var(--earth); }
+.hero-eyebrow-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--earth);
+  box-shadow: 0 0 0 0 #35c3b099;
+  animation: eyebrow-pulse 2.4s ease-out infinite;
+}
+@keyframes eyebrow-pulse {
+  0% { box-shadow: 0 0 0 0 #35c3b099; }
+  70%, 100% { box-shadow: 0 0 0 9px #35c3b000; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-eyebrow-dot { animation: none; }
+}

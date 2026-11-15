@@ -17,6 +17,11 @@ export default function Landing() {
     <main className="landing">
       <section className="landing-hero">
         <div className="hero-copy">
+          <Link className="hero-eyebrow" to="/challenge">
+            <span className="hero-eyebrow-dot" aria-hidden="true" />
+            2026 NASA Space Apps · Moon-base & Mars analogs
+            <ArrowRight size={14} aria-hidden="true" />
+          </Link>
           <h1>
             EARTH IS OUR
             <br />
