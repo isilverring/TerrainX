@@ -212,8 +212,7 @@ function PassportBody({
           <div>
             <dt>Reference target</dt>
             <dd>
-              {target.body} / {target.name} ({target.latitude}°N,
-              {target.longitude}°E)
+              {target.body} / {target.name} ({coordinates(target)})
             </dd>
           </div>
           <div>

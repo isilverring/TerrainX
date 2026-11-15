@@ -108,6 +108,8 @@ test("polar reference survives dossier, export and field-study replay with utili
   const other = await browser.newPage();
   await other.goto(replay!);
   await expect(other.locator("main.passport-page")).toContainText("Haworth");
+  await expect(other.locator(".passport-identity")).toContainText("87.450° S");
+  await expect(other.locator(".passport-identity")).toContainText("5.170° W");
   await other.close();
   await page
     .getByRole("link", { name: "Discovery atlas", exact: true })

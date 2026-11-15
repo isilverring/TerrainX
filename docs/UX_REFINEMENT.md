@@ -44,4 +44,6 @@ Publication checkpoint: final source b6bbbe7 rebuilt successfully; all7 final us
 
 Version7 acceptance completed:50/50 fresh public workflows and36 focused public cases passed. Human-style screenshot review additionally found a clipped comparison target toggle and negative-number-plus-N/E polar notation. A small runtime follow-up wraps comparison header controls, uses the existing hemisphere formatter for the actual target and labels null U as unassessed. The comparison regression now checks correct S/W notation and unclipped controls. Publish this correction as the successor version, then perform final public acceptance; version7 remains a tested rollback.
 
+The same signed-direction notation was found in the printable Passport by a repository search and repaired there as well; polar Passport replay now asserts S/W hemispheres. No coordinates, scores or scientific input files changed.
+
 Next agent: inspect git status/log and STATUS.md before continuing. Update this file at each milestone. Do not treat completed earlier scope as unfinished.
