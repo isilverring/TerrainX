@@ -21,13 +21,12 @@ import { useScienceFile } from "../lib/scienceFile";
 import { cellLabel, cellSearchSchema } from "../lib/cellSearch";
 import { lunarPolarSchema } from "../lib/lunarPolar";
 import { GRAVITY } from "../lib/physics";
-import { DIMENSIONS } from "./ChallengeFit";
 import QrCode from "../components/QrCode";
 import "../styles/pitch.css";
 
 type Slide = { tag: string; title: ReactNode; visual: ReactNode; foot?: ReactNode };
 
-/** Ten-slide pitch with numbers read from the pinned scientific release. */
+/** Seven-slide pitch (the Space Apps limit) with numbers read from the pinned scientific release. */
 export default function Pitch() {
   const data = useData(),
     navigate = useNavigate(),
@@ -56,8 +55,6 @@ export default function Pitch() {
       fallback
     );
   };
-  const covered = DIMENSIONS.filter((d) => d.status === "covered").length,
-    bounded = DIMENSIONS.filter((d) => d.status === "bounded").length;
   const appUrl = `${window.location.origin}${window.location.pathname}`;
   const total = cells?.cells ?? data.summary.screened_cells,
     eligible = mars?.eligible ?? 0,
@@ -113,27 +110,6 @@ export default function Pitch() {
       ),
     },
     {
-      tag: "Our approach",
-      title: "Four steps, one pipeline.",
-      visual: (
-        <div className="pv-flow">
-          {[
-            ["Observe", "Open NASA & ESA data"],
-            ["Compare", "Fidelity · Utility · Coverage"],
-            ["Explain", "What matches, what fails"],
-            ["Test", "A field protocol"],
-          ].map(([a, b], n) => (
-            <div key={a} className="pv-step" style={{ animationDelay: `${0.2 * n}s` }}>
-              <span className="pv-node">{n + 1}</span>
-              <b>{a}</b>
-              <span>{b}</span>
-            </div>
-          ))}
-          <span className="pv-pulse" aria-hidden="true" />
-        </div>
-      ),
-    },
-    {
       tag: "The science",
       title: "Three scores, never blended blindly.",
       visual: (
@@ -184,32 +160,7 @@ export default function Pitch() {
           </div>
         </div>
       ),
-    },
-    {
-      tag: "What you can do",
-      title: "One workflow, eight working tools.",
-      visual: (
-        <div className="pv-features">
-          {(
-            [
-              [MapIcon, "Discovery atlas", "Map, globe and 3D terrain"],
-              [Dna, "Analog DNA", "Why a site matches, and why not"],
-              [SlidersHorizontal, "What-if & lenses", "Re-weight and test rank robustness"],
-              [Globe2, "130-cell search", "Every cell, ranked per mission"],
-              [Moon, "Lunar pole", "LOLA, Diviner, SPICE"],
-              [FlaskConical, "Research Lab", "Minerals to dust, 8 tools"],
-              [Box, "Field Study Builder", "Stations, GPX, field book, QR"],
-              [ShieldCheck, "Reproducible", "Pinned releases, works offline"],
-            ] as const
-          ).map(([Icon, a, b], n) => (
-            <div key={a} style={{ animationDelay: `${0.06 * n}s` }}>
-              <Icon size={22} aria-hidden="true" />
-              <b>{a}</b>
-              <span>{b}</span>
-            </div>
-          ))}
-        </div>
-      ),
+      foot: `Every value is labelled measured, modeled or unknown. What Earth cannot reproduce, such as Mars gravity at ${(GRAVITY.mars / GRAVITY.earth).toFixed(2)}×, is stated, never faked.`,
     },
     {
       tag: "The search",
@@ -260,26 +211,6 @@ export default function Pitch() {
       foot: "LOLA terrain, Diviner temperatures and SPICE sunlight at the lunar south pole.",
     },
     {
-      tag: "Honest by design",
-      title: "Measured. Modeled. Unknown.",
-      visual: (
-        <div className="pv-honest">
-          <div className="measured">
-            <span className="pv-big mono">{covered}</span>
-            <span>challenge dimensions covered</span>
-          </div>
-          <div className="modeled">
-            <span className="pv-big mono">{bounded}</span>
-            <span>open questions with a working tool</span>
-          </div>
-          <div className="unknown">
-            <span className="pv-big mono">{(GRAVITY.mars / GRAVITY.earth).toFixed(2)}×</span>
-            <span>Mars gravity. Earth can't fake it, so we say so.</span>
-          </div>
-        </div>
-      ),
-    },
-    {
       tag: "Why it matters",
       title: "Built so others can push exploration further.",
       visual: (
@@ -312,7 +243,26 @@ export default function Pitch() {
       ),
       visual: (
         <div className="pv-end">
-          <img src="/brand/terrainx-mark.svg" width="120" height="109" alt="TerrainX" />
+          <div className="pv-features compact">
+            {(
+            [
+              [MapIcon, "Discovery atlas", "Map, globe and 3D terrain"],
+              [Dna, "Analog DNA", "Why a site matches, and why not"],
+              [SlidersHorizontal, "What-if & lenses", "Re-weight and test rank robustness"],
+              [Globe2, "130-cell search", "Every cell, ranked per mission"],
+              [Moon, "Lunar pole", "LOLA, Diviner, SPICE"],
+              [FlaskConical, "Research Lab", "Minerals to dust, 8 tools"],
+              [Box, "Field Study Builder", "Stations, GPX, field book, QR"],
+              [ShieldCheck, "Reproducible", "Pinned releases, works offline"],
+            ] as const
+            ).map(([Icon, a, b]) => (
+              <div key={a}>
+                <Icon size={18} aria-hidden="true" />
+                <b>{a}</b>
+                <span>{b}</span>
+              </div>
+            ))}
+          </div>
           <QrCode value={appUrl} size={180} label="Open TerrainX" />
         </div>
       ),

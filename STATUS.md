@@ -1,10 +1,10 @@
 # TerrainX project status
 
-Source: `main` at [isilverring/TerrainX](https://github.com/isilverring/TerrainX). Application: https://terrainx-discovery-lab.comfybay1.chatgpt.site.
+Source: `main` at [isilverring/TerrainX](https://github.com/isilverring/TerrainX). Application: https://terrainx-nasa.vercel.app (Vercel production; the earlier ChatGPT-hosted Site at https://terrainx-discovery-lab.comfybay1.chatgpt.site is the previous host).
 
 ## Current source
 
-Score typography and supporting labels have been enlarged across the app. The discovery-story cards spell out F/U/C/P; phone forms and touch controls are easier to use. Comparison spacing is corrected on phones. The pitch retains all ten slides with responsive content scrolling, complete equations, larger labels, visible navigation and reduced-motion support. Local validation: 117 unit tests, strict build, 56 browser workflows, 96 broad responsive cases, 32 focused readability cases and 40 pitch cases. Scientific inputs and model outputs are unchanged.
+Score typography and supporting labels have been enlarged across the app. The discovery-story cards spell out F/U/C/P; phone forms and touch controls are easier to use. Comparison spacing is corrected on phones. The pitch (now seven slides, the Space Apps limit) has responsive content scrolling, complete equations, larger labels, visible navigation and reduced-motion support. Local validation: 117 unit tests, strict build, 56 browser workflows, 96 broad responsive cases, 32 focused readability cases and 40 pitch cases. Scientific inputs and model outputs are unchanged.
 
 The application includes the Discovery atlas, expanded search, polar references, eight Research Lab tools, persistent field protocols, guided demo and pitch deck. Mission/filter navigation preserves the selected mission; shared field studies preserve their release, collection, target, protocol and model. Unsupported protocol/mission combinations stop with an explicit explanation.
 

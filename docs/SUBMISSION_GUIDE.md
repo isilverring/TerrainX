@@ -1,6 +1,6 @@
 # Submit TerrainX — step by step
 
-The app and supporting software are prepared. You handle the video/slides, team details and actual submission. The public project link is https://terrainx-discovery-lab.comfybay1.chatgpt.site; confirm the latest successful version in [DEPLOYMENT.md](../DEPLOYMENT.md).
+The app and supporting software are prepared. You handle the video/slides, team details and actual submission. The public project link is https://terrainx-nasa.vercel.app; confirm the latest successful version in [DEPLOYMENT.md](../DEPLOYMENT.md).
 
 ## Confirm the deadline and format
 

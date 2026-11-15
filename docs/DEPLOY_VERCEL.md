@@ -1,5 +1,7 @@
 # Deploying TerrainX to Vercel
 
+Production URL: **https://terrainx-nasa.vercel.app** (presentation: https://terrainx-nasa.vercel.app/#/pitch).
+
 TerrainX is a fully static site (React + Vite, hash routes, no server, no API keys, no environment variables). Everything Vercel needs is in the committed [`vercel.json`](../vercel.json).
 
 | Setting | Value (from `vercel.json`) |
@@ -20,7 +22,7 @@ The build uses these commands at the repository root. The current science releas
 2. **Add New… → Project → Import Git Repository**. If `isilverring/TerrainX` is not listed, choose **Adjust GitHub App Permissions** and grant the Vercel app access to that private repository.
 3. On the configure screen leave **Root Directory** at `./` and **Framework Preset** at *Other*. The build/install/output fields are filled from `vercel.json`; do not override them.
 4. No environment variables are needed. Click **Deploy**.
-5. When it finishes, open the production URL (`https://<project>.vercel.app`).
+5. When it finishes, open the production URL (`https://terrainx-nasa.vercel.app`).
 
 Every push to `main` then redeploys production; pushes to other branches create preview deployments.
 
@@ -40,7 +42,7 @@ vercel --prod            # build on Vercel and promote to production
 
 New Vercel projects come with **Deployment Protection (Vercel Authentication, Standard Protection)** enabled. Standard Protection keeps the production domain public but asks visitors to log in to Vercel for preview and per-deployment URLs.
 
-- Share the **production domain** (`<project>.vercel.app` or your custom domain), not a preview or `…-git-…` URL.
+- Share the **production domain** (`terrainx-nasa.vercel.app`), not a preview or `…-git-…` URL.
 - Check it in a private/incognito window: it must load without any Vercel login.
 - If you must share a preview, use **Settings → Deployment Protection** to create a shareable link, or set protection to *None* for the hackathon.
 
@@ -59,7 +61,7 @@ From a terminal, the production preview workflows can run against the live URL:
 
 ```bash
 cd frontend
-TERRAINX_BASE_URL=https://<project>.vercel.app npx playwright test
+TERRAINX_BASE_URL=https://terrainx-nasa.vercel.app npx playwright test
 ```
 
 ## Custom domain (optional)

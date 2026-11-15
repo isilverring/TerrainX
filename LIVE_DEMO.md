@@ -1,6 +1,6 @@
 # TerrainX audience demo and deployment
 
-The audience URL is **https://terrainx-discovery-lab.comfybay1.chatgpt.site**. Public access and the reviewed production workflows are verified; exact deployment details are in DEPLOYMENT.md. The source repository remains private. No NASA, tile or LLM API key is required.
+The audience URL is **https://terrainx-nasa.vercel.app**. Public access and the reviewed production workflows are verified; exact deployment details are in DEPLOYMENT.md. The source repository remains private. No NASA, tile or LLM API key is required.
 
 ## Present the deployed demo
 

@@ -320,7 +320,7 @@
 /* 7 · end */
 .pv-end { display: flex; align-items: center; gap: 48px; }
 .pv-end img { filter: drop-shadow(0 0 30px #35c3b055); }
-.pv-end .qr-code, .pv-end svg { background: #fff; padding: 10px; border-radius: 12px; }
+.pv-end > .qr-code { flex: none; background: #fff; padding: 10px; border-radius: 12px; }
 
 @media (max-width: 900px) {
   .pitch { padding: 18px 20px; }
@@ -779,4 +779,28 @@
     max-width: 390px;
     gap: 7px;
   }
+}
+
+/* Closing slide: feature chips beside the QR code */
+.pv-end .pv-features.compact {
+  flex: 1;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.pv-features.compact > div {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  column-gap: 10px;
+  row-gap: 0;
+  padding: 10px 14px;
+  border-radius: 10px;
+  animation: none;
+}
+.pv-features.compact svg { grid-row: 1 / 3; margin: 2px 0 0; }
+.pv-features.compact b { font-size: 15px; }
+.pv-features.compact span { font-size: 12.5px; line-height: 1.4; }
+@media (max-width: 900px) {
+  .pv-end { flex-direction: column; align-items: stretch; }
+  .pv-end > .qr-code { align-self: center; }
+  .pv-end .pv-features.compact { grid-template-columns: minmax(0, 1fr); }
 }

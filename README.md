@@ -4,7 +4,7 @@
 
 TerrainX helps researchers choose Earth sites for Moon and Mars field experiments. It compares terrain, mission utility and evidence coverage, explains where an analogy fails, and turns the remaining questions into a field-study proposal.
 
-**[Open TerrainX](https://terrainx-discovery-lab.comfybay1.chatgpt.site)** · [Methods](SCIENCE.md) · [Data sources](DATA_SOURCES.md) · [Demo](DEMO.md)
+**[Open TerrainX](https://terrainx-nasa.vercel.app)** · [Methods](SCIENCE.md) · [Data sources](DATA_SOURCES.md) · [Demo](DEMO.md)
 
 Built for the [2026 NASA Space Apps challenge on Earth analogs for Moon-base locations and Mars](https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/). This independent project uses open NASA and partner data; it has no NASA endorsement.
 
@@ -19,7 +19,7 @@ Built for the [2026 NASA Space Apps challenge on Earth analogs for Moon-base loc
 | Research Lab | Investigate mineralogy, thermal and solar conditions, water/resources, dust, biology, caves, operations and lunar-base trade-offs. Export an analysis and create a matching field protocol. |
 | Field Study Builder | Propose stations, protocols and equipment; save or share the pinned study; export JSON/GPX or print a field book. |
 | Supporting analysis | Test missing-evidence sensitivity, mission weights, transfer physics, ranking lenses and common-support terrain comparisons. |
-| Guided demo and pitch | Follow the evidence-to-experiment story or present the ten-slide deck. |
+| Guided demo and pitch | Follow the evidence-to-experiment story or present the seven-slide deck. |
 
 Start at `/#/guide` for a five-step introduction. Advanced workspaces are under **Research tools**. Ctrl/⌘ K opens the command palette.
 

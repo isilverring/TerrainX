@@ -8,9 +8,9 @@ Project overview, methods and findings for the Space Apps submission. Presentati
 
 Before exploring another world, mission teams need to know where—and what—to test on Earth. TerrainX combines cached NASA observations, planetary topography and mapped geological evidence to screen terrestrial field-testing opportunities. It keeps physical terrain fidelity, mission utility and evidence coverage separate. A reproducible130-cell search reveals mission-dependent leads; a verified lunar south-pole module exposes terrain and thermal differences. Users can inspect sources, challenge scoring assumptions and prepare a proposed field study with stations, measurements and explicit limitations. No score certifies a planetary analog or predicts mission success.
 
-Final project: https://terrainx-discovery-lab.comfybay1.chatgpt.site
+Final project: https://terrainx-nasa.vercel.app
 
-Presentation: https://terrainx-discovery-lab.comfybay1.chatgpt.site/#/pitch
+Presentation: https://terrainx-nasa.vercel.app/#/pitch
 
 ## Detailed description
 

@@ -1,5 +1,11 @@
 # TerrainX publication record
 
+## Current production — Vercel
+
+- URL: **https://terrainx-nasa.vercel.app**. Presentation: https://terrainx-nasa.vercel.app/#/pitch.
+- Checked 2026-11-15 from the laptop session: the public `build-info.json` reported `application_commit` `6e8e18c81fd897d5f1a8d06db62b2cc0edd7957d`, `science-e15ca0c149550211`, built `2026-11-15T09:04:02.430Z`. Later commits (seven-slide pitch, URL updates) take effect on the next Vercel deployment.
+- The ChatGPT-hosted Site below is the previous host. Its records are kept for provenance and rollback.
+
 ## Public version 10 — score readability and pitch
 
 - URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site
