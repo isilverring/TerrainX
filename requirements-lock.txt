@@ -19,5 +19,6 @@ Pygments==2.21.0
 pyparsing==3.3.3
 pytest==9.2.0
 rasterio==1.5.2
+spiceypy==8.4.0
 typing-inspection==0.4.5
 typing_extensions==4.16.0

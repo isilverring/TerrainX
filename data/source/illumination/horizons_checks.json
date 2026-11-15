@@ -1,0 +1,86 @@
+{
+  "checks": [
+    {
+      "site_name": "mare-crisium",
+      "longitude_east_deg": 59.1,
+      "latitude_north_deg": 16.18,
+      "altitude_km_above_spherical1737_4_reference": 0,
+      "http_status": 200,
+      "retrieved_at": "2026-11-15T03:57:47.775095+00:00",
+      "source_url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%2710%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27coord%40301%27&COORD_TYPE=%27GEODETIC%27&SITE_COORD=%2759.1%2C16.18%2C0%27&START_TIME=%272025-01-01+00%3A00%27&STOP_TIME=%272025-01-01+01%3A00%27&STEP_SIZE=%271h%27&QUANTITIES=%274%27&APPARENT=%27AIRLESS%27&CSV_FORMAT=%27YES%27",
+      "query_parameters": {
+        "format": "json",
+        "COMMAND": "'10'",
+        "EPHEM_TYPE": "'OBSERVER'",
+        "CENTER": "'coord@301'",
+        "COORD_TYPE": "'GEODETIC'",
+        "SITE_COORD": "'59.1,16.18,0'",
+        "START_TIME": "'2025-01-01 00:00'",
+        "STOP_TIME": "'2025-01-01 01:00'",
+        "STEP_SIZE": "'1h'",
+        "QUANTITIES": "'4'",
+        "APPARENT": "'AIRLESS'",
+        "CSV_FORMAT": "'YES'"
+      },
+      "raw_file": "horizons-mare-crisium-2025-01-01.json",
+      "response_sha256": "2ba7a314c61d9ab3dbfad2650c1a001deb6b97beb7a0d2befde67ec7e8b5867e",
+      "reference_ephemeris": "DE441",
+      "reference_lunar_frame": "MEAN_ME (high precision); Horizons documentation identifies lunar ME of DE421",
+      "observable": "Airless apparent Sun-center elevation; includes light time, stellar aberration and gravitational light deflection",
+      "records": [
+        {
+          "epoch_utc": "2025-Jan-01 00:00",
+          "azimuth_degrees_clockwise_from_north": 87.788472,
+          "sun_center_elevation_degrees": -12.992418
+        },
+        {
+          "epoch_utc": "2025-Jan-01 01:00",
+          "azimuth_degrees_clockwise_from_north": 87.93375,
+          "sun_center_elevation_degrees": -12.504948
+        }
+      ],
+      "comparison_note": "Independent pipeline check, not fully independent observational validation. DE440 MOON_ME_DE440_ME421 closely aligns DE421 ME; IAU_MOON is less accurate. Record actual discrepancy and explain aberration/observer conventions."
+    },
+    {
+      "site_name": "south-pole-scenario",
+      "longitude_east_deg": 0,
+      "latitude_north_deg": -89.9,
+      "altitude_km_above_spherical1737_4_reference": 0,
+      "http_status": 200,
+      "retrieved_at": "2026-11-15T03:57:49.015626+00:00",
+      "source_url": "https://ssd.jpl.nasa.gov/api/horizons.api?format=json&COMMAND=%2710%27&EPHEM_TYPE=%27OBSERVER%27&CENTER=%27coord%40301%27&COORD_TYPE=%27GEODETIC%27&SITE_COORD=%270%2C-89.9%2C0%27&START_TIME=%272025-01-01+00%3A00%27&STOP_TIME=%272025-01-01+01%3A00%27&STEP_SIZE=%271h%27&QUANTITIES=%274%27&APPARENT=%27AIRLESS%27&CSV_FORMAT=%27YES%27",
+      "query_parameters": {
+        "format": "json",
+        "COMMAND": "'10'",
+        "EPHEM_TYPE": "'OBSERVER'",
+        "CENTER": "'coord@301'",
+        "COORD_TYPE": "'GEODETIC'",
+        "SITE_COORD": "'0,-89.9,0'",
+        "START_TIME": "'2025-01-01 00:00'",
+        "STOP_TIME": "'2025-01-01 01:00'",
+        "STEP_SIZE": "'1h'",
+        "QUANTITIES": "'4'",
+        "APPARENT": "'AIRLESS'",
+        "CSV_FORMAT": "'YES'"
+      },
+      "raw_file": "horizons-south-pole-scenario-2025-01-01.json",
+      "response_sha256": "3c1c715c59e56d731baa24d96feb0871e9fe61d6c7fa0fe0e595ebc1cb5babde",
+      "reference_ephemeris": "DE441",
+      "reference_lunar_frame": "MEAN_ME (high precision); Horizons documentation identifies lunar ME of DE421",
+      "observable": "Airless apparent Sun-center elevation; includes light time, stellar aberration and gravitational light deflection",
+      "records": [
+        {
+          "epoch_utc": "2025-Jan-01 00:00",
+          "azimuth_degrees_clockwise_from_north": 162.189759,
+          "sun_center_elevation_degrees": 1.42453
+        },
+        {
+          "epoch_utc": "2025-Jan-01 01:00",
+          "azimuth_degrees_clockwise_from_north": 161.681954,
+          "sun_center_elevation_degrees": 1.424449
+        }
+      ],
+      "comparison_note": "Independent pipeline check, not fully independent observational validation. DE440 MOON_ME_DE440_ME421 closely aligns DE421 ME; IAU_MOON is less accurate. Record actual discrepancy and explain aberration/observer conventions."
+    }
+  ]
+}

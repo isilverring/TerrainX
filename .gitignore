@@ -13,6 +13,8 @@ data/source/**/*.img
 data/source/**/*.IMG
 data/source/**/*.tif
 data/source/**/*.zip
+data/source/**/*.bsp
+data/source/**/*.bpc
 artifacts/qa/
 *.log
 *.tsbuildinfo

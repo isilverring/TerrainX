@@ -3,3 +3,4 @@ httpx>=0.28,<1
 pydantic>=2.10,<3
 pytest>=8.3,<10
 rasterio>=1.5,<2
+spiceypy==8.4.0
