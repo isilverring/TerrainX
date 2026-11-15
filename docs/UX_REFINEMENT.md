@@ -38,4 +38,6 @@ Design reference: outputs/ux-workspace-concept.png (built-in Image Gen, design-o
 
 The accepted code-native design has been checked against the concept for layout, copy, palette, typography, icons and spacing, with the intentional scientific deviations above. Final deployed screenshot checks remain U3.
 
+U3 prepublication:85 Python tests + independent numerical reproduction,99 TypeScript tests, strict static build,49/49 production browser workflows and126 responsive cases passed on caf0c93. Final visual inspection at1280×720 found that inspector actions required an inner scroll; a compact-height refinement and a50th browser regression now keep those actions directly visible (new regression passes locally). Rebuild the final committed source, publish, and run all50 public workflows plus36 focused responsive cases before marking U3 complete. The validated JSON report was byte-normalized back to committed source after the validator's newline-only rewrite; no scientific value changed.
+
 Next agent: inspect git status/log and STATUS.md before continuing. Update this file at each milestone. Do not treat completed earlier scope as unfinished.

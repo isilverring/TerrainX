@@ -1,5 +1,26 @@
 import { test, expect } from "@playwright/test";
 
+test("short laptop viewport exposes selected-site actions without an inner scroll", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 720 });
+  await page.goto("/#/explorer?cohort=original&polar=none");
+  await expect(
+    page.getByRole("link", { name: "Analog DNA", exact: true }),
+  ).toBeInViewport();
+  await expect(
+    page.getByRole("link", { name: "Analog Passport", exact: true }),
+  ).toBeInViewport();
+  await expect(
+    page.getByRole("link", { name: "Plan a field experiment", exact: true }),
+  ).toBeInViewport();
+  expect(
+    await page
+      .locator(".selected-summary")
+      .evaluate((e) => e.scrollHeight <= e.clientHeight),
+  ).toBe(true);
+});
+
 test("field planning respects the named collection and never silently broadens Original study", async ({
   page,
 }) => {
