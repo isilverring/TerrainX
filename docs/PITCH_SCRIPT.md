@@ -2,7 +2,7 @@
 
 Story arc: **challenge → gap → our answer → the science → results → why it matters**.
 
-Open the deck at **https://terrainx-nasa.vercel.app/#/pitch**. Use the **Pitch slides** item in Research tools, or search "pitch" with Ctrl+K.
+Open the deck at **https://terrainx-nasa.vercel.app/#/pitch**. The same 7 slides, with animations and speaker notes, are in [TerrainX_Pitch_Animated.pptx](TerrainX_Pitch_Animated.pptx). Use the **Pitch slides** item in Research tools, or search "pitch" with Ctrl+K.
 
 - **Navigation:** → / Space / click goes to the next slide, ← goes back, Esc exits. Home and End jump to the first and last slide.
 - **Small screens:** scroll within a slide when “Scroll to see more” appears. The header and slide controls remain visible; the hint disappears at the bottom.
