@@ -62,7 +62,12 @@ import {
   type Station,
   type StationKind,
 } from "../lib/fieldStudy";
-import { LAB_PROTOCOLS, applyLabProtocol, isLabModule, labTitle } from "../lib/labProtocols";
+import {
+  LAB_PROTOCOLS,
+  applyLabProtocol,
+  isLabModule,
+  labTitle,
+} from "../lib/labProtocols";
 import FieldPlanner from "../components/FieldPlanner";
 import QrCode from "../components/QrCode";
 import { BackLink } from "../components/ui";
@@ -88,10 +93,13 @@ export default function FieldStudy() {
   const base = useData(),
     [params] = useSearchParams();
   let sharedProtocol = false;
+  let requestedLab = params.get("lab");
   try {
     sharedProtocol =
       !!params.get("share") &&
       decodeShare(params.get("share")!).e === "site-evidence";
+    if (params.get("share"))
+      requestedLab = decodeShare(params.get("share")!).l ?? null;
   } catch {
     /* Damaged payload is refused by the editor. */
   }
@@ -147,6 +155,26 @@ export default function FieldStudy() {
         }),
     };
   }, [merged, sourceProtocol, evidence.value]);
+  if (
+    requestedLab &&
+    (!isLabModule(requestedLab) ||
+      sourceProtocol ||
+      !base.release?.files["challenge_evidence.json"] ||
+      (requestedLab === "base" && params.get("mission") !== "mare-crisium"))
+  )
+    return (
+      <main className="document-page">
+        <h1>Requested research protocol is unavailable</h1>
+        <p>
+          Choose a valid module on a release containing its evidence. Lunar-base
+          protocols require a Moon mission; literature-case and Lab protocols
+          must be opened separately.
+        </p>
+        <Link to="/research-lab?cohort=expanded&polar=none">
+          Return to the Research Lab
+        </Link>
+      </main>
+    );
   if (sourceProtocol && !evidence.value)
     return (
       <main className="document-page">
@@ -239,12 +267,21 @@ function FieldStudyEditor() {
       c.id,
       title ?? `Field study · ${c.name}`,
     );
-    return newFieldStudy(
+    const study = newFieldStudy(
       snapshot,
       c,
       mission,
       title ?? `Field study · ${c.name}`,
     );
+    const lab = params.get("lab");
+    if (isLabModule(lab)) {
+      const prepared = applyLabProtocol(study, lab, c.name);
+      const context = params.get("lab_context");
+      if (context && context.length <= 2500)
+        prepared.local_notes = `Research Lab planning inputs (user scenario, not observations):\n${context}`;
+      return prepared;
+    }
+    return study;
   };
   // A ?share= link reopens the same stations and intent, only on the identical release.
   const shared = useMemo(() => {
@@ -281,7 +318,9 @@ function FieldStudyEditor() {
       base.snapshot.collection = s.o ?? data.collection ?? "original";
       if (s.p) base.snapshot.target_reference = s.p;
       if (s.e) base.snapshot.proposal_protocol = s.e;
-      const withLab = s.l ? applyLabProtocol(base, s.l, base.title.replace(/^Field study · /, "")) : base;
+      const withLab = s.l
+        ? applyLabProtocol(base, s.l, base.title.replace(/^Field study · /, ""))
+        : base;
       return {
         ...withLab,
         hypothesis: s.h || withLab.hypothesis,
@@ -292,7 +331,12 @@ function FieldStudyEditor() {
       lab = params.get("lab");
     // A Research Lab link seeds its protocol template; every field stays editable.
     return isLabModule(lab)
-      ? applyLabProtocol(start, lab, data.candidates.find((c) => c.id === start.candidate_id)?.name ?? start.candidate_id)
+      ? applyLabProtocol(
+          start,
+          lab,
+          data.candidates.find((c) => c.id === start.candidate_id)?.name ??
+            start.candidate_id,
+        )
       : start;
   });
   const [kind, setKind] = useState<StationKind>("observation"),
@@ -363,7 +407,16 @@ function FieldStudyEditor() {
       )
     )
       return;
-    setStudy(fresh(candidateId, mission));
+    const next = fresh(candidateId, mission);
+    setStudy(
+      study.lab_module
+        ? applyLabProtocol(
+            next,
+            study.lab_module,
+            data.candidates.find((c) => c.id === candidateId)!.name,
+          )
+        : next,
+    );
     setMessage("");
   };
   const store = (next: Study[], note: string) => {
@@ -445,8 +498,10 @@ function FieldStudyEditor() {
         scenario={study.snapshot.scenarios[study.mission]}
       />
       <Limits lead="Stations and protocols are proposals, not observations.">
-        <p>Scores use this field study’s saved model. Station coordinates and
-        protocols are proposals, never verified NASA observations.</p>
+        <p>
+          Scores use this field study’s saved model. Station coordinates and
+          protocols are proposals, never verified NASA observations.
+        </p>
       </Limits>
       <header className="document-title field-title">
         <div>
@@ -487,16 +542,27 @@ function FieldStudyEditor() {
         </div>
       </header>
       {study.lab_module && (
-        <aside className="lab-protocol-banner" aria-label="Research Lab protocol">
+        <aside
+          className="lab-protocol-banner"
+          aria-label="Research Lab protocol"
+        >
           <div>
-            <strong>Protocol from the Research Lab · {labTitle(study.lab_module)}</strong>
+            <strong>
+              Protocol from the Research Lab · {labTitle(study.lab_module)}
+            </strong>
             <p>
-              Fills: {LAB_PROTOCOLS[study.lab_module].closes}. These are the measurements that would
-              answer the question in the field. They are a proposal: they are not observations and they
-              do not change any released score. Edit anything below.
+              Fills: {LAB_PROTOCOLS[study.lab_module].closes}. These are the
+              measurements that would answer the question in the field. They are
+              a proposal: they are not observations and they do not change any
+              released score. Edit anything below.
             </p>
           </div>
-          <Link to={`/research-lab?module=${study.lab_module}&id=${study.candidate_id}&mission=${study.mission}`}>
+          <Link
+            to={studyPath(
+              `/research-lab?module=${study.lab_module}&id=${study.candidate_id}&mission=${study.mission}${study.snapshot.target_reference ? `&lunar=${study.snapshot.target_reference.replace("lunar-polar:", "")}` : ""}`,
+              params.toString(),
+            )}
+          >
             Back to the {labTitle(study.lab_module)} module
           </Link>
         </aside>
@@ -530,7 +596,11 @@ function FieldStudyEditor() {
           Planetary mission
           <select
             value={study.mission}
-            disabled={!!data.target_reference || !!data.proposal_protocol}
+            disabled={
+              !!data.target_reference ||
+              !!data.proposal_protocol ||
+              study.lab_module === "base"
+            }
             onChange={(e) =>
               switchTo(study.candidate_id, e.target.value as Mission)
             }
@@ -1358,8 +1428,8 @@ function FieldBook({
       )}
       {study.lab_module && (
         <p>
-          Research Lab protocol: {labTitle(study.lab_module)}. It addresses this challenge gap:{" "}
-          {LAB_PROTOCOLS[study.lab_module].closes}.
+          Research Lab protocol: {labTitle(study.lab_module)}. It addresses this
+          challenge gap: {LAB_PROTOCOLS[study.lab_module].closes}.
         </p>
       )}
       <h2>Hypothesis</h2>

@@ -1,3 +1,11 @@
+# Submission review — 2026-11-15
+
+Reviewed latest main through c59f286. Presentation, Research Lab and live MapLibre providers are retained. Live Esri tiles, NASA GIBS imagery, NASA comparison images and AWS terrain surface passed network checks on this PC. Corrected rapid mission/filter navigation overwriting the mission; bounded mineralogy, water, cave, biology, thermal and route protocol claims; preserved Lab protocol identity and planning inputs; rejected unavailable/conflicting protocols and Mars-labeled lunar-base studies.
+
+Validation: 94 Python tests; 117 unit tests; strict TypeScript and production build passed. Initial browser sweep: 52 passed, one production-only offline case skipped, one mission-navigation regression identified and fixed. The corrected core live workflow and all four Lab protocol checks now pass. Full production and submission editorial acceptance remain next. Before that, create the requested frozen complete copy at D:\TerrainXBackup1 from this reviewed source, then work only in D:\TerrainX.
+
+Earlier release notes follow; they will be consolidated during submission preparation.
+
 # TerrainX recovery checkpoint — partials P1–P3 complete, showcase polish done
 
 **New scope active: implement the eight partial challenge dimensions.** See docs/PARTIALS_IMPLEMENTATION.md P1–P4. Previous U1–U3/M1–M6 are complete. Main was clean/up to date at 1b3be13; public version 8 stays live during this work. Current step: source-verified preprocessing and numerical models, followed by eight usable Research Lab workflows. Keep source-scoped evidence/unknowns distinct from measurements. Check git log for the last pushed milestone.

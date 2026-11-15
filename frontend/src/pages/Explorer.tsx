@@ -165,8 +165,10 @@ export default function Explorer() {
   const { region, sufficient, sortKey, query } = filters;
   function updateFilter(key: string, value: string) {
     setParams(
-      (current) => {
-        const p = new URLSearchParams(current);
+      () => {
+        // Router query updates are not queued like React state. Read the latest
+        // address so a fast filter change cannot undo a mission navigation.
+        const p = new URLSearchParams(window.location.hash.split("?")[1]);
         value ? p.set(key, value) : p.delete(key);
         return p;
       },
@@ -305,13 +307,13 @@ export default function Explorer() {
       );
   }, [selected, mission]);
   function chooseMission(next: Mission) {
-    const p = new URLSearchParams(params);
+    const p = new URLSearchParams(window.location.hash.split("?")[1]);
     p.set("mission", next);
     if (next === "jezero") p.set("polar", "none");
     setParams(p);
   }
   function select(id: string, focusRow = false) {
-    const p = new URLSearchParams(params);
+    const p = new URLSearchParams(window.location.hash.split("?")[1]);
     p.set("id", id);
     p.set("atlas_id", id);
     setParams(p);

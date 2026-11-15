@@ -21,14 +21,19 @@ export default function Base({
   mission,
   sites,
   error,
-}: { sites?: IlluminationSite[]; error?: string } & SiteContext) {
+  initialLunarId,
+}: {
+  sites?: IlluminationSite[];
+  error?: string;
+  initialLunarId?: string;
+} & SiteContext) {
   const [solar, setSolar] = useState<number | null>(0.6),
     [slopeScale, setSlope] = useState<number | null>(20),
     [minSun, setMin] = useState<number | null>(0),
     [maxDark, setMax] = useState<number | null>(8760),
     [load, setLoad] = useState<number | null>(100),
     [usable, setUsable] = useState<number | null>(0.8),
-    [chosen, setChosen] = useState("haworth");
+    [chosen, setChosen] = useState(initialLunarId ?? "haworth");
   const result = useMemo(
     () =>
       calculate(() => {
@@ -58,9 +63,9 @@ export default function Base({
         eyebrow="Permanent-base research · bounded reference-centre screen"
       >
         <p>
-          Explore actual LOLA slopes, Diviner stability models and 2025 SPICE/LOLA
-          sunlight at eight named feature centres. These are not NASA landing
-          polygons, engineered access routes or certified base sites.
+          Explore actual LOLA slopes, Diviner stability models and 2025
+          SPICE/LOLA sunlight at eight named feature centres. These are not NASA
+          landing polygons, engineered access routes or certified base sites.
         </p>
         {error && <p role="status">{error}</p>}
         <div className="lab-input-grid">
@@ -103,10 +108,12 @@ export default function Base({
         </p>
         <InputError message={result.error} />
         <Limits lead="A scenario index for comparison only; not a score or a recommended base.">
-          <p>This separate experimental index ranks only these eight centre
-          profiles under your assumptions. It is not F/U/C/P, calibrated mission
-          suitability, certainty, a resource score or a recommended base.
-          Required engineering/resource evidence is missing.</p>
+          <p>
+            This separate experimental index ranks only these eight centre
+            profiles under your assumptions. It is not F/U/C/P, calibrated
+            mission suitability, certainty, a resource score or a recommended
+            base. Required engineering/resource evidence is missing.
+          </p>
         </Limits>
         {result.value && (
           <div className="table-scroll">
@@ -133,7 +140,12 @@ export default function Base({
                       </button>
                     </th>
                     <td className="mono">
-                      <span className="cell-bar sun" style={{ "--v": `${100 * r.solar}%` } as React.CSSProperties}>
+                      <span
+                        className="cell-bar sun"
+                        style={
+                          { "--v": `${100 * r.solar}%` } as React.CSSProperties
+                        }
+                      >
                         {number(100 * r.solar, 2)}%
                       </span>
                     </td>
@@ -146,12 +158,17 @@ export default function Base({
                     </td>
                     <td className="mono">{number(r.darkHours, 0)}</td>
                     <td className="mono">
-                      <span className="cell-bar" style={{ "--v": `${r.index}%` } as React.CSSProperties}>
+                      <span
+                        className="cell-bar"
+                        style={{ "--v": `${r.index}%` } as React.CSSProperties}
+                      >
                         {number(r.index, 1)}
                       </span>
                     </td>
                     <td>
-                      <span className={`rule-chip ${r.eligible ? "in" : "out"}`}>
+                      <span
+                        className={`rule-chip ${r.eligible ? "in" : "out"}`}
+                      >
                         {r.eligible ? "Within scenario" : "Outside scenario"}
                       </span>
                     </td>
@@ -217,9 +234,12 @@ export default function Base({
           />
         </div>
         <Limits lead="A test-requirement scenario, not battery sizing.">
-          <p>This energy balance excludes thermal losses, charging duty, equipment
-          aging, eclipses and darkness outside the sampled year. It is a test
-          requirement scenario, not battery sizing or a power-system design.</p>
+          <p>
+            This energy balance excludes thermal losses, charging duty,
+            equipment aging, eclipses and darkness outside the sampled year. It
+            is a test requirement scenario, not battery sizing or a power-system
+            design.
+          </p>
         </Limits>
       </Panel>
       <Outcome

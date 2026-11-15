@@ -190,7 +190,16 @@ export const fieldStudySchema = z
     target_reference: z.string().optional(),
     mission_role: z.string().optional(),
     lab_module: z
-      .enum(["mineralogy", "illumination", "resources", "dust", "biology", "caves", "operations", "base"])
+      .enum([
+        "mineralogy",
+        "illumination",
+        "resources",
+        "dust",
+        "biology",
+        "caves",
+        "operations",
+        "base",
+      ])
       .optional(),
     hypothesis: z.string().max(1200),
     objective: z.string().max(400),
@@ -213,6 +222,11 @@ export const fieldStudySchema = z
     local_notes: z.string().max(4000),
   })
   .superRefine((study, ctx) => {
+    if (study.lab_module === "base" && study.mission !== "mare-crisium")
+      ctx.addIssue({
+        code: "custom",
+        message: "Lunar-base protocols require a Moon mission",
+      });
     if (
       study.candidate_id !== study.snapshot.candidate_id ||
       study.mission !== study.snapshot.mission
@@ -505,7 +519,16 @@ const shareSchema = z.object({
     .optional(),
   e: z.literal("site-evidence").optional(),
   l: z
-    .enum(["mineralogy", "illumination", "resources", "dust", "biology", "caves", "operations", "base"])
+    .enum([
+      "mineralogy",
+      "illumination",
+      "resources",
+      "dust",
+      "biology",
+      "caves",
+      "operations",
+      "base",
+    ])
     .optional(),
   c: z.string().min(1).max(80),
   m: z.enum(["jezero", "mare-crisium"]),

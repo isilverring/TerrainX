@@ -244,6 +244,7 @@ export function Outcome({
           release_id: data.release.release_id,
           dataset_sha256: data.release.dataset_sha256,
           model_version: data.release.model_version,
+          input_files: data.release.files,
         }
       : null,
     collection: data.collection,
@@ -273,7 +274,15 @@ export function Outcome({
       "No NASA endorsement, resource reserve, biological confirmation or route/landing clearance.",
     ],
   };
-  const p = `/field-study?id=${candidate.id}&mission=${polarId ? "mare-crisium" : mission}&lab=${module}${polarId ? `&polar=${polarId}` : ""}`;
+  const context = JSON.stringify({
+    module,
+    inputs,
+    question,
+    decision,
+    next_measurement: next,
+    candidate_id: candidate.id,
+  });
+  const p = `/field-study?id=${candidate.id}&mission=${polarId ? "mare-crisium" : mission}&lab=${module}${polarId ? `&polar=${polarId}` : "&polar=none"}${context.length <= 2500 ? `&lab_context=${encodeURIComponent(context)}` : ""}`;
   return (
     <section className="lab-outcome">
       <p className="document-label">Research decision · {candidate.name}</p>

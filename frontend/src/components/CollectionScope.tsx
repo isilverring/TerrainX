@@ -79,11 +79,13 @@ export default function CollectionScope({ children }: { children: ReactNode }) {
       cohort: shared.o ?? collection,
       mission: shared.m,
       polar: shared.p?.replace("lunar-polar:", "") ?? "none",
+      lab: shared.l ?? "",
     };
     let changed = false;
     for (const [key, value] of Object.entries(desired))
-      if (p.get(key) !== value) {
-        p.set(key, value);
+      if ((p.get(key) ?? "") !== value) {
+        if (value) p.set(key, value);
+        else p.delete(key);
         changed = true;
       }
     if (shared.e && p.get("protocol") !== "source") {

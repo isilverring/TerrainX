@@ -277,6 +277,8 @@ export default function ResearchLab() {
                 ))}
               {active === "base" && (
                 <Base
+                  key={params.get("lunar") ?? "haworth"}
+                  initialLunarId={params.get("lunar") ?? undefined}
                   {...context}
                   sites={light.value?.sites}
                   error={light.error ?? undefined}
