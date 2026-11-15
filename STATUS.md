@@ -4,6 +4,8 @@
 
 ## Previous completed release
 
+Usability U1 implemented and verified:99 unit tests/strict TypeScript/3 browser workflows. Remaining new scope: U2 visual/workflow refinements and mobile clipping, U3 full production/public acceptance. See docs/UX_REFINEMENT.md; source data unchanged.
+
 **All six approved improvements are implemented, pushed and publicly verified. No software/deployment step remains pending.** Work stays in D:\TerrainX, private https://github.com/isilverring/TerrainX, main. Canonical completed checklist and agent handoff: docs/CHALLENGE_COMPLETION.md. Human video/team/terms/actual submission remain with the user.
 
 Public: https://terrainx-discovery-lab.comfybay1.chatgpt.site . Version6 native publication succeeded2026-11-14T20:46:51Z, exact runtime source e201ffb81b24ce0ed0d72389152e818c634ff4c5. Exact opaque version/deployment/archive identifiers and rollback versions: DEPLOYMENT.md. Later test/documentation commits intentionally differ from deployed source. Existing prepared browsers: /#/offline → prepare update → explicitly activate/reload; saved research remains.

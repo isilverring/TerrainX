@@ -34,6 +34,8 @@ import {
 } from "../lib/data";
 import type { SortKey } from "../lib/data";
 import type { Candidate, Mission } from "../lib/models";
+import { studyPath } from "../lib/collections";
+import { comparisonIds, discoveryFilters, resetDiscoveryFilters } from "../lib/discoveryState";
 import { ScoreStrip, SiteActions, Loading } from "../components/ui";
 import { MarsGlyph, MoonGlyph } from "../components/glyphs";
 import ModelControls from "../components/ModelControls";
@@ -132,14 +134,17 @@ export default function Explorer() {
     [params, setParams] = useSearchParams();
   const mission: Mission =
     params.get("mission") === "mare-crisium" ? "mare-crisium" : "jezero";
-  const [region, setRegion] = useState("all"),
-    [sufficient, setSufficient] = useState(false),
-    [drawer, setDrawer] = useState(false),
-    [sortKey, setSortKey] = useState<SortKey>("U"),
-    [query, setQuery] = useState(""),
+  const {region, sufficient, sortKey, query} = discoveryFilters(params, data.regions.map(r=>r.id));
+  function updateFilter(key: string, value: string) {
+    setParams(current => { const p=new URLSearchParams(current);value?p.set(key,value):p.delete(key);return p; }, {replace:true});
+  }
+  const setRegion=(value:string)=>updateFilter("atlas_region",value==="all"?"":value),
+    setSufficient=(value:boolean)=>updateFilter("atlas_coverage",value?"70":""),
+    setSortKey=(value:SortKey)=>updateFilter("atlas_sort",value),
+    setQuery=(value:string)=>updateFilter("atlas_q",value);
+  const [drawer, setDrawer] = useState(false),
     [focus, setFocus] = useState({ id: "", n: 0 });
-  const [selectedId, setSelectedId] = useState<string>(() => {
-    if (params.get("id")) return params.get("id")!;
+  const [storedSelection] = useState<string>(() => {
     try {
       return JSON.parse(safeStorage.get(SELECTION_KEY) ?? "{}").id ?? "";
     } catch {
@@ -148,7 +153,7 @@ export default function Explorer() {
   });
   const listRef = useRef<HTMLDivElement>(null),
     navigate = useNavigate();
-  const [compareIds, setCompareIds] = useState<string[]>(() => {
+  const [storedCompare] = useState<string[]>(() => {
     try {
       const saved = JSON.parse(safeStorage.get(COMPARE_KEY) ?? "[]");
       return Array.isArray(saved)
@@ -160,17 +165,15 @@ export default function Explorer() {
       return [];
     }
   });
+  const rawCompare=params.get("atlas_compare") ?? storedCompare.join(",");
+  const compareIds=comparisonIds(rawCompare,data.candidates.map(c=>c.id),MAX_COMPARE);
+  const comparisonKey=compareIds.join(",");
   useEffect(() => {
     safeStorage.set(COMPARE_KEY, JSON.stringify(compareIds));
-  }, [compareIds]);
+  }, [comparisonKey]);
   function toggleCompare(id: string) {
-    setCompareIds((ids) =>
-      ids.includes(id)
-        ? ids.filter((x) => x !== id)
-        : ids.length >= MAX_COMPARE
-          ? ids
-          : [...ids, id],
-    );
+    const ids=compareIds.includes(id)?compareIds.filter(x=>x!==id):compareIds.length>=MAX_COMPARE?compareIds:[...compareIds,id];
+    updateFilter("atlas_compare",ids.join(",") || ",");
   }
   const target = data.targets.find((t) => t.id === mission)!;
   const filtered = useMemo(() => {
@@ -218,7 +221,9 @@ export default function Explorer() {
     references.forEach((c, i) => m.set(c.id, `R${i + 1}`));
     return m;
   }, [discovered, references]);
-  const selected = ordered.find((c) => c.id === selectedId) ?? ordered[0];
+  const requestedId=params.get("id") || params.get("atlas_id");
+  const selectedId=requestedId ?? (ordered.some(c=>c.id===storedSelection)?storedSelection:ordered[0]?.id);
+  const selected = ordered.find((c) => c.id === selectedId);
   const a = selected?.assessments[mission];
   useEffect(() => {
     if (selected)
@@ -231,8 +236,7 @@ export default function Explorer() {
     const p=new URLSearchParams(params);p.set("mission",next);if(next==="jezero")p.set("polar","none");setParams(p);
   }
   function select(id: string, focusRow = false) {
-    setSelectedId(id);
-    const p=new URLSearchParams(params);p.set("id",id);setParams(p,{replace:true});
+    const p=new URLSearchParams(params);p.set("id",id);p.set("atlas_id",id);setParams(p);
     setFocus((f) => ({ id, n: f.n + 1 }));
     const row = listRef.current?.querySelector<HTMLButtonElement>(
       `[data-candidate-id="${CSS.escape(id)}"]`,
@@ -296,7 +300,7 @@ export default function Explorer() {
         <span className="mobile-mission-hint">Mission & filters</span>
         <ChevronDown size={16} />
       </button>
-      <aside className={`mission-rail ${drawer ? "expanded" : ""}`}>
+      <aside id="mission-settings" className={`mission-rail ${drawer ? "expanded" : ""}`}>
         <h1>Choose your mission</h1>
         <div
           className="planet-selector"
@@ -523,6 +527,9 @@ export default function Explorer() {
             {sortLabels[sortKey]}.
           </p>
         </div>
+        {rawCompare.split(",").filter(Boolean).some(id=>!data.candidates.some(c=>c.id===id)) && (
+          <p className="warning-inline comparison-notice" role="status">Comparison picks outside this collection are excluded. <button className="link-button" onClick={()=>updateFilter("atlas_compare",comparisonKey || ",")}>Clear unavailable picks</button></p>
+        )}
         {compareIds.length ? (
           <div className="compare-tray" role="region" aria-label="Comparison">
             <div className="compare-chips">
@@ -548,7 +555,7 @@ export default function Explorer() {
               disabled={compareIds.length < 2}
               onClick={() =>
                 navigate(
-                  `/compare?mission=${mission}&ids=${compareIds.join(",")}`,
+                  studyPath(`/compare?mission=${mission}&ids=${compareIds.join(",")}`,params.toString()),
                 )
               }
             >
@@ -559,6 +566,13 @@ export default function Explorer() {
             </button>
           </div>
         ) : null}
+        {!selected && requestedId && (
+          <div className="selected-summary" role="status">
+            <h2>{data.candidates.some(c=>c.id===requestedId)?"Selected site is hidden by filters":"Selected site is outside this collection"}</h2>
+            <p>No other site was substituted. {data.candidates.some(c=>c.id===requestedId)?"Clear the filters to return to it.":"Select an available candidate from the list."}</p>
+            <button className="button outline" onClick={()=>setParams(current=>{const p=resetDiscoveryFilters(current);if(!data.candidates.some(c=>c.id===requestedId)){p.delete("id");p.delete("atlas_id");}return p;})}>Reset filters and selection</button>
+          </div>
+        )}
         {selected && a ? (
           <div className="selected-summary">
             <div className="summary-head">

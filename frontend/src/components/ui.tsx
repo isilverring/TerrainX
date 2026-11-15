@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 import { openPalette } from "./CommandPalette";
 import { useLayoutEffect, useState, useRef } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation, useParams } from "react-router-dom";
 import { number } from "../lib/data";
 import { studyPath } from "../lib/collections";
 import type { Assessment, Mission } from "../lib/models";
@@ -273,10 +273,11 @@ export function SourceLink({
 }
 export function BackLink({ mission }: { mission: Mission }) {
   const location = useLocation();
+  const {id}=useParams();
   return (
     <Link
       className="back-link"
-      to={studyPath(`/explorer?mission=${mission}`, location.search)}
+      to={studyPath(`/explorer?mission=${mission}${id?`&id=${encodeURIComponent(id)}&atlas_id=${encodeURIComponent(id)}`:""}`, location.search)}
     >
       <ArrowLeft size={16} />
       Discovery atlas
@@ -289,14 +290,14 @@ export function SiteActions({ id, mission }: { id: string; mission: Mission }) {
     <div className="site-actions">
       <Link
         className="button primary"
-        to={studyPath(`/site/${id}?mission=${mission}`, location.search)}
+        to={studyPath(`/site/${id}?mission=${mission}&atlas_id=${encodeURIComponent(id)}`, location.search)}
       >
         <Microscope size={17} />
         Analog DNA
       </Link>
       <Link
         className="button outline"
-        to={studyPath(`/passport/${id}?mission=${mission}`, location.search)}
+        to={studyPath(`/passport/${id}?mission=${mission}&atlas_id=${encodeURIComponent(id)}`, location.search)}
       >
         <FileText size={17} />
         Analog Passport

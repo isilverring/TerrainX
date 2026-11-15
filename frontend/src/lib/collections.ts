@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { candidateSchema, type Candidate, type Dataset } from "./models";
+import { ATLAS_KEYS } from "./discoveryState";
 export const fieldSitesSchema = z.object({
   contract: z.literal("terrainx-field-sites-v1"),
   candidates: z.array(candidateSchema),
@@ -13,7 +14,7 @@ export function studyPath(path: string, search: string) {
     next = new URLSearchParams(query),
     current = new URLSearchParams(search);
   if(PRIMARY_REFERENCE_PAGES.has(route)&&!next.has("polar"))next.set("polar","none");
-  for (const key of ["science", "cohort", "mission", "polar"])
+  for (const key of ["science", "cohort", "mission", "polar", ...ATLAS_KEYS])
     if (!next.has(key) && current.has(key)) next.set(key, current.get(key)!);
   return route + (next.size ? "?" + next : "");
 }
