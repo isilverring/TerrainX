@@ -1,4 +1,19 @@
-# TerrainX public version6 — final scoped release
+# TerrainX public version7 — usability refinement
+
+- URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site ; audience **public**, reverified after publication.
+- Site: `appgprj_6af7ff7626888191bcba757337fd7e9b`.
+- Saved version7: `appgprj_6af7ff7626888191bcba757337fd7e9b~appgver_b56e5d7026d48191ade26831201e3938`.
+- Deployment: `appgdep_6af914ab39e481918861e9b02677d966`.
+- Native result: **succeeded**,2026-11-15T02:11:15.020527+00:00.
+- Exact deployed app source: `b6bbbe76d64c777981432e074ef8cd7a0852fe49`. Later acceptance/documentation commits intentionally differ.
+- Science release `science-79daa128eae12594`; original dataset SHA2563515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c unchanged.
+- Helper archive: `D:\TerrainX\outputs\terrainx-usability-v7.tar.gz`; compressed file16,162,705 bytes, local SHA25690a19f784cf43570041e41488cdc875c70ae83bd94abffe120895d2921bd6bb4.
+- Native saved archive metadata:270 files,127,406,080 bytes, content hash sha256:44b1d73b97c7eae0cc316da9ebb9becbe06ac451f8bb64d5a135576a9bc9baa0. This is the native tar-content metadata, separate from the local compressed-file checksum.
+- Prepublication:85 Python + independent reproduction,99 unit tests, production build;49 prior production workflows +7 final usability flows pass.126 local responsive cases passed. **Fresh public50-workflow suite and36 focused visual cases are in progress; do not claim final acceptance until their results are recorded.**
+
+Work: docs/UX_REFINEMENT.md. Existing prepared browsers must open /#/offline, prepare the update and explicitly activate/reload. Saved studies remain. No new dependency or API key. Browser plugin unavailable; installed Chrome/Playwright is the verification fallback. User handles video/team/terms/submission.
+
+## Previous verified version6 (rollback)
 
 - URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site ; audience **public**, reverified after publication.
 - Site: `appgprj_6af7ff7626888191bcba757337fd7e9b`.

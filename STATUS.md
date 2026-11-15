@@ -1,10 +1,10 @@
 # TerrainX active recovery checkpoint — usability follow-up
 
-**New request in progress (2026-11-15): audit remaining gaps and improve UI/UX/content.** Tracked in docs/UX_REFINEMENT.md (U1–U3). Initial pull clean/up to date at 8fe2ae6. Previous six-item science scope remains complete; public version6 remains live until the new verified deployment. Current work: repair Discovery state/comparison edges and mobile clipping, then refine workflow guidance and verify/publish. See git log for the last pushed milestone.
+**Usability follow-up published; final public acceptance running (2026-11-15).** U1–U2 complete in docs/UX_REFINEMENT.md. Version7/source b6bbbe76d64c777981432e074ef8cd7a0852fe49 is live at https://terrainx-discovery-lab.comfybay1.chatgpt.site ; audience public. Native publication succeeded2026-11-15T02:11:15Z. Exact metadata: DEPLOYMENT.md. Current work: finish50 fresh public browser workflows and36 focused public visual cases, then close U3/update handoff and stop owned QA servers. Do not republish for documentation-only commits.
 
-## Previous completed release
+Prepublication:85 Python + independent reproduction,99 unit tests, strict production build,49/49 full browser flows plus7 final usability flows,126 responsive cases. Scientific source data unchanged. User logo and independent Mars preserved. Work remains D:\TerrainX, private isilverring/TerrainX main; milestone pushes verified.
 
-Usability U1–U2 implemented. U3 prepublication:85 Python + independent reproduction,99 unit tests, production build,49/49 production browser flows,126 responsive cases pass. A final1280×720 inspector refinement and50th regression also pass locally; rebuild final committed source before packaging, then publish and run all50 public workflows and36 focused visual cases. See docs/UX_REFINEMENT.md; scientific source data unchanged. Public version6 remains live until the new publication succeeds.
+## Previous version6 release (completed scope, historical record)
 
 **All six approved improvements are implemented, pushed and publicly verified. No software/deployment step remains pending.** Work stays in D:\TerrainX, private https://github.com/isilverring/TerrainX, main. Canonical completed checklist and agent handoff: docs/CHALLENGE_COMPLETION.md. Human video/team/terms/actual submission remain with the user.
 
