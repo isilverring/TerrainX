@@ -1,6 +1,6 @@
 # Resume the audited TerrainX release
 
-**Active acceptance:** docs/UX_REFINEMENT.md U1–U2 are pushed; version7/source b6bbbe7 is publicly published. Finish50 public browser workflows and36 focused responsive checks, record results and close U3, then stop owned QA servers. Read STATUS.md/DEPLOYMENT.md. Do not republish for acceptance/documentation-only commits. Earlier M1–M6 are complete.
+**Active acceptance:** docs/UX_REFINEMENT.md U1–U2 are pushed; version8/source778b3cf is publicly published. Finish its50 public browser workflows and36 focused responsive checks, record results and close U3, then stop owned QA servers. Version7 previously passed50/50. Read STATUS.md/DEPLOYMENT.md. Do not republish for acceptance/documentation-only commits. Earlier M1–M6 are complete.
 
 **Completed:** all M1–M6 in [docs/CHALLENGE_COMPLETION.md](docs/CHALLENGE_COMPLETION.md), publicly verified as version6/source e201ffb. No implementation or deployment step is pending. The remaining actions are human recording/team/terms/submission, or separately scoped future research. Read STATUS.md and DEPLOYMENT.md before any continuation.
 
