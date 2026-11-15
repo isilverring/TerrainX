@@ -2,17 +2,19 @@
 
 This is a new follow-up scope. The six items in CHALLENGE_COMPLETION.md remain completed. Work on main in D:\TerrainX; commit and push every completed milestone.
 
+**Completed and publicly verified.** Version8, app source778b3cfc995083666425b236accf444bbf1c3cdf, is live at https://terrainx-discovery-lab.comfybay1.chatgpt.site. All50 fresh public browser workflows pass;36 focused public responsive cases pass.85 Python tests plus independent reproduction,99 TypeScript tests and production build pass. No required step remains in U1–U3. Publication/rollback IDs: DEPLOYMENT.md. Detailed execution notes below are historical.
+
 ## Audit findings and work
 
 - [x] U1 — Repair Discovery state: URL-backed filters/selection, back/forward replay, collection-safe comparison picks, unique comparison IDs, explicit unavailable selections and filter reset. Atlas-specific keys travel through dossiers without colliding with other workspace filters. Comparison edits retain collection/release/polar identity; Mars switching is disabled inside lunar-polar comparison.
 - [x] U2 — Refine the existing mission workspace: readable score meaning, a clear discover → inspect → prepare path, contextual next actions, accessible controls, working mobile results and selected-site access. Supplied logo, independent Mars illustration and actual scientific data preserved. More map space; collapsible data/geology context; score guide; result/filter count/reset; comparison clear controls; selected-site field action; sticky dossier section navigation.
-- [ ] U3 — Verify complete research flows, desktop/mobile visuals and scientific contracts; production build; publish an update to the existing public Site. Update restart, deployment and demo notes with evidence.
+- [x] U3 — Complete research flows, desktop/mobile visuals and scientific contracts verified; production build published to existing public Site as version8. Restart, deployment and demo notes updated. No new dependencies or API keys. Local QA servers stopped after acceptance.
 
 ## Boundaries
 
 No new observations, winners, geological evidence or NASA claims are introduced. F/U/C, evidence gating, polar target identity, source protocol restrictions, frozen releases and original versus expanded collections stay intact. All visual data remain real cached observations or explicitly labeled calculations. Generated UI concepts are design references only and are never scientific assets.
 
-## Restart checkpoint
+## Execution history (completed, not pending tasks)
 
 Initial audit: source 8fe2ae6, clean and up to date. Public version 6 remains available while this work is in progress. Observed mobile issue: collection-shell fixed viewport height overrides the natural stacked layout and can squeeze the result rail. Observed state issues: in-memory filters disappear on remount; stored comparison IDs can be absent in the active collection; duplicate URL IDs are not deduplicated. Browser plugin is unavailable; existing Chrome/Playwright is the browser QA fallback.
 
@@ -49,3 +51,9 @@ The same signed-direction notation was found in the printable Passport by a repo
 Version8/source778b3cf is published and36 fresh public responsive cases pass, with correct labels and unclipped controls confirmed by view_image. Initial full public run:49 pass; one older comparison test still asserted the removed sentence “No winner is declared.” Its assertion now checks the actual revised F/U/C explanation, leaving the real selection/removal workflow checks intact. A final full50-test rerun is in progress. No runtime change/redeployment is needed for this test-only adjustment.
 
 Next agent: inspect git status/log and STATUS.md before continuing. Update this file at each milestone. Do not treat completed earlier scope as unfinished.
+
+## Final acceptance
+
+Version8 public run:50/50 passed in2.8 minutes. The stale-copy assertion was corrected and the complete suite passed; no runtime change followed publication.36 focused public cases cover six surfaces at1568×1003,1280×720,1024×768,820×1024,390×844 and320×720; no overflow, broken local images, framework overlays or application exceptions.90 broader local route/width cases also passed during this audit. Scientific data/hash/release remain unchanged. Browser plugin absent, so existing Chrome/Playwright was used. Firefox/Safari, formal accessibility certification and hosted CI status are not claimed.
+
+Final concept/render pass inspected the design-only concept and latest public screenshots with view_image at native1568×1003 plus phone and short-laptop views. Layout, type, palette, logo/icon treatment, copy and spacing follow the accepted code-native direction; documented departures retain genuine scientific maps, sources and counts. No unresolved material visual mismatch was observed. Evidence: outputs/usability-final-qa/checks.json and atlas-1568.png, atlas-390.png, polar-compare-1568.png (ignored QA artifacts, reproducible with the browser suite). Local QA listeners on5173/4173 are stopped. Future work is human submission or separately scoped science; do not resume U1–U3 as unfinished.

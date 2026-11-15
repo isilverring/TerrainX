@@ -1,6 +1,6 @@
 # Current scientific data status
 
-Science release **science-79daa128eae12594**. Original dataset SHA256 **3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c**. Historical release folders remain immutable. Core scientific validation: 85 Python tests plus independent reproduction;94 TypeScript tests;43 production-preview workflows. See DEPLOYMENT.md for exact public publication.
+Science release **science-79daa128eae12594**. Original dataset SHA256 **3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c**. Historical release folders remain immutable. Core validation:85 Python tests plus independent reproduction;99 TypeScript tests. UI release8 preserves scientific inputs and rankings. See DEPLOYMENT.md for exact publication and browser acceptance.
 
 | Analysis | Actual available data | Interpretation |
 |---|---|---|

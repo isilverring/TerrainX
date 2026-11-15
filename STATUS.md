@@ -1,30 +1,25 @@
-# TerrainX active recovery checkpoint — usability follow-up
+# TerrainX recovery checkpoint — usability audit complete
 
-**Version8 published; final acceptance rerun (2026-11-15).** Public version8/source778b3cfc995083666425b236accf444bbf1c3cdf includes final comparison/Passport corrections. Publication succeeded2026-11-15T02:21:33Z; audience public.36 focused public visual cases pass. Initial full suite49 pass/1 outdated comparison-copy assertion; the test is corrected to the actual F/U/C explanation and the full50-test rerun is running. No runtime change. Close U3/update handoff after success; stop owned QA servers. Do not rebuild/republish for test/documentation-only commits. Exact IDs: DEPLOYMENT.md.
+**All requested usability milestones U1–U3 are implemented, pushed and publicly verified.** Canonical checklist and audit: [docs/UX_REFINEMENT.md](docs/UX_REFINEMENT.md). Earlier science improvements and Packages A/B/C remain complete within their documented boundaries; see docs/CHALLENGE_COMPLETION.md and docs/PACKAGE_AUDIT.md. No required implementation, validation or deployment step remains in this scope.
 
-Prepublication:85 Python + independent reproduction,99 unit tests, strict production build,49/49 full browser flows plus7 final usability flows,126 responsive cases. Scientific source data unchanged. User logo and independent Mars preserved. Work remains D:\TerrainX, private isilverring/TerrainX main; milestone pushes verified.
+Work: D:\TerrainX, private https://github.com/isilverring/TerrainX, main. Public app: https://terrainx-discovery-lab.comfybay1.chatgpt.site . Site version8, exact runtime source **778b3cfc995083666425b236accf444bbf1c3cdf**. Native publication succeeded2026-11-15T02:21:33Z; audience public reverified. DEPLOYMENT.md contains literal version/deployment/archive IDs, checksums and tested rollback versions. Subsequent test/documentation commits intentionally differ from deployed runtime source.
 
-## Previous version6 release (completed scope, historical record)
+## Completed in this follow-up
 
-**All six approved improvements are implemented, pushed and publicly verified. No software/deployment step remains pending.** Work stays in D:\TerrainX, private https://github.com/isilverring/TerrainX, main. Canonical completed checklist and agent handoff: docs/CHALLENGE_COMPLETION.md. Human video/team/terms/actual submission remain with the user.
+- Discovery filters, selected site and comparison context survive dossiers, reload and browser history. Invalid/filtered selections are explicit; duplicate or unavailable comparison picks do not create extra sites.
+- Wider real map; Discover → Inspect evidence → Prepare experiment navigation; score explanations; filter reset/count; selected-site planning; collapsible supporting context; sticky dossier sections.
+- Natural mobile page height and Map / Results / Selected site navigation; short-laptop actions remain visible. Comparison target controls wrap correctly. Polar comparison and printable Passport show S/W hemispheres correctly.
+- Field planning respects Original study20 records versus Expanded search134 profiles. Shared plans restore and pin their declared collection, mission, polar reference and protocol. Field-study evidence links carry the saved model.
+- Supplied logo and independent Mars artwork preserved. No scientific input, score or source attribution was fabricated or upgraded. No dependency or API key added.
 
-Public: https://terrainx-discovery-lab.comfybay1.chatgpt.site . Version6 native publication succeeded2026-11-14T20:46:51Z, exact runtime source e201ffb81b24ce0ed0d72389152e818c634ff4c5. Exact opaque version/deployment/archive identifiers and rollback versions: DEPLOYMENT.md. Later test/documentation commits intentionally differ from deployed source. Existing prepared browsers: /#/offline → prepare update → explicitly activate/reload; saved research remains.
+## Final validation
 
-## Completed work and evidence
+**85 Python tests plus independent numerical reproduction;99 TypeScript tests; strict production build;50/50 fresh public Chrome/Playwright workflows;36 focused public responsive cases.** An initial public run had49 passes and one outdated text assertion; it was corrected and the complete suite passed in2.8 minutes.90 broader local route/width cases also passed. No observed overflow, broken local images, framework overlays or application exceptions. Concept and latest public renders inspected at1568×1003 and phone/short-laptop sizes. Browser plugin unavailable; existing Chrome/Playwright fallback used. Firefox/Safari, formal accessibility certification and hosted CI status are not asserted.
 
-- M1: sample-bounded claims and preliminary labels; optional challenge dimensions/resources explained (b1914ba).
-- M2: Original study / Expanded search,134 unique profiles, pinned cohort/mission/release through map, DNA, Passport, comparison and field planning; frozen original records retained (8344786).
-- M3: real polar reference identity through dossiers/exports/field replay; utility unassessed (d3327ec). Reference-domain and candidate/mission locks prevent data from another target/protocol being substituted (413d938/e201ffb).
-- M4: independent primary literature/geography, volcanic heterogeneity within the Moon window and an explicit regional Mars evidence gap; deterministic source-informed proposals (b23049d).
-- M5:18 sites,33 verified Copernicus tiles,201 source/licence objects and360 valid support/offset comparisons. F-only order sensitivity is separate from discovery ranking; western longitude lookup repaired (39d4309).
-- M6: five-step /guide, simpler primary navigation, secondary Research tools, updated submission/deployment/demo guides (7c13db5/73ded13), public version6 and final acceptance.
+Science release **science-79daa128eae12594**, original dataset SHA2563515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c unchanged. Original130 cells/16 automatic candidates/10 preliminary characterized/4 benchmarks. Expanded search130 profiles;18-site support study360 comparisons. Real MOLA/LOLA and polar reference limits remain documented. No field verification, observed ice, rover safety certification or NASA endorsement is claimed.
 
-**Final checks:85 Python tests + independent baseline reproduction;94 TypeScript tests; strict production build;43/43 fresh unauthenticated public workflows;90 broad responsive cases +21 focused public cases.** Chrome/Playwright used because Browser plugin unavailable. Correct identity/content, no framework overlay/application exception, no overflow/missing local images; exports, source-case protocols, target integrity, historical replay, presentation isolation and offline corruption recovery pass. Initial public presentation test raced exit navigation; readiness now verifies the actual destination, and all43 pass. Firefox/Safari/formal accessibility certification and hosted CI status are not asserted.
+## Resume and present
 
-Science release science-79daa128eae12594. Original dataset SHA2563515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c unchanged. Original130 cells,16 automatic candidates,10 preliminary characterized,4 benchmarks. Expanded search130 full profiles and129 mapped geologies;79 Mars rankable cells/13 separated picks and1 mapped-basalt lead within this sample. Original two-site pilot remains preserved beside expanded18-site processing. Polar8 LOLA feature centres and verified Diviner model summaries remain a bounded reference, not current landing polygons or measured ice.
+Read NEXT_STEPS.md before new work. Existing prepared browsers: Research tools → Offline → prepare update → explicitly activate/reload. Saved studies remain. Local QA servers5173/4173 have been stopped; npm run dev or npm run preview restarts them. Credentials were kept in memory and cleared.
 
-## Resume / human handoff
-
-Read NEXT_STEPS.md and the completed checklist. Inspect git status/log, pull --ff-only when clean. Node24.x/Python3.12. Scientific reproduction: docs/TERRAIN_PILOT.md, docs/CANDIDATE_CASES.md and docs/CELL_SEARCH_AND_POLAR.md. Caches/labels/checksums/licences/frozen releases are committed; large TIFF/IMG files are ignored and downloadable. Credentials stay in memory. Checkpoint every future completed milestone, push and verify remote SHA.
-
-Use LIVE_DEMO.md for rehearsal/deployment and docs/SUBMISSION_GUIDE.md plus SUBMISSION.md for human submission. No new dependencies or API keys were added. No field campaign, resource detection, verified cave, safety certification or NASA endorsement is claimed. Global expansion, field mineralogy, polar illumination engineering and measured resources remain optional research. Do not resume completed M1–M6 as unfinished work.
+Use LIVE_DEMO.md/DEMO.md for rehearsal and docs/SUBMISSION_GUIDE.md for human video/team/terms/submission actions. Field mineralogy, resource validation and further global/polar research require separately scoped evidence; they are not hidden pending software steps. Do not resume completed U1–U3 or M1–M6 as unfinished. Checkpoint every future completed milestone, push and verify remote SHA.
