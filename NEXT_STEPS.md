@@ -1,5 +1,7 @@
 # Resume the audited TerrainX release
 
+**Active follow-up:** docs/UX_REFINEMENT.md U1–U3, requested2026-11-15. Read that checklist and STATUS.md before the previous-release handoff below. Complete and push usability repairs, UI/content refinements, then validate and update the existing public Site. Earlier M1–M6 are complete.
+
 **Completed:** all M1–M6 in [docs/CHALLENGE_COMPLETION.md](docs/CHALLENGE_COMPLETION.md), publicly verified as version6/source e201ffb. No implementation or deployment step is pending. The remaining actions are human recording/team/terms/submission, or separately scoped future research. Read STATUS.md and DEPLOYMENT.md before any continuation.
 
 All project work stays **D:\TerrainX**. Private repository https://github.com/isilverring/TerrainX, main. Existing public Site appgprj_6af7ff7626888191bcba757337fd7e9b, https://terrainx-discovery-lab.comfybay1.chatgpt.site. Never create a duplicate or silently change its audience.

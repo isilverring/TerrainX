@@ -1,4 +1,8 @@
-# TerrainX final recovery checkpoint — all six items complete
+# TerrainX active recovery checkpoint — usability follow-up
+
+**New request in progress (2026-11-15): audit remaining gaps and improve UI/UX/content.** Tracked in docs/UX_REFINEMENT.md (U1–U3). Initial pull clean/up to date at 8fe2ae6. Previous six-item science scope remains complete; public version6 remains live until the new verified deployment. Current work: repair Discovery state/comparison edges and mobile clipping, then refine workflow guidance and verify/publish. See git log for the last pushed milestone.
+
+## Previous completed release
 
 **All six approved improvements are implemented, pushed and publicly verified. No software/deployment step remains pending.** Work stays in D:\TerrainX, private https://github.com/isilverring/TerrainX, main. Canonical completed checklist and agent handoff: docs/CHALLENGE_COMPLETION.md. Human video/team/terms/actual submission remain with the user.
 
