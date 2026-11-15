@@ -1,10 +1,12 @@
 # TerrainX pitch — slides and what to say
 
+Story arc: **challenge → gap → our answer → the science → results → why it matters**.
+
 Open the deck at `/#/pitch` on the deployed app. Use the **Pitch slides** item in Research tools, or search "pitch" with Ctrl+K.
 
 - **Navigation:** → / Space / click goes to the next slide, ← goes back, Esc exits. Home and End jump to the first and last slide.
 - **Numbers:** every number comes from the pinned science release, so the slides always match the app.
-- **Submission limit:** Space Apps allows at most 7 slides. The in-app deck has 9. For the submission, see "Choosing 7 for the submission" at the end.
+- **Submission limit:** Space Apps allows at most 7 slides. The in-app deck has 10. For the submission, see "Choosing 7 for the submission" at the end.
 
 ---
 
@@ -13,10 +15,16 @@ Open the deck at `/#/pitch` on the deployed app. Use the **Pitch slides** item i
 
 **Say (≈10 s):** NASA asked us to find places on Earth that can stand in for permanent Moon-base sites and for Mars. Those are the places where astronauts, rovers and instruments can rehearse before they go.
 
-## 2 · The need
-**On screen:** "Rehearsal sites should be chosen by evidence." Three cards: *Search widely* / *Match the mission* / *Admit the gaps*.
+## 2 · The gap → our answer
+**On screen:** "Three gaps. Three answers." Each row runs gap (orange dot) ---→ answer (teal dot), with a tool chip:
 
-**Say (≈12 s):** Today we tend to reuse a few famous analog sites. A good choice should search widely, match what the mission actually needs and not just "it's dry", and say plainly where Earth differs.
+| Gap | Answer | Tool |
+|---|---|---|
+| A handful of famous sites | Search every cell with NASA data | 130-cell search · atlas |
+| "Dry" taken as "Mars-like" | Score what the mission needs | F · U · C · Analog DNA |
+| Unknowns left unsaid | Label them, then test them | Research Lab · field protocol |
+
+**Say (≈15 s):** We found three gaps in how analog sites get picked. First, people reuse a handful of famous sites, so we search every cell with NASA data. Second, "dry" gets treated as "Mars-like", so we score what the mission actually needs. Third, unknowns go unsaid, so we label them and turn each one into a field test.
 
 ## 3 · Our approach
 **On screen:** O → O → O → O: **Observe** (open NASA & ESA data) → **Compare** (Fidelity · Utility · Coverage) → **Explain** (what matches, what fails) → **Test** (a field protocol). A light pulse travels along the line.
@@ -76,7 +84,18 @@ Open the deck at `/#/pitch` on the deployed app. Use the **Pitch slides** item i
 
 **Say (≈12 s):** Everything is labelled measured, modeled or unknown. Four challenge dimensions are covered outright. The other eight each have a working research tool that tells you what to measure next. Some things, like gravity, Earth simply can't reproduce, and the app says so.
 
-## 9 · Try it
+## 9 · Why it matters
+**On screen:** "Built so others can push exploration further." Four tiles:
+- **Mission teams:** find and justify rehearsal sites.
+- **Field scientists:** leave with a ready protocol.
+- **Students:** learn what makes Mars, Mars.
+- **Open science:** every result reproducible, every gap a question.
+
+Footer: "Open NASA data in, testable science out."
+
+**Say (≈12 s):** This isn't a one-off ranking. Mission teams can justify a test site, field scientists leave with a protocol, and students see what makes Mars, Mars. Everything is open and reproducible, and every gap becomes the next research question. That's how we hope it moves exploration science forward.
+
+## 10 · Try it
 **On screen:** "Earth is our first planetary laboratory.", the TerrainX mark and a QR code to the app.
 
 **Say (≈6 s):** Scan the code and try it. Earth is our first planetary laboratory.
@@ -89,17 +108,18 @@ Record the deck full-screen and advance on each line.
 | Time | Slide | Line |
 |---|---|---|
 | 0–4 s | 1 | "Where on Earth can we rehearse the Moon and Mars?" |
-| 4–8 s | 3 | "TerrainX observes with open NASA data, compares, explains, and plans a field test." |
-| 8–14 s | 4 | "Three transparent scores: terrain fidelity, mission utility and evidence coverage." |
+| 4–9 s | 2 | "Analog sites are a famous few, picked for dryness, with gaps unsaid. We fix all three." |
+| 9–14 s | 4 | "Three transparent scores: terrain fidelity, mission utility and evidence coverage." |
 | 14–19 s | 6 | "130 cells searched. Mission-aware ranking changes 12 of 13 picks." |
-| 19–24 s | 7 | "Every Artemis-region feature gets its closest Earth twin." |
-| 24–28 s | 8 | "Measured, modeled or unknown, always labelled." |
-| 28–30 s | 9 | "TerrainX. Earth is our first planetary laboratory." |
+| 19–23 s | 7 | "Each Artemis-region feature gets its closest Earth terrain twin." |
+| 23–27 s | 9 | "Open and reproducible, so every gap becomes the next experiment." |
+| 27–30 s | 10 | "TerrainX. Earth is our first planetary laboratory." |
 
 ## Choosing 7 for the submission
-Use slides **1, 3, 4, 6, 7, 8, 9**. They cover the challenge, approach, science, results, Moon base, honesty and the call to action. Mention the need and the features out loud, or keep slide 5 instead of slide 8 if your audience is more product-minded.
+Use slides **1, 2, 4, 6, 7, 9, 10**: challenge, gap → answer, science, results, Moon base, why it matters, try it. Say the four-step approach (slide 3) and the measured/modeled/unknown honesty (slide 8) out loud. For a product-minded audience, swap slide 7 for slide 5 (features).
 
 ## Claims to avoid
 - No "first discovery", "NASA-approved", "verified field site" or "landing site".
+- Say "we address" or "we answer" the gaps, not "we solved Mars analogs". The answers are tools and evidence, not field confirmation.
 - Twins are terrain matches. Ice, sunlight and minerals at candidates remain modeled or unknown.
 - Say "independent project using open NASA data".

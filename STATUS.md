@@ -7,7 +7,7 @@ P1 complete: real SPICE/LOLA illumination preprocessing and 18 Copernicus 97×97
 P2 complete locally: all 8 Research Lab analysis tools render,9 reference records normalized,18 real 2025 POWER daily profiles cached.94 Python tests/independent reproduction,14 added frontend numerical/schema tests and strict TypeScript pass. Next P3: challenge/navigation/Passport links and dedicated field-protocol persistence; then P4 full production/public acceptance. Read docs/PARTIALS_IMPLEMENTATION.md for precise remaining work; public version 8 still live.
 
 Presentation pass (laptop, 2026-11-15):
-- New `/#/pitch` deck with 9 minimal-text slides and creative visuals: dot flows, a 130-dot funnel, twin connectors and equations. Every number is read from the pinned release. Speaker text is in docs/PITCH_SCRIPT.md, which also says which 7 slides to submit.
+- New `/#/pitch` deck with 10 minimal-text slides (challenge → gap → answer → science → results → why it matters) and creative visuals: dot flows, a 130-dot funnel, twin connectors and equations. Every number is read from the pinned release. Speaker text is in docs/PITCH_SCRIPT.md, which also says which 7 slides to submit.
 - Landing order is now hero → challenge answer → findings → compact Beyond block → Research Lab → workflow.
 - Hero buttons sit on one row.
 - Long caveats on the Field Study, Terrain pilot and Research Lab pages now show one line plus a "Limits" toggle. The full text prints automatically.

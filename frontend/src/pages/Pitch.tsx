@@ -9,6 +9,8 @@ import {
   Globe2,
   Map as MapIcon,
   Moon,
+  GraduationCap,
+  Rocket,
   ShieldCheck,
   SlidersHorizontal,
   X,
@@ -84,19 +86,26 @@ export default function Pitch() {
       foot: "NASA Space Apps 2026 · Identify Earth locations that analog permanent Moon-base locations and Mars",
     },
     {
-      tag: "The need",
-      title: "Rehearsal sites should be chosen by evidence.",
+      tag: "The gap → our answer",
+      title: "Three gaps. Three answers.",
       visual: (
-        <ol className="pv-needs">
+        <ol className="pv-gaps">
           {[
-            ["Search widely", "not only the famous few"],
-            ["Match the mission", "not just “dry”"],
-            ["Admit the gaps", "Earth is not the Moon"],
-          ].map(([a, b], n) => (
-            <li key={a} style={{ animationDelay: `${0.15 * n}s` }}>
-              <span className="pv-dot" />
-              <b>{a}</b>
-              <span>{b}</span>
+            ["A handful of famous sites", "Search every cell with NASA data", "130-cell search · atlas"],
+            ["“Dry” taken as “Mars-like”", "Score what the mission needs", "F · U · C · Analog DNA"],
+            ["Unknowns left unsaid", "Label them, then test them", "Research Lab · field protocol"],
+          ].map(([gap, answer, tool], n) => (
+            <li key={gap} style={{ animationDelay: `${0.15 * n}s` }}>
+              <span className="pv-gap">
+                <span className="pv-dot gap" />
+                {gap}
+              </span>
+              <span className="pv-arrow" aria-hidden="true" />
+              <span className="pv-answer">
+                <span className="pv-dot" />
+                <b>{answer}</b>
+              </span>
+              <span className="pv-tool">{tool}</span>
             </li>
           ))}
         </ol>
@@ -268,6 +277,29 @@ export default function Pitch() {
           </div>
         </div>
       ),
+    },
+    {
+      tag: "Why it matters",
+      title: "Built so others can push exploration further.",
+      visual: (
+        <div className="pv-impact">
+          {(
+            [
+              [Rocket, "Mission teams", "Find and justify rehearsal sites"],
+              [FlaskConical, "Field scientists", "Leave with a ready protocol"],
+              [GraduationCap, "Students", "Learn what makes Mars, Mars"],
+              [ShieldCheck, "Open science", "Every result reproducible, every gap a question"],
+            ] as const
+          ).map(([Icon, who, what], n) => (
+            <div key={who} style={{ animationDelay: `${0.1 * n}s` }}>
+              <Icon size={26} aria-hidden="true" />
+              <b>{who}</b>
+              <span>{what}</span>
+            </div>
+          ))}
+        </div>
+      ),
+      foot: "Open NASA data in, testable science out.",
     },
     {
       tag: "Try it",
