@@ -15,7 +15,7 @@ The primary flow is: landing → Discovery → select a site and mission → ins
 | Strict TypeScript and static production build | Passed |
 | Complete production browser suite with live providers | 55 passed |
 | Desktop/mobile/short-laptop route and screenshot review | 96 passed at 1568×1003, 390×844 and 1280×720 |
-| Fresh public deployment acceptance | Pending publication |
+| Fresh public deployment acceptance | 55 passed on version 9; three focused public screenshots passed |
 
 Commands: `.venv\Scripts\python.exe scripts\validate_results.py`, `npm run test:unit`, `npm run build`, and `npm test` with `TERRAINX_BASE_URL` set to the preview or production URL.
 
@@ -23,6 +23,8 @@ All eight Research Lab tools exported valid JSON reports and opened their matchi
 
 ## Verification limits
 
-Browser checks use Chrome with desktop and mobile-sized viewports. Firefox, Safari, physical-device performance, field operations and formal accessibility certification are untested. External map/imagery providers are best-effort services; the core science has cached inputs and explicit unavailable states. Local test success does not establish a hosted CI result.
+Browser checks use Chrome with desktop and mobile-sized viewports. Firefox, Safari, physical-device performance, field operations and formal accessibility certification are untested. External map/imagery providers are best-effort services; the core science has cached inputs and explicit unavailable states. Hosted CI status was unavailable through the connected GitHub account; local test success does not establish a hosted CI result.
 
 Exact published version/source and rollback details: [../DEPLOYMENT.md](../DEPLOYMENT.md).
+
+Public acceptance used fresh unauthenticated Chrome sessions at https://terrainx-discovery-lab.comfybay1.chatgpt.site. Its build metadata identifies `b94533c6276c5ceb2ef9bb78205da440c4885195` and `science-e15ca0c149550211`. The public atlas and phone polar-source screenshots were visually inspected.

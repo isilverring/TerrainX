@@ -10,11 +10,13 @@ Science release: `science-e15ca0c149550211`. Original dataset SHA-256: `3515ef69
 
 ## Validation and publication
 
-Scientific validation: 94 Python tests plus independent numerical reproduction. Frontend validation: 117 unit tests and strict TypeScript/production build. Current browser acceptance is recorded in [docs/QA.md](docs/QA.md). Exact live source, saved version and deployment status are recorded in [DEPLOYMENT.md](DEPLOYMENT.md); repository HEAD may include later documentation updates.
+Scientific validation: 94 Python tests plus independent numerical reproduction. Frontend validation: 117 unit tests and strict TypeScript/production build. All 55 local and 55 fresh public browser workflows pass, with 96 local responsive cases, three public visual cases and successful report/protocol checks for all eight Lab tools. Detailed acceptance is recorded in [docs/QA.md](docs/QA.md). Exact live source, saved version and deployment status are recorded in [DEPLOYMENT.md](DEPLOYMENT.md); repository HEAD may include later documentation updates.
+
+Public version 9 is deployed from `b94533c6276c5ceb2ef9bb78205da440c4885195`; the public build metadata matches. The current submission review and publication are complete.
 
 ## Local preservation
 
-`D:\TerrainXBackup1` is the frozen complete project copy at `fbbc1a77c2065e1e27be83da8784deb894eb6cf3`, taken before submission editing. It includes Git history, dependencies, source caches and build artifacts. Work continues in `D:\TerrainX`. The backup inventory is stored separately at `D:\TerrainXBackup1.manifest.json`.
+`D:\TerrainXBackup1` is the frozen complete project copy at `fbbc1a77c2065e1e27be83da8784deb894eb6cf3`, taken before submission editing. It includes Git history, dependencies, source caches and build artifacts. Work continues in `D:\TerrainX`. The backup contains 29,024 files totaling 2,995,133,041 bytes. Its hashes were inventoried and its Git objects verified. The inventory is stored separately at `D:\TerrainXBackup1.manifest.json` (SHA-256 `44d18cdf9ac7b21a3420df56e59662f6adc4fa2f820ebfedb531013d786f0df5`).
 
 ## Scientific scope
 

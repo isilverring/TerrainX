@@ -1,5 +1,27 @@
 # TerrainX publication record
 
+## Public version 9 — submission release
+
+- URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site
+- Audience: public. Fresh unauthenticated browser sessions verified the deployment.
+- Site: `appgprj_6af7ff7626888191bcba757337fd7e9b`.
+- Saved version: `appgprj_6af7ff7626888191bcba757337fd7e9b~appgver_696fede76a1481919564325911d56fd4`.
+- Deployment: `appgdep_6af95e89ea108191aeec3c5b20cb9371`.
+- Result: **succeeded**, `2026-11-15T07:26:38.364512+00:00`.
+- Exact deployed source: `b94533c6276c5ceb2ef9bb78205da440c4885195`.
+- Build time: `2026-11-15T07:24:04.885Z`. The public `build-info.json` matches this source.
+- Science release: `science-e15ca0c149550211`. Original dataset SHA-256: `3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c`.
+- Archive: `outputs/terrainx-submission-final.tar.gz`, 22,883,545 compressed bytes; SHA-256 `db8722e34763ad9b6410826ed2352a94431733a394abe4947d8948edbe5d284e`.
+- Saved tar-content metadata: 321 files, 180,654,080 bytes; content hash `sha256:97483f6a5e6a2774eb0742ce8f0a595bef7cdf2fbdb75692c46bbefe0e7790ab`.
+
+Includes the eight Research Lab tools, source-grounded preprocessing, saved field protocols, presentation updates, mission-navigation correction and submission documentation. Scientific provenance, historical release bytes and original scores are preserved.
+
+Validation: **94 Python tests plus independent reproduction; 117 frontend unit tests; strict TypeScript/production build; 55/55 local production workflows; 55/55 fresh public workflows; 96 local route/viewport cases; three focused public visual cases.** All eight Lab tools exported valid research decisions and opened matching field protocols. Live basemaps, GIBS imagery, bundled NASA images and AWS terrain passed the browser suite. Public offline preparation, network-disabled reload and corruption rollback passed.
+
+Chrome was tested at desktop, phone and short-laptop sizes. No application/console errors, framework overlays, broken local images or document overflow were observed in the route sweep. Firefox, Safari, physical devices and formal accessibility certification remain untested. Hosted CI status could not be read through the connected GitHub account; it is not inferred from local tests.
+
+Prepared browsers update through `/#/offline`: prepare the new version, explicitly activate it and reload. Saved research remains available. Documentation-only commits may follow the deployed source.
+
 ## Public version 8 — previous verified release
 
 - Public URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site ; audience **public**, reverified after publication.
