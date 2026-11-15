@@ -29,10 +29,13 @@ Slide alternative: 1 title/team; 2 challenge; 3 NASA/partner data; 4 F/U/C and m
 Use [SUBMISSION.md](../SUBMISSION.md) as draft copy, then add your team's actual details and demo URL. Typical fields are project title, summary, final-project URL, demo URL, detailed description, NASA/partner/other sources, tools and AI use. Confirm the live form rather than assuming field names or character limits.
 
 - Title: **TerrainX — Planetary Analog Discovery & Mission Readiness Lab**.
-- Final project: the public ChatGPT Site URL above. The source repository is private; the public app is the accessible final artifact. Follow any additional local source-sharing requirement.
+- Final project: https://terrainx-nasa.vercel.app (presentation: https://terrainx-nasa.vercel.app/#/pitch). The source repository is private; the public app is the accessible final artifact. Follow any additional local source-sharing requirement.
 - Demo: your tested short video or slide link; never the 29-second script document alone.
 - Sources: NASA POWER, SRTM via OpenTopoData, PDS MOLA/LOLA/Diviner, NASA GIBS and NASA reference imagery; Copernicus GLO90; Macrostrat; GBIF; Natural Earth. Detailed citations and limitations are in DATA_SOURCES.md and the app.
-- Tool acknowledgement: OpenAI Codex and other AI development tools assisted implementation, preprocessing, testing and documentation. Scientific inputs come from cited source products and explicit calculations. Include the complete list of tools actually used wherever the event requests it.
+- AI use: answer **Yes**, and paste the "Use of Artificial Intelligence" section of [SUBMISSION.md](../SUBMISSION.md). The full statement is in [AI_DISCLOSURE.md](../AI_DISCLOSURE.md). Space Apps rules for each kind of material:
+  - Code and data must acknowledge AI generation in descriptive text and in metadata. This is done.
+  - Images and videos generated with AI must carry a visible AI watermark. `og-image.png` has one. Add one to any AI-generated image or video you upload, including AI-made slide images or an AI voice-over.
+  - AI audio must be acknowledged in descriptive text and metadata.
 - Keep the no-endorsement statement and the distinction between observations, derived metrics, model assumptions and unknowns.
 
 Read the terms yourself and submit. Retain the portal confirmation and the submitted app/source version. If the portal permits edits, follow its rules; do not assume either editability or irreversibility without checking.

@@ -31,6 +31,10 @@ Fidelity (F), utility (U) and evidence coverage (C) are separate. Combined prior
 
 POWER grid cells are not outcrop measurements. The original SRTM analysis samples nominal 90 m data at 4 km spacing. Mapped rock units do not establish mineral phases. Diviner products model thermal and ice-stability conditions; they do not detect ice. Lunar feature centres are not landing polygons. Research Lab scenarios do not alter released observations or discovery scores. See [SCIENCE.md](SCIENCE.md) and [DATA_STATUS.md](DATA_STATUS.md).
 
+## Use of AI
+
+AI coding assistants (OpenAI Codex, Anthropic Claude) generated and edited large parts of the code, data-processing scripts, tests, documentation and presentation materials, under the team's direction and review. Observations come unchanged from the cited NASA and partner sources, with a SHA-256 hash for every retrieved response. Every derived value comes from deterministic, tested code. No AI model creates or alters a scientific value, and the app calls no AI service. Full statement: [AI_DISCLOSURE.md](AI_DISCLOSURE.md).
+
 ## Run locally
 
 Use Node 24.x. Python 3.12 is needed only for scientific reproduction.

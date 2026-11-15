@@ -375,6 +375,18 @@ export default function Methodology() {
           </a>
         </div>
       </section>
+      <section className="science-section" id="ai-use">
+        <h2>Use of AI</h2>
+        <p>
+          AI coding assistants (OpenAI Codex, Anthropic Claude) generated and edited large parts of
+          TerrainX's code, the data-acquisition and processing scripts that compute every derived
+          value, the tests, the documentation and the presentation materials. The team directed
+          and reviewed that work. Source observations are shown unchanged from NASA and partner
+          products, with a SHA-256 hash for each retrieved response. No AI model creates, estimates
+          or alters a scientific value, and the app calls no AI service. The project's
+          AI_DISCLOSURE.md file gives the full statement.
+        </p>
+      </section>
       <section className="science-section">
         <h2>Source register</h2>
         <div className="source-register">

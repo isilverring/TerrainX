@@ -77,6 +77,8 @@ Three actual GLO90 AWS2021 COG tiles, EDM/FLM/WBM masks and source XML/licences 
 
 The app includes source-reported, derived and modeled quantities with distinct limits. Source acquisition and scientific pipeline use no paid key or LLM endpoint.
 
+**AI acknowledgement for data.** The acquisition, verification and processing scripts that produce every derived data product were generated and edited with AI coding assistants (OpenAI Codex, Anthropic Claude) under team review. AI also helped curate the literature evidence records from cited publications. Source observations themselves are unchanged and hash-recorded. No AI model creates, estimates or alters a value. See [AI_DISCLOSURE.md](AI_DISCLOSURE.md).
+
 ## Literature and expanded-study sources
 
 The expanded common-support study uses33 verified GLO90 tiles for18 selected sites,132 DEM/mask rasters and201 source/licence objects. Source contracts, acquisition periods, masks, licences and hashes: data/source/pilot/manifest.expanded.json and validation.expanded.json; methods: docs/TERRAIN_PILOT.md. Original two-site sources and frozen outputs remain unchanged.

@@ -26,5 +26,5 @@ try {await access(manifestPath);const existing=JSON.parse(await readFile(manifes
 catch(error){if(error.code==='ENOENT')await writeFile(manifestPath,JSON.stringify(manifest,null,2)+'\n');else throw error;}
 const frozen=await readFile(manifestPath);
 await writeFile(path.join(publicDir,'data','release.json'),frozen);
-await writeFile(path.join(publicDir,'build-info.json'),JSON.stringify({application_commit:appCommit,science_release:releaseId,built_at:new Date().toISOString()})+'\n');
+await writeFile(path.join(publicDir,'build-info.json'),JSON.stringify({application_commit:appCommit,science_release:releaseId,built_at:new Date().toISOString(),ai_disclosure:'AI-assisted: OpenAI Codex and Anthropic Claude generated and edited large parts of the code, data-processing scripts, tests and documentation under team review. Observations are unchanged cited source data; no AI model creates or alters scientific values; no AI service is called at runtime. See AI_DISCLOSURE.md.'})+'\n');
 console.log('Prepared immutable science release '+releaseId);

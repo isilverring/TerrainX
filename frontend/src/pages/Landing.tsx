@@ -116,7 +116,9 @@ export default function Landing() {
           Earth Science · Planets & Moons · Software · Space Exploration
         </span>
         <small>
-          Independent project. NASA data use does not imply endorsement.{" "}
+          Independent project. NASA data use does not imply endorsement. Built with AI coding
+          assistants; no AI creates or alters scientific values (
+          <Link to="/methodology">AI use</Link>).{" "}
           <Link to="/challenge">How TerrainX meets the challenge →</Link>
         </small>
       </footer>

@@ -28,10 +28,20 @@ The Field Study Builder supports original and expanded cells with genuine cached
 
 ## Data, tools and limitations
 
-NASA POWER; NASA SRTM via OpenTopoData; NASA PDS MOLA, LOLA and Diviner; NASA GIBS and original NASA reference imagery; Copernicus GLO90; Macrostrat; GBIF occurrence counts; Natural Earth. Python/NumPy/rasterio/Pydantic/pytest; React/TypeScript/Vite/MapLibre/Recharts/Zod; browser print and Playwright. AI-assisted development is disclosed in the submission guide; complete that field with the team's actual tools.
+NASA POWER; NASA SRTM via OpenTopoData; NASA PDS MOLA, LOLA and Diviner; NASA GIBS and original NASA reference imagery; Copernicus GLO90; Macrostrat; GBIF occurrence counts; Natural Earth. Python/NumPy/rasterio/Pydantic/pytest; React/TypeScript/Vite/MapLibre/Recharts/Zod; browser print and Playwright. AI use is described below and in [AI_DISCLOSURE.md](AI_DISCLOSURE.md).
 
 The eight Research Lab tools connect source-scoped mineralogy, daily climate, resource references, dust scenarios, assay controls, documented caves, measured-grid route analysis and lunar-centre trade-offs to testable field protocols. Lunar illumination uses JPL geometry and bounded LOLA horizons for hourly 2025 samples; route proposals use 18 Copernicus-derived 250 m grids. Analyses and protocols retain their evidence, assumptions and pinned release through export and sharing.
 
 No field validation, confirmed local mineralogy, surveyed local cave inventory, measured local ice abundance, mission-certified illumination engineering, operational safety result or NASA endorsement is claimed. POWER wetness and AOD are model/column descriptors; GBIF density reflects reporting effort, not life scarcity. F remains exploratory morphology, and utility coefficients are experimental assumptions. Broader/global and field validation are future research.
 
 The five-step judge path connects the challenge, searched sample, exploratory lead, independent evidence and next experiment. Published local volcanic samples reveal basaltic-andesite/andesite heterogeneity; a regional Mars source does not verify material inside its candidate window. These scoped positive/negative results improve the hypothesis without claiming field confirmation. Polar references retain their identities through dossiers and field replay, with utility explicitly unassessed.
+
+## Use of Artificial Intelligence
+
+**Did you utilize any Artificial Intelligence tools and software in preparing your project?** Yes.
+
+- **Code and data:** OpenAI Codex and Anthropic Claude generated and edited large parts of the application code, the Python data-acquisition and processing pipeline, the tests and the documentation, under the team's direction and review. AI-written code computes the derived data products (terrain metrics, F/U/C/P scores, cell search, lunar summaries). AI also helped curate the literature evidence records from cited publications.
+- **Not AI:** source observations come unchanged from NASA and partner products, and each one is recorded with its SHA-256 hash. No AI model creates, estimates or alters a scientific value, and the app calls no AI service at runtime.
+- **Presentation:** the pitch slides, demo scripts and social-preview image were AI-assisted. The preview image carries a visible AI watermark.
+- **NASA branding:** no AI-generated content uses or modifies NASA branding.
+- **Where to find it:** the acknowledgement is in the README, in DATA_SOURCES.md, in the app (Methodology and the landing footer) and in metadata (`package.json`, the HTML `ai-disclosure` meta tag, `build-info.json`).

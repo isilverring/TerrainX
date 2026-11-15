@@ -41,5 +41,7 @@
     "typescript": "^5.9.3",
     "vite": "^6.4.6",
     "vitest": "^5.1.0"
-  }
+  },
+  "description": "TerrainX — Earth analogs for permanent Moon-base locations and Mars (2026 NASA Space Apps).",
+  "aiDisclosure": "AI-assisted: OpenAI Codex and Anthropic Claude generated and edited large parts of this project's code, data-processing scripts, tests, documentation and presentation materials under team review. Observations come unchanged from cited NASA and partner sources; no AI model creates or alters scientific values, and the app calls no AI service. See AI_DISCLOSURE.md."
 }
