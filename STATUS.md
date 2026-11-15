@@ -4,6 +4,8 @@
 
 P1 complete: real SPICE/LOLA illumination preprocessing and18 Copernicus97×97 route-analysis grids generated;7 new tests pass. Sources/checksums/Horizons responses retained; spiceypy8.4.0 pinned; binary kernels ignored. Next P2: eight interactive Research Lab modules and source registry normalization, then integration/tests/publication. No new science release has been prepared yet.
 
+P2 complete locally: all8Research Lab analysis tools render,9 reference records normalized,18 real2025POWER daily profiles cached.94 Python tests/independent reproduction,14 added frontend numerical/schema tests and strict TypeScript pass. Next P3: challenge/navigation/Passport links and dedicated field-protocol persistence; then P4 full production/public acceptance. Read docs/PARTIALS_IMPLEMENTATION.md for precise remaining work; public version8 still live.
+
 **All requested usability milestones U1–U3 are implemented, pushed and publicly verified.** Canonical checklist and audit: [docs/UX_REFINEMENT.md](docs/UX_REFINEMENT.md). Earlier science improvements and Packages A/B/C remain complete within their documented boundaries; see docs/CHALLENGE_COMPLETION.md and docs/PACKAGE_AUDIT.md. No required implementation, validation or deployment step remains in this scope.
 
 Work: D:\TerrainX, private https://github.com/isilverring/TerrainX, main. Public app: https://terrainx-discovery-lab.comfybay1.chatgpt.site . Site version8, exact runtime source **778b3cfc995083666425b236accf444bbf1c3cdf**. Native publication succeeded2026-11-15T02:21:33Z; audience public reverified. DEPLOYMENT.md contains literal version/deployment/archive IDs, checksums and tested rollback versions. Subsequent test/documentation commits intentionally differ from deployed runtime source.

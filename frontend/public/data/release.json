@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "release_id": "science-79daa128eae12594",
+  "release_id": "science-e15ca0c149550211",
   "model_version": "terrainx-model-v1",
   "dataset_sha256": "3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c",
   "source_data_commit": "4f05e818ea55144598fee354ea1bdd485a6ff932",
@@ -26,7 +26,7 @@
       "bytes": 449124
     },
     "validation.json": {
-      "sha256": "496f34142e4a0dca8350ee9040417e8c794056cdb9b30f3b7418fa521d855492",
+      "sha256": "477da7b0fc1e8fc46fbff38109ec29e8dbba6e1d8710e3e93eee6936e64b9040",
       "bytes": 1112
     },
     "case_studies.json": {
@@ -56,6 +56,22 @@
     "field_candidates.json": {
       "sha256": "355c7370ded37b4d029ba3bd6bb5abeae02ebfecdbd0210faf5ec688daf897df",
       "bytes": 4983112
+    },
+    "challenge_evidence.json": {
+      "sha256": "b055ea0941b83c7b28d2cb9aee366dac4668e96951711ddc58dd6843ca0473d3",
+      "bytes": 34181
+    },
+    "lunar_illumination.json": {
+      "sha256": "342802faa25b8e1b768845628c8f30cb36803265e90e34b746eb6dbc3b4cd70c",
+      "bytes": 4274711
+    },
+    "operations_terrain.json": {
+      "sha256": "814f7d45ee10643c067b7df59812532df42f43aa473b002209654bbe58b380c9",
+      "bytes": 3114842
+    },
+    "climate_extremes.json": {
+      "sha256": "deea0a7b9b6afc5ea3c06cc7ce58825dc336af9593435e7315793c5b193b1c14",
+      "bytes": 530890
     }
   }
 }

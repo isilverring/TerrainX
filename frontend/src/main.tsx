@@ -69,6 +69,7 @@ const TerrainPilot = lazy(() => import("./pages/TerrainPilot"));
 const Offline = lazy(() => import("./pages/Offline"));
 const Cases = lazy(() => import("./pages/Cases"));
 const JudgeGuide = lazy(() => import("./pages/JudgeGuide"));
+const ResearchLab = lazy(() => import("./pages/ResearchLab"));
 function PinRelease({ presentation }: { presentation: boolean }) {
   const data = React.useContext(DataContext),
     location = useLocation(),
@@ -288,6 +289,7 @@ function App() {
                   <Route path="/cells" element={<CellSearch />} />
                   <Route path="/lunar-pole" element={<LunarPolar />} />
                   <Route path="/challenge" element={<ChallengeFit />} />
+                  <Route path="/research-lab" element={<ResearchLab />} />
                   <Route path="/cases" element={<Cases />} />
                   <Route path="/guide" element={<JudgeGuide />} />
                   <Route path="/offline" element={<Offline />} />

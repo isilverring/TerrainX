@@ -17,6 +17,7 @@ export const PRIMARY_REFERENCE_PAGES = new Set([
   "/terrain-pilot",
   "/lunar-pole",
   "/guide",
+  "/research-lab",
 ]);
 /** Carry identity explicitly before a destination component initializes state. */
 export function studyPath(path: string, search: string) {

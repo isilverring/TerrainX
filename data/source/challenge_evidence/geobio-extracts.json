@@ -1,0 +1,396 @@
+{
+  "schema_version": "research-geobio-v1",
+  "generated_at": "2026-11-15T04:01:07.679604+00:00",
+  "note": "Integration research only. Do not overwrite candidate observations or scores. Source-scoped literature measurements remain distinct from NASA grid data and proposed experiments.",
+  "sources": [
+    {
+      "id": "solak2023",
+      "doi": "10.1080/0269249X.2023.2233519",
+      "title": "Description of Gomphonella saldanensis sp. nov. (Bacillariophyceae) from hydromagnesite stromatolites in Salda Lake, Turkey",
+      "url": "https://doi.org/10.1080/0269249X.2023.2233519",
+      "cached_primary": {
+        "file": "salda-diatom2023.pdf",
+        "url": "https://repository.ukim.mk/bitstreams/5c386b29-0f6d-4731-a620-d4524ffc8d39/download",
+        "final_url": "https://repository.ukim.mk/server/api/core/bitstreams/5c386b29-0f6d-4731-a620-d4524ffc8d39/content",
+        "bytes": 5836371,
+        "sha256": "6873740cb005834c7f395b0fcab928592ee894dccceab8981d8a18ff42d0d46b",
+        "retrieved_at": "2026-11-15T03:54:00.432567+00:00",
+        "content_type": "application/pdf;charset=UTF-8",
+        "status": 200
+      },
+      "reviewed_at": "2026-11-15T04:01:07.679604+00:00"
+    },
+    {
+      "id": "slowakiewicz2026",
+      "doi": "10.1029/2025JE009627",
+      "title": "Hydromagnesite Precipitation in an Ultramafic-Hosted Alkaline Lake: Insights From Lake Salda for Jezero Crater, Mars",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2025JE009627",
+      "cached_primary": null,
+      "reviewed_at": "2026-11-15T04:01:07.679604+00:00",
+      "primary_table_access": "Publisher Table 1 reviewed through web source extraction; direct HTTP acquisition returned 403. The extracted table is cached as salda2026-xrd-table1-extract.json; do not claim a full publisher-response checksum.",
+      "associated_open_dataset": {
+        "doi": "10.5281/zenodo.19247668",
+        "url": "https://zenodo.org/records/19247668",
+        "license": "CC-BY-4.0",
+        "file": {
+          "file": "salda2026-TableS1.xlsx",
+          "url": "https://zenodo.org/records/19247668/files/Table%20S1.xlsx?download=1",
+          "final_url": "https://zenodo.org/records/19247668/files/Table%20S1.xlsx?download=1",
+          "bytes": 15722,
+          "sha256": "5c47e50ad8b29ef40cb18d8d7c2940175aaffb836862ddc30fd3ac2a1ec40b18",
+          "retrieved_at": "2026-11-15T03:55:03.634874+00:00",
+          "content_type": "application/octet-stream, application/octet-stream",
+          "status": 200
+        },
+        "published_md5": "0296977f326c9cfd96542daceb4a529f",
+        "md5_verified": true,
+        "scope": "Associated water chemistry and PHREEQC data, not the XRD Table 1 itself."
+      }
+    },
+    {
+      "id": "azua_bustos2020",
+      "doi": "10.1038/s41598-020-76302-z",
+      "title": "Inhabited subsurface wet smectites in the hyperarid core of the Atacama Desert as an analog for the search for life on Mars",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7645800/",
+      "cached_primary": {
+        "file": "yungay2020.xml",
+        "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7645800/fullTextXML",
+        "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7645800/fullTextXML",
+        "bytes": 198012,
+        "sha256": "00349b5664f7c591005f84dc7f26dc5b8cb7c68f270ee8fdf76f8b5f8d43f684",
+        "retrieved_at": "2026-11-15T03:55:02.477178+00:00",
+        "content_type": "application/xml",
+        "status": 200
+      },
+      "reviewed_at": "2026-11-15T04:01:07.679604+00:00",
+      "license": "CC-BY-4.0"
+    }
+  ],
+  "records": [
+    {
+      "id": "salda-station2-2016-biology",
+      "candidate_id": "reference-salda",
+      "dimensions": [
+        "biology",
+        "habitability",
+        "water_environment"
+      ],
+      "title": "Published Salda station 2 diatom and water observations",
+      "classification": "LITERATURE-SUPPORTED",
+      "source_id": "solak2023",
+      "source_locator": "Table 1, printed page91/PDF page4; species description and isotype on printed pages95â€“96.",
+      "geography": {
+        "kind": "reported sampling station",
+        "latitude": 37.520408333333336,
+        "longitude": 29.673455555555556,
+        "reported": "37آ°31â€²13.47â€³N;29آ°40â€²24.44â€³E",
+        "coordinate_datum": "not stated in reviewed table",
+        "scope": "Station2 matches the app benchmark coordinate to rounding. Measurements are this station/date, not the whole lake or POWER cell."
+      },
+      "period": "November 2016; wider diatom campaign 2016â€“2020",
+      "observations": [
+        {
+          "key": "ph",
+          "label": "Water pH",
+          "value": 9.6,
+          "unit": "1",
+          "method": "Field measurement reported in Table1; instrument model not specified in reviewed methods",
+          "qualifier": "reported",
+          "sample_scope": "Station2 November2016",
+          "origin": "Measured in cited primary study; not a new TerrainX observation"
+        },
+        {
+          "key": "water_temperature",
+          "label": "Water temperature",
+          "value": 25.8,
+          "unit": "آ°C",
+          "method": "Field measurement reported in Table1; instrument model not specified in reviewed methods",
+          "qualifier": "reported",
+          "sample_scope": "Station2 November2016",
+          "origin": "Measured in cited primary study; not a new TerrainX observation"
+        },
+        {
+          "key": "conductivity",
+          "label": "Water conductivity",
+          "value": 1679,
+          "unit": "آµS/cm",
+          "method": "Field measurement reported in Table1; instrument model not specified in reviewed methods",
+          "qualifier": "reported",
+          "sample_scope": "Station2 November2016",
+          "origin": "Measured in cited primary study; not a new TerrainX observation"
+        },
+        {
+          "key": "dissolved_oxygen",
+          "label": "Dissolved oxygen",
+          "value": 7.5,
+          "unit": "mg O2/L",
+          "method": "Field measurement reported in Table1; instrument model not specified in reviewed methods",
+          "qualifier": "reported",
+          "sample_scope": "Station2 November2016",
+          "origin": "Measured in cited primary study; not a new TerrainX observation"
+        }
+      ],
+      "materials_and_biology": [
+        {
+          "name": "Gomphonella saldanensis",
+          "evidence": "Taxonomic identification by light and scanning electron microscopy; isotype slide TR_BRD_Salda Lake_2_EPL_Nov2016. No abundance/density value inferred.",
+          "classification": "LITERATURE-SUPPORTED"
+        }
+      ],
+      "methods": "23 diatom samples across four stations. Epilithic brushing at25â€“30cm water depth; ethanol fixation and microscopy. Listed environmental readings are transcribed from station2 November2016 only.",
+      "limitations": [
+        "Microscopy is a terrestrial taxonomic observation, not evidence of life on Mars.",
+        "No microbial abundance, lake-wide habitability score or sterilization claim follows.",
+        "No source measurement is transferred to automatically screened cells.",
+        "Historical readings retain their original dates; they do not describe current water quality."
+      ],
+      "next_measurement": "Repeat permitted, minimally disruptive microscopy and water measurements at the precisely recorded station; use blanks and retain collection permission."
+    },
+    {
+      "id": "salda-l1-xrd-2026",
+      "candidate_id": "reference-salda",
+      "dimensions": [
+        "mineralogy",
+        "surface_materials",
+        "biosignature_context"
+      ],
+      "title": "Quantified mineral phases in published L-1 microbialite and pebble samples",
+      "classification": "LITERATURE-SUPPORTED",
+      "source_id": "slowakiewicz2026",
+      "source_locator": "Section3.4; Table1; Figure1 sampling siteL-1.",
+      "geography": {
+        "kind": "named source subsite with no extracted numerical coordinate",
+        "latitude": null,
+        "longitude": null,
+        "name": "Beyaz Adalar (White Islands), SW Lake Salda, source siteL-1",
+        "scope": "Two laboratory specimens collected at source siteL-1. Do not display the existing station2 coordinate as the XRD sample position."
+      },
+      "period": "Collection campaigns 2023â€“2024; specimen-specific date unavailable in reviewed Table1.",
+      "observations": [
+        {
+          "key": "microbialite_hydromagnesite",
+          "label": "Microbialite interior: hydromagnesite",
+          "value": 98.6,
+          "unit": "%",
+          "method": "Powder XRD; Rigaku SmartLab SE; Cu radiation2â€“70آ°2خ¸; Profex/BGMN Rietveld refinement",
+          "qualifier": "reported phase percentage",
+          "sample_scope": "Representative L-1 microbialite-interior specimen",
+          "origin": "Measured in cited primary study; not a new TerrainX observation"
+        },
+        {
+          "key": "microbialite_aragonite",
+          "label": "Microbialite interior: aragonite",
+          "value": 1.4,
+          "unit": "%",
+          "method": "Same XRD/Rietveld analysis",
+          "qualifier": "reported phase percentage",
+          "sample_scope": "Representative L-1 microbialite-interior specimen",
+          "origin": "Measured in cited primary study; not a new TerrainX observation"
+        },
+        {
+          "key": "pebble_hydromagnesite",
+          "label": "Pebble: hydromagnesite",
+          "value": 96.7,
+          "unit": "%",
+          "method": "Same XRD/Rietveld analysis",
+          "qualifier": "reported phase percentage",
+          "sample_scope": "Representative L-1 pebble specimen",
+          "origin": "Measured in cited primary study; not a new TerrainX observation"
+        },
+        {
+          "key": "pebble_aragonite",
+          "label": "Pebble: aragonite",
+          "value": 3.3,
+          "unit": "%",
+          "method": "Same XRD/Rietveld analysis",
+          "qualifier": "reported phase percentage",
+          "sample_scope": "Representative L-1 pebble specimen",
+          "origin": "Measured in cited primary study; not a new TerrainX observation"
+        },
+        {
+          "key": "microbialite_expanded",
+          "label": "Expanded hydromagnesite proportion, microbialite",
+          "value": 95,
+          "unit": "%",
+          "method": "Separate modelling of expanded/non-expanded hydromagnesite reflections",
+          "qualifier": "reported structural proportion; different denominator from total phase percentage",
+          "sample_scope": "L-1 microbialite-interior specimen",
+          "origin": "Measured in cited primary study; not a new TerrainX observation"
+        },
+        {
+          "key": "pebble_expanded",
+          "label": "Expanded hydromagnesite proportion, pebble",
+          "value": 13,
+          "unit": "%",
+          "method": "Same structural-reflection modelling",
+          "qualifier": "reported structural proportion; different denominator from total phase percentage",
+          "sample_scope": "L-1 pebble specimen",
+          "origin": "Measured in cited primary study; not a new TerrainX observation"
+        }
+      ],
+      "materials_and_biology": [
+        {
+          "name": "Hydromagnesite and aragonite",
+          "evidence": "Direct laboratory mineralogical identification and phase quantification. Biological/abiotic interpretations require microscopy and context; the mineral alone does not prove life.",
+          "classification": "LITERATURE-SUPPORTED"
+        }
+      ],
+      "limitations": [
+        "Two representative specimens, not a lake-wide mineral-abundance map.",
+        "Do not interpret95% and13% as microbial abundance or percent biological origin.",
+        "Table1 gives reported phase percentages; mass-versus-volume basis is not explicitly printed in its headings, so do not silently relabel wt%.",
+        "Exact GPS coordinates of L-1 were not obtained; source figure/name scopes the evidence.",
+        "Do not infer Martian biological activity from terrestrial carbonate."
+      ],
+      "next_measurement": "Obtain exact specimen coordinates and permitted co-located Raman/XRD plus microscopy; test biotic and abiotic textural controls separately."
+    },
+    {
+      "id": "yungay-pit-mineral-environment-2020",
+      "candidate_id": "reference-atacama",
+      "dimensions": [
+        "mineralogy",
+        "subsurface",
+        "water_environment",
+        "habitability"
+      ],
+      "title": "Published Yungay pit: clay mineralogy and buffered subsurface humidity",
+      "classification": "LITERATURE-SUPPORTED",
+      "source_id": "azua_bustos2020",
+      "source_locator": "Results/Figures1â€“3; Methods Sampling sites, Clay characterization, XRD and Environmental characterization.",
+      "geography": {
+        "kind": "reported first pit and sampled clay horizon",
+        "latitude": -24.084799999999998,
+        "longitude": -69.91506944444446,
+        "reported": "Results: 24آ°5â€²5.28â€³S,69آ°54â€²54.25â€³W",
+        "alternative_reported_coordinate": {
+          "latitude": -24.084588888888888,
+          "longitude": -69.91530833333334,
+          "reported": "Methods: 24آ°5â€²4.52â€³S,69آ°54â€²55.11â€³W"
+        },
+        "scope": "First pit and sampled clay-rich horizons. Additional pits within4km establish limited regional recurrence, not uniform whole-cell measurements. Results and Methods coordinate reports differ slightly; retain both."
+      },
+      "period": "Pit samples13March2017 and8March2018; additional pits20August2018; loggers28Julyâ€“19August2018 and22â€“29July2019.",
+      "observations": [
+        {
+          "key": "clay_size_fraction",
+          "label": "Clay-size particle fraction",
+          "value": 42.8,
+          "unit": "wt%",
+          "method": "Gravimetric particle-size fractionation, <2آµm",
+          "qualifier": "reported",
+          "sample_scope": "Wet clay-bearing layer",
+          "origin": "Measured in cited primary study; not a new TerrainX observation"
+        },
+        {
+          "key": "clay_layer_top",
+          "label": "Top of observed clay-rich layer",
+          "value": 30,
+          "unit": "cm below surface",
+          "method": "Pit observation",
+          "qualifier": "approximately",
+          "sample_scope": "Reported Yungay pits",
+          "origin": "Measured in cited primary study; not a new TerrainX observation"
+        },
+        {
+          "key": "soil_relative_humidity",
+          "label": "Subsurface relative humidity",
+          "value": 78.0,
+          "unit": "%",
+          "method": "Buried dual iButton temperature/RH logger",
+          "qualifier": "reported",
+          "sample_scope": "40cm below surface, wet clay-rich horizon",
+          "origin": "Measured in cited primary study; not a new TerrainX observation"
+        },
+        {
+          "key": "soil_temperature",
+          "label": "Subsurface temperature",
+          "value": 17,
+          "unit": "آ°C",
+          "method": "Buried dual iButton temperature/RH logger",
+          "qualifier": "approximately; variations around آ±1آ°C",
+          "sample_scope": "40cm below surface, measured campaign periods",
+          "origin": "Measured in cited primary study; not a new TerrainX observation"
+        }
+      ],
+      "derived_quantities": [
+        {
+          "key": "water_activity_proxy",
+          "value": 0.78,
+          "unit": "1",
+          "classification": "DERIVED",
+          "method": "Paper-reported water activity associated with measured equilibrium RH78%; not volumetric water content or ice abundance.",
+          "sample_scope": "40cm clay horizon"
+        }
+      ],
+      "materials_and_biology": [
+        {
+          "name": "Interstratified illiteâ€“smectite; discrete illite and chlorite",
+          "evidence": "Oriented clay-size XRD and near-IR spectra.42.8wt% describes particle-size fraction, not a pure-smectite mass percentage.",
+          "classification": "LITERATURE-SUPPORTED"
+        }
+      ],
+      "limitations": [
+        "No detected ice/permafrost or resource inventory.",
+        "Humidity and temperature apply to historical logger horizons and intervals, not all Yungay soils or present Mars.",
+        "The layer is unlithified terrestrial soil; ancient Martian clay-rich rock may have different pore space and available water."
+      ],
+      "next_measurement": "Repeat co-located depth-resolved humidity, temperature, pore-water and mineralogical measurements with calibrated sensors."
+    },
+    {
+      "id": "yungay-pit-biosignatures-2020",
+      "candidate_id": "reference-atacama",
+      "dimensions": [
+        "biology",
+        "biosignatures",
+        "habitability"
+      ],
+      "title": "Published microbial and molecular assays of Yungay subsurface clay samples",
+      "classification": "LITERATURE-SUPPORTED",
+      "source_id": "azua_bustos2020",
+      "source_locator": "Results/Figures4â€“6; Methods Bacterial counts, Microscopy, Lipid extraction/analysis.",
+      "geography": {
+        "kind": "laboratory assays of samples from reported Yungay clay horizons",
+        "latitude": -24.084799999999998,
+        "longitude": -69.91506944444446,
+        "alternative_reported_coordinate": {
+          "latitude": -24.084588888888888,
+          "longitude": -69.91530833333334,
+          "reported": "Methods: 24آ°5â€²4.52â€³S,69آ°54â€²55.11â€³W"
+        },
+        "scope": "Sampled subsurface clay material, including40cm horizon. Laboratory assay results are not current in-situ whole-cell biomass."
+      },
+      "period": "Soil samples collected2017â€“2018; publication2020; individual assay dates unavailable.",
+      "observations": [
+        {
+          "key": "sybr_cells",
+          "label": "Reported SYBR-stained cell count",
+          "value": 9300,
+          "unit": "cells/g sample",
+          "method": "Direct microscopy after SYBR Green I staining; Methods describe2weeks incubation at37آ°C before enumeration",
+          "qualifier": "at least; lower bound; laboratory processed samples",
+          "sample_scope": "Clay-bearing samples; not unincubated in-situ abundance",
+          "origin": "Measured in cited primary study; not a new TerrainX observation"
+        }
+      ],
+      "materials_and_biology": [
+        {
+          "name": "Respiring microbial colonies",
+          "evidence": "Laboratory CTC staining and fluorescence microscopy reported metabolic activity in sampled clay aggregates.",
+          "classification": "LITERATURE-SUPPORTED"
+        },
+        {
+          "name": "Lipid biosignatures",
+          "evidence": "GCâ€“MS reported heptadecane, phytol derivatives, squalene, crocetane and iso/anteiso carboxylic acids. These are molecular observations and context-dependent taxonomic interpretations, not a direct count of all corresponding organisms.",
+          "classification": "LITERATURE-SUPPORTED"
+        }
+      ],
+      "limitations": [
+        "The cell count followed sample incubation/processing; do not label it fresh in-situ biomass or compare directly with CFU/g.",
+        "A molecule alone is not definitive proof of a particular taxon or of Martian life.",
+        "Some material may reflect downward transport from surface organisms.",
+        "This is an already documented Earth benchmark, not a new TerrainX biological discovery."
+      ],
+      "next_measurement": "Collect permitted sterile co-located samples with field/extraction blanks and unincubated counts; compare microscopy, culture-independent assays and lipid recovery."
+    }
+  ]
+}

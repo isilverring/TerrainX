@@ -1,0 +1,103 @@
+[
+  {
+    "file": "nps-caves-education.html",
+    "source_url": "https://www.nps.gov/crmo/learn/education/site-tour-3.htm",
+    "resolved_url": "https://www.nps.gov/crmo/learn/education/site-tour-3.htm",
+    "retrieved_at": "2026-11-15T03:56:23.784Z",
+    "http_status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 42217,
+    "sha256": "bac11387a644e0d455c6de9a5a4f8be26b27d8a24d614d50d591c9201e657901",
+    "etag": null,
+    "last_modified": null
+  },
+  {
+    "file": "nps-caves-public.html",
+    "source_url": "https://www.nps.gov/thingstodo/craters-caves.htm",
+    "resolved_url": "https://www.nps.gov/thingstodo/craters-caves.htm",
+    "retrieved_at": "2026-11-15T03:56:23.788Z",
+    "http_status": 200,
+    "content_type": "text/html;charset=UTF-8",
+    "bytes": 41376,
+    "sha256": "ede5b486c1fa93749ca3cba7438b97a92a11e6057618e2a8392b69c458d9bc4a",
+    "etag": null,
+    "last_modified": null
+  },
+  {
+    "file": "gtnp-janssonhaugen.json",
+    "source_url": "https://data.gtn-p.org/api/pt/501",
+    "resolved_url": "https://data.gtn-p.org/api/pt/501",
+    "retrieved_at": "2026-11-15T03:56:24.343Z",
+    "http_status": 200,
+    "content_type": "application/json",
+    "bytes": 8373,
+    "sha256": "2ae0fff079de34243282c425cb3ee3aa4b8041df2dbe2c3b86be9b2608e2786a",
+    "etag": null,
+    "last_modified": null
+  },
+  {
+    "file": "mosj-permafrost.html",
+    "source_url": "https://mosj.no/en/indikator/climate/land/permafrost/",
+    "resolved_url": "https://mosj.no/en/indikator/climate/land/permafrost/",
+    "retrieved_at": "2026-11-15T03:56:24.816Z",
+    "http_status": 200,
+    "content_type": "text/html; charset=UTF-8",
+    "bytes": 519166,
+    "sha256": "3bea1f7026666e29832083399ee935fcbf0cac2e921d7eb14f89292ca7e09b10",
+    "etag": null,
+    "last_modified": null
+  },
+  {
+    "file": "usfs-lava-river.html",
+    "source_url": "https://www.fs.usda.gov/r03/coconino/recreation/lava-river-cave",
+    "error": "Error: HTTP 403"
+  },
+  {
+    "file": "lcross-water-primary.pdf",
+    "source_url": "https://cfpl.ae.utexas.edu/wp-content/uploads/2010/10/science_article.pdf",
+    "resolved_url": "https://cfpl.ae.utexas.edu/wp-content/uploads/2010/10/science_article.pdf",
+    "retrieved_at": "2026-11-15T03:56:28.162Z",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "bytes": 1063737,
+    "sha256": "30a7f248f8e41a07715739813265d344652325d2f49f6222a0fef4b03ec273e7",
+    "etag": "\"103b39-4c73ef8bedb80\"",
+    "last_modified": "Tue, 14 Aug 2012 19:39:42 GMT"
+  },
+  {
+    "file": "nasa-volatiles-2025.pdf",
+    "source_url": "https://ntrs.nasa.gov/api/citations/20250006445/downloads/SMD-LUN-102_RevA_authors.pdf",
+    "resolved_url": "https://ntrs.nasa.gov/api/citations/20250006445/downloads/SMD-LUN-102_RevA_authors.pdf",
+    "retrieved_at": "2026-11-15T03:56:28.839Z",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "bytes": 846997,
+    "sha256": "af879dcbb092e5c40c4d53857b24a7bf0708ab88b09cbcd469f296abbf985bca",
+    "etag": "\"192b7fbd6b7c4ab593d6759cbffcfce5\"",
+    "last_modified": "Fri, 29 Aug 2025 20:46:00 GMT"
+  },
+  {
+    "file": "lcross-water-uci-copy.pdf",
+    "source_url": "https://www.chem.uci.edu/~unicorn/old/H2A/handouts/PDFs/LCROSSPaper.pdf",
+    "resolved_url": "https://www.chem.uci.edu/~unicorn/old/H2A/handouts/PDFs/LCROSSPaper.pdf",
+    "retrieved_at": "2026-11-15T03:56:30.597Z",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "bytes": 1063576,
+    "sha256": "978b6679df814c1f189de8e58c1f77355952fa909a7067eecbe11e5c11d1ae3c",
+    "etag": "\"103a98-5637a41ec0623\"",
+    "last_modified": "Tue, 23 Jan 2018 23:53:46 GMT"
+  },
+  {
+    "file": "lcross-location.pdf",
+    "source_url": "https://ntrs.nasa.gov/api/citations/20140005563/downloads/20140005563.pdf",
+    "resolved_url": "https://ntrs.nasa.gov/api/citations/20140005563/downloads/20140005563.pdf",
+    "retrieved_at": "2026-11-15T03:56:30.634Z",
+    "http_status": 200,
+    "content_type": "application/pdf",
+    "bytes": 1138580,
+    "sha256": "8d1fdffb2db74f67b1801ec4671d557191f35b1025da49da790aab04a79bb660",
+    "etag": "\"1f49becd8a4e42f9897856f558d65a89\"",
+    "last_modified": "Thu, 06 Aug 2020 21:27:28 GMT"
+  }
+]

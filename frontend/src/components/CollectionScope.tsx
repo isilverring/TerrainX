@@ -61,7 +61,9 @@ export default function CollectionScope({ children }: { children: ReactNode }) {
   }, [mission, params]);
   const collection: Collection =
     shared?.o ??
-    (polarId || location.pathname === "/cells"
+    (polarId ||
+    location.pathname === "/cells" ||
+    location.pathname === "/research-lab"
       ? "expanded"
       : params.get("cohort") === "expanded"
         ? "expanded"

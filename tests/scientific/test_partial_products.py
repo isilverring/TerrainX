@@ -39,3 +39,36 @@ def test_operations_grids_are_source_scoped_and_have_honest_missing_values():
 def test_expansion_does_not_rewrite_original_scientific_observations():
     raw=(ROOT/'frontend/public/data/dataset.json').read_bytes().replace(b'\r\n',b'\n')
     assert hashlib.sha256(raw).hexdigest()=='3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c'
+
+def test_reference_evidence_preserves_unknown_positions_and_methods():
+    p=json.loads((ROOT/'data/derived/challenge_evidence.json').read_text(encoding='utf-8'))
+    assert len(p['records'])==9
+    records={r['id']:r for r in p['records']}
+    assert records['salda-l1-xrd-2026']['latitude'] is None
+    assert records['salda-l1-xrd-2026']['longitude'] is None
+    assert 'incubation' in records['yungay-pit-biosignatures-2020']['observations'][0]['method']
+    for r in p['records']:
+        assert r['references'] and all(s['url'].startswith('https://') for s in r['references'])
+        if 'caves' in r['categories']:assert r['entrance_coordinates'] is None
+        for o in r['observations']:
+            if isinstance(o['value'],(int,float)):assert np.isfinite(o['value'])
+    lcross=records['lcross-cabeus-impact']
+    assert lcross['body']=='Moon' and lcross['candidate_id'] is None
+    assert lcross['observations'][0]['value']==.056
+    assert lcross['observations'][0]['unit']=='kg/kg'
+
+def test_daily_extremes_reproduce_from_actual_cached_nasa_responses():
+    p=json.loads((ROOT/'data/derived/climate_extremes.json').read_text(encoding='utf-8'))
+    assert len(p['dates'])==365 and len(p['profiles'])==18
+    for profile in p['profiles']:
+        assert profile['status']=='available'
+        cache=ROOT/'data/cached'/(hashlib.sha256(profile['source_url'].encode()).hexdigest()+'.json')
+        raw=json.loads(cache.read_text(encoding='utf-8'))
+        assert raw['sha256']==profile['sha256']
+        for key,series in profile['variables'].items():
+            values=[v for v in series['values'] if v is not None]
+            assert series['valid_days']==len(values)>0
+            assert series['min']==min(values) and series['max']==max(values)
+            assert series['p95']==float(np.quantile(values,.95))
+            for day,value in zip(p['dates'],series['values']):
+                if value is not None:assert value==raw['data']['properties']['parameter'][key][day]

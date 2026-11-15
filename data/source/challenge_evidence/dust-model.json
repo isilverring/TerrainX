@@ -1,0 +1,51 @@
+{
+  "retrieved_at": "2026-11-15T04:00:01.017218+00:00",
+  "doi": "10.1029/2000JD900304",
+  "primary_pdf_url": "https://geomet.uni-koeln.de/fileadmin/Dokumente/Arbeitsgruppen/Meteorologie/Shao__Yaping/pdfs/Shao_Lu_2000_USTT.pdf",
+  "publisher_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2000jd900304",
+  "equation_number": 24,
+  "equation": "u_star_t=sqrt(A_N*((rho_p/rho_air)*g*d+gamma/(rho_air*d)))",
+  "coefficient_inside_sqrt": true,
+  "parameters": {
+    "A_N": {
+      "value": 0.0123,
+      "unit": "dimensionless",
+      "classification": "EMPIRICAL_MODEL_COEFFICIENT"
+    },
+    "gamma": {
+      "default": 0.0003,
+      "fitted_range": [
+        0.000165,
+        0.0005
+      ],
+      "unit": "kg/s^2",
+      "classification": "EMPIRICAL_MODEL_COEFFICIENT; not measured site cohesion"
+    },
+    "rho_p": {
+      "example": 2650,
+      "unit": "kg/m^3",
+      "classification": "DECLARED_SCENARIO"
+    },
+    "d": {
+      "unit": "m",
+      "diameter_not_radius": true
+    },
+    "rho_air": {
+      "unit": "kg/m^3",
+      "must_be_positive": true
+    },
+    "g": {
+      "unit": "m/s^2"
+    },
+    "u_star_t": {
+      "unit": "m/s",
+      "not_ten_metre_wind_speed": true
+    }
+  },
+  "measured_size_range_um_most_data": [
+    30,
+    1300
+  ],
+  "moon_applicability": "Not applicable to lunar vacuum; aerodynamic initiation threshold unavailable.",
+  "root_must_validate": "No actual implementation or observations were produced by this research task."
+}

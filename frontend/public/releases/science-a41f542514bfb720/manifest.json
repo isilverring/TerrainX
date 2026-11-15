@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "release_id": "science-a41f542514bfb720",
+  "model_version": "terrainx-model-v1",
+  "dataset_sha256": "3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c",
+  "source_data_commit": "4f05e818ea55144598fee354ea1bdd485a6ff932",
+  "files": {
+    "dataset.json": {
+      "sha256": "3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c",
+      "bytes": 838653
+    },
+    "screened_cells.geojson": {
+      "sha256": "8a5e7a5f67e1724288af8265fef99c6cfbeb784a412392cb04ef318bab58af4a",
+      "bytes": 182144
+    },
+    "provenance.json": {
+      "sha256": "6f8b9423a282ba65f795f1cb6b20254c3bcd5cdbccec830b88031ea8013b1c0e",
+      "bytes": 52431
+    },
+    "planetary_context.json": {
+      "sha256": "008b933df91968707609ebb5fc44d2a01c847c65abec9c5ea4f670f7952c545d",
+      "bytes": 64989
+    },
+    "land.geojson": {
+      "sha256": "62ba34378350584881b944f95e545cd4db1ec37f136b7de2616b2498cbc2b346",
+      "bytes": 449124
+    },
+    "validation.json": {
+      "sha256": "496f34142e4a0dca8350ee9040417e8c794056cdb9b30f3b7418fa521d855492",
+      "bytes": 1112
+    },
+    "case_studies.json": {
+      "sha256": "bda0e6e23310e8eb8e99d2960eaea610cd1d0a64ffcc8eb300e7d4087a8a2ee9",
+      "bytes": 5987
+    },
+    "terrain_pilot.json": {
+      "sha256": "fcfe23d0e0a86efe45248cfbc945088442cf70ca1c68c69d128a24e5f28f1cac",
+      "bytes": 516779
+    },
+    "terrain_support.json": {
+      "sha256": "4193498788622512c88c89fb2634c60da5e7d553959092460949c4099b19bb58",
+      "bytes": 5068221
+    },
+    "site_evidence.json": {
+      "sha256": "3e64b4f44cd4a8025a1c59e65a136fa905c72387a5dfebc05838e01cacac39c6",
+      "bytes": 10736
+    },
+    "cell_search.json": {
+      "sha256": "d5de3525dd8f4de4c5bbbfb27c0b4cbd4ffeb207ac04ed4091956840041d2870",
+      "bytes": 2231640
+    },
+    "lunar_polar.json": {
+      "sha256": "f7006c6d0df7c5f577fba657d11b77bdfe19dc578c603584a6f1c6f047a231e8",
+      "bytes": 78018
+    },
+    "field_candidates.json": {
+      "sha256": "355c7370ded37b4d029ba3bd6bb5abeae02ebfecdbd0210faf5ec688daf897df",
+      "bytes": 4983112
+    },
+    "challenge_evidence.json": {
+      "sha256": "b055ea0941b83c7b28d2cb9aee366dac4668e96951711ddc58dd6843ca0473d3",
+      "bytes": 34181
+    },
+    "lunar_illumination.json": {
+      "sha256": "342802faa25b8e1b768845628c8f30cb36803265e90e34b746eb6dbc3b4cd70c",
+      "bytes": 4274711
+    },
+    "operations_terrain.json": {
+      "sha256": "814f7d45ee10643c067b7df59812532df42f43aa473b002209654bbe58b380c9",
+      "bytes": 3114842
+    },
+    "climate_extremes.json": {
+      "sha256": "deea0a7b9b6afc5ea3c06cc7ce58825dc336af9593435e7315793c5b193b1c14",
+      "bytes": 530890
+    }
+  }
+}

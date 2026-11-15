@@ -1,0 +1,474 @@
+{
+  "contract": "terrainx-reference-evidence-research-v1",
+  "generated_at": "2026-11-15T04:00:48.334262+00:00",
+  "status": "RESEARCH_HANDOFF_NOT_PUBLIC_DATA_RELEASE",
+  "records": [
+    {
+      "id": "nps-indian-tunnel",
+      "name": "Indian Tunnel, Craters of the Moon",
+      "category": "DOCUMENTED_EARTH_CAVE_REFERENCE",
+      "body": "Earth",
+      "associated_candidate_id": "reference-craters",
+      "coordinates": null,
+      "entrance_coordinates": null,
+      "coordinate_scope": "Named public NPS cave in the Caves Area; original benchmark centre must not be relabelled an entrance.",
+      "verified_feature": "Lava tube with natural skylights and flow-level ridges in the Blue Dragon Flow.",
+      "measurements": [
+        {
+          "variable": "reported_length",
+          "value": 800,
+          "unit": "ft",
+          "classification": "LITERATURE_SUPPORTED_APPROXIMATE",
+          "method": "NPS agency description; measurement instrument and survey epoch unavailable",
+          "uncertainty": null,
+          "period": null,
+          "spatial_scope": "Indian Tunnel named cave",
+          "converted_value": 243.84,
+          "converted_unit": "m",
+          "conversion": "international foot \u00d70.3048; conversion precision does not increase source accuracy"
+        },
+        {
+          "variable": "reported_height_lower_bound",
+          "value": 30,
+          "unit": "ft",
+          "classification": "LITERATURE_SUPPORTED_LOWER_BOUND",
+          "method": "NPS describes height as over30ft",
+          "uncertainty": null,
+          "period": null,
+          "spatial_scope": "Indian Tunnel named cave",
+          "comparison": ">",
+          "converted_value": 9.144,
+          "converted_unit": "m"
+        },
+        {
+          "variable": "reported_width",
+          "value": 50,
+          "unit": "ft",
+          "classification": "LITERATURE_SUPPORTED_APPROXIMATE",
+          "method": "NPS agency description; no uncertainty published",
+          "uncertainty": null,
+          "period": null,
+          "spatial_scope": "Indian Tunnel named cave",
+          "converted_value": 15.24,
+          "converted_unit": "m"
+        }
+      ],
+      "sources": [
+        {
+          "title": "NPS \u2014 Site Tour: Caves Area",
+          "url": "https://www.nps.gov/crmo/learn/education/site-tour-3.htm",
+          "download_url": "https://www.nps.gov/crmo/learn/education/site-tour-3.htm",
+          "resolved_download_url": "https://www.nps.gov/crmo/learn/education/site-tour-3.htm",
+          "locator": "Stop #2 Indian Tunnel; Stop #1 Dewdrop Cave; page updated2024-02-23",
+          "retrieved_at": "2026-11-15T03:56:23.784Z",
+          "raw_file": "nps-caves-education.html",
+          "sha256": "bac11387a644e0d455c6de9a5a4f8be26b27d8a24d614d50d591c9201e657901",
+          "bytes": 42217,
+          "capture_kind": "RAW_SOURCE_RESPONSE",
+          "text_extract_file": null,
+          "direct_fetch_error": null
+        },
+        {
+          "title": "NPS \u2014 Explore a Cave",
+          "url": "https://www.nps.gov/thingstodo/craters-caves.htm",
+          "download_url": "https://www.nps.gov/thingstodo/craters-caves.htm",
+          "resolved_download_url": "https://www.nps.gov/thingstodo/craters-caves.htm",
+          "locator": "Caves Trail / Exploring the Caves / Accessibility Information",
+          "retrieved_at": "2026-11-15T03:56:23.788Z",
+          "raw_file": "nps-caves-public.html",
+          "sha256": "ede5b486c1fa93749ca3cba7438b97a92a11e6057618e2a8392b69c458d9bc4a",
+          "bytes": 41376,
+          "capture_kind": "RAW_SOURCE_RESPONSE",
+          "text_extract_file": null,
+          "direct_fetch_error": null
+        }
+      ],
+      "experiment": {
+        "hypothesis": "A permitted non-contact mapping traverse can reveal how skylight illumination and rough basaltic passages affect localization workflow continuity.",
+        "method": "Proposed stationary LiDAR/photogrammetry and passive light logging under a park-approved protocol; no drilling or collecting assumed.",
+        "measurements_to_collect": [
+          "Repeat-map closure error in metres",
+          "Relative localization drift per metre traversed",
+          "Illuminance in lux with time and position",
+          "Documented occlusion/recovery events"
+        ],
+        "success_indicator": "Predeclare allowable localization drift and repeated-map closure error for the particular instrument; no threshold here is an observed result or mission safety limit.",
+        "next_measurement": "Park-approved georeferenced interior survey with quantified position uncertainty."
+      },
+      "limitations": [
+        "Named lava tube existence is documented; cave dimensions are agency descriptive values, not a new instrument survey.",
+        "No public surveyed entrance coordinate was verified in the consulted NPS sources; no entrance waypoint is supplied.",
+        "No radiation shielding, roof stability, vacuum compatibility or lunar cave geometry equivalence is established.",
+        "Research access, sampling, equipment and safety require actual land-manager review. Seasonal visitor information is not a current access guarantee."
+      ]
+    },
+    {
+      "id": "nps-dewdrop-cave",
+      "name": "Dewdrop Cave, Craters of the Moon",
+      "category": "DOCUMENTED_EARTH_CAVE_REFERENCE",
+      "body": "Earth",
+      "associated_candidate_id": "reference-craters",
+      "coordinates": null,
+      "entrance_coordinates": null,
+      "coordinate_scope": "Named public NPS cave; no verified entrance coordinate supplied.",
+      "verified_feature": "Documented lava tube with an open bouldered entrance and dark interior beyond the entrance.",
+      "measurements": [],
+      "sources": [
+        {
+          "title": "NPS \u2014 Site Tour: Caves Area",
+          "url": "https://www.nps.gov/crmo/learn/education/site-tour-3.htm",
+          "download_url": "https://www.nps.gov/crmo/learn/education/site-tour-3.htm",
+          "resolved_download_url": "https://www.nps.gov/crmo/learn/education/site-tour-3.htm",
+          "locator": "Stop #2 Indian Tunnel; Stop #1 Dewdrop Cave; page updated2024-02-23",
+          "retrieved_at": "2026-11-15T03:56:23.784Z",
+          "raw_file": "nps-caves-education.html",
+          "sha256": "bac11387a644e0d455c6de9a5a4f8be26b27d8a24d614d50d591c9201e657901",
+          "bytes": 42217,
+          "capture_kind": "RAW_SOURCE_RESPONSE",
+          "text_extract_file": null,
+          "direct_fetch_error": null
+        },
+        {
+          "title": "NPS \u2014 Explore a Cave",
+          "url": "https://www.nps.gov/thingstodo/craters-caves.htm",
+          "download_url": "https://www.nps.gov/thingstodo/craters-caves.htm",
+          "resolved_download_url": "https://www.nps.gov/thingstodo/craters-caves.htm",
+          "locator": "Caves Trail / Exploring the Caves / Accessibility Information",
+          "retrieved_at": "2026-11-15T03:56:23.788Z",
+          "raw_file": "nps-caves-public.html",
+          "sha256": "ede5b486c1fa93749ca3cba7438b97a92a11e6057618e2a8392b69c458d9bc4a",
+          "bytes": 41376,
+          "capture_kind": "RAW_SOURCE_RESPONSE",
+          "text_extract_file": null,
+          "direct_fetch_error": null
+        }
+      ],
+      "experiment": {
+        "hypothesis": "A permitted low-light mapping protocol can test instrument workflow continuity across entrance-to-interior illumination transitions.",
+        "method": "Non-contact imaging/light logging under land-manager permission.",
+        "measurements_to_collect": [
+          "Illuminance in lux",
+          "Repeated-map agreement in metres",
+          "Recorded tracking-loss and relocalization events"
+        ],
+        "success_indicator": "A predeclared instrument-specific repeatability criterion, not a published experiment outcome.",
+        "next_measurement": "Permission-based interior geometry and illumination observations."
+      },
+      "limitations": [
+        "Named lava tube existence is documented; cave dimensions are agency descriptive values, not a new instrument survey.",
+        "No public surveyed entrance coordinate was verified in the consulted NPS sources; no entrance waypoint is supplied.",
+        "No radiation shielding, roof stability, vacuum compatibility or lunar cave geometry equivalence is established.",
+        "Research access, sampling, equipment and safety require actual land-manager review. Seasonal visitor information is not a current access guarantee.",
+        "No length/temperature numeric measurement is supplied because none was verified for this exact feature."
+      ]
+    },
+    {
+      "id": "usfs-lava-river-cave",
+      "name": "Lava River Cave, Coconino National Forest",
+      "category": "DOCUMENTED_EARTH_CAVE_REFERENCE",
+      "body": "Earth",
+      "associated_candidate_id": null,
+      "coordinates": {
+        "latitude": 35.34281,
+        "longitude": -111.83814,
+        "frame": "Geographic latitude/longitude as published by USFS; geodetic datum not stated on page",
+        "uncertainty_m": null,
+        "scope": "Official Getting There recreation-site point; not a surveyed entrance"
+      },
+      "entrance_coordinates": null,
+      "coordinate_scope": "USFS publicly publishes a site point. Do not relabel it a precise entrance or replace it with a third-party point.",
+      "verified_feature": "USFS documents a roughly mile-long lava tube formed from a Hart Prairie lava eruption.",
+      "measurements": [
+        {
+          "variable": "reported_cave_temperature_range",
+          "value": [
+            35,
+            45
+          ],
+          "unit": "degF",
+          "classification": "LITERATURE_SUPPORTED_APPROXIMATE_RANGE",
+          "method": "Descriptive USFS seasonal range, not downloaded sensor data; instrument/epoch/uncertainty unavailable",
+          "uncertainty": null,
+          "period": null,
+          "spatial_scope": "Named cave; interior sampling locations unspecified",
+          "converted_value": [
+            1.6666666666666667,
+            7.222222222222222
+          ],
+          "converted_unit": "degC",
+          "conversion": "(degF\u221232)\u00d75/9"
+        },
+        {
+          "variable": "reported_cave_length",
+          "value": 1,
+          "unit": "mile",
+          "classification": "LITERATURE_SUPPORTED_APPROXIMATE",
+          "method": "USFS describes mile-long cave; approximate value with unknown survey basis",
+          "uncertainty": null,
+          "period": null,
+          "spatial_scope": "Named cave",
+          "converted_value": 1609.344,
+          "converted_unit": "m"
+        }
+      ],
+      "sources": [
+        {
+          "title": "USDA Forest Service \u2014 Lava River Cave",
+          "url": "https://www.fs.usda.gov/r03/coconino/recreation/lava-river-cave",
+          "download_url": "https://www.fs.usda.gov/r03/coconino/recreation/lava-river-cave",
+          "resolved_download_url": null,
+          "locator": "Getting There latitude/longitude; General Information; page updated2026-04-06",
+          "retrieved_at": "2026-11-15T04:00:48.334262+00:00",
+          "raw_file": null,
+          "sha256": null,
+          "bytes": null,
+          "capture_kind": "WEB_TOOL_TEXT_EXTRACT",
+          "text_extract_file": "usfs-web-extract.txt",
+          "direct_fetch_error": "Error: HTTP 403"
+        }
+      ],
+      "experiment": {
+        "hypothesis": "A permitted cave-air logging and non-contact navigation protocol can quantify terrestrial illumination/thermal workflow changes in a documented volcanic void.",
+        "method": "Proposed repeated interior mapping plus calibrated air-temperature and light sensors; exact stations require permission and a verified entrance survey.",
+        "measurements_to_collect": [
+          "Air temperature in degC at known times/depth positions",
+          "Relative humidity",
+          "Illuminance in lux",
+          "Mapping repeatability in metres"
+        ],
+        "success_indicator": "Report reproducibility and sensor uncertainty against predeclared instrument goals; no new experiment has occurred.",
+        "next_measurement": "Obtain an approved georeferenced cave survey and sensor time series."
+      },
+      "limitations": [
+        "Published site coordinates are a recreation location; the entrance coordinate remains unassessed.",
+        "Reported Fahrenheit range is agency descriptive context, not measured uncertainty or a planetary thermal match.",
+        "Earth air circulation, atmosphere, biology and gravity differ from lunar/Martian subsurface conditions.",
+        "USFS current access/pass requirements must be rechecked before any fieldwork."
+      ]
+    },
+    {
+      "id": "gtnp-janssonhaugen-p10",
+      "name": "Janssonhaugen P10 permafrost borehole",
+      "category": "DOCUMENTED_EARTH_PERMAFROST_REFERENCE",
+      "body": "Earth",
+      "associated_candidate_id": null,
+      "coordinates": {
+        "latitude": 78.183333,
+        "longitude": 16.466667,
+        "frame": "GTN-P geographic coordinate metadata; datum/position uncertainty not stated",
+        "uncertainty_m": null,
+        "scope": "P10 borehole metadata point"
+      },
+      "verified_feature": "Documented instrumented permafrost borehole; historical mean ground-temperature summary.",
+      "measurements": [
+        {
+          "variable": "mean_annual_ground_temperature",
+          "value": -5.9,
+          "unit": "degC",
+          "classification": "REPORTED_MEASURED_SUMMARY",
+          "method": "GTN-P metadata reports MAGT near zero annual amplitude; borehole thermistor monitoring, no raw series fetched",
+          "uncertainty": null,
+          "period": "2005 (year as published)",
+          "spatial_scope": "P10 borehole at18m depth",
+          "depth_m": 18,
+          "converted_value": 267.25,
+          "converted_unit": "K"
+        },
+        {
+          "variable": "borehole_depth",
+          "value": 102,
+          "unit": "m",
+          "classification": "REPORTED_SITE_METADATA",
+          "method": "Published drilled depth, not inferred permafrost thickness",
+          "uncertainty": null,
+          "period": null,
+          "spatial_scope": "P10 borehole"
+        }
+      ],
+      "resource_abundance": null,
+      "raw_time_series_available_in_api": false,
+      "sources": [
+        {
+          "title": "GTN-P PID pt/501 \u2014 Janssonhaugen P10",
+          "url": "https://data.gtn-p.org/api/pt/501",
+          "download_url": "https://data.gtn-p.org/api/pt/501",
+          "resolved_download_url": "https://data.gtn-p.org/api/pt/501",
+          "locator": "API location object; description MAGT-ZAA\u22125.9degC,18m,2005; borehole object",
+          "retrieved_at": "2026-11-15T03:56:24.343Z",
+          "raw_file": "gtnp-janssonhaugen.json",
+          "sha256": "2ae0fff079de34243282c425cb3ee3aa4b8041df2dbe2c3b86be9b2608e2786a",
+          "bytes": 8373,
+          "capture_kind": "RAW_SOURCE_RESPONSE",
+          "text_extract_file": null,
+          "direct_fetch_error": null
+        },
+        {
+          "title": "MOSJ / Norwegian Polar Institute \u2014 Permafrost",
+          "url": "https://mosj.no/en/indikator/climate/land/permafrost/",
+          "download_url": "https://mosj.no/en/indikator/climate/land/permafrost/",
+          "resolved_download_url": "https://mosj.no/en/indikator/climate/land/permafrost/",
+          "locator": "Monitoring method: borehole thermistors with data loggers; page updated2025-04-01",
+          "retrieved_at": "2026-11-15T03:56:24.816Z",
+          "raw_file": "mosj-permafrost.html",
+          "sha256": "3bea1f7026666e29832083399ee935fcbf0cac2e921d7eb14f89292ca7e09b10",
+          "bytes": 519166,
+          "capture_kind": "RAW_SOURCE_RESPONSE",
+          "text_extract_file": null,
+          "direct_fetch_error": null
+        }
+      ],
+      "experiment": {
+        "hypothesis": "An authorized borehole comparison can test thermal-sensor and sample-handling workflows in real terrestrial permafrost.",
+        "method": "Use custodian-approved existing monitoring records or calibrated sensors; no new borehole or sample collection assumed.",
+        "measurements_to_collect": [
+          "Ground-temperature time series with depth and uncertainty",
+          "Active-layer depth where measured",
+          "Direct laboratory ice/water mass fraction if sampling is permitted"
+        ],
+        "success_indicator": "Sensor agreement and repeatability against an explicitly stated uncertainty budget; no terrestrial value establishes lunar resource grade.",
+        "next_measurement": "Obtain a complete dated, quality-controlled borehole sensor series and direct ice-content evidence if resources are the objective."
+      },
+      "limitations": [
+        "Historical2005 mean, not a current temperature prediction.",
+        "Ground temperature is not POWER air climatology or Diviner surface-model temperature.",
+        "No downloadable raw series in this GTN-P API record; has_data=false.",
+        "An ambiguous separate\u22125.2degC row with truncated interval was deliberately excluded.",
+        "Permafrost evidence does not measure extractable water abundance.",
+        "Outside the original four search boxes and SRTM latitude range; no original terrain score can be assigned by borrowing another site."
+      ]
+    },
+    {
+      "id": "lcross-cabeus-impact",
+      "name": "LCROSS Centaur impact site, Cabeus",
+      "category": "MEASUREMENT_SUPPORTED_LUNAR_RESOURCE_REFERENCE",
+      "body": "Moon",
+      "associated_candidate_id": null,
+      "coordinates": {
+        "latitude": -84.6796,
+        "longitude": -48.7093,
+        "longitude_0_360": 311.2907,
+        "frame": "Mean Earth selenocentric, Marshall et al.2012 Table1; no implicit frame transformation",
+        "uncertainty_deg": {
+          "latitude": 0.004,
+          "longitude": 0.016,
+          "level": "1sigma"
+        },
+        "uncertainty_m": {
+          "latitude": 119,
+          "longitude": 46,
+          "level": "1sigma",
+          "source": "Marshall et al.2012 Table1; abstract separately rounds115\u00d744m"
+        },
+        "scope": "Post-impact Centaur localization, not Cabeus crater centre or another polar feature"
+      },
+      "verified_feature": "Water ice/vapor detected spectroscopically in impact ejecta at one sampled permanently shadowed location.",
+      "measurements": [
+        {
+          "variable": "estimated_water_ice_mass_fraction",
+          "value": 5.6,
+          "unit": "wt%",
+          "classification": "MEASUREMENT_INFERRED_ESTIMATE",
+          "method": "LCROSS NIR absorption and UV/visible OH evidence, spectral retrieval plus estimated excavated sunlit regolith mass",
+          "uncertainty": {
+            "plus_minus": 2.9,
+            "unit": "percentage points by mass",
+            "level": "1SD; published Table1"
+          },
+          "period": "2009-10-09 impact; published2010-10-22",
+          "spatial_scope": "Excavated ejecta observable in the shepherding spacecraft instrument field of view; not crater-wide reserve",
+          "converted_value": 0.056,
+          "converted_unit": "kg/kg",
+          "converted_uncertainty": 0.029
+        },
+        {
+          "variable": "maximum_water_vapor_and_ice_in_field_of_view",
+          "value": 155,
+          "unit": "kg",
+          "classification": "SPECTRAL_RETRIEVAL_ESTIMATE",
+          "method": "Maximum water vapor+ice within the instrument field of view reported in Colaprete et al.2010 abstract",
+          "uncertainty": {
+            "plus_minus": 12,
+            "unit": "kg",
+            "level": "Reported uncertainty; use source method for detailed interpretation"
+          },
+          "period": "2009-10-09 impact",
+          "spatial_scope": "Instrument field of view; not total crater deposit"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Colaprete et al.2010 \u2014 Detection of Water in the LCROSS Ejecta Plume",
+          "url": "https://doi.org/10.1126/science.1186986",
+          "download_url": "https://cfpl.ae.utexas.edu/wp-content/uploads/2010/10/science_article.pdf",
+          "resolved_download_url": "https://cfpl.ae.utexas.edu/wp-content/uploads/2010/10/science_article.pdf",
+          "locator": "Science330,463\u2013468; abstract and Table1; author-institution cached copy",
+          "retrieved_at": "2026-11-15T03:56:28.162Z",
+          "raw_file": "lcross-water-primary.pdf",
+          "sha256": "30a7f248f8e41a07715739813265d344652325d2f49f6222a0fef4b03ec273e7",
+          "bytes": 1063737,
+          "capture_kind": "RAW_SOURCE_RESPONSE",
+          "text_extract_file": null,
+          "direct_fetch_error": null
+        },
+        {
+          "title": "Marshall et al.2012 \u2014 Locating the LCROSS Impact Craters",
+          "url": "https://ntrs.nasa.gov/citations/20140005563",
+          "download_url": "https://ntrs.nasa.gov/api/citations/20140005563/downloads/20140005563.pdf",
+          "resolved_download_url": "https://ntrs.nasa.gov/api/citations/20140005563/downloads/20140005563.pdf",
+          "locator": "Space Science Reviews167,71\u201392; Table1 on journal page73",
+          "retrieved_at": "2026-11-15T03:56:30.634Z",
+          "raw_file": "lcross-location.pdf",
+          "sha256": "8d1fdffb2db74f67b1801ec4671d557191f35b1025da49da790aab04a79bb660",
+          "bytes": 1138580,
+          "capture_kind": "RAW_SOURCE_RESPONSE",
+          "text_extract_file": null,
+          "direct_fetch_error": null
+        },
+        {
+          "title": "NASA SMD-LUN-102 RevA \u2014 Expected Volatile and Dust Hazards",
+          "url": "https://ntrs.nasa.gov/api/citations/20250006445/downloads/SMD-LUN-102_RevA_authors.pdf",
+          "download_url": "https://ntrs.nasa.gov/api/citations/20250006445/downloads/SMD-LUN-102_RevA_authors.pdf",
+          "resolved_download_url": "https://ntrs.nasa.gov/api/citations/20250006445/downloads/SMD-LUN-102_RevA_authors.pdf",
+          "locator": "Page15: LCROSS is one sampled Cabeus location; other regions require separate evidence",
+          "retrieved_at": "2026-11-15T03:56:28.839Z",
+          "raw_file": "nasa-volatiles-2025.pdf",
+          "sha256": "af879dcbb092e5c40c4d53857b24a7bf0708ab88b09cbcd469f296abbf985bca",
+          "bytes": 846997,
+          "capture_kind": "RAW_SOURCE_RESPONSE",
+          "text_extract_file": null,
+          "direct_fetch_error": null
+        }
+      ],
+      "experiment": {
+        "hypothesis": "A controlled laboratory test using explicit ice-bearing simulant scenarios can evaluate volatile-preserving sampling procedures against known starting water fractions.",
+        "method": "Use measured starting mass fractions in a controlled cold/vacuum facility; any5.6wt% mixture is an experimental scenario inspired by LCROSS, not a measured Earth-site value.",
+        "measurements_to_collect": [
+          "Starting and recovered water mass in kg",
+          "Sample temperature inK",
+          "Chamber pressure inPa",
+          "Mass balance and recovery fraction with uncertainty"
+        ],
+        "success_indicator": "Predeclare an instrument-specific recovery/mass-balance requirement; no outcome is asserted.",
+        "next_measurement": "Direct site-specific volatile composition, depth, heterogeneity and uncertainty at the actual mission target."
+      },
+      "limitations": [
+        "This is genuine LCROSS evidence at Cabeus, not a new measurement of any TerrainX polar feature.",
+        "The5.6wt% estimate cannot be transferred to Haworth, Shackleton, other candidate regions or any Earth site.",
+        "An ejecta-derived sampled abundance is not an extractable reserve, depth map or engineering guarantee.",
+        "Measured water evidence and Diviner modeled stability are distinct data classes.",
+        "Source coordinate frame is retained; precise raster association requires a validated frame transformation."
+      ]
+    }
+  ],
+  "no_new_discoveries": true,
+  "no_experiments_conducted": true,
+  "source_manifest": "receipts.json",
+  "rejected_location_evidence": [
+    {
+      "url": "https://npgallery.nps.gov/AssetDetail/9109bf53-3af2-406d-8c75-da556a16485c",
+      "latitude": 43.0189094543457,
+      "longitude": -113.626800537109,
+      "reason": "Photo metadata is not a surveyed entrance and lies far from the tourist Caves Area; do not use as Indian Tunnel entrance."
+    }
+  ]
+}
