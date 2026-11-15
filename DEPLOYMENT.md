@@ -1,5 +1,27 @@
 # TerrainX publication record
 
+## Public version 10 — score readability and pitch
+
+- URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site
+- Audience: public; fresh unauthenticated sessions verified the deployed source.
+- Site: `appgprj_6af7ff7626888191bcba757337fd7e9b`.
+- Saved version: `appgprj_6af7ff7626888191bcba757337fd7e9b~appgver_b0020dde5c5481919b3b5cb1e4cfe675`.
+- Deployment: `appgdep_6af966ed98d4819182fe9d336fd37fcd`.
+- Result: **succeeded**, `2026-11-15T08:02:15.062048+00:00`.
+- Exact deployed source: `d13cd4e16899a471109d4585f4e25b1fb7d9664b`.
+- Build time: `2026-11-15T08:00:16.834Z`; public `build-info.json` matches this source.
+- Science release: `science-e15ca0c149550211`; original dataset SHA-256 `3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c`.
+- Archive: `outputs/terrainx-readability-pitch.tar.gz`, 22,885,424 compressed bytes; SHA-256 `54c9f7d10a9ebe89881dacd6fa96fdb18d4ae04fcb2a55c2d4cc552ee574cf8c`.
+- Saved tar-content metadata: 321 files, 180,664,320 bytes; content hash `sha256:456dba9794e51476eba13bd9acaf1f41375e633b0417b93c172f7e947c0392e0`.
+
+The Discovery-story cards use 20 px F/U/C/P labels, explicit meanings and 24–28 px values. Supporting labels, coordinates, captions and Research Lab notes are larger. Key phone controls have larger touch targets and mobile form text is 16 px. Phone comparison spacing and narrow cell controls are corrected.
+
+All ten pitch slides have reachable content in desktop, phone and landscape layouts. The header/navigation remains visible; long content scrolls with a contextual hint. Equations wrap, utility and coverage are separate expressions, diagram text is readable, and reduced-motion preferences cover the feature/equation animations. Scientific inputs and model outputs are unchanged.
+
+Validation: **117 frontend unit tests; strict TypeScript/static build; 56/56 local and 56/56 fresh public browser workflows; 96 broad local route/viewport cases; 32 focused readability cases; 40 local and 40 public pitch cases; three local and three public score/mission/form interaction cases.** Public score cards and pitch screenshots were visually inspected. The new portrait/landscape regression verifies the last feature, complete equations, QR and visible navigation. Chrome was used because the Browser plugin is unavailable; Safari, Firefox and physical-device validation are not asserted.
+
+Prepared browsers update through `/#/offline`: prepare the new version, explicitly activate it and reload. Documentation-only commits may follow the deployed source. Previous verified releases below are available for rollback.
+
 ## Public version 9 — submission release
 
 - URL: https://terrainx-discovery-lab.comfybay1.chatgpt.site

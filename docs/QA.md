@@ -6,7 +6,7 @@ Discovery-story F/U/C/P labels are 20 px with visible meanings and 24–28 px va
 
 Pitch slides keep the header/navigation visible while longer content scrolls. A scroll hint identifies additional content. Equations wrap within their panels; utility and coverage have distinct expressions. Diagram labels, score notes and presentation controls are larger. The workflow uses a compact phone grid, and reduced-motion settings apply to feature/equation animations. All ten slides retain their original figures and scientific inputs.
 
-Current verification: 117 frontend unit tests, strict TypeScript/static build, **56 production browser workflows**, 96 broad route/viewport cases, 32 focused readability cases (including 320 px phones), three score/mission/form interaction cases and **40 pitch-slide/viewport cases**. The new browser regression verifies scroll access to the last feature and QR, complete equations, and visible navigation in phone portrait and landscape. Screenshots were visually reviewed. Public acceptance is recorded in DEPLOYMENT.md after publication.
+Current verification: 117 frontend unit tests, strict TypeScript/static build, **56 production browser workflows**, 96 broad route/viewport cases, 32 focused readability cases (including 320 px phones), three score/mission/form interaction cases and **40 pitch-slide/viewport cases**. The new browser regression verifies scroll access to the last feature and QR, complete equations, and visible navigation in phone portrait and landscape. Screenshots were visually reviewed. The same 56 workflows, 40 pitch cases and three score/mission/form cases passed on public version 10. Exact publication metadata is in DEPLOYMENT.md.
 
 ## Environment
 
@@ -23,7 +23,7 @@ The primary flow is: landing → Discovery → select a site and mission → ins
 | Strict TypeScript and static production build | Passed |
 | Complete production browser suite with live providers | 56 passed |
 | Desktop/mobile/short-laptop route and screenshot review | 96 passed at 1568×1003, 390×844 and 1280×720 |
-| Fresh public deployment acceptance | 55 passed on version 9; three focused public screenshots passed |
+| Fresh public deployment acceptance | 56 passed on version 10; 40 pitch and three score/mission/form cases passed |
 
 Commands: `.venv\Scripts\python.exe scripts\validate_results.py`, `npm run test:unit`, `npm run build`, and `npm test` with `TERRAINX_BASE_URL` set to the preview or production URL.
 
@@ -35,4 +35,4 @@ Browser checks use Chrome with desktop and mobile-sized viewports. Firefox, Safa
 
 Exact published version/source and rollback details: [../DEPLOYMENT.md](../DEPLOYMENT.md).
 
-Public acceptance used fresh unauthenticated Chrome sessions at https://terrainx-discovery-lab.comfybay1.chatgpt.site. Its build metadata identifies `b94533c6276c5ceb2ef9bb78205da440c4885195` and `science-e15ca0c149550211`. The public atlas and phone polar-source screenshots were visually inspected.
+Public acceptance used fresh unauthenticated Chrome sessions at https://terrainx-discovery-lab.comfybay1.chatgpt.site. Its build metadata identifies `d13cd4e16899a471109d4585f4e25b1fb7d9664b` and `science-e15ca0c149550211`. Public score-card, comparison, Lab and pitch screenshots were visually inspected, including the full equation and the last feature after scrolling.

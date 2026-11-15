@@ -12,9 +12,9 @@ Science release: `science-e15ca0c149550211`. Original dataset SHA-256: `3515ef69
 
 ## Validation and publication
 
-Scientific validation: 94 Python tests plus independent numerical reproduction. Frontend validation: 117 unit tests and strict TypeScript/production build. All 55 local and 55 fresh public browser workflows pass, with 96 local responsive cases, three public visual cases and successful report/protocol checks for all eight Lab tools. Detailed acceptance is recorded in [docs/QA.md](docs/QA.md). Exact live source, saved version and deployment status are recorded in [DEPLOYMENT.md](DEPLOYMENT.md); repository HEAD may include later documentation updates.
+Scientific validation: 94 Python tests plus independent numerical reproduction. Frontend validation: 117 unit tests and strict TypeScript/production build. All 56 local and 56 fresh public browser workflows pass, with 96 local responsive cases, three public visual cases and successful report/protocol checks for all eight Lab tools. Detailed acceptance is recorded in [docs/QA.md](docs/QA.md). Exact live source, saved version and deployment status are recorded in [DEPLOYMENT.md](DEPLOYMENT.md); repository HEAD may include later documentation updates.
 
-Public version 9 is deployed from `b94533c6276c5ceb2ef9bb78205da440c4885195`; the public build metadata matches. The current submission review and publication are complete.
+Public version 10 is deployed from `d13cd4e16899a471109d4585f4e25b1fb7d9664b`; the public build metadata matches. The readability and pitch review is complete and publicly verified, including 40 public pitch cases and three public score/mission/form interaction cases.
 
 ## Local preservation
 
