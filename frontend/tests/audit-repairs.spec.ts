@@ -71,7 +71,7 @@ test("command palette keyboard stays inside the modal during the guided demo", a
   page,
 }) => {
   await page.goto("/#/demo?presentation=1");
-  await expect(page.locator(".demo-count")).toHaveText("1 / 10");
+  await expect(page.locator(".demo-count")).toHaveText("1 / 11");
   await page.keyboard.press("Control+k");
   const input = page.getByRole("combobox", {
     name: "Search pages and candidates",
@@ -81,10 +81,10 @@ test("command palette keyboard stays inside the modal during the guided demo", a
   await input.press("ArrowRight");
   await input.press("Tab");
   await expect(input).toBeFocused();
-  await expect(page.locator(".demo-count")).toHaveText("1 / 10");
+  await expect(page.locator(".demo-count")).toHaveText("1 / 11");
   await input.press("Escape");
   await expect(page.locator(".palette")).toHaveCount(0);
-  await expect(page.locator(".demo-count")).toHaveText("1 / 10");
+  await expect(page.locator(".demo-count")).toHaveText("1 / 11");
 });
 
 test("Transfer Lab stays contained at intermediate tablet width", async ({

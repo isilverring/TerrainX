@@ -77,7 +77,7 @@ export default function Base({
             onChange={setSlope}
             min={0.1}
             max={80}
-            unit="p90slope degrees"
+            unit="p90 slope, degrees"
           />
           <Numeric
             label="Minimum sampled sunlight fraction"
@@ -97,8 +97,8 @@ export default function Base({
           />
         </div>
         <p className="lab-equation mono">
-          index =100[w × sampled sunlight + (1−w) × max(0,1−p90slope / declared
-          scale)]
+          index = 100 × [w × sampled sunlight + (1 − w) × max(0, 1 − p90 slope ÷
+          declared scale)]
         </p>
         <InputError message={result.error} />
         <p className="scientific-caveat">
@@ -114,7 +114,7 @@ export default function Base({
                 <tr>
                   <th>Feature centre</th>
                   <th>Sampled sunlight</th>
-                  <th>p90slope</th>
+                  <th>p90 slope</th>
                   <th>Dark-run hours</th>
                   <th>Scenario index</th>
                   <th>Rule</th>
@@ -131,7 +131,11 @@ export default function Base({
                         {r.name}
                       </button>
                     </th>
-                    <td className="mono">{number(100 * r.solar, 2)}%</td>
+                    <td className="mono">
+                      <span className="cell-bar sun" style={{ "--v": `${100 * r.solar}%` } as React.CSSProperties}>
+                        {number(100 * r.solar, 2)}%
+                      </span>
+                    </td>
                     <td className="mono">
                       {number(
                         sites!.find((s) => s.id === r.id)?.p90_slope_deg,
@@ -140,9 +144,15 @@ export default function Base({
                       °
                     </td>
                     <td className="mono">{number(r.darkHours, 0)}</td>
-                    <td className="mono">{number(r.index, 1)}</td>
+                    <td className="mono">
+                      <span className="cell-bar" style={{ "--v": `${r.index}%` } as React.CSSProperties}>
+                        {number(r.index, 1)}
+                      </span>
+                    </td>
                     <td>
-                      {r.eligible ? "Within scenario" : "Outside scenario"}
+                      <span className={`rule-chip ${r.eligible ? "in" : "out"}`}>
+                        {r.eligible ? "Within scenario" : "Outside scenario"}
+                      </span>
                     </td>
                   </tr>
                 ))}

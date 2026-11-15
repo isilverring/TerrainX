@@ -654,3 +654,38 @@
     border-color: #999;
   }
 }
+@media (max-width: 700px) {
+  .lab-table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Inline bars in lab tables: the number stays the content, the bar only illustrates it. */
+.cell-bar {
+  position: relative;
+  display: inline-block;
+  min-width: 92px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #35c3b033 var(--v, 0%), transparent var(--v, 0%));
+}
+.cell-bar.sun {
+  background: linear-gradient(90deg, #f2c14e3d var(--v, 0%), transparent var(--v, 0%));
+}
+.rule-chip {
+  display: inline-block;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  border: 1px solid #3ec9b066;
+  color: #3ec9b0;
+}
+.rule-chip.out {
+  border-color: #ff8a6566;
+  color: #ff8a65;
+}
+@media print {
+  .cell-bar { background: none; }
+}
