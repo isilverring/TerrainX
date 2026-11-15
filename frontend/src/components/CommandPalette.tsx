@@ -70,6 +70,7 @@ const PAGES: [string, string, string][] = [
     "Stations, traverse, GPX and field book",
   ],
   ["/offline", "Offline demo", "Prepare a verified offline presentation"],
+  ["/pitch", "Pitch slides", "Seven slides: challenge, need, approach, results"],
   ["/compare", "Compare candidates", "Up to three side by side"],
 ];
 

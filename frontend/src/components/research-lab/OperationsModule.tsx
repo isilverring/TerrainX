@@ -1,3 +1,4 @@
+import Limits from "../Limits";
 import {
   useEffect,
   useMemo,
@@ -410,12 +411,12 @@ export default function Operations({
           >
             Export proposed route GeoJSON
           </button>
-          <p className="scientific-caveat">
-            No diagonal corner cutting across missing/water nodes. Constraints
+          <Limits lead="Routes test sampled terrain edges only.">
+            <p>No diagonal corner cutting across missing/water nodes. Constraints
             test sampled edges only: boulders, cliffs between nodes, bearing
             strength, roof stability, access, wheel slip and safe landing zones
-            remain unassessed.
-          </p>
+            remain unassessed.</p>
+          </Limits>
         </Panel>
       </div>
       <Outcome

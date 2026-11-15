@@ -29,7 +29,7 @@ type Dimension = {
   modeled?: string;
   unknown?: string;
 };
-const DIMENSIONS: Dimension[] = [
+export const DIMENSIONS: Dimension[] = [
   {
     dimension: "Geology, mineralogy and surface materials",
     status: "bounded",

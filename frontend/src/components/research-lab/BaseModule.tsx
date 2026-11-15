@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import Limits from "../Limits";
 import { number } from "../../lib/data";
 import {
   autonomyWh,
@@ -101,12 +102,12 @@ export default function Base({
           declared scale)]
         </p>
         <InputError message={result.error} />
-        <p className="scientific-caveat">
-          This separate experimental index ranks only these eight centre
+        <Limits lead="A scenario index for comparison only; not a score or a recommended base.">
+          <p>This separate experimental index ranks only these eight centre
           profiles under your assumptions. It is not F/U/C/P, calibrated mission
           suitability, certainty, a resource score or a recommended base.
-          Required engineering/resource evidence is missing.
-        </p>
+          Required engineering/resource evidence is missing.</p>
+        </Limits>
         {result.value && (
           <div className="table-scroll">
             <table className="lab-table">
@@ -215,11 +216,11 @@ export default function Base({
             hint="load × sampled dark-run hours / usable fraction"
           />
         </div>
-        <p className="scientific-caveat">
-          This energy balance excludes thermal losses, charging duty, equipment
+        <Limits lead="A test-requirement scenario, not battery sizing.">
+          <p>This energy balance excludes thermal losses, charging duty, equipment
           aging, eclipses and darkness outside the sampled year. It is a test
-          requirement scenario, not battery sizing or a power-system design.
-        </p>
+          requirement scenario, not battery sizing or a power-system design.</p>
+        </Limits>
       </Panel>
       <Outcome
         candidate={candidate}

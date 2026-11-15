@@ -438,7 +438,10 @@ export default function Explorer() {
           </select>
           <h3>Mission objective</h3>
           <p>{target.mission}</p>
-          <p className="rail-context">{target.context}</p>
+          <details className="rail-more">
+            <summary>Why this target matters</summary>
+            <p className="rail-context">{target.context}</p>
+          </details>
         </section>
         <section>
           <label htmlFor="region">Study region</label>
@@ -789,7 +792,10 @@ export default function Explorer() {
           </div>
         )}
         {selected && a ? (
-          <div className="selected-summary" id="selected-inspector">
+          <div
+            className={`selected-summary mission-${mission}`}
+            id="selected-inspector"
+          >
             <p className="inspector-label">
               <LocateFixed size={12} /> Selected Earth site
             </p>

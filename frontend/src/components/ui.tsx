@@ -73,6 +73,7 @@ export function Header({
         ["/research", "Research"],
         ["/field-study", "Field study"],
         ["/offline", "Offline"],
+        ["/pitch", "Pitch slides"],
       ],
     },
   ];

@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import Limits from "../components/Limits";
 import { Link, useSearchParams } from "react-router-dom";
 import {
   Area,
@@ -443,10 +444,10 @@ function FieldStudyEditor() {
         stage="prepare"
         scenario={study.snapshot.scenarios[study.mission]}
       />
-      <p className="release-note">
-        Scores use this field study’s saved model. Station coordinates and
-        protocols are proposals, never verified NASA observations.
-      </p>
+      <Limits lead="Stations and protocols are proposals, not observations.">
+        <p>Scores use this field study’s saved model. Station coordinates and
+        protocols are proposals, never verified NASA observations.</p>
+      </Limits>
       <header className="document-title field-title">
         <div>
           <p className="document-label">Prepare · Field Study Builder</p>

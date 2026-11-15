@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Limits from "../Limits";
 import {
   CartesianGrid,
   Line,
@@ -309,13 +310,13 @@ export function Thermal({
                     : "below modeled horizon"}
                 </span>
               </label>
-              <p className="scientific-caveat">
-                MOON_ME frame; 2 m observer; 4 km LOLA sample spacing within 24 km.
+              <Limits lead="One sampled year with a bounded horizon; not permanent light or shadow.">
+                <p>MOON_ME frame; 2 m observer; 4 km LOLA sample spacing within 24 km.
                 Interpolated sampled terrain and a0° horizon floor omit
                 unresolved/distant terrain, finite solar disk, Earth eclipses
                 and hardware. One year cannot establish permanent illumination
-                or permanent shadow.
-              </p>
+                or permanent shadow.</p>
+              </Limits>
             </>
           )}
         </Panel>
@@ -501,13 +502,13 @@ export function Dust({ candidate, mission }: SiteContext) {
             </table>
           </div>
         )}
-        <p className="scientific-caveat">
-          Neutral log-law assumptions, empirical grain cohesion and idealized
+        <Limits lead="Threshold exceedance is a scenario, not a dust-storm prediction.">
+          <p>Neutral log-law assumptions, empirical grain cohesion and idealized
           grains are declared model choices. Threshold exceedance is not a
           dust-storm prediction: crusts, wetness, aggregation, turbulence,
           impact entrainment and local soil evidence are missing. The formula is
-          undefined in vacuum, not zero.
-        </p>
+          undefined in vacuum, not zero.</p>
+        </Limits>
         <p className="caption">
           <a href={DUSTSOURCE} target="_blank" rel="noreferrer">
             Shao & Lu(2000), Eq24

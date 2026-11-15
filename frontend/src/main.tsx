@@ -44,12 +44,18 @@ import "./styles/lenses.css";
 import "./styles/palette.css";
 import "./styles/cells.css";
 import "./styles/workflow.css";
+
+// Printed pages carry every scientific limit in full.
+window.addEventListener("beforeprint", () =>
+  document.querySelectorAll<HTMLDetailsElement>("details.limits").forEach((d) => (d.open = true)),
+);
 import {
   initialPresentation,
   initialPresentationModels,
   presentationDefaults,
 } from "./lib/presentation";
 const Explorer = lazy(() => import("./pages/Explorer"));
+const Pitch = lazy(() => import("./pages/Pitch"));
 const SiteDetail = lazy(() => import("./pages/SiteDetail"));
 const Passport = lazy(() => import("./pages/Passport"));
 const Methodology = lazy(() => import("./pages/Methodology"));
@@ -281,6 +287,7 @@ function App() {
                   <Route path="/what-if" element={<WhatIf />} />
                   <Route path="/worlds" element={<Worlds />} />
                   <Route path="/demo" element={<Demo />} />
+                  <Route path="/pitch" element={<Pitch />} />
                   <Route path="/research" element={<Research />} />
                   <Route
                     path="/field-study"

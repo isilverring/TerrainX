@@ -122,8 +122,16 @@ export default function BeyondKnown() {
         />
       </div>
       {s.unexpected.length ? (
-        <div className="unexpected">
-          <h3>Unexpected within this screened sample</h3>
+        <details className="unexpected">
+          <summary>
+            <h3>Unexpected within this screened sample</h3>
+            <span>
+              {s.unexpected.map((c) => c.name).join(", ")} reach
+              {s.unexpected.length === 1 ? "es" : ""} the lowest benchmark's
+              priority.
+            </span>
+            <em>Why</em>
+          </summary>
           {s.unexpected.map((c) => (
             <p key={c.id}>
               <strong>{c.name}</strong> — exploratory research candidate. P{" "}
@@ -139,7 +147,7 @@ export default function BeyondKnown() {
               first discovery or the best analog.
             </p>
           ))}
-        </div>
+        </details>
       ) : (
         <div className="unexpected">
           <h3>Unexpected within this screened sample</h3>

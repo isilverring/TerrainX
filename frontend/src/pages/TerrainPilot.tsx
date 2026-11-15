@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Limits from "../components/Limits";
 import { Link, useSearchParams } from "react-router-dom";
 import { useData, number } from "../lib/data";
 import {
@@ -125,12 +126,12 @@ export default function TerrainPilot() {
         </div>
         <EvidenceTag kind="DERIVED" />
       </header>
-      <p className="scientific-caveat">
-        This is a separate processing experiment. Discovery, utility, coverage
+      <Limits lead="A separate processing experiment; released scores are unchanged.">
+        <p>This is a separate processing experiment. Discovery, utility, coverage
         and existing SRTM fidelity scores remain unchanged. Common aggregation
         support improves comparability; it does not establish calibrated
-        physical equivalence.
-      </p>
+        physical equivalence.</p>
+      </Limits>
       <label className="research-form">Support study <select aria-label="Support study" value={filename==="terrain_support.json"?"expanded":"original"} onChange={e=>{const p=new URLSearchParams(params);p.set("study",e.target.value);setParams(p);}}><option value="original">Original two-site pilot</option><option value="expanded">Expanded 18-site support study</option></select></label>
       {error && <p role="status">{error}</p>}
       {pilot && result && scenario && (

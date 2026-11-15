@@ -26,8 +26,8 @@ const ICONS: Record<LabModule, LucideIcon> = {
   base: Tent,
 };
 
-/** Landing-page answer to the Space Apps question: what each world gets, then the eight open questions. */
-export default function ChallengeShowcase() {
+/** Landing-page answer to the Space Apps question: what each world gets. */
+export function ChallengeAnswer() {
   const { summary } = useData();
   const worlds: { tag: string; title: string; body: string; to: string; cta: string; tone: string }[] = [
     {
@@ -56,7 +56,6 @@ export default function ChallengeShowcase() {
     },
   ];
   return (
-    <>
       <section className="challenge-answer" aria-labelledby="ca-title">
         <header>
           <p className="document-label">2026 NASA Space Apps · the challenge</p>
@@ -83,6 +82,12 @@ export default function ChallengeShowcase() {
           ))}
         </div>
       </section>
+  );
+}
+
+/** The eight Research Lab questions as a browsable grid. */
+export function LabShowcase() {
+  return (
       <section className="lab-showcase" aria-labelledby="ls-title">
         <header>
           <div>
@@ -120,6 +125,5 @@ export default function ChallengeShowcase() {
           <Link to="/challenge">See how each challenge dimension is covered →</Link>
         </div>
       </section>
-    </>
   );
 }

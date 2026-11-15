@@ -630,6 +630,12 @@ export default function Demo() {
     (n: number) => setI(Math.max(0, Math.min(last, n))),
     [last],
   );
+  // Scenes slide in from the side the presenter is moving towards.
+  const previous = useRef(i);
+  const backwards = i < previous.current;
+  useEffect(() => {
+    previous.current = i;
+  }, [i]);
   const exit = useCallback(
     () => navigate("/explorer?presentation=0"),
     [navigate],
@@ -685,6 +691,11 @@ export default function Demo() {
       aria-modal="true"
       aria-label="From Earth to another world — guided demo"
     >
+      <div
+        className="demo-progress"
+        aria-hidden="true"
+        style={{ width: `${((i + 1) / scenes.length) * 100}%` }}
+      />
       <div className="demo-top">
         <span className="demo-brand">
           From Earth to another world · presentation model
@@ -696,7 +707,11 @@ export default function Demo() {
           <X size={18} /> Exit
         </button>
       </div>
-      <section key={i} className="demo-scene" aria-live="polite">
+      <section
+        key={i}
+        className={`demo-scene ${backwards ? "from-left" : "from-right"}`}
+        aria-live="polite"
+      >
         <p className="demo-kicker">{scene.kicker}</p>
         <h1>{scene.title}</h1>
         <div className="demo-body">{scene.body}</div>

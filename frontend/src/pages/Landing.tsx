@@ -4,7 +4,7 @@ import Globe from "../components/Globe";
 import { useData } from "../lib/data";
 import BeyondKnown from "../components/BeyondKnown";
 import FindingsStrip from "../components/FindingsStrip";
-import ChallengeShowcase from "../components/ChallengeShowcase";
+import { ChallengeAnswer, LabShowcase } from "../components/ChallengeShowcase";
 export default function Landing() {
   const { summary } = useData();
   const stats: [number, string][] = [
@@ -64,6 +64,10 @@ export default function Landing() {
         </div>
         <Globe />
       </section>
+      <ChallengeAnswer />
+      <FindingsStrip />
+      <BeyondKnown />
+      <LabShowcase />
       <section className="process-band" aria-label="How TerrainX works">
         {[
           ["Discover", "Search real Earth observations", "/explorer"],
@@ -93,9 +97,6 @@ export default function Landing() {
           </Link>
         ))}
       </section>
-      <FindingsStrip />
-      <ChallengeShowcase />
-      <BeyondKnown />
       <section className="research-entry">
         <div>
           <p className="document-label">Evidence before interpretation</p>

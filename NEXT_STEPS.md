@@ -3,7 +3,7 @@
 **Latest (laptop, 2026-11-15):** P1–P3 of docs/PARTIALS_IMPLEMENTATION.md are done, and so is a showcase polish pass. The landing page now has the challenge answer and the Research Lab grid, the guided demo has eleven scenes, and outline buttons, text spacing and the research menu were fixed. P4 remains only for things that need the PC or the user:
 1. Run the full Playwright suite with live network (`npm test` against `npm run preview`). The cloud workspace cannot reach basemap or terrain tiles, so two live tests were only run offline.
 2. Deploy the latest `main` (the user deploys; see docs/DEPLOY_VERCEL.md or docs/DEPLOY_CHATGPT_SITE.md).
-3. Record the ≤30 s demo and submit before Sun 2026-11-15 23:59 local.
+3. Record the ≤30 s demo or export 7 slides from `/#/pitch` (script: docs/PITCH_SCRIPT.md) and submit before Sun 2026-11-15 23:59 local.
 
 **Active new request:** docs/PARTIALS_IMPLEMENTATION.md P1–P4. Implement all eight partial-dimension research tools, integrate real source evidence and new calculated products, validate and publish. Previous usability/science scope remains completed. Read current STATUS.md before the historical handoff below.
 

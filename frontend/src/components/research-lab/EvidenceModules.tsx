@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Limits from "../Limits";
 import { number } from "../../lib/data";
 import {
   assayQuality,
@@ -64,11 +65,11 @@ export function Minerals({ candidate, mission, records }: Props) {
         <p>
           {candidate.assessments[mission].utility.criteria.geology.rationale}
         </p>
-        <p className="scientific-caveat">
-          Regional mapped lithology is not mineral identification. The published
+        <Limits lead="Mapped lithology is not mineral identification.">
+          <p>Regional mapped lithology is not mineral identification. The published
           specimen records below retain their own positions and methods; they do
-          not upgrade another screened cell.
-        </p>
+          not upgrade another screened cell.</p>
+        </Limits>
         <SiteEvidence id={candidate.id} />
       </Panel>
       <Panel title="Check a reported composition">
