@@ -1,5 +1,7 @@
 # Resume TerrainX after the completed usability audit
 
+**Active new request:** docs/PARTIALS_IMPLEMENTATION.md P1–P4. Implement all eight partial-dimension research tools, integrate real source evidence and new calculated products, validate and publish. Previous usability/science scope remains completed. Read current STATUS.md before the historical handoff below.
+
 **Current scope is complete:** docs/UX_REFINEMENT.md U1–U3 and docs/CHALLENGE_COMPLETION.md M1–M6. Public version8/runtime778b3cf passes all50 public workflows and36 focused responsive cases. No required implementation or publication step is pending. User handles recording/team/terms/submission; additional research is a new scope.
 
 All work stays **D:\TerrainX**, private https://github.com/isilverring/TerrainX, main. Existing public Site appgprj_6af7ff7626888191bcba757337fd7e9b: https://terrainx-discovery-lab.comfybay1.chatgpt.site. Never create a duplicate or silently change its audience. Read STATUS.md and DEPLOYMENT.md first. Later test/documentation commits intentionally differ from deployed app source; do not redeploy them alone.

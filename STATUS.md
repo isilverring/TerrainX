@@ -1,5 +1,7 @@
 # TerrainX recovery checkpoint — usability audit complete
 
+**New scope active: implement the eight partial challenge dimensions.** See docs/PARTIALS_IMPLEMENTATION.md P1–P4. Previous U1–U3/M1–M6 are complete. Main was clean/up to date at1b3be13; public version8 stays live during this work. Current step: source-verified preprocessing and numerical models, followed by eight usable Research Lab workflows. Keep source-scoped evidence/unknowns distinct from measurements. Check git log for the last pushed milestone.
+
 **All requested usability milestones U1–U3 are implemented, pushed and publicly verified.** Canonical checklist and audit: [docs/UX_REFINEMENT.md](docs/UX_REFINEMENT.md). Earlier science improvements and Packages A/B/C remain complete within their documented boundaries; see docs/CHALLENGE_COMPLETION.md and docs/PACKAGE_AUDIT.md. No required implementation, validation or deployment step remains in this scope.
 
 Work: D:\TerrainX, private https://github.com/isilverring/TerrainX, main. Public app: https://terrainx-discovery-lab.comfybay1.chatgpt.site . Site version8, exact runtime source **778b3cfc995083666425b236accf444bbf1c3cdf**. Native publication succeeded2026-11-15T02:21:33Z; audience public reverified. DEPLOYMENT.md contains literal version/deployment/archive IDs, checksums and tested rollback versions. Subsequent test/documentation commits intentionally differ from deployed runtime source.
