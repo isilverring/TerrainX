@@ -279,7 +279,7 @@ export function compositionClosure(values: (number | null)[], tolerance = 5) {
 /** NOAA fractional-year declination; true solar hour is an input, not civil time. */
 export function earthSolar(latitude: number, day: number, solarHour: number) {
   bounded("Latitude", latitude, -90, 90);
-  bounded("Day of2025", day, 1, 365);
+  bounded("Day of 2025", day, 1, 365);
   bounded("True solar hour", solarHour, 0, 24);
   const g = ((2 * Math.PI) / 365) * (day - 1 + (solarHour - 12) / 24);
   const d =
@@ -368,10 +368,10 @@ export function dustThreshold(
   );
 }
 export function frictionVelocity10m(wind: number, roughnessM: number) {
-  bounded("Scenario10m wind", wind, 0, 500);
+  bounded("Scenario 10 m wind", wind, 0, 500);
   positive("Roughness length", roughnessM);
   if (roughnessM >= 10)
-    throw Error("Roughness must be below10m reference height.");
+    throw Error("Roughness must be below 10 m reference height.");
   return (0.4 * wind) / Math.log(10 / roughnessM);
 }
 export function parseReplicates(raw: string) {
@@ -404,7 +404,7 @@ export function assayQuality(
     return {
       state: "incomplete" as const,
       reason:
-        "Enter at least2 sample replicates,3 blanks and a positive-control measured/expected response. No biological result is inferred.",
+        "Enter at least 2 sample replicates, 3 blanks and a positive-control measured/expected response. No biological result is inferred.",
     };
   positive("Positive-control expected increment", positiveExpected);
   if (!Number.isFinite(positiveMeasured))
@@ -446,7 +446,7 @@ export function caveStations(
   bounded("Station dwell", dwellMinutes, 0, 120);
   const n = Math.ceil(lengthM / spacingM);
   if (n > 500)
-    throw Error("Use a larger station spacing (maximum501 proposed stations).");
+    throw Error("Use a larger station spacing (maximum 501 proposed stations).");
   const stations = Array.from({ length: n + 1 }, (_, i) => ({
     label: `C${i + 1}`,
     distanceFromSurveyedOriginM: Math.min(i * spacingM, lengthM),

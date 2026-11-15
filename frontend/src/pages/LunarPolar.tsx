@@ -320,7 +320,7 @@ export default function LunarPolar() {
                   </dd>
                 </div>
                 <div>
-                  <dt>Modeled ice stability ≤1m</dt>
+                  <dt>Modeled ice stability ≤ 1 m</dt>
                   <dd className="mono">
                     {Math.round(
                       site.diviner.ice_stable_within_1m_fraction * 100,
@@ -341,7 +341,7 @@ export default function LunarPolar() {
                   <>
                     {" "}
                     The coldest monthly mean daily minimum air temperature in
-                    this130-cell sample is{" "}
+                    this 130-cell sample is{" "}
                     {polar.earth_coldest_cell.kelvin.toFixed(0)} K. POWER air
                     climatology and Diviner lunar surface thermal models are
                     different observables; this does not bound all Earth

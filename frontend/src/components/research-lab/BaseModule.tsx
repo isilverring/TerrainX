@@ -57,7 +57,7 @@ export default function Base({
         eyebrow="Permanent-base research · bounded reference-centre screen"
       >
         <p>
-          Explore actual LOLA slopes, Diviner stability models and2025SPICE/LOLA
+          Explore actual LOLA slopes, Diviner stability models and 2025 SPICE/LOLA
           sunlight at eight named feature centres. These are not NASA landing
           polygons, engineered access routes or certified base sites.
         </p>
@@ -166,7 +166,7 @@ export default function Base({
           <Metric label="Actual ice abundance" value="Unassessed" />
           <Metric label="Engineered access" value="Unassessed" />
           <Metric
-            label="Diviner model stability within1m"
+            label="Diviner model stability within 1 m"
             value={number(
               reference?.model_stable_ice_area_fraction == null
                 ? null

@@ -131,7 +131,7 @@ export default function TerrainPilot() {
         support improves comparability; it does not establish calibrated
         physical equivalence.
       </p>
-      <label className="research-form">Support study <select aria-label="Support study" value={filename==="terrain_support.json"?"expanded":"original"} onChange={e=>{const p=new URLSearchParams(params);p.set("study",e.target.value);setParams(p);}}><option value="original">Original two-site pilot</option><option value="expanded">Expanded18-site support study</option></select></label>
+      <label className="research-form">Support study <select aria-label="Support study" value={filename==="terrain_support.json"?"expanded":"original"} onChange={e=>{const p=new URLSearchParams(params);p.set("study",e.target.value);setParams(p);}}><option value="original">Original two-site pilot</option><option value="expanded">Expanded 18-site support study</option></select></label>
       {error && <p role="status">{error}</p>}
       {pilot && result && scenario && (
         <>

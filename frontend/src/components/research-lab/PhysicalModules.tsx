@@ -91,13 +91,13 @@ export function Thermal({
         </p>
         <div className="lab-metrics">
           <Metric
-            label="NASA POWER mean2m air temperature"
+            label="NASA POWER mean 2 m air temperature"
             value={number(air?.value, 2)}
             unit={air?.unit}
-            hint="2001–2025climatology, coarse grid"
+            hint="2001–2025 climatology, coarse grid"
           />
           <Metric
-            label="2025lowest daily minimum"
+            label="2025 lowest daily minimum"
             value={number(daily?.T2M_MIN?.min, 2)}
             unit={daily?.T2M_MIN?.unit ?? "unassessed"}
             hint={
@@ -107,7 +107,7 @@ export function Thermal({
             }
           />
           <Metric
-            label="2025highest daily maximum"
+            label="2025 highest daily maximum"
             value={number(daily?.T2M_MAX?.max, 2)}
             unit={daily?.T2M_MAX?.unit ?? "unassessed"}
             hint="Air temperature; not a rock/surface reading"
@@ -133,7 +133,7 @@ export function Thermal({
                   <YAxis
                     tick={{ fontSize: 10 }}
                     label={{
-                      value: "°C ·2m air",
+                      value: "°C · 2 m air",
                       angle: -90,
                       position: "insideLeft",
                       fill: "#97a8bd",
@@ -159,7 +159,7 @@ export function Thermal({
             </div>
             <p className="caption">
               <a href={profile!.source_url} target="_blank" rel="noreferrer">
-                Actual2025 POWER daily response
+                Actual 2025 POWER daily response
               </a>{" "}
               · All available days retained; a one-year envelope is not a
               long-term extreme or return period.
@@ -174,7 +174,7 @@ export function Thermal({
         >
           <div className="lab-input-grid">
             <Numeric
-              label="Day of2025"
+              label="Day of 2025"
               value={day}
               onChange={setDay}
               min={1}
@@ -254,7 +254,7 @@ export function Thermal({
             <>
               <div className="lab-metrics">
                 <Metric
-                  label="2025sampled Sun-centre visibility"
+                  label="2025 sampled Sun-centre visibility"
                   value={number(100 * lunar.summary.visible_fraction, 2)}
                   unit="% of hourly samples"
                 />
@@ -290,7 +290,7 @@ export function Thermal({
                 </ResponsiveContainer>
               </div>
               <label className="lab-input">
-                Inspect2025 hourly sample
+                Inspect 2025 hourly sample
                 <input
                   aria-label="Lunar hourly sample"
                   type="range"
@@ -310,7 +310,7 @@ export function Thermal({
                 </span>
               </label>
               <p className="scientific-caveat">
-                MOON_ME frame;2m observer;4km LOLA sample spacing within24km.
+                MOON_ME frame; 2 m observer; 4 km LOLA sample spacing within 24 km.
                 Interpolated sampled terrain and a0° horizon floor omit
                 unresolved/distant terrain, finite solar disk, Earth eclipses
                 and hardware. One year cannot establish permanent illumination
@@ -378,7 +378,7 @@ export function Dust({ candidate, mission }: SiteContext) {
         body: "Mars",
         rho: gasDensity(600, 210, R_MARS_CO2),
         g: GRAVITY.mars,
-        kind: "Scenario:600Pa,210K,CO2; not Jezero measurements",
+        kind: "Scenario: 600 Pa, 210 K, CO₂; not Jezero measurements",
       },
       {
         body: "Moon",
@@ -404,7 +404,7 @@ export function Dust({ candidate, mission }: SiteContext) {
       >
         <p>
           Evaluate a dry, bare, loose-grain threshold in friction velocity.
-          NASA10m wind and column AOD are not measured surface shear, particle
+          NASA 10 m wind and column AOD are not measured surface shear, particle
           composition or dust deposition.
         </p>
         <p className="lab-equation mono">
@@ -414,7 +414,7 @@ export function Dust({ candidate, mission }: SiteContext) {
         </p>
         <div className="lab-input-grid">
           <Numeric
-            label="Scenario10m wind"
+            label="Scenario 10 m wind"
             value={wind}
             onChange={setWind}
             min={0}
@@ -468,7 +468,7 @@ export function Dust({ candidate, mission }: SiteContext) {
         <InputError message={result.error} />
         {diameter !== null && (diameter < 30 || diameter > 1300) && (
           <p role="alert" className="lab-error">
-            Diameter is outside the roughly30–1300µm experimental range
+            Diameter is outside the roughly 30–1300 µm experimental range
             discussed by the source. This is an extrapolation.
           </p>
         )}
@@ -512,8 +512,8 @@ export function Dust({ candidate, mission }: SiteContext) {
           <a href={DUSTSOURCE} target="_blank" rel="noreferrer">
             Shao & Lu(2000), Eq24
           </a>{" "}
-          · gamma nominal3×10⁻⁴kg/s²; published empirical range1.65–5×10⁻⁴.
-          AOD550 remains column aerosol extinction, not dust-specific
+          · gamma nominal 3×10⁻⁴ kg/s²; published empirical range 1.65–5×10⁻⁴.
+          AOD 550 remains column aerosol extinction, not dust-specific
           composition.
         </p>
       </Panel>

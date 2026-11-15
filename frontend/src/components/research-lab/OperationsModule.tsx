@@ -169,7 +169,7 @@ export default function Operations({
           establish traversability or landing safety.
         </p>
         <label className="lab-input">
-          Optional250m Copernicus study profile
+          Optional 250 m Copernicus study profile
           <select
             value={fine?.id ?? ""}
             onChange={(e) => {
@@ -199,8 +199,8 @@ export default function Operations({
             value={fine ? "Copernicus DSM" : "SRTM"}
             hint={
               fine
-                ? "Native3arcseconds;250m analysis samples"
-                : "Coarse4km samples; broad route context only"
+                ? "Native 3 arcseconds; 250 m analysis samples"
+                : "Coarse 4 km samples; broad route context only"
             }
           />
           <Metric
@@ -217,8 +217,8 @@ export default function Operations({
         </div>
         {!fine && (
           <p className="scientific-caveat">
-            No250m refinement exists for this selected site. Its actual7×7 SRTM
-            lattice is shown with its own4km baseline. It cannot resolve local
+            No 250 m refinement exists for this selected site. Its actual 7×7 SRTM
+            lattice is shown with its own 4 km baseline. It cannot resolve local
             routes or obstacles.
           </p>
         )}

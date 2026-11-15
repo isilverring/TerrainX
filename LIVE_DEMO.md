@@ -53,7 +53,7 @@ The 130 cells and 16 automatic candidates are real screening results; four bench
 
 All cells → choose the Moon mapped-basalt lead → Plan a field study opens that cell's own observations. Full study JSON preserves all notes and settings; URL sharing preserves stations/intent/models; compact QR is geometry/default-model only. Lunar pole → select a feature; ?site= survives reload. PDS MD5 verification, model-derived thermal/stability semantics and unknown codes remain visible.
 
-For audience use the ten-scene guided narrative or DEMO.md. For the mandatory short event demo use docs/SUBMISSION_GUIDE.md (aim 29 seconds or at most 7 slides), then paste the reviewed SUBMISSION.md draft into your team page yourself. Team details, recording/upload, terms and actual submission are human actions.
+For audience use the eleven-scene guided narrative or DEMO.md. For the mandatory short event demo use docs/SUBMISSION_GUIDE.md (aim 29 seconds or at most 7 slides), then paste the reviewed SUBMISSION.md draft into your team page yourself. Team details, recording/upload, terms and actual submission are human actions.
 
 Prepared old builds intentionally stay available until an explicit update. To upgrade: reconnect → Research tools → Offline → Prepare offline demo → Use prepared update and reload (if shown). Rehearse offline again. Do not clear saved research just to refresh assets. Exact release/source/rollback metadata is in DEPLOYMENT.md.
 

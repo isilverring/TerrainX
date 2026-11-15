@@ -38,6 +38,7 @@ import {
   type ScienceRelease,
 } from "./lib/release";
 import "./styles/research.css";
+import "./styles/showcase.css";
 import "./styles/fieldstudy.css";
 import "./styles/lenses.css";
 import "./styles/palette.css";

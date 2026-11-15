@@ -30,7 +30,7 @@ function EvidenceCase({ item }: { item: Case }) {
         <h3>Published positions, separate from the screening centre</h3>
         <p className="mono">
           Cell centre {item.candidate_center.latitude.toFixed(3)}°,{" "}
-          {item.candidate_center.longitude.toFixed(3)}° · approximate24 km
+          {item.candidate_center.longitude.toFixed(3)}° · approximate 24 km
           terrain window
         </p>
         {item.reported_points.map((p) => (

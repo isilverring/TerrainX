@@ -41,7 +41,7 @@ export default function SupportSensitivity({
             across{" "}
             {result.scenarios.filter((s) => s.fidelity.value !== null).length}{" "}
             valid support/offset choices. Actual Copernicus DSM and PDS
-            elevations use8/12 km box support,4 km spacing and the same24 km
+            elevations use 8/12 km box support, 4 km spacing and the same 24 km
             centre window.
           </p>
           <p className="caption">

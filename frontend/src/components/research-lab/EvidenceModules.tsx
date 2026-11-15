@@ -23,8 +23,8 @@ import {
 type Props = SiteContext & { records: EvidenceRecord[] };
 export function Minerals({ candidate, mission, records }: Props) {
   const [rows, setRows] = useState([
-      { name: "Constituent1", value: null as number | null },
-      { name: "Constituent2", value: null as number | null },
+      { name: "Constituent 1", value: null as number | null },
+      { name: "Constituent 2", value: null as number | null },
     ]),
     [tolerance, setTolerance] = useState<number | null>(5);
   const result = calculate(() => {
@@ -132,7 +132,7 @@ export function Minerals({ candidate, mission, records }: Props) {
         <Numeric
           label="Declared closure tolerance"
           value={tolerance}
-          unit="percentage points around100%"
+          unit="percentage points around 100%"
           min={0}
           max={25}
           onChange={setTolerance}
@@ -245,7 +245,7 @@ export function Resources({ candidate, mission, records }: Props) {
         <p className="caption">
           This preset uses the source's5.6±2.9wt% ejecta estimate as a
           laboratory-mixture scenario. It is not an observation at{" "}
-          {candidate.name} or another lunar feature. The source spread is1SD,
+          {candidate.name} or another lunar feature. The source spread is 1 SD,
           not a guaranteed range.
         </p>
         <div className="lab-input-grid">
@@ -287,7 +287,7 @@ export function Resources({ candidate, mission, records }: Props) {
           />
           {result.value?.rangeKg && (
             <Metric
-              label="Propagated source ±1SD endpoints"
+              label="Propagated source ±1 SD endpoints"
               value={result.value.rangeKg.map((v) => number(v, 3)).join(" – ")}
               unit="kg"
               hint="Fixed bulk mass/efficiency; not full experimental uncertainty"
@@ -367,7 +367,7 @@ export function Biology({ candidate, mission, records }: Props) {
             <textarea
               value={sample}
               onChange={(e) => setSample(e.target.value)}
-              placeholder="At least2 comma-separated values"
+              placeholder="At least 2 comma-separated values"
             />
           </label>
           <label className="lab-input">
@@ -375,7 +375,7 @@ export function Biology({ candidate, mission, records }: Props) {
             <textarea
               value={blank}
               onChange={(e) => setBlank(e.target.value)}
-              placeholder="At least3 comma-separated values"
+              placeholder="At least 3 comma-separated values"
             />
           </label>
           <label className="lab-input">
@@ -509,7 +509,7 @@ export function Caves({ candidate, mission, records }: Props) {
       </Panel>
       <Panel title="Plan a relative mapping and sensor transect">
         <p>
-          Offsets start from a future surveyed origin. The100m default is a user
+          Offsets start from a future surveyed origin. The 100 m default is a user
           scenario, not a measured accessible passage. No absolute coordinates
           or safe-route claim are generated.
         </p>

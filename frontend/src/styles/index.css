@@ -176,10 +176,16 @@ small {
   background: #62d7c8;
   border-color: #62d7c8;
 }
+/* Tailwind's .outline utility shares this class name; keep the outline for keyboard focus only. */
 .button.outline {
+  outline-style: none;
   background: transparent;
   color: var(--earth);
   border-color: #35c3b070;
+}
+.button.outline:focus-visible {
+  outline: 2px solid var(--earth);
+  outline-offset: 3px;
 }
 .button.outline:hover {
   background: #35c3b00c;

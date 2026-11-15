@@ -823,7 +823,7 @@ export default function TerrainViewer({
           <button
             className={mode === "context" ? "active" : ""}
             disabled={!!target.reference_id}
-            title={target.reference_id ? "No96 km context window exists for this polar reference; the measured24 km lattice remains available." : undefined}
+            title={target.reference_id ? "No 96 km context window exists for this polar reference; the measured 24 km lattice remains available." : undefined}
             aria-pressed={mode === "context"}
             onClick={() => setMode("context")}
           >

@@ -52,7 +52,7 @@ Open these in an incognito window:
 - `/#/explorer?mission=jezero`: map and shortlist (Esri/NASA tiles need internet; science panels work if tiles fail).
 - `/#/cells?mission=mare-crisium`: shows the first lunar-eligible cell. This also proves the browser verified `cell_search.json` against the release manifest; a checksum failure would show an error instead.
 - `/#/lunar-pole`: "LOLA LDEM_16 verified" badge and eight polar sites.
-- `/#/demo?presentation=1`: ten scenes, ← → keys.
+- `/#/demo?presentation=1`: eleven scenes (the tenth is the Research Lab), ← → keys.
 - `/#/offline`: **Prepare offline demo** completes (service worker served with `no-cache`).
 
 From a terminal, the production preview workflows can run against the live URL:

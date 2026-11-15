@@ -4,6 +4,7 @@ import Globe from "../components/Globe";
 import { useData } from "../lib/data";
 import BeyondKnown from "../components/BeyondKnown";
 import FindingsStrip from "../components/FindingsStrip";
+import ChallengeShowcase from "../components/ChallengeShowcase";
 export default function Landing() {
   const { summary } = useData();
   const stats: [number, string][] = [
@@ -28,16 +29,18 @@ export default function Landing() {
             <br className="desktop-break" /> technology and operations of
             another world.
           </p>
-          <Link className="button primary launch" to="/explorer?cohort=original&polar=none">
-            Launch Discovery Engine
-            <ArrowRight size={24} />
-          </Link>
-          <Link
-            className="button outline judge-entry"
-            to="/guide?cohort=expanded&polar=none"
-          >
-            Start the five-step judge path
-          </Link>
+          <div className="hero-actions">
+            <Link className="button primary launch" to="/explorer?cohort=original&polar=none">
+              Launch Discovery Engine
+              <ArrowRight size={24} />
+            </Link>
+            <Link
+              className="button outline judge-entry"
+              to="/guide?cohort=expanded&polar=none"
+            >
+              Start the five-step judge path
+            </Link>
+          </div>
           <dl className="hero-stats" aria-label="Current dataset">
             {stats.map(([value, label]) => (
               <div key={label}>
@@ -48,7 +51,10 @@ export default function Landing() {
           </dl>
           <div className="powered">
             Powered by open NASA science data
-            <span>NASA POWER / SRTM / MOLA / LOLA</span>
+            <span>
+              NASA POWER / SRTM / MOLA / LOLA / Diviner / SPICE / GIBS · ESA
+              Copernicus DEM
+            </span>
           </div>
         </div>
         <Globe />
@@ -83,6 +89,7 @@ export default function Landing() {
         ))}
       </section>
       <FindingsStrip />
+      <ChallengeShowcase />
       <BeyondKnown />
       <section className="research-entry">
         <div>

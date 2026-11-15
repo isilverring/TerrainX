@@ -1,3 +1,4 @@
+import { LAB_MODULES } from "../lib/researchLab";
 import { useCallback, useEffect, useMemo, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
@@ -577,6 +578,31 @@ export default function Demo() {
         ) : (
           <p>No candidate with a terrain grid for this mission.</p>
         ),
+    },
+    {
+      kicker: "Scene 10 · The open questions",
+      title: "What a score cannot answer becomes a field protocol.",
+      body: (
+        <>
+          <ol className="demo-lab-grid">
+            {LAB_MODULES.map((m, i) => (
+              <li key={m.id}>
+                <span className="mono">{String(i + 1).padStart(2, "0")}</span>
+                <b>{m.title}</b>
+                <span>{m.question}</span>
+              </li>
+            ))}
+          </ol>
+          <p className="demo-sub">
+            Each Research Lab tool separates measured, modeled and unknown evidence, then writes
+            the measurements that would settle the question into the Field Study Builder. No tool
+            turns a model into an observation.
+          </p>
+          <Link className="button primary" to="/research-lab">
+            Open the Research Lab
+          </Link>
+        </>
+      ),
     },
     {
       kicker: "Final",

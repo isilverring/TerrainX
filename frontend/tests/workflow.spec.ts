@@ -455,13 +455,13 @@ test("Expedition Packet exports JSON, CSV and GeoJSON that match the displayed s
   ).toBeVisible();
 });
 
-test("guided demo navigates ten scenes with real values and keyboard controls", async ({
+test("guided demo navigates eleven scenes with real values and keyboard controls", async ({
   page,
 }) => {
   await page.goto("/#/");
   await page.getByRole("link", { name: /Guided demo/ }).click();
   await expect(page.getByRole("dialog")).toBeVisible();
-  await expect(page.locator(".demo-count")).toHaveText("1 / 10");
+  await expect(page.locator(".demo-count")).toHaveText("1 / 11");
   await page.keyboard.press("ArrowRight");
   await page.keyboard.press("ArrowRight");
   await expect(page.locator(".demo-funnel")).toContainText("130");
@@ -478,6 +478,8 @@ test("guided demo navigates ten scenes with real values and keyboard controls", 
   await expect(page.locator(".demo-field-stats")).toContainText(
     "proposed stations",
   );
+  await page.getByRole("button", { name: /Next/ }).click();
+  await expect(page.locator(".demo-lab-grid li")).toHaveCount(8);
   await page.keyboard.press("End");
   await expect(page.getByText("Earth is the training ground.")).toBeVisible();
   await page.keyboard.press("Escape");

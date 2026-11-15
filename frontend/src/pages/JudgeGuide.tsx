@@ -130,7 +130,7 @@ export default function JudgeGuide() {
         aria-label={`Step ${step + 1}: ${steps[step]}`}
       >
         <p className="document-label">
-          {step + 1} /5 · {steps[step]}
+          {step + 1} / 5 · {steps[step]}
         </p>
         {step === 0 && (
           <>
@@ -161,8 +161,8 @@ export default function JudgeGuide() {
             <p>
               NASA POWER supplied the regional search and point climatology.
               SRTM supplies the coarse terrain samples; mapped geology adds
-              regional context. The original16-candidate study and
-              expanded130-cell collection are explicitly separate.
+              regional context. The original 16-candidate study and
+              expanded 130-cell collection are explicitly separate.
             </p>
             <p>
               {cells.value.missions[mission].shortlist.length} geographically
@@ -249,7 +249,7 @@ export default function JudgeGuide() {
         >
           Previous
         </button>
-        <span>{step + 1} /5</span>
+        <span>{step + 1} / 5</span>
         <button
           className="button primary"
           disabled={step === 4}

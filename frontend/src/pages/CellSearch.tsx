@@ -414,7 +414,7 @@ export default function CellSearch() {
             <div className="cell-dims">
               <h3>
                 Earth descriptors{" "}
-                <small>percentile within this130-cell sample</small>
+                <small>percentile within this 130-cell sample</small>
               </h3>
               {Object.entries(DIMENSION_LABELS).map(([k, l]) => {
                 const v = pick.dimensions?.[k];
