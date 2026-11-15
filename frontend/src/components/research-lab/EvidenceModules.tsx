@@ -119,7 +119,7 @@ export function Minerals({ candidate, mission, records }: Props) {
             onClick={() =>
               setRows([
                 ...rows,
-                { name: `Constituent${rows.length + 1}`, value: null },
+                { name: `Constituent ${rows.length + 1}`, value: null },
               ])
             }
             disabled={rows.length >= 10}
