@@ -10,6 +10,8 @@ All work stays in **D:\TerrainX**, tracking `origin/main`. Private repository: [
 
 ## Current audited release
 
+Usability follow-up: [docs/UX_REFINEMENT.md](docs/UX_REFINEMENT.md). Discovery now preserves filters/selection through dossiers, offers a clearer evidence-to-experiment workflow and works as a complete mobile page. Comparisons and field plans retain their collection/planetary context. Production/public verification status is recorded in STATUS.md.
+
 The six approved challenge improvements are implemented. Canonical handoff/checklist: [docs/CHALLENGE_COMPLETION.md](docs/CHALLENGE_COMPLETION.md). Local acceptance: **85 Python tests plus independent reproduction,94 TypeScript tests,43 production browser workflows and90 responsive route/width cases**. Public version6/source e201ffb passes all43 fresh unauthenticated workflows and21 focused public visual cases. Exact publication/rollback details: [DEPLOYMENT.md](DEPLOYMENT.md).
 
 Original study and Expanded search are explicit collections. The latter exposes134 unique profiles (130 screened cells +4 benchmarks) through map, DNA, Passport, comparison and field planning while retaining frozen original records. Polar references keep their own identities through dossiers and field replay; polar utility is unassessed, coverage0 and combined priority null. The original130-cell/16-candidate/4-benchmark results remain unchanged.

@@ -707,6 +707,7 @@ export default function EarthMap({
   return (
     <section
       className="atlas-panel"
+      id="earth-atlas"
       aria-label="Interactive Earth discovery atlas"
     >
       <div className="atlas-heading">

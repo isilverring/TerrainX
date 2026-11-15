@@ -4,7 +4,7 @@
 
 ## Previous completed release
 
-Usability U1 implemented and verified:99 unit tests/strict TypeScript/3 browser workflows. Remaining new scope: U2 visual/workflow refinements and mobile clipping, U3 full production/public acceptance. See docs/UX_REFINEMENT.md; source data unchanged.
+Usability U1–U2 implemented: state/comparison repairs, wider map, task trail, score guidance, filter recovery, selected-site planning and mobile clipping fixed. Additional planner collection/shared-context safeguards are included.99 unit tests/strict TypeScript/19 focused browser flows pass. Remaining new scope: U3 unchanged production regression, deployment and public acceptance. See docs/UX_REFINEMENT.md; scientific source data unchanged.
 
 **All six approved improvements are implemented, pushed and publicly verified. No software/deployment step remains pending.** Work stays in D:\TerrainX, private https://github.com/isilverring/TerrainX, main. Canonical completed checklist and agent handoff: docs/CHALLENGE_COMPLETION.md. Human video/team/terms/actual submission remain with the user.
 

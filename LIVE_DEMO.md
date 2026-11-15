@@ -14,6 +14,8 @@ The audience URL is **https://terrainx-discovery-lab.comfybay1.chatgpt.site**. P
 
 ## Run a local production fallback
 
+Discovery convenience: use **How to read F · U · C** to explain the scores. Search/region/evidence filters stay in the copied URL; **Reset filters** restores the list. On phones, use **Map / Results / Selected site** to jump between sections. From a selected site, follow **Inspect evidence → Prepare experiment**, or open the Passport. **Geology & climate context** expands the supporting summary. Field planning only offers candidates from the labeled collection; full shared plans pin their own context.
+
 Install Node 24.x. In PowerShell:
 
 ```powershell

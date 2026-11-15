@@ -26,12 +26,12 @@ import {
   X,
 } from "lucide-react";
 import { DataContext, useData, number } from "../lib/data";
+import ResearchTrail from "../components/ResearchTrail";
 import { applyScenarios, useModel } from "../lib/scoring";
 import { defaultScenario } from "../lib/counterfactual";
 import { makeSnapshot, checkSnapshotRelease } from "../lib/snapshots";
 import { useScienceFile } from "../lib/scienceFile";
-import { currentRelease } from "../lib/release";
-import { fieldSitesSchema, studyPath } from "../lib/collections";
+import { studyPath } from "../lib/collections";
 import { siteEvidenceSchema } from "../lib/siteEvidence";
 import type { Mission } from "../lib/models";
 import { download } from "../lib/packet";
@@ -85,32 +85,24 @@ const slug = (s: string) =>
 export default function FieldStudy() {
   const base = useData(),
     [params] = useSearchParams();
-  const { value: extra, error } = useScienceFile(
-    "field_candidates.json",
-    fieldSitesSchema,
-    "Historical release has no expanded field-site file.",
-  );
-  const sourceProtocol = params.get("protocol") === "source";
+  let sharedProtocol = false;
+  try {
+    sharedProtocol =
+      !!params.get("share") &&
+      decodeShare(params.get("share")!).e === "site-evidence";
+  } catch {
+    /* Damaged payload is refused by the editor. */
+  }
+  const sourceProtocol = params.get("protocol") === "source" || sharedProtocol;
   const evidence = useScienceFile(
     "site_evidence.json",
     siteEvidenceSchema,
     "Requested literature-informed protocol is absent from this pinned release.",
     sourceProtocol,
   );
-  const merged = useMemo(
-    () => ({
-      ...base,
-      candidates: [
-        ...new Map(
-          [...(extra?.candidates ?? []), ...base.candidates].map((c) => [
-            c.id,
-            c,
-          ]),
-        ).values(),
-      ],
-    }),
-    [base, extra],
-  );
+  // CollectionScope owns the candidate pool. Never expand it behind an
+  // Original-study label or reintroduce primary-target assessments into polar data.
+  const merged = base;
   const proposal = useMemo(() => {
     if (!sourceProtocol || !evidence.value) return merged;
     return {
@@ -160,12 +152,6 @@ export default function FieldStudy() {
         {evidence.error && <p role="alert">{evidence.error}</p>}
       </main>
     );
-  if (currentRelease()?.files["field_candidates.json"] && !extra && !error)
-    return (
-      <main className="document-page">
-        <p>Validating field-site observations…</p>
-      </main>
-    );
   if (
     params.get("id") &&
     !proposal.candidates.some((c) => c.id === params.get("id"))
@@ -174,8 +160,8 @@ export default function FieldStudy() {
       <main className="document-page">
         <h1>Requested field site is unavailable</h1>
         <p>
-          {error ??
-            "The candidate is absent from the pinned release. No substitute site was opened."}
+          The candidate is absent from this pinned collection. No substitute
+          site was opened. Expanded search is a separate collection.
         </p>
         <Link to="/cells">Return to screened cells</Link>
       </main>
@@ -217,7 +203,9 @@ export default function FieldStudy() {
     );
   return (
     <DataContext.Provider value={proposal}>
-      <FieldStudyEditor />
+      <FieldStudyEditor
+        key={`${base.release?.release_id}:${base.collection}:${base.target_reference ?? "primary"}:${sourceProtocol}:${params.get("share") ?? "general"}`}
+      />
     </DataContext.Provider>
   );
 }
@@ -442,6 +430,12 @@ function FieldStudyEditor() {
   return (
     <main className="document-page field-page">
       <BackLink mission={study.mission} />
+      <ResearchTrail
+        id={candidate.id}
+        mission={study.mission}
+        stage="prepare"
+        scenario={study.snapshot.scenarios[study.mission]}
+      />
       <p className="release-note">
         Scores use this field study’s saved model. Station coordinates and
         protocols are proposals, never verified NASA observations.
@@ -1256,11 +1250,21 @@ function FieldStudyEditor() {
           </div>
         )}
         <p>
-          <Link to={`/research?id=${candidate.id}&mission=${study.mission}`}>
+          <Link
+            to={studyPath(
+              `/research?id=${candidate.id}&mission=${study.mission}`,
+              params.toString(),
+            )}
+          >
             Open the research workspace
           </Link>{" "}
           ·{" "}
-          <Link to={`/site/${candidate.id}?mission=${study.mission}`}>
+          <Link
+            to={studyPath(
+              `/site/${candidate.id}?mission=${study.mission}&atlas_id=${candidate.id}&model=${encodeURIComponent(JSON.stringify(study.snapshot.scenarios[study.mission]))}`,
+              params.toString(),
+            )}
+          >
             Analog DNA for this candidate
           </Link>
         </p>

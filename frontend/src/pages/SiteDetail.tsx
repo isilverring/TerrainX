@@ -7,6 +7,7 @@ import { scienceAssetUrl } from "../lib/release";
 import { studyPath } from "../lib/collections";
 import SupportSensitivity from "../components/SupportSensitivity";
 import SiteEvidence from "../components/SiteEvidence";
+import ResearchTrail from "../components/ResearchTrail";
 import {
   BackLink,
   EvidenceTag,
@@ -43,6 +44,7 @@ export default function SiteDetail() {
   return (
     <main className="document-page detail-page">
       <BackLink mission={mission} />
+      <ResearchTrail id={c.id} mission={mission} stage="inspect" />
       <header className="document-title">
         <div>
           <p className="document-label">
@@ -60,8 +62,8 @@ export default function SiteDetail() {
         <SiteActions id={c.id} mission={mission} />
       </header>
       <ScoreStrip assessment={a} />
-      <SupportSensitivity id={c.id} mission={mission}/>
-      <SiteEvidence id={c.id}/>
+      <SupportSensitivity id={c.id} mission={mission} />
+      <SiteEvidence id={c.id} />
       <p className="score-explainer">
         F is exploratory terrain fidelity. U is model-based Earth experiment
         suitability. C is evidence coverage. These are separate concepts, never
@@ -135,7 +137,10 @@ export default function SiteDetail() {
         </div>
         <Link
           className="button outline"
-          to={studyPath(`/research?mission=${mission}&id=${c.id}`,params.toString())}
+          to={studyPath(
+            `/research?mission=${mission}&id=${c.id}`,
+            params.toString(),
+          )}
         >
           Save research snapshot
         </Link>
@@ -150,14 +155,20 @@ export default function SiteDetail() {
       </section>
       <Link
         className="button primary"
-        to={studyPath(`/passport/${c.id}?mission=${mission}`,params.toString())}
+        to={studyPath(
+          `/passport/${c.id}?mission=${mission}`,
+          params.toString(),
+        )}
       >
         Prepare Analog Passport
         <ArrowRight size={18} />
       </Link>{" "}
       <Link
         className="button outline"
-        to={studyPath(`/field-study?id=${c.id}&mission=${mission}`,params.toString())}
+        to={studyPath(
+          `/field-study?id=${c.id}&mission=${mission}`,
+          params.toString(),
+        )}
       >
         Plan a field study
         <ArrowRight size={18} />

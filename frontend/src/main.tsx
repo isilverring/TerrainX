@@ -42,6 +42,7 @@ import "./styles/fieldstudy.css";
 import "./styles/lenses.css";
 import "./styles/palette.css";
 import "./styles/cells.css";
+import "./styles/workflow.css";
 import {
   initialPresentation,
   initialPresentationModels,

@@ -1,8 +1,11 @@
 import { useModel } from "../lib/scoring";
 import type { Weights } from "../lib/scoring";
 import type { Mission } from "../lib/models";
+import { Link, useLocation } from "react-router-dom";
+import { studyPath } from "../lib/collections";
 export default function ModelControls({ mission }: { mission: Mission }) {
   const model = useModel();
+  const { search } = useLocation();
   const labels: Record<keyof Weights, string> = {
     geology: "Geology",
     terrain: "Terrain",
@@ -20,9 +23,9 @@ export default function ModelControls({ mission }: { mission: Mission }) {
         Active α {model.scenarios[mission].alpha.toFixed(2)} · minimum C{" "}
         {(100 * model.scenarios[mission].minCoverage).toFixed(0)}%
       </p>
-      <a href={`#/what-if?mission=${mission}`}>
+      <Link to={studyPath(`/what-if?mission=${mission}`, search)}>
         Edit fidelity tolerances and full model
-      </a>
+      </Link>
       {(Object.keys(labels) as (keyof Weights)[]).map((key) => (
         <label key={key} htmlFor={`weight-${key}`}>
           <span>

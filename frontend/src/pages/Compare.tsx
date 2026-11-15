@@ -82,16 +82,27 @@ export default function Compare() {
     [params, setParams] = useSearchParams();
   const mission: Mission =
     params.get("mission") === "mare-crisium" ? "mare-crisium" : "jezero";
-  const rawIds=params.get("ids") ?? "";
-  const ids = comparisonIds(rawIds,data.candidates.map(c=>c.id),MAX_COMPARE);
+  const rawIds = params.get("ids") ?? "";
+  const ids = comparisonIds(
+    rawIds,
+    data.candidates.map((c) => c.id),
+    MAX_COMPARE,
+  );
   const picked = ids
     .map((id) => data.candidates.find((c) => c.id === id))
     .filter((c): c is Candidate => !!c);
   const target = data.targets.find((t) => t.id === mission)!;
   const setIds = (next: string[]) => {
-    const p=new URLSearchParams(params);p.set("ids",next.join(","));p.set("atlas_compare",next.join(",") || ",");setParams(p);
+    const p = new URLSearchParams(params);
+    p.set("ids", next.join(","));
+    p.set("atlas_compare", next.join(",") || ",");
+    setParams(p);
   };
-  const chooseMission=(next:Mission)=>{const p=new URLSearchParams(params);p.set("mission",next);setParams(p);};
+  const chooseMission = (next: Mission) => {
+    const p = new URLSearchParams(params);
+    p.set("mission", next);
+    setParams(p);
+  };
   const span = picked.length + 2;
   const climate = (c: Candidate) => c.climate;
   return (
@@ -115,7 +126,11 @@ export default function Compare() {
             className={mission === "jezero" ? "active" : ""}
             aria-pressed={mission === "jezero"}
             disabled={!!data.target_reference}
-            title={data.target_reference?"Leave the lunar polar reference before selecting Mars":undefined}
+            title={
+              data.target_reference
+                ? "Leave the lunar polar reference before selecting Mars"
+                : undefined
+            }
             onClick={() => chooseMission("jezero")}
           >
             <MarsGlyph size={15} /> Mars · Jezero
@@ -125,18 +140,30 @@ export default function Compare() {
             aria-pressed={mission === "mare-crisium"}
             onClick={() => chooseMission("mare-crisium")}
           >
-            <MoonGlyph size={15} /> Moon · {data.targets.find(t=>t.id==="mare-crisium")?.name}
+            <MoonGlyph size={15} /> Moon ·{" "}
+            {data.targets.find((t) => t.id === "mare-crisium")?.name}
           </button>
         </div>
       </header>
-      {rawIds.split(",").filter(Boolean).some(id=>!data.candidates.some(c=>c.id===id)) && <p className="warning-inline" role="status">Unavailable comparison sites were excluded from this collection; no measurements were substituted.</p>}
+      {rawIds
+        .split(",")
+        .filter(Boolean)
+        .some((id) => !data.candidates.some((c) => c.id === id)) && (
+        <p className="warning-inline" role="status">
+          Unavailable comparison sites were excluded from this collection; no
+          measurements were substituted.
+        </p>
+      )}
       {picked.length < 2 ? (
         <section className="science-section">
           <p>
             Pick two or three candidates with the compare toggle in the
             Discovery list.
           </p>
-          <Link className="button primary" to={studyPath(`/explorer?mission=${mission}`,params.toString())}>
+          <Link
+            className="button primary"
+            to={studyPath(`/explorer?mission=${mission}`, params.toString())}
+          >
             Open Discovery
           </Link>
         </section>
@@ -167,7 +194,12 @@ export default function Compare() {
                       <strong>{c.name}</strong>
                       <span className="mono">{coordinates(c)}</span>
                       <span className="compare-links">
-                        <Link to={studyPath(`/site/${c.id}?mission=${mission}&atlas_id=${c.id}`,params.toString())}>
+                        <Link
+                          to={studyPath(
+                            `/site/${c.id}?mission=${mission}&atlas_id=${c.id}`,
+                            params.toString(),
+                          )}
+                        >
                           Analog DNA <ArrowUpRight size={12} />
                         </Link>
                         <button

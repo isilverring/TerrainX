@@ -64,6 +64,10 @@ export function Header({
       ],
     },
   ];
+  const selectedSite =
+    location.pathname.match(/^\/(?:site|passport|expedition)\/([^/]+)$/)?.[1] ??
+    new URLSearchParams(location.search).get("id") ??
+    new URLSearchParams(location.search).get("atlas_id");
   return (
     <header
       className={`app-header ${landing ? "landing-header" : ""}`}
@@ -90,7 +94,11 @@ export function Header({
       </a>
       <Link
         className="brand"
-        to={presentation ? "/?presentation=0&cohort=original&polar=none" : "/?cohort=original&polar=none"}
+        to={
+          presentation
+            ? "/?presentation=0&cohort=original&polar=none"
+            : "/?cohort=original&polar=none"
+        }
         aria-label="TerrainX home"
         onClick={onEndPresentation}
       >
@@ -125,7 +133,15 @@ export function Header({
               ["/cases", "Cases"],
               ["/field-study", "Field study"],
             ].map(([path, label]) => (
-              <NavLink key={path} to={studyPath(path, location.search)}>
+              <NavLink
+                key={path}
+                to={studyPath(
+                  path === "/field-study" && selectedSite
+                    ? `${path}?id=${encodeURIComponent(selectedSite)}`
+                    : path,
+                  location.search,
+                )}
+              >
                 {label}
               </NavLink>
             ))}
@@ -273,11 +289,14 @@ export function SourceLink({
 }
 export function BackLink({ mission }: { mission: Mission }) {
   const location = useLocation();
-  const {id}=useParams();
+  const { id } = useParams();
   return (
     <Link
       className="back-link"
-      to={studyPath(`/explorer?mission=${mission}${id?`&id=${encodeURIComponent(id)}&atlas_id=${encodeURIComponent(id)}`:""}`, location.search)}
+      to={studyPath(
+        `/explorer?mission=${mission}${id ? `&id=${encodeURIComponent(id)}&atlas_id=${encodeURIComponent(id)}` : ""}`,
+        location.search,
+      )}
     >
       <ArrowLeft size={16} />
       Discovery atlas
@@ -290,14 +309,20 @@ export function SiteActions({ id, mission }: { id: string; mission: Mission }) {
     <div className="site-actions">
       <Link
         className="button primary"
-        to={studyPath(`/site/${id}?mission=${mission}&atlas_id=${encodeURIComponent(id)}`, location.search)}
+        to={studyPath(
+          `/site/${id}?mission=${mission}&atlas_id=${encodeURIComponent(id)}`,
+          location.search,
+        )}
       >
         <Microscope size={17} />
         Analog DNA
       </Link>
       <Link
         className="button outline"
-        to={studyPath(`/passport/${id}?mission=${mission}&atlas_id=${encodeURIComponent(id)}`, location.search)}
+        to={studyPath(
+          `/passport/${id}?mission=${mission}&atlas_id=${encodeURIComponent(id)}`,
+          location.search,
+        )}
       >
         <FileText size={17} />
         Analog Passport

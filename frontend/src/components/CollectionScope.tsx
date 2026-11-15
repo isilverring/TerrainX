@@ -12,6 +12,7 @@ import {
 import { lunarPolarSchema } from "../lib/lunarPolar";
 import { polarReference } from "../lib/polarReference";
 import type { Dataset } from "../lib/models";
+import { decodeShare } from "../lib/fieldStudy";
 
 export default function CollectionScope({ children }: { children: ReactNode }) {
   const base = useData(),
@@ -19,6 +20,15 @@ export default function CollectionScope({ children }: { children: ReactNode }) {
     location = useLocation(),
     [params, setParams] = useSearchParams();
   const navigate = useNavigate();
+  const shareCode = params.get("share");
+  const shared = useMemo(() => {
+    if (location.pathname !== "/field-study" || !shareCode) return null;
+    try {
+      return decodeShare(shareCode);
+    } catch {
+      return null;
+    }
+  }, [location.pathname, shareCode]);
   const [retained, setRetained] = useState<Collection>(() =>
     params.get("cohort") === "expanded" ? "expanded" : "original",
   );
@@ -30,28 +40,60 @@ export default function CollectionScope({ children }: { children: ReactNode }) {
   const [retainedPolar, setRetainedPolar] = useState<string | null>(
     params.get("polar"),
   );
-  const reference = params.has("polar") ? params.get("polar") : retainedPolar;
+  const reference = shared
+    ? (shared.p?.replace("lunar-polar:", "") ?? "none")
+    : params.has("polar")
+      ? params.get("polar")
+      : retainedPolar;
   const polarId = reference && reference !== "none" ? reference : null;
   useLayoutEffect(() => {
     if (params.has("polar")) setRetainedPolar(params.get("polar"));
   }, [params]);
   const mission =
-    params.get("mission") === "mare-crisium"
+    shared?.m ??
+    (params.get("mission") === "mare-crisium"
       ? "mare-crisium"
       : params.get("mission") === "jezero"
         ? "jezero"
-        : retainedMission;
+        : retainedMission);
   useLayoutEffect(() => {
     if (params.has("mission")) setRetainedMission(mission);
   }, [mission, params]);
   const collection: Collection =
-    polarId || location.pathname === "/cells"
+    shared?.o ??
+    (polarId || location.pathname === "/cells"
       ? "expanded"
       : params.get("cohort") === "expanded"
         ? "expanded"
         : params.get("cohort") === "original"
           ? "original"
-          : retained;
+          : retained);
+  useLayoutEffect(() => {
+    if (!shared) return;
+    // A full shared plan owns its context, including when copied without the
+    // redundant URL fields. Canonicalize before links leave this workspace.
+    const p = new URLSearchParams(window.location.hash.split("?")[1]);
+    const desired = {
+      cohort: shared.o ?? collection,
+      mission: shared.m,
+      polar: shared.p?.replace("lunar-polar:", "") ?? "none",
+    };
+    let changed = false;
+    for (const [key, value] of Object.entries(desired))
+      if (p.get(key) !== value) {
+        p.set(key, value);
+        changed = true;
+      }
+    if (shared.e && p.get("protocol") !== "source") {
+      p.set("protocol", "source");
+      changed = true;
+    }
+    if (!shared.e && p.has("protocol")) {
+      p.delete("protocol");
+      changed = true;
+    }
+    if (changed) setParams(p, { replace: true });
+  }, [shared, collection, setParams]);
   useLayoutEffect(() => {
     if (params.has("cohort"))
       setRetained(
@@ -119,7 +161,7 @@ export default function CollectionScope({ children }: { children: ReactNode }) {
               Study collection{" "}
               <select
                 aria-label="Study collection"
-                disabled={!!polarId}
+                disabled={!!polarId || !!shared}
                 value={collection}
                 onChange={(e) => {
                   const next = e.target.value as Collection;
@@ -157,6 +199,12 @@ export default function CollectionScope({ children }: { children: ReactNode }) {
                 · U unassessed{" "}
                 <button
                   className="link-button"
+                  disabled={!!shared}
+                  title={
+                    shared
+                      ? "Start a separate plan before leaving the pinned reference"
+                      : undefined
+                  }
                   onClick={() => {
                     const p = new URLSearchParams(params);
                     p.set("polar", "none");
@@ -165,6 +213,22 @@ export default function CollectionScope({ children }: { children: ReactNode }) {
                   }}
                 >
                   Leave polar reference
+                </button>
+              </span>
+            )}
+            {shared && (
+              <span>
+                Shared-plan context is pinned.{" "}
+                <button
+                  className="link-button"
+                  onClick={() => {
+                    const p = new URLSearchParams(params);
+                    p.delete("share");
+                    p.delete("protocol");
+                    setParams(p);
+                  }}
+                >
+                  Start a separate plan
                 </button>
               </span>
             )}

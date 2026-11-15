@@ -18,6 +18,8 @@ import {
 import QrCode from "../components/QrCode";
 import SupportSensitivity from "../components/SupportSensitivity";
 import SiteEvidence from "../components/SiteEvidence";
+import ResearchTrail from "../components/ResearchTrail";
+import { studyPath } from "../lib/collections";
 import { useScienceFile } from "../lib/scienceFile";
 import { siteEvidenceSchema } from "../lib/siteEvidence";
 import { MeasureNext } from "../components/FrontierParts";
@@ -159,7 +161,10 @@ function PassportBody({
           ) : (
             <Link
               className="button outline"
-              to={`/expedition/${c.id}?mission=${mission}`}
+              to={studyPath(
+                `/expedition/${c.id}?mission=${mission}`,
+                params.toString(),
+              )}
             >
               <PackageOpen size={16} /> Generate Expedition Packet
             </Link>
@@ -170,6 +175,7 @@ function PassportBody({
           </button>
         </div>
       </div>
+      <ResearchTrail id={c.id} mission={mission} stage="prepare" />
       <header className="passport-header">
         <div>
           <img
