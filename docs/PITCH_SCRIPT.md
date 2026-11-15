@@ -70,8 +70,8 @@ Footer: "Open NASA data in, testable science out."
 
 **Say (≈12 s):** This isn't a one-off ranking. Mission teams can justify a test site, field scientists leave with a protocol, and students see what makes Mars, Mars. Everything is open and reproducible, and every gap becomes the next research question. That's how we hope it moves exploration science forward.
 
-## 7 · Try it
-**On screen:** "Earth is our first planetary laboratory." Eight compact feature tiles sit beside a QR code to https://terrainx-nasa.vercel.app:
+## 7 · What you can do
+**On screen:** "One workflow, eight working tools." Eight tiles:
 1. Discovery atlas
 2. Analog DNA
 3. What-if & lenses
@@ -81,11 +81,13 @@ Footer: "Open NASA data in, testable science out."
 7. Field Study Builder
 8. Reproducible
 
-**Say (≈12 s):**
+Footer: "terrainx-nasa.vercel.app · Earth is our first planetary laboratory."
+
+**Say (≈15 s):**
 - Explore on a map, a globe or in 3D, and read why a site matches and why it doesn't.
 - Re-weight the model, search every cell, and study the lunar south pole.
-- Use eight research tools and leave with a field plan, GPX and a printable field book. It all works offline.
-- Scan the code and try it. Earth is our first planetary laboratory.
+- Use eight research tools and leave with a field plan, GPX and a printable field book. It all works offline and every result is reproducible.
+- It's live at terrainx-nasa.vercel.app. Earth is our first planetary laboratory.
 
 ## 30-second video script (if you submit a video instead of slides)
 Record the deck full-screen and advance on each line.
@@ -98,7 +100,7 @@ Record the deck full-screen and advance on each line.
 | 14–19 s | 4 | "130 cells searched. Mission-aware ranking changes 12 of 13 picks." |
 | 19–23 s | 5 | "Each Artemis-region feature gets its closest Earth terrain twin." |
 | 23–27 s | 6 | "Open and reproducible, so every gap becomes the next experiment." |
-| 27–30 s | 7 | "TerrainX. Earth is our first planetary laboratory." |
+| 27–30 s | 7 | "Eight working tools, live now. Earth is our first planetary laboratory." |
 
 ## Claims to avoid
 - No "first discovery", "NASA-approved", "verified field site" or "landing site".

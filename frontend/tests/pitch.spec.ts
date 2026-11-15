@@ -21,8 +21,8 @@ test("pitch shows seven slides with release-derived numbers and keyboard navigat
   await expect(page.locator(".pv-impact > div")).toHaveCount(4);
   await page.keyboard.press("End");
   await expect(page.locator(".pitch-count")).toHaveText("7 / 7");
-  await expect(page.locator(".pv-features.compact > div")).toHaveCount(8);
-  await expect(page.locator(".pv-end .qr-code")).toBeVisible();
+  await expect(page.locator(".pv-features > div")).toHaveCount(8);
+  await expect(page.locator(".pitch-foot")).toContainText("terrainx-nasa.vercel.app");
   await page.keyboard.press("Escape");
   await expect(page).not.toHaveURL(/pitch/);
   expect(errors).toEqual([]);
@@ -42,10 +42,10 @@ test("pitch keeps mobile content reachable and navigation visible in both orient
     )).toBe(true);
     await page.keyboard.press("End");
     await expect(page.locator(".pitch-count")).toHaveText("7 / 7");
-    await expect(page.locator(".pv-features.compact > div")).toHaveCount(8);
+    await expect(page.locator(".pv-features > div")).toHaveCount(8);
     await expect(page.locator(".pitch-scroll-hint")).toBeVisible();
     await page.locator(".pitch-slide").evaluate((e) => { e.scrollTop = e.scrollHeight; });
-    await expect(page.locator(".pv-end .qr-code")).toBeInViewport();
+    await expect(page.locator(".pv-features > div").last()).toBeInViewport();
     await expect(page.locator(".pitch-scroll-hint")).toBeHidden();
     await expect(page.getByRole("button", { name: "Next slide", exact: true })).toBeInViewport();
     await expect(page.getByRole("button", { name: "Exit pitch", exact: true })).toBeInViewport();

@@ -21,7 +21,6 @@ import { useScienceFile } from "../lib/scienceFile";
 import { cellLabel, cellSearchSchema } from "../lib/cellSearch";
 import { lunarPolarSchema } from "../lib/lunarPolar";
 import { GRAVITY } from "../lib/physics";
-import QrCode from "../components/QrCode";
 import "../styles/pitch.css";
 
 type Slide = { tag: string; title: ReactNode; visual: ReactNode; foot?: ReactNode };
@@ -55,7 +54,6 @@ export default function Pitch() {
       fallback
     );
   };
-  const appUrl = `${window.location.origin}${window.location.pathname}`;
   const total = cells?.cells ?? data.summary.screened_cells,
     eligible = mars?.eligible ?? 0,
     picks = mars?.shortlist.length ?? 0;
@@ -234,39 +232,31 @@ export default function Pitch() {
       foot: "Open NASA data in, testable science out.",
     },
     {
-      tag: "Try it",
-      title: (
-        <>
-          Earth is our first
-          <br /> planetary laboratory.
-        </>
-      ),
+      tag: "What you can do",
+      title: "One workflow, eight working tools.",
       visual: (
-        <div className="pv-end">
-          <div className="pv-features compact">
-            {(
-            [
-              [MapIcon, "Discovery atlas", "Map, globe and 3D terrain"],
-              [Dna, "Analog DNA", "Why a site matches, and why not"],
-              [SlidersHorizontal, "What-if & lenses", "Re-weight and test rank robustness"],
-              [Globe2, "130-cell search", "Every cell, ranked per mission"],
-              [Moon, "Lunar pole", "LOLA, Diviner, SPICE"],
-              [FlaskConical, "Research Lab", "Minerals to dust, 8 tools"],
-              [Box, "Field Study Builder", "Stations, GPX, field book, QR"],
-              [ShieldCheck, "Reproducible", "Pinned releases, works offline"],
-            ] as const
-            ).map(([Icon, a, b]) => (
-              <div key={a}>
-                <Icon size={18} aria-hidden="true" />
-                <b>{a}</b>
-                <span>{b}</span>
-              </div>
-            ))}
-          </div>
-          <QrCode value={appUrl} size={180} label="Open TerrainX" />
+        <div className="pv-features">
+          {(
+          [
+            [MapIcon, "Discovery atlas", "Map, globe and 3D terrain"],
+            [Dna, "Analog DNA", "Why a site matches, and why not"],
+            [SlidersHorizontal, "What-if & lenses", "Re-weight and test rank robustness"],
+            [Globe2, "130-cell search", "Every cell, ranked per mission"],
+            [Moon, "Lunar pole", "LOLA, Diviner, SPICE"],
+            [FlaskConical, "Research Lab", "Minerals to dust, 8 tools"],
+            [Box, "Field Study Builder", "Stations, GPX, field book, QR"],
+            [ShieldCheck, "Reproducible", "Pinned releases, works offline"],
+          ] as const
+          ).map(([Icon, a, b], n) => (
+            <div key={a} style={{ animationDelay: `${0.06 * n}s` }}>
+              <Icon size={22} aria-hidden="true" />
+              <b>{a}</b>
+              <span>{b}</span>
+            </div>
+          ))}
         </div>
       ),
-      foot: "TerrainX · open NASA data · independent project, no NASA endorsement implied",
+      foot: "terrainx-nasa.vercel.app · Earth is our first planetary laboratory.",
     },
   ];
   const last = slides.length - 1;
