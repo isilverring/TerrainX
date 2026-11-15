@@ -266,6 +266,15 @@ export function Outcome({
     inputs,
     results,
     source_urls: sources,
+    scientific_input_manifest: data.release?.files ?? null,
+    selected_site_observation_provenance: {
+      climate: candidate.climate,
+      terrain: {
+        sample_spacing_m: candidate.terrain.sample_spacing_m,
+        native_resolution_m: candidate.terrain.native_resolution_m,
+        provenance: candidate.terrain.provenance,
+      },
+    },
     classification: "SOURCE-SCOPED EVIDENCE / CALCULATED MODEL / USER SCENARIO",
     not_validated: [
       "No new field campaign or experimental result has occurred.",
@@ -273,7 +282,24 @@ export function Outcome({
       "No NASA endorsement, resource reserve, biological confirmation or route/landing clearance.",
     ],
   };
-  const p = `/field-study?id=${candidate.id}&mission=${polarId ? "mare-crisium" : mission}&lab=${module}${polarId ? `&polar=${polarId}` : ""}`;
+  const context = JSON.stringify({
+    origin_candidate: candidate.id,
+    module,
+    question,
+    decision,
+    next_measurement: next,
+    inputs,
+    classification: "USER SCENARIO / PROPOSED EXPERIMENT",
+  });
+  const compact =
+    context.length <= 2500
+      ? context
+      : JSON.stringify({
+          origin_candidate: candidate.id,
+          module,
+          note: "Full input context exceeds compact handoff; retain the exported Research Decision JSON.",
+        });
+  const p = `/field-study?id=${candidate.id}&mission=${polarId ? "mare-crisium" : mission}&lab=${module}&lab_context=${encodeURIComponent(compact)}${polarId ? `&polar=${polarId}` : ""}`;
   return (
     <section className="lab-outcome">
       <p className="document-label">Research decision · {candidate.name}</p>

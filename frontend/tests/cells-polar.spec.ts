@@ -59,7 +59,7 @@ test("landing findings come from the release and the challenge-fit page lists ga
   ).toBeVisible();
   await expect(page.locator(".fit-card")).toHaveCount(12);
   await expect(
-    page.locator(".fit-card").filter({ hasText: "No verified cave" }),
+    page.locator(".fit-card").filter({ hasText: "No unverified entrance coordinate" }),
   ).toBeVisible();
   await expect(page.locator(".fit-data")).toContainText("Diviner modeled");
   await expect(page.locator(".document-title")).toContainText(

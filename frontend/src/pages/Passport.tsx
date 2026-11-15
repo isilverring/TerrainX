@@ -176,6 +176,39 @@ function PassportBody({
         </div>
       </div>
       <ResearchTrail id={c.id} mission={mission} stage="prepare" />
+      {data.release?.files["challenge_evidence.json"] && (
+        <section className="passport-lab-links">
+          <p className="document-label">From evidence to the next experiment</p>
+          <p>
+            Resolve a specific uncertainty at this candidate; research tools
+            preserve source scope and export an explicit decision/protocol.
+          </p>
+          <div>
+            {[
+              ["mineralogy", "Verify material identity"],
+              ["illumination", "Plan thermal/lighting tests"],
+              ["resources", "Assess resource evidence"],
+              ["dust", "Test wind–soil assumptions"],
+              ["biology", "Control assay contamination"],
+              ["caves", "Verify subsurface context"],
+              ["operations", "Survey a proposed route"],
+              ...(mission === "mare-crisium"
+                ? [["base", "Inspect lunar trade-offs"]]
+                : []),
+            ].map(([module, label]) => (
+              <Link
+                key={module}
+                to={studyPath(
+                  `/research-lab?module=${module}&id=${c.id}&polar=none${data.target_reference ? `&lunar=${data.target_reference.replace("lunar-polar:", "")}` : ""}`,
+                  params.toString(),
+                )}
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
       <header className="passport-header">
         <div>
           <img

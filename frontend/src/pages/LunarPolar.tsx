@@ -390,7 +390,31 @@ export default function LunarPolar() {
                   <small>
                     {t.kind} · {t.region_id}
                   </small>
-                  <small><Link to={`/site/${t.id}?mission=mare-crisium&cohort=expanded&polar=${site.id}`}>Compare Earth with {site.feature}</Link>{" · "}<Link to={`/passport/${t.id}?mission=mare-crisium&cohort=expanded&polar=${site.id}`}>Polar Passport</Link>{" · "}<Link to={`/field-study?id=${t.id}&mission=mare-crisium&cohort=expanded&polar=${site.id}`}>Plan polar workflow</Link></small>
+                  <small>
+                    <Link
+                      to={`/site/${t.id}?mission=mare-crisium&cohort=expanded&polar=${site.id}`}
+                    >
+                      Compare Earth with {site.feature}
+                    </Link>
+                    {" · "}
+                    <Link
+                      to={`/passport/${t.id}?mission=mare-crisium&cohort=expanded&polar=${site.id}`}
+                    >
+                      Polar Passport
+                    </Link>
+                    {" · "}
+                    <Link
+                      to={`/field-study?id=${t.id}&mission=mare-crisium&cohort=expanded&polar=${site.id}`}
+                    >
+                      Plan polar workflow
+                    </Link>
+                    {" · "}
+                    <Link
+                      to={`/research-lab?module=base&id=${t.id}&mission=mare-crisium&cohort=expanded&polar=none&lunar=${site.id}`}
+                    >
+                      Lighting and base trade-offs
+                    </Link>
+                  </small>
                 </span>
                 <i
                   style={{

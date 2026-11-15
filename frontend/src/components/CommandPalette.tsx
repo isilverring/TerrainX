@@ -27,6 +27,11 @@ const PAGES: [string, string, string][] = [
     "Map, shortlist and evidence for both missions",
   ],
   ["/frontier", "Discovery Frontier", "What missing evidence could change"],
+  [
+    "/research-lab",
+    "Mission Research Lab",
+    "Minerals, sunlight, ice, dust, biosignatures, caves and terrain experiments",
+  ],
   ["/lenses", "Discovery lenses", "Six declared re-rankings of the shortlist"],
   [
     "/cells",

@@ -10,6 +10,7 @@
 import { z } from "zod";
 import type { Candidate, FieldExperiment, Mission } from "./models";
 import { snapshotSchema, type ResearchSnapshot } from "./snapshots";
+import { labProtocolSchema, labProtocol } from "./labProtocol";
 
 export const EARTH_RADIUS_M = 6_371_000;
 const RAD = Math.PI / 180;
@@ -208,6 +209,7 @@ export const fieldStudySchema = z
       )
       .max(20),
     local_notes: z.string().max(4000),
+    research_lab_protocol: labProtocolSchema.optional(),
   })
   .superRefine((study, ctx) => {
     if (
@@ -222,6 +224,11 @@ export const fieldStudySchema = z
       ctx.addIssue({
         code: "custom",
         message: "Station identifiers must be unique",
+      });
+    if (study.research_lab_protocol !== study.snapshot.research_lab_protocol)
+      ctx.addIssue({
+        code: "custom",
+        message: "Lab protocol differs from saved snapshot",
       });
   });
 export type FieldStudy = z.infer<typeof fieldStudySchema>;
@@ -248,6 +255,9 @@ export function newFieldStudy(
 ): FieldStudy {
   const exp = candidate.assessments[mission].experiment,
     now = new Date().toISOString();
+  const lab = snapshot.research_lab_protocol
+    ? labProtocol(snapshot.research_lab_protocol, candidate, mission)
+    : null;
   return fieldStudySchema.parse({
     field_study_version: "1.0",
     id: `fs-${Date.now().toString(36)}`,
@@ -261,14 +271,21 @@ export function newFieldStudy(
     mission_role: snapshot.target_reference
       ? "Legacy lunar model slot only; target_reference is the physical reference. Utility is unassessed."
       : "Mission preset and planetary reference",
-    hypothesis: exp.hypothesis,
-    objective: exp.objective,
+    hypothesis: lab?.hypothesis ?? exp.hypothesis,
+    objective: lab?.objective ?? exp.objective,
     stations: [],
-    measurements: exp.measurements.map((text) => ({ text, done: false })),
-    equipment: equipmentFor(exp, []).map((text) => ({ text, done: false })),
-    success_indicators: exp.success_indicator,
+    measurements: (lab?.measurements ?? exp.measurements).map((text) => ({
+      text,
+      done: false,
+    })),
+    equipment: (lab?.equipment ?? equipmentFor(exp, [])).map((text) => ({
+      text,
+      done: false,
+    })),
+    success_indicators: lab?.success ?? exp.success_indicator,
     permits: PERMIT_QUESTIONS.map((question) => ({ question, answer: "" })),
     local_notes: "",
+    research_lab_protocol: snapshot.research_lab_protocol,
   });
 }
 
@@ -501,6 +518,7 @@ const shareSchema = z.object({
     .regex(/^lunar-polar:[a-z0-9-]+$/)
     .optional(),
   e: z.literal("site-evidence").optional(),
+  l: labProtocolSchema.optional(),
   c: z.string().min(1).max(80),
   m: z.enum(["jezero", "mare-crisium"]),
   t: z.string().min(1).max(120),
@@ -547,6 +565,7 @@ export function encodeShare(study: FieldStudy, compact = false) {
     o: study.snapshot.collection ?? "original",
     p: study.snapshot.target_reference,
     e: study.snapshot.proposal_protocol,
+    l: study.research_lab_protocol,
     ...(compact ? {} : { q: study.snapshot.scenarios }),
     c: study.candidate_id,
     m: study.mission,

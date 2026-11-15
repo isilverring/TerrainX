@@ -49,6 +49,7 @@ export function Header({
       links: [
         ["/what-if", "What if"],
         ["/transfer-lab", "Transfer Lab"],
+        ["/research-lab", "Research Lab"],
         ["/worlds", "Worlds"],
         ["/lunar-pole", "Lunar pole"],
         ["/terrain-pilot", "Terrain pilot"],

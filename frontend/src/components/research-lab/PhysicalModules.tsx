@@ -506,7 +506,9 @@ export function Dust({ candidate, mission }: SiteContext) {
           grains are declared model choices. Threshold exceedance is not a
           dust-storm prediction: crusts, wetness, aggregation, turbulence,
           impact entrainment and local soil evidence are missing. The formula is
-          undefined in vacuum, not zero.
+          undefined in vacuum, not zero. The same empirical grain parameters are
+          applied to Mars as an unvalidated transfer scenario;
+          rarefied-flow/Reynolds corrections are not modeled.
         </p>
         <p className="caption">
           <a href={DUSTSOURCE} target="_blank" rel="noreferrer">

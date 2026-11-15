@@ -20,14 +20,19 @@ export default function Base({
   mission,
   sites,
   error,
-}: { sites?: IlluminationSite[]; error?: string } & SiteContext) {
+  initialLunarId,
+}: {
+  sites?: IlluminationSite[];
+  error?: string;
+  initialLunarId?: string;
+} & SiteContext) {
   const [solar, setSolar] = useState<number | null>(0.6),
     [slopeScale, setSlope] = useState<number | null>(20),
     [minSun, setMin] = useState<number | null>(0),
     [maxDark, setMax] = useState<number | null>(8760),
     [load, setLoad] = useState<number | null>(100),
     [usable, setUsable] = useState<number | null>(0.8),
-    [chosen, setChosen] = useState("haworth");
+    [chosen, setChosen] = useState(initialLunarId ?? "haworth");
   const result = useMemo(
     () =>
       calculate(() => {

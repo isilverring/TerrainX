@@ -27,6 +27,7 @@ import {
 } from "lucide-react";
 import { DataContext, useData, number } from "../lib/data";
 import ResearchTrail from "../components/ResearchTrail";
+import { labProtocol, labProtocolSchema } from "../lib/labProtocol";
 import { applyScenarios, useModel } from "../lib/scoring";
 import { defaultScenario } from "../lib/counterfactual";
 import { makeSnapshot, checkSnapshotRelease } from "../lib/snapshots";
@@ -94,6 +95,14 @@ export default function FieldStudy() {
     /* Damaged payload is refused by the editor. */
   }
   const sourceProtocol = params.get("protocol") === "source" || sharedProtocol;
+  let requestedLab = params.get("lab");
+  try {
+    if (params.get("share"))
+      requestedLab = decodeShare(params.get("share")!).l ?? null;
+  } catch {
+    /* Editor reports corrupt shares. */
+  }
+  const parsedLab = labProtocolSchema.safeParse(requestedLab);
   const evidence = useScienceFile(
     "site_evidence.json",
     siteEvidenceSchema,
@@ -145,6 +154,24 @@ export default function FieldStudy() {
         }),
     };
   }, [merged, sourceProtocol, evidence.value]);
+  if (
+    requestedLab &&
+    (!parsedLab.success ||
+      (requestedLab === "base" && base.active_mission !== "mare-crisium") ||
+      sourceProtocol ||
+      !base.release?.files["challenge_evidence.json"])
+  )
+    return (
+      <main className="document-page">
+        <h1>Requested research protocol is unavailable</h1>
+        <p>
+          The protocol must exist in this pinned release and cannot be combined
+          with a separate literature-informed preset. No generic protocol was
+          substituted.
+        </p>
+        <Link to="/research-lab">Open the research tools</Link>
+      </main>
+    );
   if (sourceProtocol && !evidence.value)
     return (
       <main className="document-page">
@@ -237,12 +264,43 @@ function FieldStudyEditor() {
       c.id,
       title ?? `Field study · ${c.name}`,
     );
-    return newFieldStudy(
+    const created = newFieldStudy(
       snapshot,
       c,
       mission,
       title ?? `Field study · ${c.name}`,
     );
+    let lab = params.get("lab");
+    try {
+      if (params.get("share"))
+        lab = decodeShare(params.get("share")!).l ?? null;
+    } catch {
+      /* Corrupt share is refused elsewhere. */
+    }
+    const parsed = labProtocolSchema.safeParse(lab);
+    if (!parsed.success) return created;
+    const protocol = labProtocol(parsed.data, c, mission);
+    const context = params.get("lab_context");
+    const note =
+      context && context.length <= 2500
+        ? `\nUser/scenario context carried from Research Lab (not verified observations):\n${context}`
+        : context
+          ? "\nFull input context is in the exported Research Decision JSON; it exceeds the compact field handoff."
+          : "";
+    return fieldStudySchema.parse({
+      ...created,
+      research_lab_protocol: parsed.data,
+      snapshot: { ...created.snapshot, research_lab_protocol: parsed.data },
+      hypothesis: protocol.hypothesis,
+      objective: protocol.objective,
+      measurements: protocol.measurements.map((text) => ({
+        text,
+        done: false,
+      })),
+      equipment: protocol.equipment.map((text) => ({ text, done: false })),
+      success_indicators: protocol.success,
+      local_notes: `Research Lab protocol: ${parsed.data}. Proposed method; no new measurement or outcome. Keep the Research Decision JSON with this field book.${note}`,
+    });
   };
   // A ?share= link reopens the same stations and intent, only on the identical release.
   const shared = useMemo(() => {
@@ -440,6 +498,14 @@ function FieldStudyEditor() {
         Scores use this field study’s saved model. Station coordinates and
         protocols are proposals, never verified NASA observations.
       </p>
+      {study.research_lab_protocol && (
+        <p className="scientific-caveat">
+          Research Lab protocol: <b>{study.research_lab_protocol}</b>. This is a
+          testable proposal, not a confirmed finding. Full JSON retains the
+          protocol and input notes; compact QR retains its template and geometry
+          with stated default models.
+        </p>
+      )}
       <header className="document-title field-title">
         <div>
           <p className="document-label">Prepare · Field Study Builder</p>

@@ -2,6 +2,7 @@ import { z } from "zod";
 import type { Dataset, Mission } from "./models";
 import { validScenario } from "./scoring";
 import type { Scenario } from "./counterfactual";
+import { labProtocolSchema } from "./labProtocol";
 const scenario = z.custom<Scenario>(validScenario, "Unsupported mission model");
 export const snapshotSchema = z.object({
   snapshot_version: z.literal("1.0"),
@@ -11,6 +12,7 @@ export const snapshotSchema = z.object({
     .regex(/^lunar-polar:[a-z0-9-]+$/)
     .optional(),
   proposal_protocol: z.literal("site-evidence").optional(),
+  research_lab_protocol: labProtocolSchema.optional(),
   title: z.string().min(1).max(120),
   created_at: z.string().datetime(),
   science: z.object({
@@ -68,6 +70,8 @@ export function snapshotLink(snapshot: ResearchSnapshot) {
       ? snapshot.target_reference.replace("lunar-polar:", "")
       : "none",
   );
+  if (snapshot.research_lab_protocol)
+    params.set("lab", snapshot.research_lab_protocol);
   return `#/${snapshot.candidate_id ? `site/${snapshot.candidate_id}` : "explorer"}?${params}`;
 }
 export function checkSnapshotRelease(

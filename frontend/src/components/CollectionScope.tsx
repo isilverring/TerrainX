@@ -94,6 +94,14 @@ export default function CollectionScope({ children }: { children: ReactNode }) {
       p.delete("protocol");
       changed = true;
     }
+    if (shared.l && p.get("lab") !== shared.l) {
+      p.set("lab", shared.l);
+      changed = true;
+    }
+    if (!shared.l && p.has("lab")) {
+      p.delete("lab");
+      changed = true;
+    }
     if (changed) setParams(p, { replace: true });
   }, [shared, collection, setParams]);
   useLayoutEffect(() => {

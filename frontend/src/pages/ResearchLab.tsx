@@ -280,6 +280,7 @@ export default function ResearchLab() {
                   {...context}
                   sites={light.value?.sites}
                   error={light.error ?? undefined}
+                  initialLunarId={params.get("lunar") ?? undefined}
                 />
               )}
             </>
