@@ -294,7 +294,7 @@ test("compare mode shows two or three candidates side by side without a winner",
   await expect(table).toContainText("U is partial");
   await expect(table).toContainText("not assessed");
   await expect(
-    page.getByText("No winner is declared", { exact: false }),
+    page.getByText("F, U and C answer different questions.", { exact: false }),
   ).toBeVisible();
   await table
     .getByRole("button", { name: /Remove .* from comparison/ })

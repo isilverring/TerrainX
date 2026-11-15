@@ -46,4 +46,6 @@ Version7 acceptance completed:50/50 fresh public workflows and36 focused public 
 
 The same signed-direction notation was found in the printable Passport by a repository search and repaired there as well; polar Passport replay now asserts S/W hemispheres. No coordinates, scores or scientific input files changed.
 
+Version8/source778b3cf is published and36 fresh public responsive cases pass, with correct labels and unclipped controls confirmed by view_image. Initial full public run:49 pass; one older comparison test still asserted the removed sentence “No winner is declared.” Its assertion now checks the actual revised F/U/C explanation, leaving the real selection/removal workflow checks intact. A final full50-test rerun is in progress. No runtime change/redeployment is needed for this test-only adjustment.
+
 Next agent: inspect git status/log and STATUS.md before continuing. Update this file at each milestone. Do not treat completed earlier scope as unfinished.
