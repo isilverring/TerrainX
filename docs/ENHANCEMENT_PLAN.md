@@ -1,81 +1,19 @@
-# TerrainX — Prompt 1 audit and enhancement plan
+# Maps, imagery and terrain visualization
 
-Written 2026-11-14 when the work moved from the PC (`D:\TerrainX`) to the laptop (`C:\TerrainX`).
-The Prompt 1 Definition of Done is met (see STATUS.md). This file lists the **enhancements and fixes**
-that come next. The original prompt asks for satellite imagery, 3D wherever possible, and UI/UX polish.
-Tick items off and keep scientific rules intact: real data only, nulls stay null, and visualisation-only data
-is never used for scoring.
+## Atlas layers
 
-## A. Satellite imagery
-- [x] Basemap switcher with Dark (Esri Dark Gray), **Satellite (Esri World Imagery)**, and **NASA GIBS true colour**.
-      Include a date picker for GIBS (MODIS Terra/Aqua and VIIRS SNPP CorrectedReflectance, `GoogleMapsCompatible_Level9`).
-- [x] Optional NASA GIBS relief/thematic overlays where a 3857 layer exists (for example `BlueMarble_ShadedRelief_Bathymetry`).
-- [x] Every imagery layer shows its source, date and native zoom limit. Keep the local Natural Earth fallback.
-- [x] Imagery is for interpretation only and does not establish mineralogy. Keep that caveat.
+The Discovery atlas uses MapLibre with Esri Dark Gray, Esri World Imagery, dated NASA GIBS true colour and Blue Marble relief. Layers identify their source, date and supported zoom. Local Natural Earth geography supplies a fallback when providers are unavailable.
 
-## B. 3D
-- [x] **Earth 3D terrain** in MapLibre: `raster-dem` from AWS Terrain Tiles (terrarium encoding, public, no key,
-      `https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png`), plus `setTerrain` with exaggeration,
-      a hillshade layer, pitch/bearing controls, a "3D" toggle and sky/atmosphere.
-      Fly to the selected candidate at a pitch of about 60°.
-- [x] **Globe projection** (MapLibre ≥5 `projection: globe`) for the world overview, switching to Mercator when zoomed in.
-- [x] Draw each candidate's **24 × 24 km SRTM analysis footprint** and the 0.5° × 0.625° POWER cell. Make the scale distinction visible.
-- [x] **Planetary 3D viewer**: extend `scripts/build_planetary_profiles.py` so it also exports a larger *visualisation-only*
-      MOLA/LOLA context patch (e.g. 65 × 65 native pixels) around Jezero and Mare Crisium. Render the Earth SRTM grid and
-      the planetary grid as side-by-side shaded 3D surfaces at the same horizontal scale and vertical exaggeration.
-      Optionally drape a NASA Trek / CTX / LRO WAC image tile after verifying its URL and licence.
-- [x] The 3D surface must label vertical exaggeration and point out that absolute Earth and planetary elevations are not comparable.
+NASA daily imagery supports the verified MODIS Terra/Aqua and VIIRS SNPP products. Not every product/date has imagery. AWS Terrain Tiles provide optional 3D terrain and hillshade; the globe projection supports global context. These layers are visual context and do not enter scientific scores.
 
-## C. UX / visual fixes found in the audit
-1. ✅ Ranking puts **"Insufficient evidence" (C = 45 %) candidates first** because the list sorts by U only. Add a sort control
-   (U / C / F / P). Group by status: characterized first, then screened. Never hide that U is partial.
-2. ✅ The map opens at zoom 1.25 over the whole world, so the markers are tiny. Fit to the study-region bounds instead
-   and draw the four study-region boxes.
-3. ✅ Markers are destroyed and recreated on every selection (flicker, perf). Create them once and toggle classes.
-   Add rank numbers and hover tooltips.
-4. ✅ Mobile: the layer and legend panels cover much of the small map. Merge them into one collapsible control.
-5. ✅ The results list cuts the last visible card in half. The selected-summary panel has no F/U/C at a glance.
-6. ✅ Source-status rows always show a ✓ icon, even when a source is unavailable. The icon must follow the status.
-7. ✅ `localStorage.setItem` is not wrapped in try/catch, so it throws in private/embedded contexts.
-8. ✅ The Mars button uses a generic circle icon. Give Mars and the Moon distinct glyphs.
-9. ✅ Landing: replace the flat globe illustration with a live (slowly rotating) globe that shows the real candidate
-   points and the headline counts from `dataset.json`.
-10. ✅ Add a **compare mode** for 2–3 candidates (F/U/C, terrain metrics, climate, geology side by side).
-11. ✅ Add a candidate search box and keyboard navigation (↑/↓) through the results list.
-12. ✅ Passport: add a QR/URL footer and a print check for page breaks.
+The atlas displays study-region bounds, persistent candidate/benchmark markers, the selected POWER cell and the actual 24 km SRTM analysis footprint with 49 sample positions. Attribution remains visible. Candidate search, keyboard navigation and status-aware sorting accompany the map.
 
-## Progress log
-- 2026-11-14 (laptop cloud session, milestone 1): C1–C8 and C11 done. Ranking groups characterized before screened
-  candidates for every sort key (U/C/F/P; nulls sort last). Map opens fitted to the four study regions (Mercator; Chile and
-  Gobi are ~170° apart so no single globe view shows all four) with dashed region boxes and clickable labels. Markers are
-  created once, carry rank numbers and hover tooltips, and hide behind the globe/terrain. Layers and legend merged into one
-  collapsible control plus a compact legend strip. Basemaps: Esri Dark Gray, Esri World Imagery, NASA GIBS daily
-  (MODIS Terra/Aqua, VIIRS SNPP + date picker) and NASA Blue Marble relief. 3D terrain (AWS terrarium, exaggeration
-  slider), hillshade, sky, globe toggle, selected POWER cell + 24 km SRTM lattice with the 49 actual sample positions.
-  Endpoints verified live from a browser on 2026-11-14: all returned HTTP 200 except GIBS dates without imagery (404;
-  VIIRS SNPP had none after 2026-11-02, NOAA-20 had gaps, so NOAA-20 was not offered) and GIBS z10 (400, native max z9).
-  Browser tests: `TERRAINX_OFFLINE=1 npm test` skips live-tile waits in sandboxes.
+## Terrain viewer
 
-- 2026-11-14 (milestone 4): side-by-side 3D terrain viewer on the Analog DNA page. Two modes with a shared horizontal
-  scale, vertical exaggeration and colour scale: (a) 24 km analysis lattice = the exact cached SRTM and MOLA/LOLA 7×7
-  grids behind F; (b) 96 km regional context (visualisation only). Planetary context comes from native MOLA/LOLA DN
-  windows (`data/source/planetary/*_context_window.csv`) cut in a browser on the PDS origin after the whole-raster
-  SHA-256 matched `manifest.json`; `scripts/build_planetary_context.py` resamples them (same bilinear/offset rule) and
-  tests prove the windows reproduce the scored 7×7 grids exactly. Earth context is sampled live from AWS terrarium z8
-  in the browser (spot-checked against cached SRTM: within tens of metres) and falls back to the lattice offline.
+Analog DNA compares the exact cached Earth and planetary 7×7 analysis grids at the same horizontal scale. A separate 96 km regional context view uses real MOLA/LOLA native windows and live AWS Earth terrain, falling back to the analysis lattice offline. Vertical exaggeration is labeled; absolute elevations across worlds are not directly comparable.
 
-- 2026-11-14 (milestone 5): C9 live landing globe (real candidate points, study-region boxes, slow rotation, static under
-  reduced motion, drag to spin) with headline counts from `dataset.json`; C10 compare mode (toggle up to 3 candidates in
-  the list → `/compare`, target column for terrain metrics, no winner declared, partial U flagged); C12 Passport QR/URL
-  "Live dossier" block (offline inline-SVG QR via `qrcode-generator`, MIT) and print pagination rules (verified: Salda
-  passport prints as 6 A4 pages with no split tables). Fixed ~40 glued word/number typos ("common4km", "period:2001",
-  "geology0.55") in the UI and in generated rationale strings; dataset regenerated offline — only text changed, zero
-  numeric differences; `validate_results.py` now reports 57 passed.
+Source manifests enforce full-raster and extracted-window hashes. Timeouts and no-data checks preserve unavailable states rather than manufacturing elevations. [SOURCE_RESEARCH.md](SOURCE_RESEARCH.md) and [TERRAIN_PILOT.md](TERRAIN_PILOT.md) document the scientific products.
 
-## D. Environment notes
-- Laptop path is `C:\TerrainX`. The PC path is `D:\TerrainX`. Both are clones of `isilverring/TerrainX` `main`.
-- On a fresh machine: `git clone https://github.com/isilverring/TerrainX C:\TerrainX`, then `npm --prefix frontend ci`,
-  then `npm run dev`. For science checks: `py -3.12 -m venv .venv`, `.venv\Scripts\pip install -r requirements-lock.txt`,
-  then `.venv\Scripts\python scripts\validate_results.py`.
-- Claude cloud sessions need **package-manager network access** (claude.ai → Settings → Capabilities) to run
-  `npm ci` and build or screenshot the app. Without it they can only edit code and rely on GitHub CI.
+## Presentation assets
+
+The landing globe uses real geographic boundaries and dataset candidate points. Reduced motion stops rotation. NASA comparison images are bundled unchanged with source URLs, attributions and SHA-256 metadata in `frontend/public/nasa/imagery-manifest.json`.

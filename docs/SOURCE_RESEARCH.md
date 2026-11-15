@@ -65,7 +65,7 @@ Use attribution NASA GIBS / MODIS Terra and a functioning standard basemap. Tile
 
 ## Challenge verification
 
-The supplied [official 2026 challenge](https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/) is indexed with the exact title, statement and four subjects provided by the user. An initial direct request produced a transient 502; the official search result and subsequent indexed page identify the challenge. The official [2026 home](https://www.spaceappschallenge.org/2026/) and [announcement](https://www.spaceappschallenge.org/blog/explore-the-next-frontier-at-the-2026-nasa-space-apps-challenge/) verify **The Next Frontier** and November 14–15, 2026. Event participation does not imply NASA approval of TerrainX or its model.
+Challenge context: [Earth analogs for permanent Moon-base locations and Mars](https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/), [2026 event](https://www.spaceappschallenge.org/2026/) and [The Next Frontier announcement](https://www.spaceappschallenge.org/blog/explore-the-next-frontier-at-the-2026-nasa-space-apps-challenge/). Event participation does not imply NASA approval of TerrainX or its model.
 
 ## Benchmark subsite evidence
 

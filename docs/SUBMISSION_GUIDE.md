@@ -32,7 +32,7 @@ Use [SUBMISSION.md](../SUBMISSION.md) as draft copy, then add your team's actual
 - Final project: the public ChatGPT Site URL above. The source repository is private; the public app is the accessible final artifact. Follow any additional local source-sharing requirement.
 - Demo: your tested short video or slide link; never the 29-second script document alone.
 - Sources: NASA POWER, SRTM via OpenTopoData, PDS MOLA/LOLA/Diviner, NASA GIBS and NASA reference imagery; Copernicus GLO90; Macrostrat; GBIF; Natural Earth. Detailed citations and limitations are in DATA_SOURCES.md and the app.
-- AI disclosure draft: “OpenAI Codex assisted software implementation, numerical routines, debugging, tests and documentation. A teammate's AI agent also assisted development and preprocessing. Scientific values originate from cited source products or explicit calculations; synthetic fixtures are limited to tests. The team reviewed the scientific interpretation.” Add other tools/models actually used; do not invent them.
+- Tool acknowledgement: OpenAI Codex and other AI development tools assisted implementation, preprocessing, testing and documentation. Scientific inputs come from cited source products and explicit calculations. Include the complete list of tools actually used wherever the event requests it.
 - Keep the no-endorsement statement and the distinction between observations, derived metrics, model assumptions and unknowns.
 
 Read the terms yourself and submit. Retain the portal confirmation and the submitted app/source version. If the portal permits edits, follow its rules; do not assume either editability or irreversibility without checking.

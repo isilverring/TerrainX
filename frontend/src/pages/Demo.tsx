@@ -439,7 +439,7 @@ export default function Demo() {
             ) : null}
             At the lunar south pole, {beyond.best.feature} finds a close Earth
             relief twin while {beyond.worst.feature} has none — real NASA LOLA
-            elevations, checksum-verified.
+            elevations from the verified source product.
           </p>
           <div className="source-row">
             <Link className="button outline" to="/cells?mission=mare-crisium">

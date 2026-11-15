@@ -1,17 +1,21 @@
-# Historical Release3 checkpoints
+# Versioned research and offline architecture
 
-Current comprehensive Release4 audit/results: PACKAGE_AUDIT.md; current publication: ../DEPLOYMENT.md. Counts and optional items below describe Release3, not the final audited application.
+## Science releases
 
-# Release 3 implementation checkpoints
+`scripts/prepare_release.mjs` creates content-addressed scientific releases. Each manifest records file bytes, hashes, dataset identity and model version. Existing release bytes are immutable. Research packets and snapshots pin that identity; missing or damaged historical assets stop replay without substituting a different release.
 
-Approved scope: Package A (versioned research, Evidence Inspector and case studies, clearer navigation/presentation, offline preparation and validated public release), then the comparable-terrain pilot. The lunar-polar extension remains optional. All work stays D:\TerrainX.
+## Evidence Inspector
 
-## Milestones
-- Completed M1: immutable science releases and research snapshot save/export/import/replay. Historical release failure is explicit; no newest-data substitution. Packets and QR links carry release/model/hash. Frozen release bytes bypass Git newline conversion. Checks: 63 existing Python tests, 56 TypeScript tests, production build; existing browser flows plus snapshot replay/missing-release checks pass after fixing a navigation pinning race and static-host HTML fallback handling.
-- Completed M2: click-through observation provenance and full Evidence Inspector (units, actual period, response hash, calculations, spatial applicability, dependencies and limitations); schematic support diagram; three source-scoped Saudi/Chile/Salda case studies with active scores. Latest science release 2592c0ede3235c21 includes reviewed cases. Checks: 59 TypeScript tests, build, source-dialog/case/mobile and existing scientific workflow browser checks pass. Pilot raw Copernicus assets acquired/verified separately; no new pilot score exists yet.
-- Completed M3: Discover / Investigate / Prepare navigation, mobile disclosure menu, skip link/focus controls and an isolated presentation model. Guided demo and follow-on pages use temporary session settings; explicit exit restores research weights and isolates map selection/comparison storage. Browser checks verify research alpha 0.85 survives presentation edits and mobile navigation works. Build/tests pass. Source science text now normalizes LF before release hashing for deterministic Windows/Linux clones; historical frozen bytes remain preserved.
-- Completed M4: production first-party offline catalogue and opt-in preparation; each response length/hash checked before an atomic cache pointer swap. Failed/corrupt update preserves prior complete cache. Production browser test passed with induced corruption, network disabled, reload, lazy Cases/Forensics/packet export/demo. Third-party tiles/citations remain online-only.
-- Completed M5: real two-site common-support pilot using checksum-verified Copernicus GLO90 DSM/quality masks and validated MOLA/LOLA. 40 scenarios, 8/12 km box supports, 4 km offsets and 500 m numerical checks. Separate from original SRTM F/U/C/P. UI shows actual grids/features/source hashes/quality/limitations.67 Python and 61 TypeScript tests pass; production pilot, historical import, presentation and offline workflows pass. See docs/TERRAIN_PILOT.md. Final regression/deployment remains.
-- Final validation complete: 67 Python/61 TypeScript tests, 24 production-preview workflows, 25 viewport/page checks with no remaining overflow/errors/missing images. README/SCIENCE/DATA_SOURCES/DATA_STATUS/DEMO/LIVE_DEMO/NEXT_STEPS/SUBMISSION updated. Public deployment and exact completion checkpoint pending.
+The inspector connects observations to units, actual periods, source responses, calculations, spatial applicability and limitations. Case studies preserve literature geography and distinguish local samples from regional context.
 
-Resume: read newest STATUS.md checkpoint, git status/log, then run npm run test:unit and npm run build with Node 24. User requires documentation, commit and verified push after each completed milestone. No paid API/backend required. Missing data remains null; no field results are invented.
+## Presentation state
+
+The guided demo uses isolated session settings. Exiting restores the research model. Atlas selection and comparison state remain separate from presentation choices.
+
+## Offline preparation
+
+The production catalogue lists first-party assets with expected hashes and lengths. Preparation verifies every response before switching the cache pointer. Corrupt updates retain the previous complete version. Cached canonical-index redirects are reconstructed as navigation responses. Lazy science views and exports remain available offline after preparation; third-party tiles and citations need internet.
+
+## Terrain experiments
+
+Comparable-terrain products use real Copernicus DSM/quality masks and PDS rasters, with explicit support, offsets and source metadata. Original SRTM F/U/C/P is preserved. Methods: [TERRAIN_PILOT.md](TERRAIN_PILOT.md).

@@ -1,4 +1,4 @@
-"""Independently verify the teammate's retained Diviner records against PDS bytes.
+"""Independently verify retained Diviner records against PDS bytes.
 
 Downloads the public product and its published MD5 manifest once; raw files are ignored.
 Every retained record must occur verbatim in the independently downloaded source.
@@ -51,7 +51,7 @@ def main():
         while chunk:=stream.read(1024*1024):md5.update(chunk);sha.update(chunk)
     if md5.hexdigest()!=expected:raise ValueError('PDS published MD5 mismatch')
     bundle=json.loads((ROOT/'data/source/acquisition/terrainx-diviner-prp-south-sites.json').read_text(encoding='utf-8'))
-    if source.stat().st_size!=bundle['bytes'] or sha.hexdigest()!=bundle['sha256']:raise ValueError('Teammate full-stream digest mismatch')
+    if source.stat().st_size!=bundle['bytes'] or sha.hexdigest()!=bundle['sha256']:raise ValueError('Retained full-stream digest mismatch')
     wanted={line.split('\t',2)[2] for line in bundle['records']};remaining=set(wanted)
     count=0
     with source.open('rb') as stream:

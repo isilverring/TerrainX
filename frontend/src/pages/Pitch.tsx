@@ -27,7 +27,7 @@ import "../styles/pitch.css";
 
 type Slide = { tag: string; title: ReactNode; visual: ReactNode; foot?: ReactNode };
 
-/** Seven-slide pitch: minimal words, every number read from the pinned release. */
+/** Ten-slide pitch with numbers read from the pinned scientific release. */
 export default function Pitch() {
   const data = useData(),
     navigate = useNavigate(),

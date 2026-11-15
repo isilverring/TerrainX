@@ -1,6 +1,6 @@
 # Current scientific data status
 
-Science release **science-79daa128eae12594**. Original dataset SHA256 **3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c**. Historical release folders remain immutable. Core validation:85 Python tests plus independent reproduction;99 TypeScript tests. UI release 8 preserves scientific inputs and rankings. See DEPLOYMENT.md for exact publication and browser acceptance.
+Science release **science-e15ca0c149550211**. Original dataset SHA256 **3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c**. Historical release folders remain immutable. Current validation: 94 Python tests plus independent reproduction and 117 frontend unit tests. Publication details are recorded in DEPLOYMENT.md.
 
 | Analysis | Actual available data | Interpretation |
 |---|---|---|
@@ -12,7 +12,7 @@ Science release **science-79daa128eae12594**. Original dataset SHA256 **3515ef69
 | Expanded source-support study |18 Earth sites ×2 targets ×10 choices =360 valid comparisons;33 source tiles |Default-tolerance support/offset sensitivity and F-only order within the selected sample. Original rankings unchanged; polar reference support remains unassessed. |
 | Lunar polar reference v2 |8 real LOLA feature-centre profiles;30,674 retained Diviner triangles |Model-derived thermal and sublimation-stability quantities, area weighted. Not current landing polygons, detected ice or a base-selection certification. |
 
-Independent Diviner verification downloaded 604,800,210 bytes, checked 2,880,000 records and matched published PDS MD5 **80cdfe83592a3419c74b1b55b636711e** and teammate SHA256. Every retained record matches verbatim. Proof: data/source/diviner/verification.json. Full tabular source,45MB manifest and ranged chunks are ignored and reproducibly downloadable.
+Independent Diviner verification downloaded 604,800,210 bytes, checked 2,880,000 records and matched published PDS MD5 **80cdfe83592a3419c74b1b55b636711e** and the retained SHA-256. Every retained record matches verbatim. Proof: data/source/diviner/verification.json. Full tabular source,45MB manifest and ranged chunks are ignored and reproducibly downloadable.
 
 All numeric climate observations retain original units, source URL, actual period, response hash, retrieval time and coordinates. POWER meteorological support is 0.5°×0.625° (solar 1°×1°), climatology 2001–2025; not outcrop measurements. Annual precipitation proxy requires mm/day. Monthly mean daily maxima/minima are not absolute extremes. GWET is model wetness, AOD550 column aerosol extinction and GBIF a reporting count; none establishes ice, dust composition, sterility or habitability.
 
@@ -21,3 +21,5 @@ SRTM nominal 90m input is sampled at 4km over 24km; coarse slopes cannot identif
 No source-acquisition errors are recorded in original or expanded datasets. Cached raw JSON bodies and source records are preserved. Full 33MB planetary rasters and dense pilot TIFFs are ignored; labels/checksums/derived arrays are committed. See SCIENCE.md, DATA_SOURCES.md and docs/CELL_SEARCH_AND_POLAR.md for methods and reproduction.
 
 Scoped case evidence: two exploratory cells, two published volcanic sample positions inside the Moon cell window, and a published sediment-core position 55.681km outside the Mars cell window. Literature positions, converted coordinates and derived distances are separate from NASA observations. No scoring categories were upgraded. Source extraction/hash and geographic tests: docs/CANDIDATE_CASES.md. Polar dossiers preserve the actual selected reference; U is null, assessed utility-weight coverage 0 and P null.
+
+Research Lab products include eight 2025 feature-centre illumination profiles, 18 measured route-analysis grids, 18 cached 2025 POWER daily profiles and nine source-scoped reference records. These support bounded research tools; source-scoped measurements and user scenarios do not replace local field evidence. Methods: docs/PARTIALS_IMPLEMENTATION.md.

@@ -1,6 +1,6 @@
-# Six-item challenge completion — current interpretation
+# TerrainX scientific methods
 
-85 Python tests and independent baseline reproduction,99 TypeScript tests and the strict production build pass. Exact UI/browser acceptance is recorded in DEPLOYMENT.md. The original dataset and rankings are unchanged. Explicit collection identity, polar physical-reference identity and source-pinned proposal protocols preserve what the numbers refer to. The legacy lunar model slot is not the physical polar reference: reference_id/target_reference carry that identity, all polar utility criteria remain null, assessed weight coverage0 and priority null.
+94 Python tests plus independent baseline reproduction, 117 frontend unit tests and the strict production build pass. Exact UI/browser acceptance is recorded in DEPLOYMENT.md. The original dataset and rankings are unchanged. Explicit collection identity, polar physical-reference identity and source-pinned proposal protocols preserve what the numbers refer to. The legacy lunar model slot is not the physical polar reference: reference_id/target_reference carry that identity, all polar utility criteria remain null, assessed weight coverage0 and priority null.
 
 The usability audit also enforces the collection boundary in field planning: Original study offers only its20 records; Expanded search offers134 unique profiles. Full shared field plans restore their declared collection, target and protocol before an editor opens. Unavailable or filtered site selections are explained instead of silently replaced; duplicate/unavailable comparison IDs never become extra observations. These are application integrity safeguards, not new scientific evidence. Polar comparison and printable target coordinates use explicit S/W hemispheres when negative.
 
@@ -8,19 +8,17 @@ The separate18-site Copernicus/PDS study supplies360 valid support/offset compar
 
 Primary literature supports volcanic-material heterogeneity at two reported positions within the Moon lead window, including basaltic andesite and andesite. It does not confirm uniform basalt or the cell centre's material. The reviewed Mars regional evidence does not validate local Jezero-like deposits; the published Mosu core is outside the window. Case inputs, geographic scope and proposed protocols are reproducible; no scores are silently upgraded. See docs/CANDIDATE_CASES.md.
 
-## Earlier audited contracts and original-study method
+## Data interpretation and research identity
 
-# Current audit additions
-
-Release4 contracts are terrainx-cell-search-v3 and terrainx-lunar-polar-v2, separate from the preserved original model.81 Python/89 TypeScript tests and38 production browser checks pass. Per-variable units/periods/source hashes remain attached to public climate data. Relative Earth percentiles are not Moon/Mars similarity. GBIF is a sampling/reporting quantity, AOD550 is column aerosol extinction and GWET is a model index; no life-scarcity, surface-dust or ice equivalence is inferred.
+The expanded contracts are terrainx-cell-search-v3 and terrainx-lunar-polar-v2, separate from the preserved original model. Per-variable units/periods/source hashes remain attached to public climate data. Relative Earth percentiles are not Moon/Mars similarity. GBIF is a sampling/reporting quantity, AOD550 is column aerosol extinction and GWET is a model index; no life-scarcity, surface-dust or ice equivalence is inferred.
 
 Diviner layout/units/record lengths are label-validated. The full source matches published PDS MD5 and every retained record. Temperature/stability are model products, not measured ice. Area fractions weight3D facet areas for centroid-selected triangles; medians remain unweighted. Unknown ice codes and invalid thermal values stay unavailable. Thermal fractions use valid thermal area; no valid values yields null. POWER air climatology is not a lunar surface thermal measurement.
 
 Field studies use each study's saved model and exact release. Complete JSON export/import retains the full proposal; URL links retain stations/intent/models and automatically load historical inputs. Compact printed QR deliberately retains geometry with release-default models. No route safety, permits or observed experiment outcomes follow from the interpolated4km lattice. Rebuild methods: docs/CELL_SEARCH_AND_POLAR.md. Package boundaries: docs/PACKAGE_AUDIT.md.
 
-The original core equations and scale limitations follow below; historical counts in earlier notes describe their respective releases.
+The core equations and scale limitations follow below.
 
-# TerrainX scientific method and actual findings
+## Original-study methods and findings
 
 Independent research prototype: no planetary equivalence, field verification, rover/landing safety certification or NASA approval is claimed.
 
@@ -110,7 +108,7 @@ Every dossier separates MATCH, MISSION USE, MISMATCH, MISSING. Earth does not re
 
 Deterministic experiment cards propose hypotheses, equipment, measurements, an explicitly proposed metadata-completeness indicator, next measurements and limits. No experiment has been performed and no outcome is invented. Local mineralogy, grain size, bearing strength, terrain, access, hazards and permits require field verification.
 
-## Prompt 2 analyses (all deterministic, all tested)
+## Deterministic supporting analyses
 
 ### Discovery Frontier — decision sensitivity to missing evidence
 For a missing normalized criterion s∈[0,1] the declared utility model is evaluated at s=0 and s=1 with known inputs kept, using the full weight denominator: `U_min=100·Σ_known wₖuₖ/Σwₖ`, `U_max=100·(Σ_known wₖuₖ+Σ_missing wₖ)/Σwₖ`. With several missing criteria this is the worst/best case. The partial U always lies inside the interval. After measurement C=1, so `P∈[αF+(1−α)U_min, αF+(1−α)U_max]`. The interval is a hypothetical mathematical bound — not an observation, not a prediction, and the optimistic end is not expected. "Measurement Priority" (not expected value of information: no probability or cost model exists) is High when the gap is mission-essential (geology gates characterization) and the U interval crosses the best fully assessed benchmark or spans ≥3 ranks among fully assessed algorithmic candidates; Medium when one condition holds; Low otherwise. Real release: 6 Mars and 16 Moon research candidates, all missing geology. Recommended measurements are declared templates (XRF, Raman, petrology, stratigraphic logging, grain size, photogrammetry, LiDAR, dGNSS, penetrometer, shear, wheel-slip, dust).
@@ -129,11 +127,11 @@ Best documented benchmark, best characterized exploratory candidate and the drie
 
 ## Validation
 
-`scripts/validate_results.py` runs **63 Python scientific tests** and independently recomputes saved shortlist, terrain metrics, F/U/C and eligible P. `npm run test:unit` runs **52 TypeScript scientific tests**. New review regressions cover active-model export parity, unknown-geology comparator gating, relative rank explanations, conditional eligibility, missing-terrain export, unit/period handling, raster/window integrity and bundled imagery hashes. Synthetic fixtures occur only in tests. The report is `data/derived/validation.json`; Zod validates data before display. Sixteen browser workflows cover desktop/mobile/print, active-state shared links, live terrain/imagery and provider failure.
+`scripts/validate_results.py` runs **94 Python scientific tests** and independently recomputes saved shortlist, terrain metrics, F/U/C and eligible P. `npm run test:unit` runs **117 frontend unit tests**. New review regressions cover active-model export parity, unknown-geology comparator gating, relative rank explanations, conditional eligibility, missing-terrain export, unit/period handling, raster/window integrity and bundled imagery hashes. Synthetic fixtures occur only in tests. The report is `data/derived/validation.json`; Zod validates data before display. The browser suite covers desktop/mobile/print, active-state shared links, live terrain/imagery, protocol identity, pitch navigation, offline recovery and provider failure. Current results are in docs/QA.md.
 
-## Review clarifications
+## Model and evidence contracts
 
-Release3 Evidence Inspector exposes actual source values, units, acquisition periods, HTTP response hashes and calculation inputs. Its footprint figure is a schematic of native support at the selected latitude, not authoritative POWER pixel geometry or a mapped geology polygon. Fully assessed C remains distinct from evidence strength or independence. Reviewed cases are versioned with science releases: Saudi maps support a preliminary sedimentary question; Chile's granitic/intrusive mapping does not establish the required sedimentary mission process; Salda literature supplies direct shoreline process context but remains a benchmark. Multiple generalized maps may share source inputs. See each case's primary references and spatial scope; no field result is claimed.
+The Evidence Inspector exposes actual source values, units, acquisition periods, HTTP response hashes and calculation inputs. Its footprint figure is a schematic of native support at the selected latitude, not authoritative POWER pixel geometry or a mapped geology polygon. Fully assessed C remains distinct from evidence strength or independence. Reviewed cases are versioned with science releases: Saudi maps support a preliminary sedimentary question; Chile's granitic/intrusive mapping does not establish the required sedimentary mission process; Salda literature supplies direct shoreline process context but remains a benchmark. Multiple generalized maps may share source inputs. See each case's primary references and spatial scope; no field result is claimed.
 
 What-if settings are now one persisted model shared across all views. Alpha, tolerances, weights and minimum coverage are included in packet metadata and Passport QR snapshots. Release dataset downloads retain default model results. Characterization and configurable ranking thresholds cannot be reduced below the original 70% evidence floor in the UI; geology remains essential even if its weight is zero.
 
@@ -141,5 +139,9 @@ What-if settings are now one persisted model shared across all views. Alpha, tol
 
 Transfer Lab density is a **calculation from climatological mean inputs**, not measured density. Dynamic pressure uses an adjustable **scenario wind** and is not observed mean dynamic pressure. A ratio/function of mean inputs generally differs from the mean of the nonlinear result. Dry-air gas constant and Mars/Moon approximations remain declared assumptions. Unknown units/inputs remain unavailable. Visualization-only context tiles reject unsupported pixels and time out to the cached lattice. Planetary context preprocessing verifies full-raster and extracted-window checksums before attaching provenance.
 
-## Release3 common-support pilot
+## Common-support pilot
 The separate experimental terrain pilot uses actual partner Copernicus DSM plus MOLA/LOLA,8/12km aggregation supports and coupled4km window offsets. No original discovery score is overwritten. Numerical convergence is distinct from measurement uncertainty. Detailed methods, actual results, masks and limitations: [docs/TERRAIN_PILOT.md](docs/TERRAIN_PILOT.md).
+
+## Research Lab products
+
+Eight bounded research tools add source-scoped material/resource/cave references, assay-control analysis, 2025 daily POWER envelopes, dust/solar scenarios, measured-grid route analysis and lunar-centre trade-offs. Illumination uses real JPL kernels with 8,760 hourly 2025 samples at each of eight feature centres and bounded LOLA horizons. Eighteen 97×97 Copernicus-derived route lattices have 250 m spacing and explicit water/void masks. These products do not alter original observations or scores. Field protocols retain their scientific context through save/share/export/print. Methods and unmeasured properties: docs/PARTIALS_IMPLEMENTATION.md.

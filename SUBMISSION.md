@@ -1,6 +1,6 @@
-# TerrainX — project-page draft
+# TerrainX — project description
 
-Replace team details and the demo link yourself. Follow [docs/SUBMISSION_GUIDE.md](docs/SUBMISSION_GUIDE.md) for the current deadline/format and human submission steps.
+Project overview, methods and findings for the Space Apps submission. Presentation format and portal steps: [submission guide](docs/SUBMISSION_GUIDE.md).
 
 ## Project title and summary
 
@@ -10,9 +10,7 @@ Before exploring another world, mission teams need to know where—and what—to
 
 Final project: https://terrainx-discovery-lab.comfybay1.chatgpt.site
 
-Short demo: [ADD YOUR PUBLIC VIDEO OR SLIDES LINK]
-
-Team: [ADD ACTUAL TEAM NAME AND CONTRIBUTORS]
+Presentation: https://terrainx-discovery-lab.comfybay1.chatgpt.site/#/pitch
 
 ## Detailed description
 
@@ -26,12 +24,14 @@ The Field Study Builder supports original and expanded cells with genuine cached
 
 ## Science and delivery evidence
 
-85 Python tests and independent core reproduction;94 TypeScript tests;43 production-preview browser workflows;90 responsive route/width checks. Static React/Vite build, no backend/account/paid API/LLM dependency. All numbers are source-reported, derived, declared scenarios or unavailable. Deployment evidence: DEPLOYMENT.md. Source and licence register: DATA_SOURCES.md. Package scope and limits: docs/PACKAGE_AUDIT.md.
+94 Python tests and independent core reproduction; 117 frontend unit tests; 55 production-preview browser workflows. Static React/Vite build, no backend/account/paid API/LLM dependency. All numbers are source-reported, derived, declared scenarios or unavailable. Deployment evidence: DEPLOYMENT.md. Source and licence register: DATA_SOURCES.md. Methods and limits: docs/PACKAGE_AUDIT.md.
 
 ## Data, tools and limitations
 
 NASA POWER; NASA SRTM via OpenTopoData; NASA PDS MOLA, LOLA and Diviner; NASA GIBS and original NASA reference imagery; Copernicus GLO90; Macrostrat; GBIF occurrence counts; Natural Earth. Python/NumPy/rasterio/Pydantic/pytest; React/TypeScript/Vite/MapLibre/Recharts/Zod; browser print and Playwright. AI-assisted development is disclosed in the submission guide; complete that field with the team's actual tools.
 
-No field validation, confirmed local mineralogy, verified cave inventory, measured ice abundance, independent illumination-engineering model, operational safety result or NASA endorsement. POWER wetness and AOD are model/column descriptors; GBIF density reflects reporting effort, not life scarcity. F remains exploratory morphology, and utility coefficients are experimental assumptions. Broader/global and field validation are future research.
+The eight Research Lab tools connect source-scoped mineralogy, daily climate, resource references, dust scenarios, assay controls, documented caves, measured-grid route analysis and lunar-centre trade-offs to testable field protocols. Lunar illumination uses JPL geometry and bounded LOLA horizons for hourly 2025 samples; route proposals use 18 Copernicus-derived 250 m grids. Analyses and protocols retain their evidence, assumptions and pinned release through export and sharing.
+
+No field validation, confirmed local mineralogy, surveyed local cave inventory, measured local ice abundance, mission-certified illumination engineering, operational safety result or NASA endorsement is claimed. POWER wetness and AOD are model/column descriptors; GBIF density reflects reporting effort, not life scarcity. F remains exploratory morphology, and utility coefficients are experimental assumptions. Broader/global and field validation are future research.
 
 The five-step judge path connects the challenge, searched sample, exploratory lead, independent evidence and next experiment. Published local volcanic samples reveal basaltic-andesite/andesite heterogeneity; a regional Mars source does not verify material inside its candidate window. These scoped positive/negative results improve the hypothesis without claiming field confirmation. Polar references retain their identities through dossiers and field replay, with utility explicitly unassessed.

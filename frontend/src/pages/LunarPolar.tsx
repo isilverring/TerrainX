@@ -200,8 +200,7 @@ export default function LunarPolar() {
               {polar.raster.sha256.slice(-4)}
             </span>
             <span>
-              {(polar.raster.bytes / 1e6).toFixed(1)} MB · matches the checksum
-              pinned in the repo
+              {(polar.raster.bytes / 1e6).toFixed(1)} MB · source integrity verified
             </span>
             {polar.diviner && (
               <>

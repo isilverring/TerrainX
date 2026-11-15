@@ -18,7 +18,7 @@
 
 No API key, paid service or judge-time NASA query is required. External map tiles/source links still need internet. The original CARTO endpoint returned key-required watermark tiles and was replaced after visual QA; it is not the shipped basemap.
 
-## Prompt 2 sources and constants
+## Comparison imagery and physical constants
 
 | Item | Use | Source |
 |---|---|---|
@@ -29,7 +29,19 @@ No API key, paid service or judge-time NASA query is required. External map tile
 | Mars atmosphere scenario | 600 Pa, 210 K, R=188.9 J/(kg·K): illustrative assumption, labelled SCENARIO, not a Jezero measurement | — |
 | NASA POWER PS, T2M, WS10M | Earth air density and dynamic pressure; units read from the dataset (`kPa`, `C`, `m/s`) | same POWER responses as above |
 
-Images are loaded from NASA's servers (URLs verified on 2026-11-14); if they fail, the page shows a fallback with the NASA link. Imagery is never used for scoring or to assert mineralogy.
+## Research Lab reference products
+
+The source-scoped registry is `frontend/public/data/challenge_evidence.json`. It retains coordinates, methods, quantities, source links and applicability limits for nine records. These records do not become measurements at other sites.
+
+- Salda mineral phases and water/diatom observations: [hydromagnesite precipitation study](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2025JE009627), [published diatom study](https://doi.org/10.1080/0269249X.2023.2233519).
+- Yungay mineralogy, humidity and biological assays: [inhabited subsurface wet smectites](https://pmc.ncbi.nlm.nih.gov/articles/PMC7645800/).
+- Cave inventories: [NPS Craters caves](https://www.nps.gov/thingstodo/craters-caves.htm), [USDA Lava River Cave](https://www.fs.usda.gov/r03/coconino/recreation/lava-river-cave).
+- Permafrost references: [GTN-P Janssonhaugen P10](https://data.gtn-p.org/api/pt/501), [Norwegian Polar Institute monitoring](https://mosj.no/en/indikator/climate/land/permafrost/).
+- LCROSS evidence: [water in the ejecta plume](https://doi.org/10.1126/science.1186986), [impact location](https://ntrs.nasa.gov/citations/20140005563), [volatile and dust hazards](https://ntrs.nasa.gov/api/citations/20250006445/downloads/SMD-LUN-102_RevA_authors.pdf).
+
+Lunar illumination uses verified JPL kernels listed in `data/source/illumination/kernels.json` and cached Horizons comparisons in `horizons_checks.json`. The 2025 POWER daily profiles and Copernicus route lattices retain source metadata. Model support and limitations: [Research Lab methods](docs/PARTIALS_IMPLEMENTATION.md).
+
+NASA comparison images are bundled unchanged with source URLs, attribution and integrity metadata in `frontend/public/nasa/imagery-manifest.json`; source links remain available alongside the images. Imagery is never used for scoring or to assert mineralogy.
 
 ## Benchmark subsites and mission evidence
 
@@ -47,7 +59,7 @@ Coordinates, source scopes, citations and limitations are in `reference_evidence
 
 Observations retain original units, coordinates, period, native resolution, missing values and source metadata. Terrain profiles retain native support, lattice, footprint, resampling and source references. Generation timestamps do not replace source retrieval times. NASA source-team publications and source-specific terms apply; NASA does not endorse this app. Macrostrat is CC-BY4.0 and original map citations are shown. Natural Earth is public domain. Basemap/GIBS attribution is visible. Generated design images are mockups only, never scientific layers. The Passport QR code is generated offline with `qrcode-generator` (MIT).
 
-## Optional resources supplied by the user
+## Additional reference resources
 
 The review bundled four unmodified NASA display renditions for audience reliability: Salda, Jezero CTX, Khaybar and the Crisium ridge. Source/credit/retrieval time/byte count/SHA-256 are in `frontend/public/nasa/imagery-manifest.json`; `scripts/cache_worlds_images.py` reproduces the cache. These images never enter scoring. Full uncropped side-by-side is the default; the optional split view crops display frames and does not co-register the images. Planetary context preprocessing now enforces original raster and native-window hashes. The original user logo is preserved in `docs/design/logo-original.jpg`; it is branding, not scientific imagery.
 
@@ -65,7 +77,7 @@ Three actual GLO90 AWS2021 COG tiles, EDM/FLM/WBM masks and source XML/licences 
 
 The app includes source-reported, derived and modeled quantities with distinct limits. Source acquisition and scientific pipeline use no paid key or LLM endpoint.
 
-## Six-item completion sources
+## Literature and expanded-study sources
 
 The expanded common-support study uses33 verified GLO90 tiles for18 selected sites,132 DEM/mask rasters and201 source/licence objects. Source contracts, acquisition periods, masks, licences and hashes: data/source/pilot/manifest.expanded.json and validation.expanded.json; methods: docs/TERRAIN_PILOT.md. Original two-site sources and frozen outputs remain unchanged.
 

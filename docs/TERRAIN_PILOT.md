@@ -1,6 +1,6 @@
 # Common-support terrain pilot
 
-## Expanded study (M5)
+## Expanded study
 
 The original two-site pilot and historical releases remain unchanged. `terrain_support.json` adds **18 sites, 33 verified Copernicus tiles, 36 Earth/target pairs and 360 valid support/offset comparisons**: the 13 mission-aware Mars picks, the one Moon lead and four benchmarks. It reports F-only processing order among this selected sample, not a new mission-utility ranking or confidence interval. DNA/Passport show the applicable default-tolerance range; sites without processing and polar references remain unassessed.
 

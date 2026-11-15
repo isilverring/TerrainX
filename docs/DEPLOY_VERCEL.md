@@ -12,7 +12,7 @@ TerrainX is a fully static site (React + Vite, hash routes, no server, no API ke
 | Node.js | **24.x**, pinned by root package.json and validated locally. |
 | Caching | `sw.js` and `offline-index.json` never cached; `/assets/*` and `/releases/*` immutable for a year; `/data/*` 5 minutes |
 
-The build is verified locally with exactly these commands (`npm --prefix frontend ci && npm run build` at the repo root). It reproduces the committed science release `science-b1a132b201ad2046` byte-for-byte; if a build ever reports a *new* release ID, someone changed a file in `frontend/public/data/` — commit that new `frontend/public/releases/<id>/` folder rather than deleting old ones.
+The build uses these commands at the repository root. The current science release is recorded in `frontend/public/data/release.json`. Changes to scientific inputs create a new content-addressed release; commit its `frontend/public/releases/<id>/` folder and preserve historical releases.
 
 ## Option A — dashboard (recommended, about 5 minutes)
 
@@ -76,4 +76,4 @@ TERRAINX_BASE_URL=https://<project>.vercel.app npx playwright test
 | Map tiles blank | External tile hosts blocked by the network; science views still work. |
 | Visitors asked to log in | They opened a preview/deployment URL. Share the production domain or adjust Deployment Protection. |
 
-The existing public ChatGPT Site is also updated as requested; Vercel remains an optional additional host. See DEPLOYMENT.md for exact live version and rollback.
+TerrainX is also hosted on the existing public Site; Vercel remains an optional additional host. See DEPLOYMENT.md for exact live version and rollback.

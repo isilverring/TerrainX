@@ -1,7 +1,7 @@
 """Copy verified staged source objects to the existing source cache on explicit --apply.
 
-Does not modify any existing source object or either manifest. Parent agent owns
-tracked XML/EULA promotion and versioned manifest integration.
+Does not modify any existing source object or either manifest. Tracked XML/EULA
+promotion and versioned manifest integration are separate processing steps.
 """
 from pathlib import Path
 import hashlib,json,shutil,sys

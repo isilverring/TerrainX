@@ -1,26 +1,28 @@
-# Implement the eight partial challenge dimensions
+# Research Lab methods
 
-Active request 2026-11-15. Work in D:\TerrainX; preserve completed usability/science milestones. Each new module must be usable, tested, source-linked and explicit about observation versus calculation versus scenario. Do not convert unavailable field measurements into reassuring badges.
+TerrainX provides eight evidence-to-experiment tools at `/#/research-lab`. Each distinguishes source observations, calculations, user scenarios and unavailable evidence. Reports retain the candidate and selected scientific release. A matching method template opens in the Field Study Builder and survives save/share/export/print.
 
-## Milestones
+| Tool | Available analysis | Evidence still required |
+|---|---|---|
+| Mineralogy | Source-scoped material references, composition/closure checks and sampling protocol | Local mineral phases and representative sample chemistry |
+| Thermal and illumination | 2025 POWER daily temperature envelopes and solar geometry | Like-for-like local logger/irradiance observations and longer extreme records |
+| Water and resources | Published reference context and recovery scenarios | Depth-resolved water content, ground temperature and resource abundance |
+| Dust | Shao–Lu threshold and log-law wind scenarios | Grain distributions, cohesion, wind profiles and measured transport |
+| Biology | User assay analysis with blanks and positive controls | Field/laboratory assays, contamination controls and interpretation |
+| Caves | Documented inventory references and relative station proposals | Verified local cave geometry, access and safety survey |
+| Operations | Least-cost paths on measured Copernicus-derived grids and GeoJSON export | Sub-grid obstacles, traction, access and certified route safety |
+| Lunar base | Feature-centre illumination, thermal trade-offs and autonomy scenarios | Full landing polygons, engineering validation and measured resources |
 
-- [x] P1 — Scientific preprocessing:5 verified JPL kernels, MOON_ME surface-observer geometry,8 feature-centre profiles ×8760 hourly 2025 samples,72-ray bounded LOLA horizon models and 4 independent-service Horizons checks;18 real 97×97 Copernicus 250m route lattices with water/void masks and source hashes.7 new numerical/data-contract tests pass; original F/U/C and immutable releases unchanged.
-- [x] P2 — Eight working Research Lab tools implemented at /research-lab: mineral/material evidence and closure checks; actual 2025 daily temperature envelopes and solar geometry; local resource/permafrost references and recovery scenarios; Shao–Lu/log-law dust scenarios; assay blanks/positive-control analysis; documented cave inventory and relative stations; measured-grid least-cost routes/GeoJSON; bounded lunar-centre trade-offs and autonomy scenarios. Each generates a candidate-specific decision/next measurement and JSON report.
-- [x] P3 — Integrate source-grounded reference records, challenge-card links/status semantics, candidate context, exports/Passport access and historical-release fallbacks. New analyses are explicitly bounded research tools, not field confirmation, mineral/resource mapping or landing certification.
-- [ ] P4 — Scientific/unit/browser tests, production build, responsive/interaction verification, current science/data/demo/recovery documentation, public deployment and final acceptance. Commit/push each completed milestone and verify remote SHA.
+## Scientific products
 
-## Starting checkpoint
+Lunar illumination uses five verified JPL kernels, MOON_ME surface-observer geometry, eight feature-centre profiles and 8,760 hourly samples for 2025. Terrain shading uses bounded 72-ray LOLA horizons. Four cached JPL Horizons comparisons support the geometry checks. This is a feature-centre model, not permanent-illumination or landing certification.
 
-Clean/up-to-date main 1b3be13; public version 8 remains available during implementation. Screenshot corresponds to eight `partial` entries in ChallengeFit.tsx. The official challenge URL currently returns 502 through the web tool; existing captured challenge interpretation and primary NASA/PDS sources remain available. Sites source opening completed against the same public Site; no audience change. Bounded primary-source research is underway for lunar kernels/dust, mineralogy/biology, caves/resources; researchers may write only ignored outputs, root owns implementation and publication.
+Operations data contain 18 real 97×97 Copernicus-derived lattices at 250 m spacing, with water/void masks and source hashes. A route is constrained by that grid's support. It cannot resolve individual hazards or establish rover safety.
 
-## Acceptance boundary
+Nine source-scoped reference records and 18 cached 2025 POWER daily profiles support the tools. Published measurements apply only to their documented locations and observables. They do not fill unrelated candidate evidence gaps or change original F/U/C/P rankings.
 
-Every partial gets a functioning analysis/evidence workflow. Missing outcrop mineralogy, microbial field assays, cave surveys, resource abundance, full landing polygons and mission-certified engineering cannot be manufactured by software. They remain labeled unknown or source-scoped after implementation. Candidate ranking never inherits remote published measurements or user-entered scenarios as NASA observations.
+## Reproduction and contracts
 
-P1 restart: scripts/build_lunar_illumination.py and scripts/build_operations_terrain.py execute successfully. New Python dependency spiceypy8.4.0 is pinned. Kernel binaries are ignored and reproducibly downloadable; labels, checksums, raw Horizons responses and derived arrays are tracked. Solar fractions are bounded model outputs, not permanent-illumination claims. P2–P4 remain. Primary reference research is complete under outputs/partials-research and awaits normalization into a public evidence registry. No new science release/deployment has been built yet.
+`scripts/build_lunar_illumination.py` and `scripts/build_operations_terrain.py` generate the additional products. `spiceypy` 8.4.0 is pinned. Kernel/raster binaries are excluded from Git; metadata, checksums, cached Horizons responses and derived arrays are retained.
 
-P2 restart:9 source-scoped reference records and 18 real 2025 NASA POWER daily series are normalized, source-linked and cached. New analysis products have typed schemas;14 added TypeScript tests pass, strict compilation passes, all 8 tools render in local Chrome with no page exceptions/overflow. Scientific validator now passes 94 tests plus independent baseline reproduction. An intermediate immutable science release is created by prepare_release; use frontend/public/data/release.json for its current ID, never edit old release folders. P3 remains: connect challenge cards and global navigation, carry actual lab protocols into saved/shareable field studies and Passports; P4 full regression/visual QA/docs/deployment. Field-protocol links currently identify the lab in the URL but their dedicated templates are not integrated yet. Public version 8 is unchanged.
-
-P3 restart: done. Added `frontend/src/lib/labProtocols.ts` (eight method-only templates, `applyLabProtocol`), the `lab_module` study field and share key `l`, the Field Study banner and field-book line, ChallengeFit bounded-workflow cards (measured / modeled / still unknown, lab links, reference-record counts, historical-release note), research-menu and palette entries, Analog DNA, /cells and Passport links, and `components/OpenQuestions.tsx` in the Passport. Tests: `src/lib/__tests__/labProtocols.test.ts` and `tests/lab-protocols.spec.ts`; `tests/cells-polar.spec.ts` was updated for the new card semantics. P4 remains (docs, final QA). Public deployment is done by the user.
-
-P4 status (laptop): unit, Python and local browser tests pass, as does the production build. Responsive sweep: 31 routes at 390 and 1440 px, with no overflow or app errors. Docs are updated. Still open: a live-network Playwright run on the PC, and public deployment plus final acceptance, which the user does.
+Typed frontend schemas validate new products. Numerical tests cover the calculations and source contracts. Protocol tests cover collection, model and module persistence, historical releases, conflicting links and mission restrictions. See [QA.md](QA.md) for current acceptance.
