@@ -32,6 +32,7 @@ export default function Pitch() {
   const data = useData(),
     navigate = useNavigate(),
     [i, setI] = useState(0),
+    [hasMore, setHasMore] = useState(false),
     root = useRef<HTMLDivElement>(null);
   const cells = useScienceFile("cell_search.json", cellSearchSchema, "absent").value;
   const polar = useScienceFile("lunar_polar.json", lunarPolarSchema, "absent").value;
@@ -79,7 +80,7 @@ export default function Pitch() {
           <circle className="pv-moon" cx="700" cy="78" r="30" />
           <circle className="pv-mars" cx="770" cy="222" r="40" />
           <text x="160" y="268">Earth</text>
-          <text x="700" y="30">Permanent Moon base</text>
+          <text className="pv-moon-caption" x="850" y="30">Permanent Moon base</text>
           <text x="770" y="290">Mars</text>
         </svg>
       ),
@@ -150,10 +151,10 @@ export default function Pitch() {
           </div>
           <div className="pv-eq">
             <span className="pv-eq-name">Utility · Coverage</span>
-            <span className="pv-math">
-              U = 100 · Σ w<sub>k</sub>u<sub>k</sub> / Σ<sub>known</sub> w<sub>k</sub>
-              <i>·</i> C = Σ<sub>known</sub> w<sub>k</sub> / Σ w<sub>k</sub>
-            </span>
+            <div className="pv-math pv-math-pair">
+              <span>U = 100 · Σ w<sub>k</sub>u<sub>k</sub> / Σ<sub>known</sub> w<sub>k</sub></span>
+              <span>C = Σ<sub>known</sub> w<sub>k</sub> / Σ w<sub>k</sub></span>
+            </div>
             <span className="pv-eq-note">
               Mars weights: geology {DEFAULT_WEIGHTS.jezero.geology}, terrain{" "}
               {DEFAULT_WEIGHTS.jezero.terrain}, aridity {DEFAULT_WEIGHTS.jezero.aridity}, temperature{" "}
@@ -322,7 +323,26 @@ export default function Pitch() {
   const go = useCallback((n: number) => setI(Math.max(0, Math.min(last, n))), [last]);
   const exit = useCallback(() => navigate("/"), [navigate]);
   useEffect(() => {
+    const slide = root.current?.querySelector<HTMLElement>(".pitch-slide");
+    if (!slide) return;
+    const update = () => setHasMore(slide.scrollHeight - slide.clientHeight - slide.scrollTop > 8);
+    const observer = new ResizeObserver(update);
+    observer.observe(slide);
+    const visual = slide.querySelector(".pitch-visual");
+    if (visual) observer.observe(visual);
+    slide.addEventListener("scroll", update, { passive: true });
+    update();
+    return () => {
+      observer.disconnect();
+      slide.removeEventListener("scroll", update);
+    };
+  }, [i]);
+  useEffect(() => {
     root.current?.focus();
+    root.current?.querySelector(".pitch-dots button.active")?.scrollIntoView({
+      block: "nearest",
+      inline: "nearest",
+    });
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "ArrowRight" || e.key === " " || e.key === "PageDown") {
         e.preventDefault();
@@ -363,12 +383,15 @@ export default function Pitch() {
           <X size={16} />
         </button>
       </header>
-      <section key={i} className="pitch-slide" aria-live="polite">
+      <section key={i} className="pitch-slide" tabIndex={0} aria-label={`Slide ${i + 1}: ${s.tag}`} aria-live="polite">
         <p className="pitch-tag">{s.tag}</p>
         <h1>{s.title}</h1>
         <div className="pitch-visual">{s.visual}</div>
         {s.foot && <p className="pitch-foot">{s.foot}</p>}
       </section>
+      <p className={`pitch-scroll-hint ${hasMore ? "visible" : ""}`} aria-hidden="true">
+        Scroll to see more ↓
+      </p>
       <nav className="pitch-nav" aria-label="Slides">
         <button onClick={() => go(i - 1)} disabled={i === 0} aria-label="Previous slide">
           <ArrowLeft size={16} />

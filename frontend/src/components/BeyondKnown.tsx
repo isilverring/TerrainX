@@ -34,19 +34,19 @@ function Card({
       <p className="mono beyond-coord">{coordinates(c)}</p>
       <dl>
         <div>
-          <dt>F</dt>
+          <dt><b>F</b><span>Fidelity</span></dt>
           <dd className="mono">{number(a.fidelity.value, 0)}</dd>
         </div>
         <div>
-          <dt>U</dt>
+          <dt><b>U</b><span>Utility</span></dt>
           <dd className="mono">{number(a.utility.value, 0)}</dd>
         </div>
         <div>
-          <dt>C</dt>
+          <dt><b>C</b><span>Coverage</span></dt>
           <dd className="mono">{number(100 * a.utility.coverage, 0)}%</dd>
         </div>
         <div>
-          <dt>P</dt>
+          <dt><b>P</b><span>Priority</span></dt>
           <dd className="mono">{number(a.priority, 1)}</dd>
         </div>
       </dl>

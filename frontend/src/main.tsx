@@ -44,6 +44,7 @@ import "./styles/lenses.css";
 import "./styles/palette.css";
 import "./styles/cells.css";
 import "./styles/workflow.css";
+import "./styles/readability.css";
 
 // Printed pages carry every scientific limit in full.
 window.addEventListener("beforeprint", () =>

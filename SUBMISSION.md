@@ -24,7 +24,7 @@ The Field Study Builder supports original and expanded cells with genuine cached
 
 ## Science and delivery evidence
 
-94 Python tests and independent core reproduction; 117 frontend unit tests; 55 production-preview browser workflows. Static React/Vite build, no backend/account/paid API/LLM dependency. All numbers are source-reported, derived, declared scenarios or unavailable. Deployment evidence: DEPLOYMENT.md. Source and licence register: DATA_SOURCES.md. Methods and limits: docs/PACKAGE_AUDIT.md.
+94 Python tests and independent core reproduction; 117 frontend unit tests; 56 production-preview browser workflows. Static React/Vite build, no backend/account/paid API/LLM dependency. All numbers are source-reported, derived, declared scenarios or unavailable. Deployment evidence: DEPLOYMENT.md. Source and licence register: DATA_SOURCES.md. Methods and limits: docs/PACKAGE_AUDIT.md.
 
 ## Data, tools and limitations
 

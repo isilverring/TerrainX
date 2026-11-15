@@ -5,6 +5,7 @@ Story arc: **challenge → gap → our answer → the science → results → wh
 Open the deck at `/#/pitch` on the deployed app. Use the **Pitch slides** item in Research tools, or search "pitch" with Ctrl+K.
 
 - **Navigation:** → / Space / click goes to the next slide, ← goes back, Esc exits. Home and End jump to the first and last slide.
+- **Small screens:** scroll within a slide when “Scroll to see more” appears. The header and slide controls remain visible; the hint disappears at the bottom.
 - **Numbers:** every number comes from the pinned science release, so the slides always match the app.
 - **Submission limit:** Space Apps allows at most 7 slides. The in-app deck has 10. For the submission, see "Choosing 7 for the submission" at the end.
 

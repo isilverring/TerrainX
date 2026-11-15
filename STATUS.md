@@ -4,6 +4,8 @@ Source: `main` at [isilverring/TerrainX](https://github.com/isilverring/TerrainX
 
 ## Current source
 
+Score typography and supporting labels have been enlarged across the app. The discovery-story cards spell out F/U/C/P; phone forms and touch controls are easier to use. Comparison spacing is corrected on phones. The pitch retains all ten slides with responsive content scrolling, complete equations, larger labels, visible navigation and reduced-motion support. Local validation: 117 unit tests, strict build, 56 browser workflows, 96 broad responsive cases, 32 focused readability cases and 40 pitch cases. Scientific inputs and model outputs are unchanged.
+
 The application includes the Discovery atlas, expanded search, polar references, eight Research Lab tools, persistent field protocols, guided demo and pitch deck. Mission/filter navigation preserves the selected mission; shared field studies preserve their release, collection, target, protocol and model. Unsupported protocol/mission combinations stop with an explicit explanation.
 
 Science release: `science-e15ca0c149550211`. Original dataset SHA-256: `3515ef6928e79570c32a6777561cfa33340ac29c377b7468ac6a6baf676e3a4c`. Original observations and historical release folders are preserved.

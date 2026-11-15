@@ -1,5 +1,13 @@
 # TerrainX quality assurance
 
+## Score readability and pitch review
+
+Discovery-story F/U/C/P labels are 20 px with visible meanings and 24–28 px values. Compact atlas/dossier labels, cell-score headings, coordinates, notes and Research Lab captions have larger type. Mobile forms use 16 px text and key controls have 44 px touch targets. The comparison page no longer reserves a desktop-sized blank area above its phone controls. Narrow cell-map controls wrap within the viewport.
+
+Pitch slides keep the header/navigation visible while longer content scrolls. A scroll hint identifies additional content. Equations wrap within their panels; utility and coverage have distinct expressions. Diagram labels, score notes and presentation controls are larger. The workflow uses a compact phone grid, and reduced-motion settings apply to feature/equation animations. All ten slides retain their original figures and scientific inputs.
+
+Current verification: 117 frontend unit tests, strict TypeScript/static build, **56 production browser workflows**, 96 broad route/viewport cases, 32 focused readability cases (including 320 px phones), three score/mission/form interaction cases and **40 pitch-slide/viewport cases**. The new browser regression verifies scroll access to the last feature and QR, complete equations, and visible navigation in phone portrait and landscape. Screenshots were visually reviewed. Public acceptance is recorded in DEPLOYMENT.md after publication.
+
 ## Environment
 
 Windows, Node 24.x, Python 3.12 and installed Chrome through Playwright. Production preview: http://127.0.0.1:4173/. The Browser plugin is not available in this session; the repository's existing Playwright workflow is used.
@@ -13,7 +21,7 @@ The primary flow is: landing → Discovery → select a site and mission → ins
 | Scientific tests and independent baseline reproduction | 94 passed |
 | Frontend numerical/schema/protocol tests | 117 passed |
 | Strict TypeScript and static production build | Passed |
-| Complete production browser suite with live providers | 55 passed |
+| Complete production browser suite with live providers | 56 passed |
 | Desktop/mobile/short-laptop route and screenshot review | 96 passed at 1568×1003, 390×844 and 1280×720 |
 | Fresh public deployment acceptance | 55 passed on version 9; three focused public screenshots passed |
 

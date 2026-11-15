@@ -1,4 +1,4 @@
-/* Pitch: seven minimal slides */
+/* TerrainX pitch: ten slides with accessible presentation controls. */
 .pitch {
   position: fixed;
   inset: 0;
@@ -485,5 +485,298 @@
   .pv-impact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .pv-gaps li, .pv-impact > div, .pv-arrow { animation: none; }
+  .pv-gaps li, .pv-impact > div, .pv-features > div, .pv-eq, .pv-arrow { animation: none; }
+  .pitch-progress, .pitch-dots button, .pitch-dots button::before { transition: none; }
+}
+
+/* Keep every slide reachable while the presentation controls remain visible. */
+.pitch-top,
+.pitch-nav {
+  flex-shrink: 0;
+}
+.pitch-slide {
+  overflow-y: auto;
+  overflow-x: hidden;
+  justify-content: safe center;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: #526a84 transparent;
+  padding: 24px 6px;
+  scroll-padding-block: 24px;
+}
+.pitch-slide > * {
+  flex-shrink: 0;
+}
+.pitch-slide:focus-visible {
+  outline: 1px solid #35c3b088;
+  outline-offset: -2px;
+  border-radius: 8px;
+}
+.pitch h1 {
+  text-wrap: balance;
+}
+.pitch-visual {
+  min-height: auto;
+  width: 100%;
+}
+.pitch-count {
+  font-size: 14px;
+}
+.pitch-exit,
+.pitch-nav > button {
+  flex: 0 0 44px;
+  width: 44px;
+  height: 44px;
+}
+.pitch-nav {
+  padding-top: 10px;
+  gap: 12px;
+}
+.pitch-scroll-hint {
+  flex: 0 0 20px;
+  margin: 4px 0 0;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+  color: #b9c9dc;
+  visibility: hidden;
+}
+.pitch-scroll-hint.visible {
+  visibility: visible;
+}
+.pitch-dots {
+  min-width: 0;
+  gap: 4px;
+  padding: 4px 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.pitch-dots::-webkit-scrollbar {
+  display: none;
+}
+.pitch-dots button,
+.pitch-dots button.active {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 32px;
+  border: 0;
+  background: transparent;
+}
+.pitch-dots button::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border: 1px solid #9aadc5;
+  border-radius: 999px;
+  transition: width 0.2s, background 0.2s;
+}
+.pitch-dots button.active {
+  width: 28px;
+}
+.pitch-dots button.active::before {
+  width: 22px;
+  background: var(--earth);
+  border-color: var(--earth);
+}
+.pitch-dots button:hover::before {
+  border-color: var(--earth);
+}
+.pv-worlds text {
+  font-size: 22px;
+  fill: #bccbdd;
+}
+.pv-worlds .pv-moon-caption {
+  text-anchor: end;
+}
+.pv-eq-name {
+  font-size: 14px;
+  letter-spacing: 0.06em;
+}
+.pv-math {
+  white-space: normal;
+  overflow: visible;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+.pv-math-pair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 26px;
+}
+.pv-eq-note {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.pv-physics b {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+}
+.pv-step,
+.pv-features > div,
+.pv-impact > div,
+.pv-honest > div,
+.pv-twins li {
+  min-width: 0;
+}
+.pv-end {
+  padding-block: 8px;
+}
+
+@media (max-width: 900px) {
+  .pitch {
+    padding: 14px 18px 12px;
+  }
+  .pitch-slide {
+    padding: 22px 2px;
+    gap: 16px;
+  }
+  .pitch h1 {
+    font-size: clamp(30px, 6vw, 46px);
+    line-height: 1.12;
+  }
+  .pitch-visual {
+    margin-top: 8px;
+  }
+  .pitch-tag {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+  .pitch-foot {
+    line-height: 1.6;
+  }
+  .pv-flow,
+  .pv-honest {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px 16px;
+  }
+  .pv-honest .unknown {
+    grid-column: 1 / -1;
+  }
+  .pv-node {
+    width: 50px;
+    height: 50px;
+    margin: 5px 0 10px;
+    font-size: 21px;
+  }
+  .pv-step b {
+    font-size: 24px;
+  }
+  .pv-step span:last-child {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .pv-gaps {
+    gap: 12px;
+  }
+  .pv-gaps li {
+    padding: 18px;
+    gap: 12px;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  .pv-answer b {
+    font-size: 19px;
+  }
+  .pv-tool {
+    max-width: 100%;
+    white-space: normal;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .pv-eq {
+    padding: 16px;
+    gap: 8px;
+  }
+  .pv-math-pair {
+    flex-direction: column;
+  }
+  .pv-features,
+  .pv-impact {
+    gap: 12px;
+  }
+  .pv-features > div,
+  .pv-impact > div {
+    padding: 18px 16px;
+  }
+  .pv-features b,
+  .pv-impact b {
+    font-size: 19px;
+  }
+  .pv-features span,
+  .pv-impact span {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .pv-twins li {
+    padding-block: 10px;
+    border-bottom: 1px solid var(--border);
+    gap: 5px 12px;
+    font-size: 17px;
+  }
+  .pv-twins li > .mono {
+    grid-column: 2;
+    grid-row: 1 / 3;
+    font-size: 19px;
+    align-self: center;
+  }
+  .pv-honest > div {
+    padding: 20px 18px;
+  }
+  .pv-big {
+    font-size: 44px;
+  }
+  .pv-honest span:last-child {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+  .pv-end {
+    flex-direction: row;
+    justify-content: center;
+    gap: 24px;
+  }
+  .pv-end > img {
+    width: 80px;
+    height: auto;
+  }
+  .pv-end .qr-code {
+    max-width: 160px;
+    height: auto;
+  }
+}
+@media (max-width: 600px) {
+  .pv-worlds text {
+    font-size: clamp(36px, calc(100px - 15vw), 50px);
+  }
+}
+@media (max-height: 760px) and (min-width: 901px) {
+  .pitch {
+    padding: 14px 40px 12px;
+  }
+  .pitch-slide {
+    gap: 12px;
+    padding-block: 14px;
+  }
+  .pitch h1 {
+    font-size: clamp(36px, 3.5vw, 48px);
+  }
+  .pitch-visual {
+    margin-top: 4px;
+  }
+  .pv-science {
+    gap: 10px;
+  }
+  .pv-eq {
+    padding: 10px 16px;
+  }
+  .pv-features > div,
+  .pv-impact > div {
+    padding: 16px;
+  }
+  .pv-dots {
+    max-width: 390px;
+    gap: 7px;
+  }
 }
